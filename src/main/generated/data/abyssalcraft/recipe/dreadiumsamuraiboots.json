@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:dread_cloth"
+    },
+    "%": {
+      "item": "abyssalcraft:dreadium_boots"
+    },
+    "&": {
+      "item": "abyssalcraft:dreadwood_planks"
+    }
+  },
+  "pattern": [
+    "#%#",
+    "&&&"
+  ],
+  "result": {
+    "id": "abyssalcraft:dreadium_samurai_boots"
+  }
+}

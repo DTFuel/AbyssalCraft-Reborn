@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:dreadium_plate"
+    },
+    "%": {
+      "item": "abyssalcraft:dreadium_leggings"
+    },
+    "&": {
+      "item": "abyssalcraft:dread_cloth"
+    }
+  },
+  "pattern": [
+    "#%#",
+    "&&&"
+  ],
+  "result": {
+    "item": "abyssalcraft:dreadium_samurai_leggings"
+  }
+}

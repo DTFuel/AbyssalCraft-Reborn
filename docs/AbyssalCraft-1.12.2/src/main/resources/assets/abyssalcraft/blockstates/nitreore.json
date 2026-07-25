@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures" : {
+			"all": "blocks/stone",
+			"overlay": "abyssalcraft:blocks/ores/nitre"
+		}
+	},
+	"variants": {
+		"normal": { "model": "abyssalcraft:layered_cube" }
+	}
+}

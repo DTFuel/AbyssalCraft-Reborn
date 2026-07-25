@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "abyssalcraft:block/sequential_brewing_stand" },
+    "facing=east": { "model": "abyssalcraft:block/sequential_brewing_stand", "y": 90 },
+    "facing=south": { "model": "abyssalcraft:block/sequential_brewing_stand", "y": 180 },
+    "facing=west": { "model": "abyssalcraft:block/sequential_brewing_stand", "y": 270 }
+  }
+}

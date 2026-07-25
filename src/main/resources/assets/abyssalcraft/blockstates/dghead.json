@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "abyssalcraft:block/dghead" },
+    "facing=east": { "model": "abyssalcraft:block/dghead", "y": 90 },
+    "facing=south": { "model": "abyssalcraft:block/dghead", "y": 180 },
+    "facing=west": { "model": "abyssalcraft:block/dghead", "y": 270 }
+  }
+}

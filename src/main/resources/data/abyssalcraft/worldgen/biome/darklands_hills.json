@@ -1,0 +1,38 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.2,
+  "downfall": 0.3,
+  "effects": {
+    "fog_color": 1521500,
+    "water_color": 14745518,
+    "water_fog_color": 14745518,
+    "sky_color": 0,
+    "grass_color": 1521500,
+    "foliage_color": 1521500,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2.0
+    }
+  },
+  "spawners": {
+    "monster": [
+      { "type": "abyssalcraft:depths_ghoul", "weight": 1, "minCount": 1, "maxCount": 5 },
+      { "type": "abyssalcraft:abyssalzombie", "weight": 60, "minCount": 1, "maxCount": 3 },
+      { "type": "abyssalcraft:shadowcreature", "weight": 70, "minCount": 3, "maxCount": 3 },
+      { "type": "abyssalcraft:shadowmonster", "weight": 50, "minCount": 2, "maxCount": 2 },
+      { "type": "abyssalcraft:shadowbeast", "weight": 20, "minCount": 1, "maxCount": 1 }
+    ],
+    "creature": [],
+    "ambient": [],
+    "axolotls": [],
+    "underground_water_creature": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "spawn_costs": {},
+  "carvers": {},
+  "features": [[], [], [], [], [], [], [], [], [], [], []]
+}

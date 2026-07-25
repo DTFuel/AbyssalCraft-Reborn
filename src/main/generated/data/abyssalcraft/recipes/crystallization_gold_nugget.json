@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
+  "input": {
+    "item": "minecraft:gold_nugget"
+  },
+  "result": {
+    "count": 1,
+    "item": "abyssalcraft:crystal_shard_gold"
+  },
+  "time": 200
+}

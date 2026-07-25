@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "abyssalcraft:monolithstone"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "#DYEBLACK"
+    }
+  ],
+  "result": {
+    "item": "abyssalcraft:decorativeshubniggurathstatue"
+  }
+}

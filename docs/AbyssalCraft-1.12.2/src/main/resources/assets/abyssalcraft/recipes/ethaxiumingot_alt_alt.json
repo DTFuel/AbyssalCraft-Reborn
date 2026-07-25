@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:ethaxiumblock"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:ethaxiumingot",
+    "count": 9
+  }
+}

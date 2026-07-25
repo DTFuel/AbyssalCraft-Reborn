@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssal_cobblestone_stairs",
+    "abyssalcraft:abyssal_stone_brick_stairs",
+    "abyssalcraft:coralium_cobblestone_stairs",
+    "abyssalcraft:coralium_stone_brick_stairs",
+    "abyssalcraft:dark_ethaxium_brick_stairs",
+    "abyssalcraft:darklands_oak_stairs",
+    "abyssalcraft:darkstone_brick_stairs",
+    "abyssalcraft:darkstone_cobblestone_stairs",
+    "abyssalcraft:dreadstone_brick_stairs",
+    "abyssalcraft:dreadstone_cobblestone_stairs",
+    "abyssalcraft:dreadwood_stairs",
+    "abyssalcraft:elysian_cobblestone_stairs",
+    "abyssalcraft:elysian_stone_brick_stairs",
+    "abyssalcraft:ethaxium_brick_stairs"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "abyssalcraft:coin"
+  },
+  "result": {
+    "count": 4,
+    "item": "minecraft:iron_ingot"
+  }
+}

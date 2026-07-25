@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "experience": 0.1,
+  "input": {
+    "item": "abyssalcraft:crystal_abyssalnite"
+  },
+  "result": {
+    "count": 1,
+    "id": "abyssalcraft:abyssalnite_nugget"
+  },
+  "time": 200
+}

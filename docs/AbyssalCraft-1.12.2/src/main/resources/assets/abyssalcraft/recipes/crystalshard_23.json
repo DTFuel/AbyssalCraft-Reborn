@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#%"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:magnesium_crystal_shard"
+    },
+    "%": {
+      "item": "abyssalcraft:oxygen_crystal_shard"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:magnesia_crystal_shard"
+  }
+}

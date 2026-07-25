@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:dreadwood_planks"
+    },
+    "%": {
+      "tag": "abyssalcraft:legacy/stick_wood"
+    }
+  },
+  "pattern": [
+    "#%#",
+    "#%#"
+  ],
+  "result": {
+    "count": 3,
+    "item": "abyssalcraft:dreadwood_fence"
+  }
+}

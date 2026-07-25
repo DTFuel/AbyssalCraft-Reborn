@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:dreadium_ingot"
+    },
+    "%": {
+      "tag": "abyssalcraft:legacy/stick_wood"
+    }
+  },
+  "pattern": [
+    "#",
+    "%",
+    "%"
+  ],
+  "result": {
+    "id": "abyssalcraft:dreadium_shovel"
+  }
+}

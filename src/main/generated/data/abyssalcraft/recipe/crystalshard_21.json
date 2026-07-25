@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:crystal_shard_oxygen"
+    },
+    "%": {
+      "item": "abyssalcraft:crystal_shard_silicon"
+    }
+  },
+  "pattern": [
+    "#%#"
+  ],
+  "result": {
+    "id": "abyssalcraft:crystal_shard_silica"
+  }
+}

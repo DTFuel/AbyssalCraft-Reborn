@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "layers=1": { "model": "abyssalcraft:block/shoggoth_ooze_1" },
+    "layers=2": { "model": "abyssalcraft:block/shoggoth_ooze_2" },
+    "layers=3": { "model": "abyssalcraft:block/shoggoth_ooze_3" },
+    "layers=4": { "model": "abyssalcraft:block/shoggoth_ooze_4" },
+    "layers=5": { "model": "abyssalcraft:block/shoggoth_ooze_5" },
+    "layers=6": { "model": "abyssalcraft:block/shoggoth_ooze_6" },
+    "layers=7": { "model": "abyssalcraft:block/shoggoth_ooze_7" },
+    "layers=8": { "model": "abyssalcraft:block/shoggoth_ooze_8" }
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+          //  "#statue": "abyssalcraft:model/blocks/PSDL" //the identifier must be a name of a material defined by the "model" obj's .mtl file
+        },
+        "model": "abyssalcraft:hasturstatue.obj",
+		"custom": {"flip-v":true}
+     },
+    "variants": {
+        "normal": [{}],
+        "inventory": [{
+            "transform": "forge:default-block"
+        }],
+		"facing": {
+            "down": { "model": "abyssalcraft:hasturstatue.obj" },
+            "up": { "model": "abyssalcraft:hasturstatue.obj" },
+            "north": { "model": "abyssalcraft:hasturstatue.obj" },
+            "south": { "model": "abyssalcraft:hasturstatue.obj", "y": 180 },
+            "west": { "model": "abyssalcraft:hasturstatue.obj", "y": 270 },
+            "east": { "model": "abyssalcraft:hasturstatue.obj", "y": 90 }
+        }
+    }
+}

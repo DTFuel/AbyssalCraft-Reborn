@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:shadow_shard"
+    },
+    "%": {
+      "item": "abyssalcraft:shard_of_oblivion"
+    }
+  },
+  "pattern": [
+    " #%",
+    " ##",
+    "#  "
+  ],
+  "result": {
+    "id": "abyssalcraft:staff_of_rending"
+  }
+}

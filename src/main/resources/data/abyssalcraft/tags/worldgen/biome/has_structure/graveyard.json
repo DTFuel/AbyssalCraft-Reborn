@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "abyssalcraft:abyssal_wastelands", "required": false },
+    { "id": "abyssalcraft:abyssal_swamp", "required": false }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#%",
+    "#%"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:darkethaxiumbrick",
+      "data": 0
+    },
+    "%": {
+      "item": "abyssalcraft:omotholstone"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:darkethaxiumpillar",
+    "count": 2
+  }
+}

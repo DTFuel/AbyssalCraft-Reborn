@@ -1,0 +1,6 @@
+{
+    "parent": "abyssalcraft:item/corbow",
+    "textures": {
+        "layer0": "abyssalcraft:items/corbow_pulling_0"
+    }
+}

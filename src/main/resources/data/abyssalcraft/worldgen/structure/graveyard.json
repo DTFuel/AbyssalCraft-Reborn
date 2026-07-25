@@ -1,0 +1,8 @@
+{
+  "type": "abyssalcraft:structure",
+  "kind": "graveyard",
+  "biomes": "#abyssalcraft:has_structure/graveyard",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin"
+}

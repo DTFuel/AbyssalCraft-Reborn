@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#%#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:corflesh"
+    },
+    "%": {
+      "item": "abyssalcraft:essence_abyssalwasteland"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:skin_abyssalwasteland"
+  }
+}

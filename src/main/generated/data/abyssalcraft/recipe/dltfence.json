@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:darklands_oak_planks"
+    },
+    "%": {
+      "tag": "abyssalcraft:legacy/stick_wood"
+    }
+  },
+  "pattern": [
+    "#%#",
+    "#%#"
+  ],
+  "result": {
+    "count": 3,
+    "id": "abyssalcraft:darklands_oak_fence"
+  }
+}

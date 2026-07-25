@@ -1,0 +1,38 @@
+{
+  "textures": {
+    "base": "abyssalcraft:block/darkstone",
+    "rim": "abyssalcraft:block/monolith_stone",
+    "gold": "minecraft:block/gold_block",
+    "particle": "abyssalcraft:block/darkstone"
+  },
+  "elements": [
+    {
+      "from": [3, 0, 3], "to": [13, 6, 13],
+      "faces": {
+        "north": {"texture": "#base"}, "east": {"texture": "#base"},
+        "south": {"texture": "#base"}, "west": {"texture": "#base"},
+        "up": {"texture": "#base"}, "down": {"texture": "#base"}
+      }
+    },
+    {
+      "from": [2.5, 6, 2.5], "to": [13.5, 7, 13.5],
+      "faces": {
+        "north": {"texture": "#rim"}, "east": {"texture": "#rim"},
+        "south": {"texture": "#rim"}, "west": {"texture": "#rim"},
+        "up": {"texture": "#rim"}, "down": {"texture": "#rim"}
+      }
+    },
+    {
+      "from": [5, 7, 5], "to": [11, 8, 11],
+      "faces": {
+        "north": {"texture": "#gold"}, "east": {"texture": "#gold"},
+        "south": {"texture": "#gold"}, "west": {"texture": "#gold"},
+        "up": {"texture": "#gold"}
+      }
+    },
+    {"from": [4, 8, 4], "to": [12, 10, 5], "faces": {"north": {"texture": "#gold"}, "south": {"texture": "#gold"}, "up": {"texture": "#gold"}}},
+    {"from": [4, 8, 11], "to": [12, 10, 12], "faces": {"north": {"texture": "#gold"}, "south": {"texture": "#gold"}, "up": {"texture": "#gold"}}},
+    {"from": [4, 8, 5], "to": [5, 10, 11], "faces": {"east": {"texture": "#gold"}, "west": {"texture": "#gold"}, "up": {"texture": "#gold"}}},
+    {"from": [11, 8, 5], "to": [12, 10, 11], "faces": {"east": {"texture": "#gold"}, "west": {"texture": "#gold"}, "up": {"texture": "#gold"}}}
+  ]
+}

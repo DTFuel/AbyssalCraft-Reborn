@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:crystal_fragment_abyssalnite",
+    "abyssalcraft:crystal_fragment_alumina",
+    "abyssalcraft:crystal_fragment_aluminium",
+    "abyssalcraft:crystal_fragment_beryl",
+    "abyssalcraft:crystal_fragment_beryllium",
+    "abyssalcraft:crystal_fragment_blaze",
+    "abyssalcraft:crystal_fragment_calcium",
+    "abyssalcraft:crystal_fragment_carbon",
+    "abyssalcraft:crystal_fragment_coralium",
+    "abyssalcraft:crystal_fragment_dreadium",
+    "abyssalcraft:crystal_fragment_gold",
+    "abyssalcraft:crystal_fragment_hydrogen",
+    "abyssalcraft:crystal_fragment_iron",
+    "abyssalcraft:crystal_fragment_magnesia",
+    "abyssalcraft:crystal_fragment_magnesium",
+    "abyssalcraft:crystal_fragment_methane",
+    "abyssalcraft:crystal_fragment_nitrate",
+    "abyssalcraft:crystal_fragment_nitrogen",
+    "abyssalcraft:crystal_fragment_oxygen",
+    "abyssalcraft:crystal_fragment_phosphorus",
+    "abyssalcraft:crystal_fragment_potassium",
+    "abyssalcraft:crystal_fragment_redstone",
+    "abyssalcraft:crystal_fragment_silica",
+    "abyssalcraft:crystal_fragment_silicon",
+    "abyssalcraft:crystal_fragment_sulfur",
+    "abyssalcraft:crystal_fragment_zinc"
+  ]
+}

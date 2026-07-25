@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:decorative_cthulhu_statue",
+    "abyssalcraft:decorative_hastur_statue",
+    "abyssalcraft:decorative_jzahar_statue",
+    "abyssalcraft:decorative_azathoth_statue",
+    "abyssalcraft:decorative_nyarlathotep_statue",
+    "abyssalcraft:decorative_yog_sothoth_statue",
+    "abyssalcraft:decorative_shub_niggurath_statue",
+    "abyssalcraft:deity_statue",
+    "abyssalcraft:cthulhu_statue",
+    "abyssalcraft:hastur_statue",
+    "abyssalcraft:jzahar_statue",
+    "abyssalcraft:azathoth_statue",
+    "abyssalcraft:nyarlathotep_statue",
+    "abyssalcraft:shub_niggurath_statue",
+    "abyssalcraft:yog_sothoth_statue"
+  ]
+}

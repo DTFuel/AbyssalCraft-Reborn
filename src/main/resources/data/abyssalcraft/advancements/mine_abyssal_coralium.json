@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "abyssalcraft:abyssal_coralium_ore"
+    },
+    "title": {
+      "translate": "advancements.abyssalcraft.minecor.title"
+    },
+    "description": {
+      "translate": "advancements.abyssalcraft.minecor.description"
+    }
+  },
+  "parent": "abyssalcraft:shadow_gems",
+  "criteria": {
+    "normal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:abyssal_coralium_ore"
+        ]
+      }
+    },
+    "pearlescent": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:pearlescent_coralium_ore"
+        ]
+      }
+    },
+    "liquified": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:liquified_coralium_ore"
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["normal", "pearlescent", "liquified"]
+  ]
+}

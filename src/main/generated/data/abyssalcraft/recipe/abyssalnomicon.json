@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:ethaxium_ingot"
+    },
+    "$": {
+      "item": "abyssalcraft:essence_of_the_gatekeeper"
+    },
+    "%": {
+      "item": "abyssalcraft:eldritch_scale"
+    },
+    "&": {
+      "item": "abyssalcraft:omothol_necronomicon"
+    }
+  },
+  "pattern": [
+    "#$#",
+    "%&%",
+    "#%#"
+  ],
+  "result": {
+    "id": "abyssalcraft:abyssalnomicon"
+  }
+}

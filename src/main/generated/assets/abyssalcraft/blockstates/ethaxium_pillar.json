@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "abyssalcraft:block/ethaxium_pillar",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "abyssalcraft:block/ethaxium_pillar"
+    },
+    "axis=z": {
+      "model": "abyssalcraft:block/ethaxium_pillar",
+      "x": 90
+    }
+  }
+}

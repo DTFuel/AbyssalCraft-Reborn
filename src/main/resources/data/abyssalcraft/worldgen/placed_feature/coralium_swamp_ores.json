@@ -1,0 +1,6 @@
+{
+  "feature": "abyssalcraft:coralium_swamp_ores",
+  "placement": [
+    { "type": "minecraft:biome" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "textures": {
+    "all": "abyssalcraft:block/monolith_stone",
+    "particle": "abyssalcraft:block/monolith_stone"
+  },
+  "elements": [
+    {
+      "from": [4, 0, 4],
+      "to": [12, 16, 12],
+      "faces": {
+        "down": { "texture": "#all" },
+        "up": { "texture": "#all" },
+        "north": { "texture": "#all" },
+        "south": { "texture": "#all" },
+        "west": { "texture": "#all" },
+        "east": { "texture": "#all" }
+      }
+    }
+  ]
+}

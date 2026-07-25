@@ -1,0 +1,13 @@
+{
+  "placement": {
+    "type": "minecraft:concentric_rings",
+    "count": 128,
+    "distance": 32,
+    "preferred_biomes": "#abyssalcraft:has_structure/abyssal_stronghold",
+    "salt": 401251,
+    "spread": 3
+  },
+  "structures": [
+    { "structure": "abyssalcraft:abyssal_stronghold", "weight": 1 }
+  ]
+}

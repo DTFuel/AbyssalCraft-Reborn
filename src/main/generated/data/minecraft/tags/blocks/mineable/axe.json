@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:darklands_oak_button",
+    "abyssalcraft:darklands_oak_door",
+    "abyssalcraft:darklands_oak_fence",
+    "abyssalcraft:darklands_oak_fence_gate",
+    "abyssalcraft:darklands_oak_log",
+    "abyssalcraft:darklands_oak_planks",
+    "abyssalcraft:darklands_oak_pressure_plate",
+    "abyssalcraft:darklands_oak_slab",
+    "abyssalcraft:darklands_oak_stairs",
+    "abyssalcraft:dead_tree_log",
+    "abyssalcraft:dreadwood_button",
+    "abyssalcraft:dreadwood_door",
+    "abyssalcraft:dreadwood_fence",
+    "abyssalcraft:dreadwood_fence_gate",
+    "abyssalcraft:dreadwood_log",
+    "abyssalcraft:dreadwood_planks",
+    "abyssalcraft:dreadwood_pressure_plate",
+    "abyssalcraft:dreadwood_slab",
+    "abyssalcraft:dreadwood_stairs"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "abyssalcraft:item/charm",
+	"textures": {
+		"layer1": "abyssalcraft:items/charms/jzahar"
+	}
+}

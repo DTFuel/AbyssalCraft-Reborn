@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:skin_of_omothol"
+    },
+    "%": {
+      "item": "abyssalcraft:dreadlands_necronomicon"
+    }
+  },
+  "pattern": [
+    "##",
+    "#%"
+  ],
+  "result": {
+    "item": "abyssalcraft:omothol_necronomicon"
+  }
+}

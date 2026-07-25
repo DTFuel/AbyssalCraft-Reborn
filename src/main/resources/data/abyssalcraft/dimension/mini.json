@@ -1,0 +1,11 @@
+{
+  "type": "abyssalcraft:mini",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "abyssalcraft:mini",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "abyssalcraft:mini"
+    }
+  }
+}

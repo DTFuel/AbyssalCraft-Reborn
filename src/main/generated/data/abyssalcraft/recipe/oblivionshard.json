@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:shadow_gem"
+    },
+    "%": {
+      "item": "abyssalcraft:transmutation_gem"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#%#",
+    " # "
+  ],
+  "result": {
+    "id": "abyssalcraft:shard_of_oblivion"
+  }
+}

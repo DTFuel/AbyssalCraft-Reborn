@@ -1,0 +1,11 @@
+{
+  "type": "abyssalcraft:rending",
+  "name": "coralium",
+  "max_energy": 100,
+  "result": {
+    "id": "minecraft:emerald",
+    "count": 1
+  },
+  "entity": "minecraft:zombie",
+  "dimension": 0
+}

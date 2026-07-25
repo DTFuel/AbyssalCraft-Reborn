@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "abyssalcraft:block/deco_mural",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "abyssalcraft:block/deco_mural"
+    },
+    "facing=south": {
+      "model": "abyssalcraft:block/deco_mural",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "abyssalcraft:block/deco_mural",
+      "y": 270
+    }
+  }
+}

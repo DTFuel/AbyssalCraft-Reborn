@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "abyssalcraft:dreadium_ingot"
+    },
+    "title": {
+      "translate": "advancements.abyssalcraft.necro.title"
+    },
+    "description": {
+      "translate": "advancements.abyssalcraft.necro.description"
+    },
+    "background": "abyssalcraft:textures/blocks/ds.png"
+  },
+  "criteria": {
+    "necronomicon": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:dreadium_ingot"
+        ]
+      }
+    }
+  }
+}

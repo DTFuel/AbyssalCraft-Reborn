@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#%#",
+    "#\u0026#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:monolithstone"
+    },
+    "%": {
+      "item": "abyssalcraft:oblivionshard"
+    },
+    "\u0026": {
+      "item": "abyssalcraft:shadowgem"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:rendingpedestal"
+  }
+}

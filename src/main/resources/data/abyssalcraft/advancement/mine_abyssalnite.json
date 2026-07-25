@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "abyssalcraft:abyssalnite_ore"
+    },
+    "title": {
+      "translate": "advancements.abyssalcraft.mineaby.title"
+    },
+    "description": {
+      "translate": "advancements.abyssalcraft.mineaby.description"
+    }
+  },
+  "parent": "abyssalcraft:root",
+  "criteria": {
+    "necronomicon": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:abyssalnite_ore"
+        ]
+      }
+    }
+  }
+}

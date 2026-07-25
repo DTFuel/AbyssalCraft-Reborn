@@ -1,0 +1,15 @@
+{
+  "type": "abyssalcraft:anvil_forging",
+  "input1": {
+    "item": "minecraft:iron_ingot"
+  },
+  "input2": {
+    "item": "minecraft:diamond"
+  },
+  "result": {
+    "item": "minecraft:netherite_scrap",
+    "count": 1
+  },
+  "price": 5,
+  "forging_type": "default"
+}

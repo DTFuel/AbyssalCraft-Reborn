@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": ["abyssalcraft:coralium_infested_swamp"],
+  "features": ["abyssalcraft:lake_liquid_antimatter"],
+  "step": "lakes"
+}

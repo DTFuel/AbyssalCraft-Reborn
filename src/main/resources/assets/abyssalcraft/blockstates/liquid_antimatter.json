@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "level=0": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=1": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=2": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=3": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=4": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=5": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=6": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=7": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=8": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=9": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=10": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=11": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=12": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=13": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=14": { "model": "abyssalcraft:block/liquid_antimatter" },
+    "level=15": { "model": "abyssalcraft:block/liquid_antimatter" }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "abyssalcraft:structure",
+  "kind": "ethaxium_house",
+  "biomes": "#abyssalcraft:has_structure/omothol",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin"
+}

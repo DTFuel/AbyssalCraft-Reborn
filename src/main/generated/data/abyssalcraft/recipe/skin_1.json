@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:dread_fragment"
+    },
+    "%": {
+      "item": "abyssalcraft:dreadlands_essence"
+    }
+  },
+  "pattern": [
+    "###",
+    "#%#",
+    "###"
+  ],
+  "result": {
+    "id": "abyssalcraft:skin_of_the_dreadlands"
+  }
+}

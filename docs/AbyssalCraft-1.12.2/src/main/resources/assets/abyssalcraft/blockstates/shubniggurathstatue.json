@@ -1,0 +1,56 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+        },
+        "model": "abyssalcraft:shubniggurathstatue.obj",
+		"custom": {"flip-v":true}
+     },
+    "variants": {
+        "normal": [{}],
+        "inventory": [{
+            "transform": "forge:default-block"
+        }],
+		"facing": {
+            "down": { "model": "abyssalcraft:shubniggurathstatue.obj" },
+            "up": { "model": "abyssalcraft:shubniggurathstatue.obj" },
+            "north": { "model": "abyssalcraft:shubniggurathstatue.obj" },
+            "south": { "model": "abyssalcraft:shubniggurathstatue.obj", "y": 180 },
+            "west": { "model": "abyssalcraft:shubniggurathstatue.obj", "y": 270 },
+            "east": { "model": "abyssalcraft:shubniggurathstatue.obj", "y": 90 }
+        },
+        "amplifier": {
+            "0": {},
+            "1": {
+				"submodel": {
+					"sigil": {
+                        "model": "abyssalcraft:statue_sigil",
+                        "textures" : {
+		                    "0": "abyssalcraft:items/charms/duration_alt"
+                        }
+                    }
+				}
+            },
+            "2": {
+                "submodel": {
+					"sigil": {
+                        "model": "abyssalcraft:statue_sigil",
+                        "textures" : {
+		                    "0": "abyssalcraft:items/charms/power_alt"
+                        }
+                    }
+                }
+            },
+            "3": {
+				"submodel": {
+					"sigil": {
+                        "model": "abyssalcraft:statue_sigil",
+                        "textures" : {
+		                    "0": "abyssalcraft:items/charms/range_alt"
+                        }
+                    }
+				}
+            }
+        }
+    }
+}

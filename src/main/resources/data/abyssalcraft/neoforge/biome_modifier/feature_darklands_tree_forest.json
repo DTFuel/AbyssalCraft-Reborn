@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": ["abyssalcraft:darklands_forest"],
+  "features": ["abyssalcraft:darklands_tree_forest"],
+  "step": "vegetal_decoration"
+}

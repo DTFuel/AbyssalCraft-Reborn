@@ -1,0 +1,20 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "abyssalcraft:abyssal_wastelands",
+    "abyssalcraft:abyssal_swamp",
+    "abyssalcraft:abyssal_desert",
+    "abyssalcraft:abyssal_plateau",
+    "abyssalcraft:coralium_lake",
+    "abyssalcraft:dreadlands",
+    "abyssalcraft:dreadlands_forest",
+    "abyssalcraft:dreadlands_mountains",
+    "abyssalcraft:omothol",
+    "abyssalcraft:dark_realm"
+  ],
+  "spawners": [
+    { "type": "abyssalcraft:lesser_shoggoth", "weight": 3, "minCount": 1, "maxCount": 1 },
+    { "type": "abyssalcraft:shoggoth", "weight": 3, "minCount": 1, "maxCount": 1 },
+    { "type": "abyssalcraft:greater_shoggoth", "weight": 1, "minCount": 1, "maxCount": 1 }
+  ]
+}

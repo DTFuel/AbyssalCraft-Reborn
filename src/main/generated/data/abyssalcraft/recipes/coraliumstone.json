@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stone"
+    },
+    "&": {
+      "item": "abyssalcraft:coralium_gem_cluster_3"
+    }
+  },
+  "pattern": [
+    "###",
+    "&&&",
+    "###"
+  ],
+  "result": {
+    "item": "abyssalcraft:coralium_infused_stone"
+  }
+}

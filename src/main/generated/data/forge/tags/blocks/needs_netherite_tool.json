@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:dreaded_abyssalnite_ore",
+    "abyssalcraft:dreadlands_abyssalnite_ore",
+    "abyssalcraft:liquified_coralium_ore"
+  ]
+}

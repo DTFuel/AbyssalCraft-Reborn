@@ -1,0 +1,7 @@
+{
+  "parent": "abyssalcraft:block/deco_tombstone",
+  "textures": {
+    "all": "abyssalcraft:block/monolith_stone",
+    "particle": "abyssalcraft:block/monolith_stone"
+  }
+}

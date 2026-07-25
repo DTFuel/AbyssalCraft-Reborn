@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:magnesium_crystal_cluster"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:magnesium_crystal",
+    "count": 9
+  }
+}

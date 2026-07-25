@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssal_abyssalnite_ore",
+    "abyssalcraft:abyssalnite_ore",
+    "abyssalcraft:dreadlands_abyssalnite_ore"
+  ]
+}

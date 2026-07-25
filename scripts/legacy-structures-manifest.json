@@ -1,0 +1,5767 @@
+{
+  "format": 1,
+  "source": "AbyssalCraft-1.12.2/DataVersion-1343",
+  "files": [
+    {
+      "path": "chagarothlair/chagarothlair_back.nbt",
+      "sourceSha256": "dca2a8f69e9753050ac005fa41f57f684b5ac450e6e37b036f57c85c2cf520a9",
+      "dataVersion": 1343,
+      "size": [
+        19,
+        30,
+        30
+      ],
+      "blocks": 5622,
+      "palette": 12,
+      "markers": 0,
+      "blockEntities": 3,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:dreadbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadiumblock",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadstonecobblestone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chiseled_dreadstone_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:elysian_stone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadguardspawner",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chagarothspawner",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadstonecobblestoneslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": [
+        "abyssalcraft:tileentitydradguardspawner",
+        "abyssalcraft:tileentitychagarothspawner",
+        "abyssalcraft:tileentitydradguardspawner"
+      ]
+    },
+    {
+      "path": "chagarothlair/chagarothlair_entrance.nbt",
+      "sourceSha256": "f668fc7887a2e76d12d7cbdea33d3dcea89677ba5182d53d6b6da89025cc3cb3",
+      "dataVersion": 1343,
+      "size": [
+        13,
+        6,
+        14
+      ],
+      "blocks": 1023,
+      "palette": 17,
+      "markers": 0,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:elysian_stone_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:calcifiedstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:elysian_cobblestone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chiseled_elysian_stone_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_slab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_slab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysiancobblestoneslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_stairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_stairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_stairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_stairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_stairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_stairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_stairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_stairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:sealing_lock",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": []
+    },
+    {
+      "path": "chagarothlair/chagarothlair_front.nbt",
+      "sourceSha256": "7a05a59ea32e8a947b87de888ed2ebcce81c706fca002caa0d284fc835c69c72",
+      "dataVersion": 1343,
+      "size": [
+        17,
+        6,
+        26
+      ],
+      "blocks": 1932,
+      "palette": 6,
+      "markers": 0,
+      "blockEntities": 1,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:dreadbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadstonecobblestone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadguardspawner",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadbrickfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": [
+        "abyssalcraft:tileentitydradguardspawner"
+      ]
+    },
+    {
+      "path": "chagarothlair/chagarothlair_middle.nbt",
+      "sourceSha256": "b40a2d241c40ec44a69cf48cdb93dcd984138e71b7f9e694140498942411b238",
+      "dataVersion": 1343,
+      "size": [
+        17,
+        30,
+        32
+      ],
+      "blocks": 5931,
+      "palette": 13,
+      "markers": 1,
+      "blockEntities": 1,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:elysian_stone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadstonecobblestone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chiseled_dreadstone_brick",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:chest",
+          "properties": {
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_fence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:elysian_stone_brick_slab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadstonecobblestoneslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "chest"
+      ],
+      "blockEntityIds": [
+        "minecraft:chest"
+      ]
+    },
+    {
+      "path": "chagarothlair/chagarothlair_middle_left.nbt",
+      "sourceSha256": "f0e22c927015374605e69d6b2378904037058bab476e34bf04c1868b95e21a87",
+      "dataVersion": 1343,
+      "size": [
+        16,
+        12,
+        20
+      ],
+      "blocks": 1714,
+      "palette": 11,
+      "markers": 0,
+      "blockEntities": 4,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:dreadbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadstonecobblestone",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:crafting_table",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadguardspawner",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:crystallizer",
+          "properties": {
+            "facing": "west"
+          }
+        },
+        {
+          "name": "minecraft:furnace",
+          "properties": {
+            "facing": "east"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadbrickfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "minecraft:lava",
+          "properties": {
+            "level": "0"
+          }
+        },
+        {
+          "name": "minecraft:anvil",
+          "properties": {
+            "damage": "0",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": [
+        "abyssalcraft:tileentitydradguardspawner",
+        "abyssalcraft:tileentitydradguardspawner",
+        "abyssalcraft:tileentitycrystallizer",
+        "minecraft:furnace"
+      ]
+    },
+    {
+      "path": "chagarothlair/chagarothlair_middle_right.nbt",
+      "sourceSha256": "df20bbbdf839717320c2724a57805d84edb51da87bb1eedf75b4749c2ac1ab42",
+      "dataVersion": 1343,
+      "size": [
+        16,
+        12,
+        21
+      ],
+      "blocks": 1716,
+      "palette": 9,
+      "markers": 0,
+      "blockEntities": 2,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:dreadbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadstonecobblestone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadguardspawner",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadbrickfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "minecraft:lava",
+          "properties": {
+            "level": "8"
+          }
+        },
+        {
+          "name": "minecraft:lava",
+          "properties": {
+            "level": "0"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": [
+        "abyssalcraft:tileentitydradguardspawner",
+        "abyssalcraft:tileentitydradguardspawner"
+      ]
+    },
+    {
+      "path": "chagarothlair/chagarothlair_top.nbt",
+      "sourceSha256": "0ad178da6a1d230f836fe04b077cf483b1f377d6916653c2383a724059fe8d97",
+      "dataVersion": 1343,
+      "size": [
+        13,
+        9,
+        26
+      ],
+      "blocks": 2331,
+      "palette": 17,
+      "markers": 0,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:dreadbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chiseled_dreadstone_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadstonecobblestone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dreadbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadstonecobblestoneslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:dreadbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:unlocked_sealing_lock",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": []
+    },
+    {
+      "path": "graveyard/graveyard_large.nbt",
+      "sourceSha256": "2293608fa1a0ed26aa915907b03da08520ff60aa77d71746ee66a031110af88b",
+      "dataVersion": 1343,
+      "size": [
+        13,
+        5,
+        16
+      ],
+      "blocks": 1040,
+      "palette": 6,
+      "markers": 20,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "minecraft:dirt",
+          "properties": {
+            "variant": "dirt",
+            "snowy": "false"
+          }
+        },
+        {
+          "name": "minecraft:grass",
+          "properties": {
+            "snowy": "false"
+          }
+        },
+        {
+          "name": "minecraft:sand",
+          "properties": {
+            "variant": "sand"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:iron_bars",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [
+        "treasure",
+        "treasure",
+        "treasure",
+        "tombstone",
+        "tombstone",
+        "tombstone",
+        "tree",
+        "treasure",
+        "treasure",
+        "treasure",
+        "tombstone",
+        "tombstone",
+        "tombstone",
+        "treasure",
+        "treasure",
+        "treasure",
+        "tree",
+        "tombstone",
+        "tombstone",
+        "tombstone"
+      ],
+      "blockEntityIds": []
+    },
+    {
+      "path": "graveyard/graveyard_medium.nbt",
+      "sourceSha256": "0cbeef577a4bc1376103c7d7fb7e41957832a2a536c3df0f80fbde30ad320412",
+      "dataVersion": 1343,
+      "size": [
+        9,
+        5,
+        11
+      ],
+      "blocks": 495,
+      "palette": 6,
+      "markers": 9,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "minecraft:dirt",
+          "properties": {
+            "variant": "dirt",
+            "snowy": "false"
+          }
+        },
+        {
+          "name": "minecraft:grass",
+          "properties": {
+            "snowy": "false"
+          }
+        },
+        {
+          "name": "minecraft:sand",
+          "properties": {
+            "variant": "sand"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:iron_bars",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [
+        "treasure",
+        "treasure",
+        "tombstone",
+        "tombstone",
+        "treasure",
+        "treasure",
+        "tree",
+        "tombstone",
+        "tombstone"
+      ],
+      "blockEntityIds": []
+    },
+    {
+      "path": "graveyard/graveyard_small.nbt",
+      "sourceSha256": "2e8071a49ddf286723af0aa5efbc4af6a0eb61424611f297cb7ffab2e49b6ebd",
+      "dataVersion": 1343,
+      "size": [
+        4,
+        5,
+        5
+      ],
+      "blocks": 100,
+      "palette": 5,
+      "markers": 2,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "minecraft:dirt",
+          "properties": {
+            "variant": "dirt",
+            "snowy": "false"
+          }
+        },
+        {
+          "name": "minecraft:grass",
+          "properties": {
+            "snowy": "false"
+          }
+        },
+        {
+          "name": "minecraft:sand",
+          "properties": {
+            "variant": "sand"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [
+        "tombstone",
+        "tree"
+      ],
+      "blockEntityIds": []
+    },
+    {
+      "path": "omothol/bar.nbt",
+      "sourceSha256": "bd5f95e6f3d54390f930e6363bd421c741f59f5b8c07bf379a1cedd3d6627965",
+      "dataVersion": 1343,
+      "size": [
+        15,
+        15,
+        16
+      ],
+      "blocks": 1774,
+      "palette": 55,
+      "markers": 1,
+      "blockEntities": 12,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:omotholstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxium",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:chiseled_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "x"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "z"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chiseled_dark_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:brewing_stand",
+          "properties": {
+            "has_bottle_0": "true",
+            "has_bottle_1": "true",
+            "has_bottle_2": "true"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "abyssalcraft:crate",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:brewing_stand",
+          "properties": {
+            "has_bottle_0": "true",
+            "has_bottle_1": "true",
+            "has_bottle_2": "false"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:unpowered_repeater",
+          "properties": {
+            "delay": "1",
+            "facing": "east",
+            "locked": "false"
+          }
+        },
+        {
+          "name": "minecraft:redstone_wire",
+          "properties": {
+            "east": "none",
+            "south": "none",
+            "north": "none",
+            "west": "none",
+            "power": "0"
+          }
+        },
+        {
+          "name": "minecraft:redstone_torch",
+          "properties": {
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:wooden_door",
+          "properties": {
+            "hinge": "left",
+            "half": "lower",
+            "powered": "false",
+            "facing": "south",
+            "open": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "minecraft:wooden_door",
+          "properties": {
+            "hinge": "left",
+            "half": "upper",
+            "powered": "false",
+            "facing": "north",
+            "open": "false"
+          }
+        },
+        {
+          "name": "minecraft:stained_glass_pane",
+          "properties": {
+            "east": "false",
+            "color": "white",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "minecraft:unpowered_repeater",
+          "properties": {
+            "delay": "1",
+            "facing": "south",
+            "locked": "false"
+          }
+        },
+        {
+          "name": "minecraft:unpowered_repeater",
+          "properties": {
+            "delay": "1",
+            "facing": "west",
+            "locked": "false"
+          }
+        },
+        {
+          "name": "minecraft:sticky_piston",
+          "properties": {
+            "facing": "east",
+            "extended": "true"
+          }
+        },
+        {
+          "name": "minecraft:piston_head",
+          "properties": {
+            "facing": "east",
+            "short": "false",
+            "type": "sticky"
+          }
+        },
+        {
+          "name": "minecraft:sticky_piston",
+          "properties": {
+            "facing": "up",
+            "extended": "true"
+          }
+        },
+        {
+          "name": "minecraft:piston_head",
+          "properties": {
+            "facing": "up",
+            "short": "false",
+            "type": "sticky"
+          }
+        },
+        {
+          "name": "minecraft:stone_pressure_plate",
+          "properties": {
+            "powered": "false"
+          }
+        },
+        {
+          "name": "minecraft:torch",
+          "properties": {
+            "facing": "south"
+          }
+        },
+        {
+          "name": "minecraft:stone_button",
+          "properties": {
+            "powered": "false",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "minecraft:unlit_redstone_torch",
+          "properties": {
+            "facing": "east"
+          }
+        },
+        {
+          "name": "minecraft:redstone_wire",
+          "properties": {
+            "east": "none",
+            "south": "none",
+            "north": "none",
+            "west": "none",
+            "power": "15"
+          }
+        },
+        {
+          "name": "minecraft:redstone_torch",
+          "properties": {
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "minecraft:redstone_torch",
+          "properties": {
+            "facing": "up"
+          }
+        },
+        {
+          "name": "minecraft:sticky_piston",
+          "properties": {
+            "facing": "south",
+            "extended": "true"
+          }
+        },
+        {
+          "name": "minecraft:torch",
+          "properties": {
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:wooden_button",
+          "properties": {
+            "powered": "false",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "minecraft:torch",
+          "properties": {
+            "facing": "west"
+          }
+        },
+        {
+          "name": "minecraft:piston_head",
+          "properties": {
+            "facing": "south",
+            "short": "false",
+            "type": "sticky"
+          }
+        },
+        {
+          "name": "minecraft:wooden_door",
+          "properties": {
+            "hinge": "left",
+            "half": "lower",
+            "powered": "false",
+            "facing": "north",
+            "open": "false"
+          }
+        },
+        {
+          "name": "minecraft:ladder",
+          "properties": {
+            "facing": "east"
+          }
+        },
+        {
+          "name": "minecraft:torch",
+          "properties": {
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "remnant"
+      ],
+      "blockEntityIds": [
+        "minecraft:brewing_stand",
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentitycrate",
+        "minecraft:brewing_stand",
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentitycrate"
+      ]
+    },
+    {
+      "path": "omothol/blacksmith.nbt",
+      "sourceSha256": "2f3e3f2b5c189a686e3b2a6774393d5a102b130de36b5d56afa3640ee593a276",
+      "dataVersion": 1343,
+      "size": [
+        11,
+        8,
+        14
+      ],
+      "blocks": 1232,
+      "palette": 24,
+      "markers": 2,
+      "blockEntities": 2,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:chiseled_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:bed",
+          "properties": {
+            "part": "head",
+            "facing": "north",
+            "occupied": "false"
+          }
+        },
+        {
+          "name": "minecraft:bed",
+          "properties": {
+            "part": "foot",
+            "facing": "north",
+            "occupied": "false"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "minecraft:stained_glass_pane",
+          "properties": {
+            "east": "false",
+            "color": "white",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "minecraft:carpet",
+          "properties": {
+            "color": "silver"
+          }
+        },
+        {
+          "name": "minecraft:wooden_door",
+          "properties": {
+            "hinge": "left",
+            "half": "lower",
+            "powered": "false",
+            "facing": "west",
+            "open": "false"
+          }
+        },
+        {
+          "name": "minecraft:wooden_door",
+          "properties": {
+            "hinge": "left",
+            "half": "upper",
+            "powered": "false",
+            "facing": "north",
+            "open": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:antiwater",
+          "properties": {
+            "level": "0"
+          }
+        },
+        {
+          "name": "minecraft:anvil",
+          "properties": {
+            "damage": "0",
+            "facing": "north"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "remnant",
+        "chest"
+      ],
+      "blockEntityIds": [
+        "minecraft:bed",
+        "minecraft:bed"
+      ]
+    },
+    {
+      "path": "omothol/church.nbt",
+      "sourceSha256": "9fa7b6d0f4b9d1983c04619b50dc59d800a2e5b1d75ebe0793459d270509af2b",
+      "dataVersion": 1343,
+      "size": [
+        9,
+        15,
+        14
+      ],
+      "blocks": 1122,
+      "palette": 26,
+      "markers": 2,
+      "blockEntities": 9,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chiseled_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:bookshelf",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:wall_banner",
+          "properties": {
+            "facing": "south"
+          }
+        },
+        {
+          "name": "minecraft:wall_banner",
+          "properties": {
+            "facing": "east"
+          }
+        },
+        {
+          "name": "minecraft:wall_banner",
+          "properties": {
+            "facing": "west"
+          }
+        },
+        {
+          "name": "minecraft:wall_banner",
+          "properties": {
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:enchanting_table",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "minecraft:stained_glass_pane",
+          "properties": {
+            "east": "false",
+            "color": "white",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:decorativejzaharstatue",
+          "properties": {
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:carpet",
+          "properties": {
+            "color": "red"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "minecraft:ladder",
+          "properties": {
+            "facing": "west"
+          }
+        },
+        {
+          "name": "minecraft:torch",
+          "properties": {
+            "facing": "north"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "remnant",
+        "pedestal"
+      ],
+      "blockEntityIds": [
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:enchanting_table",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner"
+      ]
+    },
+    {
+      "path": "omothol/crates_1.nbt",
+      "sourceSha256": "617fd221257cd979f1d90cf06aff67769d3a476743a7aaaad5e62a0779308562",
+      "dataVersion": 1343,
+      "size": [
+        8,
+        6,
+        8
+      ],
+      "blocks": 384,
+      "palette": 4,
+      "markers": 36,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [
+        "crate10",
+        "crate11",
+        "crate12",
+        "crate13",
+        "crate14",
+        "crate15",
+        "crate16",
+        "crate17",
+        "crate18",
+        "crate19",
+        "crate20",
+        "crate21",
+        "crate22",
+        "crate23",
+        "crate24",
+        "crate25",
+        "crate26",
+        "crate27",
+        "crate3",
+        "crate28",
+        "crate6",
+        "crate31",
+        "crate9",
+        "crate34",
+        "crate2",
+        "crate29",
+        "crate5",
+        "crate32",
+        "crate8",
+        "crate35",
+        "crate1",
+        "crate30",
+        "crate4",
+        "crate33",
+        "crate7",
+        "crate36"
+      ],
+      "blockEntityIds": []
+    },
+    {
+      "path": "omothol/crates_2.nbt",
+      "sourceSha256": "ee1de3834ab1ef70e7d90fbac1996e770fc9cda51d09a8eb76c95d75b52565a8",
+      "dataVersion": 1343,
+      "size": [
+        8,
+        6,
+        8
+      ],
+      "blocks": 384,
+      "palette": 12,
+      "markers": 36,
+      "blockEntities": 1,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:cracked_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothbiomass",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "2"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "1"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "3"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "5"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "6"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "4"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "crate10",
+        "crate11",
+        "crate12",
+        "crate13",
+        "crate14",
+        "crate15",
+        "crate16",
+        "crate17",
+        "crate18",
+        "crate19",
+        "crate20",
+        "crate21",
+        "crate22",
+        "crate23",
+        "crate24",
+        "crate25",
+        "crate26",
+        "crate27",
+        "crate3",
+        "crate28",
+        "crate6",
+        "crate31",
+        "crate9",
+        "crate34",
+        "crate2",
+        "crate29",
+        "crate5",
+        "crate32",
+        "crate8",
+        "crate35",
+        "crate1",
+        "crate30",
+        "crate4",
+        "crate33",
+        "crate7",
+        "crate36"
+      ],
+      "blockEntityIds": [
+        "abyssalcraft:tileentityshoggothbiomass"
+      ]
+    },
+    {
+      "path": "omothol/crates_3.nbt",
+      "sourceSha256": "55bdd7c5af062b06bb020f89830ed7cbbaaaa4daabd04df34234a2d05751a867",
+      "dataVersion": 1343,
+      "size": [
+        8,
+        6,
+        8
+      ],
+      "blocks": 384,
+      "palette": 5,
+      "markers": 21,
+      "blockEntities": 2,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "abyssalcraft:crate",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [
+        "crate7",
+        "crate6",
+        "crate11",
+        "crate13",
+        "crate10",
+        "crate18",
+        "crate3",
+        "crate5",
+        "crate12",
+        "crate17",
+        "crate8",
+        "crate9",
+        "crate19",
+        "crate20",
+        "crate2",
+        "crate4",
+        "crate14",
+        "crate16",
+        "crate21",
+        "crate1",
+        "crate15"
+      ],
+      "blockEntityIds": [
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentitycrate"
+      ]
+    },
+    {
+      "path": "omothol/crates_4.nbt",
+      "sourceSha256": "069e8d98067cf11e9f3ad90ba816226668d6cd5f2ecea87ea0a1a0fbfc1ecb9a",
+      "dataVersion": 1343,
+      "size": [
+        8,
+        6,
+        8
+      ],
+      "blocks": 384,
+      "palette": 13,
+      "markers": 21,
+      "blockEntities": 3,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:cracked_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "abyssalcraft:crate",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:shoggothbiomass",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "2"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "1"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "4"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "5"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "3"
+          }
+        },
+        {
+          "name": "abyssalcraft:shoggothblock",
+          "properties": {
+            "layers": "6"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "crate7",
+        "crate6",
+        "crate11",
+        "crate13",
+        "crate10",
+        "crate18",
+        "crate3",
+        "crate5",
+        "crate12",
+        "crate17",
+        "crate8",
+        "crate9",
+        "crate19",
+        "crate20",
+        "crate2",
+        "crate4",
+        "crate14",
+        "crate16",
+        "crate21",
+        "crate1",
+        "crate15"
+      ],
+      "blockEntityIds": [
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentitycrate",
+        "abyssalcraft:tileentityshoggothbiomass"
+      ]
+    },
+    {
+      "path": "omothol/farm.nbt",
+      "sourceSha256": "4186ca96e964572b43b85111d45481f0f1eff130f4a5dbb21768ce42ee4df5ba",
+      "dataVersion": 1343,
+      "size": [
+        11,
+        5,
+        14
+      ],
+      "blocks": 770,
+      "palette": 17,
+      "markers": 88,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:omotholstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:chiseled_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxium",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:cwater",
+          "properties": {
+            "level": "0"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "crystal0",
+        "crystal1",
+        "crystal2",
+        "crystal3",
+        "crystal44",
+        "crystal45",
+        "crystal46",
+        "crystal47",
+        "crystal4",
+        "crystal5",
+        "crystal6",
+        "crystal7",
+        "crystal48",
+        "crystal49",
+        "crystal50",
+        "crystal51",
+        "crystal8",
+        "crystal9",
+        "crystal10",
+        "crystal11",
+        "crystal52",
+        "crystal53",
+        "crystal54",
+        "crystal55",
+        "crystal12",
+        "crystal13",
+        "crystal14",
+        "crystal15",
+        "crystal56",
+        "crystal57",
+        "crystal58",
+        "crystal59",
+        "crystal16",
+        "crystal17",
+        "crystal18",
+        "crystal19",
+        "crystal60",
+        "crystal61",
+        "crystal62",
+        "crystal63",
+        "crystal20",
+        "crystal21",
+        "crystal22",
+        "crystal23",
+        "crystal64",
+        "crystal65",
+        "crystal66",
+        "crystal67",
+        "crystal24",
+        "crystal25",
+        "crystal26",
+        "crystal27",
+        "crystal68",
+        "crystal69",
+        "crystal70",
+        "crystal71",
+        "crystal28",
+        "crystal29",
+        "crystal30",
+        "crystal31",
+        "crystal72",
+        "crystal73",
+        "crystal74",
+        "crystal75",
+        "crystal32",
+        "crystal33",
+        "crystal34",
+        "crystal35",
+        "crystal76",
+        "crystal77",
+        "crystal78",
+        "crystal79",
+        "crystal36",
+        "crystal37",
+        "crystal38",
+        "crystal39",
+        "crystal80",
+        "crystal81",
+        "crystal82",
+        "crystal83",
+        "crystal40",
+        "crystal41",
+        "crystal42",
+        "crystal43",
+        "crystal84",
+        "crystal85",
+        "crystal86",
+        "crystal87"
+      ],
+      "blockEntityIds": []
+    },
+    {
+      "path": "omothol/farmhouse.nbt",
+      "sourceSha256": "3c44f4dfed6a13597adab50a8d23841d9cd88d61778dcdac6ba9732263b710e1",
+      "dataVersion": 1343,
+      "size": [
+        9,
+        9,
+        8
+      ],
+      "blocks": 451,
+      "palette": 22,
+      "markers": 2,
+      "blockEntities": 2,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:chiseled_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "x"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "z"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:bed",
+          "properties": {
+            "part": "foot",
+            "facing": "east",
+            "occupied": "false"
+          }
+        },
+        {
+          "name": "minecraft:bed",
+          "properties": {
+            "part": "head",
+            "facing": "east",
+            "occupied": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:stained_glass_pane",
+          "properties": {
+            "east": "false",
+            "color": "white",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:carpet",
+          "properties": {
+            "color": "silver"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "chest",
+        "remnant"
+      ],
+      "blockEntityIds": [
+        "minecraft:bed",
+        "minecraft:bed"
+      ]
+    },
+    {
+      "path": "omothol/house.nbt",
+      "sourceSha256": "35352ad24e11af1e7b8caca0af234c17520992fc7e3c713030ae77faedb4adcb",
+      "dataVersion": 1343,
+      "size": [
+        19,
+        10,
+        15
+      ],
+      "blocks": 1340,
+      "palette": 29,
+      "markers": 2,
+      "blockEntities": 21,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:chiseled_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "x"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "z"
+          }
+        },
+        {
+          "name": "minecraft:crafting_table",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:wall_banner",
+          "properties": {
+            "facing": "south"
+          }
+        },
+        {
+          "name": "minecraft:bed",
+          "properties": {
+            "part": "head",
+            "facing": "north",
+            "occupied": "false"
+          }
+        },
+        {
+          "name": "minecraft:bed",
+          "properties": {
+            "part": "foot",
+            "facing": "north",
+            "occupied": "false"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:wall_banner",
+          "properties": {
+            "facing": "west"
+          }
+        },
+        {
+          "name": "minecraft:furnace",
+          "properties": {
+            "facing": "west"
+          }
+        },
+        {
+          "name": "minecraft:wall_banner",
+          "properties": {
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "minecraft:stained_glass_pane",
+          "properties": {
+            "east": "false",
+            "color": "white",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "minecraft:carpet",
+          "properties": {
+            "color": "silver"
+          }
+        },
+        {
+          "name": "minecraft:wooden_door",
+          "properties": {
+            "hinge": "left",
+            "half": "lower",
+            "powered": "false",
+            "facing": "west",
+            "open": "false"
+          }
+        },
+        {
+          "name": "minecraft:wooden_door",
+          "properties": {
+            "hinge": "left",
+            "half": "upper",
+            "powered": "false",
+            "facing": "north",
+            "open": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "chest",
+        "remnant"
+      ],
+      "blockEntityIds": [
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:bed",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:bed",
+        "minecraft:banner",
+        "minecraft:furnace",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner",
+        "minecraft:banner"
+      ]
+    },
+    {
+      "path": "omothol/library.nbt",
+      "sourceSha256": "99f882bcc21da8c5ef2dbee9aea794f0b85e877d61414471aba5f8ed2a654b68",
+      "dataVersion": 1343,
+      "size": [
+        12,
+        12,
+        16
+      ],
+      "blocks": 1284,
+      "palette": 25,
+      "markers": 2,
+      "blockEntities": 2,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:chiseled_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "x"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "z"
+          }
+        },
+        {
+          "name": "minecraft:bookshelf",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:crafting_table",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:bed",
+          "properties": {
+            "part": "head",
+            "facing": "north",
+            "occupied": "false"
+          }
+        },
+        {
+          "name": "minecraft:bed",
+          "properties": {
+            "part": "foot",
+            "facing": "north",
+            "occupied": "false"
+          }
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "minecraft:stained_glass_pane",
+          "properties": {
+            "east": "false",
+            "color": "white",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:wooden_door",
+          "properties": {
+            "hinge": "left",
+            "half": "lower",
+            "powered": "false",
+            "facing": "west",
+            "open": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:wooden_door",
+          "properties": {
+            "hinge": "left",
+            "half": "upper",
+            "powered": "false",
+            "facing": "north",
+            "open": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "minecraft:carpet",
+          "properties": {
+            "color": "silver"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "remnant",
+        "chest"
+      ],
+      "blockEntityIds": [
+        "minecraft:bed",
+        "minecraft:bed"
+      ]
+    },
+    {
+      "path": "omothol/storage.nbt",
+      "sourceSha256": "89afddb9407e7a48c7698bc027b3f75493ce4c78bf14568a39ec00e7d4c3c15a",
+      "dataVersion": 1343,
+      "size": [
+        16,
+        7,
+        18
+      ],
+      "blocks": 1780,
+      "palette": 16,
+      "markers": 0,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:chiseled_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "x"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": []
+    },
+    {
+      "path": "omothol/temple.nbt",
+      "sourceSha256": "1eebf63755833ce794674e409da5b82af6435733185a892b236289e016808ebf",
+      "dataVersion": 1343,
+      "size": [
+        27,
+        17,
+        28
+      ],
+      "blocks": 11628,
+      "palette": 18,
+      "markers": 3,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:ethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:chiseled_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:monolithstone",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:monolithpillar",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "statue_center",
+        "statue_left",
+        "statue_right"
+      ],
+      "blockEntityIds": []
+    },
+    {
+      "path": "omothol/tower_1.nbt",
+      "sourceSha256": "5d1ff7cb6721145f26e00386ee4cbf23be1518a3f6754f5d1716393b55103ca9",
+      "dataVersion": 1343,
+      "size": [
+        13,
+        32,
+        13
+      ],
+      "blocks": 1282,
+      "palette": 13,
+      "markers": 0,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:chiseled_dark_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": []
+    },
+    {
+      "path": "omothol/tower_2.nbt",
+      "sourceSha256": "fbf839b145021c97c9f9a5057ae2d4f74fb26cc2e6d1b3a496f5496adbff394a",
+      "dataVersion": 1343,
+      "size": [
+        13,
+        19,
+        13
+      ],
+      "blocks": 235,
+      "palette": 12,
+      "markers": 0,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:chiseled_dark_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": []
+    },
+    {
+      "path": "shoggothlair/shoggothlair_1.nbt",
+      "sourceSha256": "967bc6ebad6e9877ce3f0f955663f1c3d8e9ecbdc657283599d45d95fb6ba1c3",
+      "dataVersion": 1343,
+      "size": [
+        13,
+        10,
+        28
+      ],
+      "blocks": 2274,
+      "palette": 3,
+      "markers": 53,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:monolithstone",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "bm1",
+        "statue4",
+        "statue5",
+        "statue3",
+        "statue6",
+        "statue2",
+        "statue7",
+        "statue1",
+        "statue8"
+      ],
+      "blockEntityIds": []
+    },
+    {
+      "path": "shoggothlair/shoggothlair_2.nbt",
+      "sourceSha256": "405eb74db8799a4fc1d24aa72f090ba03e0b64c5bd3e351f1a23ddacfe018180",
+      "dataVersion": 1343,
+      "size": [
+        13,
+        10,
+        23
+      ],
+      "blocks": 1763,
+      "palette": 4,
+      "markers": 24,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:monolithstone",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:monolithpillar",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [
+        "statue2",
+        "bm2",
+        "bm3",
+        "bm4",
+        "bm1",
+        "bm5",
+        "bm6",
+        "bm7",
+        "bm8",
+        "bm9",
+        "bm10",
+        "bm11",
+        "bm12",
+        "bm13",
+        "statue1",
+        "statue3",
+        "bm14",
+        "bm15",
+        "bm16",
+        "bm17",
+        "bm18",
+        "bm19",
+        "bm20",
+        "bm21"
+      ],
+      "blockEntityIds": []
+    },
+    {
+      "path": "shoggothlair/shoggothlair_3.nbt",
+      "sourceSha256": "9386565720f21c234b873197ee305d4396912c651ab1dc18eddc544222081758",
+      "dataVersion": 1343,
+      "size": [
+        13,
+        10,
+        21
+      ],
+      "blocks": 1579,
+      "palette": 4,
+      "markers": 10,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:monolithstone",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:monolithpillar",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [
+        "bm4",
+        "bm5",
+        "bm6",
+        "bm3",
+        "bm7",
+        "bm2",
+        "bm8",
+        "statue1",
+        "bm1",
+        "bm9"
+      ],
+      "blockEntityIds": []
+    },
+    {
+      "path": "shrine/dark_shrine.nbt",
+      "sourceSha256": "6f444ae6a04dfe47c9b61a74a86c0068938ec467fd72d1dad80ac71949cf9f44",
+      "dataVersion": 1343,
+      "size": [
+        11,
+        7,
+        11
+      ],
+      "blocks": 467,
+      "palette": 15,
+      "markers": 1,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:darkstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkstone_cobble",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkstone_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chiseled_darkstone_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dsglow",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:structure_block",
+          "properties": {
+            "mode": "data"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:dbstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:dbstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:dbstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:dbstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:dbstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:dbstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:dbstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:dbstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        }
+      ],
+      "markerMetadata": [
+        "idol"
+      ],
+      "blockEntityIds": []
+    },
+    {
+      "path": "temple/jzahartemple_back.nbt",
+      "sourceSha256": "b0ba8327a2580b171251f4f091a9bb40975e8cd872283b42f7a3cd4d9e96fc78",
+      "dataVersion": 1343,
+      "size": [
+        27,
+        30,
+        28
+      ],
+      "blocks": 14717,
+      "palette": 19,
+      "markers": 0,
+      "blockEntities": 3,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:darkethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:monolithstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:chiseled_dark_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:bookshelf",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:gatekeeperminionspawner",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:jzaharspawner",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:monolithpillar",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:decorativejzaharstatue",
+          "properties": {
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:decorativejzaharstatue",
+          "properties": {
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": [
+        "abyssalcraft:tileentitygatekeeperminionspawner",
+        "abyssalcraft:tileentitygatekeeperminionspawner",
+        "abyssalcraft:tileentityjzaharspawner"
+      ]
+    },
+    {
+      "path": "temple/jzahartemple_front_left.nbt",
+      "sourceSha256": "0b5728b4c7d2aa472447c8b4626b0055b0223a33a049586c6802b143839e534a",
+      "dataVersion": 1343,
+      "size": [
+        9,
+        21,
+        32
+      ],
+      "blocks": 189,
+      "palette": 2,
+      "markers": 0,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:darkethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": []
+    },
+    {
+      "path": "temple/jzahartemple_front_middle.nbt",
+      "sourceSha256": "217753033c95bf6633c33c4a0ab3d2223c2e36985232942ffd3a3dc26c2ff74a",
+      "dataVersion": 1343,
+      "size": [
+        32,
+        25,
+        32
+      ],
+      "blocks": 14104,
+      "palette": 20,
+      "markers": 0,
+      "blockEntities": 2,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:darkethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:monolithstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:chiseled_dark_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:ethaxium",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:gatekeeperminionspawner",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:monolithpillar",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:decorativejzaharstatue",
+          "properties": {
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": [
+        "abyssalcraft:tileentitygatekeeperminionspawner",
+        "abyssalcraft:tileentitygatekeeperminionspawner"
+      ]
+    },
+    {
+      "path": "temple/jzahartemple_front_right.nbt",
+      "sourceSha256": "cfa5f95b813b4823cee8873703f50f170cf62aece2f3875e269f46e89fd31e0c",
+      "dataVersion": 1343,
+      "size": [
+        32,
+        25,
+        32
+      ],
+      "blocks": 7638,
+      "palette": 18,
+      "markers": 0,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:darkethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:monolithstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chiseled_dark_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:monolithpillar",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:decorativejzaharstatue",
+          "properties": {
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": []
+    },
+    {
+      "path": "temple/jzahartemple_middle_left.nbt",
+      "sourceSha256": "7326011fc0cea657e58e19e88e1d284fa8a79c3d8511d051c685f2e4183f243c",
+      "dataVersion": 1343,
+      "size": [
+        9,
+        21,
+        15
+      ],
+      "blocks": 2376,
+      "palette": 6,
+      "markers": 0,
+      "blockEntities": 0,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:darkethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:monolithstone",
+          "properties": {}
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": []
+    },
+    {
+      "path": "temple/jzahartemple_middle_middle.nbt",
+      "sourceSha256": "8b3adca2873f7ed8f99236e37be5bd72a3fcf876c2bdd0bdc3c8d5ccfcb126bc",
+      "dataVersion": 1343,
+      "size": [
+        32,
+        25,
+        32
+      ],
+      "blocks": 15732,
+      "palette": 18,
+      "markers": 0,
+      "blockEntities": 2,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:darkethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:monolithstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chiseled_dark_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:gatekeeperminionspawner",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:monolithpillar",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:decorativejzaharstatue",
+          "properties": {
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": [
+        "abyssalcraft:tileentitygatekeeperminionspawner",
+        "abyssalcraft:tileentitygatekeeperminionspawner"
+      ]
+    },
+    {
+      "path": "temple/jzahartemple_middle_right.nbt",
+      "sourceSha256": "b0ffe3c809f0569b212e81b3b53ef1420c5e6b8adf61efab64090e6c36ebdf9d",
+      "dataVersion": 1343,
+      "size": [
+        32,
+        25,
+        32
+      ],
+      "blocks": 11428,
+      "palette": 16,
+      "markers": 0,
+      "blockEntities": 2,
+      "entities": 0,
+      "states": [
+        {
+          "name": "abyssalcraft:darkethaxiumbrick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:monolithstone",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:chiseled_dark_ethaxium_brick",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumpillar",
+          "properties": {
+            "axis": "y"
+          }
+        },
+        {
+          "name": "abyssalcraft:gatekeeperminionspawner",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "north"
+          }
+        },
+        {
+          "name": "minecraft:air",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickfence",
+          "properties": {
+            "east": "false",
+            "south": "false",
+            "north": "false",
+            "west": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "west"
+          }
+        },
+        {
+          "name": "abyssalcraft:monolithpillar",
+          "properties": {}
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "bottom",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:decorativejzaharstatue",
+          "properties": {
+            "facing": "east"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickstairs",
+          "properties": {
+            "half": "top",
+            "shape": "straight",
+            "facing": "south"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "bottom",
+            "variant": "false"
+          }
+        },
+        {
+          "name": "abyssalcraft:darkethaxiumbrickslab1",
+          "properties": {
+            "half": "top",
+            "variant": "false"
+          }
+        }
+      ],
+      "markerMetadata": [],
+      "blockEntityIds": [
+        "abyssalcraft:tileentitygatekeeperminionspawner",
+        "abyssalcraft:tileentitygatekeeperminionspawner"
+      ]
+    }
+  ],
+  "totals": {
+    "blocks": 118605,
+    "markers": 336,
+    "blockEntities": 74,
+    "entities": 0
+  },
+  "paletteNames": [
+    "abyssalcraft:antiwater",
+    "abyssalcraft:calcifiedstone",
+    "abyssalcraft:chagarothspawner",
+    "abyssalcraft:chiseled_dark_ethaxium_brick",
+    "abyssalcraft:chiseled_darkstone_brick",
+    "abyssalcraft:chiseled_dreadstone_brick",
+    "abyssalcraft:chiseled_elysian_stone_brick",
+    "abyssalcraft:chiseled_ethaxium_brick",
+    "abyssalcraft:cracked_ethaxium_brick",
+    "abyssalcraft:crate",
+    "abyssalcraft:crystallizer",
+    "abyssalcraft:cwater",
+    "abyssalcraft:darkethaxiumbrick",
+    "abyssalcraft:darkethaxiumbrickfence",
+    "abyssalcraft:darkethaxiumbrickslab1",
+    "abyssalcraft:darkethaxiumbrickstairs",
+    "abyssalcraft:darkethaxiumpillar",
+    "abyssalcraft:darkstone",
+    "abyssalcraft:darkstone_brick",
+    "abyssalcraft:darkstone_cobble",
+    "abyssalcraft:dbstairs",
+    "abyssalcraft:decorativejzaharstatue",
+    "abyssalcraft:dreadbrick",
+    "abyssalcraft:dreadbrickfence",
+    "abyssalcraft:dreadbrickslab1",
+    "abyssalcraft:dreadbrickstairs",
+    "abyssalcraft:dreadguardspawner",
+    "abyssalcraft:dreadiumblock",
+    "abyssalcraft:dreadstone",
+    "abyssalcraft:dreadstonecobblestone",
+    "abyssalcraft:dreadstonecobblestoneslab1",
+    "abyssalcraft:dsglow",
+    "abyssalcraft:elysian_cobblestone",
+    "abyssalcraft:elysian_stone",
+    "abyssalcraft:elysian_stone_brick",
+    "abyssalcraft:elysian_stone_brick_fence",
+    "abyssalcraft:elysian_stone_brick_slab1",
+    "abyssalcraft:elysian_stone_brick_stairs",
+    "abyssalcraft:elysiancobblestoneslab1",
+    "abyssalcraft:ethaxium",
+    "abyssalcraft:ethaxiumbrick",
+    "abyssalcraft:ethaxiumbrickslab1",
+    "abyssalcraft:ethaxiumbrickstairs",
+    "abyssalcraft:ethaxiumfence",
+    "abyssalcraft:ethaxiumpillar",
+    "abyssalcraft:gatekeeperminionspawner",
+    "abyssalcraft:jzaharspawner",
+    "abyssalcraft:monolithpillar",
+    "abyssalcraft:monolithstone",
+    "abyssalcraft:omotholstone",
+    "abyssalcraft:sealing_lock",
+    "abyssalcraft:shoggothbiomass",
+    "abyssalcraft:shoggothblock",
+    "abyssalcraft:unlocked_sealing_lock",
+    "minecraft:air",
+    "minecraft:anvil",
+    "minecraft:bed",
+    "minecraft:bookshelf",
+    "minecraft:brewing_stand",
+    "minecraft:carpet",
+    "minecraft:chest",
+    "minecraft:crafting_table",
+    "minecraft:dirt",
+    "minecraft:enchanting_table",
+    "minecraft:furnace",
+    "minecraft:grass",
+    "minecraft:iron_bars",
+    "minecraft:ladder",
+    "minecraft:lava",
+    "minecraft:piston_head",
+    "minecraft:redstone_torch",
+    "minecraft:redstone_wire",
+    "minecraft:sand",
+    "minecraft:stained_glass_pane",
+    "minecraft:sticky_piston",
+    "minecraft:stone_button",
+    "minecraft:stone_pressure_plate",
+    "minecraft:structure_block",
+    "minecraft:torch",
+    "minecraft:unlit_redstone_torch",
+    "minecraft:unpowered_repeater",
+    "minecraft:wall_banner",
+    "minecraft:wooden_button",
+    "minecraft:wooden_door"
+  ],
+  "paletteStates": [
+    {
+      "name": "abyssalcraft:antiwater",
+      "properties": {
+        "level": "0"
+      }
+    },
+    {
+      "name": "abyssalcraft:calcifiedstone",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:chagarothspawner",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:chiseled_dark_ethaxium_brick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:chiseled_darkstone_brick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:chiseled_dreadstone_brick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:chiseled_elysian_stone_brick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:chiseled_ethaxium_brick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:cracked_ethaxium_brick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:crate",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:crystallizer",
+      "properties": {
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:cwater",
+      "properties": {
+        "level": "0"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickfence",
+      "properties": {
+        "east": "false",
+        "south": "false",
+        "north": "false",
+        "west": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickslab1",
+      "properties": {
+        "half": "bottom",
+        "variant": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickslab1",
+      "properties": {
+        "half": "top",
+        "variant": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkethaxiumpillar",
+      "properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "name": "abyssalcraft:darkstone",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:darkstone_brick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:darkstone_cobble",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:dbstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:dbstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "abyssalcraft:dbstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:dbstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:dbstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:dbstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "abyssalcraft:dbstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:dbstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:decorativejzaharstatue",
+      "properties": {
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:decorativejzaharstatue",
+      "properties": {
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:decorativejzaharstatue",
+      "properties": {
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:dreadbrickfence",
+      "properties": {
+        "east": "false",
+        "south": "false",
+        "north": "false",
+        "west": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrickslab1",
+      "properties": {
+        "half": "bottom",
+        "variant": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrickslab1",
+      "properties": {
+        "half": "top",
+        "variant": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:dreadguardspawner",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:dreadiumblock",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:dreadstone",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:dreadstonecobblestone",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:dreadstonecobblestoneslab1",
+      "properties": {
+        "half": "bottom",
+        "variant": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:dsglow",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:elysian_cobblestone",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:elysian_stone",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_fence",
+      "properties": {
+        "east": "false",
+        "south": "false",
+        "north": "false",
+        "west": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_slab1",
+      "properties": {
+        "half": "bottom",
+        "variant": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_slab1",
+      "properties": {
+        "half": "top",
+        "variant": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_stairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_stairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_stairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_stairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_stairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_stairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_stairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysian_stone_brick_stairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:elysiancobblestoneslab1",
+      "properties": {
+        "half": "bottom",
+        "variant": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxium",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrick",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrickslab1",
+      "properties": {
+        "half": "bottom",
+        "variant": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrickslab1",
+      "properties": {
+        "half": "top",
+        "variant": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrickstairs",
+      "properties": {
+        "half": "bottom",
+        "shape": "straight",
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumbrickstairs",
+      "properties": {
+        "half": "top",
+        "shape": "straight",
+        "facing": "west"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumfence",
+      "properties": {
+        "east": "false",
+        "south": "false",
+        "north": "false",
+        "west": "false"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumpillar",
+      "properties": {
+        "axis": "x"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumpillar",
+      "properties": {
+        "axis": "y"
+      }
+    },
+    {
+      "name": "abyssalcraft:ethaxiumpillar",
+      "properties": {
+        "axis": "z"
+      }
+    },
+    {
+      "name": "abyssalcraft:gatekeeperminionspawner",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:jzaharspawner",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:monolithpillar",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:monolithstone",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:omotholstone",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:sealing_lock",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:shoggothbiomass",
+      "properties": {}
+    },
+    {
+      "name": "abyssalcraft:shoggothblock",
+      "properties": {
+        "layers": "1"
+      }
+    },
+    {
+      "name": "abyssalcraft:shoggothblock",
+      "properties": {
+        "layers": "2"
+      }
+    },
+    {
+      "name": "abyssalcraft:shoggothblock",
+      "properties": {
+        "layers": "3"
+      }
+    },
+    {
+      "name": "abyssalcraft:shoggothblock",
+      "properties": {
+        "layers": "4"
+      }
+    },
+    {
+      "name": "abyssalcraft:shoggothblock",
+      "properties": {
+        "layers": "5"
+      }
+    },
+    {
+      "name": "abyssalcraft:shoggothblock",
+      "properties": {
+        "layers": "6"
+      }
+    },
+    {
+      "name": "abyssalcraft:unlocked_sealing_lock",
+      "properties": {}
+    },
+    {
+      "name": "minecraft:air",
+      "properties": {}
+    },
+    {
+      "name": "minecraft:anvil",
+      "properties": {
+        "damage": "0",
+        "facing": "north"
+      }
+    },
+    {
+      "name": "minecraft:bed",
+      "properties": {
+        "part": "foot",
+        "facing": "east",
+        "occupied": "false"
+      }
+    },
+    {
+      "name": "minecraft:bed",
+      "properties": {
+        "part": "foot",
+        "facing": "north",
+        "occupied": "false"
+      }
+    },
+    {
+      "name": "minecraft:bed",
+      "properties": {
+        "part": "head",
+        "facing": "east",
+        "occupied": "false"
+      }
+    },
+    {
+      "name": "minecraft:bed",
+      "properties": {
+        "part": "head",
+        "facing": "north",
+        "occupied": "false"
+      }
+    },
+    {
+      "name": "minecraft:bookshelf",
+      "properties": {}
+    },
+    {
+      "name": "minecraft:brewing_stand",
+      "properties": {
+        "has_bottle_0": "true",
+        "has_bottle_1": "true",
+        "has_bottle_2": "false"
+      }
+    },
+    {
+      "name": "minecraft:brewing_stand",
+      "properties": {
+        "has_bottle_0": "true",
+        "has_bottle_1": "true",
+        "has_bottle_2": "true"
+      }
+    },
+    {
+      "name": "minecraft:carpet",
+      "properties": {
+        "color": "red"
+      }
+    },
+    {
+      "name": "minecraft:carpet",
+      "properties": {
+        "color": "silver"
+      }
+    },
+    {
+      "name": "minecraft:chest",
+      "properties": {
+        "facing": "north"
+      }
+    },
+    {
+      "name": "minecraft:crafting_table",
+      "properties": {}
+    },
+    {
+      "name": "minecraft:dirt",
+      "properties": {
+        "variant": "dirt",
+        "snowy": "false"
+      }
+    },
+    {
+      "name": "minecraft:enchanting_table",
+      "properties": {}
+    },
+    {
+      "name": "minecraft:furnace",
+      "properties": {
+        "facing": "east"
+      }
+    },
+    {
+      "name": "minecraft:furnace",
+      "properties": {
+        "facing": "west"
+      }
+    },
+    {
+      "name": "minecraft:grass",
+      "properties": {
+        "snowy": "false"
+      }
+    },
+    {
+      "name": "minecraft:iron_bars",
+      "properties": {
+        "east": "false",
+        "south": "false",
+        "north": "false",
+        "west": "false"
+      }
+    },
+    {
+      "name": "minecraft:ladder",
+      "properties": {
+        "facing": "east"
+      }
+    },
+    {
+      "name": "minecraft:ladder",
+      "properties": {
+        "facing": "west"
+      }
+    },
+    {
+      "name": "minecraft:lava",
+      "properties": {
+        "level": "0"
+      }
+    },
+    {
+      "name": "minecraft:lava",
+      "properties": {
+        "level": "8"
+      }
+    },
+    {
+      "name": "minecraft:piston_head",
+      "properties": {
+        "facing": "east",
+        "short": "false",
+        "type": "sticky"
+      }
+    },
+    {
+      "name": "minecraft:piston_head",
+      "properties": {
+        "facing": "south",
+        "short": "false",
+        "type": "sticky"
+      }
+    },
+    {
+      "name": "minecraft:piston_head",
+      "properties": {
+        "facing": "up",
+        "short": "false",
+        "type": "sticky"
+      }
+    },
+    {
+      "name": "minecraft:redstone_torch",
+      "properties": {
+        "facing": "east"
+      }
+    },
+    {
+      "name": "minecraft:redstone_torch",
+      "properties": {
+        "facing": "south"
+      }
+    },
+    {
+      "name": "minecraft:redstone_torch",
+      "properties": {
+        "facing": "up"
+      }
+    },
+    {
+      "name": "minecraft:redstone_wire",
+      "properties": {
+        "east": "none",
+        "south": "none",
+        "north": "none",
+        "west": "none",
+        "power": "0"
+      }
+    },
+    {
+      "name": "minecraft:redstone_wire",
+      "properties": {
+        "east": "none",
+        "south": "none",
+        "north": "none",
+        "west": "none",
+        "power": "15"
+      }
+    },
+    {
+      "name": "minecraft:sand",
+      "properties": {
+        "variant": "sand"
+      }
+    },
+    {
+      "name": "minecraft:stained_glass_pane",
+      "properties": {
+        "east": "false",
+        "color": "white",
+        "south": "false",
+        "north": "false",
+        "west": "false"
+      }
+    },
+    {
+      "name": "minecraft:sticky_piston",
+      "properties": {
+        "facing": "east",
+        "extended": "true"
+      }
+    },
+    {
+      "name": "minecraft:sticky_piston",
+      "properties": {
+        "facing": "south",
+        "extended": "true"
+      }
+    },
+    {
+      "name": "minecraft:sticky_piston",
+      "properties": {
+        "facing": "up",
+        "extended": "true"
+      }
+    },
+    {
+      "name": "minecraft:stone_button",
+      "properties": {
+        "powered": "false",
+        "facing": "east"
+      }
+    },
+    {
+      "name": "minecraft:stone_pressure_plate",
+      "properties": {
+        "powered": "false"
+      }
+    },
+    {
+      "name": "minecraft:structure_block",
+      "properties": {
+        "mode": "data"
+      }
+    },
+    {
+      "name": "minecraft:torch",
+      "properties": {
+        "facing": "east"
+      }
+    },
+    {
+      "name": "minecraft:torch",
+      "properties": {
+        "facing": "north"
+      }
+    },
+    {
+      "name": "minecraft:torch",
+      "properties": {
+        "facing": "south"
+      }
+    },
+    {
+      "name": "minecraft:torch",
+      "properties": {
+        "facing": "west"
+      }
+    },
+    {
+      "name": "minecraft:unlit_redstone_torch",
+      "properties": {
+        "facing": "east"
+      }
+    },
+    {
+      "name": "minecraft:unpowered_repeater",
+      "properties": {
+        "delay": "1",
+        "facing": "east",
+        "locked": "false"
+      }
+    },
+    {
+      "name": "minecraft:unpowered_repeater",
+      "properties": {
+        "delay": "1",
+        "facing": "south",
+        "locked": "false"
+      }
+    },
+    {
+      "name": "minecraft:unpowered_repeater",
+      "properties": {
+        "delay": "1",
+        "facing": "west",
+        "locked": "false"
+      }
+    },
+    {
+      "name": "minecraft:wall_banner",
+      "properties": {
+        "facing": "east"
+      }
+    },
+    {
+      "name": "minecraft:wall_banner",
+      "properties": {
+        "facing": "north"
+      }
+    },
+    {
+      "name": "minecraft:wall_banner",
+      "properties": {
+        "facing": "south"
+      }
+    },
+    {
+      "name": "minecraft:wall_banner",
+      "properties": {
+        "facing": "west"
+      }
+    },
+    {
+      "name": "minecraft:wooden_button",
+      "properties": {
+        "powered": "false",
+        "facing": "south"
+      }
+    },
+    {
+      "name": "minecraft:wooden_door",
+      "properties": {
+        "hinge": "left",
+        "half": "lower",
+        "powered": "false",
+        "facing": "north",
+        "open": "false"
+      }
+    },
+    {
+      "name": "minecraft:wooden_door",
+      "properties": {
+        "hinge": "left",
+        "half": "lower",
+        "powered": "false",
+        "facing": "south",
+        "open": "false"
+      }
+    },
+    {
+      "name": "minecraft:wooden_door",
+      "properties": {
+        "hinge": "left",
+        "half": "lower",
+        "powered": "false",
+        "facing": "west",
+        "open": "false"
+      }
+    },
+    {
+      "name": "minecraft:wooden_door",
+      "properties": {
+        "hinge": "left",
+        "half": "upper",
+        "powered": "false",
+        "facing": "north",
+        "open": "false"
+      }
+    }
+  ],
+  "markerMetadata": [
+    "bm1",
+    "bm10",
+    "bm11",
+    "bm12",
+    "bm13",
+    "bm14",
+    "bm15",
+    "bm16",
+    "bm17",
+    "bm18",
+    "bm19",
+    "bm2",
+    "bm20",
+    "bm21",
+    "bm3",
+    "bm4",
+    "bm5",
+    "bm6",
+    "bm7",
+    "bm8",
+    "bm9",
+    "chest",
+    "crate1",
+    "crate10",
+    "crate11",
+    "crate12",
+    "crate13",
+    "crate14",
+    "crate15",
+    "crate16",
+    "crate17",
+    "crate18",
+    "crate19",
+    "crate2",
+    "crate20",
+    "crate21",
+    "crate22",
+    "crate23",
+    "crate24",
+    "crate25",
+    "crate26",
+    "crate27",
+    "crate28",
+    "crate29",
+    "crate3",
+    "crate30",
+    "crate31",
+    "crate32",
+    "crate33",
+    "crate34",
+    "crate35",
+    "crate36",
+    "crate4",
+    "crate5",
+    "crate6",
+    "crate7",
+    "crate8",
+    "crate9",
+    "crystal0",
+    "crystal1",
+    "crystal10",
+    "crystal11",
+    "crystal12",
+    "crystal13",
+    "crystal14",
+    "crystal15",
+    "crystal16",
+    "crystal17",
+    "crystal18",
+    "crystal19",
+    "crystal2",
+    "crystal20",
+    "crystal21",
+    "crystal22",
+    "crystal23",
+    "crystal24",
+    "crystal25",
+    "crystal26",
+    "crystal27",
+    "crystal28",
+    "crystal29",
+    "crystal3",
+    "crystal30",
+    "crystal31",
+    "crystal32",
+    "crystal33",
+    "crystal34",
+    "crystal35",
+    "crystal36",
+    "crystal37",
+    "crystal38",
+    "crystal39",
+    "crystal4",
+    "crystal40",
+    "crystal41",
+    "crystal42",
+    "crystal43",
+    "crystal44",
+    "crystal45",
+    "crystal46",
+    "crystal47",
+    "crystal48",
+    "crystal49",
+    "crystal5",
+    "crystal50",
+    "crystal51",
+    "crystal52",
+    "crystal53",
+    "crystal54",
+    "crystal55",
+    "crystal56",
+    "crystal57",
+    "crystal58",
+    "crystal59",
+    "crystal6",
+    "crystal60",
+    "crystal61",
+    "crystal62",
+    "crystal63",
+    "crystal64",
+    "crystal65",
+    "crystal66",
+    "crystal67",
+    "crystal68",
+    "crystal69",
+    "crystal7",
+    "crystal70",
+    "crystal71",
+    "crystal72",
+    "crystal73",
+    "crystal74",
+    "crystal75",
+    "crystal76",
+    "crystal77",
+    "crystal78",
+    "crystal79",
+    "crystal8",
+    "crystal80",
+    "crystal81",
+    "crystal82",
+    "crystal83",
+    "crystal84",
+    "crystal85",
+    "crystal86",
+    "crystal87",
+    "crystal9",
+    "idol",
+    "pedestal",
+    "remnant",
+    "statue1",
+    "statue2",
+    "statue3",
+    "statue4",
+    "statue5",
+    "statue6",
+    "statue7",
+    "statue8",
+    "statue_center",
+    "statue_left",
+    "statue_right",
+    "tombstone",
+    "treasure",
+    "tree"
+  ],
+  "blockEntityIds": [
+    "abyssalcraft:tileentitychagarothspawner",
+    "abyssalcraft:tileentitycrate",
+    "abyssalcraft:tileentitycrystallizer",
+    "abyssalcraft:tileentitydradguardspawner",
+    "abyssalcraft:tileentitygatekeeperminionspawner",
+    "abyssalcraft:tileentityjzaharspawner",
+    "abyssalcraft:tileentityshoggothbiomass",
+    "minecraft:banner",
+    "minecraft:bed",
+    "minecraft:brewing_stand",
+    "minecraft:chest",
+    "minecraft:enchanting_table",
+    "minecraft:furnace"
+  ]
+}

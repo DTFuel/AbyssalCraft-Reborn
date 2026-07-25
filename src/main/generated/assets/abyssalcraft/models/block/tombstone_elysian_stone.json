@@ -1,0 +1,7 @@
+{
+  "parent": "abyssalcraft:block/deco_tombstone",
+  "textures": {
+    "all": "abyssalcraft:block/elysian_stone",
+    "particle": "abyssalcraft:block/elysian_stone"
+  }
+}

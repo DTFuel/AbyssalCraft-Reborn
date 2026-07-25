@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "experience": 0.1,
+  "input": {
+    "item": "abyssalcraft:anti_chicken"
+  },
+  "result": {
+    "count": 1,
+    "item": "minecraft:cooked_chicken"
+  },
+  "time": 200
+}

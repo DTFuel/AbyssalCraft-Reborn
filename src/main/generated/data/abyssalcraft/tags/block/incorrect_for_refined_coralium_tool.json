@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#abyssalcraft:requires_dreadium_tool",
+    "#abyssalcraft:requires_ethaxium_tool"
+  ]
+}

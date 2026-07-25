@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:gold_crystal_cluster"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:gold_crystal",
+    "count": 9
+  }
+}

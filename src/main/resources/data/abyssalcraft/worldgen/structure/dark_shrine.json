@@ -1,0 +1,8 @@
+{
+  "type": "abyssalcraft:structure",
+  "kind": "dark_shrine",
+  "biomes": "#abyssalcraft:has_structure/dark_shrine",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin"
+}

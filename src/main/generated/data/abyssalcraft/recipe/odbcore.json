@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:abyssalnite_ingot"
+    },
+    "$": {
+      "item": "minecraft:iron_ingot"
+    },
+    "&": {
+      "item": "minecraft:iron_block"
+    },
+    "@": {
+      "item": "abyssalcraft:coralium_pearl"
+    }
+  },
+  "pattern": [
+    "#&#",
+    "$@$",
+    "#&#"
+  ],
+  "result": {
+    "id": "abyssalcraft:odb_core"
+  }
+}

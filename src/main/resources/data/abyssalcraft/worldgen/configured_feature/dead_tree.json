@@ -1,0 +1,11 @@
+{
+  "type": "abyssalcraft:dead_tree",
+  "config": {
+    "state": {
+      "Name": "abyssalcraft:dead_tree_log",
+      "Properties": {
+        "axis": "y"
+      }
+    }
+  }
+}

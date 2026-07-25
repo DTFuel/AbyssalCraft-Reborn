@@ -1,0 +1,99 @@
+{
+  "display": {
+    "icon": {
+      "item": "abyssalcraft:coralium_gem"
+    },
+    "title": {
+      "translate": "advancements.abyssalcraft.minecorgem.title"
+    },
+    "description": {
+      "translate": "advancements.abyssalcraft.minecorgem.description"
+    }
+  },
+  "parent": "abyssalcraft:mine_abyssalnite",
+  "criteria": {
+    "gem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:coralium_gem"
+        ]
+      }
+    },
+    "ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:coralium_ore"
+        ]
+      }
+    },
+    "cc2": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:coralium_gem_cluster_2"
+        ]
+      }
+    },
+    "cc3": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:coralium_gem_cluster_3"
+        ]
+      }
+    },
+    "cc4": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:coralium_gem_cluster_4"
+        ]
+      }
+    },
+    "cc5": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:coralium_gem_cluster_5"
+        ]
+      }
+    },
+    "cc6": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:coralium_gem_cluster_6"
+        ]
+      }
+    },
+    "cc7": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:coralium_gem_cluster_7"
+        ]
+      }
+    },
+    "cc8": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:coralium_gem_cluster_8"
+        ]
+      }
+    },
+    "cc9": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:coralium_gem_cluster_9"
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["gem", "ore", "cc2", "cc3", "cc4", "cc5", "cc6", "cc7", "cc8", "cc9"]
+  ]
+}

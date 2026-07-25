@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "abyssalcraft:monolith_stone"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "tag": "abyssalcraft:legacy/dye_orange"
+    }
+  ],
+  "result": {
+    "id": "abyssalcraft:decorative_yog_sothoth_statue"
+  }
+}

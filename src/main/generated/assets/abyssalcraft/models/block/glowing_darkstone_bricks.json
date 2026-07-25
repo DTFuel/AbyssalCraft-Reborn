@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "abyssalcraft:block/darkstone_brick",
+    "side": "abyssalcraft:block/glowing_darkstone_bricks"
+  }
+}

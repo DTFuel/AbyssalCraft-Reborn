@@ -1,0 +1,72 @@
+{
+  "type": "abyssalcraft:dreadlands",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "abyssalcraft:dreadlands",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "abyssalcraft:dreadlands",
+          "parameters": {
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": 0.0,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "abyssalcraft:dreadlands_forest",
+          "parameters": {
+            "temperature": 0.0,
+            "humidity": 0.75,
+            "continentalness": 0.0,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "abyssalcraft:dreadlands_mountains",
+          "parameters": {
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": 0.85,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "abyssalcraft:dreadlands_ocean",
+          "parameters": {
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": -0.85,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "abyssalcraft:darklands",
+          "parameters": {
+            "temperature": -0.75,
+            "humidity": 0.5,
+            "continentalness": 0.35,
+            "erosion": 0.25,
+            "depth": 0.0,
+            "weirdness": -0.6,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

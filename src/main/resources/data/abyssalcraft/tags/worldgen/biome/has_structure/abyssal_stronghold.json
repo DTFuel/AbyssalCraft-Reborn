@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "abyssalcraft:abyssal_wastelands", "required": false },
+    { "id": "abyssalcraft:abyssal_desert", "required": false },
+    { "id": "abyssalcraft:abyssal_plateau", "required": false }
+  ]
+}

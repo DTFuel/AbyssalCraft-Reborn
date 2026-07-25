@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:dreadium_ingot"
+    },
+    "%": {
+      "item": "abyssalcraft:dreadium_plate"
+    },
+    "&": {
+      "item": "abyssalcraft:dreadium_helmet"
+    }
+  },
+  "pattern": [
+    " # ",
+    "%&%"
+  ],
+  "result": {
+    "item": "abyssalcraft:dreadium_samurai_helmet"
+  }
+}

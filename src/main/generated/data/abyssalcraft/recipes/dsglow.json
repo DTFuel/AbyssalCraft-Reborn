@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:darkstone_brick"
+    },
+    "$": {
+      "item": "minecraft:diamond"
+    },
+    "%": {
+      "item": "minecraft:glowstone"
+    },
+    "&": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "#$#",
+    "&%&",
+    "#&#"
+  ],
+  "result": {
+    "count": 4,
+    "item": "abyssalcraft:glowing_darkstone_bricks"
+  }
+}

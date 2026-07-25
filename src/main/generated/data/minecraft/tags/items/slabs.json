@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssal_cobblestone_slab",
+    "abyssalcraft:abyssal_stone_brick_slab",
+    "abyssalcraft:coralium_cobblestone_slab",
+    "abyssalcraft:coralium_stone_brick_slab",
+    "abyssalcraft:dark_ethaxium_brick_slab",
+    "abyssalcraft:darklands_oak_slab",
+    "abyssalcraft:darkstone_brick_slab",
+    "abyssalcraft:darkstone_cobblestone_slab",
+    "abyssalcraft:darkstone_slab",
+    "abyssalcraft:dreadstone_brick_slab",
+    "abyssalcraft:dreadstone_cobblestone_slab",
+    "abyssalcraft:dreadwood_slab",
+    "abyssalcraft:elysian_cobblestone_slab",
+    "abyssalcraft:elysian_stone_brick_slab",
+    "abyssalcraft:ethaxium_brick_slab"
+  ]
+}

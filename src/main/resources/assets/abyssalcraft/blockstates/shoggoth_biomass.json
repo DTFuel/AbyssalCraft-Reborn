@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "spawns=0": { "model": "abyssalcraft:block/shoggoth_biomass" },
+    "spawns=1": { "model": "abyssalcraft:block/shoggoth_biomass" },
+    "spawns=2": { "model": "abyssalcraft:block/shoggoth_biomass" },
+    "spawns=3": { "model": "abyssalcraft:block/shoggoth_biomass" },
+    "spawns=4": { "model": "abyssalcraft:block/shoggoth_biomass" }
+  }
+}

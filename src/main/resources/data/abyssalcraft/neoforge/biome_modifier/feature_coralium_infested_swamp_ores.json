@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": ["abyssalcraft:coralium_infested_swamp"],
+  "features": ["abyssalcraft:coralium_swamp_ores"],
+  "step": "underground_ores"
+}

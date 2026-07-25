@@ -1,0 +1,372 @@
+/*******************************************************************************
+ * AbyssalCraft
+ * Copyright (c) 2012 - 2026 Shinoow.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the GNU Lesser Public License v3
+ * which accompanies this distribution, and is available at
+ * http://www.gnu.org/licenses/lgpl-3.0.txt
+ *
+ * Contributors:
+ *     Shinoow -  implementation
+ ******************************************************************************/
+package com.shinoow.abyssalcraft.client.model.block;
+
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+
+public class ModelJzaharSpawner extends ModelBase {
+
+	public ModelRenderer abyssalnomicon;
+	public ModelRenderer body;
+	public ModelRenderer staff1;
+	public ModelRenderer robeRightInner;
+	public ModelRenderer robeRightOuter;
+	public ModelRenderer robeLeftInner;
+	public ModelRenderer robeLeftOuter;
+	public ModelRenderer eye1;
+	public ModelRenderer head;
+	public ModelRenderer tentacle1;
+	public ModelRenderer tentacle2;
+	public ModelRenderer tentacle3;
+	public ModelRenderer tentacle4;
+	public ModelRenderer tentacle5;
+	public ModelRenderer tentacle6;
+	public ModelRenderer tentacle7;
+	public ModelRenderer tentacle8;
+	public ModelRenderer eye2;
+	public ModelRenderer maskRight;
+	public ModelRenderer maskLeft;
+	public ModelRenderer fT1;
+	public ModelRenderer fT2;
+	public ModelRenderer fT3;
+	public ModelRenderer fT12;
+	public ModelRenderer fT13;
+	public ModelRenderer fT22;
+	public ModelRenderer fT23;
+	public ModelRenderer fT32;
+	public ModelRenderer fT33;
+	public ModelRenderer tentacle12;
+	public ModelRenderer tentacle13;
+	public ModelRenderer foot1;
+	public ModelRenderer tentacle22;
+	public ModelRenderer tentacle23;
+	public ModelRenderer foot2;
+	public ModelRenderer tentacle32;
+	public ModelRenderer tentacle33;
+	public ModelRenderer foot3;
+	public ModelRenderer tentacle42;
+	public ModelRenderer tentacle43;
+	public ModelRenderer foot4;
+	public ModelRenderer tentacle52;
+	public ModelRenderer tentacle53;
+	public ModelRenderer foot5;
+	public ModelRenderer tentacle62;
+	public ModelRenderer tentacle63;
+	public ModelRenderer foot6;
+	public ModelRenderer tentacle72;
+	public ModelRenderer tentacle73;
+	public ModelRenderer foot7;
+	public ModelRenderer tentacle82;
+	public ModelRenderer tentacle83;
+	public ModelRenderer foot6_1;
+	public ModelRenderer staff2;
+	public ModelRenderer staff3;
+	public ModelRenderer staff4;
+	public ModelRenderer staff5;
+	public ModelRenderer staff6;
+	public ModelRenderer cube;
+
+	public ModelJzaharSpawner() {
+		textureWidth = 128;
+		textureHeight = 64;
+		staff2 = new ModelRenderer(this, 62, 27);
+		staff2.setRotationPoint(0.0F, 0.0F, 0.0F);
+		staff2.addBox(6.0F, -23.8F, -1.4F, 1, 4, 1, 0.0F);
+		setRotateAngle(staff2, 0.0F, 0.0F, -0.5235987755982988F);
+		body = new ModelRenderer(this, 0, 0);
+		body.setRotationPoint(-9.0F, -28.0F, 0.0F);
+		body.addBox(0.0F, 0.0F, 0.0F, 18, 22, 5, 0.0F);
+		setRotateAngle(body, -0.2617993877991494F, 0.0F, 0.0F);
+		maskLeft = new ModelRenderer(this, 102, 0);
+		maskLeft.setRotationPoint(0.0F, 0.0F, 0.0F);
+		maskLeft.addBox(-2.5F, -10.0F, -7.0F, 6, 8, 1, 0.0F);
+		setRotateAngle(maskLeft, 0.0F, -0.3490658503988659F, 0.0F);
+		tentacle63 = new ModelRenderer(this, 0, 27);
+		tentacle63.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle63.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		tentacle1 = new ModelRenderer(this, 0, 27);
+		tentacle1.setRotationPoint(4.5F, 22.0F, 2.0F);
+		tentacle1.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle1, 0.17453292519943295F, 0.3490658503988659F, 0.0F);
+		tentacle43 = new ModelRenderer(this, 0, 27);
+		tentacle43.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle43.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		tentacle5 = new ModelRenderer(this, 0, 27);
+		tentacle5.setRotationPoint(4.5F, 22.0F, 3.0F);
+		tentacle5.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle5, 0.2617993877991494F, 0.17453292519943295F, 0.0F);
+		fT32 = new ModelRenderer(this, 116, 2);
+		fT32.setRotationPoint(0.0F, 2.0F, 0.0F);
+		fT32.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, 0.0F);
+		tentacle52 = new ModelRenderer(this, 0, 27);
+		tentacle52.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle52.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle52, -1.5707963267948966F, 0.0F, 0.0F);
+		fT1 = new ModelRenderer(this, 116, 0);
+		fT1.setRotationPoint(-3.0F, -2.0F, -5.5F);
+		fT1.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, 0.0F);
+		setRotateAngle(fT1, 0.0F, 0.3490658503988659F, 0.0F);
+		fT2 = new ModelRenderer(this, 116, 0);
+		fT2.setRotationPoint(0.0F, -2.0F, -6.0F);
+		fT2.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, 0.0F);
+		tentacle12 = new ModelRenderer(this, 0, 27);
+		tentacle12.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle12.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle12, -1.6580627893946132F, 0.0F, 0.0F);
+		tentacle73 = new ModelRenderer(this, 0, 27);
+		tentacle73.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle73.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		foot6_1 = new ModelRenderer(this, 0, 42);
+		foot6_1.setRotationPoint(0.01F, 8.0F, -0.01F);
+		foot6_1.addBox(-1.5F, 0.0F, -1.5F, 3, 3, 3, 0.0F);
+		tentacle62 = new ModelRenderer(this, 0, 27);
+		tentacle62.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle62.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle62, -1.5707963267948966F, 0.0F, 0.0F);
+		fT22 = new ModelRenderer(this, 116, 2);
+		fT22.setRotationPoint(0.0F, 2.0F, 0.0F);
+		fT22.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, 0.0F);
+		tentacle82 = new ModelRenderer(this, 0, 27);
+		tentacle82.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle82.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle82, -1.5707963267948966F, 0.0F, 0.0F);
+		foot6 = new ModelRenderer(this, 0, 42);
+		foot6.setRotationPoint(0.01F, 8.0F, -0.01F);
+		foot6.addBox(-1.5F, 0.0F, -1.5F, 3, 3, 3, 0.0F);
+		staff6 = new ModelRenderer(this, 66, 35);
+		staff6.setRotationPoint(0.0F, 0.0F, 0.0F);
+		staff6.addBox(-3.9F, 1.0F, -4.1F, 1, 1, 1, 0.0F);
+		setRotateAngle(staff6, -0.8922123136195012F, 0.5948082090796675F, 0.2230530784048753F);
+		head = new ModelRenderer(this, 72, 0);
+		head.setRotationPoint(9.0F, 0.0F, 1.0F);
+		head.addBox(-5.0F, -10.0F, -5.0F, 10, 10, 10, 0.0F);
+		setRotateAngle(head, 0.2617993877991494F, 0.0F, 0.0F);
+		cube = new ModelRenderer(this, 62, 42);
+		cube.setRotationPoint(0.0F, 0.0F, 0.0F);
+		cube.addBox(-14.0F, -20.0F, -8.5F, 2, 2, 2, 0.0F);
+		setRotateAngle(cube, 0.0F, 0.48328166987722987F, 0.520457182944709F);
+		staff3 = new ModelRenderer(this, 66, 27);
+		staff3.setRotationPoint(0.0F, 0.0F, 0.0F);
+		staff3.addBox(-6.7F, -25.6F, -1.4F, 1, 2, 1, 0.0F);
+		robeLeftInner = new ModelRenderer(this, 58, 0);
+		robeLeftInner.setRotationPoint(13.0F, 0.0F, -1.0F);
+		robeLeftInner.addBox(0.0F, 0.0F, 0.0F, 5, 26, 1, 0.0F);
+		tentacle4 = new ModelRenderer(this, 0, 27);
+		tentacle4.setRotationPoint(13.5F, 22.0F, 2.0F);
+		tentacle4.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle4, 0.17453292519943295F, -0.3490658503988659F, 0.0F);
+		tentacle33 = new ModelRenderer(this, 0, 27);
+		tentacle33.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle33.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		tentacle32 = new ModelRenderer(this, 0, 27);
+		tentacle32.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle32.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle32, -1.6580627893946132F, 0.0F, 0.0F);
+		tentacle53 = new ModelRenderer(this, 0, 27);
+		tentacle53.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle53.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		foot5 = new ModelRenderer(this, 0, 42);
+		foot5.setRotationPoint(0.01F, 8.0F, -0.01F);
+		foot5.addBox(-1.5F, 0.0F, -1.5F, 3, 3, 3, 0.0F);
+		tentacle2 = new ModelRenderer(this, 0, 27);
+		tentacle2.setRotationPoint(7.5F, 22.0F, 2.0F);
+		tentacle2.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle2, 0.17453292519943295F, 0.1308996938995747F, 0.0F);
+		fT13 = new ModelRenderer(this, 116, 4);
+		fT13.setRotationPoint(0.0F, 2.0F, 0.0F);
+		fT13.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, 0.0F);
+		staff1 = new ModelRenderer(this, 54, 27);
+		staff1.setRotationPoint(-8.0F, 6.5F, -1.5F);
+		staff1.addBox(-4.8F, -20.7F, -1.4F, 1, 18, 1, 0.0F);
+		setRotateAngle(staff1, -0.2617993877991494F, 0.0F, 0.0F);
+		tentacle23 = new ModelRenderer(this, 0, 27);
+		tentacle23.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle23.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		tentacle6 = new ModelRenderer(this, 0, 27);
+		tentacle6.setRotationPoint(10.5F, 22.0F, 3.0F);
+		tentacle6.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle6, 0.2617993877991494F, -0.08726646259971647F, 0.0F);
+		fT23 = new ModelRenderer(this, 116, 4);
+		fT23.setRotationPoint(0.0F, 2.0F, 0.0F);
+		fT23.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, 0.0F);
+		tentacle8 = new ModelRenderer(this, 0, 27);
+		tentacle8.setRotationPoint(7.5F, 22.0F, 3.0F);
+		tentacle8.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle8, 0.2617993877991494F, 0.08726646259971647F, 0.0F);
+		foot2 = new ModelRenderer(this, 0, 42);
+		foot2.setRotationPoint(0.01F, 8.0F, -0.01F);
+		foot2.addBox(-1.5F, 0.0F, -1.5F, 3, 3, 3, 0.0F);
+		robeLeftOuter = new ModelRenderer(this, 59, 0);
+		robeLeftOuter.setRotationPoint(14.0F, 0.0F, -2.0F);
+		robeLeftOuter.addBox(0.0F, 0.0F, 0.0F, 4, 26, 1, 0.0F);
+		abyssalnomicon = new ModelRenderer(this, 28, 27);
+		abyssalnomicon.setRotationPoint(2.0F, -1.9F, -8.0F);
+		abyssalnomicon.addBox(-5.0F, -12.0F, -1.5F, 10, 12, 3, 0.0F);
+		setRotateAngle(abyssalnomicon, -1.3962634015954636F, 3.141592653589793F, 0.0F);
+		tentacle83 = new ModelRenderer(this, 0, 27);
+		tentacle83.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle83.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		robeRightOuter = new ModelRenderer(this, 46, 0);
+		robeRightOuter.setRotationPoint(0.0F, 0.0F, -2.0F);
+		robeRightOuter.addBox(0.0F, 0.0F, 0.0F, 4, 26, 1, 0.0F);
+		foot3 = new ModelRenderer(this, 0, 42);
+		foot3.setRotationPoint(0.01F, 8.0F, -0.01F);
+		foot3.addBox(-1.5F, 0.0F, -1.5F, 3, 3, 3, 0.0F);
+		foot1 = new ModelRenderer(this, 0, 42);
+		foot1.setRotationPoint(0.01F, 8.0F, -0.01F);
+		foot1.addBox(-1.5F, 0.0F, -1.5F, 3, 3, 3, 0.0F);
+		tentacle42 = new ModelRenderer(this, 0, 27);
+		tentacle42.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle42.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle42, -1.6580627893946132F, 0.0F, 0.0F);
+		robeRightInner = new ModelRenderer(this, 46, 0);
+		robeRightInner.setRotationPoint(0.0F, 0.0F, -1.0F);
+		robeRightInner.addBox(0.0F, 0.0F, 0.0F, 5, 26, 1, 0.0F);
+		tentacle22 = new ModelRenderer(this, 0, 27);
+		tentacle22.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle22.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle22, -1.6580627893946132F, 0.0F, 0.0F);
+		fT12 = new ModelRenderer(this, 116, 2);
+		fT12.setRotationPoint(0.0F, 2.0F, 0.0F);
+		fT12.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, 0.0F);
+		tentacle7 = new ModelRenderer(this, 0, 27);
+		tentacle7.setRotationPoint(13.5F, 22.0F, 3.0F);
+		tentacle7.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle7, 0.2617993877991494F, -0.17453292519943295F, 0.0F);
+		maskRight = new ModelRenderer(this, 102, 0);
+		maskRight.setRotationPoint(0.0F, 0.0F, 0.0F);
+		maskRight.addBox(-3.5F, -10.0F, -7.0F, 6, 8, 1, 0.0F);
+		setRotateAngle(maskRight, 0.0F, 0.3490658503988659F, 0.0F);
+		tentacle3 = new ModelRenderer(this, 0, 27);
+		tentacle3.setRotationPoint(10.5F, 22.0F, 2.0F);
+		tentacle3.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle3, 0.17453292519943295F, -0.1308996938995747F, 0.0F);
+		eye2 = new ModelRenderer(this, 70, 6);
+		eye2.setRotationPoint(1.5F, 1.5F, -1.0F);
+		eye2.addBox(0.0F, 0.0F, 0.0F, 2, 2, 1, 0.0F);
+		fT33 = new ModelRenderer(this, 116, 4);
+		fT33.setRotationPoint(0.0F, 2.0F, 0.0F);
+		fT33.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, 0.0F);
+		staff5 = new ModelRenderer(this, 62, 32);
+		staff5.setRotationPoint(0.0F, 0.0F, 0.0F);
+		staff5.addBox(18.3F, -21.5F, -1.4F, 1, 4, 1, 0.0F);
+		setRotateAngle(staff5, 0.0F, 0.0F, -0.8726646259971648F);
+		tentacle13 = new ModelRenderer(this, 0, 27);
+		tentacle13.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle13.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		foot4 = new ModelRenderer(this, 0, 42);
+		foot4.setRotationPoint(0.01F, 8.0F, -0.01F);
+		foot4.addBox(-1.5F, 0.0F, -1.5F, 3, 3, 3, 0.0F);
+		foot7 = new ModelRenderer(this, 0, 42);
+		foot7.setRotationPoint(0.01F, 8.0F, -0.01F);
+		foot7.addBox(-1.5F, 0.0F, -1.5F, 3, 3, 3, 0.0F);
+		fT3 = new ModelRenderer(this, 116, 0);
+		fT3.setRotationPoint(3.0F, -2.0F, -5.5F);
+		fT3.addBox(-1.0F, 0.0F, -1.0F, 2, 2, 2, 0.0F);
+		setRotateAngle(fT3, 0.0F, -0.3490658503988659F, 0.0F);
+		eye1 = new ModelRenderer(this, 70, 0);
+		eye1.setRotationPoint(6.5F, 7.0F, -1.0F);
+		eye1.addBox(0.0F, 0.0F, 0.0F, 5, 5, 1, 0.0F);
+		staff4 = new ModelRenderer(this, 66, 30);
+		staff4.setRotationPoint(0.0F, 0.0F, 0.0F);
+		staff4.addBox(-21.6F, -19.3F, -1.4F, 1, 4, 1, 0.0F);
+		setRotateAngle(staff4, 0.0F, 0.0F, 0.6981317007977318F);
+		tentacle72 = new ModelRenderer(this, 0, 27);
+		tentacle72.setRotationPoint(0.01F, 8.0F, -0.01F);
+		tentacle72.addBox(-1.5F, 0.0F, -1.5F, 3, 9, 3, 0.0F);
+		setRotateAngle(tentacle72, -1.5707963267948966F, 0.0F, 0.0F);
+		staff1.addChild(staff2);
+		head.addChild(maskLeft);
+		tentacle62.addChild(tentacle63);
+		body.addChild(tentacle1);
+		tentacle42.addChild(tentacle43);
+		body.addChild(tentacle5);
+		fT3.addChild(fT32);
+		tentacle5.addChild(tentacle52);
+		head.addChild(fT1);
+		head.addChild(fT2);
+		tentacle1.addChild(tentacle12);
+		tentacle72.addChild(tentacle73);
+		tentacle83.addChild(foot6_1);
+		tentacle6.addChild(tentacle62);
+		fT2.addChild(fT22);
+		tentacle8.addChild(tentacle82);
+		tentacle63.addChild(foot6);
+		staff1.addChild(staff6);
+		body.addChild(head);
+		staff1.addChild(cube);
+		staff1.addChild(staff3);
+		body.addChild(robeLeftInner);
+		body.addChild(tentacle4);
+		tentacle32.addChild(tentacle33);
+		tentacle3.addChild(tentacle32);
+		tentacle52.addChild(tentacle53);
+		tentacle53.addChild(foot5);
+		body.addChild(tentacle2);
+		fT12.addChild(fT13);
+		tentacle22.addChild(tentacle23);
+		body.addChild(tentacle6);
+		fT22.addChild(fT23);
+		body.addChild(tentacle8);
+		tentacle23.addChild(foot2);
+		body.addChild(robeLeftOuter);
+		tentacle82.addChild(tentacle83);
+		body.addChild(robeRightOuter);
+		tentacle33.addChild(foot3);
+		tentacle13.addChild(foot1);
+		tentacle4.addChild(tentacle42);
+		body.addChild(robeRightInner);
+		tentacle2.addChild(tentacle22);
+		fT1.addChild(fT12);
+		body.addChild(tentacle7);
+		head.addChild(maskRight);
+		body.addChild(tentacle3);
+		eye1.addChild(eye2);
+		fT32.addChild(fT33);
+		staff1.addChild(staff5);
+		tentacle12.addChild(tentacle13);
+		tentacle43.addChild(foot4);
+		tentacle73.addChild(foot7);
+		head.addChild(fT3);
+		body.addChild(eye1);
+		staff1.addChild(staff4);
+		tentacle7.addChild(tentacle72);
+	}
+
+	@Override
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+		body.render(f5);
+		staff1.render(f5);
+		abyssalnomicon.render(f5);
+		setRotationAngles(f, f1, f2, f3, f4, f5, null);
+	}
+
+	/**
+	 * This is a helper function from Tabula to set the rotation of model parts
+	 */
+	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+		modelRenderer.rotateAngleX = x;
+		modelRenderer.rotateAngleY = y;
+		modelRenderer.rotateAngleZ = z;
+	}
+
+	@Override
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
+			float headPitch, float scaleFactor, Entity entityIn) {
+		head.rotateAngleY = netHeadYaw / (180F / (float)Math.PI);
+		head.rotateAngleX = headPitch / (180F / (float)Math.PI);
+
+
+	}
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "abyssalcraft:block/ethaxium_brick",
+    "side": "abyssalcraft:block/ethaxium_brick",
+    "top": "abyssalcraft:block/ethaxium_brick"
+  }
+}

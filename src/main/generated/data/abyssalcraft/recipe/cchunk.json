@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:coralium_gem_cluster_9"
+    },
+    "%": {
+      "item": "abyssalcraft:abyssal_stone"
+    }
+  },
+  "pattern": [
+    "###",
+    "#%#",
+    "###"
+  ],
+  "result": {
+    "id": "abyssalcraft:chunk_of_coralium"
+  }
+}

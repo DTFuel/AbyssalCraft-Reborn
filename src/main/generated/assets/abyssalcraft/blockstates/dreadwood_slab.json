@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "abyssalcraft:block/dreadwood_slab"
+    },
+    "type=double": {
+      "model": "abyssalcraft:block/dreadwood_slab_double"
+    },
+    "type=top": {
+      "model": "abyssalcraft:block/dreadwood_slab_top"
+    }
+  }
+}

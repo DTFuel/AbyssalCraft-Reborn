@@ -1,0 +1,5 @@
+{
+  "type": "abyssalcraft:structure", "kind": "jzahar_temple",
+  "biomes": "#abyssalcraft:has_structure/jzahar_temple", "step": "underground_structures",
+  "spawn_overrides": {}, "terrain_adaptation": "bury"
+}

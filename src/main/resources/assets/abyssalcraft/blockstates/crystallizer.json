@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,lit=false": { "model": "abyssalcraft:block/crystallizer" },
+    "facing=north,lit=true": { "model": "abyssalcraft:block/crystallizer" },
+    "facing=east,lit=false": { "model": "abyssalcraft:block/crystallizer", "y": 90, "uvlock": true },
+    "facing=east,lit=true": { "model": "abyssalcraft:block/crystallizer", "y": 90, "uvlock": true },
+    "facing=south,lit=false": { "model": "abyssalcraft:block/crystallizer", "y": 180, "uvlock": true },
+    "facing=south,lit=true": { "model": "abyssalcraft:block/crystallizer", "y": 180, "uvlock": true },
+    "facing=west,lit=false": { "model": "abyssalcraft:block/crystallizer", "y": 270, "uvlock": true },
+    "facing=west,lit=true": { "model": "abyssalcraft:block/crystallizer", "y": 270, "uvlock": true }
+  }
+}

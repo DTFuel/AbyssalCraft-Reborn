@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssal_stone_pressure_plate",
+    "abyssalcraft:coralium_stone_pressure_plate",
+    "abyssalcraft:darklands_oak_pressure_plate",
+    "abyssalcraft:darkstone_pressure_plate",
+    "abyssalcraft:dreadwood_pressure_plate"
+  ]
+}

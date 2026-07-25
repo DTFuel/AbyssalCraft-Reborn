@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "abyssalcraft:ethaxium_bricks"
+  },
+  "result": {
+    "id": "abyssalcraft:cracked_ethaxium_brick"
+  }
+}

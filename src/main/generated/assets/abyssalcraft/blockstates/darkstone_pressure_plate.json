@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "abyssalcraft:block/darkstone_pressure_plate"
+    },
+    "powered=true": {
+      "model": "abyssalcraft:block/darkstone_pressure_plate_down"
+    }
+  }
+}

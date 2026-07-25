@@ -1,0 +1,51 @@
+{
+  "display": {
+    "icon": {
+      "item": "abyssalcraft:abyssal_diamond_ore"
+    },
+    "title": {
+      "translate": "advancements.abyssalcraft.mineabyores.title"
+    },
+    "description": {
+      "translate": "advancements.abyssalcraft.mineabyores.description"
+    }
+  },
+  "parent": "abyssalcraft:mine_abyssal_coralium",
+  "criteria": {
+    "diamond": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:abyssal_diamond_ore"
+        ]
+      }
+    },
+    "gold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:abyssal_gold_ore"
+        ]
+      }
+    },
+    "iron": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:abyssal_iron_ore"
+        ]
+      }
+    },
+    "nitre": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          "abyssalcraft:abyssal_nitre_ore"
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["diamond", "gold", "iron", "nitre"]
+  ]
+}

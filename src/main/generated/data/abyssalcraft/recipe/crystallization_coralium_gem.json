@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
+  "input": {
+    "item": "abyssalcraft:coralium_gem"
+  },
+  "result": {
+    "count": 1,
+    "id": "abyssalcraft:crystal_shard_coralium"
+  },
+  "time": 200
+}

@@ -1,0 +1,146 @@
+package com.shinoow.abyssalcraft.content.entity.misc;
+
+import java.util.List;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.Level;
+
+import com.shinoow.abyssalcraft.config.ACConfig;
+import com.shinoow.abyssalcraft.content.entity.boss.BossMob;
+import com.shinoow.abyssalcraft.content.entity.boss.EliteMob;
+import com.shinoow.abyssalcraft.platform.ACRef;
+import com.shinoow.abyssalcraft.platform.ACSimpleEntity;
+import com.shinoow.abyssalcraft.system.portal.DimensionData;
+import com.shinoow.abyssalcraft.system.portal.DimensionDataRegistry;
+import com.shinoow.abyssalcraft.world.portal.DimensionTeleport;
+
+/**
+ * Dimension portal entity (1.12.2 {@code portal}) and its single-use variant ({@code singleportal}),
+ * collapsed into one class via the {@code singleUse} flag (baked into each {@link EntityType} factory).
+ * These are the standing portals that ferry entities between AbyssalCraft dimensions.
+ *
+ * <p>Stage G2 (PG-6) gives it its teleport behaviour: it carries a {@code destination} dimension (a
+ * plain server-side field + NBT, since the client-side dimension visuals are Stage E) and, each server
+ * tick, ferries any entity inside its box to that dimension via {@link DimensionTeleport} (which routes
+ * through the loader/version-forked {@code changeDimension} in {@code platform/TeleportCompat}). The
+ * single-use variant discards itself after the first passenger.
+ *
+ * <p>Still deferred (unported dependencies): the {@code portal_anchor} block + its Necronomicon
+ * activation ritual that <em>spawn</em> these portals and supply the destination, the destination
+ * mob-spawning ({@code DimensionData}/{@code DimensionDataRegistry}), and the synched unchained state.
+ */
+public class DimensionPortal extends ACSimpleEntity {
+
+    private static final EntityDataAccessor<String> DESTINATION =
+        SynchedEntityData.defineId(DimensionPortal.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<Boolean> UNCHAINED =
+        SynchedEntityData.defineId(DimensionPortal.class, EntityDataSerializers.BOOLEAN);
+
+    private final boolean singleUse;
+    private BlockPos anchorPos;
+
+    public DimensionPortal(EntityType<?> type, Level level, boolean singleUse) {
+        super(type, level);
+        this.singleUse = singleUse;
+        setNoGravity(true);
+    }
+
+    /** Whether this portal despawns after a single use (the {@code singleportal} variant). */
+    public boolean isSingleUse() {
+        return singleUse;
+    }
+
+    /** Set the dimension this portal ferries entities to (1.12.2 {@code setDestination}). */
+    public DimensionPortal setDestination(ResourceKey<Level> dimension) {
+        entityData.set(DESTINATION, dimension.location().toString());
+        return this;
+    }
+
+    /** The dimension this portal ferries to, or {@code null} until one is assigned. */
+    public ResourceKey<Level> getDestination() {
+        return DimensionDataRegistry.instance().parseRegisteredDimension(entityData.get(DESTINATION))
+            .orElse(null);
+    }
+
+    public DimensionPortal setUnchained(boolean unchained) {
+        entityData.set(UNCHAINED, unchained);
+        return this;
+    }
+
+    public boolean isUnchained() {
+        return entityData.get(UNCHAINED);
+    }
+
+    public DimensionData getDimensionData() {
+        ResourceKey<Level> destination = getDestination();
+        return destination == null ? null : DimensionDataRegistry.instance().get(destination).orElse(null);
+    }
+
+    public DimensionPortal setAnchor(BlockPos anchorPos) {
+        this.anchorPos = anchorPos.immutable();
+        return this;
+    }
+
+    public boolean isAnchoredAt(BlockPos pos) {
+        return anchorPos != null && anchorPos.equals(pos);
+    }
+
+    @Override
+    protected void defineSimpleSyncedData(SyncedDataBuilder builder) {
+        builder.define(DESTINATION, "");
+        builder.define(UNCHAINED, false);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        ResourceKey<Level> destination = getDestination();
+        if (level().isClientSide || destination == null) return;
+
+        List<Entity> touching = level().getEntities(this, getBoundingBox(),
+            e -> !(e instanceof DimensionPortal)
+                && !(e instanceof BossMob)
+                && !(e instanceof EliteMob)
+                && e.isAlive()
+                && !e.isRemoved()
+                && !e.isPassenger()
+                && !e.isVehicle()
+                && !e.isOnPortalCooldown());
+        for (Entity e : touching) {
+            int cooldown = e instanceof ServerPlayer ? ACConfig.portalCooldown.get() : e.getPortalCooldown();
+            e.setPortalCooldown(cooldown);
+            Entity teleported = DimensionTeleport.teleport(e, destination);
+            teleported.setPortalCooldown(cooldown);
+            if (singleUse && teleported.level().dimension().equals(destination)) {
+                discard();
+                return;
+            }
+        }
+    }
+
+    @Override
+    protected void addAdditionalSaveData(CompoundTag tag) {
+        ResourceKey<Level> destination = getDestination();
+        if (destination != null)
+            tag.putString("Destination", destination.location().toString());
+        tag.putBoolean("Unchained", isUnchained());
+        if (anchorPos != null) tag.putLong("AnchorPos", anchorPos.asLong());
+    }
+
+    @Override
+    protected void readAdditionalSaveData(CompoundTag tag) {
+        if (tag.contains("Destination"))
+            setDestination(ResourceKey.create(Registries.DIMENSION, ACRef.parse(tag.getString("Destination"))));
+        setUnchained(tag.getBoolean("Unchained"));
+        anchorPos = tag.contains("AnchorPos") ? BlockPos.of(tag.getLong("AnchorPos")) : null;
+    }
+}

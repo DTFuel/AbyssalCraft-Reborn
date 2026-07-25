@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stronghold",
+  "biomes": "#abyssalcraft:has_structure/abyssal_stronghold",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "terrain_adaptation": "bury"
+}

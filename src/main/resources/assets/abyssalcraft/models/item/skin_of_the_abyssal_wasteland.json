@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "abyssalcraft:item/skin_of_the_abyssal_wasteland"
+  }
+}

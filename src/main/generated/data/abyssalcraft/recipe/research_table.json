@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:torch"
+    },
+    "$": {
+      "item": "minecraft:feather"
+    },
+    "%": {
+      "tag": "minecraft:planks"
+    },
+    "&": {
+      "item": "minecraft:paper"
+    }
+  },
+  "pattern": [
+    "#&$",
+    "%%%",
+    "% %"
+  ],
+  "result": {
+    "id": "abyssalcraft:research_table"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "values": [
+    { "id": "abyssalcraft:darklands", "required": false },
+    { "id": "abyssalcraft:darklands_forest", "required": false },
+    { "id": "abyssalcraft:darklands_plains", "required": false },
+    { "id": "abyssalcraft:darklands_hills", "required": false },
+    { "id": "abyssalcraft:darklands_mountains", "required": false }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "abyssalcraft:item/ritualcharm_empty",
+	"textures": {
+		"layer1": "abyssalcraft:items/charms/power"
+	}
+}

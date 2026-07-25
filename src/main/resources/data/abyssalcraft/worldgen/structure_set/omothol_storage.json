@@ -1,0 +1,4 @@
+{
+  "structures": [{ "structure": "abyssalcraft:omothol_storage", "weight": 1 }],
+  "placement": { "type": "minecraft:random_spread", "spacing": 54, "separation": 22, "salt": 401243 }
+}

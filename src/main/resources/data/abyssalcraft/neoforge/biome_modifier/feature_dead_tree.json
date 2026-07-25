@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": ["abyssalcraft:abyssal_swamp"],
+  "features": ["abyssalcraft:dead_tree"],
+  "step": "vegetal_decoration"
+}

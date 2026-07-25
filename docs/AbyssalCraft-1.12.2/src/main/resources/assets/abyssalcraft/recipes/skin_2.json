@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#%#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:omotholflesh"
+    },
+    "%": {
+      "item": "abyssalcraft:essence_omothol"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:skin_omothol"
+  }
+}

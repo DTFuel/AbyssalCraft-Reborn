@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "abyssalcraft:darkstone_cobblestone"
+  },
+  "result": {
+    "item": "abyssalcraft:darkstone"
+  }
+}

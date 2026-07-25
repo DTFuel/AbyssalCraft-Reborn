@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "experience": 0.2,
+  "input": {
+    "item": "abyssalcraft:dreadium_ingot"
+  },
+  "result": {
+    "count": 1,
+    "id": "abyssalcraft:crystal_shard_dreadium"
+  },
+  "time": 200
+}

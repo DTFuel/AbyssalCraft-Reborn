@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:monolith_stone"
+    },
+    "%": {
+      "item": "abyssalcraft:shadow_gem"
+    },
+    "&": {
+      "item": "abyssalcraft:transmutation_gem"
+    },
+    "@": {
+      "item": "abyssalcraft:energyrelay"
+    }
+  },
+  "pattern": [
+    "###",
+    "%&%",
+    "#@#"
+  ],
+  "result": {
+    "id": "abyssalcraft:energydepositioner"
+  }
+}

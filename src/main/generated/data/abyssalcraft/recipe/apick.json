@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:abyssalnite_ingot"
+    },
+    "%": {
+      "tag": "abyssalcraft:legacy/stick_wood"
+    }
+  },
+  "pattern": [
+    "###",
+    " % ",
+    " % "
+  ],
+  "result": {
+    "id": "abyssalcraft:abyssalnite_pickaxe"
+  }
+}

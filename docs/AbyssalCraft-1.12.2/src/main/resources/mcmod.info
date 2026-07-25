@@ -1,0 +1,25 @@
+{
+  	"modListVersion": 2,
+  	"modList": [
+  			{
+  				"modid": "abyssalcraft",
+  				"name": "AbyssalCraft",
+  				"description": "Explore the world of the dead, along with Dark arts and Lovecraftian horrors. Surpass the boundaries of sanity!",
+  				"mcversion": "${mcversion}",
+  				"version": "${version}",
+  				"authorList": [
+  						"shinoow"
+  				],
+  				"credits": "shinoow (coding), Uberorb (textures), DamienDarkside (sounds), PinkMustard (sounds), Funwayguy (sounds, code), Tiktalik (textures), Dylan4ever (textures), Cybercat5555 (models, textures), Seth0067 (textures), Mike-U5 (code), DTFuel (textures)",
+  				"dependants": [  ],
+				"dependencies": [  ],
+				"parent": "",
+				"requiredMods": [  ],
+				"logoFile": "assets/abyssalcraft/textures/logo.png",
+				"screenshots": [  ],
+				"updateUrl": "https://shinoow.github.io/AbyssalCraft/",
+  				"url": "https://shinoow.github.io/AbyssalCraft/",
+ 				"useDependencyInformation": true
+			}
+	]
+}

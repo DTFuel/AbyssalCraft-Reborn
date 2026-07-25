@@ -1,0 +1,24 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+          //  "#statue": "abyssalcraft:model/blocks/PSDL" //the identifier must be a name of a material defined by the "model" obj's .mtl file
+        },
+        "model": "abyssalcraft:shubniggurathstatue.obj",
+		"custom": {"flip-v":true}
+     },
+    "variants": {
+        "normal": [{}],
+        "inventory": [{
+            "transform": "forge:default-block"
+        }],
+		"facing": {
+            "down": { "model": "abyssalcraft:shubniggurathstatue.obj" },
+            "up": { "model": "abyssalcraft:shubniggurathstatue.obj" },
+            "north": { "model": "abyssalcraft:shubniggurathstatue.obj" },
+            "south": { "model": "abyssalcraft:shubniggurathstatue.obj", "y": 180 },
+            "west": { "model": "abyssalcraft:shubniggurathstatue.obj", "y": 270 },
+            "east": { "model": "abyssalcraft:shubniggurathstatue.obj", "y": 90 }
+        }
+    }
+}

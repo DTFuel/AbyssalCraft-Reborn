@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "#%"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:skin_abyssalwasteland"
+    },
+    "%": {
+      "item": "abyssalcraft:necronomicon"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:necronomicon_cor"
+  }
+}

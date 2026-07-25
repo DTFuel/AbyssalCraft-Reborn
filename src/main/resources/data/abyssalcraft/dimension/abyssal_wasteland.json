@@ -1,0 +1,72 @@
+{
+  "type": "abyssalcraft:abyssal_wasteland",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "abyssalcraft:abyssal_wasteland",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "abyssalcraft:abyssal_wastelands",
+          "parameters": {
+            "temperature": 0.0,
+            "humidity": 0.0,
+            "continentalness": 0.05,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "abyssalcraft:abyssal_desert",
+          "parameters": {
+            "temperature": 0.7,
+            "humidity": -0.7,
+            "continentalness": 0.1,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "abyssalcraft:abyssal_swamp",
+          "parameters": {
+            "temperature": -0.3,
+            "humidity": 0.7,
+            "continentalness": -0.1,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "abyssalcraft:abyssal_plateau",
+          "parameters": {
+            "temperature": 0.5,
+            "humidity": 0.5,
+            "continentalness": 0.85,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "abyssalcraft:coralium_lake",
+          "parameters": {
+            "temperature": -0.7,
+            "humidity": -0.3,
+            "continentalness": -0.85,
+            "erosion": 0.0,
+            "depth": 0.0,
+            "weirdness": 0.0,
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

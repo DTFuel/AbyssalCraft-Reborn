@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:sulfur_crystal_shard"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:sulfur_crystal_fragment",
+    "count": 9
+  }
+}

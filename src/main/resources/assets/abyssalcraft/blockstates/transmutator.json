@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,lit=false": { "model": "abyssalcraft:block/transmutator" },
+    "facing=north,lit=true": { "model": "abyssalcraft:block/transmutator" },
+    "facing=east,lit=false": { "model": "abyssalcraft:block/transmutator", "y": 90, "uvlock": true },
+    "facing=east,lit=true": { "model": "abyssalcraft:block/transmutator", "y": 90, "uvlock": true },
+    "facing=south,lit=false": { "model": "abyssalcraft:block/transmutator", "y": 180, "uvlock": true },
+    "facing=south,lit=true": { "model": "abyssalcraft:block/transmutator", "y": 180, "uvlock": true },
+    "facing=west,lit=false": { "model": "abyssalcraft:block/transmutator", "y": 270, "uvlock": true },
+    "facing=west,lit=true": { "model": "abyssalcraft:block/transmutator", "y": 270, "uvlock": true }
+  }
+}

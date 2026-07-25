@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "abyssalcraft:legacy/dust_saltpeter"
+    },
+    "%": {
+      "item": "minecraft:charcoal"
+    },
+    "&": {
+      "tag": "abyssalcraft:legacy/dust_sulfur"
+    }
+  },
+  "pattern": [
+    "#&#",
+    "#%#",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:gunpowder"
+  }
+}

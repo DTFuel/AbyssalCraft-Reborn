@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "experience": 0.1,
+  "input": {
+    "item": "abyssalcraft:crystal_gold"
+  },
+  "result": {
+    "count": 1,
+    "item": "minecraft:gold_nugget"
+  },
+  "time": 200
+}

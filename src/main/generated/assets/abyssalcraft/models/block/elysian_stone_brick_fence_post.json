@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_post",
+  "textures": {
+    "texture": "abyssalcraft:block/elysian_stone_brick"
+  }
+}

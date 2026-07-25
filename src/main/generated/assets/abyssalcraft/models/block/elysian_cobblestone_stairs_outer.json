@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "abyssalcraft:block/elysian_cobblestone",
+    "side": "abyssalcraft:block/elysian_cobblestone",
+    "top": "abyssalcraft:block/elysian_cobblestone"
+  }
+}

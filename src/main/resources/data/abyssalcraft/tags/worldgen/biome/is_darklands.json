@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:darklands",
+    "abyssalcraft:darklands_forest",
+    "abyssalcraft:darklands_plains",
+    "abyssalcraft:darklands_hills",
+    "abyssalcraft:darklands_mountains"
+  ]
+}

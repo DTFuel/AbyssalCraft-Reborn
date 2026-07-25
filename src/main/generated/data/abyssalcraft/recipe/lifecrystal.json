@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "abyssalcraft:crystal_carbon"
+    },
+    {
+      "item": "abyssalcraft:crystal_hydrogen"
+    },
+    {
+      "item": "abyssalcraft:crystal_nitrogen"
+    },
+    {
+      "item": "abyssalcraft:crystal_oxygen"
+    },
+    {
+      "item": "abyssalcraft:crystal_phosphorus"
+    },
+    {
+      "item": "abyssalcraft:crystal_sulfur"
+    }
+  ],
+  "result": {
+    "id": "abyssalcraft:life_crystal"
+  }
+}

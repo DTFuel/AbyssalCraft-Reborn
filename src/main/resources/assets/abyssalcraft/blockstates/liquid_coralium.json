@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "level=0": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=1": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=2": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=3": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=4": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=5": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=6": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=7": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=8": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=9": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=10": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=11": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=12": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=13": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=14": { "model": "abyssalcraft:block/liquid_coralium" },
+    "level=15": { "model": "abyssalcraft:block/liquid_coralium" }
+  }
+}

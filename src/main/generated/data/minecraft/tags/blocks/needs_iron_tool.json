@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssal_abyssalnite_ore",
+    "abyssalcraft:abyssal_diamond_ore",
+    "abyssalcraft:abyssal_gold_ore",
+    "abyssalcraft:abyssal_iron_ore",
+    "abyssalcraft:abyssal_nitre_ore",
+    "abyssalcraft:abyssalnite_ore",
+    "abyssalcraft:coralium_ore",
+    "abyssalcraft:nitre_ore"
+  ]
+}

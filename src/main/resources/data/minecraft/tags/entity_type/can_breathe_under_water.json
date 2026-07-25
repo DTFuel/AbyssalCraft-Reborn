@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssalzombie",
+    "abyssalcraft:coraliumsquid",
+    "abyssalcraft:dreadspawn",
+    "abyssalcraft:greaterdreadspawn",
+    "abyssalcraft:lesserdreadbeast",
+    "abyssalcraft:shadowcreature",
+    "abyssalcraft:shadowmonster",
+    "abyssalcraft:shadowbeast",
+    "abyssalcraft:depths_ghoul",
+    "abyssalcraft:omothol_ghoul",
+    "abyssalcraft:lesser_shoggoth",
+    "abyssalcraft:shoggoth",
+    "abyssalcraft:greater_shoggoth"
+  ]
+}

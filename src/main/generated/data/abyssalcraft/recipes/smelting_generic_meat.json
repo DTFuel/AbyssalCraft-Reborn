@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "abyssalcraft:generic_meat"
+  },
+  "result": {
+    "item": "abyssalcraft:cooked_generic_meat"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "abyssalcraft:block/elysian_stone_brick"
+  }
+}

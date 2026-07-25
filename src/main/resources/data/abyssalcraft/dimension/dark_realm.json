@@ -1,0 +1,11 @@
+{
+  "type": "abyssalcraft:dark_realm",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "abyssalcraft:dark_realm",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "abyssalcraft:dark_realm"
+    }
+  }
+}

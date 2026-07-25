@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssal_cobblestone_wall",
+    "abyssalcraft:coralium_cobblestone_wall",
+    "abyssalcraft:darkstone_cobblestone_wall",
+    "abyssalcraft:dreadstone_cobblestone_wall",
+    "abyssalcraft:elysian_cobblestone_wall"
+  ]
+}

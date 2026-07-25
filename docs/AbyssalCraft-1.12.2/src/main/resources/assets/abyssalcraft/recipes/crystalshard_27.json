@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:beryl_crystal"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:beryl_crystal_shard",
+    "count": 9
+  }
+}

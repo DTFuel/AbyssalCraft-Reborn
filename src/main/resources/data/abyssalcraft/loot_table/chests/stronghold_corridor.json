@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:chest",
+  "pools": [{
+    "rolls": { "type": "minecraft:uniform", "min": 2, "max": 3 },
+    "entries": [
+      { "type": "minecraft:item", "name": "minecraft:ender_pearl", "weight": 10 },
+      { "type": "minecraft:item", "name": "abyssalcraft:transmutation_gem", "weight": 1, "functions": [{ "function": "minecraft:set_damage", "damage": { "type": "minecraft:uniform", "min": 0.1, "max": 0.3 } }] },
+      { "type": "minecraft:item", "name": "abyssalcraft:abyssalnite_ingot", "weight": 10, "functions": [{ "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 5 } }] },
+      { "type": "minecraft:item", "name": "abyssalcraft:refined_coralium_ingot", "weight": 5, "functions": [{ "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 3 } }] },
+      { "type": "minecraft:item", "name": "abyssalcraft:coralium_pearl", "weight": 5, "functions": [{ "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 3 } }] },
+      { "type": "minecraft:item", "name": "minecraft:bread", "weight": 15, "functions": [{ "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 3 } }] },
+      { "type": "minecraft:item", "name": "minecraft:golden_apple", "weight": 15, "functions": [{ "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 3 } }] },
+      { "type": "minecraft:item", "name": "abyssalcraft:abyssalnite_pickaxe", "weight": 5 },
+      { "type": "minecraft:item", "name": "abyssalcraft:abyssalnite_chestplate", "weight": 5 },
+      { "type": "minecraft:item", "name": "abyssalcraft:abyssalnite_helmet", "weight": 5 },
+      { "type": "minecraft:item", "name": "abyssalcraft:abyssalnite_leggings", "weight": 5 },
+      { "type": "minecraft:item", "name": "abyssalcraft:abyssalnite_boots", "weight": 5 },
+      { "type": "minecraft:item", "name": "abyssalcraft:oblivion_catalyst", "weight": 1 },
+      { "type": "minecraft:item", "name": "abyssalcraft:crystal_zinc", "weight": 8, "functions": [{ "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 1, "max": 5 } }] }
+    ]
+  }]
+}

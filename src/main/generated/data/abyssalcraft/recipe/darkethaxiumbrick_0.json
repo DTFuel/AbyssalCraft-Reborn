@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:omothol_stone"
+    },
+    "%": {
+      "item": "abyssalcraft:ethaxium"
+    }
+  },
+  "pattern": [
+    "#%",
+    "#%"
+  ],
+  "result": {
+    "id": "abyssalcraft:dark_ethaxium_brick"
+  }
+}

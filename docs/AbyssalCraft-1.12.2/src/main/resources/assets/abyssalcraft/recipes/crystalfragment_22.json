@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "%%%",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:aluminium_crystal_fragment"
+    },
+    "%": {
+      "item": "abyssalcraft:oxygen_crystal_fragment"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:alumina_crystal_fragment"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "abyssalcraft:block/coralium_stone_brick",
+    "side": "abyssalcraft:block/coralium_stone_brick",
+    "top": "abyssalcraft:block/coralium_stone_brick"
+  }
+}

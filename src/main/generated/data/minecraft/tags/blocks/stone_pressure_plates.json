@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssal_stone_pressure_plate",
+    "abyssalcraft:coralium_stone_pressure_plate",
+    "abyssalcraft:darkstone_pressure_plate"
+  ]
+}

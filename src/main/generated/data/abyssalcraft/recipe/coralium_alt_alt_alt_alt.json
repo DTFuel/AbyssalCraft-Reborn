@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:coralium_gem_cluster_6"
+    }
+  },
+  "pattern": [
+    "#"
+  ],
+  "result": {
+    "count": 6,
+    "id": "abyssalcraft:coralium_gem"
+  }
+}

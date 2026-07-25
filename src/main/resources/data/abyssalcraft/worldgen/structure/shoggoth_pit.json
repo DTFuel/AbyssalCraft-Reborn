@@ -1,0 +1,8 @@
+{
+  "type": "abyssalcraft:structure",
+  "kind": "shoggoth_pit",
+  "biomes": "#abyssalcraft:has_structure/shoggoth_pit",
+  "step": "underground_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "bury"
+}

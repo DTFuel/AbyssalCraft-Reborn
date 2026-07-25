@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": ["abyssalcraft:dreadlands_forest"],
+  "features": ["abyssalcraft:dreadlands_tree"],
+  "step": "vegetal_decoration"
+}

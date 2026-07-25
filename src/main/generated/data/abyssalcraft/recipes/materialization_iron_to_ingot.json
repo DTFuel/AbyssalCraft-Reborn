@@ -1,0 +1,15 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "count": 1,
+      "ingredient": {
+        "item": "abyssalcraft:crystal_iron"
+      }
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:iron_ingot"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": ["abyssalcraft:omothol"],
+  "features": ["abyssalcraft:shoggoth_monolith"],
+  "step": "surface_structures"
+}

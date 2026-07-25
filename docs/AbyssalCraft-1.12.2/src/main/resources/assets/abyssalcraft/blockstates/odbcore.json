@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"normal": [
+			{ "model": "abyssalcraft:odbcore" },
+            { "model": "abyssalcraft:odbcore", "y": 90 },
+            { "model": "abyssalcraft:odbcore", "y": 180 },
+            { "model": "abyssalcraft:odbcore", "y": 270 }
+		]
+	}
+}

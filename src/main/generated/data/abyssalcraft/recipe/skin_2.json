@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:omothol_ghoul_flesh"
+    },
+    "%": {
+      "item": "abyssalcraft:omothol_essence"
+    }
+  },
+  "pattern": [
+    "###",
+    "#%#",
+    "###"
+  ],
+  "result": {
+    "id": "abyssalcraft:skin_of_omothol"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssal_stone_button",
+    "abyssalcraft:coralium_stone_button",
+    "abyssalcraft:darklands_oak_button",
+    "abyssalcraft:darkstone_button",
+    "abyssalcraft:dreadwood_button"
+  ]
+}

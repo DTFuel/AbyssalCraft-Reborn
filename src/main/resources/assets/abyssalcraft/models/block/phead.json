@@ -1,0 +1,4 @@
+{
+  "parent": "abyssalcraft:block/ghoul_head",
+  "textures": { "all": "abyssalcraft:block/phead" }
+}

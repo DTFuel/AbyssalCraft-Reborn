@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:coralium_pearl"
+    },
+    "%": {
+      "item": "abyssalcraft:oblivion_catalyst"
+    },
+    "&": {
+      "item": "minecraft:blaze_rod"
+    }
+  },
+  "pattern": [
+    " #%",
+    " &#",
+    "&  "
+  ],
+  "result": {
+    "id": "abyssalcraft:gatewaykey"
+  }
+}

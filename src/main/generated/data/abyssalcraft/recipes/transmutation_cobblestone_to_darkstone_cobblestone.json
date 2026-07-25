@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "experience": 0.1,
+  "input": {
+    "item": "minecraft:cobblestone"
+  },
+  "result": {
+    "count": 1,
+    "item": "abyssalcraft:darkstone_cobblestone"
+  },
+  "time": 200
+}

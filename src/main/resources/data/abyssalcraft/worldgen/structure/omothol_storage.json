@@ -1,0 +1,5 @@
+{
+  "type": "abyssalcraft:structure", "kind": "omothol_storage",
+  "biomes": "#abyssalcraft:has_structure/omothol", "step": "surface_structures",
+  "spawn_overrides": {}, "terrain_adaptation": "beard_thin"
+}

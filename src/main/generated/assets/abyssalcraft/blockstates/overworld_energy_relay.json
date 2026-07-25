@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "abyssalcraft:block/overworld_energy_relay",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "abyssalcraft:block/overworld_energy_relay",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "abyssalcraft:block/overworld_energy_relay",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "abyssalcraft:block/overworld_energy_relay",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "abyssalcraft:block/overworld_energy_relay"
+    },
+    "facing=west": {
+      "model": "abyssalcraft:block/overworld_energy_relay",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

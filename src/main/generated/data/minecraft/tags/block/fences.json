@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssal_stone_brick_fence",
+    "abyssalcraft:coralium_stone_brick_fence",
+    "abyssalcraft:dark_ethaxium_brick_fence",
+    "abyssalcraft:darklands_oak_fence",
+    "abyssalcraft:darkstone_brick_fence",
+    "abyssalcraft:dreadstone_brick_fence",
+    "abyssalcraft:dreadwood_fence",
+    "abyssalcraft:elysian_stone_brick_fence",
+    "abyssalcraft:ethaxium_brick_fence"
+  ]
+}

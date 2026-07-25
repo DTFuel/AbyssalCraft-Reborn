@@ -1,0 +1,53 @@
+package com.shinoow.abyssalcraft.content.block.ritual;
+
+import com.shinoow.abyssalcraft.platform.BlockEntityCompat;
+import com.shinoow.abyssalcraft.platform.ContainerCompat;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
+
+/**
+ * Ritual pedestal block entity (owned by content/block/ritual): holds a single offering for a nearby
+ * {@link RitualAltarBlock}. Implements {@link RitualPedestal} so the altar's ring scan (CR-62) can gather
+ * and consume the offering. The stack persists through {@link BlockEntityCompat} (the 1.20 &harr; 1.21
+ * save/load fork) + {@link ContainerCompat} (the ItemStack NBT fork), kept out of this business code.
+ */
+public class RitualPedestalBlockEntity extends BlockEntityCompat implements RitualPedestal {
+
+    private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
+
+    public RitualPedestalBlockEntity(BlockPos pos, BlockState state) {
+        super(RitualBlocks.RITUAL_PEDESTAL_BE.get(), pos, state);
+    }
+
+    @Override
+    public ItemStack getOffering() {
+        return items.get(0);
+    }
+
+    @Override
+    public void consumeOffering() {
+        items.set(0, ItemStack.EMPTY);
+        setChanged();
+    }
+
+    /** Place {@code offering} on the pedestal (a single item). */
+    public void setOffering(ItemStack offering) {
+        items.set(0, offering);
+        setChanged();
+    }
+
+    @Override
+    protected void saveData(CompoundTag tag, HolderLookup.Provider registries) {
+        ContainerCompat.saveItems(tag, items, registries);
+    }
+
+    @Override
+    protected void loadData(CompoundTag tag, HolderLookup.Provider registries) {
+        ContainerCompat.loadItems(tag, items, registries);
+    }
+}

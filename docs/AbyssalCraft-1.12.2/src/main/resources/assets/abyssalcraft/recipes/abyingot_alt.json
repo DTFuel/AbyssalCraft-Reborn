@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "abyssalcraft:nugget_abyssalnite"
+    }
+  },
+  "result": {
+    "item": "abyssalcraft:abyingot"
+  }
+}

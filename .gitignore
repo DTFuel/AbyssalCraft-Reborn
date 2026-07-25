@@ -1,0 +1,53 @@
+# ============================================================
+#  AbyssalCraft - Stonecutter + Architectury Loom (multi-loader)
+#  Tracked: src/, versions/*/gradle.properties, docs/, scripts/,
+#           Gradle wrapper, generated assets/data (minus cache).
+#  Note: patterns without a leading/middle slash match at any depth,
+#        so build/, run/, .gradle/ also cover versions/*/ nodes.
+# ============================================================
+
+# ---- Gradle ----
+.gradle/
+build/
+
+# ---- Architectury Loom / Stonecutter caches ----
+.stonecutter-cache/
+.architectury-transformer/
+remappedSrc/
+
+# ---- Minecraft dev runtime ----
+run/
+runs/
+logs/
+crash-reports/
+
+# ---- Datagen: keep generated assets/data, drop the hash cache ----
+src/main/generated/.cache/
+
+# ---- Compiled output ----
+*.class
+
+# ---- IDE: IntelliJ IDEA ----
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ---- IDE: Eclipse ----
+.classpath
+.project
+.settings/
+bin/
+*.launch
+
+# ---- IDE: VS Code ----
+.vscode/
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Logs / misc ----
+*.log

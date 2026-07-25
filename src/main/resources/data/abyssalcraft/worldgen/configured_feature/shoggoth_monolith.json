@@ -1,0 +1,8 @@
+{
+  "type": "abyssalcraft:monolith",
+  "config": {
+    "state": {
+      "Name": "abyssalcraft:monolith_stone"
+    }
+  }
+}

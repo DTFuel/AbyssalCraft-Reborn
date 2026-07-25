@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures" : {
+			"all": "abyssalcraft:blocks/drs",
+			"overlay": "abyssalcraft:blocks/ores/abyssalnite"
+		}
+	},
+	"variants": {
+		"normal": { "model": "abyssalcraft:layered_cube" }
+	}
+}

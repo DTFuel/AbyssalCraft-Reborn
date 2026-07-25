@@ -1,0 +1,8 @@
+{
+  "type": "abyssalcraft:structure",
+  "kind": "abyruin",
+  "biomes": "#abyssalcraft:has_structure/abyruin",
+  "step": "surface_structures",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin"
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "abyssalcraft:block/whead" },
+    "facing=east": { "model": "abyssalcraft:block/whead", "y": 90 },
+    "facing=south": { "model": "abyssalcraft:block/whead", "y": 180 },
+    "facing=west": { "model": "abyssalcraft:block/whead", "y": 270 }
+  }
+}

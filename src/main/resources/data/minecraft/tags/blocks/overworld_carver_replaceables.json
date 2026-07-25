@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "abyssalcraft:abyssal_stone", "required": false },
+    { "id": "abyssalcraft:dreadstone", "required": false },
+    { "id": "abyssalcraft:coralium_stone", "required": false },
+    { "id": "abyssalcraft:darkstone", "required": false }
+  ]
+}

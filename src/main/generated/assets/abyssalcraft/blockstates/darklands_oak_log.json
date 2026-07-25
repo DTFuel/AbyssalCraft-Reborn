@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "abyssalcraft:block/darklands_oak_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "abyssalcraft:block/darklands_oak_log"
+    },
+    "axis=z": {
+      "model": "abyssalcraft:block/darklands_oak_log",
+      "x": 90
+    }
+  }
+}

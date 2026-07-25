@@ -1,0 +1,8 @@
+{
+  "type": "abyssalcraft:stalagmite",
+  "config": {
+    "state": {
+      "Name": "abyssalcraft:abyssal_stone"
+    }
+  }
+}

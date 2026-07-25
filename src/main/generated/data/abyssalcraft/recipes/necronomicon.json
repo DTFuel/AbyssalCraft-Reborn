@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "%": {
+      "item": "minecraft:iron_ingot"
+    },
+    "&": {
+      "item": "minecraft:book"
+    }
+  },
+  "pattern": [
+    "##%",
+    "#&#",
+    "##%"
+  ],
+  "result": {
+    "item": "abyssalcraft:necronomicon"
+  }
+}

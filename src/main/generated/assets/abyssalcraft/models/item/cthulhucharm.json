@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "abyssalcraft:item/charms/charm",
+    "layer1": "abyssalcraft:item/charms/cthulhu"
+  }
+}

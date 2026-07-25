@@ -1,0 +1,17 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": ["abyssalcraft:dreadlands", "abyssalcraft:dreadlands_forest", "abyssalcraft:dreadlands_mountains"],
+  "spawners": [
+    { "type": "abyssalcraft:dreadspawn", "weight": 30, "minCount": 1, "maxCount": 2 },
+    { "type": "abyssalcraft:dreadling", "weight": 40, "minCount": 1, "maxCount": 2 },
+    { "type": "abyssalcraft:chagarothfist", "weight": 2, "minCount": 1, "maxCount": 1 },
+    { "type": "abyssalcraft:demon_pig", "weight": 5, "minCount": 1, "maxCount": 2 },
+    { "type": "abyssalcraft:demon_cow", "weight": 5, "minCount": 1, "maxCount": 2 },
+    { "type": "abyssalcraft:demon_chicken", "weight": 5, "minCount": 1, "maxCount": 2 },
+    { "type": "abyssalcraft:demon_sheep", "weight": 5, "minCount": 1, "maxCount": 2 },
+    { "type": "abyssalcraft:greaterdreadspawn", "weight": 5, "minCount": 1, "maxCount": 1 },
+    { "type": "abyssalcraft:dreadguard", "weight": 8, "minCount": 1, "maxCount": 1 },
+    { "type": "abyssalcraft:lesserdreadbeast", "weight": 1, "minCount": 1, "maxCount": 1 },
+    { "type": "abyssalcraft:dreaded_ghoul", "weight": 1, "minCount": 1, "maxCount": 2 }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    { "id": "abyssalcraft:abyssal_wastelands", "required": false },
+    { "id": "abyssalcraft:abyssal_swamp", "required": false },
+    { "id": "abyssalcraft:omothol", "required": false },
+    { "id": "abyssalcraft:dark_realm", "required": false }
+  ]
+}

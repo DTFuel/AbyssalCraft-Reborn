@@ -1,0 +1,20 @@
+{
+  "description": {
+    "translate": "enchantment.abyssalcraft.sapping"
+  },
+  "supported_items": "#abyssalcraft:enchantable/staff_of_rending",
+  "weight": 5,
+  "max_level": 3,
+  "min_cost": {
+    "base": 12,
+    "per_level_above_first": 8
+  },
+  "max_cost": {
+    "base": 32,
+    "per_level_above_first": 8
+  },
+  "anvil_cost": 4,
+  "slots": [
+    "mainhand"
+  ]
+}

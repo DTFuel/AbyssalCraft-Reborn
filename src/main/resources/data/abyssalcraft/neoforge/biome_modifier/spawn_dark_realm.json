@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": ["abyssalcraft:dark_realm"],
+  "spawners": [
+    { "type": "abyssalcraft:shadowcreature", "weight": 60, "minCount": 1, "maxCount": 5 },
+    { "type": "abyssalcraft:shadowmonster", "weight": 40, "minCount": 1, "maxCount": 3 },
+    { "type": "abyssalcraft:shadowbeast", "weight": 10, "minCount": 1, "maxCount": 1 },
+    { "type": "abyssalcraft:shadow_ghoul", "weight": 1, "minCount": 1, "maxCount": 1 }
+  ]
+}

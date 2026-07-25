@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssal_sand",
+    "abyssalcraft:dreadlands_dirt",
+    "abyssalcraft:dreadlands_grass",
+    "abyssalcraft:dreadlands_muck"
+  ]
+}

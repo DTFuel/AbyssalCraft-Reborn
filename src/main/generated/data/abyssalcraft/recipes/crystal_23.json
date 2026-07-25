@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:crystal_magnesium"
+    },
+    "%": {
+      "item": "abyssalcraft:crystal_oxygen"
+    }
+  },
+  "pattern": [
+    "#%"
+  ],
+  "result": {
+    "item": "abyssalcraft:crystal_magnesia"
+  }
+}

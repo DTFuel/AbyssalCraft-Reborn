@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "abyssalcraft:darklands_oak_log"
+    }
+  },
+  "pattern": [
+    "A"
+  ],
+  "result": {
+    "count": 4,
+    "id": "abyssalcraft:darklands_oak_planks"
+  }
+}

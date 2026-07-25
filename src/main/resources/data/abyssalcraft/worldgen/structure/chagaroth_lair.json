@@ -1,0 +1,5 @@
+{
+  "type": "abyssalcraft:structure", "kind": "chagaroth_lair",
+  "biomes": "#abyssalcraft:has_structure/chagaroth_lair", "step": "underground_structures",
+  "spawn_overrides": {}, "terrain_adaptation": "bury"
+}

@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:chiseled_dark_ethaxium_brick",
+    "abyssalcraft:chiseled_ethaxium_brick",
+    "abyssalcraft:cracked_dark_ethaxium_brick",
+    "abyssalcraft:cracked_ethaxium_brick",
+    "abyssalcraft:dark_ethaxium_brick",
+    "abyssalcraft:dark_ethaxium_brick_fence",
+    "abyssalcraft:dark_ethaxium_brick_slab",
+    "abyssalcraft:dark_ethaxium_brick_stairs",
+    "abyssalcraft:dark_ethaxium_pillar",
+    "abyssalcraft:ethaxium",
+    "abyssalcraft:ethaxium_brick_fence",
+    "abyssalcraft:ethaxium_brick_slab",
+    "abyssalcraft:ethaxium_brick_stairs",
+    "abyssalcraft:ethaxium_bricks",
+    "abyssalcraft:ethaxium_pillar",
+    "abyssalcraft:materializer"
+  ]
+}

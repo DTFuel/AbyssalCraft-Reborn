@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:abyssalzombie",
+    "abyssalcraft:dreadling",
+    "abyssalcraft:ghoul",
+    "abyssalcraft:depths_ghoul",
+    "abyssalcraft:dreaded_ghoul"
+  ]
+}

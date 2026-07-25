@@ -1,0 +1,4 @@
+{
+  "structures": [{ "structure": "abyssalcraft:omothol_temple", "weight": 1 }],
+  "placement": { "type": "minecraft:random_spread", "spacing": 42, "separation": 16, "salt": 401241 }
+}

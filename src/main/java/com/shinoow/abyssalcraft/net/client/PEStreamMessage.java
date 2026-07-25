@@ -1,0 +1,38 @@
+package com.shinoow.abyssalcraft.net.client;
+
+import com.shinoow.abyssalcraft.platform.NetworkChannel;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.FriendlyByteBuf;
+
+/**
+ * Server &rarr; client: draw a Purified Essence particle stream from {@code posFrom} to {@code posTo}
+ * (owned by PS-1). Serialization is faithful; the client particle stream is deferred until the
+ * energy-pedestal system is ported (PS-5).
+ */
+public class PEStreamMessage implements NetworkChannel.ACPacket {
+
+    private final BlockPos posFrom;
+    private final BlockPos posTo;
+
+    public PEStreamMessage(BlockPos posFrom, BlockPos posTo) {
+        this.posFrom = posFrom;
+        this.posTo = posTo;
+    }
+
+    public PEStreamMessage(FriendlyByteBuf buf) {
+        this.posFrom = buf.readBlockPos();
+        this.posTo = buf.readBlockPos();
+    }
+
+    @Override
+    public void write(FriendlyByteBuf buf) {
+        buf.writeBlockPos(posFrom);
+        buf.writeBlockPos(posTo);
+    }
+
+    @Override
+    public void handle(NetworkChannel.Context ctx) {
+        // Deferred: the energy-pedestal particle stream (PS-5) is not yet ported -- it lands with it.
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:crystal_hydrogen"
+    },
+    "%": {
+      "item": "abyssalcraft:crystal_carbon"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#%#",
+    " # "
+  ],
+  "result": {
+    "item": "abyssalcraft:crystal_methane"
+  }
+}

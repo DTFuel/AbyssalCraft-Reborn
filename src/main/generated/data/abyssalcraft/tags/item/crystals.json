@@ -1,0 +1,31 @@
+{
+  "replace": false,
+  "values": [
+    "abyssalcraft:crystal_abyssalnite",
+    "abyssalcraft:crystal_alumina",
+    "abyssalcraft:crystal_aluminium",
+    "abyssalcraft:crystal_beryl",
+    "abyssalcraft:crystal_beryllium",
+    "abyssalcraft:crystal_blaze",
+    "abyssalcraft:crystal_calcium",
+    "abyssalcraft:crystal_carbon",
+    "abyssalcraft:crystal_coralium",
+    "abyssalcraft:crystal_dreadium",
+    "abyssalcraft:crystal_gold",
+    "abyssalcraft:crystal_hydrogen",
+    "abyssalcraft:crystal_iron",
+    "abyssalcraft:crystal_magnesia",
+    "abyssalcraft:crystal_magnesium",
+    "abyssalcraft:crystal_methane",
+    "abyssalcraft:crystal_nitrate",
+    "abyssalcraft:crystal_nitrogen",
+    "abyssalcraft:crystal_oxygen",
+    "abyssalcraft:crystal_phosphorus",
+    "abyssalcraft:crystal_potassium",
+    "abyssalcraft:crystal_redstone",
+    "abyssalcraft:crystal_silica",
+    "abyssalcraft:crystal_silicon",
+    "abyssalcraft:crystal_sulfur",
+    "abyssalcraft:crystal_zinc"
+  ]
+}

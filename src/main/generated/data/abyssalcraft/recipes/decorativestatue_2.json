@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "abyssalcraft:monolith_stone"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "tag": "abyssalcraft:legacy/dye_gray"
+    }
+  ],
+  "result": {
+    "item": "abyssalcraft:decorative_jzahar_statue"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#abyssalcraft:crystal_clusters",
+    "abyssalcraft:abyssal_coralium_ore",
+    "abyssalcraft:dreaded_abyssalnite_ore",
+    "abyssalcraft:dreadlands_abyssalnite_ore",
+    "abyssalcraft:liquified_coralium_ore",
+    "abyssalcraft:pearlescent_coralium_ore"
+  ]
+}

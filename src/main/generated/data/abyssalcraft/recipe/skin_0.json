@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:coralium_plagued_flesh"
+    },
+    "%": {
+      "item": "abyssalcraft:abyssal_wasteland_essence"
+    }
+  },
+  "pattern": [
+    "###",
+    "#%#",
+    "###"
+  ],
+  "result": {
+    "id": "abyssalcraft:skin_of_the_abyssal_wasteland"
+  }
+}
