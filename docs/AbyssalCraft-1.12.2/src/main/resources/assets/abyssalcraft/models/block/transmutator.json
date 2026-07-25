@@ -1,8 +1,0 @@
-{
-	"parent": "block/orientable",
-	"textures": {
-		"top": "abyssalcraft:blocks/transmutator_top",
-		"front": "abyssalcraft:blocks/transmutator_front_off",
-        "side": "abyssalcraft:blocks/transmutator_side"
-	}
-}

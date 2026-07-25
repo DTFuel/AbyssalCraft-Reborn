@@ -1,7 +1,0 @@
-{
-	"parent": "abyssalcraft:block/layered_cube",
-	"textures": {
-		"all": "abyssalcraft:blocks/ethaxium_bricks/dark_bricks_base",
-		"overlay": "abyssalcraft:blocks/ethaxium_bricks/dark_faces_1"
-	}
-}

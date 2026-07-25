@@ -1,7 +1,0 @@
-{
-	"parent": "item/generated",
-	"textures": {
-		"layer0": "abyssalcraft:items/scrolls/scroll_lesser",
-		"layer1": "abyssalcraft:items/scrolls/spell_overlay"
-	}
-}

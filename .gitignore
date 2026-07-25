@@ -51,3 +51,6 @@ desktop.ini
 
 # ---- Logs / misc ----
 *.log
+
+# ---- Reference: original 1.12.2 mod source (not part of the port) ----
+docs/AbyssalCraft-1.12.2/

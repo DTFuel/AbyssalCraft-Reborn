@@ -1,7 +1,0 @@
-{
-	"parent": "abyssalcraft:block/layered_cube",
-	"textures": {
-		"all": "abyssalcraft:blocks/drs",
-		"overlay": "abyssalcraft:blocks/ores/dreaded_abyssalnite"
-	}
-}

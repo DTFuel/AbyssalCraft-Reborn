@@ -1,6 +1,0 @@
-{
-	"parent": "abyssalcraft:item/interdimensionalcage",
-	"textures": {
-		"layer0": "abyssalcraft:items/interdimensionalcage_captured"
-	}
-}

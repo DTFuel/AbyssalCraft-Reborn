@@ -1,7 +1,0 @@
-{
-	"parent": "block/cube_column",
-	"textures": {
-		"side": "abyssalcraft:blocks/debp",
-        "end": "abyssalcraft:blocks/debp_top"
-	}
-}

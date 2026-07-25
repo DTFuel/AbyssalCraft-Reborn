@@ -1,7 +1,0 @@
-{
-	"parent": "abyssalcraft:block/layered_cube",
-	"textures": {
-		"all": "abyssalcraft:blocks/as",
-		"overlay": "abyssalcraft:blocks/ores/pearlescent_coralium"
-	}
-}

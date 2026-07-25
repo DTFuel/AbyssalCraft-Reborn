@@ -1,6 +1,0 @@
-{
-	"parent": "abyssalcraft:block/ritualaltar",
-	"textures": {
-		"0": "minecraft:blocks/cobblestone"
-	}
-}

@@ -1,7 +1,0 @@
-{
-	"parent": "block/cube_column",
-	"textures": {
-		"side": "abyssalcraft:blocks/dsglow",
-		"end": "abyssalcraft:blocks/dsb"
-	}
-}

@@ -1,8 +1,0 @@
-{
-	"parent": "block/stairs",
-	"textures": {
-		"bottom": "abyssalcraft:blocks/abyssalnitecobblestone",
-        "top": "abyssalcraft:blocks/abyssalnitecobblestone",
-        "side": "abyssalcraft:blocks/abyssalnitecobblestone"
-	}
-}

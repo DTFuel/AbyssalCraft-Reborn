@@ -1,8 +1,0 @@
-{
-	"parent": "abyssalcraft:block/tombstone",
-	"textures": {
-		"0": "abyssalcraft:blocks/as",
-		"1": "abyssalcraft:blocks/abyssalcobblestone",
-		"particle": "abyssalcraft:blocks/as"
-	}
-}
