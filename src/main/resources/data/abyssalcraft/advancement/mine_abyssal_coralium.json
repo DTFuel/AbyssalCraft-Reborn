@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "abyssalcraft:abyssal_coralium_ore"
+      "id": "abyssalcraft:abyssal_coralium_ore"
     },
     "title": {
       "translate": "advancements.abyssalcraft.minecor.title"

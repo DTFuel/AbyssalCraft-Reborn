@@ -2,6 +2,7 @@ package com.shinoow.abyssalcraft.content.entity.demon;
 
 import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.content.entity.base.ACMob;
+import com.shinoow.abyssalcraft.content.block.demon.DemonBlocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -137,7 +138,9 @@ public class DemonAnimal extends ACMob {
             double offsetZ = (corner / 2 % 2 * 2 - 1) * 0.25D;
             BlockPos pos = BlockPos.containing(getX() + offsetX, getY(), getZ() + offsetZ);
             if (level().isEmptyBlock(pos) && BaseFireBlock.canBePlacedAt(level(), pos, Direction.UP)) {
-                level().setBlockAndUpdate(pos, BaseFireBlock.getState(level(), pos));
+                level().setBlockAndUpdate(pos, ACConfig.mimicFire.get()
+                    ? DemonBlocks.MIMIC_FIRE.get().defaultBlockState()
+                    : BaseFireBlock.getState(level(), pos));
             }
         }
     }

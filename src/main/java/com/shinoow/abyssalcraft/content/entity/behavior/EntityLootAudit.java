@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.content.entity.behavior;
 
 import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -111,6 +112,15 @@ public final class EntityLootAudit {
         "dreadlands_mountains", "ghoul", "omothol", "shoggoth"
     );
 
+    private static final Map<String, String> MODERN_ALIASES = modernAliasesInternal();
+
+    private static final Set<String> LOGICAL_TABLES = logicalTablesInternal();
+
+    private static final Set<String> EMPTY_LOGICAL_TABLES = Set.of(
+        "anti_bat", "antibat", "anti_player", "antiplayer",
+        "fist_of_chagaroth", "chagarothfist", "shub_offspring", "shuboffspring"
+    );
+
     private EntityLootAudit() {}
 
     public static List<Entry> entries() {
@@ -125,12 +135,28 @@ public final class EntityLootAudit {
         return SPAWN_MODIFIERS;
     }
 
+    public static Map<String, String> modernAliases() {
+        return MODERN_ALIASES;
+    }
+
+    public static Set<String> logicalTables() {
+        return LOGICAL_TABLES;
+    }
+
+    public static Set<String> emptyLogicalTables() {
+        return EMPTY_LOGICAL_TABLES;
+    }
+
     public static Summary validate() {
         require(ENTRIES.size() == 69, "legacy entity loot audit must contain 69 entries");
         require(new HashSet<>(ENTRIES.stream().map(Entry::legacyTable).toList()).size() == ENTRIES.size(),
             "legacy entity loot audit contains duplicate table ids");
         require(BASELINE_UNIQUE_TABLES.size() == 34, "modern entity loot baseline must contain 34 tables");
         require(SPAWN_MODIFIERS.size() == 9, "spawn modifier mirror baseline must contain 9 ids");
+        require(MODERN_ALIASES.size() == 28, "modern entity loot alias count must be 28");
+        require(LOGICAL_TABLES.size() == 97, "modern entity loot logical table count must be 97");
+        require(EMPTY_LOGICAL_TABLES.size() == 8 && LOGICAL_TABLES.containsAll(EMPTY_LOGICAL_TABLES),
+            "modern empty entity loot table contract changed");
 
         Map<Resolution, Integer> counts = new EnumMap<>(Resolution.class);
         for (Resolution resolution : Resolution.values()) counts.put(resolution, 0);
@@ -161,6 +187,23 @@ public final class EntityLootAudit {
 
     private static Entry replaced(String legacyTable, String modernEntity, String reason) {
         return new Entry(legacyTable, Resolution.REPLACED, modernEntity, reason);
+    }
+
+    private static Map<String, String> modernAliasesInternal() {
+        Map<String, String> aliases = new HashMap<>();
+        for (Entry entry : ENTRIES) {
+            if (entry.resolution() == Resolution.CONDITIONAL
+                    || entry.resolution() == Resolution.RETIRED
+                    || entry.legacyTable().equals(entry.modernEntity())) continue;
+            aliases.putIfAbsent(entry.modernEntity(), entry.legacyTable());
+        }
+        return Map.copyOf(aliases);
+    }
+
+    private static Set<String> logicalTablesInternal() {
+        Set<String> tables = new HashSet<>(ENTRIES.stream().map(Entry::legacyTable).toList());
+        tables.addAll(MODERN_ALIASES.keySet());
+        return Set.copyOf(tables);
     }
 
     private static void require(boolean condition, String message) {

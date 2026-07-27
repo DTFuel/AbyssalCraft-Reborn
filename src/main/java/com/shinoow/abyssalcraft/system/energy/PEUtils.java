@@ -7,7 +7,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
+import com.shinoow.abyssalcraft.net.ACNetwork;
+import com.shinoow.abyssalcraft.net.client.PEStreamMessage;
 import com.shinoow.abyssalcraft.system.energy.structure.IStructureBase;
 import com.shinoow.abyssalcraft.system.energy.structure.IStructureComponent;
 
@@ -254,6 +257,14 @@ public final class PEUtils {
                 }
                 collector.addEnergy(quanta);
                 manipulator.addTolerance(manipulator.isActive() ? 2 : 1);
+                if (level instanceof net.minecraft.server.level.ServerLevel server
+                    && manipulator instanceof BlockEntity origin) {
+                    for (net.minecraft.server.level.ServerPlayer player : server.players()) {
+                        if (player.distanceToSqr(Vec3.atCenterOf(origin.getBlockPos())) <= 4096.0D) {
+                            ACNetwork.sendToPlayer(player, new PEStreamMessage(origin.getBlockPos(), pos));
+                        }
+                    }
+                }
                 fed++;
             }
         }

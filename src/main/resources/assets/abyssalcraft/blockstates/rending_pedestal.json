@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "tilted=false": { "model": "abyssalcraft:block/rending_pedestal" },
+    "tilted=true": { "model": "abyssalcraft:block/rending_pedestal_tilted" }
+  }
+}

@@ -3,14 +3,17 @@ package com.shinoow.abyssalcraft.content.block.energy;
 import com.shinoow.abyssalcraft.content.blockentity.base.TickingBlockEntity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Containers;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import com.shinoow.abyssalcraft.platform.MenuCompat;
 
 /** PE manipulator that distributes stored energy to nearby collectors. */
 public class EnergyDepositionerBlock extends EnergyDropBlock implements EntityBlock {
@@ -22,10 +25,9 @@ public class EnergyDepositionerBlock extends EnergyDropBlock implements EntityBl
     @Override
     protected net.minecraft.world.InteractionResult onUse(BlockState state, Level level, BlockPos pos,
                                                             net.minecraft.world.entity.player.Player player) {
-        if (!level.isClientSide && level.getBlockEntity(pos) instanceof EnergyDepositionerBlockEntity depositioner) {
-            player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
-                "message.abyssalcraft.energy.status", (int) depositioner.getContainedEnergy(),
-                depositioner.getMaxEnergy()), true);
+        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer
+            && level.getBlockEntity(pos) instanceof EnergyDepositionerBlockEntity depositioner) {
+            MenuCompat.open(serverPlayer, depositioner, pos);
         }
         return net.minecraft.world.InteractionResult.sidedSuccess(level.isClientSide);
     }
@@ -48,7 +50,13 @@ public class EnergyDepositionerBlock extends EnergyDropBlock implements EntityBl
         if (state.getBlock() != newState.getBlock()
             && level.getBlockEntity(pos) instanceof EnergyDepositionerBlockEntity depositioner) {
             Containers.dropContents(level, pos, depositioner);
+            Block.popResource(level, pos, depositioner.removeProcessingStack());
         }
         super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+
+    @Override
+    protected boolean acceptsHeldItem() {
+        return true;
     }
 }

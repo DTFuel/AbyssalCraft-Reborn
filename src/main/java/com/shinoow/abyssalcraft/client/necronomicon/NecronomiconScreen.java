@@ -5,6 +5,8 @@ import java.util.Deque;
 import java.util.List;
 
 import com.shinoow.abyssalcraft.platform.ClientScreenCompat;
+import com.shinoow.abyssalcraft.net.ACNetwork;
+import com.shinoow.abyssalcraft.net.server.OpenSpellbookMessage;
 import com.shinoow.abyssalcraft.system.cap.necrodata.NecroData;
 import com.shinoow.abyssalcraft.system.cap.necrodata.NecroDataCapability;
 
@@ -84,6 +86,11 @@ public final class NecronomiconScreen extends Screen {
     }
 
     private void navigateTo(NecronomiconEntry entry) {
+        if (entry.id().equals("spellbook")) {
+            ACNetwork.sendToServer(new OpenSpellbookMessage());
+            onClose();
+            return;
+        }
         path.push(entry);
         page = 0;
         rebuildWidgets();
@@ -102,11 +109,19 @@ public final class NecronomiconScreen extends Screen {
         rebuildWidgets();
     }
 
+    void refreshKnowledge() {
+        rebuildWidgets();
+    }
+
     /**
      * Read-only display gate: visible if no research is required, the player knows all, or the player has
      * completed the research (synced necrodata; PS-8 {@code KnowledgeGate} populates it server-side).
      */
     private boolean isVisible(NecronomiconEntry entry, NecroData data) {
+        if (entry.advancementId() != null) {
+            return data != null && (data.hasUnlockedAllKnowledge()
+                || data.getAdvancementTriggers().contains(entry.advancementId().toString()));
+        }
         if (entry.researchId() == null) {
             return true;
         }
@@ -118,11 +133,12 @@ public final class NecronomiconScreen extends Screen {
     }
 
     private Component entryLabel(NecronomiconEntry entry, NecroData data) {
-        if (entry.researchId() == null) {
+        if (entry.researchId() == null && entry.advancementId() == null) {
             return Component.translatable(entry.titleKey());
         }
         boolean completed = data != null && (data.hasUnlockedAllKnowledge()
-            || data.getCompletedResearches().contains(entry.researchId().toString()));
+            || entry.researchId() != null && data.getCompletedResearches().contains(entry.researchId().toString())
+            || entry.advancementId() != null && data.getAdvancementTriggers().contains(entry.advancementId().toString()));
         String state = completed ? "gui.abyssalcraft.necronomicon.research.completed"
             : "gui.abyssalcraft.necronomicon.research.locked";
         return Component.translatable("gui.abyssalcraft.necronomicon.research.row",

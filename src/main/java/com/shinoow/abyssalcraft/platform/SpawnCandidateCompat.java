@@ -50,6 +50,9 @@ public final class SpawnCandidateCompat {
         candidate("shadowmonster", 50, 2, 2),
         candidate("shadowbeast", 20, 1, 1));
 
+    private static List<SpawnerData> shadowRealmSpawners;
+    private static List<SpawnerData> dreadlandsOverrideSpawners;
+
     private SpawnCandidateCompat() {}
 
     public static void attach() {
@@ -66,9 +69,10 @@ public final class SpawnCandidateCompat {
         ResourceKey<Biome> biome = level.getBiome(event.getPos()).unwrapKey().orElse(null);
         List<Candidate> snapshot = candidateSnapshot(level.dimension(), biome, event.getPos().getY());
         if (snapshot.isEmpty()) return;
-        List<SpawnerData> spawners = event.getSpawnerDataList();
-        spawners.clear();
-        for (Candidate candidate : snapshot) add(spawners, candidate);
+        for (SpawnerData spawner : List.copyOf(event.getSpawnerDataList())) {
+            event.removeSpawnerData(spawner);
+        }
+        for (SpawnerData spawner : spawners(snapshot)) event.addSpawnerData(spawner);
     }
 
     public static List<Candidate> candidateSnapshot(ResourceKey<Level> dimension,
@@ -87,12 +91,28 @@ public final class SpawnCandidateCompat {
         return new Candidate(entityId, weight, min, max);
     }
 
-    private static void add(List<SpawnerData> list, Candidate candidate) {
+    private static SpawnerData spawner(Candidate candidate) {
         var id = ACRef.id(candidate.entityId());
         if (!BuiltInRegistries.ENTITY_TYPE.containsKey(id)) {
             throw new IllegalStateException("spawn candidate references missing entity: " + candidate.entityId());
         }
         EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.get(id);
-        list.add(new SpawnerData(type, candidate.weight(), candidate.minCount(), candidate.maxCount()));
+        return new SpawnerData(type, candidate.weight(), candidate.minCount(), candidate.maxCount());
+    }
+
+    private static List<SpawnerData> spawners(List<Candidate> candidates) {
+        if (candidates == SHADOW_REALM) {
+            if (shadowRealmSpawners == null) shadowRealmSpawners = createSpawners(candidates);
+            return shadowRealmSpawners;
+        }
+        if (candidates == DREADLANDS_OVERRIDE) {
+            if (dreadlandsOverrideSpawners == null) dreadlandsOverrideSpawners = createSpawners(candidates);
+            return dreadlandsOverrideSpawners;
+        }
+        throw new IllegalArgumentException("unknown spawn candidate snapshot");
+    }
+
+    private static List<SpawnerData> createSpawners(List<Candidate> candidates) {
+        return candidates.stream().map(SpawnCandidateCompat::spawner).toList();
     }
 }

@@ -374,7 +374,7 @@
 		"sounds": [
 			"abyssalcraft:jzahar/shout"
 		],
-		"subtitle": "subtitle.abyssalcraft.jzahar.shout"
+		"subtitle": "subtitle.abyssalcraft.jzahar.shouts"
 	},
 	"jzahar.earthquake": {
 		"category": "hostile",

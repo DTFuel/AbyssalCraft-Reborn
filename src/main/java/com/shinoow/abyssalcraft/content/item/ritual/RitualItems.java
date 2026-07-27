@@ -18,8 +18,9 @@ public final class RitualItems {
 
     public static final Supplier<Item> SEALING_KEY = plain("sealing_key");
     public static final Supplier<Item> INTERDIMENSIONAL_CAGE =
-        ITEMS.register("interdimensional_cage", () -> new RitualEnergyItem(1000));
-    public static final Supplier<Item> BOOK_OF_MANY_FACES = plain("book_of_many_faces");
+        ITEMS.register("interdimensional_cage", InterdimensionalCageItem::new);
+    public static final Supplier<Item> BOOK_OF_MANY_FACES =
+        ITEMS.register("book_of_many_faces", BookOfManyFacesItem::new);
     public static final Supplier<Item> STAFF_OF_THE_GATEKEEPER =
         ITEMS.register("staff_of_the_gatekeeper", GatekeeperStaffItem::new);
 
@@ -57,6 +58,6 @@ public final class RitualItems {
     }
 
     private static Supplier<Item> staff(String id, int tier) {
-        return ITEMS.register(id, () -> new RitualEnergyItem(100 * (tier + 1)));
+        return ITEMS.register(id, () -> new StaffOfRendingItem(tier));
     }
 }

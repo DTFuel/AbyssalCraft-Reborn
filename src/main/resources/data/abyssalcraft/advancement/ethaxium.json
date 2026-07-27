@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "abyssalcraft:ethaxium_ingot"
+      "id": "abyssalcraft:ethaxium_ingot"
     },
     "title": {
       "translate": "advancements.abyssalcraft.ethaxium.title"

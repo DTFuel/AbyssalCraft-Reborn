@@ -9,6 +9,7 @@ import com.shinoow.abyssalcraft.net.ACNetwork;
 import com.shinoow.abyssalcraft.net.client.ShouldSyncMessage;
 import com.shinoow.abyssalcraft.system.cap.necrodata.NecroData;
 import com.shinoow.abyssalcraft.system.cap.necrodata.NecroDataCapability;
+import com.shinoow.abyssalcraft.system.advancement.AdvancementKnowledge;
 import com.shinoow.abyssalcraft.system.knowledge.KnowledgeSync;
 
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -93,6 +94,19 @@ public final class KnowledgeHooks {
         } else if (ACConfig.syncDataOnBookOpening.get()) {
             ACNetwork.sendToPlayer(player, new ShouldSyncMessage(0L));
         }
+    }
+
+    /** Record a completed AC progression advancement and synchronize its Necronomicon entry. */
+    public static boolean onAdvancementEarned(ServerPlayer player, ResourceLocation id) {
+        if (!AdvancementKnowledge.contains(id)) {
+            return false;
+        }
+        NecroData data = NecroDataCapability.get(player);
+        if (!data.triggerAdvancementUnlock(id.toString())) {
+            return false;
+        }
+        KnowledgeSync.trigger(player, 7, id.toString());
+        return true;
     }
 
     public static void onPlayerLoggedOut(ServerPlayer player) {

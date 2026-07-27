@@ -51,6 +51,7 @@ public class EliteMob extends ACMob implements GeoEntity {
     public EliteMob(EntityType<? extends Monster> type, Level level, EliteKind kind) {
         super(type, level);
         this.kind = kind;
+        applyHardcoreAttributes();
     }
 
     @Override
@@ -79,15 +80,23 @@ public class EliteMob extends ACMob implements GeoEntity {
     }
 
     public static AttributeSupplier.Builder createAttributes(EliteKind kind) {
-        double multiplier = ACConfig.hardcoreMode.get() ? 2.0D : 1.0D;
         return ACMob.createAttributes()
-            .add(Attributes.MAX_HEALTH, kind.health() * multiplier)
-            .add(Attributes.ATTACK_DAMAGE, kind.attack() * multiplier)
+                .add(Attributes.MAX_HEALTH, kind.health())
+                .add(Attributes.ATTACK_DAMAGE, kind.attack())
                 .add(Attributes.MOVEMENT_SPEED, kind.speed())
                 .add(Attributes.FOLLOW_RANGE, kind.followRange())
                 .add(Attributes.ARMOR, kind.armor())
             .add(Attributes.ARMOR_TOUGHNESS, kind == EliteKind.DREADGUARD ? 4.0D : 0.0D)
                 .add(Attributes.KNOCKBACK_RESISTANCE, kind.knockbackResistance());
+    }
+
+    private void applyHardcoreAttributes() {
+        if (!ACConfig.hardcoreMode.get()) return;
+        var health = getAttribute(Attributes.MAX_HEALTH);
+        var attack = getAttribute(Attributes.ATTACK_DAMAGE);
+        if (health != null) health.setBaseValue(kind.health() * 2.0D);
+        if (attack != null) attack.setBaseValue(kind.attack() * 2.0D);
+        setHealth(getMaxHealth());
     }
 
     @Override

@@ -1,7 +1,10 @@
 package com.shinoow.abyssalcraft.content.item.staff;
 
-import com.shinoow.abyssalcraft.system.spell.LifeDrainSpell;
+import com.shinoow.abyssalcraft.system.spell.ManifestSpell;
+import com.shinoow.abyssalcraft.system.spell.SpellManifest;
+import com.shinoow.abyssalcraft.system.spell.SpellManifestCatalog;
 import com.shinoow.abyssalcraft.system.spell.SpellRegistry;
+import com.shinoow.abyssalcraft.system.spell.SpellBehaviors;
 
 /**
  * The concrete spells (owned by content/item/staff), registered into the {@link SpellRegistry} (PS-7) at mod
@@ -13,11 +16,16 @@ public final class StaffSpells {
 
     private StaffSpells() {}
 
-    /** Canonical 1.12.2 life-drain spell (the transitional {@code life_drain} id remains an alias). */
-    public static final LifeDrainSpell LIFE_DRAIN = new LifeDrainSpell("lifedrain", 0, 100F);
+    public static ManifestSpell lifeDrain() {
+        return (ManifestSpell) SpellRegistry.instance().getSpell("lifedrain");
+    }
 
     public static void bootstrap() {
-        SpellRegistry.instance().registerSpell(LIFE_DRAIN);
-        SpellRegistry.instance().registerAlias("life_drain", LIFE_DRAIN.id());
+        SpellBehaviors.bootstrap();
+        SpellRegistry registry = SpellRegistry.instance();
+        for (SpellManifest manifest : SpellManifestCatalog.entries()) {
+            registry.registerSpell(new ManifestSpell(manifest));
+            for (String alias : manifest.aliases()) registry.registerAlias(alias, manifest.id());
+        }
     }
 }

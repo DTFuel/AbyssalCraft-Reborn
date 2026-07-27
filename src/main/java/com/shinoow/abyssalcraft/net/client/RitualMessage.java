@@ -1,6 +1,8 @@
 package com.shinoow.abyssalcraft.net.client;
 
+import com.shinoow.abyssalcraft.client.ritual.ClientRitualEffects;
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
+import com.shinoow.abyssalcraft.platform.SideExecutor;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -26,8 +28,8 @@ public class RitualMessage implements NetworkChannel.ACPacket {
     }
 
     public RitualMessage(FriendlyByteBuf buf) {
-        this.id = buf.readUtf();
-        this.disruption = buf.readUtf();
+        this.id = buf.readUtf(128);
+        this.disruption = buf.readUtf(128);
         this.pos = buf.readBlockPos();
         this.failed = buf.readBoolean();
     }
@@ -42,6 +44,6 @@ public class RitualMessage implements NetworkChannel.ACPacket {
 
     @Override
     public void handle(NetworkChannel.Context ctx) {
-        // Deferred: the ritual system (PS-6) is not yet ported -- client feedback lands with it.
+        SideExecutor.runWhenClient(() -> () -> ClientRitualEffects.finish(pos, id, disruption, failed));
     }
 }

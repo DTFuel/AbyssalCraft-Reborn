@@ -60,6 +60,8 @@ public final class ACBlockLoot implements DataProvider {
                     ? blockTable(itemEntry("abyssalcraft:monolith_stone", 1, 1))
                 : "unchained_portal_anchor".equals(path)
                     ? blockTable(itemEntry("abyssalcraft:omothol_stone", 1, 1))
+                : "coralium_infused_stone".equals(path)
+                    ? blockTable(itemEntry("abyssalcraft:coralium_pearl", 1, 1))
                 : blockTable(itemEntry("abyssalcraft:" + path, 1, 1));
             futures.add(DataProvider.saveStable(output, table,
                 root.resolve("loot_tables/blocks").resolve(path + ".json")));

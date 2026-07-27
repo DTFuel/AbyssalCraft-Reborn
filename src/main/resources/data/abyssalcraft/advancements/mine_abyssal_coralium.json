@@ -16,7 +16,11 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          "abyssalcraft:abyssal_coralium_ore"
+          {
+            "items": [
+              "abyssalcraft:abyssal_coralium_ore"
+            ]
+          }
         ]
       }
     },
@@ -24,7 +28,11 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          "abyssalcraft:pearlescent_coralium_ore"
+          {
+            "items": [
+              "abyssalcraft:pearlescent_coralium_ore"
+            ]
+          }
         ]
       }
     },
@@ -32,7 +40,11 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          "abyssalcraft:liquified_coralium_ore"
+          {
+            "items": [
+              "abyssalcraft:liquified_coralium_ore"
+            ]
+          }
         ]
       }
     }

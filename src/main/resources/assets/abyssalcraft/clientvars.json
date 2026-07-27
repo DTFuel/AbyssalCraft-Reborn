@@ -2,10 +2,16 @@
   "coraliumPlaguePotionColor": "00FFFF",
   "dreadPlaguePotionColor": "AD1313",
   "antimatterPotionColor": "FFFFFF",
-  "abyssalWastelandR": 36,
-  "abyssalWastelandG": 255,
-  "abyssalWastelandB": 131,
-  "dreadlandsR": 145,
-  "dreadlandsG": 0,
-  "dreadlandsB": 0
+  "abyssalWastelandR": 0,
+  "abyssalWastelandG": 105,
+  "abyssalWastelandB": 45,
+  "dreadlandsR": 100,
+  "dreadlandsG": 14,
+  "dreadlandsB": 14,
+  "omotholR": 40,
+  "omotholG": 30,
+  "omotholB": 40,
+  "darkRealmR": 30,
+  "darkRealmG": 20,
+  "darkRealmB": 30
 }

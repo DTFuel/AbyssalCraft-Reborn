@@ -1,14 +1,23 @@
 package com.shinoow.abyssalcraft.client;
 
 import com.shinoow.abyssalcraft.client.particle.ACFadeParticle;
+import com.shinoow.abyssalcraft.client.screen.energy.EnergyContainerScreen;
+import com.shinoow.abyssalcraft.client.screen.energy.EnergyDepositionerScreen;
+import com.shinoow.abyssalcraft.client.particle.BlueFlameParticle;
 import com.shinoow.abyssalcraft.client.screen.machine.brewing.BrewingStandScreen;
 import com.shinoow.abyssalcraft.client.screen.machine.crystallizer.CrystallizerScreen;
 import com.shinoow.abyssalcraft.client.screen.machine.materializer.MaterializerScreen;
 import com.shinoow.abyssalcraft.client.screen.machine.researchtable.ResearchTableScreen;
+import com.shinoow.abyssalcraft.client.screen.machine.rendingpedestal.RendingPedestalScreen;
+import com.shinoow.abyssalcraft.client.screen.machine.statetransformer.StateTransformerScreen;
 import com.shinoow.abyssalcraft.client.screen.machine.transmutator.TransmutatorScreen;
 import com.shinoow.abyssalcraft.client.screen.item.CrystalBagScreen;
+import com.shinoow.abyssalcraft.client.screen.item.BookOfManyFacesScreen;
 import com.shinoow.abyssalcraft.client.screen.item.SpiritTabletScreen;
+import com.shinoow.abyssalcraft.client.screen.item.SpellbookScreen;
+import com.shinoow.abyssalcraft.client.ritual.ClientRitualEffects;
 import com.shinoow.abyssalcraft.content.item.material.MaterialItems;
+import com.shinoow.abyssalcraft.content.block.energy.EnergyBlocks;
 import com.shinoow.abyssalcraft.content.block.deco.DecoBlocks;
 import com.shinoow.abyssalcraft.content.block.material.CrystalClusterBlocks;
 import com.shinoow.abyssalcraft.content.block.portal.PortalAnchorBlockEntity;
@@ -17,10 +26,13 @@ import com.shinoow.abyssalcraft.content.machine.brewing.BrewingStands;
 import com.shinoow.abyssalcraft.content.machine.crystallizer.Crystallizers;
 import com.shinoow.abyssalcraft.content.machine.materializer.Materializers;
 import com.shinoow.abyssalcraft.content.machine.researchtable.ResearchTables;
+import com.shinoow.abyssalcraft.content.machine.rendingpedestal.RendingPedestals;
+import com.shinoow.abyssalcraft.content.machine.statetransformer.StateTransformers;
 import com.shinoow.abyssalcraft.content.machine.transmutator.Transmutators;
 import com.shinoow.abyssalcraft.content.item.transfer.TransferContent;
 import com.shinoow.abyssalcraft.platform.ClientColorCompat;
 import com.shinoow.abyssalcraft.platform.ClientScreenCompat;
+import com.shinoow.abyssalcraft.platform.ClientHooksCompat;
 import com.shinoow.abyssalcraft.platform.ParticleCompat;
 import com.shinoow.abyssalcraft.registry.ModParticles;
 import com.shinoow.abyssalcraft.registry.ModMenus;
@@ -44,19 +56,31 @@ public final class ACClientSetup {
         ClientScreenCompat.queue(Transmutators.TRANSMUTATOR_MENU, TransmutatorScreen::new);
         ClientScreenCompat.queue(ResearchTables.RESEARCH_TABLE_MENU, ResearchTableScreen::new);
         ClientScreenCompat.queue(BrewingStands.BREWING_STAND_MENU, BrewingStandScreen::new);
+        ClientScreenCompat.queue(StateTransformers.STATE_TRANSFORMER_MENU, StateTransformerScreen::new);
+        ClientScreenCompat.queue(RendingPedestals.RENDING_PEDESTAL_MENU, RendingPedestalScreen::new);
+        ClientScreenCompat.queue(EnergyBlocks.ENERGY_CONTAINER_MENU, EnergyContainerScreen::new);
+        ClientScreenCompat.queue(EnergyBlocks.ENERGY_DEPOSITIONER_MENU, EnergyDepositionerScreen::new);
         ClientScreenCompat.queue(ModMenus.CRYSTAL_BAG, CrystalBagScreen::new);
         ClientScreenCompat.queue(TransferContent.SPIRIT_TABLET_MENU, SpiritTabletScreen::new);
+        ClientScreenCompat.queue(ModMenus.SPELLBOOK, SpellbookScreen::new);
+        ClientScreenCompat.queue(ModMenus.BOOK_OF_MANY_FACES, BookOfManyFacesScreen::new);
     }
 
     /** Called by the real loader registration callback after every queued screen is installed. */
     public static void validateR2GateScreens() {
-        if (ClientScreenCompat.queuedCount() != 7
+        if (ClientScreenCompat.queuedCount() != 13
             || !ClientScreenCompat.isQueued(ResearchTables.RESEARCH_TABLE_MENU)
             || !ClientScreenCompat.isQueued(BrewingStands.BREWING_STAND_MENU)
+            || !ClientScreenCompat.isQueued(StateTransformers.STATE_TRANSFORMER_MENU)
+            || !ClientScreenCompat.isQueued(RendingPedestals.RENDING_PEDESTAL_MENU)
+            || !ClientScreenCompat.isQueued(EnergyBlocks.ENERGY_CONTAINER_MENU)
+            || !ClientScreenCompat.isQueued(EnergyBlocks.ENERGY_DEPOSITIONER_MENU)
+            || !ClientScreenCompat.isQueued(ModMenus.BOOK_OF_MANY_FACES)
             || !ClientScreenCompat.isQueued(TransferContent.SPIRIT_TABLET_MENU)) {
             throw new IllegalStateException("R2 menu screen relay is incomplete or duplicated");
         }
-        com.shinoow.abyssalcraft.AbyssalCraft.LOGGER.info("R2_GATE_CLIENT_SCREENS_OK screens=7 r2Screens=3");
+        com.shinoow.abyssalcraft.AbyssalCraft.LOGGER.info(
+            "RR_CLIENT_GUI_SCREENS_OK screens=13 stateTransformer=1 rendingPedestal=1 energy=2 facebook=1");
     }
 
     /** Queue per-element crystal tint colours (PB-1) with the colour compat (called client-side). */
@@ -76,8 +100,17 @@ public final class ACClientSetup {
         }, PortalBlocks.PORTAL_ANCHOR, PortalBlocks.UNCHAINED_PORTAL_ANCHOR);
     }
 
-    /** Register the AC particle client providers (PH-3) with the particle compat (called client-side). */
+    /** Register the AC particle client providers (PH-3 / RR-CLIENT-FX) with the particle compat (called client-side). */
     public static void registerParticles(ParticleCompat.Providers providers) {
         providers.registerSpriteSet(ModParticles.ABYSSAL_FX.get(), ACFadeParticle.Provider::new);
+        providers.registerSpriteSet(ModParticles.BLUE_FLAME.get(), BlueFlameParticle.Provider::new);
+    }
+
+    public static void registerClientTicks() {
+        com.shinoow.abyssalcraft.client.input.ClientInputHandler.register();
+        ClientHooksCompat.queueClientTick(ClientRitualEffects::tick);
+        if (Boolean.getBoolean("abyssalcraft.rrNetValidation")) {
+            ClientHooksCompat.queueClientTick(com.shinoow.abyssalcraft.client.network.RRNetClientValidation::tick);
+        }
     }
 }

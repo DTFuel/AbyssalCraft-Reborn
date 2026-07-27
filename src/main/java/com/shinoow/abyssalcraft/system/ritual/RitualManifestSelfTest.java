@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import com.shinoow.abyssalcraft.content.block.ritual.RitualAltarBlockEntity;
 import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.world.ACDimensions;
 
@@ -76,7 +77,30 @@ public final class RitualManifestSelfTest {
         require(missingItems.isEmpty(), "unresolved ritual item references: " + String.join(", ", missingItems));
         require(missingTargets.isEmpty(), "unresolved ritual action targets: " + String.join(", ", missingTargets));
 
-        System.out.println("RR_RITUAL_MANIFEST_SELF_TEST_OK rituals=62 infusion=40 creation=3 transformation=1 special=18");
+        List<Ritual> runtime = RitualRegistry.instance().getRituals();
+        require(runtime.size() == rituals.size(), "runtime ritual registry does not mirror the 62-entry manifest");
+        for (int index = 0; index < rituals.size(); index++) {
+            require(runtime.get(index) instanceof ManifestRitual mounted
+                && mounted.manifest() == rituals.get(index), "runtime ritual order diverged at index " + index);
+        }
+        require(RitualAltarBlockEntity.ritualDurationTicks(5000, 100) == 20,
+            "100 PE ritual must take one second in the base Necronomicon");
+        require(RitualAltarBlockEntity.ritualDurationTicks(5000, 5000) == 200,
+            "full-capacity ritual must take ten seconds");
+        require(RitualAltarBlockEntity.ritualDurationTicks(20000, 5000) == 60,
+            "ritual duration must scale by ten-percent book-capacity steps");
+        Set<String> implementedBehaviors = Set.of(
+            "portal", "summon_asorah", "summon_sacthoth", "breeding", "dread_spawn",
+            "coralium_plague_aoe", "dread_plague_aoe", "antimatter_aoe", "weather",
+            "respawn_jzahar", "resurrection", "house", "cleansing", "corruption",
+            "infesting", "curing", "purging", "mass_enchanting");
+        require(RitualBehaviorRegistry.instance().size() == implementedBehaviors.size()
+            && RitualBehaviorRegistry.instance().ids().equals(implementedBehaviors),
+            "specialized ritual behavior coverage changed");
+        require(BiomeRitualTasks.chunkRadius(32) == 16,
+            "legacy biome ritual range must remain configured-value times eight blocks");
+
+        System.out.println("RR_RITUAL_MANIFEST_SELF_TEST_OK rituals=62 infusion=40 creation=3 transformation=1 special=18 handlers=18");
     }
 
     private static long count(List<RitualManifest> rituals, RitualManifest.Kind kind) {

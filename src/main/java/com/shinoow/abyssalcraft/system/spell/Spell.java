@@ -25,7 +25,7 @@ public abstract class Spell {
     private final String id;
     private final int bookType;
     private final float requiredEnergy;
-    private final List<ItemStack> reagents;
+    private final List<SpellIngredient> reagentLayout;
     private int color;
     private boolean nbtSensitive;
     private boolean requiresCharging;
@@ -36,10 +36,17 @@ public abstract class Spell {
     private ScrollType scrollType = ScrollType.BASIC;
 
     protected Spell(String id, int bookType, float requiredEnergy, ItemStack... reagents) {
+        this(id, bookType, requiredEnergy, java.util.Arrays.stream(reagents)
+            .map(stack -> SpellIngredient.item(net.minecraft.core.registries.BuiltInRegistries.ITEM
+                .getKey(stack.getItem()).toString(), stack.getCount()))
+            .toList());
+    }
+
+    protected Spell(String id, int bookType, float requiredEnergy, List<SpellIngredient> reagents) {
         this.id = id;
         this.bookType = bookType;
         this.requiredEnergy = requiredEnergy;
-        this.reagents = List.of(reagents);
+        this.reagentLayout = List.copyOf(reagents);
     }
 
     protected Spell(String id, float requiredEnergy, ItemStack... reagents) {
@@ -105,7 +112,12 @@ public abstract class Spell {
 
     /** The reagents consumed to inscribe this spell. */
     public List<ItemStack> reagents() {
-        return reagents;
+        return reagentLayout.stream().filter(reagent -> !reagent.isEmpty())
+            .map(SpellIngredient::example).toList();
+    }
+
+    public List<SpellIngredient> reagentLayout() {
+        return reagentLayout;
     }
 
     public int color() {
@@ -147,14 +159,15 @@ public abstract class Spell {
 
     /** Whether {@code provided} reagents satisfy this spell's reagents (item match, order-free). */
     public boolean matches(List<ItemStack> provided) {
+        List<SpellIngredient> reagents = reagentLayout.stream().filter(reagent -> !reagent.isEmpty()).toList();
         if (provided.size() != reagents.size()) {
             return false;
         }
         List<ItemStack> remaining = new ArrayList<>(provided);
-        for (ItemStack needed : reagents) {
+        for (SpellIngredient needed : reagents) {
             boolean found = false;
             for (int i = 0; i < remaining.size(); i++) {
-                if (ItemStack.isSameItem(remaining.get(i), needed) && remaining.get(i).getCount() >= needed.getCount()) {
+                if (needed.matches(remaining.get(i))) {
                     remaining.remove(i);
                     found = true;
                     break;

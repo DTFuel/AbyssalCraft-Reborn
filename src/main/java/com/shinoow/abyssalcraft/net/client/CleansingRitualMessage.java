@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.net.client;
 
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
+import com.shinoow.abyssalcraft.platform.SideExecutor;
 
 import net.minecraft.network.FriendlyByteBuf;
 
@@ -40,6 +41,7 @@ public class CleansingRitualMessage implements NetworkChannel.ACPacket {
 
     @Override
     public void handle(NetworkChannel.Context ctx) {
-        // Deferred: the cleansing ritual + client biome refresh are not yet ported (system stage).
+        SideExecutor.runWhenClient(() -> () ->
+            com.shinoow.abyssalcraft.client.network.ClientNetworkEffects.refreshBiome(x, z, batched));
     }
 }

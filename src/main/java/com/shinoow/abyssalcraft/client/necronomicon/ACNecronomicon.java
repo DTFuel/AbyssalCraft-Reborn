@@ -1,11 +1,13 @@
 package com.shinoow.abyssalcraft.client.necronomicon;
 
 import com.shinoow.abyssalcraft.system.knowledge.IResearchItem;
+import com.shinoow.abyssalcraft.system.advancement.AdvancementKnowledge;
 import com.shinoow.abyssalcraft.system.knowledge.KnowledgeContent;
 import com.shinoow.abyssalcraft.system.knowledge.condition.IUnlockCondition;
 import com.shinoow.abyssalcraft.system.knowledge.condition.KnowledgePredicate;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
@@ -44,6 +46,9 @@ public final class ACNecronomicon {
         dimensions.addChild(new NecronomiconEntry("dark_realm", K + "dark_realm.title", K + "dark_realm.text", ItemStack.EMPTY));
         root.addChild(dimensions);
 
+        root.addChild(new NecronomiconEntry("spellbook", "container.abyssalcraft.spellbook",
+            null, new ItemStack(Items.PAPER)));
+
         NecronomiconEntry research = new NecronomiconEntry("research", K + "research.title");
         NecronomiconEntry biome = category("biome");
         NecronomiconEntry dimension = category("dimension");
@@ -60,6 +65,15 @@ public final class ACNecronomicon {
                 .showWhenLocked());
         }
         research.addChild(biome).addChild(dimension).addChild(entity).addChild(misc).addChild(book);
+
+        NecronomiconEntry progression = category("progression");
+        for (AdvancementKnowledge.Entry entry : AdvancementKnowledge.ENTRIES) {
+            progression.addChild(new NecronomiconEntry("advancement_" + entry.id().getPath(),
+                entry.titleKey(), entry.descriptionKey(),
+                new ItemStack(BuiltInRegistries.ITEM.get(entry.icon())))
+                .setAdvancement(entry.id()));
+        }
+        research.addChild(progression);
         root.addChild(research);
 
         return root;

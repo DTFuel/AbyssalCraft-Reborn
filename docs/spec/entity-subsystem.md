@@ -2,9 +2,9 @@
 
 - 里程碑 / Stage：M3 / Stage D1（框架）→ D2a/D2b（具体实体族/BOSS）→ Stage E1（渲染注册框架，Gate E1 ✅）
 - 关联平行任务：PD-1（EntityType/属性/基类框架，本文档主体）、PD-2（AI goals + pathfinding，Agent 13）；PD-3..PD-7（anti/demon/ghoul+shoggoth/misc+projectile/BOSS）；PE-1（渲染注册框架，§12）
-- 状态：**RR-ENTITY-CATALOG 已交付（Gate M3-CATALOG ✅）** —— 旧 63 个内容 EntityType、48 刷怪蛋、44 placement 与 34 个唯一实体 loot 基线成立；新增 9 漏实体的核心服务端行为、9 对双加载器 spawn modifier、维度/Y 上下文候选 hook 与精确 ID invariant。双端 `build`/`runData`/`runServer` 已通过。完整 69 loot、其余实体族专属行为、9 漏实体边角保真、自然刷怪统计及 9 漏实体忠实客户端渲染仍未完成。
-- 负责：PD-1 框架 · PD-3 anti 家族
-- 最后更新：2026-07-25
+- 状态：**RR-ENTITY-BEHAVIOR 已交付（Gate M3-CONTENT ✅）** —— 旧 63 个内容 EntityType、48 刷怪蛋、44 placement、全族专属行为、69 份旧实体 loot 与双加载器自然生成矩阵均已收口。现代 loot 由单一 datagen owner 生成 97 张逻辑表/194 张双路径物理表；双端行为、69 死亡路径、11 场真实 `NaturalSpawner`、持久化重启、无属性专服 `/reload`、production build/JAR 审计全部通过。
+- 负责：PD-1 框架 · PD-3 anti 家族 · RR-ENTITY-CATALOG · RR-ENTITY-BEHAVIOR（GitHub Copilot）
+- 最后更新：2026-07-26
 
 ## 0A. RR-ENTITY-BEHAVIOR 实现边界（2026-07-25）
 
@@ -13,6 +13,16 @@
 - 旧资源目录精确包含 69 份实体 loot。永久 `EntityLootAudit` 将每份标为 DIRECT、CONDITIONAL 或 REPLACED（当前无未解释 RETIRED），并验证所有目标现代 EntityType 已注册。
 - 本任务主路径包含 anti 湮灭、demon/ghoul 边角、Shoggoth food/acid/ooze/worship/建碑/多部件、misc/projectile 完整生命周期、Boss 阶段/召唤/Dragon parts、Remnant Merchant、69 loot 与双端自然生成统计；不再以“后续系统”笼统延后。
 - 文件边界：不修改 `client/render/**`、仪式/法术/能量/知识业务目录或 BER host；仅消费 R2/R3 已冻结 API。共享 compat、datagen relay、文档和状态只在串行 Gate 修改。
+
+## 0B. RR-ENTITY-BEHAVIOR 最终交付（2026-07-26）
+
+- **专属行为**：anti、demon/evil、ghoul、Shoggoth、misc/projectile、Boss/elite 与 9 个 legacy 实体均完成生产接线。双端行为矩阵输出 `RR_ENTITY_BEHAVIOR_LIVE_OK loot=5 shoggoth=6 monolith=1 boss=4 remnant=7 legacy=3`；Shoggoth 酸击/喷酸、腐蚀、进食/繁殖、ooze、膜拜、建碑、多部件与 5 TYPE，四 Boss 阶段链、Dragon parts、Remnant 七职业交易/剪毛，以及 legacy 墨弹、breath/转化、周期生成与 plague 均走真实实体逻辑。
+- **现代战利品表**：`EntityLootAudit` 永久冻结 69 项旧表为 `32 DIRECT / 21 CONDITIONAL / 16 REPLACED / 0 RETIRED`，并维护 28 个现代 alias、97 张逻辑表与 8 张合法空表。`EntityLootData` 是唯一 owner，同时生成 1.20.1 `loot_tables/entities/` 与 1.21.1 `loot_table/entities/` 共 194 张物理表；Boss 固定奖励也在表中，不使用 Java 硬编码死亡掉落。双端运行矩阵输出 `RR_ENTITY_LOOT_OK tables=97 nonEmpty=89 empty=8 scenarios=69 outputItems=53 deathPaths=69`。
+- **真实自然生成**：验证直接调用 vanilla `NaturalSpawner.spawnCategoryForPosition`，使用真实 FakePlayer、强加载 chunk、暗场/水场和 after-spawn 回调，不以 `/summon` 或静态候选列表代替。11 场覆盖主世界、四个 AC 维度、Dreadlands 四种群系上下文、水生场景及两个 `Y<=5` 覆盖场景；双端均输出 `RR_ENTITY_NATURAL_SPAWN_OK scenarios=11 start=0 end=10`。`SpawnCandidateCompat` 使用事件 remove/add API，并缓存稳定 `SpawnerData` 对象以满足 vanilla 二次候选查询的对象身份要求。
+- **存档与重启**：双端均以真实世界完成 5 个代表实体及 5 个 owner 关联的 create→stop→verify，输出 `RR_ENTITY_PERSISTENCE_CREATE_OK entities=5 owners=5` 与 `RR_ENTITY_PERSISTENCE_VERIFY_OK entities=5 owners=5`。
+- **永久 Gate 与生产制品**：双端 `runData` 输出 `RR_ENTITY_LOOT_DATA_OK audit=69 aliases=28 logical=97 physical=194` 和 `RR_ENTITY_BEHAVIOR_SELF_TEST_OK ... logicalLoot=97 emptyLoot=8 spawnPairs=9 snapshots=18`；双端 production build 成功。最终 JAR 各含 97 单数 + 97 复数实体 loot、9 Forge + 9 Neo spawn modifier、正确且互斥的 loader metadata，以及生产 audit/self-test/candidate class；临时 `RREntity*` class、验证属性和快照标记为 0。SHA-256：Forge `13DAFBEBD5F666B32B2E4A63A8D4F43124105790801B38937463E41F1B9D3A5C`，NeoForge `BBA3A29203EDEC30720EC17DEC12DFF81E72F35706276207D0B7B7880AD7EF7F`。
+- **发布态 smoke**：Forge/NeoForge 均在不带 RR 验证属性时启动至 `Done`，输出 `RR_ENTITY_CATALOG_OK content=63 all_ac=64 eggs=48 placements=44`，执行 `/reload` 后无实体 loot/spawn 解析错误，再正常 `stop` 并保存全部 8 个维度。Forge 仍报告既有 9 个 advancement 格式错误，与本实体交付无关。
+- **历史段落说明**：§8–§11A 保留各 PD/RR-CATALOG 交付当日的实现快照；其中“延后/未完成”描述已由本节和当前总任务表取代，不再代表实体子系统现状。
 
 ## 1. 概述 / 目标
 
@@ -212,6 +222,7 @@ platform/EntityAttributeCompat.java   —— 属性创建事件兼容层（PD-1�
 
 ## 修订日志
 
+- 2026-07-26：RR-ENTITY-BEHAVIOR/CR-72 收口：全族专属行为、69→97 现代 loot、双端 69 死亡路径、11 场真实自然生成、实体/owner 重启持久化、runData/build/JAR 与无属性专服 reload 全部通过；临时 fixture/属性/快照残留为 0，Gate M3-CONTENT 完成。
 - 2026-07-25：RR-RENDER-VISUAL 双端六区总场景完成，用户最终确认无问题；现有渲染面全部收口，T4.6d 缺宿主 BER 保持独立未完成。临时验证命令/属性/setter/生命周期分支已删除，双端完整 production build 与主 JAR 零残留门禁通过。
 - 2026-07-24：RR-RENDER-AUTO/CR-65，实现侧与自动门禁收口；详见 §12.6。视觉矩阵与缺宿主 BER 按任务表拆分保留。
 - 2026-07-24：RR-ENTITY-CATALOG（Agent C）交付九漏实体目录与核心服务端行为（§11A）：目录扩至旧 63 内容类型、48 蛋、44 placement、34 唯一实体 loot 基线；新增九实体 loot 双目录、9 对 spawn modifier、PotentialSpawns 上下文候选、1.21 EntityType 分类 tag 和精确 ID invariant。双端 build/runData/runServer、热重载、九 `/summon`、五 Darklands 分布与 Abyssal Zombie 转化通过；Forge Dread 5→1/1→2 通过。自然生成统计、边角行为、69 loot 全量与九实体忠实渲染仍显式待办。

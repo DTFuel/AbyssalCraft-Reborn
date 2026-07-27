@@ -21,6 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 //? if forge {
 import net.minecraftforge.common.IForgeShearable;
@@ -31,6 +32,8 @@ import net.minecraftforge.common.IForgeShearable;
 import com.shinoow.abyssalcraft.content.entity.base.ACMob;
 import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.content.entity.shoggoth.AbstractShoggoth;
+import com.shinoow.abyssalcraft.net.ACNetwork;
+import com.shinoow.abyssalcraft.net.client.EvilSheepMessage;
 
 /**
  * Evil animal (owned by PD-4, Stage D2a) -- a hostile farm animal (ported from 1.12.2
@@ -51,6 +54,8 @@ public class EvilAnimal extends ACMob implements
 
     private final AnimalKind kind;
     private boolean convertedByShearing;
+    private UUID killedPlayerId;
+    private String killedPlayerName = "";
 
     public EvilAnimal(EntityType<? extends Monster> type, Level level, AnimalKind kind) {
         super(type, level);
@@ -59,6 +64,52 @@ public class EvilAnimal extends ACMob implements
 
     public AnimalKind kind() {
         return kind;
+    }
+
+    public void setKilledPlayer(UUID playerId, String playerName) {
+        killedPlayerId = playerId;
+        killedPlayerName = playerName == null ? "" : playerName;
+    }
+
+    @Override
+    public boolean doHurtTarget(net.minecraft.world.entity.Entity target) {
+        boolean hurt = super.doHurtTarget(target);
+        if (hurt && kind == AnimalKind.SHEEP && target instanceof Player player && !player.isAlive()) {
+            setKilledPlayer(player.getUUID(), player.getGameProfile().getName());
+            syncKilledPlayer();
+        }
+        return hurt;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (!level().isClientSide && kind == AnimalKind.SHEEP && killedPlayerId != null && tickCount % 100 == 0) {
+            syncKilledPlayer();
+        }
+    }
+
+    private void syncKilledPlayer() {
+        if (!(level() instanceof ServerLevel server) || killedPlayerId == null) return;
+        for (net.minecraft.server.level.ServerPlayer player : server.players()) {
+            if (player.distanceToSqr(this) <= 16384.0D) {
+                ACNetwork.sendToPlayer(player, new EvilSheepMessage(killedPlayerId, killedPlayerName, getId()));
+            }
+        }
+    }
+
+    @Override
+    public void addAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        if (killedPlayerId != null) tag.putUUID("PlayerUUID", killedPlayerId);
+        if (!killedPlayerName.isEmpty()) tag.putString("PlayerName", killedPlayerName);
+    }
+
+    @Override
+    public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        killedPlayerId = tag.hasUUID("PlayerUUID") ? tag.getUUID("PlayerUUID") : null;
+        killedPlayerName = tag.getString("PlayerName");
     }
 
     @Override

@@ -6,6 +6,8 @@ import com.shinoow.abyssalcraft.system.energy.EnergyTier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Containers;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerPlayer;
+import com.shinoow.abyssalcraft.platform.MenuCompat;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -45,9 +47,12 @@ public class EnergyContainerBlock extends TieredEnergyBlock {
 
     @Override
     protected boolean handleEmptyHandUse(Level level, BlockPos pos, Player player) {
-        if (!player.isShiftKeyDown()
-            || !(level.getBlockEntity(pos) instanceof EnergyContainerBlockEntity container)) {
+        if (!(level.getBlockEntity(pos) instanceof EnergyContainerBlockEntity container)) {
             return false;
+        }
+        if (!player.isShiftKeyDown()) {
+            if (player instanceof ServerPlayer serverPlayer) MenuCompat.open(serverPlayer, container, pos);
+            return true;
         }
         int slot = container.getItem(1).isEmpty() ? 0 : 1;
         ItemStack stack = container.removeItemNoUpdate(slot);
@@ -58,6 +63,11 @@ public class EnergyContainerBlock extends TieredEnergyBlock {
         if (!player.addItem(stack)) {
             player.drop(stack, false);
         }
+        return true;
+    }
+
+    @Override
+    protected boolean acceptsHeldItem() {
         return true;
     }
 }

@@ -42,11 +42,16 @@ public final class ACDataGenerators {
         // PC-9 (Stage C2b) machine recipes: crystallizer/transmutator/materializer example ProcessingRecipes.
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.MachineRecipeData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.MenuHostValidationData(gen));
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.StateTransformerValidationData(gen));
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.RendingPedestalValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.KnowledgeValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.R2GateValidationData());
-        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.EnergyValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.EnergyValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.PortalValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.RitualSpellPortalValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.EntityBehaviorValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.NetworkValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.ClientFxValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.AdvApiValidationData());
     }
 }

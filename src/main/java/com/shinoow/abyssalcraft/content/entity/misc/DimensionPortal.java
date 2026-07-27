@@ -28,15 +28,11 @@ import com.shinoow.abyssalcraft.world.portal.DimensionTeleport;
  * collapsed into one class via the {@code singleUse} flag (baked into each {@link EntityType} factory).
  * These are the standing portals that ferry entities between AbyssalCraft dimensions.
  *
- * <p>Stage G2 (PG-6) gives it its teleport behaviour: it carries a {@code destination} dimension (a
- * plain server-side field + NBT, since the client-side dimension visuals are Stage E) and, each server
- * tick, ferries any entity inside its box to that dimension via {@link DimensionTeleport} (which routes
- * through the loader/version-forked {@code changeDimension} in {@code platform/TeleportCompat}). The
- * single-use variant discards itself after the first passenger.
- *
- * <p>Still deferred (unported dependencies): the {@code portal_anchor} block + its Necronomicon
- * activation ritual that <em>spawn</em> these portals and supply the destination, the destination
- * mob-spawning ({@code DimensionData}/{@code DimensionDataRegistry}), and the synched unchained state.
+ * <p>The destination and unchained state are synchronized for rendering and persisted with the optional
+ * anchor position. Active {@code PortalAnchorBlockEntity} instances own a portal UUID and recreate a
+ * missing linked entity. Each server tick this entity validates passengers, applies cooldown, rejects
+ * bosses and riding entities, then delegates the cross-version transfer to {@link DimensionTeleport}.
+ * The single-use variant discards itself after the first successful passenger.
  */
 public class DimensionPortal extends ACSimpleEntity {
 

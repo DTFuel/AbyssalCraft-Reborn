@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": { "layer0": "abyssalcraft:item/abyssal_wasteland_staff_of_rending" }
+}

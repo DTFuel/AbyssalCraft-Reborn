@@ -46,6 +46,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 import com.shinoow.abyssalcraft.common.handlers.EffectHooks;
+import com.shinoow.abyssalcraft.integration.api.ACPluginRegistry;
 import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothBlocks;
 import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothOozeBlock;
@@ -510,7 +511,8 @@ public abstract class AbstractShoggoth extends ACMob implements EntityPartCompat
 
     private static boolean isShoggothFood(LivingEntity entity) {
         return entity instanceof Animal || entity instanceof AmbientCreature || entity instanceof WaterAnimal
-            || entity instanceof DemonAnimal || entity instanceof EvilAnimal || entity instanceof Spider;
+            || entity instanceof DemonAnimal || entity instanceof EvilAnimal || entity instanceof Spider
+            || ACPluginRegistry.isShoggothFood(entity.getType());
     }
 
     // Faithful shoggoth sounds (PH-4b, wired to ModSounds); the shoot/consume/birth AI sounds land with
@@ -528,5 +530,11 @@ public abstract class AbstractShoggoth extends ACMob implements EntityPartCompat
     @Override
     protected SoundEvent getDeathSound() {
         return ModSounds.event("shoggoth.death");
+    }
+
+    // Faithful 1.12.2 squelching step (replaces the block footstep) - the last uncovered AC sound event.
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState state) {
+        playSound(ModSounds.event("shoggoth.step"), 0.15F, 1.0F);
     }
 }

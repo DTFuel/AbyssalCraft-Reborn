@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.net.client;
 
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
+import com.shinoow.abyssalcraft.platform.SideExecutor;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -33,6 +34,7 @@ public class PEStreamMessage implements NetworkChannel.ACPacket {
 
     @Override
     public void handle(NetworkChannel.Context ctx) {
-        // Deferred: the energy-pedestal particle stream (PS-5) is not yet ported -- it lands with it.
+        SideExecutor.runWhenClient(() -> () ->
+            com.shinoow.abyssalcraft.client.network.ClientNetworkEffects.peStream(posFrom, posTo));
     }
 }

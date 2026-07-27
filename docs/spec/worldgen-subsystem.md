@@ -155,7 +155,7 @@ AbyssalCraft 的世界生成：4 个自定义维度（Abyssal Wasteland / Dreadl
 
 ## 12. G2 传送门 teleport 框架（PG-6，T5.7，◐）
 
-**范围**：跨维传送核心（1.12.2 `TeleporterAC`/portal 的现代化）。**已交付 teleport 框架 + 接线 portal 实体**；in-game 点燃/激活（portal_anchor 方块 + Necronomicon ritual）依赖未移植系统、延后。触碰 1 处 PD-6 冻结文件 `content/entity/misc/DimensionPortal`（同 PE-4b 触 PD-7 先例）+ 2 新文件。
+**范围**：跨维传送核心（1.12.2 `TeleporterAC`/portal 的现代化）。PG-6 的 teleport 框架已由 R4 扩展为玩家可达实现：Portal Anchor/BE、Gateway/Silver Keys、Portal Ritual、DimensionData 图、portal UUID 生命周期、目标同步与 renderer 均已落地；真人双端往返/重启仍由 R4-LIVE-GATE 验收。
 
 - **`platform/TeleportCompat`**（portal 子系统**唯一深分叉**）：Mojang 1.21 重写传送 →
   - 1.20.1 Forge：`Entity.changeDimension(ServerLevel, ITeleporter)`，`ITeleporter.getPortalInfo` 返 `PortalInfo(pos, speed, yRot, xRot)` 落点。
@@ -164,7 +164,7 @@ AbyssalCraft 的世界生成：4 个自定义维度（Abyssal Wasteland / Dreadl
 - **`world/portal/DimensionTeleport`**（1.12.2 `TeleporterAC` 落点数学现代化）：`src.dimensionType().coordinateScale() / dest…`（旧 `WorldProvider.getMovementFactor()`）缩放 XZ + world border clamp + `getHeight(MOTION_BLOCKING_NO_LEAVES)` 地表落点 + `getChunk` 强制生成落点 chunk，再交 `TeleportCompat`。
 - **接线 `DimensionPortal`**（PD-6 placeholder → 功能）：`destination` `ResourceKey<Level>` **plain server 字段 + NBT `Destination`**（`ACRef.parse` fork-free；**不用 synched data** 避 `defineSynchedData` fork——客户端 portal 视觉是 Stage E，传送纯 server 侧）；`tick()` server 侧把 box 内非-portal 且 `!isOnPortalCooldown` 的实体交 `DimensionTeleport`；singleUse 变体传送后 `discard`。业务零 `//?`（fork 全封 `TeleportCompat`）。
 - **验证**：两节点 `compileJava` BUILD SUCCESSFUL（1.21 `DimensionTransition` + 1.20.1 `ITeleporter`/`PortalInfo` fork 双端 resolve——本任务风险点）；**两节点 `runServer` 全 runtime**：`summon abyssalcraft:portal <pos> {Destination:"abyssalcraft:abyssal_wasteland"}`（NBT→`readAdditionalSaveData` 设 dest）+ 同位 tagged cow → portal tick 传送 → **cow 跨维 overworld→abyssal_wasteland 双端**（forge `FORGE_TELEPORT_OK` / neo `NEO_TELEPORT_OK`；forceload dest chunk 后 `execute in abyssalcraft:abyssal_wasteland run execute if entity @e[tag]` 命中——落点 chunk 若未 forceload 会随 chunk 卸载存盘、须 forceload 才在 live list）。
-- **延后（诚实，未移植依赖）**：`portal_anchor`/`unchained_portal_anchor` 方块 + `TileEntityPortalAnchor` BlockEntity（存 dest dim + ACTIVE 态，crafted 自 monolith_stone）、点燃/激活（`NecronomiconPortalRitual` → PS-6 / `ItemGatewayKey`）、目标 mob 刷怪（`DimensionData`/`DimensionDataRegistry` API）、synched unchained 态、portal-frame 搜索/建造（1.12.2 `makePortal`）、`TeleporterHomeSpell`/`TeleporterDarkRealm` 变体、客户端 portal 渲染（Stage E）。**框架供其落地时** 调 `DimensionPortal.setDestination` + `DimensionTeleport.teleport`。
+- **R4 后续事实（2026-07-26）**：上述 Anchor/BE、Key、Portal Ritual、DimensionData、synched target/unchained、目标 mob、Home spell 与客户端 renderer 已实现；永久 Gate=`RR_PORTAL_SELF_TEST_OK dimensions=7 edges=6 keyTiers=4`。旧自动黑曜石 frame 建造没有被虚构为新入口，现代链以显式 Anchor 为落点。尚未完成的是 Forge/Neo 真人玩家正反向、目标 Anchor、破坏清理与同世界停服重启矩阵。
 
 ## 13. 五 Darklands + TerraBlender（Agent C，T5.8c）
 

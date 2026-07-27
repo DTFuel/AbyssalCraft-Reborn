@@ -40,6 +40,8 @@ public abstract class InteractiveBlockCompat extends Block {
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                                Player player, InteractionHand hand, BlockHitResult hit) {
+        InteractionResult itemResult = onUseItem(stack, state, level, pos, player, hand);
+        if (itemResult.consumesAction()) return ItemInteractionResult.sidedSuccess(level.isClientSide);
         if (!acceptsHeldItem()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         return onUse(state, level, pos, player).consumesAction()
             ? ItemInteractionResult.sidedSuccess(level.isClientSide)
@@ -48,6 +50,8 @@ public abstract class InteractiveBlockCompat extends Block {
     *///?} else {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        InteractionResult itemResult = onUseItem(player.getItemInHand(hand), state, level, pos, player, hand);
+        if (itemResult.consumesAction()) return itemResult;
         if (!player.getItemInHand(hand).isEmpty() && !acceptsHeldItem()) {
             return InteractionResult.PASS;
         }
@@ -57,6 +61,12 @@ public abstract class InteractiveBlockCompat extends Block {
 
     /** Version-neutral empty-hand interaction. */
     protected abstract InteractionResult onUse(BlockState state, Level level, BlockPos pos, Player player);
+
+    /** Optional held-item command handled before the generic block interaction. */
+    protected InteractionResult onUseItem(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                          Player player, InteractionHand hand) {
+        return InteractionResult.PASS;
+    }
 
     /** Whether this block's {@link #onUse} also handles a held stack. */
     protected boolean acceptsHeldItem() {

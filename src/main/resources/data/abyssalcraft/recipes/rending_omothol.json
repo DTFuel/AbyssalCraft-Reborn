@@ -1,0 +1,8 @@
+{
+  "type": "abyssalcraft:rending",
+  "name": "Omothol",
+  "max_energy": 100,
+  "result": { "item": "abyssalcraft:omothol_essence" },
+  "entity": "#abyssalcraft:omothol_entities",
+  "dimension": 52
+}

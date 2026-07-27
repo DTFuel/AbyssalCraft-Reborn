@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "abyssalcraft:item/moderate_scroll",
+    "layer1": "abyssalcraft:item/spell_overlay"
+  }
+}

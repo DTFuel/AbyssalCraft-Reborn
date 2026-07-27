@@ -2,13 +2,13 @@
 
 - 里程碑 / Stage：M7 / Stage S-C
 - 关联平行任务：PS-11（本框架）；**写** PS-2 `NecroData`（知识触发）→ **PS-8** `KnowledgeGate` 读（知识环路闭合）；反馈 PS-1（necrodata 同步消息）
-- 状态：命名非Boss死亡快照生产、真实SavedData落盘/重启、biome/plague/Purge/mutation hooks与同步接线已完成；复活消费和page/附魔剩余hooks留T7.11c
+- 状态：命名非Boss死亡快照生产、真实SavedData落盘/重启、biome/plague/Purge/mutation hooks与同步接线已完成；**复活仪式消费已由 R4 完成**，page/附魔剩余 hooks 留 T7.11c
 - 负责：PS-11
 - 最后更新：2026-07-25
 
 ## 1. 概述 / 目标
 
-AbyssalCraft 的世界存档数据 + 游戏事件钩子。现代实现以 `NecromancyData` 保存最近 20 个命名非Boss Mob死亡快照，以 `GameHooksCompat` 封装双加载器事件，再委托 `KnowledgeHooks`、`EffectHooks` 与 `PurgeHooks` 完成知识触发、瘟疫传播/转化和 Purged 交互限制。复活仪式消费快照仍是 T7.11c/T7.6b 的下游内容。
+AbyssalCraft 的世界存档数据 + 游戏事件钩子。现代实现以 `NecromancyData` 保存最近 20 个命名非Boss Mob死亡快照，以 `GameHooksCompat` 封装双加载器事件，再委托 `KnowledgeHooks`、`EffectHooks` 与 `PurgeHooks` 完成知识触发、瘟疫传播/转化和 Purged 交互限制。R4 `ResurrectionBehavior` 已读取该快照、校验 `ResurrectionRitualCrystalSize`，并仅在实体成功加入世界后清除条目。
 
 ## 2. 范围
 
@@ -17,7 +17,7 @@ AbyssalCraft 的世界存档数据 + 游戏事件钩子。现代实现以 `Necro
   - `platform/GameHooksCompat`（game-bus 事件订阅的 loader fork）+ `common/handlers/KnowledgeHooks`（知识触发回调，业务）。
   - 主类 `init` 一行 `GameHooksCompat.attach()`（永久，激活钩子）。
 - 已补内容：`GameHooksCompat` 生产命名非Boss Mob快照；`KnowledgeHooks` 杀怪/维度/200t群系/plague/book触发和延迟同步；`EffectHooks`/`PurgeHooks`承载Plague/Purge事件。
-- 不含：`NecronomiconResurrectionRitual`读取并`clearEntry`快照；真实page内容与5附魔事件（T7.11c）。
+- 不含：真实 page 内容与 5 附魔事件（T7.11c）；复活读取/清除已不再是缺口。
 
 ## 3. 设计 / 架构
 
@@ -30,7 +30,7 @@ AbyssalCraft 的世界存档数据 + 游戏事件钩子。现代实现以 `Necro
 ## 4. 子系统内契约
 
 - **写 PS-2（核心跨任务契约）**：知识钩子经 PS-2 `NecroDataCapability.get(player)` 写触发列表（entity/dimension）；PS-8 `KnowledgeGate` 读之解锁研究 → **知识环路闭合**（PS-11 写、PS-8 判、PS-2 存）。
-- **PS-6 仪式**：`NecromancyData` 的复活快照供 PS-6 `NecronomiconResurrectionRitual`（延后）消费。
+- **R4 仪式**：`ResurrectionBehavior` 读取命名快照和晶体尺寸；按旧 `Reanimations` 概率生成原实体或 Dread 劣化体，只有 `addFreshEntity` 成功才 `clearEntry`。
 - 反馈 → 协议v2 `KnowledgeUnlockMessage`增量 + `NecroDataCapMessage`完整权威快照；开书兼容ShouldSync往返。
 - 对外 API：`NecromancyData.get(serverLevel)` 供死亡钩子存快照 + 复活仪式读；`SavedDataCompat` 供其它世界存档子系统复用（如 PS-1 necromancy 相关）。
 
@@ -57,9 +57,10 @@ AbyssalCraft 的世界存档数据 + 游戏事件钩子。现代实现以 `Necro
 - **两节点 `runServer` `Done`**（forge 17.560s / neo 5.456s + 干净 stop）：`GameHooksCompat.attach()` 永久挂钩在服务器启动无崩。
 - 永久自测覆盖≤20淘汰、save/load round-trip与crystal-size边界；双端runData为42/42/11 Gate的一部分。
 - Forge独立专服召唤命名牛并死亡，`abyssalcraft_necromancy.dat`压缩NBT确认含`RRK_SNAPSHOT`与`ResurrectionRitualCrystalSize`；同世界重启抵`Done`并正常保存八维。
-- 未完成：复活仪式消费、page/附魔hooks与双端真人玩家知识实网矩阵。
+- 未完成：page/附魔 hooks 与双端真人玩家知识实网矩阵；复活消费实现已进入 `RR_RITUAL_MANIFEST_SELF_TEST_OK handlers=18` Gate，但逐实体真人重启矩阵仍可作为 T7.11c 验收增强。
 
 ## 修订日志
 
 - 2026-07-25：RR-KNOWLEDGE（CR-70）完成死亡快照生产、真实NBT落盘/重启、biome/plague/Purge/mutation hooks与同步；复活消费拆T7.11c。
+- 2026-07-26：R4 完成 `ResurrectionBehavior` 的快照读取、晶体尺寸、旧劣化概率与成功后清除事务。
 - 2026-07-22：PS-11 建框架——`platform/{SavedDataCompat,GameHooksCompat}` + `system/data/NecromancyData` + `common/handlers/KnowledgeHooks` + 主类 `GameHooksCompat.attach()`（永久，CR）。两节点编译 + selfTest（NecromancyData round-trip）+ `runServer` `Done` 双端 PASS。写 PS-2 `NecroData` 触发 → PS-8 读（知识环路闭合）。Plague/Purge 钩子 + 复活消费 + 客户端同步接线 + biome 触发延后（依赖未移植 plague/dread/仪式 + 活会话）。见平行表 PS-11。

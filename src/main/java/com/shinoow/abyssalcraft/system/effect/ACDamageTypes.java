@@ -15,12 +15,18 @@ public final class ACDamageTypes {
     public static final ResourceKey<DamageType> DREAD = key("dread");
     public static final ResourceKey<DamageType> ANTIMATTER = key("antimatter");
     public static final ResourceKey<DamageType> ACID = key("acid");
+    public static final ResourceKey<DamageType> SPELL = key("spell");
 
     private ACDamageTypes() {}
 
     public static DamageSource source(LivingEntity entity, ResourceKey<DamageType> key) {
         return new DamageSource(entity.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
             .getHolderOrThrow(key));
+    }
+
+    public static DamageSource attributedSource(LivingEntity caster, ResourceKey<DamageType> key) {
+        return new DamageSource(caster.level().registryAccess().registryOrThrow(Registries.DAMAGE_TYPE)
+            .getHolderOrThrow(key), caster, caster);
     }
 
     public static DamageSource projectile(net.minecraft.world.entity.projectile.Projectile projectile,

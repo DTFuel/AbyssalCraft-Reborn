@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "abyssalcraft:coralium_gem"
+      "id": "abyssalcraft:coralium_gem"
     },
     "title": {
       "translate": "advancements.abyssalcraft.minecorgem.title"

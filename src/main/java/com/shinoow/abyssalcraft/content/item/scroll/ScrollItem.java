@@ -4,10 +4,14 @@ import java.util.List;
 
 import com.shinoow.abyssalcraft.platform.ItemDataCompat;
 import com.shinoow.abyssalcraft.platform.TooltipCompat;
+import com.shinoow.abyssalcraft.net.ACNetwork;
+import com.shinoow.abyssalcraft.net.server.MobSpellMessage;
 import com.shinoow.abyssalcraft.system.spell.IScroll;
+import com.shinoow.abyssalcraft.system.spell.ManifestSpell;
 import com.shinoow.abyssalcraft.system.spell.ScrollType;
 import com.shinoow.abyssalcraft.system.spell.Spell;
 import com.shinoow.abyssalcraft.system.spell.SpellRegistry;
+import com.shinoow.abyssalcraft.system.spell.SpellUtils;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -58,9 +62,13 @@ public class ScrollItem extends TooltipCompat implements IScroll {
     }
     //?}
 
-    private int useDuration(ItemStack stack) {
+    public int requiredUseTicks(ItemStack stack) {
         Spell spell = SpellRegistry.instance().getSpell(spellId(stack));
         return spell != null && spell.requiresCharging() ? 50 : 0;
+    }
+
+    private int useDuration(ItemStack stack) {
+        return requiredUseTicks(stack);
     }
 
     @Override
@@ -69,17 +77,56 @@ public class ScrollItem extends TooltipCompat implements IScroll {
     }
 
     @Override
+    public void onUseTick(Level level, LivingEntity entity, ItemStack stack, int remainingUseDuration) {
+        if (!level.isClientSide || remainingUseDuration != 1 || !(entity instanceof Player player)) return;
+        Spell registered = SpellRegistry.instance().getSpell(spellId(stack));
+        if (!(registered instanceof ManifestSpell spell)) return;
+        var targetType = spell.manifest().targetType();
+        if (targetType != com.shinoow.abyssalcraft.system.spell.SpellManifest.TargetType.ENTITY
+            && targetType != com.shinoow.abyssalcraft.system.spell.SpellManifest.TargetType.ENTITY_OR_SELF) {
+            return;
+        }
+        LivingEntity target = SpellUtils.rayTraceTarget(player, 16.0F);
+        if (target == null && targetType == com.shinoow.abyssalcraft.system.spell.SpellManifest.TargetType.ENTITY_OR_SELF) {
+            target = player;
+        }
+        if (target != null) {
+            ACNetwork.sendToServer(new MobSpellMessage(target.getId(), spell.id(), type.quality()));
+        }
+    }
+
+    @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         Spell spell = SpellRegistry.instance().getSpell(spellId(stack));
-        if (spell != null && spell.requiresCharging()) player.startUsingItem(hand);
+        if (!(spell instanceof ManifestSpell manifest)) return InteractionResultHolder.fail(stack);
+        if (spell.requiresCharging()) {
+            player.startUsingItem(hand);
+        } else if (!level.isClientSide) {
+            if (SpellUtils.castManifest(level, player, manifest, stack, type, null)) {
+                consumeScroll(player, stack);
+            } else {
+                player.displayClientMessage(Component.translatable("message.abyssalcraft.spell.fizzle"), true);
+            }
+        }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
-        // The server-authoritative cast pipeline is wired with the complete spell roster.
+        Spell spell = SpellRegistry.instance().getSpell(spellId(stack));
+        if (!level.isClientSide && entity instanceof Player player && spell instanceof ManifestSpell manifest) {
+            if (SpellUtils.castManifest(level, player, manifest, stack, type, null)) {
+                consumeScroll(player, stack);
+            } else {
+                player.displayClientMessage(Component.translatable("message.abyssalcraft.spell.fizzle"), true);
+            }
+        }
         return stack;
+    }
+
+    public static void consumeScroll(Player player, ItemStack stack) {
+        if (!player.getAbilities().instabuild) stack.shrink(1);
     }
 
     @Override

@@ -16,7 +16,11 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          "abyssalcraft:dreadium_ingot"
+          {
+            "items": [
+              "abyssalcraft:dreadium_ingot"
+            ]
+          }
         ]
       }
     }

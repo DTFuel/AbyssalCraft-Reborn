@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:monolith_stone"
+    },
+    "&": {
+      "item": "abyssalcraft:transmutation_gem"
+    },
+    "@": {
+      "tag": "abyssalcraft:legacy/chest_wood"
+    }
+  },
+  "pattern": [
+    "###",
+    "#&#",
+    "#@#"
+  ],
+  "result": {
+    "id": "abyssalcraft:state_transformer"
+  }
+}

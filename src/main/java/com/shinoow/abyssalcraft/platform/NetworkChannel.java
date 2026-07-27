@@ -2,6 +2,7 @@ package com.shinoow.abyssalcraft.platform;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 
 import io.netty.buffer.Unpooled;
@@ -51,6 +52,7 @@ public final class NetworkChannel {
     }
 
     private static final int PROTOCOL = 2;
+    private static final int MAX_BODY_BYTES = 1 << 20;
 
     private final ResourceLocation channelId;
     private final Map<Integer, Function<FriendlyByteBuf, ? extends ACPacket>> decoders = new HashMap<>();
@@ -70,8 +72,41 @@ public final class NetworkChannel {
 
     /** Register a message type with a numeric id and its decoder (before {@link #bootstrap(Object)}). */
     public <M extends ACPacket> void register(int id, Class<M> type, Function<FriendlyByteBuf, M> decoder) {
+        if (id < 0 || decoders.containsKey(id)) {
+            throw new IllegalArgumentException("Duplicate or invalid packet id: " + id);
+        }
+        if (idByType.containsKey(type)) {
+            throw new IllegalArgumentException("Duplicate packet type: " + type.getName());
+        }
         decoders.put(id, decoder);
         idByType.put(type, id);
+    }
+
+    /** Stable wire ids currently registered on this channel. */
+    public Set<Integer> registeredIds() {
+        return Set.copyOf(decoders.keySet());
+    }
+
+    /** Number of registered packet types. */
+    public int registeredCount() {
+        return decoders.size();
+    }
+
+    /** Stable wire id assigned to {@code type}, or {@code -1} when it is not registered. */
+    public int registeredId(Class<? extends ACPacket> type) {
+        return idByType.getOrDefault(type, -1);
+    }
+
+    /** Encode, decode and encode a packet again for permanent wire-format validation. */
+    public byte[] roundTrip(ACPacket msg) {
+        int id = idOf(msg);
+        byte[] first = encodeBody(msg);
+        FriendlyByteBuf input = new FriendlyByteBuf(Unpooled.wrappedBuffer(first));
+        ACPacket decoded = decoders.get(id).apply(input);
+        if (input.isReadable()) {
+            throw new IllegalStateException("Packet decoder left trailing bytes for id " + id);
+        }
+        return encodeBody(decoded);
     }
 
     private int idOf(ACPacket msg) {
@@ -85,6 +120,9 @@ public final class NetworkChannel {
     private byte[] encodeBody(ACPacket msg) {
         FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
         msg.write(buf);
+        if (buf.readableBytes() > MAX_BODY_BYTES) {
+            throw new IllegalArgumentException("Packet body exceeds " + MAX_BODY_BYTES + " bytes");
+        }
         byte[] body = new byte[buf.readableBytes()];
         buf.readBytes(body);
         return body;
@@ -92,11 +130,20 @@ public final class NetworkChannel {
 
     private void dispatch(int id, byte[] body, Context ctx) {
         Function<FriendlyByteBuf, ? extends ACPacket> decoder = decoders.get(id);
-        if (decoder == null) {
+        if (decoder == null || body == null || body.length > MAX_BODY_BYTES) {
             return;
         }
-        ACPacket msg = decoder.apply(new FriendlyByteBuf(Unpooled.wrappedBuffer(body)));
-        ctx.enqueue(() -> msg.handle(ctx));
+        FriendlyByteBuf input = new FriendlyByteBuf(Unpooled.wrappedBuffer(body));
+        ACPacket msg = decoder.apply(input);
+        if (input.isReadable()) {
+            return;
+        }
+        ctx.enqueue(() -> {
+            msg.handle(ctx);
+            if (Boolean.getBoolean("abyssalcraft.rrNetValidation")) {
+                com.shinoow.abyssalcraft.net.RRNetValidation.recordHandled(id, ctx.player());
+            }
+        });
     }
 
     //? if forge {
@@ -107,7 +154,7 @@ public final class NetworkChannel {
             Integer.toString(PROTOCOL)::equals, Integer.toString(PROTOCOL)::equals);
         channel.registerMessage(0, Envelope.class,
                 (env, buf) -> { buf.writeVarInt(env.id); buf.writeByteArray(env.body); },
-                buf -> new Envelope(buf.readVarInt(), buf.readByteArray()),
+            buf -> new Envelope(buf.readVarInt(), buf.readByteArray(MAX_BODY_BYTES)),
                 (env, ctxSupplier) -> {
                     NetworkEvent.Context ctx = ctxSupplier.get();
                     dispatch(env.id, env.body, new Context() {
@@ -166,7 +213,7 @@ public final class NetworkChannel {
                 new CustomPacketPayload.Type<>(ACRef.id("net_envelope"));
         static final StreamCodec<FriendlyByteBuf, Envelope> STREAM_CODEC = StreamCodec.of(
                 (buf, env) -> { buf.writeVarInt(env.id()); buf.writeByteArray(env.body()); },
-                buf -> new Envelope(buf.readVarInt(), buf.readByteArray()));
+            buf -> new Envelope(buf.readVarInt(), buf.readByteArray(MAX_BODY_BYTES)));
 
         @Override public CustomPacketPayload.Type<Envelope> type() { return TYPE; }
     }

@@ -1,9 +1,14 @@
 package com.shinoow.abyssalcraft.net.server;
 
+import com.shinoow.abyssalcraft.content.item.ritual.StaffOfRendingItem;
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.phys.AABB;
 
 /**
  * Client &rarr; server: use the Staff of Rending held in {@code hand} on the entity with network
@@ -33,6 +38,16 @@ public class StaffOfRendingMessage implements NetworkChannel.ACPacket {
 
     @Override
     public void handle(NetworkChannel.Context ctx) {
-        // Deferred: the rending API + Staff of Rending item are not yet ported (system/item stage).
+        if (!(ctx.player() instanceof ServerPlayer player)) return;
+        ItemStack stack = player.getItemInHand(hand);
+        if (!(stack.getItem() instanceof StaffOfRendingItem staff)
+            || !(player.level().getEntity(id) instanceof LivingEntity target)) return;
+        if (staff.rend(player, target, stack) && staff.multiRendLevel(stack) > 0) {
+            for (LivingEntity nearby : player.level().getEntitiesOfClass(LivingEntity.class,
+                    new AABB(target.blockPosition()).inflate(3.0D),
+                    entity -> entity != target && entity != player)) {
+                staff.rend(player, nearby, stack);
+            }
+        }
     }
 }

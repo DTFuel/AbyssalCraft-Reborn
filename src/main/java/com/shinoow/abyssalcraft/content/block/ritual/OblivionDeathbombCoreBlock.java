@@ -4,12 +4,13 @@ import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.content.entity.misc.MiscEntities;
 import com.shinoow.abyssalcraft.content.entity.misc.PrimedODB;
 import com.shinoow.abyssalcraft.platform.ArmorDurabilityCompat;
-import com.shinoow.abyssalcraft.platform.ItemInteractiveBlockCompat;
+import com.shinoow.abyssalcraft.platform.InteractiveBlockCompat;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -25,7 +26,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 /** Redstone-, fire- and projectile-primed ODB core backed by the persistent PrimedODB entity. */
-public final class OblivionDeathbombCoreBlock extends ItemInteractiveBlockCompat {
+public final class OblivionDeathbombCoreBlock extends InteractiveBlockCompat {
 
     private static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 16.0D, 12.0D);
 
@@ -50,9 +51,9 @@ public final class OblivionDeathbombCoreBlock extends ItemInteractiveBlockCompat
     }
 
     @Override
-    protected boolean onUseItem(ItemStack stack, BlockState state, Level level, BlockPos pos,
-                                Player player, InteractionHand hand) {
-        if (!stack.is(Items.FLINT_AND_STEEL) && !stack.is(Items.FIRE_CHARGE)) return false;
+    protected InteractionResult onUseItem(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                          Player player, InteractionHand hand) {
+        if (!stack.is(Items.FLINT_AND_STEEL) && !stack.is(Items.FIRE_CHARGE)) return InteractionResult.PASS;
         if (!level.isClientSide) {
             prime(level, pos, player);
             if (stack.is(Items.FLINT_AND_STEEL)) {
@@ -61,7 +62,12 @@ public final class OblivionDeathbombCoreBlock extends ItemInteractiveBlockCompat
                 stack.shrink(1);
             }
         }
-        return true;
+        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    @Override
+    protected InteractionResult onUse(BlockState state, Level level, BlockPos pos, Player player) {
+        return InteractionResult.PASS;
     }
 
     @Override

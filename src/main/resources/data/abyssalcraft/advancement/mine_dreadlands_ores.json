@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "abyssalcraft:dreaded_abyssalnite_ore"
+      "id": "abyssalcraft:dreaded_abyssalnite_ore"
     },
     "title": {
       "translate": "advancements.abyssalcraft.minedread.title"

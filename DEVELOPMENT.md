@@ -4,7 +4,7 @@
 > 每完成一项开发或验证后，请更新第 7/8/9 节（当前状态 / TODO / 变更日志）。
 > AI 助手（GitHub Copilot）会在每次会话开始时读取本文件，并在推进后回写更新。
 >
-> 最后更新：2026-07-25
+> 最后更新：2026-07-26
 
 ---
 
@@ -84,9 +84,17 @@ src/main/resources/
 
 > **状态审计（2026-07-25，当前完成度唯一判据）**：以 [`docs/porting/01-porting-task-plan.md`](docs/porting/01-porting-task-plan.md) 的 `☑/☐` 拆分任务和 [`docs/porting/02-porting-parallel-tasks.md` §3A](docs/porting/02-porting-parallel-tasks.md#3a-审计后当前执行队列唯一状态源) 为准。本节下方的长篇交付记录是历史证据；其中“阶段通过”“框架交付”“标题屏加载”“注册/自测通过”都**不**代表完整原版玩法、内容或人工视觉验收已完成。
 >
-> 已确认的完成基线为 `M0`、`MP-BASE`、`M1-BASE`、`M2-BASE`、`M3-BASE`、`M4-BASE`、`M5-WORLD-AUTO`、`M6-INFRA`、`M7-FRAMEWORK`、`M8-BASE`、`M9-BASE`；`RR-MACHINE-ENGINE`、`RR-MACHINE-CONTENT`、`RR-MACHINE-UX`、`RR-CONTENT`、`RR-ENTITY-CATALOG`、`R1-AUTO-GATE`、`R1-Gate`、`RR-DATA`、`RR-WORLD`、`RR-RENDER-AUTO`、`RR-RENDER-VISUAL`、三个 `RR-MENU-HOST`、`R2-AUTO-GATE`、`R2-Gate`、`RR-ENERGY`、`RR-KNOWLEDGE`与`R3-Gate`均☑。实体目录已由54扩至旧63类型，并形成`M3-CATALOG`；完整实体行为/loot/自然刷怪矩阵仍未达到`M3-CONTENT`。
+> 已确认的完成基线为 `M0`、`MP-BASE`、`M1-BASE`、`M2-BASE`、`M3-CONTENT`、`M4-BASE`、`M5-WORLD-AUTO`、`M6-INFRA`、`M7-FRAMEWORK`、`M8-BASE`、`M9-BASE`；`RR-MACHINE-ENGINE`、`RR-MACHINE-CONTENT`、`RR-MACHINE-UX`、`RR-CONTENT`、`RR-ENTITY-CATALOG`、`RR-ENTITY-BEHAVIOR`、`R1-AUTO-GATE`、`R1-Gate`、`RR-DATA`、`RR-WORLD`、`RR-RENDER-AUTO`、`RR-RENDER-VISUAL`、三个 `RR-MENU-HOST`、`R2-AUTO-GATE`、`R2-Gate`、`RR-ENERGY`、`RR-KNOWLEDGE`、`R3-Gate`、`RR-ADV-API`与 **R4 RR-RITUAL-SPELL-PORTAL 自动 Gate** 均☑。R4 真人 Portal/Spellbook/仪式视觉实网矩阵仍☐；实体目录、全族专属行为、69 loot 与双端自然刷怪/持久化矩阵已形成`M3-CONTENT`。
 >
-> R2实现/relay自动Gate已完成并解锁R3。RR-RENDER-VISUAL 已完成双端总场景目视；RR-WORLD-FIDELITY 仍是独立未完成的非阻塞保真轨道。缺现代宿主的 BER 继续归 `T4.6d/RR-RENDER-BER-HOSTS`，不计入已验现有渲染面。实体侧旧69表loot、自然刷怪统计与复杂资产/语言全集也未收口。
+> R2实现/relay自动Gate已完成并解锁R3。RR-RENDER-VISUAL 已完成双端总场景目视；RR-WORLD-FIDELITY 仍是独立未完成的非阻塞保真轨道。缺现代宿主的 BER 继续归 `T4.6d/RR-RENDER-BER-HOSTS`，不计入已验现有渲染面。实体侧旧69表loot、真实自然刷怪统计与行为/持久化矩阵已收口；复杂资产/语言全集仍按后续任务推进。
+
+- [x] 2026-07-26 **RR-ADV-API · 命令/进度/插件接口收口（GitHub Copilot）**：修复 Forge 9条错误的1.20对象式item predicate与Neo 1.21 icon/predicate schema，root恢复真实Necronomicon与现有darkstone背景；两端`AdvancementEarnEvent`将9项幂等持久化为独立Progression书知识，type7+full snapshot即时刷新已打开书并登录回填旧玩家。`IACPlugin`由ServiceLoader/显式入口发现，在ServerAboutToStart原子发布五类实体扩展；Shoggoth与两瘟疫真实消费，Forge另桥接5个旧IMC key，13个配方/Crystal/Ghoul贴图key迁移到datapack/resource pack。双端compile/runData永久Gate、9进度专服加载、外部fixture消费者均通过；Forge真实联网无权限拒绝、OP两次toggle、9进度/书页、重复幂等与同名重连客户端同步通过。临时fixture不进入生产源码/JAR。
+
+- [x] 2026-07-26 **RR-CLIENT-FX · 实现与自动 Gate（GitHub Copilot，CR-73）**：新 `platform/DimensionSkyCompat` 吸收 renderSky 双端签名 fork（Forge PoseStack ↔ Neo Matrix4f）与 1.20/1.21 即时顶点 fork，四维 tinted 六面天空盒经 `ACDimensionEffects`/`ACDimensionSkies` 绘制、色实时取自 `ClientVars`（AW 0/105/45、DL 100/14/14、Omothol 40/30/40、DarkRealm 30/20/30 复用 omothol_sky）。迁 blueflame.png + 注册 `blue_flame`/`BlueFlameParticle`，`ClientRitualEffects` 8 基座发 BlueFlame+smoke+ItemRitual（供品由 `RitualManifestCatalog` 重建，不扩 `RitualStartMessage`）；`AbstractShoggoth.playStepSound` 补最后一个 `shoggoth.step`并修正 `jzahar.shout` 字幕键。永久 `ClientFxSelfTest` 双端 runData `RR_CLIENT_FX_SELF_TEST_OK skies=3 particles=2 sounds=45 ogg=106 subtitles=41 rituals=62`，双端 compile/build/JAR 通过。PEStream 由 RR-NET（`PEUtils`/`ClientNetworkEffects.peStream`）交付，未重复。T6.3b/T6.4b/T6.5b☑；**T6.3c 四维天空目视与 T6.5c 声音/字幕矩阵仍☐（人工）**，RR-CLIENT-FX ◐。不触 RR-NET/RR-CLIENT-GUI/R5-Gate。
+
+- [x] 2026-07-26 **RR-RITUAL-SPELL-PORTAL · R4 实现与自动 Gate（GitHub Copilot）**：以旧源码冻结 62 个仪式注册项（40 infusion/3 creation/1 transformation/18 specialized）与 14 法术；祭坛恢复持久 ceremony、20t PE、原子供品、活祭/research/disruption/重启安全，18/18 专用行为含 Portal、Boss、复活、5 biome、enchant/weather/house；法术恢复六卷轴、instant/50t charging、多容器PE回滚、绝对伤害/PvP门、MobSpell目标提示+服务端重验、7槽Spellbook与旧统一铭文overlay。Portal Anchor/BE、Gateway/Silver Keys、目标同步、renderer与持久关联已接。必要旧资产、29 item model、3 block set、语言与 Coralium Pearl 掉落完成。Forge/Neo `compileJava`、`runData`、production `build` 全绿：`rituals=62 handlers=18`、`spells=14 handlers=14 spellbook=14`、`itemModels=29 blockSets=3 damageTags=4`、Portal=`dimensions=7 edges=6 keyTiers=4`；双 JAR 关键7项审计零缺失。**仍未完成**：Forge/Neo 真人 Portal 正反向/目标锚点/破坏/重启，Spellbook 与卷轴实网、仪式视觉听觉矩阵，明确归 `R4-LIVE-GATE`。
+
+- [x] 2026-07-26 **RR-ENTITY-BEHAVIOR · M3-CONTENT（GitHub Copilot，CR-72）**：全族专属行为与 9 legacy 边角完成；69 旧 loot 建立永久四态审计并由单一 datagen owner 生成 97 逻辑/194 物理现代表，Boss 奖励不再硬编码。双端通过行为矩阵、97表/69死亡路径、11场真实 `NaturalSpawner`、5实体+5 owner create→stop→verify；永久 runData Gate、production build/JAR 与无属性专服 `/reload`/stop 全绿。`SpawnCandidateCompat` 修复只读候选列表和稳定 `SpawnerData` 身份；临时 fixture class、属性与快照残留均为0。Forge/Neo JAR SHA-256 分别为 `13DAFBEBD5F666B32B2E4A63A8D4F43124105790801B38937463E41F1B9D3A5C` / `BBA3A29203EDEC30720EC17DEC12DFF81E72F35706276207D0B7B7880AD7EF7F`。
 
 - [x] 2026-07-25 **RR-RENDER-VISUAL · 双端总场景目视收口**：Forge/NeoForge 各以一次 `/acrrrender all` 覆盖 Legacy、effect/projectile/ODB、动态层与持物、7套护甲及特殊宿主、Boss death 代表帧、Research/Pedestal BER，用户最终确认无问题。期间修复 Chagaroth 系列误挂 carrier、Goliath 甲层遮骨、Dreadguard carrier 朝向、Gecko 持物矩阵、三套护甲 alpha、Anti humanoid 缺基础甲层、Skeleton 细肢外层与 Anti Ghoul 错误人形模型。临时命令、setter、名字旁路及生命周期冻结已删除；双端完整 production build 与 JAR 审计通过，关键渲染条目齐、三张修复贴图哈希一致、验证残留为0。`T4.6d` 缺宿主 BER 继续独立未完成。
 
@@ -224,13 +232,15 @@ src/main/resources/
 
 - [ ] **按审计后二态队列推进**：只认领平行表 §3A 的 R1–R8；完成一个收窄的可验收切片才从 ☐ 改为 ☑，不得以历史 Gate、框架、注册或标题屏加载跳过任何 `b/c/d/e` 任务。
 - [x] **R1 Gate 已完成**：`RR-MACHINE-ENGINE`、`RR-MACHINE-CONTENT`、`RR-MACHINE-UX`、`RR-CONTENT`、`RR-ENTITY-CATALOG` 与 `R1-AUTO-GATE` 全部完成；Forge+Neo 真人逐槽/shift-click/XP/分页/重连/工作态视觉与停服重启矩阵通过，现按平行表进入 R2。
-- [x] **R2 RR-MENU-HOST 已完成**：`T2.6b/T2.7b/T2.8c/T2.9b` 与 CORE/BREWING/TRANSFER 三队列均完成；羽毛 BER、Spellbook、State Transformer、Rending Pedestal 保持为独立未完成任务。
+- [x] **R2 RR-MENU-HOST 已完成**：`T2.6b/T2.7b/T2.8c/T2.9b` 与 CORE/BREWING/TRANSFER 三队列均完成；Spellbook 已由 R4/T2.8d 完成，State Transformer 与 Rending Pedestal 仍为独立未完成任务。
 - [x] **R2 RR-WORLD 自动切片已完成**：`T5.2b/T5.3b/T5.4b/T5.5b/T5.5c/T5.6b/T5.8e/T5.9` 双端自动矩阵通过；oracle、动态 marker 玩法和人工视觉已拆到 `RR-WORLD-FIDELITY`，不得据此误报完整 M5-FIDELITY。
 - [x] **R2 自动集成 Gate 已完成**：`RR-DATA/RR-WORLD/RR-RENDER-AUTO/RR-MENU-HOST`与双端relay/datagen/build/server/client/JAR门禁全过，R3已解锁；世界与渲染保真轨道不阻塞R3但继续为未完成。
-- [x] **R3 RR-KNOWLEDGE 实现切片已完成**：`T7.2b/T7.8b/T7.10b/T7.11b/T8.2b`及双端datagen/build/server/JAR门禁通过；完成边界不包含真人实网、完整旧书消费、动态Dreadlands扩散、复活仪式和配置GUI。
+- [x] **R3 RR-KNOWLEDGE 实现切片已完成**：`T7.2b/T7.8b/T7.10b/T7.11b/T8.2b`及双端datagen/build/server/JAR门禁通过；复活仪式消费已由 R4 完成，剩余边界仍不含真人实网、完整旧书消费、动态Dreadlands扩散和配置GUI。
 - [x] **R3-Gate 已完成并解锁 R4**：RR-ENERGY/RR-KNOWLEDGE双车道及联合runData/build/server/JAR门禁全过；只解锁下一阶段，不代表M7-PLAYABLE或拆分待办完成。
-- [ ] **数据与保真缺口**：RR-DATA 已完成401 crafting/53 smelting、M1完整tags和13矿loot；继续迁移223机器 recipe、69实体 loot全量，补齐slab/进度与全仓数据引用审计、复杂资产模型、既有 stand-in/九漏实体 renderer和实际 BER。
-- [ ] **系统与运行期验收**：RR-ENERGY与RR-KNOWLEDGE实现切片已完成；继续`T7.2c/T7.8c/T7.10c/T7.11c/T8.2c`、ritual/spell、剩余网络 handler、portal、JEI 与客户端 UX，最后完成M10/M11发布验收。
+- [x] **R4 RR-ENTITY-BEHAVIOR 已完成**：`T3.2b–T3.8b/T3.9d/T3.10c` 与 `M3-CONTENT` 收口；双端全族行为、69 loot死亡路径、11场真实自然生成和实体/owner持久化矩阵通过。
+- [x] **R5 RR-ADV-API 已完成**：`T8.3b/T8.4b/T8.4c` 收口；双端进度schema/Gate、外部插件消费者与生产sink通过，Forge命令/9进度/书页/重连真实联网矩阵通过。
+- [ ] **数据与保真缺口**：RR-DATA 已完成401 crafting/53 smelting、M1完整tags和13矿loot，RR-ENTITY-BEHAVIOR 已完成69实体loot全量；继续迁移223机器 recipe，补齐slab/进度与全仓数据引用审计、复杂资产模型和缺现代宿主的实际 BER。
+- [ ] **系统与运行期验收**：RR-ENERGY、RR-KNOWLEDGE与 R4 仪式/法术/Portal 实现切片已完成；继续 `R4-LIVE-GATE`、`T7.2c/T7.8c/T7.10c/T7.11c/T8.2c`、剩余网络 handler、JEI 与客户端 UX，最后完成 M10/M11 发布验收。
 - [x] **语言与生成数据一致性**：8语言文件已统一为620键；1.20.1 `loot_tables/` 与1.21.1 `loot_table/` 双路径持续由datagen验证。
 - [x] 2026-07-21 运行期验证：两节点 `runServer`（服务端）+ `runClient`（客户端·抵标题屏零错）均确认加载进游戏（见 §7）。仅可视交互（创造页/进世界放置）需人工目视。
 - [x] 2026-07-21 **M0（Stage A）收口**：PA-1..PA-5 全交付 + Gate A2/A3/A4 全过（两节点）。兼容层 / 注册 / 配置 / datagen / 最小竖切就绪，§2 契约冻结，解锁 Stage P/B。
@@ -240,6 +250,12 @@ src/main/resources/
 - [ ] 补全 `en_us.json` 翻译与基础贴图 / 模型。
 
 ## 9. 变更日志 (Changelog)
+
+- **2026-07-26**：**RR-ADV-API 完成**。9项进度双schema修复并接入独立Progression书知识、登录回填与即时同步；`/acunlockallknowledge`权限/toggle/重连闭环；双端`IACPlugin` ServiceLoader/显式API和五类实体sink完成，Forge五项旧IMC兼容、13项旧key迁移文档完成。永久`RR_ADV_API_SELF_TEST_OK`、双端外部fixture、专服加载与Forge真实联网矩阵通过，临时夹具清零后做production JAR门禁。
+
+- **2026-07-26**：**RR-CLIENT-FX（CR-73）实现与自动 Gate 收口**。四维 tinted 天空盒经新 `platform/DimensionSkyCompat`（renderSky 双端签名 fork + 1.20/1.21 即时顶点 fork）绘制，色取自 `ClientVars`；`ClientRitualEffects` 8 基座发 BlueFlame+smoke+ItemRitual（供品由 `RitualManifestCatalog` 重建），PEStream 归 RR-NET；`AbstractShoggoth` 补 shoggoth.step、修正 jzahar.shout 字幕键。永久 `ClientFxSelfTest` 双端 runData `RR_CLIENT_FX_SELF_TEST_OK skies=3 particles=2 sounds=45 ogg=106 subtitles=41 rituals=62`，双端 build/JAR 通过。T6.3b/T6.4b/T6.5b☑；**T6.3c 四维天空目视与 T6.5c 声音/字幕矩阵仍☐（人工）**。未据此勾 RR-NET/RR-CLIENT-GUI/R5-Gate或总发布 Gate。
+
+- **2026-07-26**：**RR-ENTITY-BEHAVIOR（CR-72）完成，M3-CONTENT 收口**。63内容实体的全族专属行为、9 legacy 边角与持久状态完成；69旧loot审计为`32/21/16/0`并由单一provider生成97逻辑/194物理表。Forge/Neo行为、97表/69死亡路径、11场真实NaturalSpawner、5实体+5 owner重启矩阵、runData/build/JAR及无属性server reload全部通过；修复PotentialSpawns只读列表与SpawnerData身份问题，临时fixture/属性/快照残留为0。未据此勾选R4真人Portal、缺宿主BER、T5.9b/T9.5b/T10.5或总发布Gate。
 
 - **2026-07-25**：**R3-Gate（CR-71）完成**。RR-ENERGY与RR-KNOWLEDGE均☑，同一最终源码双端runData同时通过两永久Gate，production build/JAR、专服与重启通过，验证残留清零，现解锁R4。所有二态拆出的真人实网/外部依赖/完整旧书/动态群系/复活消费/配置GUI待办继续☐。
 
@@ -260,7 +276,7 @@ src/main/resources/
 
 - **2026-07-24**：**R1 总 Gate（Agent A）完成**。自动切片完成四级 Crystal Bag 独立菜单/Screen、Liquid Coralium source/flowing/block/bucket/capability、10 次 Transmutation Gem、26 crystal cluster 与 52 条双目录往返配方；恢复两 AC 树、四级工具矩阵、现代 25 个颜色名，以及装饰形状/草传播退化/muck/thorn/植物行为。双端真实联网玩家进一步完成 Bag/三机器逐槽、shift-click、Materializer 结果、网络取出、XP、工作态视觉、断线卸载与停服重启矩阵；Neo 与 Forge 的服务端 NBT/XP ledger 在重启前后逐字段一致，重开 Screen 比例精确对应。临时验证探针已全部删除。**最终验证**：双端 `compileJava`；双端 `runData` 输出 `R1_CONTENT_SELF_TEST_OK` / `RR_MACHINE_SELF_TEST_OK` / `RR_ENTITY_CATALOG_OK content=63 all_ac=64 eggs=48 placements=44`；同一 invocation 双端全量 `build`；无验证属性的两端 `runServer` 均抵 `Done` 并干净 stop，Neo 加载 1382 recipes。Forge 仍有 9 个 1.21 格式 advancement 解析错误，归后续 `RR-ADV-API`，非 R1。
 
-- **2026-07-24**：**RR-ENTITY-CATALOG（Agent C）交付**。旧实体目录扩至 63 内容类型，补齐 17 蛋至 48、44 placement、九漏实体 loot 双目录与核心服务端行为；引入 9 对 Forge/Neo spawn modifier、PotentialSpawns 上下文候选及 1.21 EntityType 分类 tag。required TerraBlender 注入五 Darklands 与 surface/tree 生态。双节点 runData/build、全新专服/热重载、九实体 summon、五群系分布与 Abyssal Zombie 原子转化通过；Forge Dread 聚合/分裂通过。自然刷怪统计、第六群系、边角行为、69 loot 全量和九实体忠实渲染继续作为独立未完成任务。
+- **2026-07-24**：**RR-ENTITY-CATALOG（Agent C）交付**。旧实体目录扩至 63 内容类型，补齐 17 蛋至 48、44 placement、九漏实体 loot 双目录与核心服务端行为；引入 9 对 Forge/Neo spawn modifier、PotentialSpawns 上下文候选及 1.21 EntityType 分类 tag。required TerraBlender 注入五 Darklands 与 surface/tree 生态。双节点 runData/build、全新专服/热重载、九实体 summon、五群系分布与 Abyssal Zombie 原子转化通过；Forge Dread 聚合/分裂通过。交付当时仍缺自然刷怪统计、第六群系、边角行为、69 loot 全量和九实体忠实渲染；这些后续分别由 RR-WORLD、RR-RENDER 与 RR-ENTITY-BEHAVIOR/CR-72 收口。
 
 - **2026-07-23**：**RR-MACHINE-ENGINE 三机器忠实引擎交付（Agent A）**。完成三类正式 recipe/serializer 中央化、Crystallizer 四槽双输出、Materializer Bag/Book 动态目录、Transmutator 专用燃料，以及 XP ledger、active recipe、持久化、FACING/LIT、sided hopper 与双 loader item capability。新增四级 Crystal Bag 数据层和三种类型安全 JEI 分类；现有 27 条 datagen 迁为完整 schema。两端 `runData` 增强 self-test、server codec 加载、client 资源冒烟和全量 build 通过；Neo 实际加工双输出/嬗变与远区块无漂移重启恢复通过。活玩家矩阵、Bag 独立 GUI、缺失燃料内容、JEI fuel 分类/忠实资产仍显式未完成。
 

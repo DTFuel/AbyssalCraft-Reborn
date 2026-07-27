@@ -1,8 +1,13 @@
 package com.shinoow.abyssalcraft.net.server;
 
+import com.shinoow.abyssalcraft.content.item.transfer.SpiritTabletItem;
+import com.shinoow.abyssalcraft.content.item.transfer.SpiritTabletStorage;
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.ItemStack;
 
 /**
  * Client &rarr; server: apply spirit-tablet menu settings -- the two mode selectors plus the
@@ -40,6 +45,35 @@ public class SpiritTabletMessage implements NetworkChannel.ACPacket {
 
     @Override
     public void handle(NetworkChannel.Context ctx) {
-        // Deferred: the spirit-tablet menu is not yet ported (system stage).
+        if (!(ctx.player() instanceof ServerPlayer player)) return;
+        if (clearPath) {
+            clearRoute(player.getMainHandItem());
+            clearRoute(player.getOffhandItem());
+            return;
+        }
+        if (openFilter) {
+            if (open(player, InteractionHand.MAIN_HAND)) return;
+            open(player, InteractionHand.OFF_HAND);
+            return;
+        }
+        setMode(player.getMainHandItem(), mode1);
+        setMode(player.getOffhandItem(), mode2);
+    }
+
+    private static void clearRoute(ItemStack stack) {
+        if (stack.getItem() instanceof SpiritTabletItem) SpiritTabletStorage.clearRoute(stack);
+    }
+
+    private static boolean open(ServerPlayer player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        if (!(stack.getItem() instanceof SpiritTabletItem)) return false;
+        SpiritTabletItem.openMenu(player, hand, stack);
+        return true;
+    }
+
+    private static void setMode(ItemStack stack, int mode) {
+        if (stack.getItem() instanceof SpiritTabletItem && mode >= 0 && mode <= 2) {
+            SpiritTabletStorage.setMode(stack, mode);
+        }
     }
 }

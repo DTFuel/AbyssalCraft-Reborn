@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.registry;
 import java.util.List;
 
 import com.shinoow.abyssalcraft.content.block.deco.DecoBlocks;
+import com.shinoow.abyssalcraft.content.block.demon.DemonBlocks;
 import com.shinoow.abyssalcraft.content.block.energy.EnergyBlocks;
 import com.shinoow.abyssalcraft.content.block.ghoul.GhoulHeadBlocks;
 import com.shinoow.abyssalcraft.content.block.ore.OreBlocks;
@@ -31,6 +32,7 @@ import com.shinoow.abyssalcraft.content.item.portal.PortalItems;
 import com.shinoow.abyssalcraft.content.item.ritual.RitualItems;
 import com.shinoow.abyssalcraft.content.item.scroll.ScrollItems;
 import com.shinoow.abyssalcraft.content.item.staff.StaffItems;
+import com.shinoow.abyssalcraft.content.item.tablet.TabletItems;
 import com.shinoow.abyssalcraft.content.item.transfer.TransferContent;
 import com.shinoow.abyssalcraft.content.item.tool.ToolItems;
 import com.shinoow.abyssalcraft.content.item.weapon.SoulReaperItems;
@@ -38,6 +40,8 @@ import com.shinoow.abyssalcraft.content.machine.brewing.BrewingStands;
 import com.shinoow.abyssalcraft.content.machine.crystallizer.Crystallizers;
 import com.shinoow.abyssalcraft.content.machine.materializer.Materializers;
 import com.shinoow.abyssalcraft.content.machine.researchtable.ResearchTables;
+import com.shinoow.abyssalcraft.content.machine.rendingpedestal.RendingPedestals;
+import com.shinoow.abyssalcraft.content.machine.statetransformer.StateTransformers;
 import com.shinoow.abyssalcraft.content.machine.transmutator.Transmutators;
 import com.shinoow.abyssalcraft.content.menu.base.MachineMenus;
 import com.shinoow.abyssalcraft.content.recipe.base.ProcessingRecipes;
@@ -113,6 +117,7 @@ public final class ModRegistries {
         // Stage B1 decorative/plain-function blocks (PB-5): statues/mural/tombstones/ingot blocks/ground/sand/glass/plants + BlockItems.
         DecoBlocks.BLOCKS,
         DecoBlocks.ITEMS,
+        DemonBlocks.BLOCKS,
         // Stage B2 tools (PB-6): 4 material tiers x {pickaxe, axe, shovel, hoe, sword}.
         ToolItems.ITEMS,
         SoulReaperItems.ITEMS,
@@ -139,6 +144,14 @@ public final class ModRegistries {
         BrewingStands.ITEMS,
         BrewingStands.BLOCK_ENTITIES,
         BrewingStands.MENUS,
+        StateTransformers.BLOCKS,
+        StateTransformers.ITEMS,
+        StateTransformers.BLOCK_ENTITIES,
+        StateTransformers.MENUS,
+        RendingPedestals.BLOCKS,
+        RendingPedestals.ITEMS,
+        RendingPedestals.BLOCK_ENTITIES,
+        RendingPedestals.MENUS,
         // Stage D1 entity framework (PD-1): ENTITY_TYPE registrar + example base mob (pilot_mob).
         ModEntities.ENTITIES,
         LegacyEntities.ENTITIES,
@@ -185,6 +198,7 @@ public final class ModRegistries {
         EnergyBlocks.BLOCKS,
         EnergyBlocks.ITEMS,
         EnergyBlocks.BLOCK_ENTITIES,
+        EnergyBlocks.MENUS,
         EnergyItems.ITEMS,
         // Stage 6/7 unblock content: ritual blocks (altar + pedestals = the PE-consuming ritual multiblock).
         RitualBlocks.BLOCKS,
@@ -196,6 +210,7 @@ public final class ModRegistries {
         PortalItems.ITEMS,
         RitualItems.ITEMS,
         ScrollItems.ITEMS,
+        TabletItems.ITEMS,
         // RR-MENU-HOST: Spirit Tablet + Spirit Altar + their persistent menu/BE types.
         TransferContent.BLOCKS,
         TransferContent.ITEMS,

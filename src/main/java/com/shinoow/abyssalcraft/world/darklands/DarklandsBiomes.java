@@ -14,6 +14,11 @@ public final class DarklandsBiomes {
     public static final ResourceKey<Biome> HILLS = key("darklands_hills");
     public static final ResourceKey<Biome> MOUNTAINS = key("darklands_mountains");
     public static final ResourceKey<Biome> CORALIUM_INFESTED_SWAMP = key("coralium_infested_swamp");
+    public static final ResourceKey<Biome> DREADLANDS = key("dreadlands");
+    public static final ResourceKey<Biome> DREADLANDS_FOREST = key("dreadlands_forest");
+    public static final ResourceKey<Biome> DREADLANDS_MOUNTAINS = key("dreadlands_mountains");
+    public static final ResourceKey<Biome> DREADLANDS_OCEAN = key("dreadlands_ocean");
+    public static final ResourceKey<Biome> PURGED = key("purged");
 
     private DarklandsBiomes() {}
 

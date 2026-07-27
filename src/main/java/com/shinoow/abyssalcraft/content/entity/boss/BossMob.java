@@ -51,6 +51,7 @@ public class BossMob extends ACBossMob implements GeoEntity {
     public BossMob(EntityType<? extends Monster> type, Level level, BossKind kind) {
         super(type, level, kind.color());
         this.kind = kind;
+        applyHardcoreAttributes();
     }
 
     @Override
@@ -125,14 +126,22 @@ public class BossMob extends ACBossMob implements GeoEntity {
     }
 
     public static AttributeSupplier.Builder createAttributes(BossKind kind) {
-        double multiplier = ACConfig.hardcoreMode.get() ? 2.0D : 1.0D;
         return ACMob.createAttributes()
-            .add(Attributes.MAX_HEALTH, kind.health() * multiplier)
-            .add(Attributes.ATTACK_DAMAGE, kind.attack() * multiplier)
+                .add(Attributes.MAX_HEALTH, kind.health())
+                .add(Attributes.ATTACK_DAMAGE, kind.attack())
                 .add(Attributes.MOVEMENT_SPEED, kind.speed())
                 .add(Attributes.FOLLOW_RANGE, kind.followRange())
                 .add(Attributes.ARMOR, kind.armor())
                 .add(Attributes.KNOCKBACK_RESISTANCE, kind.knockbackResistance());
+    }
+
+    private void applyHardcoreAttributes() {
+        if (!ACConfig.hardcoreMode.get()) return;
+        var health = getAttribute(Attributes.MAX_HEALTH);
+        var attack = getAttribute(Attributes.ATTACK_DAMAGE);
+        if (health != null) health.setBaseValue(kind.health() * 2.0D);
+        if (attack != null) attack.setBaseValue(kind.attack() * 2.0D);
+        setHealth(getMaxHealth());
     }
 
     // Faithful boss sounds (PH-4b). Sacthoth (the shadow boss) uses its shadow hurt cry + the dedicated

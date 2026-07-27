@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "abyssalcraft:shadow_gem"
+      "id": "abyssalcraft:shadow_gem"
     },
     "title": {
       "translate": "advancements.abyssalcraft.shadowgems.title"

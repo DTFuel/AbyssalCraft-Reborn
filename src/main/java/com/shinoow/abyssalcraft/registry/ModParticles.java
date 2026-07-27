@@ -16,11 +16,11 @@ import com.shinoow.abyssalcraft.platform.ModRegistrar;
  * separately through {@link com.shinoow.abyssalcraft.platform.ParticleCompat} on the client only.
  *
  * <p>Scope note: the 1.12.2 mod had three custom particles -- {@code ACParticleFX} (soft white fade),
- * {@code PEStreamParticleFX} (a coloured fade, effectively vanilla {@code dust}) and {@code ItemRitualParticle}
- * (an item-icon particle, effectively vanilla {@code item}). Only {@code ACParticleFX} is ported here as a
- * concrete {@link #ABYSSAL_FX} type (spawn-testable via {@code /particle abyssalcraft:abyssal_fx}); the other
- * two carry per-instance data (colour / {@code ItemStack}) and are best rebuilt alongside the ritual / Purified
- * Essence content that emits them (currently unported), so they are deferred with that content.
+ * {@code BlueFlameParticle} (a tinted ritual flame) and {@code PEStreamParticleFX} / {@code ItemRitualParticle}
+ * (coloured / item-icon particles carrying per-instance data). {@link #ABYSSAL_FX} and {@link #BLUE_FLAME} are
+ * concrete no-payload {@link SimpleParticleType}s here; the coloured PE stream reuses vanilla {@code dust} and
+ * the item-ritual particle reuses vanilla {@code item} (both carry data through the vanilla payload), so no
+ * further custom particle types are needed (RR-CLIENT-FX).
  */
 public final class ModParticles {
 
@@ -36,4 +36,12 @@ public final class ModParticles {
      */
     public static final Supplier<SimpleParticleType> ABYSSAL_FX =
         PARTICLES.register("abyssal_fx", () -> new SimpleParticleType(false) {});
+
+    /**
+     * Blue ritual flame (faithful to 1.12.2 {@code BlueFlameParticle}), spawned from ritual pedestals while an
+     * altar ceremony runs. A no-payload {@link SimpleParticleType} emitted client-side by
+     * {@link com.shinoow.abyssalcraft.client.ritual.ClientRitualEffects}.
+     */
+    public static final Supplier<SimpleParticleType> BLUE_FLAME =
+        PARTICLES.register("blue_flame", () -> new SimpleParticleType(false) {});
 }

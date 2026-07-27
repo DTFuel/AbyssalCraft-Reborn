@@ -24,6 +24,7 @@ public final class ClientNecroSync {
         Player player = Minecraft.getInstance().player;
         if (player != null) {
             NecroDataCapability.apply(player, tag);
+            refreshOpenBook();
         }
     }
 
@@ -42,8 +43,16 @@ public final class ClientNecroSync {
             case 4 -> data.triggerPageUnlock(value);
             case 5 -> data.triggerWhisperUnlock(value);
             case 6 -> data.triggerMiscUnlock(value);
+            case 7 -> data.triggerAdvancementUnlock(value);
             default -> {
             }
+        }
+        refreshOpenBook();
+    }
+
+    private static void refreshOpenBook() {
+        if (Minecraft.getInstance().screen instanceof NecronomiconScreen screen) {
+            screen.refreshKnowledge();
         }
     }
 

@@ -1,0 +1,24 @@
+id,name,direction,status,modern_contract
+0,FireMessage,C2S,MIGRATED,server-authoritative mimic fire extinguish
+1,UpdateModeMessage,C2S,REPLACED,vanilla menu buttons and server-side item state
+2,ToggleStateMessage,C2S,MIGRATED,server-authoritative item-transfer host toggle
+3,StaffOfRendingMessage,C2S,MIGRATED,server-authoritative target and rending recipe lookup
+4,StaffModeMessage,C2S,MIGRATED,server-authoritative held staff mode toggle
+5,SpiritTabletMessage,C2S,MIGRATED,server-authoritative tablet mode filter and route state
+6,PrepareSyncMessage,C2S,MIGRATED,reply with sender necrodata only
+7,OpenSpellbookMessage,C2S,MIGRATED,resolve held Necronomicon and open server menu
+8,MobSpellMessage,C2S,MIGRATED,server revalidates charged scroll target and PE
+9,InterdimensionalCageMessage,C2S,MIGRATED,server-authoritative capture target and PE debit
+10,TransferStackMessage,C2S,REPLACED,server virtual result slot and recipe commit
+11,WindowPropertyMessage,S2C,REPLACED,vanilla ContainerData synchronization
+12,RitualMessage,S2C,MIGRATED,client ritual completion feedback
+13,RitualStartMessage,S2C,MIGRATED,client ritual ceremony state
+14,CleansingRitualMessage,S2C,REPLACED,chunk biome resend from server mutation
+15,DisruptionMessage,S2C,REPLACED,server executes disruption client renders feedback only
+16,EvilSheepMessage,S2C,MIGRATED,tracked evil sheep owner state
+17,KnowledgeUnlockMessage,S2C,MIGRATED,client knowledge mutation
+18,NecroDataCapMessage,S2C,MIGRATED,server-authoritative client necrodata snapshot
+19,PEStreamMessage,S2C,MIGRATED,bounded client PE particle stream
+20,ShouldSyncMessage,S2C,MIGRATED,client requests authoritative resync
+21,SyncNecromancyDataMessage,S2C,MIGRATED,server-authoritative client necrodata snapshot
+22,DisplayRoutesMessage,S2C,MIGRATED,bounded client transfer-route visualization

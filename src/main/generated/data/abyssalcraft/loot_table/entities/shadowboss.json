@@ -1,4 +1,78 @@
 {
   "type": "minecraft:entity",
-  "pools": []
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 20,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "abyssalcraft:shadow_fragment"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 10,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "abyssalcraft:shadow_shard"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 5,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "abyssalcraft:shadow_gem"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 5,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "abyssalcraft:shard_of_oblivion"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "abyssalcraft:soulreaper"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
 }

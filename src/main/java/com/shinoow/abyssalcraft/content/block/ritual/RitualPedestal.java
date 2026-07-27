@@ -13,6 +13,10 @@ public interface RitualPedestal {
     /** The offering currently on this pedestal (may be {@link ItemStack#EMPTY}). */
     ItemStack getOffering();
 
-    /** Clear this pedestal's offering (called when a ritual consumes it). */
-    void consumeOffering();
+    /** Consume {@code count} items and retain any crafting remainder such as an empty bucket. */
+    void consumeOffering(int count);
+
+    default void consumeOffering() {
+        consumeOffering(1);
+    }
 }

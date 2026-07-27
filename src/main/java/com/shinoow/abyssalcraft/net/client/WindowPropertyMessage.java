@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.net.client;
 
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
+import com.shinoow.abyssalcraft.platform.SideExecutor;
 
 import net.minecraft.network.FriendlyByteBuf;
 
@@ -37,7 +38,7 @@ public class WindowPropertyMessage implements NetworkChannel.ACPacket {
 
     @Override
     public void handle(NetworkChannel.Context ctx) {
-        // Deferred: modern menus sync ContainerData automatically; a manual client apply needs the
-        // client player (Context.player() is the sender), handled by the owning menu via SideExecutor.
+        SideExecutor.runWhenClient(() -> () ->
+            com.shinoow.abyssalcraft.client.network.ClientNetworkEffects.updateWindow(windowId, property, value));
     }
 }

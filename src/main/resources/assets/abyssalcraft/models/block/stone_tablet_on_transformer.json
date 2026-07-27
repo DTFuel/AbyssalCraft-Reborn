@@ -1,0 +1,31 @@
+{
+  "textures": {
+    "tablet": "abyssalcraft:block/monolith_stone"
+  },
+  "elements": [
+    {
+      "from": [3.0, 12.0, 1.0],
+      "to": [13.0, 13.0, 15.0],
+      "faces": {
+        "north": { "texture": "#tablet" },
+        "east": { "texture": "#tablet" },
+        "south": { "texture": "#tablet" },
+        "west": { "texture": "#tablet" },
+        "up": { "texture": "#tablet" },
+        "down": { "texture": "#tablet" }
+      }
+    },
+    {
+      "from": [3.5, 12.5, 1.5],
+      "to": [12.5, 13.5, 14.5],
+      "faces": {
+        "north": { "texture": "#tablet" },
+        "east": { "texture": "#tablet" },
+        "south": { "texture": "#tablet" },
+        "west": { "texture": "#tablet" },
+        "up": { "texture": "#tablet" },
+        "down": { "texture": "#tablet" }
+      }
+    }
+  ]
+}

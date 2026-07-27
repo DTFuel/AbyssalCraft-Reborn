@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.config.ComplexConfig;
+import com.shinoow.abyssalcraft.integration.api.ACPluginRegistry;
 import com.shinoow.abyssalcraft.content.entity.anti.AntiEntities;
 import com.shinoow.abyssalcraft.content.entity.anti.AntiEntity;
 import com.shinoow.abyssalcraft.content.entity.boss.BossEntities;
@@ -74,7 +75,7 @@ public final class EffectHooks {
     }
 
     public static void antimatterTick(LivingEntity entity, int amplifier) {
-        if (!entity.level().isClientSide && !isAntiImmune(entity)) {
+        if (!entity.level().isClientSide && !isAntimatterImmune(entity)) {
             entity.hurt(ACDamageTypes.source(entity, ACDamageTypes.ANTIMATTER), 5.0F);
         }
     }
@@ -189,7 +190,8 @@ public final class EffectHooks {
         ResourceLocation id = entityId(entity);
         return isCoraliumPlayer(entity) || LegacyEntities.isCoralium(entity)
             || ComplexConfig.coraliumImmunity().contains(id)
-            || ComplexConfig.coraliumCarriers().contains(id);
+            || ComplexConfig.coraliumCarriers().contains(id)
+            || ACPluginRegistry.isCoraliumImmune(id);
     }
 
     private static boolean isCoraliumPlayer(LivingEntity entity) {
@@ -200,21 +202,25 @@ public final class EffectHooks {
     public static boolean isDreadImmune(LivingEntity entity) {
         ResourceLocation id = entityId(entity);
         return LegacyEntities.isDread(entity) || ComplexConfig.dreadImmunity().contains(id)
-            || ComplexConfig.dreadCarriers().contains(id);
+            || ComplexConfig.dreadCarriers().contains(id) || ACPluginRegistry.isDreadImmune(id);
     }
 
-    private static boolean isAntiImmune(LivingEntity entity) {
+    public static boolean isAntimatterImmune(LivingEntity entity) {
         return entity instanceof AntiEntity
             || entity.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.CHEST)
                 .is(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ACRef.id("ethaxium_chestplate")));
     }
 
     public static boolean isCoraliumCarrier(LivingEntity entity) {
-        return LegacyEntities.isCoralium(entity) || ComplexConfig.coraliumCarriers().contains(entityId(entity));
+        ResourceLocation id = entityId(entity);
+        return LegacyEntities.isCoralium(entity) || ComplexConfig.coraliumCarriers().contains(id)
+            || ACPluginRegistry.isCoraliumCarrier(id);
     }
 
     public static boolean isDreadCarrier(LivingEntity entity) {
-        return LegacyEntities.isDread(entity) || ComplexConfig.dreadCarriers().contains(entityId(entity));
+        ResourceLocation id = entityId(entity);
+        return LegacyEntities.isDread(entity) || ComplexConfig.dreadCarriers().contains(id)
+            || ACPluginRegistry.isDreadCarrier(id);
     }
 
     private static ResourceLocation entityId(LivingEntity entity) {
@@ -237,7 +243,7 @@ public final class EffectHooks {
     }
 
     private static boolean convertAntimatter(ServerLevel level, LivingEntity victim) {
-        if (isAntiImmune(victim)) return false;
+        if (isAntimatterImmune(victim)) return false;
         Supplier<? extends EntityType<? extends Mob>> target = null;
         EntityType<?> type = victim.getType();
         if (type == LegacyEntities.ABYSSAL_ZOMBIE.get()) target = AntiEntities.ANTI_ABYSSAL_ZOMBIE;

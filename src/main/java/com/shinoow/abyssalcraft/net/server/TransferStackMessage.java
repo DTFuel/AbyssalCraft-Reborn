@@ -44,6 +44,7 @@ public class TransferStackMessage implements NetworkChannel.ACPacket {
 
     @Override
     public void handle(NetworkChannel.Context ctx) {
-        // Deferred: the materializer bag menu + its slot transfer are not yet ported (system stage).
+        // Retired: modern Materializer result slots resolve and commit recipes on the server. Accepting
+        // the client-provided stack here would reintroduce the legacy item-duplication trust boundary.
     }
 }

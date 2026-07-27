@@ -7,10 +7,11 @@ import java.util.List;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
+import com.shinoow.abyssalcraft.net.ACNetwork;
+import com.shinoow.abyssalcraft.net.client.DisruptionMessage;
 import com.shinoow.abyssalcraft.system.energy.DeityType;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -84,9 +85,12 @@ public final class DisruptionHandler {
         Disruption disruption = getRandom(deity, level.random);
         if (disruption != null) {
             disruption.disrupt(level, pos, players);
-            Component name = Component.translatable(disruption.translationKey());
-            players.forEach(player -> player.displayClientMessage(
-                Component.translatable("message.abyssalcraft.disruption", name), false));
+            players.forEach(player -> {
+                if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+                    ACNetwork.sendToPlayer(serverPlayer, new DisruptionMessage(
+                        deity == null ? "" : deity.name(), disruption.name(), pos));
+                }
+            });
         }
     }
 }

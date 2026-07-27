@@ -107,7 +107,7 @@ public final class EntityLootData implements DataProvider {
                 .map(EntityLootAudit.Entry::legacyTable).toList());
             require(converted.keySet().equals(auditIds), "69 entity loot source/audit id mismatch");
 
-            Map<String, String> aliases = aliases();
+            Map<String, String> aliases = EntityLootAudit.modernAliases();
             require(aliases.size() == 28, "modern entity loot alias count changed: " + aliases.size());
             Set<String> outputIds = new HashSet<>(converted.keySet());
             for (var alias : aliases.entrySet()) {
@@ -313,17 +313,6 @@ public final class EntityLootData implements DataProvider {
             value.addProperty("max", old.get("max").getAsInt());
         }
         return value;
-    }
-
-    private static Map<String, String> aliases() {
-        Map<String, String> aliases = new HashMap<>();
-        for (EntityLootAudit.Entry entry : EntityLootAudit.entries()) {
-            if (entry.resolution() == EntityLootAudit.Resolution.CONDITIONAL
-                    || entry.resolution() == EntityLootAudit.Resolution.RETIRED
-                    || entry.legacyTable().equals(entry.modernEntity())) continue;
-            aliases.putIfAbsent(entry.modernEntity(), entry.legacyTable());
-        }
-        return Map.copyOf(aliases);
     }
 
     private static void validateItems(JsonObject table) {

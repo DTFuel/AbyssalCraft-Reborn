@@ -1,67 +1,68 @@
 # 法术 (Necronomicon Spell) 子系统规格 (Subsystem Spec)
 
 - 里程碑 / Stage：M7 / Stage S-B
-- 关联平行任务：PS-7（本框架）；上游 PS-5（能量，PE 消耗读能量物品 `IEnergyContainerItem`）；解耦下游 PS-8（知识，读 `researchId` 门控）；反馈 PS-1（`MobSpellMessage`/`OpenSpellbookMessage`）
-- 状态：法术框架 + **`SpellUtils` 施放链 + pilot 法杖交付并验证（CR-64，两节点编译 + runData selfTest `found=life_drain ok=true` + forge runServer Done）**；余 14 具体法术 + scroll/spellbook 物品 + spellbook GUI = 内容（PS-7b），待其试剂/物品/GUI 依赖落地
-- 负责：PS-7
-- 最后更新：2026-07-23
+- 关联平行任务：PS-7 / R4 RR-RITUAL-SPELL-PORTAL；上游 RR-ENERGY、RR-KNOWLEDGE；网络入口 `MobSpellMessage`/`OpenSpellbookMessage`
+- 状态：**14 个旧版法术、六卷轴、7 槽 Spellbook、即时/蓄力施法与必要网络/资源已实现并通过 Forge/Neo 双端自动 Gate**；真人客户端施法/视觉矩阵仍归 R4-LIVE-GATE
+- 负责：GitHub Copilot
+- 最后更新：2026-07-26
 
 ## 1. 概述 / 目标
 
-AbyssalCraft 的 Necronomicon 法术系统。1.12.2：玩家用试剂（reagents）在羊皮纸（parchment/scroll）上铭刻（inscribe）法术，手持对应等级 Necronomicon + 卷轴，消耗势能（PE，取自背包能量物品）施放；法术分即时（instant）与蓄力（charging），部分针对实体目标（EntityTargetSpell，客户端射线取目标→服务端处理）。本任务交付**框架**（`Spell` 抽象基 + `SpellRegistry` 注册/查找 + `ScrollType`/`IScroll` + `EntityTargetSpell` pilot 基 + `LifeDrainSpell` 具体 pilot）；`SpellUtils` 施放链、14 具体法术、卷轴/法杖/法术书 GUI = 内容（延后，见 §2）。
+AbyssalCraft 的 Necronomicon 法术系统。现代实现以 1.12.2 的 14 个 spell 类和注册顺序为权威来源，由 `SpellManifestCatalog` 驱动运行时注册、施法、Spellbook 铭刻与永久自测。**旧版法术载体是铭刻卷轴**；Gatekeeper Staff 是传送工具，Staff of Rending 属独立 rending 系统，不存在“法杖选择 14 法术”的生产契约。
 
 ## 2. 范围
 
-- 含：`system/spell/{ScrollType,IScroll,Spell,SpellRegistry,EntityTargetSpell,LifeDrainSpell}`——法术抽象基（reagents order-free `matches` + bookType/scrollType 门控 + 抽象 `canCastSpell`/`castSpellServer`/`castSpellClient` + `castSpell` side 派发）+ 注册表（register 校验/去重 + `find`）+ 卷轴品级枚举 + scroll marker + 目标法术 pilot 基 + 一个具体 pilot（生命汲取）。
-- 不含（延后内容，依赖未移植）：
-  - **`SpellUtils` 施放链**：`castInstantSpell`/`castChargingSpell`（持物 → 取法术 → `hasEnoughPE`/`drainPE` → `castSpell`）。PE 取自背包 **能量物品 `IEnergyContainerItem`**（PS-5 的**物品变体**，1.12.2 `api.energy.IEnergyContainerItem`，尚未移植；PS-5 只交付了 BE 侧 `IEnergyContainer`）。
-  - **持物 NBT 读写**：`inscribeSpell`（写 `Spell` 标签到 parchment）+ `getSpell(ItemStack)`（读之）+ areSpellsEqual 的 parchment parent-门控——依赖 **卷轴物品**（未移植）且 **ItemStack NBT 是 1.20↔1.21 fork**（1.20.1 `getOrCreateTag`/`CompoundTag` vs 1.21.1 `DataComponents.CUSTOM_DATA`/`CustomData`）→ 落地卷轴物品时封入 compat。
-  - **14 具体法术**：Entropy / LifeDrain / Mining / GraspOfCthulhu / Invisibility / Detachment / StealVigor / SirensSong / UndeathToDust / OozeRemoval / TeleportHostiles / Floating / TeleportHome / Compass——依赖未移植试剂物品 / 内部方法 handler / 目标效果。
-  - **client 射线取目标**：`SpellUtils.rayTraceTarget`（1.12.2 走 `AbyssalCraftAPI.getInternalMethodHandler()`）+ `processEntitySpell`（发 **PS-1 `MobSpellMessage`** 到服务端，handler 现 stub）。
-  - **卷轴 / 法杖 / 法术书 GUI**：scroll 物品（`IScroll` 实现）+ staff + Necronomicon spellbook 界面（铭刻/选法术，PS-1 `OpenSpellbookMessage`/`StaffModeMessage`/`StaffOfRendingMessage` handler 现 stub）+ glyph 贴图。
+- 含：
+  - `SpellManifestCatalog` 的 14 项顺序、规范 ID/alias、book tier、PE、ScrollType、target type、charging、颜色、5 槽试剂、parent/research/glyph 合同。
+  - `SpellIngredient` 延迟 item/tag/alternative/count/strict 匹配；`SpellRegistry.find` 校验 book tier、卷轴质量、父铭文与无序非空试剂。
+  - `SpellBehaviors` 的 14/14 服务端效果：Entropy、Life Drain、Mining、Grasp、Invisibility、Detachment、Steal Vigor、Siren's Song、Undeath to Dust、Ooze Removal、Teleport Hostiles、Floating、Teleport Home、Compass。
+  - `ScrollItem` 的 `Spell` 自定义数据、instant/50 tick charging、成功后消耗、失败不消耗与旧版四级铭文 overlay；两种 UNIQUE 卷轴保持各自图标。
+  - `SpellbookMenu`：手持 Necronomicon 打开，slot0 卷轴、slot1-5 试剂、slot6 只读输出；取出前服务端重算并原子消费，关闭返还输入，源书手/热栏槽锁定。
+  - `MobSpellMessage`：客户端只提供实体 ID 提示；服务端从当前正在使用的卷轴重新解析 spell/quality，校验 50 tick、世界、距离、PvP、PE 与目标。包内 spell ID/quality 不参与决策。
+- 不含：完整 Necronomicon spell compendium 页面、Aklo glyph 字体与真人客户端逐法术视觉验收；分别留 T6.2b/T6.6c/R4-LIVE-GATE。
 
 ## 3. 设计 / 架构
 
 - 关键类：
   - `ScrollType`（枚举 NONE(-1)/BASIC(0)/LESSER(1)/MODERATE(2)/GREATER(3)/UNIQUE(4)，带 `quality()` + `byQuality`）；`IScroll`（scroll 物品 marker，`getScrollType(ItemStack)`）。
-  - `Spell`（抽象）：字段 `id`/`bookType`(0-4)/`requiredEnergy`(对 PS-5)/`reagents:List<ItemStack>`/`color`/`scrollType`/`parent:Spell`/`nbtSensitive`/`requiresCharging`/`canBeCastByOthers`/`glyph`/ 可选 `researchId`。builder setters。`matches(provided)` order-free item 匹配（`ItemStack.isSameItem` + `count>=`，忠实「试剂不计顺序」）。抽象 `canCastSpell` + `castSpellServer` + `castSpellClient`；`castSpell` 按 `level.isClientSide` 派发；`castSpellOther` 非玩家施法 hook。
-  - `SpellRegistry`（单例 `instance()`）：`registerSpell`（bookType 0-4 校验 + id 去重，`LogUtils` 日志，忠实 1.12.2）/ `getSpells`（unmodifiable）/ `getSpell(id)` / `find(bookTier, held:ScrollType, reagents)` —— 遍历首个满足 `bookType <= bookTier` && `held.quality() >= scrollType.quality()` && `matches(reagents)`（= 忠实 areSpellsEqual 减去 parchment-NBT parent-门控，后者待卷轴物品）。
-  - `EntityTargetSpell extends Spell`（目标法术 pilot 基）：`range` + 抽象 `canCastSpellOnTarget(LivingEntity,ScrollType)` + `castSpellOnTarget(Level,BlockPos,Player,ScrollType,LivingEntity)`（服务端效果入口）。`canCastSpell`/`castSpellClient`/`castSpellServer` 为**延后 stub**（client 射线 + PS-1 网络 round-trip 待落地），`castSpellOnTarget` 已交付供具体法术编译 + 落地时由网络 handler 驱动。
-  - `LifeDrainSpell extends EntityTargetSpell`（具体 pilot，忠实 1.12.2 `LIFE_DRAIN`）：`castSpellOnTarget` = `target.hurt(level.damageSources().magic(), amount)` + `player.heal(amount)`（fork-free）。
+  - `SpellManifest` / `ManifestSpell`：不可变声明与运行时适配器，具体效果委托 `SpellBehaviorRegistry`。
+  - `SpellUtils.castManifest`：仅服务端执行；解析 entity/block/self target，ENTITY_OR_SELF 对无效目标回退自身；从 source、双手、背包多个能量容器事务扣款，异常全额回滚，零成本 spell 不要求能量容器。
+  - `ACDamageTypes.SPELL`：记录施法玩家并加入绕甲/抗性/附魔/效果四个 damage tag，恢复旧 `causePlayerDamage(...).setDamageBypassesArmor().setDamageIsAbsolute()` 语义。
+  - Mining 按旧算法逐深度层处理核心区域与外围环，硬度总量是处理预算，不是额外 PE；solid lava 用现代 `magma_block` 等价。
+  - Undeath to Dust 显式排除 AC Boss/Elite、Ender Dragon 与 Wither；Life Drain/Grasp/Teleport Hostiles 保留施法者伤害归属。
 
 ## 4. 子系统内契约
 
 - 对外 API：`Spell` 供具体法术 `extends`（实现 `canCastSpell`/`castSpellServer`/`castSpellClient`，或 `EntityTargetSpell` 的 `castSpellOnTarget`）；`SpellRegistry.instance().registerSpell(...)` 供内容注册；`ScrollType`/`IScroll` 供卷轴物品与门控。
-- **PS-5 能量**：`requiredEnergy()` 由 `SpellUtils`（延后）校验/扣减背包 `IEnergyContainerItem`（PS-5 物品变体，未移植）。PS-7 只声明需求，不直接持能量。
-- **PS-8 知识（解耦）**：1.12.2 `Spell implements IResearchable<Spell,Spell>` → 简化为可选 `researchId()`；PS-8 读之判定是否解锁。PS-7 **不依赖并行的 PS-8**（`researchId` 为 null 即无门控）。
-- 反馈 / 网络 → PS-1 `net.server.MobSpellMessage`（client 取目标 → 服务端施法）/ `OpenSpellbookMessage` / `StaffModeMessage` / `StaffOfRendingMessage`（handler 现 stub，卷轴/法杖/GUI 落地时接线）。
+- **PE**：可跨多个 `IEnergyContainerItem` 聚合扣款；实际 debit 列表用于失败回滚。Entropy 回充首个可接收 PE 的权威容器。
+- **Knowledge**：Spellbook 在输出预览和提交时都通过 `ResearchRegistry`/`KnowledgeGate` 服务端重验。
+- **网络**：`OpenSpellbookMessage` 无载荷，服务端自行寻找主/副手 Necronomicon；`MobSpellMessage` 不信任 spell ID/quality；`StaffModeMessage` 只切换手持 Gatekeeper Staff 的旧 0/1 兼容字段。
+- **资源**：旧版没有 14 张独立 glyph；四种普通卷轴使用统一 `spell_overlay` 的 `abyssalcraft:inscribed` predicate，UNIQUE 卷轴不套 overlay。
 
 ## 5. 跨版本 / 加载器要点
 
-- 触及的兼容层：**无**（6 类全 fork-free）。
-- `//?` 分叉点：**零**。仅用 vanilla `Level`/`BlockPos`/`Player`/`LivingEntity`/`ItemStack`/`ResourceLocation` + `com.mojang.logging.LogUtils`；效果用 `target.hurt(damageSources().magic(), f)` + `player.heal(f)`（1.20.1 & 1.21.1 同签名，**编译双端实证**——`hurtServer` 拆分是 1.21.2+，1.21.1 仍 `hurt`）；reagent 比对用 `ItemStack.isSameItem`（两端 static 同签名）。
-- **延后内容的已知 fork**（落地时封 compat，非本框架）：
-  - **ItemStack NBT**（inscribe/getSpell(ItemStack)）：1.20.1 `getOrCreateTag`/`getTag`/`setTag(CompoundTag)` vs 1.21.1 `DataComponents.CUSTOM_DATA`/`CustomData`（tag API 移除）。
-  - **NBT-sensitive reagent 比对**：1.20.1 `isSameItemSameTags` vs 1.21.1 `isSameItemSameComponents`（本框架 `matches` 仅 item 比对，`nbtSensitive` 仅存标志供内容用，规避此 fork）。
-  - `@SideOnly`/`@OnlyIn`（`getLocalizedName`/`getDescription`）：本框架不含 side-annotated 方法，仅 `translationKey()` 返回字符串键（lang 延后）。
+- `platform/ItemDataCompat`：1.20 NBT 与 1.21 `CUSTOM_DATA` component。
+- `platform/PlayerRespawnCompat` / `TeleportCompat`：Teleport Home 的跨维重生点传送。
+- `platform/TamableCompat`：马匹驯服差异。
+- undead 判定在 `SpellBehaviors` 通过 Stonecutter 分支：1.20 `MobType.UNDEAD`，1.21 `EntityTypeTags.UNDEAD`。
+- `ScrollItem.getUseDuration` 保留 1.20/1.21 参数签名分支；`ItemProperties.register` 两端签名一致，但必须延后到 `FMLClientSetupEvent`，不可在模组构造期读取 registry supplier。
 
 ## 6. 实现记忆 / 踩坑 (verified gotchas)
 
-- **框架先于内容**（同 PP-1/PC-1/PD-1/PG-0/PS-5/PS-6）：1.12.2 法术深耦合卷轴/法杖物品 + 试剂物品 + 能量物品 + 内部射线 handler + Necronomicon GUI（全未移植）→ 先交付可 selfTest 的抽象基 + 注册表 + 一个 pilot，14 法术随依赖落地时 `extends`/`register`。
-- **`find` 去 parchment 化**：忠实 areSpellsEqual 有 bookType/reagent/scrollType/parchment-parent 四关；parchment parent-门控读 ItemStack NBT + 依赖卷轴物品（未移植 + NBT fork）→ 本框架 `find` 保留前三关（全 fork-free、可测），parent-门控留给卷轴落地。
-- **PE 是物品变体不是 BE**：法术扣 PE 自**背包能量物品** `IEnergyContainerItem`（`api.energy` 的 item 侧），**PS-5 只交付了 BE 侧 `IEnergyContainer`**；`IEnergyContainerItem` + 具体能量物品均未移植 → `SpellUtils` 的 `hasEnoughPE`/`drainPE` 整体延后（非 PS-7 遗漏，是依赖未到）。
-- **`matches` order-free**：同 PS-6 offering match（复制 provided，逐 needed 找首个 `isSameItem` 且 `count>=` 消去；size 不等 false）。selfTest 覆盖精确命中 / 错试剂 / 数量。
-- **`IResearchable` 解耦**：直接依赖 PS-8 会造成 S-B 内 PS-7↔PS-8 并行耦合 → 降为可选 `researchId`（数据而非接口），符合平行表「同 Stage 任务零冲突」（同 PS-6）。
-- **selfTest 触发**：临时 `SpellRegistry.selfTest()` 挂主类 `init`（`EnchantmentCompat.bootstrap` 之后），`runData` 触发 mod init 打印 PASS（同 PS-5/PS-6/PC-4 先例）；用 `new SpellRegistry()`（私有 ctor 类内可访问）避免污染单例；核完**还原** selfTest 方法 + init 调用。
-- **`SpellUtils` 施放链交付（CR-64）· server-raytrace 替 client 往返**：1.12.2 `EntityTargetSpell` 走 client 射线取目标 → `MobSpellMessage` 发服务端施法（PS-1 handler 现 stub）。CR-64 用 **server 侧 raytrace**（`ProjectileUtil.getEntityHitResult` 沿 `getEyePosition`+`getViewVector`×range，fork-free 两端同）在法杖 `use()` 直接取目标 + `castSpellOnTarget`，功能等价且规避 client 射线 + 网络往返的 stub。**非玩家施法者 / 远程施法仍需 `MobSpellMessage`**（延后 PS-7b）。PE 扣减用 CR-58 `IEnergyContainerItem`（本 spec §6「PE 是物品变体」记的依赖已由 CR-58 落地）；`SpellUtils` 与 `EntityTargetSpell.canCastSpellOnTarget`（protected）同包 `system/spell/` 故可访。pilot 法杖 `content/item/staff/{StaffItem,StaffSpells,StaffItems}` = 能量物品（同 `NecronomiconItem` extends `TooltipCompat` implements `IEnergyTransporterItem`）右键即施 pilot `LifeDrainSpell`。
+- 旧版卷轴蓄力时长代码是 50 tick，旧语言文本写“3 秒”；实现以源码 50 tick 为权威。
+- Spellbook 输入是 6 槽而不是独立 Spellbook item；它由手持 Necronomicon 页面发送无载荷打开请求。
+- datagen 不绑定 `minecraft:beds` tag 内容，永久测试对 Teleport Home 验证精确 tag ID，其余 13 项做实际示例配方解析。
+- 多容器扣款必须记录每个 debit，不能只算总量，否则 effect 抛异常时无法精确回滚。
+- `ENTITY_OR_SELF` 不能仅“射线为空时”回退；射线命中已有 invisibility 等不适用目标时也要回退自身。
 
 ## 7. 验证 / DoD
 
-- 两节点 `compileJava --rerun-tasks`：BUILD SUCCESSFUL（含 `LifeDrainSpell` 的 `hurt`/`heal`/`damageSources().magic()` 双端同签名实证）。
-- **`SpellRegistry` selfTest（临时，已还原）**：register（有效 + bookType 5 无效被拒 + id 重复被拒 → size==1）+ `getSpell(id)` + `find`（reagent match / 错 reagent → null / bookTier 门控[给 -1 → null] / scrollType 门控[held NONE → null]）—— **forge/neo 均 `PASS`**（`runData` 触发 init）。
-- **`SpellUtils` + pilot 法杖（CR-64）**：两节点 `runData` selfTest（已还原）`found=life_drain req=50.0 range=15.0 ok=true`（`StaffSpells.bootstrap` 注册 pilot 入 `SpellRegistry.instance()` + `EntityTargetSpell` 参数核）+ **forge `runServer` `Done`（4.448s）**（`spell_staff` item + spell bootstrap 注册无碰撞，无 eager client-classload）。实际施放（充能法杖 → 瞄 mob 右键 → mob 掉血 + 玩家回血 + PE 扣）= 活客户端人工验；施放逻辑用已验证件（`IEnergyContainerItem` CR-58 + `LifeDrainSpell` server 效果 + vanilla `ProjectileUtil` 射线）。
-- 未机核项（如实标注）：**实际施放全链**（持物 → 取法术 → PE 扣减[PS-5 能量物品] → client 射线取目标 → PS-1 MobSpell → `castSpellOnTarget` 效果）需 live 卷轴/能量物品 + 内部 handler + 网络会话（内容延后）；`LifeDrainSpell.castSpellOnTarget` 的 hurt/heal 仅 compile 验证，未运行期目视。
+- Forge/Neo `compileJava --rerun-tasks`：BUILD SUCCESSFUL。
+- Forge/Neo `runData`：`RR_SPELL_MANIFEST_SELF_TEST_OK spells=14 entity=7 entityOrSelf=1 block=2 self=4 charging=11 handlers=14 spellbook=14`。
+- 资源 Gate：`RR_RITUAL_SPELL_RESOURCES_OK itemModels=29 blockSets=3 spells=14 damageTags=4`，覆盖卷轴铭刻模型、统一 overlay、语言和绝对伤害 tags。
+- 未机核项：真人客户端 14 法术逐项效果/粒子、MobSpell 实网延迟/丢包回退、Spellbook 交互目视；归 R4-LIVE-GATE。
 
 ## 修订日志
 
-- 2026-07-22：PS-7 建框架——`system/spell/**`（`Spell` 基 + `SpellRegistry` + `ScrollType`/`IScroll` + `EntityTargetSpell` + `LifeDrainSpell` pilot）；两节点编译 + selfTest 双端 PASS。`IResearchable` 门控解耦为 `researchId`（PS-8 读）。`SpellUtils` 施放链 + 14 法术 + scroll/staff/spellbook GUI 延后（依赖未移植试剂/物品/内部 handler；含 ItemStack NBT 1.20↔1.21 fork）。见平行表 PS-7。
+- 2026-07-26：R4 完成 14 项 manifest/behavior、六卷轴、Spellbook、MobSpell 服务端重验、铭文 overlay、绝对伤害与双端永久 Gate。
+- 2026-07-22：PS-7 初始框架与 Life Drain pilot。

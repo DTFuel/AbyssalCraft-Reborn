@@ -6,13 +6,18 @@ import java.util.List;
 //? if forge {
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 //?} else {
 /*import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
 import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
 import net.neoforged.neoforge.client.event.RegisterGuiLayersEvent;
+import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 *///?}
 
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
 
@@ -37,6 +42,8 @@ public final class ClientHooksCompat {
 
     private static final List<Overlay> OVERLAYS = new ArrayList<>();
     private static final List<PreparableReloadListener> RELOAD_LISTENERS = new ArrayList<>();
+    private static final List<Runnable> CLIENT_TICKS = new ArrayList<>();
+    private static final List<KeyMapping> KEY_MAPPINGS = new ArrayList<>();
 
     private ClientHooksCompat() {}
 
@@ -50,8 +57,44 @@ public final class ClientHooksCompat {
         RELOAD_LISTENERS.add(listener);
     }
 
+    /** Queue work that runs once after each client game tick. */
+    public static void queueClientTick(Runnable tick) {
+        CLIENT_TICKS.add(tick);
+        if (Boolean.getBoolean("abyssalcraft.rrNetValidation")) {
+            System.out.println("RR_NET_CLIENT_TICK_QUEUED count=" + CLIENT_TICKS.size());
+        }
+    }
+
+    /** Queue a client key mapping for the loader's registration event. */
+    public static void queueKeyMapping(KeyMapping mapping) {
+        if (KEY_MAPPINGS.stream().anyMatch(existing -> existing.getName().equals(mapping.getName()))) {
+            throw new IllegalStateException("Duplicate client key mapping " + mapping.getName());
+        }
+        KEY_MAPPINGS.add(mapping);
+    }
+
+    public static int queuedKeyMappingCount() {
+        return KEY_MAPPINGS.size();
+    }
+
     /** Attach the client-registration listeners to the MOD bus (client side only). */
     public static void attach(IEventBus modBus) {
+        modBus.addListener((RegisterKeyMappingsEvent event) ->
+            KEY_MAPPINGS.forEach(event::register));
+        //? if forge {
+        EventBuses.game().addListener((TickEvent.ClientTickEvent event) -> {
+            if (event.phase == TickEvent.Phase.END) {
+                if (Boolean.getBoolean("abyssalcraft.rrNetValidation")
+                    && com.shinoow.abyssalcraft.client.network.RRNetClientValidation.markTickSeen()) {
+                    System.out.println("RR_NET_CLIENT_TICK_ACTIVE callbacks=" + CLIENT_TICKS.size());
+                }
+                CLIENT_TICKS.forEach(Runnable::run);
+            }
+        });
+        //?} else {
+        /*EventBuses.game().addListener((ClientTickEvent.Post event) ->
+            CLIENT_TICKS.forEach(Runnable::run));
+        *///?}
         //? if forge {
         modBus.addListener((RegisterGuiOverlaysEvent event) -> {
             for (Overlay overlay : OVERLAYS) {

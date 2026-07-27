@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.net.client;
 import java.util.UUID;
 
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
+import com.shinoow.abyssalcraft.platform.SideExecutor;
 
 import net.minecraft.network.FriendlyByteBuf;
 
@@ -38,6 +39,7 @@ public class EvilSheepMessage implements NetworkChannel.ACPacket {
 
     @Override
     public void handle(NetworkChannel.Context ctx) {
-        // Deferred: the evil-sheep entity + its client-side owner link are not yet ported (entity stage).
+        SideExecutor.runWhenClient(() -> () ->
+            com.shinoow.abyssalcraft.client.network.ClientNetworkEffects.evilSheep(playerUUID, playerName, id));
     }
 }

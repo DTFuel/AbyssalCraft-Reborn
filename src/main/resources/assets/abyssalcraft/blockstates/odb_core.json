@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "abyssalcraft:block/odb_core" },
+      { "model": "abyssalcraft:block/odb_core", "y": 90 },
+      { "model": "abyssalcraft:block/odb_core", "y": 180 },
+      { "model": "abyssalcraft:block/odb_core", "y": 270 }
+    ]
+  }
+}

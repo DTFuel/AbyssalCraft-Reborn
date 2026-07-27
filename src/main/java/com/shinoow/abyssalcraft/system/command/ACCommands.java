@@ -39,12 +39,17 @@ public final class ACCommands {
     private static int unlockAllKnowledge(CommandSourceStack source) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
         NecroData data = NecroDataCapability.get(player);
-        boolean unlock = !data.hasUnlockedAllKnowledge();
-        data.unlockAllKnowledge(unlock);
+        boolean unlock = toggleAllKnowledge(data);
         KnowledgeSync.full(player);
         source.sendSuccess(() -> Component.literal(unlock
             ? "All knowledge has been unlocked!"
             : "All knowledge has been re-locked... kinda!"), false);
         return Command.SINGLE_SUCCESS;
+    }
+
+    static boolean toggleAllKnowledge(NecroData data) {
+        boolean unlock = !data.hasUnlockedAllKnowledge();
+        data.unlockAllKnowledge(unlock);
+        return unlock;
     }
 }

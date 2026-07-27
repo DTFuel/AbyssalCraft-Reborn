@@ -1,4 +1,59 @@
 {
   "type": "minecraft:entity",
-  "pools": []
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": 20,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "abyssalcraft:dread_fragment"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": 5,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "abyssalcraft:dreaded_shard_of_abyssalnite"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "count": 5,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "abyssalcraft:dreadium_ingot"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "abyssalcraft:gatewaykeydl"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "abyssalcraft:abyssal_diamond_ore"
+      "id": "abyssalcraft:abyssal_diamond_ore"
     },
     "title": {
       "translate": "advancements.abyssalcraft.mineabyores.title"

@@ -1,8 +1,11 @@
 package com.shinoow.abyssalcraft.net.server;
 
+import com.shinoow.abyssalcraft.content.item.transfer.SpiritTabletMenu;
+import com.shinoow.abyssalcraft.content.machine.statetransformer.StateTransformerMenu;
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
 
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 
 /**
  * Client &rarr; server: set the mode of the open state-transformer ({@code container==0}) or spirit
@@ -32,6 +35,11 @@ public class UpdateModeMessage implements NetworkChannel.ACPacket {
 
     @Override
     public void handle(NetworkChannel.Context ctx) {
-        // Deferred: the state-transformer / spirit-tablet menus are not yet ported (system stage).
+        if (!(ctx.player() instanceof ServerPlayer player) || mode < 0 || mode > 1) return;
+        if (container == 0 && player.containerMenu instanceof StateTransformerMenu transformerMenu) {
+            if (transformerMenu.clickMenuButton(player, mode)) transformerMenu.broadcastChanges();
+        } else if (container == 1 && player.containerMenu instanceof SpiritTabletMenu tabletMenu) {
+            if (tabletMenu.clickMenuButton(player, mode)) tabletMenu.broadcastChanges();
+        }
     }
 }

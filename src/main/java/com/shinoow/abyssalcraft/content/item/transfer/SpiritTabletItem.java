@@ -5,6 +5,9 @@ import java.util.List;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.LongTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -23,6 +26,10 @@ import com.shinoow.abyssalcraft.platform.CapabilityAccess;
 import com.shinoow.abyssalcraft.platform.ItemTransferAttachmentCompat;
 import com.shinoow.abyssalcraft.platform.MenuCompat;
 import com.shinoow.abyssalcraft.platform.TooltipCompat;
+import com.shinoow.abyssalcraft.net.ACNetwork;
+import com.shinoow.abyssalcraft.net.client.DisplayRoutesMessage;
+import com.shinoow.abyssalcraft.net.server.SpiritTabletMessage;
+import com.shinoow.abyssalcraft.net.server.ToggleStateMessage;
 import com.shinoow.abyssalcraft.system.transfer.ItemTransferConfiguration;
 import com.shinoow.abyssalcraft.system.transfer.ItemTransferHost;
 
@@ -35,22 +42,43 @@ public final class SpiritTabletItem extends TooltipCompat {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack tablet = player.getItemInHand(hand);
-        if (player.isShiftKeyDown()) {
-            if (!level.isClientSide) {
-                int mode = (SpiritTabletStorage.mode(tablet) + 1) % 3;
-                SpiritTabletStorage.setMode(tablet, mode);
-                player.displayClientMessage(Component.translatable("message.abyssalcraft.spirit_tablet.mode", mode), true);
+        if (level.isClientSide) {
+            if (player.isShiftKeyDown() && player.isSprinting()) {
+                ACNetwork.sendToServer(new SpiritTabletMessage(-1, -1, false, true));
+            } else if (player.isShiftKeyDown()) {
+                int mainMode = player.getMainHandItem().getItem() instanceof SpiritTabletItem
+                    ? SpiritTabletStorage.mode(player.getMainHandItem()) : -1;
+                int offMode = player.getOffhandItem().getItem() instanceof SpiritTabletItem
+                    ? SpiritTabletStorage.mode(player.getOffhandItem()) : -1;
+                if (hand == InteractionHand.MAIN_HAND) mainMode = (mainMode + 1) % 3;
+                else offMode = (offMode + 1) % 3;
+                ACNetwork.sendToServer(new SpiritTabletMessage(mainMode, offMode, false, false));
+            } else {
+                ACNetwork.sendToServer(new SpiritTabletMessage(-1, -1, true, false));
             }
-            return InteractionResultHolder.sidedSuccess(tablet, level.isClientSide);
-        }
-        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
-            SimpleMenuProvider provider = new SimpleMenuProvider(
-                (windowId, inventory, ignored) -> new SpiritTabletMenu(windowId, inventory,
-                    new SpiritTabletInventory(serverPlayer, hand, tablet), hand, tablet),
-                Component.translatable("container.abyssalcraft.spirit_tablet"));
-            MenuCompat.open(serverPlayer, provider, buffer -> buffer.writeBoolean(hand == InteractionHand.MAIN_HAND));
         }
         return InteractionResultHolder.sidedSuccess(tablet, level.isClientSide);
+    }
+
+    public static void openMenu(ServerPlayer player, InteractionHand hand, ItemStack tablet) {
+        if (!(tablet.getItem() instanceof SpiritTabletItem) || player.getItemInHand(hand) != tablet) return;
+        SimpleMenuProvider provider = new SimpleMenuProvider(
+            (windowId, inventory, ignored) -> new SpiritTabletMenu(windowId, inventory,
+                new SpiritTabletInventory(player, hand, tablet), hand, tablet),
+            Component.translatable("container.abyssalcraft.spirit_tablet"));
+        MenuCompat.open(player, provider, buffer -> buffer.writeBoolean(hand == InteractionHand.MAIN_HAND));
+        List<BlockPos> route = SpiritTabletStorage.route(tablet);
+        if (!route.isEmpty()) {
+            CompoundTag root = new CompoundTag();
+            ListTag routes = new ListTag();
+            ListTag points = new ListTag();
+            for (int index = 0; index < Math.min(route.size(), 64); index++) {
+                points.add(LongTag.valueOf(route.get(index).asLong()));
+            }
+            routes.add(points);
+            root.put("Routes", routes);
+            ACNetwork.sendToPlayer(player, new DisplayRoutesMessage(root));
+        }
     }
 
     @Override
@@ -58,10 +86,15 @@ public final class SpiritTabletItem extends TooltipCompat {
         Level level = context.getLevel();
         Player player = context.getPlayer();
         ItemStack tablet = context.getItemInHand();
-        if (player == null || level.isClientSide) {
+        if (player == null) {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
         BlockPos pos = context.getClickedPos();
+        if (player.isShiftKeyDown()) {
+            if (level.isClientSide) ACNetwork.sendToServer(new ToggleStateMessage(pos));
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }
+        if (level.isClientSide) return InteractionResult.sidedSuccess(true);
         if (!player.mayUseItemAt(pos.relative(context.getClickedFace()), context.getClickedFace(), tablet)) {
             return InteractionResult.FAIL;
         }

@@ -16,7 +16,11 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          "abyssalcraft:abyssalnite_ore"
+          {
+            "items": [
+              "abyssalcraft:abyssalnite_ore"
+            ]
+          }
         ]
       }
     }

@@ -1,60 +1,67 @@
 # 仪式 (Necronomicon Ritual) 子系统规格 (Subsystem Spec)
 
 - 里程碑 / Stage：M7 / Stage S-B
-- 关联平行任务：PS-6（本框架）；上游 PS-5（能量，altar 耗能读 `IEnergyContainer`）；解耦下游 PS-8（知识，读 `researchId` 门控）
-- 状态：仪式框架交付并验证（两节点编译 + selfTest）；altar/pedestal 块 + 13 具体仪式 + 产物 = 内容，待其块/物品/实体/Necronomicon 依赖落地
-- 负责：PS-6
-- 最后更新：2026-07-22
+- 关联平行任务：PS-6 / R4 RR-RITUAL-SPELL-PORTAL；上游 RR-ENERGY、RR-KNOWLEDGE；Portal 与复活快照为直接消费者
+- 状态：**62 个旧版注册项、祭坛 ceremony 与 18 个专用行为已实现并通过 Forge/Neo 双端自动 Gate**；真人客户端仪式视觉/听觉矩阵仍归 R4-LIVE-GATE
+- 负责：GitHub Copilot
+- 最后更新：2026-07-26
 
 ## 1. 概述 / 目标
 
-AbyssalCraft 的 Necronomicon 仪式系统。1.12.2：玩家在祭坛（altar）四周的基座（pedestal）上摆放材料（offerings），手持对应等级的 Necronomicon，在正确维度、满足势能（PE）与可选活祭（sacrifice）后触发仪式，产出物品 / 召唤实体 / 开启维度门。本任务交付**框架**（`Ritual` 抽象基 + `RitualRegistry` 注册/查找 + `InfusionRitual` pilot）；祭坛/基座方块、13 个具体仪式、产物 = 内容（延后，见 §2）。
+AbyssalCraft 的 Necronomicon 仪式系统。现代实现以旧 `AbyssalCrafting.addRitualRecipes()` 为权威来源，将 **62 个注册项**冻结进不可变 manifest，并由同一数据驱动注册、祭坛匹配、执行与永久自测。旧文档中的“13 个仪式”是早期误计；准确分类为 40 Infusion、3 Creation、1 Transformation、18 specialized registrations。
 
 ## 2. 范围
 
-- 含：`system/ritual/{Ritual,RitualRegistry,InfusionRitual}`——仪式抽象基（offerings/energy/sacrifice/book-tier/dimension 门控 + order-free `matches` + 抽象 `complete`）+ 注册表（register/`find` by offerings+book+dim）+ infusion pilot（产 `ItemStack`）。
-- 不含（延后内容，依赖未移植）：
-  - **祭坛 / 基座方块**（altar / pedestal）+ 其 BE：BE 扫描四周基座凑 offerings → 查 `RitualRegistry.find` → 校验 PE（PS-5 `IEnergyContainer`）+ 活祭 → 调 `ritual.complete`。落地时 BE `extends` PC-1 `ACBlockEntity`、经 `ModRegistrar` 注册。
-  - **13 个具体仪式**（infusion / portal / summon / creation / transformation 各族）：依赖未移植的产物物品 / 实体 / 目标维度。
-  - **产物**：transmutation gem / oblivion catalyst / gateway key 等物品、召唤 Asorah 龙等实体、开启 Dreadlands/Omothol 等维度门。
-  - **Necronomicon 书**（book tier 来源，未移植）：现以 `find(..., bookTier, ...)` 的 `int` 形参占位，落地书后由手持书提供 tier。
-  - **RitualUtil 基座扫描**（pedestal-scan / 消耗 / 视觉反馈）：反馈用 PS-1 `RitualMessage` / `RitualStartMessage`（handler 现 stub）。
+- 含：
+  - `RitualManifestCatalog` 的 62 项顺序、规范/旧 ID、类型、book tier、维度、PE、活祭、center、8 槽供品、结果、数据复制、research 与 hidden 合同。
+  - `RitualIngredient` 延迟 item/tag/alternative/strict/count 匹配；8 槽是展示布局，旧版执行语义仍为无序多重集。
+  - `ManifestRitual` 通用 Infusion/Creation/Transformation 执行；`RitualBehaviorRegistry` 的 18 个专用处理器。
+  - `RitualAltarBlockEntity` 持久 PREPARE/CHANT/WAIT_SACRIFICE/COMPLETE/FAIL 状态，原子供品消费、crafting remainder、每 20 tick 抽 PE、center 锁、活祭 UUID、重启恢复/安全失败、research 与 disruption。
+  - Portal、Boss summon/respawn、breeding、Dread Spawn、3 Potion AoE、resurrection、5 biome mutation、mass enchanting、weather、house。
+  - `ClientRitualEffects` 的活动法阵、祭品连线与成功/失败反馈；消息仅由服务端发送，客户端不决定仪式结果。
+- 不含：真人双端仪式视觉/听觉验收、完整 Necronomicon ritual 页面与专用 ItemRitual/PEStream 粒子类型；这些分别留 R4-LIVE-GATE、T6.2b/T6.4b。
 
 ## 3. 设计 / 架构
 
 - 关键类：
-  - `Ritual`（抽象）：字段 `name` / `bookType` / `dimension`（-1 = 任意）/ `requiredEnergy`（对 PS-5）/ `requiresSacrifice` / `offerings:List<ItemStack>`（≤8，一基座一件）/ 可选 `researchId:ResourceLocation`。抽象 `complete(Level,BlockPos,Player)` 决定产物；`matches(List<ItemStack> provided)` 做 **order-free 物品匹配**（`ItemStack.isSameItem` + `count >=`，逐项消去副本，忠实 1.12.2「不计顺序」语义）；`setResearch(id)` builder 供 PS-8 解耦门控。
-  - `RitualRegistry`（单例 `instance()`）：`register` / `getRituals`（unmodifiable）/ `find(provided, bookTier, dimension)` —— 遍历返回首个满足 `bookTier >= bookType` && (`dimension == -1` || 相等) && `matches` 的仪式，否则 `null`。
-  - `InfusionRitual extends Ritual`（pilot，最常见类型）：存 `result:ItemStack`，`complete` 在祭坛上方（+0.5, +1.2, +0.5）`addFreshEntity` 一个 `ItemEntity`（fork-free item spawn，同 PD-4 死亡替身）；服务端才产出（`isClientSide` 早退）。
+  - `RitualManifest` / `RitualManifestCatalog`：旧版事实源；注册顺序稳定且引用在 registry 冻结后验证。
+  - `RitualRegistry`：按当前维度、book tier、center 与无序 pedestal offerings 找首个精确匹配项。
+  - `ManifestRitual`：通用策略把结果写回 center 或替换八个 pedestal；按 manifest 精确复制指定数据键。
+  - `RitualBehaviors`：18 个 specialized ID 到真实行为的唯一映射；缺处理器是硬错误。
+  - `BiomeRitualTasks`：大半径群系仪式的持久 `SavedData` chunk 队列，每世界每 tick 处理一个 chunk，避免单 tick 扫描默认 256 格半径。
+  - `ResurrectionBehavior`：读取命名死亡快照与晶体尺寸，实体成功加入世界后才清除快照。
 
 ## 4. 子系统内契约
 
-- 对外 API：`Ritual` 供具体仪式 `extends`（实现 `complete`）；`RitualRegistry.instance().register(...)` 供内容注册仪式；altar BE 调 `find` + `complete`。
-- **PS-5 能量**：`requiredEnergy()` 由 altar BE 校验其 `IEnergyContainer.getContainedEnergy()`（PS-6 不直接持能量，只声明需求）。
-- **PS-8 知识（解耦）**：1.12.2 `IResearchable` 门控 → 简化为可选 `researchId()`；PS-8 读之判定玩家是否解锁该仪式。PS-6 **不依赖并行的 PS-8**（`researchId` 为 null 即无门控）。
-- 反馈视觉 → PS-1 `net.client.RitualMessage` / `RitualStartMessage`（handler 现 stub，由 altar BE 落地时接线）。
+- **center 与活祭严格分离**：旧构造器参数 `sacrifice` 指祭坛中心物品；`requiresSacrifice` 才表示活祭。
+- **服务端权威**：祭坛在消费前一次性规划全部供品；用户离线、结构/center 改变、PE 不足、祭品引用不安全均失败且不产出。
+- **能量**：启动前验证总 PE，ceremony 每 20 tick 从手持书/背包 `IEnergyContainerItem` 抽取，失败触发 disruption（受 `no_disruptions` 控制）。
+- **知识**：有 `researchId` 时通过 `ResearchRegistry` + `KnowledgeGate` 服务端判定。
+- **网络**：`RitualStartMessage`/`RitualMessage` 只发给同维度玩家，经 `SideExecutor` 进入客户端状态机。
 
 ## 5. 跨版本 / 加载器要点
 
-- 触及的兼容层：**无**（`Ritual` / `RitualRegistry` / `InfusionRitual` 全 fork-free）。
-- `//?` 分叉点：**零**。仅用 vanilla `Level` / `BlockEntity`（未来）/ `BlockPos` / `ItemStack` / `ItemEntity` / `Player` / `ResourceLocation`。item spawn 用 `level.addFreshEntity(new ItemEntity(...))`（两端同签名，同 PD-4）。
-- 落地祭坛方块时：BE fork（save/load）走 PC-1 `BlockEntityCompat`；块经 `ModRegistrar` 注册；均已有先例，本层无新增 fork。
+- `platform/BiomeMutationCompat`：chunk biome 容器重填与客户端 biome resend。
+- `platform/RitualTaskCompat`：Forge/Neo server tick 事件分叉。
+- `platform/EnchantmentDataCompat`：1.20 enchantment object map 与 1.21 Holder/component。
+- `platform/ItemNameCompat`、`MobSpawnCompat`、`TamableCompat`：名称、触发生成与驯服差异。
+- 业务 manifest、匹配、状态机与 18 个处理器不含 loader 分叉。
 
 ## 6. 实现记忆 / 踩坑 (verified gotchas)
 
-- **框架先于内容**（同 PP-1/PC-1/PD-1/PG-0/PS-5）：1.12.2 仪式深耦合祭坛/基座方块 + 产物物品/实体 + 维度门 + Necronomicon 书（全未移植）→ 先交付可 selfTest 的抽象基 + 注册表 + 一个 pilot，13 具体仪式随依赖落地时 `extends`/`register`。
-- **`matches` order-free**：忠实 1.12.2「基座材料不计摆放顺序」——复制 `provided`，对每个 needed 找首个 `isSameItem` 且 `count>=` 的项并消去；size 不等直接 false。selfTest 覆盖：精确命中 / 数量不足（count 少）/ 缺项（少一件）三种反例。
-- **`find` 门控顺序**：先 `bookTier` 再 `dimension`（-1 通配）再 `matches`；返回**首个**匹配（注册顺序敏感 → 具体仪式落地时注意更特化的先注册）。selfTest 覆盖 order-free find（打乱 provided 顺序仍命中）。
-- **`IResearchable` 解耦**：直接依赖 PS-8 会造成 S-B 内 PS-6↔PS-8 并行耦合 → 降为可选 `researchId`（数据而非接口），PS-8 单向读，符合平行表「同 Stage 任务零冲突」。
-- **selfTest 触发**：临时 `RitualRegistry.selfTest()` 挂主类 `init`（`EnchantmentCompat.bootstrap` 之后），`runData` 触发 mod init 打印 PASS（同 PS-5/PC-4 先例）；核完**还原** selfTest 方法 + init 调用。
-- **并发干扰（非本码）**：还原后整项目重编一次撞到并发 PG-5 结构注册中途改坏 `registry/ModWorldgen.java:82`（`(StructurePieceType) ACStructurePiece::new` 构造器引用推断失败）→ 等并发 agent 收尾后重跑即 BUILD SUCCESSFUL（本 PS-6 文件从未报错，仅外部文件瞬态）。
+- 旧源码实际有 **62 次注册**，不是 13；“13”既不是总项数，也不是专用注册项数。当前永久分类是 40/3/1/18。
+- 旧 offerings 是无序多重集；manifest 的八槽顺序只用于稳定展示与审计，不改变匹配语义。
+- 大范围 biome ritual 必须分 chunk 持久执行；旧配置 `32` 按源码语义对应 `32×8=256` 格半径。
+- Forge/Neo 构建严格串行；并行 Stonecutter 生成会造成错误 loader import 的瞬态假失败。
 
 ## 7. 验证 / DoD
 
-- 两节点 `compileJava --rerun-tasks`：BUILD SUCCESSFUL。
-- **`RitualRegistry` selfTest（临时，已还原）**：注册 `InfusionRitual`（offerings 若干）→ `matches` 精确命中 / 数量不足 / 缺项三反例 → `find` order-free 命中 + book/dim 门控 —— **forge/neo 均 `PASS`**（`runData` 触发 init）。
-- 未机核项（如实标注）：**祭坛 BE 全链**（扫基座 → 凑 offerings → 校 PE[PS-5] → 活祭 → `complete` 产物）需 live 祭坛/基座方块 + 产物物品/实体 + Necronomicon（内容延后）；`InfusionRitual.complete` 的实际掉落仅 compile 验证，未运行期目视。
+- Forge/Neo `compileJava --rerun-tasks`：BUILD SUCCESSFUL。
+- Forge/Neo `runData`：`RR_RITUAL_MANIFEST_SELF_TEST_OK rituals=62 infusion=40 creation=3 transformation=1 special=18 handlers=18`。
+- 同一 Gate 校验顺序、唯一 ID、所有 item/entity/effect 引用、runtime registry 镜像、持续时间公式、18/18 行为覆盖及 29 item model/3 block set 资源合同。
+- 未机核项：真人客户端逐仪式的 chant/祭品/成功失败视觉听觉矩阵；Portal 玩家往返另见 R4-LIVE-GATE。
 
 ## 修订日志
 
-- 2026-07-22：PS-6 建框架——`system/ritual/**`（`Ritual` 基 + `RitualRegistry` + `InfusionRitual` pilot）；两节点编译 + selfTest 双端 PASS。`IResearchable` 门控解耦为 `researchId`（PS-8 读）。祭坛/基座块 + 13 具体仪式 + 产物延后（依赖未移植块/物品/实体/Necronomicon）。见平行表 PS-6。
+- 2026-07-26：R4 完成 62 项 manifest、持久 ceremony、18 个专用行为、客户端反馈、必要宿主/资源与双端永久 Gate；纠正旧“13 个仪式”误计。
+- 2026-07-22：PS-6 初始框架与 pilot。

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "abyssalcraft:dreadium_ingot"
+      "id": "abyssalcraft:dreadium_ingot"
     },
     "title": {
       "translate": "advancements.abyssalcraft.dreadium.title"

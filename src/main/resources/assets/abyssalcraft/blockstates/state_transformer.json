@@ -1,0 +1,24 @@
+{
+  "multipart": [
+    {
+      "when": { "facing": "south" },
+      "apply": { "model": "abyssalcraft:block/state_transformer" }
+    },
+    {
+      "when": { "facing": "west" },
+      "apply": { "model": "abyssalcraft:block/state_transformer", "y": 90 }
+    },
+    {
+      "when": { "facing": "north" },
+      "apply": { "model": "abyssalcraft:block/state_transformer", "y": 180 }
+    },
+    {
+      "when": { "facing": "east" },
+      "apply": { "model": "abyssalcraft:block/state_transformer", "y": 270 }
+    },
+    {
+      "when": { "tablet": "true" },
+      "apply": { "model": "abyssalcraft:block/stone_tablet_on_transformer" }
+    }
+  ]
+}

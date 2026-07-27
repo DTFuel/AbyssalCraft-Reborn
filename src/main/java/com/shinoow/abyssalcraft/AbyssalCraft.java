@@ -95,8 +95,10 @@ public final class AbyssalCraft {
         // Knowledge event hooks (PS-11): subscribe the game-bus listeners that record knowledge triggers
         // (entity kills, dimension changes) into the necrodata (PS-2). Loader fork lives in GameHooksCompat.
         com.shinoow.abyssalcraft.platform.GameHooksCompat.attach();
+        com.shinoow.abyssalcraft.platform.IMCCompat.attach(modBus);
         com.shinoow.abyssalcraft.platform.SpawnCandidateCompat.attach();
         com.shinoow.abyssalcraft.platform.EntityCatalogValidationCompat.attach();
+        com.shinoow.abyssalcraft.platform.RitualTaskCompat.attach();
         // Disruptions (PS-9): register the concrete disruptions into the DisruptionHandler singleton (the
         // bad things a PE manipulator triggers without a Place of Power). Fork-free; server + client safe.
         com.shinoow.abyssalcraft.system.energy.disruption.Disruptions.bootstrap();
@@ -116,6 +118,7 @@ public final class AbyssalCraft {
         // supplier so ACClientSetup/ClientScreenCompat (client classes) never load on a dedicated server.
         SideExecutor.runWhenClient(() -> () -> {
             ACClientSetup.registerScreens();
+            com.shinoow.abyssalcraft.client.ClientItemProperties.attach(modBus);
             ClientScreenCompat.attach(modBus, ACClientSetup::validateR2GateScreens);
             ACClientSetup.registerItemColors();
             ClientColorCompat.attach(modBus);
@@ -133,6 +136,7 @@ public final class AbyssalCraft {
             // HUD overlays + clientvars reload listener (Stage H2 / PH-6): register the AC HUD overlays and the
             // hot-reloadable clientvars loader (loader fork in ClientHooksCompat: GuiOverlay vs GuiLayer).
             com.shinoow.abyssalcraft.client.hud.ACHud.register();
+            ACClientSetup.registerClientTicks();
             com.shinoow.abyssalcraft.platform.ClientHooksCompat.attach(modBus);
         });
     }

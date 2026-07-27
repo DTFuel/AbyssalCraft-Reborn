@@ -4,12 +4,15 @@ import com.shinoow.abyssalcraft.content.item.book.NecronomiconItem;
 import com.shinoow.abyssalcraft.platform.InteractiveBlockCompat;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -32,11 +35,22 @@ public class RitualAltarBlock extends InteractiveBlockCompat implements EntityBl
     }
 
     @Override
+    @SuppressWarnings("unchecked")
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
+                                                                  BlockEntityType<T> type) {
+        if (level.isClientSide || type != RitualBlocks.RITUAL_ALTAR_BE.get()) return null;
+        return (BlockEntityTicker<T>) (BlockEntityTicker<RitualAltarBlockEntity>)
+            RitualAltarBlockEntity::serverTick;
+    }
+
+    @Override
     protected InteractionResult onUse(BlockState state, Level level, BlockPos pos, Player player) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualAltarBlockEntity altar) {
             ItemStack held = player.getMainHandItem();
             if (held.getItem() instanceof NecronomiconItem) {
                 altar.tryRitual(level, pos, player);
+            } else if (altar.isPerformingRitual()) {
+                player.displayClientMessage(Component.translatable("message.abyssalcraft.ritual.busy"), true);
             } else if (altar.getCenterItem().isEmpty() && !held.isEmpty()) {
                 altar.setCenterItem(held);
                 if (!player.getAbilities().instabuild) {

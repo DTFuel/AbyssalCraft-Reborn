@@ -9,10 +9,12 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import com.shinoow.abyssalcraft.AbyssalCraft;
 import com.shinoow.abyssalcraft.platform.ModRegistrar;
+import com.shinoow.abyssalcraft.platform.MenuCompat;
 import com.shinoow.abyssalcraft.system.energy.DeityType;
 import com.shinoow.abyssalcraft.system.energy.EnergyBlockKind;
 import com.shinoow.abyssalcraft.system.energy.EnergyTier;
@@ -32,6 +34,8 @@ public final class EnergyBlocks {
     public static final ModRegistrar<Item> ITEMS = ModRegistrar.of(Registries.ITEM, AbyssalCraft.MODID);
     public static final ModRegistrar<BlockEntityType<?>> BLOCK_ENTITIES =
         ModRegistrar.of(Registries.BLOCK_ENTITY_TYPE, AbyssalCraft.MODID);
+    public static final ModRegistrar<MenuType<?>> MENUS =
+        ModRegistrar.of(Registries.MENU, AbyssalCraft.MODID);
 
     /** Pilot deity statue -- the PE source. Stores its deity for the deferred deity-filtered network. */
     public static final Supplier<Block> DEITY_STATUE = BLOCKS.register("deity_statue", () ->
@@ -72,6 +76,8 @@ public final class EnergyBlocks {
             BlockEntityType.Builder.<EnergyContainerBlockEntity>of(
                 EnergyContainerBlockEntity::new,
                 ENERGY_CONTAINERS.stream().map(Supplier::get).toArray(Block[]::new)).build(null));
+    public static final Supplier<MenuType<EnergyContainerMenu>> ENERGY_CONTAINER_MENU =
+        MENUS.register("energy_container", () -> MenuCompat.create(EnergyContainerMenu::new));
 
     public static final List<Supplier<Block>> ENERGY_PEDESTALS = Stream.of(EnergyTier.values())
         .map(tier -> registerEnergyBlock(EnergyBlockKind.PEDESTAL.id(tier),
@@ -102,6 +108,8 @@ public final class EnergyBlocks {
         BLOCK_ENTITIES.register("energy_depositioner", () ->
             BlockEntityType.Builder.<EnergyDepositionerBlockEntity>of(
                 EnergyDepositionerBlockEntity::new, ENERGY_DEPOSITIONER.get()).build(null));
+    public static final Supplier<MenuType<EnergyDepositionerMenu>> ENERGY_DEPOSITIONER_MENU =
+        MENUS.register("energy_depositioner", () -> MenuCompat.create(EnergyDepositionerMenu::new));
 
     public static final Supplier<Block> IDOL_OF_FADING = registerEnergyBlock("idol_of_fading", () ->
         new IdolOfFadingBlock(BlockBehaviour.Properties.of().strength(1.0F, 18.0F)

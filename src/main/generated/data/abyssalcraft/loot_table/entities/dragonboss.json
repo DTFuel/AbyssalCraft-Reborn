@@ -1,4 +1,62 @@
 {
   "type": "minecraft:entity",
-  "pools": []
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 5,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "abyssalcraft:chunk_of_coralium"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 5,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "abyssalcraft:refined_coralium_ingot"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 5,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "abyssalcraft:coralium_plagued_flesh"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "abyssalcraft:eye_of_the_abyss"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
 }

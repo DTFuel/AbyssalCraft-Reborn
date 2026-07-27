@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.shinoow.abyssalcraft.content.entity.misc.DimensionPortal;
 import com.shinoow.abyssalcraft.content.entity.misc.MiscEntities;
+import com.shinoow.abyssalcraft.net.ACNetwork;
+import com.shinoow.abyssalcraft.net.server.StaffModeMessage;
 import com.shinoow.abyssalcraft.platform.ItemDataCompat;
 import com.shinoow.abyssalcraft.platform.TooltipCompat;
 import com.shinoow.abyssalcraft.system.portal.DimensionData;
@@ -26,6 +28,7 @@ import net.minecraft.world.level.Level;
 public final class GatekeeperStaffItem extends TooltipCompat {
 
     private static final String DESTINATION = "Destination";
+    private static final String MODE = "Mode";
 
     public GatekeeperStaffItem() {
         super(new Item.Properties().stacksTo(1));
@@ -34,7 +37,9 @@ public final class GatekeeperStaffItem extends TooltipCompat {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (!level.isClientSide && player.isShiftKeyDown()) {
+        if (level.isClientSide && !player.isShiftKeyDown()) {
+            ACNetwork.sendToServer(new StaffModeMessage());
+        } else if (!level.isClientSide && player.isShiftKeyDown()) {
             List<DimensionData> choices = DimensionDataRegistry.instance().availableForGatewayTier(3, true);
             if (!choices.isEmpty()) {
                 int index = selectedIndex(stack, choices);
@@ -74,6 +79,17 @@ public final class GatekeeperStaffItem extends TooltipCompat {
             .parseRegisteredDimension(ItemDataCompat.getString(stack, DESTINATION))
             .flatMap(DimensionDataRegistry.instance()::get)
             .ifPresent(data -> tooltip.add(Component.translatable(data.displayKey())));
+        tooltip.add(Component.translatable("tooltip.abyssalcraft.gatekeeper_staff.mode", mode(stack)));
+    }
+
+    public int toggleMode(ItemStack stack) {
+        int next = mode(stack) == 0 ? 1 : 0;
+        ItemDataCompat.putInt(stack, MODE, next);
+        return next;
+    }
+
+    public int mode(ItemStack stack) {
+        return ItemDataCompat.getInt(stack, MODE, 0) == 0 ? 0 : 1;
     }
 
     private static int selectedIndex(ItemStack stack, List<DimensionData> choices) {

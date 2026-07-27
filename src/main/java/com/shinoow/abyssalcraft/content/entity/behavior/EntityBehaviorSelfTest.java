@@ -38,7 +38,7 @@ public final class EntityBehaviorSelfTest {
             ACDimensions.DARK_REALM, DarklandsBiomes.DARKLANDS, 5).isEmpty(),
             "candidate override leaked outside AW/Dreadlands");
         System.out.printf(
-            "RR_ENTITY_BEHAVIOR_SELF_TEST_OK content=63 audit=69 direct=%d conditional=%d replaced=%d retired=%d baselineLoot=34 spawnPairs=9 snapshots=18%n",
+            "RR_ENTITY_BEHAVIOR_SELF_TEST_OK content=63 audit=69 direct=%d conditional=%d replaced=%d retired=%d baselineLoot=34 logicalLoot=97 emptyLoot=8 spawnPairs=9 snapshots=18%n",
             summary.direct(), summary.conditional(), summary.replaced(), summary.retired());
     }
 

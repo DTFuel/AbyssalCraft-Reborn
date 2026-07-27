@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.platform;
 import com.shinoow.abyssalcraft.common.handlers.KnowledgeHooks;
 import com.shinoow.abyssalcraft.content.entity.legacy.LegacyEntities;
 import com.shinoow.abyssalcraft.content.entity.legacy.LegacyHostileMob;
+import com.shinoow.abyssalcraft.system.advancement.AdvancementKnowledge;
 import com.shinoow.abyssalcraft.world.ACDimensions;
 
 //? if forge {
@@ -14,12 +15,14 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerSetSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.level.BlockEvent;
 //?} else {
 /*import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.event.entity.player.AdvancementEvent;
 import net.neoforged.neoforge.event.entity.EntityEvent;
 import net.neoforged.neoforge.event.entity.living.AnimalTameEvent;
 import net.neoforged.neoforge.event.entity.living.BabyEntitySpawnEvent;
@@ -37,6 +40,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 
 /**
@@ -53,6 +57,7 @@ public final class GameHooksCompat {
     /** Subscribe the knowledge event hooks to the game/runtime event bus. Server + client safe. */
     public static void attach() {
         EventBuses.game().addListener((LivingDeathEvent event) -> onLivingDeath(event));
+        EventBuses.game().addListener((AdvancementEvent.AdvancementEarnEvent event) -> onAdvancementEarned(event));
         //? if forge {
         EventBuses.game().addListener((LivingHurtEvent event) ->
             com.shinoow.abyssalcraft.common.handlers.EffectHooks.onLivingHurt(event.getEntity(), event.getSource()));
@@ -75,14 +80,31 @@ public final class GameHooksCompat {
         EventBuses.game().addListener((TickEvent.PlayerTickEvent event) -> {
             if (event.phase == TickEvent.Phase.END && event.player instanceof net.minecraft.server.level.ServerPlayer player) {
                 KnowledgeHooks.onPlayerTick(player);
+                if (Boolean.getBoolean("abyssalcraft.rrNetValidation")) {
+                    com.shinoow.abyssalcraft.net.RRNetValidation.serverTick(player);
+                }
             }
         });
         //?} else {
         /*EventBuses.game().addListener((PlayerTickEvent.Post event) -> {
             if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
                 KnowledgeHooks.onPlayerTick(player);
+                if (Boolean.getBoolean("abyssalcraft.rrNetValidation")) {
+                    com.shinoow.abyssalcraft.net.RRNetValidation.serverTick(player);
+                }
             }
         });
+        *///?}
+    }
+
+    private static void onAdvancementEarned(AdvancementEvent.AdvancementEarnEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) {
+            return;
+        }
+        //? if forge {
+        KnowledgeHooks.onAdvancementEarned(player, event.getAdvancement().getId());
+        //?} else {
+        /*KnowledgeHooks.onAdvancementEarned(player, event.getAdvancement().id());
         *///?}
     }
 
@@ -209,7 +231,25 @@ public final class GameHooksCompat {
 
     private static void onLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
+            backfillAdvancementKnowledge(player);
             KnowledgeHooks.scheduleSync(player);
+        }
+    }
+
+    private static void backfillAdvancementKnowledge(ServerPlayer player) {
+        var manager = player.getServer().getAdvancements();
+        for (AdvancementKnowledge.Entry entry : AdvancementKnowledge.ENTRIES) {
+            //? if forge {
+            net.minecraft.advancements.Advancement advancement = manager.getAdvancement(entry.id());
+            if (advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone()) {
+                KnowledgeHooks.onAdvancementEarned(player, entry.id());
+            }
+            //?} else {
+            /*net.minecraft.advancements.AdvancementHolder advancement = manager.get(entry.id());
+            if (advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone()) {
+                KnowledgeHooks.onAdvancementEarned(player, entry.id());
+            }
+            *///?}
         }
     }
 

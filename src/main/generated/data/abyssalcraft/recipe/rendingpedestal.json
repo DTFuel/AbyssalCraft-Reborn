@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:monolith_stone"
+    },
+    "%": {
+      "item": "abyssalcraft:shard_of_oblivion"
+    },
+    "&": {
+      "item": "abyssalcraft:shadow_gem"
+    }
+  },
+  "pattern": [
+    "#%#",
+    "#&#",
+    "###"
+  ],
+  "result": {
+    "id": "abyssalcraft:rending_pedestal"
+  }
+}

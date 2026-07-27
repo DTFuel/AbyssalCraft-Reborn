@@ -55,6 +55,11 @@ public abstract class Ritual {
     /** Produce the ritual's result at the altar. Called once the offerings + energy + sacrifice are satisfied. */
     public abstract void complete(Level level, BlockPos altar, Player player);
 
+    /** Server-side behavior-specific precondition checked before offerings are consumed. */
+    public boolean canStart(Level level, BlockPos altar, Player player) {
+        return true;
+    }
+
     public String name() {
         return name;
     }

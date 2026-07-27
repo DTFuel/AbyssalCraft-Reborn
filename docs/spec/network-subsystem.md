@@ -2,7 +2,7 @@
 
 - 里程碑 / Stage：M7 / Stage S-A
 - 关联平行任务：PS-1（本层）；下游 handler 消费者 PS-5/6/7/8/9
-- 状态：框架 + 全23消息序列化已交付；RR-KNOWLEDGE所属的5条necrodata/knowledge handler与协议v2已落地，其余handler仍随所属系统任务完成
+- 状态：框架 + 全23消息序列化已交付；RR-KNOWLEDGE 的5条 handler与协议v2、R4 的 `OpenSpellbook`/`MobSpell`/`StaffMode`/`RitualStart`/`Ritual` handler 已落地；其余消息仍随所属系统任务完成
 - 负责：PS-1
 - 最后更新：2026-07-25
 
@@ -33,16 +33,16 @@ AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetwork
 | 1 | UpdateModeMessage | C→S | `int mode, container`（2 varint） | 状态变换器/灵魂石板菜单（未移植） |
 | 2 | ToggleStateMessage | C→S | `BlockPos` | **PC-4 `ItemTransferHost`（已移植，接线延后）** |
 | 3 | StaffOfRendingMessage | C→S | `int id` + `InteractionHand`（varint + 0/1） | 撕裂 API / staff（未移植） |
-| 4 | StaffModeMessage | C→S | （无） | 守门人法杖（未移植） |
+| 4 | StaffModeMessage | C→S | （无） | 已实现：只切换发送者主/副手 Gatekeeper Staff 的旧 0/1 兼容状态 |
 | 5 | SpiritTabletMessage | C→S | `int mode1,mode2` + `boolean openFilter,clearPath` | 灵魂石板菜单（未移植） |
 | 6 | PrepareSyncMessage | C→S | `UUID` | 死灵能力同步（PS-8） |
-| 7 | OpenSpellbookMessage | C→S | （无） | 法术书 GUI（PS-7） |
-| 8 | MobSpellMessage | C→S | `int id` + `String spellID` + `int scrollType` | 法术系统（PS-7） |
+| 7 | OpenSpellbookMessage | C→S | （无） | 已实现：服务端自行解析发送者主/副手 Necronomicon 并打开 7 槽 Spellbook |
+| 8 | MobSpellMessage | C→S | `int id` + `String spellID` + `int scrollType` | 已实现：仅实体目标提示；服务端忽略包内 spell/quality，重验正在使用的卷轴、50t、距离、PvP与PE |
 | 9 | InterdimensionalCageMessage | C→S | `int id` + `InteractionHand` | 能量物品（未移植） |
 | 10 | TransferStackMessage | C→S | `int slot` + `ItemStack`（**id+count**） | 物质化器背包菜单（未移植） |
 | 11 | WindowPropertyMessage | S→C | `int windowId,property,value`（3 varint） | vanilla 菜单 `ContainerData`（现代自动同步；手动需客户端玩家） |
-| 12 | RitualMessage | S→C | `String id,disruption` + `BlockPos` + `boolean failed` | 仪式（PS-6） |
-| 13 | RitualStartMessage | S→C | `BlockPos` + `String id` + `int sacrifice,timerMax` | 仪式祭坛（PS-6） |
+| 12 | RitualMessage | S→C | `String id,disruption` + `BlockPos` + `boolean failed` | 已实现：清理客户端活动仪式并播放成功/失败粒子与声音 |
+| 13 | RitualStartMessage | S→C | `BlockPos` + `String id` + `int sacrifice,timerMax` | 已实现：启动客户端法阵、祭品连线与超时状态 |
 | 14 | CleansingRitualMessage | S→C | `int x,z,biomeID` + `boolean batched` | 群系净化（未移植） |
 | 15 | DisruptionMessage | S→C | `String deity,name` + `BlockPos` | 扰动（PS-9） |
 | 16 | EvilSheepMessage | S→C | `UUID` + `String playerName` + `int id` | 邪恶绵羊（未移植） |
@@ -74,6 +74,7 @@ AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetwork
 
 - **`writeItem/readItem` 是加载器分叉的隐雷**（编译报错级证据：neo 编译若用 `buf.writeItem` 会 `cannot find symbol`）。凡消息带 ItemStack，用 id+count（或将来 compat 的注册表感知编解码），别直接调 `FriendlyByteBuf` 的 item 方法。neo 字节码核 `TransferStackMessage.write`：`getKey`→`writeUtf`→`writeVarInt`，无 `writeItem`。
 - **`Context.player()` 语义**：发送方（服务端）。client-bound handler 需客户端玩家 → SideExecutor（见 §4）。这是 23 条消息 handler 现全延后的部分原因（另一原因是目标系统未移植）。
+- **客户端字段不是权限**：`MobSpellMessage` 为兼容 wire 保留旧 spell ID/scroll type，但 handler 明确不读取它们来决定效果；权威数据来自发送者正在使用的 `ScrollItem`。`OpenSpellbookMessage` 同样无 hand/book tier 字段，服务端自行选择真实持书手。
 - **增量编译陈旧**：新增/移动源文件后 `:1.21.1-neoforge:compileJava` 可能 `UP-TO-DATE` 不真编译 → 用 `--rerun-tasks` 强制（本层实测 neo 首次 UP-TO-DATE，rerun 后才真编）。
 - **round-trip 自测判据**：write→decode 构造器→再 write，比较两次字节数组相等（对称即字节稳定），无需 `equals()`。24 项（23 消息 + KnowledgeUnlock 两分支）。
 
@@ -90,4 +91,5 @@ AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetwork
 ## 修订日志
 
 - 2026-07-25：RR-KNOWLEDGE（CR-70）把KnowledgeUnlock统一为String payload并将通道升v2；5条知识/necrodata handler接线完成。
+- 2026-07-26：R4 接通 OpenSpellbook、MobSpell、StaffMode、RitualStart、Ritual handler；MobSpell 包内 spell/quality 降为不受信目标提示，客户端仪式状态经 SideExecutor 分发。
 - 2026-07-22：PS-1 建层——`net/ACNetwork` + 23 消息 + 主类 bootstrap；两节点编译 + 4 次启动（forge server/client、neo server/client）self-test 24/24；ItemStack fork（id+count）与 `Context.player()`=发送方两处发现登记。见平行表 CR-38。

@@ -8,6 +8,8 @@ import net.minecraft.world.inventory.MenuType;
 import com.shinoow.abyssalcraft.AbyssalCraft;
 import com.shinoow.abyssalcraft.content.menu.base.ItemContainerMenu;
 import com.shinoow.abyssalcraft.content.item.bag.CrystalBagMenu;
+import com.shinoow.abyssalcraft.content.menu.spellbook.SpellbookMenu;
+import com.shinoow.abyssalcraft.content.menu.facebook.BookOfManyFacesMenu;
 import com.shinoow.abyssalcraft.platform.MenuCompat;
 import com.shinoow.abyssalcraft.platform.ModRegistrar;
 
@@ -37,4 +39,10 @@ public final class ModMenus {
 
     public static final Supplier<MenuType<CrystalBagMenu>> CRYSTAL_BAG = MENUS.register("crystal_bag", () ->
         MenuCompat.create(CrystalBagMenu::new));
+
+    public static final Supplier<MenuType<SpellbookMenu>> SPELLBOOK = MENUS.register("spellbook", () ->
+        MenuCompat.create(SpellbookMenu::new));
+
+    public static final Supplier<MenuType<BookOfManyFacesMenu>> BOOK_OF_MANY_FACES =
+        MENUS.register("book_of_many_faces", () -> MenuCompat.create(BookOfManyFacesMenu::new));
 }

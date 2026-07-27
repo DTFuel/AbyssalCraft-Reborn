@@ -25,6 +25,7 @@ public final class NecronomiconEntry {
     private final ItemStack icon;
     private Object[] textArgs = new Object[0];
     private ResourceLocation researchId; // null = always visible
+    private ResourceLocation advancementId;
     private boolean showWhenLocked;
     private final List<NecronomiconEntry> children = new ArrayList<>();
 
@@ -47,6 +48,12 @@ public final class NecronomiconEntry {
     /** Gate this entry behind a research id (resolved against the player's necrodata by the screen). */
     public NecronomiconEntry setResearch(ResourceLocation researchId) {
         this.researchId = researchId;
+        return this;
+    }
+
+    /** Gate this entry behind completion of an AbyssalCraft progression advancement. */
+    public NecronomiconEntry setAdvancement(ResourceLocation advancementId) {
+        this.advancementId = advancementId;
         return this;
     }
 
@@ -91,6 +98,10 @@ public final class NecronomiconEntry {
     /** The research gate id, or {@code null} for always-visible. */
     public ResourceLocation researchId() {
         return researchId;
+    }
+
+    public ResourceLocation advancementId() {
+        return advancementId;
     }
 
     public List<NecronomiconEntry> children() {

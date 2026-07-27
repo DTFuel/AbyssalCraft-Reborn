@@ -2,6 +2,7 @@ package com.shinoow.abyssalcraft.content.block.ritual;
 
 import com.shinoow.abyssalcraft.platform.BlockEntityCompat;
 import com.shinoow.abyssalcraft.platform.ContainerCompat;
+import com.shinoow.abyssalcraft.platform.MachineItemCompat;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -30,8 +31,12 @@ public class RitualPedestalBlockEntity extends BlockEntityCompat implements Ritu
     }
 
     @Override
-    public void consumeOffering() {
-        items.set(0, ItemStack.EMPTY);
+    public void consumeOffering(int count) {
+        ItemStack offering = items.get(0);
+        if (offering.isEmpty() || count <= 0) return;
+        ItemStack remainder = MachineItemCompat.craftingRemainder(offering.copyWithCount(1));
+        offering.shrink(Math.min(count, offering.getCount()));
+        if (offering.isEmpty()) items.set(0, remainder);
         setChanged();
     }
 

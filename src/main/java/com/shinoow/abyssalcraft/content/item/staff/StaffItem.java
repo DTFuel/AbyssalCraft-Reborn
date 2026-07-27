@@ -44,7 +44,8 @@ public class StaffItem extends TooltipCompat implements IEnergyTransporterItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
-        if (!level.isClientSide && !SpellUtils.castOnTarget(level, player, StaffSpells.LIFE_DRAIN, stack)) {
+        if (!level.isClientSide && !SpellUtils.castManifest(level, player, StaffSpells.lifeDrain(), stack,
+            com.shinoow.abyssalcraft.system.spell.ScrollType.BASIC, null)) {
             // No target in range or not enough PE: give the player audible/visual feedback rather than casting.
             player.displayClientMessage(Component.translatable("message.abyssalcraft.spell.fizzle"), true);
         }
@@ -59,7 +60,7 @@ public class StaffItem extends TooltipCompat implements IEnergyTransporterItem {
     @Override
     protected void appendTooltip(ItemStack stack, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("tooltip.abyssalcraft.spell",
-            Component.translatable(StaffSpells.LIFE_DRAIN.translationKey())).withStyle(ChatFormatting.LIGHT_PURPLE));
+            Component.translatable(StaffSpells.lifeDrain().translationKey())).withStyle(ChatFormatting.LIGHT_PURPLE));
         tooltip.add(Component.translatable("tooltip.abyssalcraft.potential_energy",
             (int) getContainedEnergy(stack), getMaxEnergy(stack)).withStyle(ChatFormatting.AQUA));
     }

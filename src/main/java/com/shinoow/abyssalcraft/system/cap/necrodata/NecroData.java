@@ -60,6 +60,10 @@ public final class NecroData {
         return addUnique("miscTriggers", name);
     }
 
+    public boolean triggerAdvancementUnlock(String name) {
+        return addUnique("advancementTriggers", name);
+    }
+
     public boolean completeResearch(String research) {
         return addUnique("completedResearches", research);
     }
@@ -90,6 +94,10 @@ public final class NecroData {
 
     public List<String> getMiscTriggers() {
         return getStringList("miscTriggers");
+    }
+
+    public List<String> getAdvancementTriggers() {
+        return getStringList("advancementTriggers");
     }
 
     public List<String> getCompletedResearches() {

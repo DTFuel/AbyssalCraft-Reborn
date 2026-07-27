@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": { "layer0": "abyssalcraft:item/book_of_many_faces" }
+}

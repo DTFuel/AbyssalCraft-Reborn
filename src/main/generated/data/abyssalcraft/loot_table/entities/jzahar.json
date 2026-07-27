@@ -1,4 +1,19 @@
 {
   "type": "minecraft:entity",
-  "pools": []
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "abyssalcraft:essence_of_the_gatekeeper"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
 }

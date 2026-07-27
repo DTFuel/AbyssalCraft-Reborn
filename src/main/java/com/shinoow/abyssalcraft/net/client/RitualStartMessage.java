@@ -1,6 +1,8 @@
 package com.shinoow.abyssalcraft.net.client;
 
+import com.shinoow.abyssalcraft.client.ritual.ClientRitualEffects;
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
+import com.shinoow.abyssalcraft.platform.SideExecutor;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -26,7 +28,7 @@ public class RitualStartMessage implements NetworkChannel.ACPacket {
 
     public RitualStartMessage(FriendlyByteBuf buf) {
         this.pos = buf.readBlockPos();
-        this.id = buf.readUtf();
+        this.id = buf.readUtf(128);
         this.sacrifice = buf.readVarInt();
         this.timerMax = buf.readVarInt();
     }
@@ -41,6 +43,6 @@ public class RitualStartMessage implements NetworkChannel.ACPacket {
 
     @Override
     public void handle(NetworkChannel.Context ctx) {
-        // Deferred: the ritual altar system (PS-6) is not yet ported -- the animation lands with it.
+        SideExecutor.runWhenClient(() -> () -> ClientRitualEffects.start(pos, id, sacrifice, timerMax));
     }
 }

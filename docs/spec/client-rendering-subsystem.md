@@ -13,14 +13,19 @@
 ## 2. 范围
 
 **已交付**：
-- PH-4 音效 ☑：`registry/ModSounds`（45 `SoundEvent`）+ `assets/abyssalcraft/sounds.json` + 106 `.ogg` + `en_us.json` 42 条 subtitle。
-- PH-2 雾色 ☑ / 天空盒 ◐：`client/sky/ACDimensionEffects`（`DimensionSpecialEffects` 子类）+ `client/sky/ACDimensionSkies`（4 维注册）+ `platform/DimensionEffectsCompat`（事件 fork）；3 张天空贴图迁入 `textures/environment/`。
-- PH-3 框架 + 1 具体粒子 ◐：`registry/ModParticles`（`abyssal_fx` `SimpleParticleType`）+ `client/particle/ACFadeParticle`（现代 `TextureSheetParticle`）+ `platform/ParticleCompat`（事件 fork）+ 描述符与贴图。
+- PH-4 音效 ☑：`registry/ModSounds`（45 `SoundEvent`）+ `assets/abyssalcraft/sounds.json` + 106 `.ogg` + `en_us.json` 41 条 subtitle。
+- PH-2 雾色 ☑ / 天空盒 ☑（RR-CLIENT-FX/CR-73）：`client/sky/ACDimensionEffects` extends `platform/DimensionSkyCompat`（renderSky 双端签名 fork + 即时六面天空盒）+ `client/sky/ACDimensionSkies`（4 维注册 tinted 天空盒，色取自 `ClientVars`）+ `platform/DimensionEffectsCompat`（事件 fork）；3 张天空贴图（Dark Realm 复用 omothol_sky）。四维双端目视 = T6.3c（人工，待）。
+- PH-3 框架 + 3 粒子 ☑：`registry/ModParticles`（`abyssal_fx` + `blue_flame` `SimpleParticleType`）+ `client/particle/{ACFadeParticle,BlueFlameParticle}` + `platform/ParticleCompat`（事件 fork）+ 描述符与贴图。BlueFlame + ItemRitual（vanilla `item` payload）由 `client/ritual/ClientRitualEffects` 8 基座发射；PEStream 由 RR-NET（`ClientNetworkEffects.peStream`）。
 
-**延后（诚实 · 均分离为显式后续任务，见平行表「Stage H1 延后收尾」PH-1b..4b）**：
-- **PH-2b** 自定义天空盒渲染（即时模式立方 skybox+tint，1.20.1↔1.21 渲染管线差异大；贴图已就位，暂用 `SkyType.NONE`）。
-- **PH-3b** `PEStreamParticleFX`（带色 fade，近似 vanilla `dust`）、`ItemRitualParticle`（物品图标，近似 vanilla `item`）——带每实例数据（色 / `ItemStack`）、且由未移植的 ritual/PE 发射，宜随发射内容重建。
-- **PH-4b** 实体接 AC 音效（跨 owner PD-5/7）；另 **PH-1b** 物品容器屏幕（crystal bag/spellbook/spirit tablet，未移植物品）。1.12.2 无专属粒子贴图（原用 vanilla atlas 帧）。
+**RR-CLIENT-FX 收口（CR-73，2026-07-26）**：
+- 天空盒（原 PH-2b）☑：`platform/DimensionSkyCompat` 吸收 Forge `IForgeDimensionSpecialEffects.renderSky(PoseStack…)` ↔ Neo `IDimensionSpecialEffectsExtension.renderSky(Matrix4f…)` 签名 fork，以及 1.20 `Tesselator.getBuilder()/vertex().uv().endVertex()/end()` ↔ 1.21 `begin()/addVertex().setUv()/buildOrThrow()` 顶点 fork；`getPositionTexShader`+`setShaderColor` 绘 ±100、16×16 UV 六面天空盒，`SkyType.NONE` 屏蔽 vanilla 天体。四维贴图/色：AW `abyssal_wasteland_sky` 0/105/45、Dreadlands `dreadlands_sky` 100/14/14、Omothol `omothol_sky` 40/30/40、Dark Realm 复用 `omothol_sky` 30/20/30，色实时取自 `ClientVars`（reload 生效；完整 clientvars 仍 T6.6d）。
+- 粒子（原 PH-3b）☑：BlueFlame（`blue_flame` type + `BlueFlameParticle`，迁 blueflame.png）与 ItemRitual（vanilla `ItemParticleOption(ITEM, stack)`）由 `ClientRitualEffects` 在 8 基座每 tick 发 BlueFlame+smoke、每 3 tick 发 ItemRitual 向祭坛，供品由 `RitualManifestCatalog.offeringLayout()`+`RitualIngredient.example()` 重建（不扩 `RitualStartMessage`）。PEStream 归 RR-NET（`PEUtils` 发 `PEStreamMessage` → `ClientNetworkEffects.peStream`），未重复实现。
+- 声音（原 PH-4b 收尾）☑：45/45 事件均有生产触发；`AbstractShoggoth.playStepSound` 补最后一个未接的 `shoggoth.step`（0.15/1.0），并修正 `sounds.json` 中 `jzahar.shout` 指向缺失键→现有 `.shouts` 译文键。
+- Gate：永久 `data/gen/ClientFxSelfTest`（+`ClientFxValidationData`）双端 runData 输出 `RR_CLIENT_FX_SELF_TEST_OK skies=3 particles=2 sounds=45 ogg=106 subtitles=41 rituals=62`；双端 compile/build/JAR 通过。
+- **仍待（人工）**：T6.3c 四维天空/雾双端目视、T6.5c 声音/字幕双端听觉矩阵。
+
+**延后（诚实 · 见平行表）**：
+- **PH-1b 当前事实**：Crystal Bag、Spirit Tablet 与 Spellbook 屏幕均已完成；剩余是 energy/depositioner/rending 等屏幕（归 RR-CLIENT-GUI）。1.12.2 无专属粒子贴图（原用 vanilla atlas 帧）。
 
 ## 3. 设计 / 架构
 

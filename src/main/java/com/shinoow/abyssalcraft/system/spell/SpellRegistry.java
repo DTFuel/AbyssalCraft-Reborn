@@ -78,9 +78,16 @@ public final class SpellRegistry {
      * {@code held} is the quality of the scroll being used.
      */
     public Spell find(int bookTier, ScrollType held, List<ItemStack> reagents) {
+        return find(bookTier, held, "", reagents);
+    }
+
+    public Spell find(int bookTier, ScrollType held, String parentId, List<ItemStack> reagents) {
         for (Spell spell : spells) {
+            String requiredParent = spell instanceof ManifestSpell mounted
+                ? mounted.manifest().parentId() : spell.parent() == null ? null : spell.parent().id();
             if (spell.bookType() <= bookTier
                     && held.quality() >= spell.scrollType().quality()
+                    && (requiredParent == null ? parentId.isEmpty() : requiredParent.equals(parentId))
                     && spell.matches(reagents)) {
                 return spell;
             }
