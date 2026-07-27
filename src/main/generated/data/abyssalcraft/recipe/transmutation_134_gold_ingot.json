@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:gold_crystal_cluster"
   },
   "result": {
-    "id": "minecraft:gold_ingot",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:gold_ingot"
   },
-  "experience": 0.2,
   "time": 200
 }

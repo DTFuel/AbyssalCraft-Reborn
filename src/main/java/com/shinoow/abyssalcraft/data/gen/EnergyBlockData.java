@@ -18,7 +18,6 @@ public final class EnergyBlockData extends BlockModelGen {
 
     @Override
     protected void generate() {
-        horizontalSharedModel(EnergyBlocks.DEITY_STATUE.get(), "deco_statue");
         EnergyBlocks.ENERGY_COLLECTORS.forEach(block -> cube(block.get(), "energycollector"));
         EnergyBlocks.ENERGY_CONTAINERS.forEach(block -> cube(block.get(), "energycontainer"));
         EnergyBlocks.ENERGY_PEDESTALS.forEach(block -> parentModel(block.get(), "deco_statue", "monolith_stone"));
@@ -29,7 +28,5 @@ public final class EnergyBlockData extends BlockModelGen {
         parentModel(EnergyBlocks.MONOLITH_PILLAR.get(), "deco_statue", "monolith_pillar");
         cubeWithoutItem(EnergyBlocks.PLACE_OF_POWER_BASE.get(), "monolith_stone");
 
-        EnergyBlocks.DEITY_STATUES.forEach(block ->
-            horizontalParent(block.get(), "deco_statue", "monolith_stone"));
     }
 }

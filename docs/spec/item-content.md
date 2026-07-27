@@ -124,26 +124,26 @@
 ### Crafting（401 个有效配方）
 
 - 旧资源目录有 402 个 JSON，其中 `_constants.json` 是 13 项转换常量，不是 recipe；有效基线为 401 = 350 shaped + 28 shapeless + 22 ore shaped + 1 ore shapeless。
-- 四态闭包：**305 MIGRATED + 61 REPLACED + 35 BLOCKED + 0 RETIRED = 401**。逐条事实源是 [`rr-data-crafting-audit.csv`](rr-data-crafting-audit.csv)，`LegacyCraftingRecipeData` 每次生成时强校验无漏项、重复或现代 ID 碰撞。
+- 四态闭包：**339 MIGRATED + 61 REPLACED + 1 BLOCKED + 0 RETIRED = 401**。逐条事实源是 [`rr-data-crafting-audit.csv`](rr-data-crafting-audit.csv)，`LegacyCraftingRecipeData` 每次生成时强校验无漏项、重复或现代 ID 碰撞。
 - 61 个 REPLACED 中，60 个已有等价现代配方；另 1 个是旧第二 Darklands log 在扁平化后与 `darklands_oak_log` 合并。`dltplank_alt` 因此不再生成，避免语义重复。
-- 35 个 BLOCKED 不伪造内容：3 个需 NBT/component 子系统（两 antidote + spawn egg）；其余依赖未注册内容，包括能量 collector/relay/pedestal、ritual charm/ring/altar、portal/rending/state-transformer、维度 skin/essence、Katana/longbow/staff、crate/tablet/ODB core 等。对应内容注册后由下游任务重新消费审计，不改变本轮“已完成对账”的事实。
+- 唯一 BLOCKED 是旧通用 `spawn_egg` 配方；现代版本不存在可忠实产出任意实体蛋的 `minecraft:spawn_egg` 物品，需明确 component/实体选择设计后才能迁移，不以某个具体蛋伪造等价语义。
 - ID 映射以旧 `BlockHandler`/`ItemHandler` 注册链为权威，显示名仅辅助；显式 override 解决 Ethaxium brick 方块与材料 item 同字段冲突。OreDict 输入改为可验证 tag，metadata先扁平化，未知引用直接 BLOCKED。
 
 ### Smelting（53 项展开源）
 
-- `AbyssalCrafting` 展开为 **51 MIGRATED + 1 REPLACED + 1 BLOCKED + 0 RETIRED = 53**；逐条事实源是 [`rr-data-smelting-audit.csv`](rr-data-smelting-audit.csv)。
-- 唯一 REPLACED 是旧第二 Darklands log 合并到现代 `darklands_oak_log`；唯一 BLOCKED 是未注册的 `coralium_infused_stone`。51条保留旧 XP、200 tick、结果数量，含 `chunk_of_coralium -> 2 refined_coralium_ingot`、`coin -> 4 iron_ingot` 与20条护甲回收。
+- `AbyssalCrafting` 展开为 **52 MIGRATED + 1 REPLACED + 0 BLOCKED + 0 RETIRED = 53**；逐条事实源是 [`rr-data-smelting-audit.csv`](rr-data-smelting-audit.csv)。
+- 唯一 REPLACED 是旧第二 Darklands log 合并到现代 `darklands_oak_log`。52条保留旧 XP、200 tick、结果数量，含 `coralium_infused_stone -> coralium_pearl`、`chunk_of_coralium -> 2 refined_coralium_ingot`、`coin -> 4 iron_ingot` 与20条护甲回收。
 - 旧配置键 `smelting_recipes` 保留用于配置兼容，但已弃用；现代 recipe存在性由 datapack控制，不再引入 loader-specific 条件配方。
 
 ### 完整标签与双版本目录
 
-- `ACTagData` 从当前注册表分类生成 **177 个逻辑 tag / 343 个物理文件**：公共tag双写，11个loader专属 requirement/incorrect tag只写对应版本目录；覆盖两木系与 dead tree、建材分类、mineable、四级工具、材料/晶体和迁移兼容 tags。每个直接值在写盘前按block/item注册表验证。
+- `ACTagData` 从当前注册表分类生成 **181 个逻辑 tag / 351 个物理文件**：公共tag双写，11个loader专属 requirement/incorrect tag只写对应版本目录；覆盖两木系与 dead tree、建材分类、mineable、四级工具、材料/晶体和迁移兼容 tags。每个直接值在写盘前按block/item注册表验证。
 - 每个 provider 每次同时写 1.20 `recipes/loot_tables/tags/{blocks,items}` 与 1.21 `recipe/loot_table/tags/{block,item}`，避免共享 `src/main/generated` 的 HashCache 跨节点互删；recipe result 唯一 schema差异为 1.20 `item` 与 1.21 `id`。
 - 16个 storage recipe改为消费 RR-DATA item tags。生成产物无语义重复、恒等配方、旧缩写、metadata `data` 字段或 `forge:ore_*` serializer泄漏。
 
-### 验证证据（2026-07-24）
+### 验证证据（2026-07-27）
 
-- 双端 `compileJava`/`runData`：`RR_DATA_CRAFTING_AUDIT_OK source=401 migrated=305 replaced=61 blocked=35 retired=0`、`RR_DATA_SMELTING_AUDIT_OK source=53 migrated=51 replaced=1 blocked=1 retired=0`、`RR_DATA_TAGS_OK logical=177 physical=343`、`RR_DATA_ORE_LOOT_OK ores=13 material=6 self=7 physical=26`。
+- 双端 `compileJava`/`runData`：`RR_DATA_CRAFTING_AUDIT_OK source=401 migrated=339 replaced=61 blocked=1 retired=0`、`RR_DATA_SMELTING_AUDIT_OK source=53 migrated=52 replaced=1 blocked=0 retired=0`、`RR_DATA_TAGS_OK logical=181 physical=351`、`RR_DATA_ORE_LOOT_OK ores=13 material=6 self=7 physical=26`。
 - Forge 1.20.1 与 NeoForge 1.21.1 真实服务器及 `/reload` 后均通过代表性 tag storage往返、旧 shaped `aaxe`、多产物 smelting、护甲回收、13矿普通/Silk/Fortune矩阵。临时运行探针在验证后删除。
 - 双端 production build成功；最终 JAR中两套 recipe各448、两套 block loot各181，关键文件齐全，JSON解析错误、`dltplank_alt`、临时探针残留均为0。
 

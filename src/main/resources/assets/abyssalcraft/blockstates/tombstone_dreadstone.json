@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "abyssalcraft:block/tombstone_dreadstone"
+    },
+    "facing=east": {
+      "model": "abyssalcraft:block/tombstone_dreadstone",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=south": {
+      "model": "abyssalcraft:block/tombstone_dreadstone",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=west": {
+      "model": "abyssalcraft:block/tombstone_dreadstone",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

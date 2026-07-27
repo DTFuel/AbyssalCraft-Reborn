@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.content.block.deco;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -26,6 +27,7 @@ public final class TombstoneBlock extends DecoFacingBlock implements EntityBlock
                                                                   BlockEntityType<T> type) {
         if (level.isClientSide || type != DecoBlocks.TOMBSTONE_BE.get()) return null;
         return (BlockEntityTicker<T>) (BlockEntityTicker<TombstoneBlockEntity>)
-            TombstoneBlockEntity::serverTick;
+            (tickerLevel, pos, tickerState, tombstone) ->
+                TombstoneBlockEntity.serverTick((ServerLevel) tickerLevel, pos, tickerState, tombstone);
     }
 }

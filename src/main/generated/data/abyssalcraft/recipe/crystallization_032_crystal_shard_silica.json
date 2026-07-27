@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "item": "minecraft:prismarine_crystals"
   },
   "result": {
-    "id": "abyssalcraft:crystal_shard_silica",
-    "count": 4
+    "count": 4,
+    "id": "abyssalcraft:crystal_shard_silica"
   },
   "secondary_result": {
-    "id": "abyssalcraft:crystal_shard_beryl",
-    "count": 4
+    "count": 4,
+    "id": "abyssalcraft:crystal_shard_beryl"
   },
-  "experience": 0.1,
   "time": 200
 }

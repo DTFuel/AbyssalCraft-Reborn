@@ -63,6 +63,9 @@ src/main/resources/
 ./gradlew :1.20.1-forge:build         # 只构建 Forge
 ./gradlew :1.21.1-neoforge:build      # 只构建 NeoForge
 ./gradlew :1.20.1-forge:runClient     # 启动 Forge 客户端（当前活动节点）
+./scripts/run_rr_client_smoke.ps1     # 双节点抵标题屏 marker 后自动正常退出
+./scripts/run_rr_server_matrix.ps1    # 双节点固定 seed 新世界 + 持久化重启矩阵
+./gradlew releaseAudit                # 对现有双节点 production JAR 执行九项只读审计
 ./gradlew :1.20.1-forge:compileJava --rerun-tasks   # 新增 .java 文件后强制重编（见第 5 节坑）
 ```
 
@@ -101,6 +104,8 @@ src/main/resources/
 > R2实现/relay自动Gate已完成并解锁R3。RR-RENDER-VISUAL 已完成双端总场景目视；`RR-WORLD-FIDELITY-AUTO` 继续 oracle/marker/性能，人工世界观感独立归 `U-WORLD`。BER 已拆为阻塞 R4 的真实 R3/R4 宿主与不阻塞的未来宿主接力，禁止等待不存在的 BlockEntityType。实体侧旧69表loot、真实自然刷怪统计与行为/持久化矩阵已收口；复杂资产/语言全集仍按后续任务推进。
 >
 > 2026-07-27 工作树已出现 State Transformer、Rending Pedestal、13 Screen、23消息审计/实网 fixture 等 R5 在制实现，但尚未取得本轮双节点自动 Gate；保持 ☐ 并由既有 owner 独占收尾。当前 Gradle 验证被用户级 daemon `registry.bin` 损坏挡在源码编译之前，不把环境失败记为代码失败。
+
+- [x] 2026-07-27 **RR-SERVER/T11.2 + 发布自动预检（GitHub Copilot）**：`run_rr_server_matrix.ps1` 以固定 seed `1251393890` 在 Forge/Neo 各执行新世界与 SavedData 重启，共四阶段输出 `RR_SERVER_MATRIX_RUNNER_OK nodes=2 phases=4`；同一路径强制验证 4 AC 维度、37 结构覆盖、11 个 vanilla 自然刷怪场景、97 张 live entity loot、219 machine recipe、AW/DL 19 坐标 FULL chunk 性能与复活持久化。新增隔离 gameDir 的 `run_rr_client_smoke.ps1`，两端须连续两 tick 到真实 `TitleScreen`、无 AC 资源/生命周期错误后正常退出，输出 `RR_CLIENT_SMOKE_RUNNER_OK nodes=2`；该 smoke 不替代视觉/交互验收。最终双节点 build 与九项 release audit 通过，production JAR SHA-256 为 Forge `1a3f577dd5abb304cdfc9d3cfed972241ef8517213641b69c8eb31a0462b2fc2`、Neo `0c59ebc25856c7e3877213a14c40db549be515f07c8829a81cc9b03eceb3d400`，资源索引 `matched=3245 allowed=15`，临时验证残留为 0。crafting/smelting/tag 最新事实为 `339/61/1/0`、`52/1/0/0`、`181/351`；唯一 crafting BLOCKED 为需明确现代实体选择语义的通用 spawn egg。所有 `U-*`、T11.1、T11.3/T11.4 与 M11 仍保持未完成。
 
 - [x] 2026-07-26 **RR-ADV-API · 命令/进度/插件接口收口（GitHub Copilot）**：修复 Forge 9条错误的1.20对象式item predicate与Neo 1.21 icon/predicate schema，root恢复真实Necronomicon与现有darkstone背景；两端`AdvancementEarnEvent`将9项幂等持久化为独立Progression书知识，type7+full snapshot即时刷新已打开书并登录回填旧玩家。`IACPlugin`由ServiceLoader/显式入口发现，在ServerAboutToStart原子发布五类实体扩展；Shoggoth与两瘟疫真实消费，Forge另桥接5个旧IMC key，13个配方/Crystal/Ghoul贴图key迁移到datapack/resource pack。双端compile/runData永久Gate、9进度专服加载、外部fixture消费者均通过；Forge真实联网无权限拒绝、OP两次toggle、9进度/书页、重复幂等与同名重连客户端同步通过。临时fixture不进入生产源码/JAR。
 

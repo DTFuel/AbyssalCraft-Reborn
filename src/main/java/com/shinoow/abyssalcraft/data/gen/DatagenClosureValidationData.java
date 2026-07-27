@@ -317,7 +317,7 @@ public final class DatagenClosureValidationData implements DataProvider {
                                          Map<String, Integer> typeConsumers, List<String> failures) {
         visitObjects(json, object -> {
             String type = string(object, "type");
-            if (WORLDGEN_TYPES.contains(type)) typeConsumers.merge(type, 1, Integer::sum);
+            if (type != null && WORLDGEN_TYPES.contains(type)) typeConsumers.merge(type, 1, Integer::sum);
             if (type != null && type.startsWith(AbyssalCraft.MODID + ":")
                     && isWorldgenTypePosition(resource, object) && !WORLDGEN_TYPES.contains(type)
                     && !registered(BuiltInRegistries.ENTITY_TYPE.keySet(), type)) {

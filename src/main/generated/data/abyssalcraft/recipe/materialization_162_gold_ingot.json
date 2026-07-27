@@ -2,14 +2,14 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_gold"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "id": "minecraft:gold_ingot",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:gold_ingot"
   }
 }

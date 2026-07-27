@@ -14,6 +14,7 @@ import net.minecraft.world.level.levelgen.structure.StructurePiece;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceSerializationContext;
 
 import com.shinoow.abyssalcraft.platform.StructureCompat;
+import com.shinoow.abyssalcraft.registry.BaseBlocks;
 import com.shinoow.abyssalcraft.registry.ModWorldgen;
 
 /**

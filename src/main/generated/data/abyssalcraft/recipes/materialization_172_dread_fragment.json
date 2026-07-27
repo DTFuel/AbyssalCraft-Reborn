@@ -2,20 +2,20 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 2,
       "ingredient": {
         "item": "abyssalcraft:crystal_phosphorus"
-      },
-      "count": 2
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_dreadium"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "item": "abyssalcraft:dread_fragment",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:dread_fragment"
   }
 }

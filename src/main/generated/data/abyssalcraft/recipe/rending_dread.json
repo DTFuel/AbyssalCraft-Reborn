@@ -1,0 +1,11 @@
+{
+  "type": "abyssalcraft:rending",
+  "dimension": 51,
+  "entity": "#abyssalcraft:dread_plague_carriers",
+  "max_energy": 100,
+  "name": "Dread",
+  "result": {
+    "count": 1,
+    "id": "abyssalcraft:dreadlands_essence"
+  }
+}

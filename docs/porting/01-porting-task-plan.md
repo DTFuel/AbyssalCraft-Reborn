@@ -103,10 +103,10 @@
 | ☑ T1.8b | `ItemBlockColorName` 现代内容等价颜色命名 | S | T1.8 | 旧版清单中现代已注册的 25 个对象由 `ColoredBlockItem` 保留 BLUE/AQUA/DARK_AQUA/DARK_RED 语义；双端精确 self-test 通过 | content/block/item/*, lang |
 | ☐ T1.8c | `odb_core` 颜色命名 | S | T1.8b,T7.5b | `odb_core` 随其爆炸/系统内容注册后补 DARK_RED 名称；不为颜色任务单独引入空壳方块 | content/block/item/*, system/disruption/* |
 | ☑ T1.9 | 4 材料存储块往返配方（8 条） | S | T1.1,T1.3 | 8 条 shaped/shapeless 配方双目录存在，两端 JSON 格式可加载 | data/abyssalcraft/{recipe,recipes}/* |
-| ☑ T1.9b | 旧版 crafting JSON 对账与迁移 | L | T1.1-T1.8 | 401 个有效配方四态闭包：305 迁移/61 替代/35 依赖阻塞/0 淘汰；第 402 个 JSON 为 constants 输入；所有可迁移项双端真实 RecipeManager 通过 | data/gen/LegacyCraftingRecipeData, docs/spec/rr-data-crafting-audit.csv |
-| ☑ T1.9c | 代码注册的 smelting/回收配方迁移 | M | T1.9b | 53 项四态闭包：51 迁移/1 替代/1 依赖阻塞；多产物与护甲回收在双端真实 RecipeManager 通过 | data/gen/CookingRecipeData, docs/spec/rr-data-smelting-audit.csv |
+| ☑ T1.9b | 旧版 crafting JSON 对账与迁移 | L | T1.1-T1.8 | 401 个有效配方四态闭包：339 迁移/61 替代/1 阻塞/0 淘汰；唯一阻塞为需明确现代实体选择语义的通用 spawn egg；第 402 个 JSON 为 constants 输入；所有可迁移项双端真实 RecipeManager 通过 | data/gen/LegacyCraftingRecipeData, docs/spec/rr-data-crafting-audit.csv |
+| ☑ T1.9c | 代码注册的 smelting/回收配方迁移 | M | T1.9b | 53 项四态闭包：52 迁移/1 替代/0 阻塞；多产物与护甲回收在双端真实 RecipeManager 通过 | data/gen/CookingRecipeData, docs/spec/rr-data-smelting-audit.csv |
 | ☑ T1.10 | 13 矿基础采集标签 | S | T1.4 | pickaxe + needs_iron/diamond 标签双目录资源存在 | data tags/block/* |
-| ☑ T1.10b | 完整 M1 方块/物品标签 | M | T1.3-T1.5 | 177 个逻辑 tag生成343文件；公共tag双写、11个loader专属tag仅写对应目录；完整覆盖并经注册表/配方消费校验 | data/gen/ACTagData, data tags/* |
+| ☑ T1.10b | 完整 M1 方块/物品标签 | M | T1.3-T1.5 | 181 个逻辑 tag生成351文件；公共tag双写、11个loader专属tag仅写对应目录；完整覆盖并经注册表/配方消费校验 | data/gen/ACTagData, data tags/* |
 
 > Gate M1-BASE ☑：当前材料、方块、工具、护甲注册与 7 个创造栏分组已形成基础内容集。  
 > Gate M1-CONTENT ☐：T1.*b/c 清零，全部内容、配方、标签、掉落与交互才算完成。
@@ -374,7 +374,7 @@
 | ID | 任务 | Cx | 依赖 | 验收标准 | 文件 |
 |---|---|---|---|---|---|
 | ☐ T11.1 | 两节点全内容真人客户端矩阵别名 | L | M10 | 由 U-FINAL 统一执行；本行不作为任何实现任务前置 | 用户验证车道 U-FINAL |
-| ☐ T11.2 | `runServer` 世界生成/结构/刷怪/战利品验证矩阵 | M | M10 | 4 维度+结构+刷怪+掉落全绿 | 验证 |
+| ☑ T11.2 | `runServer` 世界生成/结构/刷怪/战利品验证矩阵 | M | M10 | Forge/Neo 固定 seed 新世界+持久化重启共四阶段通过；4 AC 维度加载、37 结构、11 自然刷怪场景、97 live loot、219 machine recipes 与 AW/DL 固定路线性能全绿 | validation/server, validation/world, docs/validation/R8-AUTOMATION-REPORT.md |
 | ☐ T11.3 | 回写 `DEVELOPMENT.md` §7/8/9 + 更新 `docs/index` | S | U-GATE,T11.2 | 文档反映自动与真人状态 | DEVELOPMENT.md, docs/index/* |
 | ☐ T11.4 | 发布产物核对（jar 元数据/依赖/许可/版本） | S | U-GATE,T11.2 | jar 内元数据/许可/版本正确，生产验证残留为 0 | build 产物 |
 

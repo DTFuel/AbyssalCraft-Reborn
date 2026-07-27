@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "item": "abyssalcraft:refined_coralium_ingot"
   },
   "result": {
-    "id": "abyssalcraft:crystal_coralium",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:crystal_coralium"
   },
-  "experience": 0.1,
   "time": 200
 }

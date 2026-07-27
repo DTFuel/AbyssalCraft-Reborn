@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:sulfur_crystal_cluster"
   },
   "result": {
-    "id": "abyssalcraft:sulfur",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:sulfur"
   },
-  "experience": 0.2,
   "time": 200
 }

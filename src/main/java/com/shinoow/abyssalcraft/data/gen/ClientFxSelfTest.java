@@ -166,7 +166,8 @@ public final class ClientFxSelfTest {
 
     private static Object config(String path) {
         return ConfigCompat.entries().stream().filter(entry -> entry.path().equals(path)).findFirst()
-            .orElseThrow(() -> new IllegalStateException("RR client-fx config path is missing: " + path)).get();
+            .orElseThrow(() -> new IllegalStateException("RR client-fx config path is missing: " + path))
+            .defaultValue();
     }
 
     private static boolean mapped(ClientFxConfig.Dimension dimension, boolean loaded,

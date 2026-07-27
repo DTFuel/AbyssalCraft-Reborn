@@ -2,14 +2,14 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 9,
       "ingredient": {
         "item": "abyssalcraft:crystal_carbon"
-      },
-      "count": 9
+      }
     }
   ],
   "result": {
-    "item": "minecraft:coal_block",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:coal_block"
   }
 }

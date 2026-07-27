@@ -1,4 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": { "all": "minecraft:block/iron_ore" }
+  "parent": "abyssalcraft:block/layered_ore",
+  "textures": {
+    "all": "abyssalcraft:block/abyssal_stone",
+    "overlay": "abyssalcraft:block/ore_overlay/iron"
+  }
 }

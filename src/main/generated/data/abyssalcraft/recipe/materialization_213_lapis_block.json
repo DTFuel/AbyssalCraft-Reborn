@@ -2,20 +2,20 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 54,
       "ingredient": {
         "item": "abyssalcraft:crystal_silica"
-      },
-      "count": 54
+      }
     },
     {
+      "count": 36,
       "ingredient": {
         "item": "abyssalcraft:crystal_sulfur"
-      },
-      "count": 36
+      }
     }
   ],
   "result": {
-    "id": "minecraft:lapis_block",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:lapis_block"
   }
 }

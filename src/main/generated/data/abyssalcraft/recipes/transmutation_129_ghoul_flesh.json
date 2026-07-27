@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.3,
   "input": {
     "item": "abyssalcraft:anti_ghoul_flesh"
   },
   "result": {
-    "item": "abyssalcraft:ghoul_flesh",
-    "count": 2
+    "count": 2,
+    "item": "abyssalcraft:ghoul_flesh"
   },
-  "experience": 0.3,
   "time": 200
 }

@@ -84,9 +84,16 @@ public final class DimensionDataRegistry {
     public synchronized boolean areDimensionsConnected(ResourceKey<Level> from,
                                                         ResourceKey<Level> to,
                                                         int gatewayTier) {
+        return areDimensionsConnected(from, to, gatewayTier, configuredStartDimension());
+    }
+
+    synchronized boolean areDimensionsConnected(ResourceKey<Level> from,
+                                                ResourceKey<Level> to,
+                                                int gatewayTier,
+                                                ResourceKey<Level> startDimension) {
         if (gatewayTier < 0 || gatewayTier > 3 || from.equals(to)) return false;
         if (gatewayTier == 0 && to == ACDimensions.ABYSSAL_WASTELAND
-            && from != configuredStartDimension()) return false;
+            && from != startDimension) return false;
         DimensionData fromData = dimensions.get(from);
         DimensionData toData = dimensions.get(to);
         if (fromData == null || toData == null) return false;
@@ -164,21 +171,23 @@ public final class DimensionDataRegistry {
     }
 
     private void validateDefaults() {
-        requireConnection(Level.OVERWORLD, ACDimensions.ABYSSAL_WASTELAND, 0);
-        requireConnection(ACDimensions.ABYSSAL_WASTELAND, ACDimensions.DREADLANDS, 1);
-        requireConnection(ACDimensions.DREADLANDS, ACDimensions.OMOTHOL, 2);
-        requireConnection(ACDimensions.OMOTHOL, ACDimensions.DARK_REALM, 2);
-        requireConnection(Level.OVERWORLD, Level.NETHER, 0);
-        requireConnection(Level.OVERWORLD, Level.END, 0);
-        if (areDimensionsConnected(ACDimensions.ABYSSAL_WASTELAND, ACDimensions.DREADLANDS, 0)
-            || areDimensionsConnected(ACDimensions.DREADLANDS, ACDimensions.OMOTHOL, 1)
-            || areDimensionsConnected(ACDimensions.ABYSSAL_WASTELAND, Level.NETHER, 3)) {
+        ResourceKey<Level> defaultStart = Level.OVERWORLD;
+        requireConnection(Level.OVERWORLD, ACDimensions.ABYSSAL_WASTELAND, 0, defaultStart);
+        requireConnection(ACDimensions.ABYSSAL_WASTELAND, ACDimensions.DREADLANDS, 1, defaultStart);
+        requireConnection(ACDimensions.DREADLANDS, ACDimensions.OMOTHOL, 2, defaultStart);
+        requireConnection(ACDimensions.OMOTHOL, ACDimensions.DARK_REALM, 2, defaultStart);
+        requireConnection(Level.OVERWORLD, Level.NETHER, 0, defaultStart);
+        requireConnection(Level.OVERWORLD, Level.END, 0, defaultStart);
+        if (areDimensionsConnected(ACDimensions.ABYSSAL_WASTELAND, ACDimensions.DREADLANDS, 0, defaultStart)
+            || areDimensionsConnected(ACDimensions.DREADLANDS, ACDimensions.OMOTHOL, 1, defaultStart)
+            || areDimensionsConnected(ACDimensions.ABYSSAL_WASTELAND, Level.NETHER, 3, defaultStart)) {
             throw new IllegalStateException("Portal dimension graph accepts an invalid connection");
         }
     }
 
-    private void requireConnection(ResourceKey<Level> from, ResourceKey<Level> to, int gatewayTier) {
-        if (!areDimensionsConnected(from, to, gatewayTier)) {
+    private void requireConnection(ResourceKey<Level> from, ResourceKey<Level> to, int gatewayTier,
+                                   ResourceKey<Level> startDimension) {
+        if (!areDimensionsConnected(from, to, gatewayTier, startDimension)) {
             throw new IllegalStateException("Missing portal connection " + from.location() + " -> "
                 + to.location() + " at Gateway Key tier " + gatewayTier);
         }

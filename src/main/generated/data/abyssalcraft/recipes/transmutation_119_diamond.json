@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.5,
   "input": {
     "item": "abyssalcraft:dense_carbon_cluster"
   },
   "result": {
-    "item": "minecraft:diamond",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:diamond"
   },
-  "experience": 0.5,
   "time": 200
 }

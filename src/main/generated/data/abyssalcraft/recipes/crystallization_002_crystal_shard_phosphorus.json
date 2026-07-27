@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.0,
   "input": {
     "item": "minecraft:bone_meal"
   },
   "result": {
-    "item": "abyssalcraft:crystal_shard_phosphorus",
-    "count": 4
+    "count": 4,
+    "item": "abyssalcraft:crystal_shard_phosphorus"
   },
-  "experience": 0,
   "time": 200
 }

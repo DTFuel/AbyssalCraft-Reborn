@@ -125,5 +125,6 @@ public final class ACClientSetup {
         com.shinoow.abyssalcraft.client.input.ClientInputHandler.register();
         ClientHooksCompat.queueClientTick(ClientRitualEffects::tick);
         ClientFxEffects.register();
+        ClientTitleScreenSmoke.register();
     }
 }

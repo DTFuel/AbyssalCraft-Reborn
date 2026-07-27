@@ -2,32 +2,32 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_silica"
-      },
-      "count": 1
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_magnesia"
-      },
-      "count": 1
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_potassium"
-      },
-      "count": 1
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_nitrate"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "id": "abyssalcraft:nitre_ore",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:nitre_ore"
   }
 }

@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,6 +14,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.shinoow.abyssalcraft.AbyssalCraft;
+import com.shinoow.abyssalcraft.platform.ACRef;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -41,7 +43,37 @@ public final class AssetBlockSelfTest {
         }
         require(blocks > 0, "no registered AbyssalCraft blocks were audited");
         validateMachineStates();
+        validateComplexModelCatalog();
         System.out.printf("RR_ASSET_BLOCK_AUDIT_OK blocks=%d models=%d machines=3%n", blocks, visitedModels.size());
+    }
+
+    private static void validateComplexModelCatalog() {
+        JsonObject catalog = requireJson(ASSET_ROOT + "complex_block_model_fidelity.json");
+        require(catalog.get("schema").getAsInt() == 1, "complex model catalog schema changed");
+        require("SHA-256".equals(catalog.get("algorithm").getAsString()),
+            "complex model catalog hash algorithm changed");
+        List<JsonElement> entries = catalog.getAsJsonArray("entries").asList();
+        require(entries.size() == 42, "complex model catalog coverage changed: " + entries.size());
+        Set<String> owners = new HashSet<>();
+        int blocked = 0;
+        for (JsonElement element : entries) {
+            JsonObject entry = element.getAsJsonObject();
+            String owner = entry.get("block").getAsString();
+            require(owners.add(owner), "duplicate complex model owner " + owner);
+            require(BuiltInRegistries.BLOCK.containsKey(ACRef.parse(owner)),
+                "complex model owner is not registered " + owner);
+            if (!"ACTIVE".equals(entry.get("status").getAsString())) blocked++;
+            String sourceHash = entry.get("legacySha256").getAsString();
+            require(sourceHash.matches("[0-9a-f]{64}"), "invalid source hash for " + owner);
+            List<JsonElement> sourceArtifacts = entry.getAsJsonArray("sourceArtifacts").asList();
+            require(!sourceArtifacts.isEmpty(), "missing source artifacts for " + owner);
+            require(sourceArtifacts.stream().allMatch(artifact -> artifact.getAsJsonObject().get("sha256")
+                .getAsString().matches("[0-9a-f]{64}")), "invalid source artifact hash for " + owner);
+            require(!entry.get("stateMapping").getAsString().isBlank(), "missing state mapping for " + owner);
+            require(!entry.get("geometryRationale").getAsString().isBlank(), "missing geometry rationale for " + owner);
+        }
+        require(blocked == 0, "complex model catalog blocked=" + blocked);
+        System.out.printf("RR_COMPLEX_BLOCK_MODEL_CATALOG_OK active=%d blocked=0%n", entries.size());
     }
 
     private static void collectModels(JsonElement element, Set<String> visitedModels) {

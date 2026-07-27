@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:dreadium_ingot"
+    },
+    "%": {
+      "item": "abyssalcraft:dread_cloth"
+    },
+    "&": {
+      "item": "abyssalcraft:dreadwood_planks"
+    }
+  },
+  "pattern": [
+    "###",
+    "%&%",
+    "%&%"
+  ],
+  "result": {
+    "id": "abyssalcraft:dreadium_katana_hilt"
+  }
+}

@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:redstone_crystal_cluster"
   },
   "result": {
-    "item": "minecraft:redstone",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:redstone"
   },
-  "experience": 0.2,
   "time": 200
 }

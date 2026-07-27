@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:dreaded_ghoul_flesh"
   },
   "result": {
-    "item": "abyssalcraft:crystal_shard_phosphorus",
-    "count": 12
+    "count": 12,
+    "item": "abyssalcraft:crystal_shard_phosphorus"
   },
   "secondary_result": {
-    "item": "abyssalcraft:crystal_shard_dreadium",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:crystal_shard_dreadium"
   },
-  "experience": 0.2,
   "time": 200
 }

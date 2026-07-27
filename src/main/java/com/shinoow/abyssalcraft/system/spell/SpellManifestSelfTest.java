@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.system.spell;
 
 import java.lang.reflect.Field;
+import java.util.LinkedHashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -71,7 +72,7 @@ public final class SpellManifestSelfTest {
             }
             List<net.minecraft.world.item.ItemStack> reagents = manifest.reagents().stream()
                 .map(SpellIngredient::example).toList();
-            require(SpellRegistry.instance().find(manifest.bookType(), manifest.scrollType(),
+            require(SpellRegistry.instance().findIgnoringAvailability(manifest.bookType(), manifest.scrollType(),
                 manifest.parentId() == null ? "" : manifest.parentId(), reagents) == runtime.get(index),
                 "Spellbook recipe does not resolve " + manifest.id());
         }
@@ -90,37 +91,46 @@ public final class SpellManifestSelfTest {
         Map<String, Supplier<Boolean>> policies = SpellAvailability.enabledById();
         require(policies.keySet().equals(manifests.stream().map(SpellManifest::id).collect(java.util.stream.Collectors.toSet())),
             "spell availability policy does not cover the manifest exactly");
-        for (int index = 0; index < manifests.size(); index++) {
-            SpellManifest manifest = manifests.get(index);
-            Spell spell = runtime.get(index);
-            String configField = configField(manifest.id());
-            try {
-                Field field = ACConfig.class.getField(configField);
-                Object original = field.get(null);
-                try {
+        Map<Field, Object> originals = new LinkedHashMap<>();
+        try {
+            for (SpellManifest manifest : manifests) {
+                Field field = ACConfig.class.getField(configField(manifest.id()));
+                originals.put(field, field.get(null));
+                field.set(null, (Supplier<Boolean>) () -> true);
+            }
+            for (int index = 0; index < manifests.size(); index++) {
+                SpellManifest manifest = manifests.get(index);
+                Spell spell = runtime.get(index);
+                Field field = ACConfig.class.getField(configField(manifest.id()));
                     field.set(null, (Supplier<Boolean>) () -> false);
                     require(!SpellAvailability.isEnabled(manifest.id()) && !SpellAvailability.isEnabled(spell),
                         "disabled spell remains available: " + manifest.id());
                     for (String alias : manifest.aliases()) require(!SpellAvailability.isEnabled(alias),
                         "disabled spell alias remains available: " + alias);
-                    List<ItemStack> reagents = manifest.reagents().stream().map(SpellIngredient::example).toList();
-                    require(SpellRegistry.instance().find(manifest.bookType(), manifest.scrollType(),
-                        manifest.parentId() == null ? "" : manifest.parentId(), reagents) == null,
+                    require(SpellRegistry.instance().findForAvailabilityTest(
+                        manifest.bookType(), manifest.scrollType(),
+                        manifest.parentId() == null ? "" : manifest.parentId(), spell) == null,
                         "disabled spell remains inscribable: " + manifest.id());
                     field.set(null, (Supplier<Boolean>) () -> true);
                     require(SpellAvailability.isEnabled(manifest.id()) && SpellAvailability.isEnabled(spell),
                         "enabled spell remains unavailable: " + manifest.id());
                     for (String alias : manifest.aliases()) require(SpellAvailability.isEnabled(alias),
                         "enabled spell alias remains unavailable: " + alias);
-                    require(SpellRegistry.instance().find(manifest.bookType(), manifest.scrollType(),
-                        manifest.parentId() == null ? "" : manifest.parentId(), reagents) == spell,
+                    require(SpellRegistry.instance().findForAvailabilityTest(
+                        manifest.bookType(), manifest.scrollType(),
+                        manifest.parentId() == null ? "" : manifest.parentId(), spell) == spell,
                         "enabled spell remains uninscribable: " + manifest.id());
-                } finally {
-                    field.set(null, original);
-                }
-            } catch (ReflectiveOperationException exception) {
-                throw new IllegalStateException("missing spell config field: " + configField, exception);
             }
+        } catch (ReflectiveOperationException exception) {
+            throw new IllegalStateException("missing spell config field", exception);
+        } finally {
+            originals.forEach((field, value) -> {
+                try {
+                    field.set(null, value);
+                } catch (IllegalAccessException exception) {
+                    throw new IllegalStateException("unable to restore spell config field " + field.getName(), exception);
+                }
+            });
         }
     }
 

@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.0,
   "input": {
     "item": "abyssalcraft:darkstone_brick"
   },
   "result": {
-    "item": "minecraft:stone_bricks",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:stone_bricks"
   },
-  "experience": 0,
   "time": 200
 }

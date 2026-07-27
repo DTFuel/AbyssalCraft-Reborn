@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "abyssalcraft:model/powerstone_tracker"
+    "layer0": "abyssalcraft:item/powerstone_tracker"
   }
 }

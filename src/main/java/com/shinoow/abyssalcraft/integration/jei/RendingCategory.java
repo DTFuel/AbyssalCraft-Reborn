@@ -1,5 +1,6 @@
 package com.shinoow.abyssalcraft.integration.jei;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -79,16 +80,16 @@ public final class RendingCategory implements IRecipeCategory<RendingRecipe> {
         // Display entity name on left side
         String entityKey = "entity." + recipe.entity().replace(':', '.');
         Component entityName = Component.translatable(entityKey);
-        graphics.drawString(graphics.pose().last().pose(), entityName, 1, 8, 0x404040, false);
+        graphics.drawString(Minecraft.getInstance().font, entityName, 1, 8, 0x404040, false);
 
         // Display energy requirement
         Component energyText = Component.translatable("jei.abyssalcraft.rending_energy",
             recipe.maxEnergy());
-        graphics.drawString(graphics.pose().last().pose(), energyText, 1, 20, 0x808080, false);
+        graphics.drawString(Minecraft.getInstance().font, energyText, 1, 20, 0x808080, false);
 
         // Display energy type (essence name)
         Component essenceText = Component.translatable("jei.abyssalcraft.essence_type",
             recipe.energyName());
-        graphics.drawString(graphics.pose().last().pose(), essenceText, 1, 32, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, essenceText, 1, 32, 0x606060, false);
     }
 }

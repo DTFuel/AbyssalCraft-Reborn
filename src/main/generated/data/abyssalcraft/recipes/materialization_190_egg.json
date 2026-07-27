@@ -2,20 +2,20 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_calcium"
-      },
-      "count": 1
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_phosphorus"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "item": "minecraft:egg",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:egg"
   }
 }

@@ -274,14 +274,8 @@ public final class NecronomiconScreen extends Screen {
         int drawHeight = Math.max(1, Math.round(image.height() * scale));
         int x = (width - drawWidth) / 2;
         int y = 34;
-        //? if >=1.21 {
-        /*graphics.blit(net.minecraft.client.renderer.RenderType::guiTextured, image.texture(), x, y,
-            drawWidth, drawHeight, image.u(), image.v(), image.width(), image.height(),
-            image.textureWidth(), image.textureHeight());
-        *///?} else {
         graphics.blit(image.texture(), x, y, drawWidth, drawHeight, image.u(), image.v(),
             image.width(), image.height(), image.textureWidth(), image.textureHeight());
-        //?}
         return y + drawHeight + 8;
     }
 

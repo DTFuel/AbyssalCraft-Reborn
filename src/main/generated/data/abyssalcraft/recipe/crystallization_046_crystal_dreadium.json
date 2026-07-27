@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "item": "abyssalcraft:dreadium_ingot"
   },
   "result": {
-    "id": "abyssalcraft:crystal_dreadium",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:crystal_dreadium"
   },
-  "experience": 0.1,
   "time": 200
 }

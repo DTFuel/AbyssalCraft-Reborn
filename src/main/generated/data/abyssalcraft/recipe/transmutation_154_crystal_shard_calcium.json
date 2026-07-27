@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:crystal_calcium"
   },
   "result": {
-    "id": "abyssalcraft:crystal_shard_calcium",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:crystal_shard_calcium"
   },
-  "experience": 0.2,
   "time": 200
 }

@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:shadow_shoggoth_flesh"
   },
   "result": {
-    "id": "abyssalcraft:crystal_shard_phosphorus",
-    "count": 8
+    "count": 8,
+    "id": "abyssalcraft:crystal_shard_phosphorus"
   },
   "secondary_result": {
-    "id": "abyssalcraft:shadow_gem",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:shadow_gem"
   },
-  "experience": 0.2,
   "time": 200
 }

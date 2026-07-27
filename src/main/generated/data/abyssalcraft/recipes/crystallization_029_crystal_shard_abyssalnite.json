@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:dreaded_shard_of_abyssalnite"
   },
   "result": {
-    "item": "abyssalcraft:crystal_shard_abyssalnite",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:crystal_shard_abyssalnite"
   },
   "secondary_result": {
-    "item": "abyssalcraft:crystal_shard_dreadium",
-    "count": 4
+    "count": 4,
+    "item": "abyssalcraft:crystal_shard_dreadium"
   },
-  "experience": 0.2,
   "time": 200
 }

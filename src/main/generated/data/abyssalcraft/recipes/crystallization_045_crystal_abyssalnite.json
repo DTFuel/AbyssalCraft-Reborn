@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "item": "abyssalcraft:abyssalnite_ingot"
   },
   "result": {
-    "item": "abyssalcraft:crystal_abyssalnite",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:crystal_abyssalnite"
   },
-  "experience": 0.1,
   "time": 200
 }

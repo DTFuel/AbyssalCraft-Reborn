@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.4,
   "input": {
     "tag": "forge:ingots/bronze"
   },
   "result": {
-    "item": "abyssalcraft:crystal_copper",
-    "count": 3
+    "count": 3,
+    "item": "abyssalcraft:crystal_copper"
   },
   "secondary_result": {
-    "item": "abyssalcraft:crystal_tin",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:crystal_tin"
   },
-  "experience": 0.4,
   "time": 200
 }

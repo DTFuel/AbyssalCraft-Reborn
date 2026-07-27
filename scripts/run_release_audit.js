@@ -8,6 +8,7 @@ const AUDITS = [
   ['scripts/audit_validation_residue.js'],
   ['scripts/generate_docs_index.js', '--check'],
   ['scripts/audit_assets.js', '--check'],
+  ['scripts/audit_complex_block_models.js', '--check'],
   ['scripts/audit_compat.js'],
   ['scripts/audit_renames.js'],
   ['scripts/audit_datapack_plural.js'],

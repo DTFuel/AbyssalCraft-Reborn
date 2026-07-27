@@ -2,14 +2,14 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_dreadium"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "item": "abyssalcraft:dreadium_ingot",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:dreadium_ingot"
   }
 }

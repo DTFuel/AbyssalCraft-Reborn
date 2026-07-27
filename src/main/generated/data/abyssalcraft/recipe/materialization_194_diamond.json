@@ -2,14 +2,14 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 64,
       "ingredient": {
         "item": "abyssalcraft:crystal_carbon"
-      },
-      "count": 64
+      }
     }
   ],
   "result": {
-    "id": "minecraft:diamond",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:diamond"
   }
 }

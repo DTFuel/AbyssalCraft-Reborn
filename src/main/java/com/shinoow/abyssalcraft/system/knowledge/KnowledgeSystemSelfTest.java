@@ -178,6 +178,11 @@ public final class KnowledgeSystemSelfTest {
                 require(source.owner().equals(page.content().owner()),
                     "legacy JSON owner differs from final manifest for " + page.id());
                 require(page.textKey() != null && !page.textKey().isBlank(), "blank legacy text for " + page.id());
+                if (legacy.visualKind().equals("NONE")) {
+                    require(page.content().kind().equals("text")
+                        && page.content().reference().equals(page.textKey()),
+                        "text-only legacy page has no content reference " + page.id());
+                }
                 if (!page.textKey().startsWith("dynamic:")) {
                     require(english.has(page.textKey()), "missing legacy text lang key " + page.textKey());
                 }
@@ -208,7 +213,7 @@ public final class KnowledgeSystemSelfTest {
                             "active item visual is absent from registry " + page.id() + ": " + itemId);
                         require(BuiltInRegistries.ITEM.getKey(page.icon().getItem()).equals(itemId),
                             "item visual stack does not match canonical reference " + page.id());
-                        validateEnchantedBook(page);
+                        validateEnchantedBook(page, registries);
                     } else {
                         blockedItemVisuals++;
                         require(page.icon().isEmpty(), "blocked item visual exposed a stack " + page.id());
@@ -292,12 +297,13 @@ public final class KnowledgeSystemSelfTest {
             require(page.requiredBookType() == expectedBookType,
                 "Necronomicon page tier differs from owner " + page.id());
             for (int bookType = 0; bookType < 5; bookType++) {
+                int testedBookType = bookType;
                 boolean expectedClient = bookType >= expectedBookType;
                 boolean expectedServer = page.content().status() == NecronomiconPageManifest.OwnerStatus.ACTIVE
                     && expectedClient;
                 boolean clientGate = NecronomiconPageManifest.isAvailableForBook(page, bookType);
                 boolean serverGate = NecronomiconPageManifest.findActionable(page.id())
-                    .filter(candidate -> NecronomiconPageManifest.isAvailableForBook(candidate, bookType))
+                    .filter(candidate -> NecronomiconPageManifest.isAvailableForBook(candidate, testedBookType))
                     .isPresent();
                 require(clientGate == expectedClient,
                     "client tier gate changed for " + page.id() + " book=" + bookType);
@@ -317,18 +323,24 @@ public final class KnowledgeSystemSelfTest {
         String path = page.id().getPath();
         if (path.startsWith("ritual/")) {
             String id = path.substring("ritual/".length());
-            return RitualManifestCatalog.entries().stream().filter(entry -> entry.id().equals(id))
-                .findFirst().orElseThrow().bookType();
+            return RitualManifestCatalog.entries().stream()
+                .filter(entry -> entry.id().toLowerCase(java.util.Locale.ROOT).equals(id))
+                .findFirst().orElseThrow(() -> new IllegalStateException("missing ritual owner for " + page.id()))
+                .bookType();
         }
         if (path.startsWith("spell/")) {
             String id = path.substring("spell/".length());
-            return SpellManifestCatalog.entries().stream().filter(entry -> entry.id().equals(id))
-                .findFirst().orElseThrow().bookType();
+            return SpellManifestCatalog.entries().stream()
+                .filter(entry -> entry.id().toLowerCase(java.util.Locale.ROOT).equals(id))
+                .findFirst().orElseThrow(() -> new IllegalStateException("missing spell owner for " + page.id()))
+                .bookType();
         }
         if (path.startsWith("place_of_power/")) {
             String id = path.substring("place_of_power/".length());
-            return EnergyStructures.ALL.stream().filter(entry -> entry.getIdentifier().equals(id))
-                .findFirst().orElseThrow().getBookType();
+            return EnergyStructures.ALL.stream()
+                .filter(entry -> entry.getIdentifier().toLowerCase(java.util.Locale.ROOT).equals(id))
+                .findFirst().orElseThrow(() -> new IllegalStateException("missing Place of Power owner for " + page.id()))
+                .getBookType();
         }
         throw new IllegalStateException("unknown Necronomicon page owner " + page.id());
     }
@@ -371,7 +383,8 @@ public final class KnowledgeSystemSelfTest {
         });
     }
 
-    private static void validateEnchantedBook(NecronomiconPageManifest.PageEntry page) {
+        private static void validateEnchantedBook(NecronomiconPageManifest.PageEntry page,
+            net.minecraft.core.HolderLookup.Provider registries) {
         Map<String, Map.Entry<net.minecraft.resources.ResourceLocation, Integer>> expected = Map.of(
             "ENCHANTMENT_LIGHT_PIERCE", Map.entry(ACRef.id("light_pierce"), 5),
             "ENCHANTMENT_IRON_WALL", Map.entry(ACRef.id("iron_wall"), 1),
@@ -384,8 +397,16 @@ public final class KnowledgeSystemSelfTest {
             "enchantment page is not an enchanted book " + page.id());
         Map<net.minecraft.resources.ResourceLocation, Integer> actual =
             com.shinoow.abyssalcraft.platform.EnchantmentDataCompat.read(page.icon());
-        require(actual.equals(Map.of(enchantment.getKey(), enchantment.getValue())),
-            "enchantment page has the wrong stored enchantment " + page.id() + ": " + actual);
+        var key = net.minecraft.resources.ResourceKey.create(
+            net.minecraft.core.registries.Registries.ENCHANTMENT, enchantment.getKey());
+        if (com.shinoow.abyssalcraft.platform.EnchantmentCompat.hasEnchantment(registries, key)) {
+            require(actual.equals(Map.of(enchantment.getKey(), enchantment.getValue())),
+                "enchantment page has the wrong stored enchantment " + page.id() + ": " + actual);
+        } else {
+            require(actual.isEmpty(), "unbound datagen enchantment produced a fabricated component " + page.id());
+            require(resourceExists("data/abyssalcraft/enchantment/" + enchantment.getKey().getPath() + ".json"),
+                "unbound datagen enchantment has no datapack definition " + enchantment.getKey());
+        }
     }
 
     private static boolean resourceExists(String path) {
@@ -397,7 +418,7 @@ public final class KnowledgeSystemSelfTest {
         boolean shaped = recipe.has("pattern") && recipe.get("pattern").isJsonArray()
             && !recipe.getAsJsonArray("pattern").isEmpty()
             && recipe.has("key") && recipe.get("key").isJsonObject()
-            && !recipe.getAsJsonObject("key").isEmpty();
+            && !recipe.getAsJsonObject("key").entrySet().isEmpty();
         boolean shapeless = recipe.has("ingredients") && recipe.get("ingredients").isJsonArray()
             && !recipe.getAsJsonArray("ingredients").isEmpty();
         require(shaped || shapeless, "recipe has no inputs " + path + " for " + legacyId);

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "abyssalcraft:legacy/stick_wood"
+    },
+    "%": {
+      "tag": "abyssalcraft:legacy/chest_wood"
+    },
+    "&": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "#&#",
+    "&%&",
+    "#&#"
+  ],
+  "result": {
+    "count": 2,
+    "item": "abyssalcraft:crate"
+  }
+}

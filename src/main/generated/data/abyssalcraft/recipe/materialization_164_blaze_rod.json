@@ -2,14 +2,14 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 2,
       "ingredient": {
         "item": "abyssalcraft:crystal_blaze"
-      },
-      "count": 2
+      }
     }
   ],
   "result": {
-    "id": "minecraft:blaze_rod",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:blaze_rod"
   }
 }

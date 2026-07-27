@@ -26,15 +26,9 @@ public final class RecipeDisplayCompat {
     private static DisplayRecipe snapshot(Recipe<?> recipe, Level level) {
         List<Ingredient> ingredients = List.copyOf(recipe.getIngredients());
         ItemStack output = recipe.getResultItem(level.registryAccess()).copy();
-        //? if forge {
         int width = recipe instanceof ShapedRecipe shaped ? shaped.getWidth() : Math.min(3, ingredients.size());
         int height = recipe instanceof ShapedRecipe shaped ? shaped.getHeight()
             : (ingredients.size() + Math.max(1, width) - 1) / Math.max(1, width);
-        //?} else {
-        /*int width = recipe instanceof ShapedRecipe shaped ? shaped.width() : Math.min(3, ingredients.size());
-        int height = recipe instanceof ShapedRecipe shaped ? shaped.height()
-            : (ingredients.size() + Math.max(1, width) - 1) / Math.max(1, width);
-        *///?}
         return new DisplayRecipe(ingredients, output, width, height);
     }
 

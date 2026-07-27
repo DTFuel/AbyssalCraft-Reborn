@@ -27,8 +27,10 @@ import com.shinoow.abyssalcraft.content.block.energy.EnergyBlocks;
 import com.shinoow.abyssalcraft.content.block.material.CrystalClusterBlocks;
 import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothBlocks;
 import com.shinoow.abyssalcraft.content.block.structure.StructureContent;
+import com.shinoow.abyssalcraft.content.entity.boss.BossEntities;
 import com.shinoow.abyssalcraft.content.machine.rendingpedestal.RendingPedestals;
 import com.shinoow.abyssalcraft.platform.ACRef;
+import com.shinoow.abyssalcraft.platform.MobSpawnCompat;
 import com.shinoow.abyssalcraft.platform.StructureCompat;
 import com.shinoow.abyssalcraft.registry.BaseBlocks;
 import com.shinoow.abyssalcraft.registry.ModWorldgen;
@@ -111,6 +113,16 @@ public final class LegacyTemplatePiece extends TemplateStructurePiece {
             }
         } else if (metadata.startsWith("spawn:")) {
             level.setBlock(pos, Blocks.SPAWNER.defaultBlockState(), 2);
+        } else if (metadata.equals("remnant")) {
+            var remnant = BossEntities.REMNANT.get().create(level.getLevel());
+            if (remnant == null) throw new IllegalStateException("Remnant marker could not create its entity at " + pos);
+            remnant.moveTo(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D,
+                random.nextFloat() * 360.0F, 0.0F);
+            MobSpawnCompat.finalizeTriggeredSpawn(level.getLevel(), remnant);
+            remnant.setPersistenceRequired();
+            if (!level.addFreshEntity(remnant)) {
+                throw new IllegalStateException("Remnant marker could not add its entity at " + pos);
+            }
         } else if (metadata.equals("treasure") || metadata.equals("chest")) {
             if (random.nextBoolean()) {
                 level.setBlock(pos, Blocks.CHEST.defaultBlockState(), 2);

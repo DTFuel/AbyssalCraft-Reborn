@@ -2,6 +2,7 @@ package com.shinoow.abyssalcraft.integration.jei;
 
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -112,13 +113,13 @@ public final class CreationRitualCategory implements IRecipeCategory<RitualManif
         if (ritual.requiredEnergy() > 0) {
             Component peText = Component.translatable("jei.abyssalcraft.ritual_energy",
                 (int)ritual.requiredEnergy());
-            graphics.drawString(graphics.pose().last().pose(), peText, 2, 2, 0x808080, false);
+            graphics.drawString(Minecraft.getInstance().font, peText, 2, 2, 0x808080, false);
         }
 
         // Display book type requirement
         Component bookText = Component.translatable("jei.abyssalcraft.ritual_book_type",
             ritual.bookType());
-        graphics.drawString(graphics.pose().last().pose(), bookText, 2, 88, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, bookText, 2, 88, 0x606060, false);
     }
 
     /**

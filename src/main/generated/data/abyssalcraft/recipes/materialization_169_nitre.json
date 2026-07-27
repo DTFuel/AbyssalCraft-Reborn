@@ -2,20 +2,20 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_potassium"
-      },
-      "count": 1
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_nitrate"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "item": "abyssalcraft:nitre",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:nitre"
   }
 }

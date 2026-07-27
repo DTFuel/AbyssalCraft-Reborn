@@ -2,14 +2,14 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_calcium"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "item": "minecraft:bone",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:bone"
   }
 }

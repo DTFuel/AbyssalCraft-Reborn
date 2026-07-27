@@ -1,0 +1,1033 @@
+{
+  "credit": "Deterministic object-bounds conversion of docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/hasturstatue.obj",
+  "ambientocclusion": false,
+  "textures": {
+    "all": "abyssalcraft:block/statue/hastur",
+    "particle": "abyssalcraft:block/statue/hastur"
+  },
+  "elements": [
+    {
+      "name": "face",
+      "from": [
+        6.4971,
+        13.976,
+        6.011
+      ],
+      "to": [
+        9.4971,
+        16.976,
+        7.011
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle6",
+      "from": [
+        8.1902,
+        11.8573,
+        4.9566
+      ],
+      "to": [
+        10.8481,
+        14.976,
+        6.4938
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle20",
+      "from": [
+        0.3805,
+        1.505,
+        6.5654
+      ],
+      "to": [
+        3.8435,
+        5.9904,
+        8.8159
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle5",
+      "from": [
+        8.5144,
+        10.99,
+        4.1319
+      ],
+      "to": [
+        10.4971,
+        14.3044,
+        5.9671
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle21",
+      "from": [
+        4.7795,
+        3.976,
+        2.211
+      ],
+      "to": [
+        6.0947,
+        6.976,
+        3.5262
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle17",
+      "from": [
+        7.4031,
+        3.6543,
+        9.125
+      ],
+      "to": [
+        9.931,
+        7.976,
+        13.7752
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle19",
+      "from": [
+        9.8592,
+        5.976,
+        8.2166
+      ],
+      "to": [
+        12.9971,
+        6.976,
+        10.4132
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle18",
+      "from": [
+        5.9971,
+        5.0463,
+        10.1826
+      ],
+      "to": [
+        6.9971,
+        6.976,
+        13.3447
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle22",
+      "from": [
+        7.9382,
+        1.0369,
+        11.0985
+      ],
+      "to": [
+        10.931,
+        5.776,
+        15.2431
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle23",
+      "from": [
+        6.0219,
+        1.8539,
+        12.311
+      ],
+      "to": [
+        7.882,
+        5.976,
+        13.311
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle24",
+      "from": [
+        12.4635,
+        1.976,
+        9.4795
+      ],
+      "to": [
+        13.7971,
+        6.976,
+        10.8132
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "base",
+      "from": [
+        3.9971,
+        -0.024,
+        4.011
+      ],
+      "to": [
+        11.9971,
+        5.976,
+        12.011
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle11",
+      "from": [
+        4.8033,
+        9.276,
+        5.511
+      ],
+      "to": [
+        6.131,
+        10.276,
+        8.6037
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle10",
+      "from": [
+        4.7971,
+        9.276,
+        4.611
+      ],
+      "to": [
+        7.7971,
+        10.276,
+        5.611
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle13",
+      "from": [
+        7.4807,
+        1.6629,
+        0.6651
+      ],
+      "to": [
+        11.9971,
+        5.2609,
+        3.4471
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle12",
+      "from": [
+        7.6798,
+        3.1549,
+        2.2191
+      ],
+      "to": [
+        10.4971,
+        7.4185,
+        6.6472
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle15",
+      "from": [
+        5.0795,
+        5.976,
+        3.011
+      ],
+      "to": [
+        7.19,
+        6.976,
+        6.1613
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle14",
+      "from": [
+        9.0312,
+        0.1629,
+        1.7651
+      ],
+      "to": [
+        11.5971,
+        3.3185,
+        4.5472
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "body",
+      "from": [
+        5.4971,
+        5.976,
+        5.511
+      ],
+      "to": [
+        10.4971,
+        13.976,
+        10.511
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle16",
+      "from": [
+        1.7908,
+        4.602,
+        5.9372
+      ],
+      "to": [
+        6.3654,
+        7.976,
+        8.2208
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle3",
+      "from": [
+        7.4971,
+        14.2269,
+        5.218
+      ],
+      "to": [
+        9.4971,
+        15.476,
+        6.4671
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle2",
+      "from": [
+        6.4971,
+        12.5027,
+        4.1499
+      ],
+      "to": [
+        7.4971,
+        15.476,
+        6.7953
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle1",
+      "from": [
+        5.3988,
+        15.0199,
+        4.011
+      ],
+      "to": [
+        8.5303,
+        16.8552,
+        6.7036
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "head4",
+      "from": [
+        6.9971,
+        13.976,
+        8.511
+      ],
+      "to": [
+        8.9971,
+        16.976,
+        9.511
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle7",
+      "from": [
+        9.401,
+        10.3911,
+        4.6414
+      ],
+      "to": [
+        10.8971,
+        12.7209,
+        5.9938
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "head2",
+      "from": [
+        8.9971,
+        13.976,
+        5.511
+      ],
+      "to": [
+        9.9971,
+        17.976,
+        9.511
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "head1",
+      "from": [
+        5.9971,
+        13.976,
+        5.511
+      ],
+      "to": [
+        6.9971,
+        17.976,
+        9.511
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle4",
+      "from": [
+        9.4971,
+        13.2708,
+        4.9249
+      ],
+      "to": [
+        10.4971,
+        15.476,
+        6.4671
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle9",
+      "from": [
+        6.8161,
+        9.2434,
+        4.611
+      ],
+      "to": [
+        8.2971,
+        11.4334,
+        5.611
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle8",
+      "from": [
+        7.3971,
+        10.4084,
+        4.6262
+      ],
+      "to": [
+        10.3971,
+        11.576,
+        5.7938
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "head3",
+      "from": [
+        6.9971,
+        16.976,
+        5.511
+      ],
+      "to": [
+        8.9971,
+        17.976,
+        9.511
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    }
+  ]
+}

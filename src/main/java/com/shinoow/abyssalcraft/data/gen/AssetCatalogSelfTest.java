@@ -159,7 +159,7 @@ public final class AssetCatalogSelfTest {
     private static void validateTexture(String reference, Set<String> textures) {
         String[] id = split(reference, "minecraft");
         if (!AbyssalCraft.MODID.equals(id[0]) || !textures.add(reference)) return;
-        String path = ROOT + "textures/" + id[1] + ".png";
+        String path = ROOT + "textures/" + id[1] + (id[1].endsWith(".png") ? "" : ".png");
         try (InputStream stream = requireResource(path)) {
             BufferedImage image = ImageIO.read(stream);
             require(image != null && image.getWidth() > 0 && image.getHeight() > 0, "undecodable texture " + path);

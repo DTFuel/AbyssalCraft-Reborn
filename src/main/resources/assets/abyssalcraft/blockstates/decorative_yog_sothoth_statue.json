@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "abyssalcraft:block/statue/yog_sothoth"
+    },
+    "facing=east": {
+      "model": "abyssalcraft:block/statue/yog_sothoth",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=south": {
+      "model": "abyssalcraft:block/statue/yog_sothoth",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=west": {
+      "model": "abyssalcraft:block/statue/yog_sothoth",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

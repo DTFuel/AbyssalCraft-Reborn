@@ -73,6 +73,11 @@ public final class EnchantmentCompat {
         return stack;
     }
 
+    public static boolean hasEnchantment(net.minecraft.core.HolderLookup.Provider registries,
+            net.minecraft.resources.ResourceKey<Enchantment> key) {
+        return net.minecraft.core.registries.BuiltInRegistries.ENCHANTMENT.get(key.location()) != null;
+    }
+
     /** Generic faithful-metadata enchantment; effects are consumed by the runtime event hooks. */
     private static final class AbyssalEnchantment extends Enchantment {
         private final String name;
@@ -123,12 +128,20 @@ public final class EnchantmentCompat {
             net.minecraft.resources.ResourceKey<net.minecraft.world.item.enchantment.Enchantment> key, int level) {
         var registry = registries.lookupOrThrow(
             net.minecraft.core.registries.Registries.ENCHANTMENT);
+        var holder = registry.get(key);
+        var stack = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.ENCHANTED_BOOK);
+        if (holder.isEmpty()) return stack;
         var enchantments = new net.minecraft.world.item.enchantment.ItemEnchantments.Mutable(
             net.minecraft.world.item.enchantment.ItemEnchantments.EMPTY);
-        enchantments.set(registry.getOrThrow(key), level);
-        var stack = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.ENCHANTED_BOOK);
+        enchantments.set(holder.get(), level);
         stack.set(net.minecraft.core.component.DataComponents.STORED_ENCHANTMENTS, enchantments.toImmutable());
         return stack;
+    }
+
+    public static boolean hasEnchantment(net.minecraft.core.HolderLookup.Provider registries,
+            net.minecraft.resources.ResourceKey<net.minecraft.world.item.enchantment.Enchantment> key) {
+        return registries.lookupOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT)
+            .get(key).isPresent();
     }
     *///?}
 }

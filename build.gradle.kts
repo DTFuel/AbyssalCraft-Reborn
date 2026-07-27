@@ -5,6 +5,7 @@ plugins {
 val loader = property("loom.platform").toString()            // forge / neoforge (from node props)
 val mcVersion = property("vers.mcVersion").toString()
 val modId = property("mod.id").toString()                    // captured here: inside run-config lambdas `property(..)` binds to RunConfigSettings, not Project
+val configuredRunDir = providers.gradleProperty("abyssalcraft.runDir").orNull
 
 group = property("mod.group").toString()
 version = "${property("mod.version")}+$mcVersion"
@@ -32,10 +33,10 @@ loom {
         programArgs("--existing", rootProject.file("src/main/resources").absolutePath)
     }
 
-    if (stonecutter.current.isActive) {
-        runConfigs.all {
+    runConfigs.all {
+        runDir(configuredRunDir ?: "../../run")              // runners may request an isolated game directory
+        if (stonecutter.current.isActive) {
             ideConfigGenerated(true)
-            runDir("../../run")                              // centralize run dir at project root
         }
     }
 }
@@ -95,6 +96,13 @@ tasks {
         commandLine("node", "scripts/audit_compat.js")
     }
 
+    val rrComplexBlockModelAudit by registering(Exec::class) {
+        group = "verification"
+        description = "Audits T9.2b complex block model fidelity, state coverage, textures, and legacy hashes."
+        workingDir(rootProject.projectDir)
+        commandLine("node", "scripts/audit_complex_block_models.js", "--check")
+    }
+
     register<Exec>("releaseAudit") {
         group = "verification"
         description = "Runs read-only R8/PV-3 release audits against existing production JARs."
@@ -104,6 +112,7 @@ tasks {
 
     named("check") {
         dependsOn(rrCompatAudit)
+        dependsOn(rrComplexBlockModelAudit)
     }
 
     // CRITICAL: build from Stonecutter-preprocessed sources, not raw sources.
@@ -113,6 +122,7 @@ tasks {
     }
 
     processResources {
+        exclude(".cache/**")
         exclude("data/abyssalcraft/recipe/*_recycling.json")
         exclude("data/abyssalcraft/recipes/*_recycling.json")
         val props = mapOf(

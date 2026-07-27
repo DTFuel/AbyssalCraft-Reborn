@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 1.0,
   "input": {
     "item": "minecraft:lapis_block"
   },
   "result": {
-    "item": "abyssalcraft:silica_crystal_cluster",
-    "count": 6
+    "count": 6,
+    "item": "abyssalcraft:silica_crystal_cluster"
   },
   "secondary_result": {
-    "item": "abyssalcraft:sulfur_crystal_cluster",
-    "count": 4
+    "count": 4,
+    "item": "abyssalcraft:sulfur_crystal_cluster"
   },
-  "experience": 1,
   "time": 200
 }

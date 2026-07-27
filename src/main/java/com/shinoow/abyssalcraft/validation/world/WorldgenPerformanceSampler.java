@@ -1,12 +1,17 @@
 package com.shinoow.abyssalcraft.validation.world;
 
+import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
 import java.util.List;
+
+import jdk.jfr.Category;
+import jdk.jfr.Event;
+import jdk.jfr.Label;
+import jdk.jfr.Name;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.chunk.ChunkAccess;
-import net.minecraft.world.level.chunk.status.ChunkStatus;
 
 /**
  * Deterministic worldgen performance sampling for T5.2c (Abyssal Wasteland) and T5.3c (Dreadlands).
@@ -19,6 +24,8 @@ public final class WorldgenPerformanceSampler {
 
     private static final long MAX_P50_MS = 100;
     private static final long MAX_P95_MS = 500;
+    private static final int WARMUP_CHUNK_X = 24;
+    private static final int WARMUP_CHUNK_Z = 24;
 
     /** Fixed chunk route for reproducible performance sampling. */
     private static final int[][] AW_ROUTE = {
@@ -53,17 +60,35 @@ public final class WorldgenPerformanceSampler {
 
     private static String sample(String dimName, ServerLevel level, int[][] route) {
         List<Long> latencies = new ArrayList<>();
+        List<Long> gcPauses = new ArrayList<>();
         int warnings = 0;
+
+        try {
+            level.getChunk(WARMUP_CHUNK_X, WARMUP_CHUNK_Z);
+        } catch (Exception e) {
+            return String.format("RR_WORLD_PERF_%s_FAIL warmup=true warnings=1 seed=%d",
+                dimName, level.getSeed());
+        }
 
         for (int[] coord : route) {
             int chunkX = coord[0];
             int chunkZ = coord[1];
 
+            WorldgenChunkSampleEvent event = new WorldgenChunkSampleEvent();
+            boolean recordEvent = event.isEnabled();
+            if (recordEvent) {
+                event.dimension = dimName;
+                event.chunkX = chunkX;
+                event.chunkZ = chunkZ;
+                event.begin();
+            }
+            long gcBefore = gcCollectionTime();
             long startNs = System.nanoTime();
             try {
-                ChunkAccess chunk = level.getChunk(chunkX, chunkZ, ChunkStatus.FULL, true);
+                ChunkAccess chunk = level.getChunk(chunkX, chunkZ);
                 long durationNs = System.nanoTime() - startNs;
                 latencies.add(durationNs);
+                gcPauses.add(Math.max(0L, gcCollectionTime() - gcBefore));
 
                 // Validate basic worldgen integrity
                 if (chunk == null) {
@@ -81,6 +106,12 @@ public final class WorldgenPerformanceSampler {
                 warnings++;
                 System.err.printf("WARN: %s chunk [%d,%d] generation error: %s%n",
                     dimName, chunkX, chunkZ, e.getMessage());
+            } finally {
+                if (recordEvent) {
+                    event.durationMillis = (System.nanoTime() - startNs) / 1_000_000;
+                    event.gcMillis = Math.max(0L, gcCollectionTime() - gcBefore);
+                    event.commit();
+                }
             }
         }
 
@@ -96,7 +127,29 @@ public final class WorldgenPerformanceSampler {
         long p95Ms = p95 / 1_000_000;
         boolean passed = warnings == 0 && sorted.length == route.length
             && p50Ms <= MAX_P50_MS && p95Ms <= MAX_P95_MS;
-        return String.format("RR_WORLD_PERF_%s_%s p50=%dms p95=%dms samples=%d warnings=%d seed=%d",
-            dimName, passed ? "OK" : "FAIL", p50Ms, p95Ms, sorted.length, warnings, level.getSeed());
+        String routeMs = latencies.stream()
+            .map(duration -> Long.toString(duration / 1_000_000))
+            .collect(java.util.stream.Collectors.joining(","));
+        String routeGcMs = gcPauses.stream().map(Object::toString)
+            .collect(java.util.stream.Collectors.joining(","));
+        return String.format("RR_WORLD_PERF_%s_%s p50=%dms p95=%dms samples=%d routeMs=%s routeGcMs=%s warnings=%d seed=%d",
+            dimName, passed ? "OK" : "FAIL", p50Ms, p95Ms, sorted.length, routeMs, routeGcMs,
+            warnings, level.getSeed());
+    }
+
+    private static long gcCollectionTime() {
+        return ManagementFactory.getGarbageCollectorMXBeans().stream()
+            .mapToLong(bean -> Math.max(0L, bean.getCollectionTime())).sum();
+    }
+
+    @Name("abyssalcraft.WorldgenChunkSample")
+    @Label("AbyssalCraft worldgen chunk sample")
+    @Category({"AbyssalCraft", "Validation"})
+    private static final class WorldgenChunkSampleEvent extends Event {
+        String dimension;
+        int chunkX;
+        int chunkZ;
+        long durationMillis;
+        long gcMillis;
     }
 }

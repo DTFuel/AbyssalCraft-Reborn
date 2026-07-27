@@ -15,8 +15,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 
 import com.shinoow.abyssalcraft.config.ACConfig;
@@ -26,6 +26,7 @@ import com.shinoow.abyssalcraft.content.entity.boss.BossMob;
 import com.shinoow.abyssalcraft.content.entity.boss.EliteMob;
 import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.platform.ACSimpleEntity;
+import com.shinoow.abyssalcraft.platform.MobSpawnCompat;
 import com.shinoow.abyssalcraft.system.portal.DimensionData;
 import com.shinoow.abyssalcraft.system.portal.DimensionDataRegistry;
 import com.shinoow.abyssalcraft.world.portal.DimensionTeleport;
@@ -141,7 +142,8 @@ public class DimensionPortal extends ACSimpleEntity {
 
     private void tickPortalSpawn(ResourceKey<Level> destination) {
         if (tickCount % 10 != 0 || !(level() instanceof ServerLevel server)
-                || destination.equals(level().dimension()) || !server.getGameRules().getBoolean("doMobSpawning")) return;
+                || destination.equals(level().dimension())
+                || !server.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)) return;
         DimensionData data = getDimensionData();
         if (data == null || data.portalMob().isEmpty()) return;
         if (ContentConfigMatrix.portalSpawnsNearPlayer()
@@ -154,8 +156,7 @@ public class DimensionPortal extends ACSimpleEntity {
         BlockPos spawn = blockPosition().above();
         entity.moveTo(spawn.getX() + 0.5D, spawn.getY(), spawn.getZ() + 0.5D,
             random.nextFloat() * 360.0F, 0.0F);
-        if (entity instanceof Mob mob) mob.finalizeSpawn(server, server.getCurrentDifficultyAt(spawn),
-            MobSpawnType.PORTAL, null, null);
+        if (entity instanceof Mob mob) MobSpawnCompat.finalizePortalSpawn(server, mob);
         if (server.addFreshEntity(entity)) entity.setPortalCooldown();
     }
 

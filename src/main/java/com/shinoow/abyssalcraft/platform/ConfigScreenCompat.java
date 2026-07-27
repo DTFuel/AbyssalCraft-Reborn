@@ -8,7 +8,8 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.fml.ModLoadingContext;
 //?} else {
-/*import net.neoforged.fml.ModLoadingContext;
+/*import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 *///?}
 
@@ -24,7 +25,7 @@ public final class ConfigScreenCompat {
             () -> new ConfigScreenHandler.ConfigScreenFactory((Minecraft minecraft, Screen parent) -> factory.apply(parent)));
         //?} else {
         /*ModLoadingContext.get().getActiveContainer().registerExtensionPoint(IConfigScreenFactory.class,
-            (Minecraft minecraft, Screen parent) -> factory.apply(parent));
+            (ModContainer container, Screen parent) -> factory.apply(parent));
         *///?}
     }
 }

@@ -2,11 +2,11 @@
   "type": "minecraft:smelting",
   "category": "misc",
   "cookingtime": 200,
-  "experience": 1.0,
+  "experience": 0.1,
   "ingredient": {
     "item": "abyssalcraft:ethaxium_helmet"
   },
   "result": {
-    "item": "abyssalcraft:ethaxium_nugget"
+    "item": "abyssalcraft:ethaxium_ingot"
   }
 }

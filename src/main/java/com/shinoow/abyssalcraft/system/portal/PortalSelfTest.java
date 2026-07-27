@@ -33,11 +33,11 @@ public final class PortalSelfTest {
         requireEdge(registry, Level.OVERWORLD, Level.END, 0);
 
         require(!registry.areDimensionsConnected(ACDimensions.ABYSSAL_WASTELAND,
-            ACDimensions.DREADLANDS, 0), "tier-zero key reached the Dreadlands");
+            ACDimensions.DREADLANDS, 0, Level.OVERWORLD), "tier-zero key reached the Dreadlands");
         require(!registry.areDimensionsConnected(ACDimensions.DREADLANDS,
-            ACDimensions.OMOTHOL, 1), "tier-one key reached Omothol");
+            ACDimensions.OMOTHOL, 1, Level.OVERWORLD), "tier-one key reached Omothol");
         require(!registry.areDimensionsConnected(ACDimensions.ABYSSAL_WASTELAND,
-            Level.NETHER, 3), "unregistered cross-edge reached the Nether");
+            Level.NETHER, 3, Level.OVERWORLD), "unregistered cross-edge reached the Nether");
         require(registry.parseRegisteredDimension("not a resource location").isEmpty(),
             "invalid target string was accepted");
         require(registry.get(ACDimensions.OMOTHOL).orElseThrow().overlay().isPresent(),
@@ -62,7 +62,7 @@ public final class PortalSelfTest {
                                     net.minecraft.resources.ResourceKey<Level> from,
                                     net.minecraft.resources.ResourceKey<Level> to,
                                     int tier) {
-        require(registry.areDimensionsConnected(from, to, tier),
+        require(registry.areDimensionsConnected(from, to, tier, Level.OVERWORLD),
             "missing portal edge " + from.location() + " -> " + to.location());
     }
 

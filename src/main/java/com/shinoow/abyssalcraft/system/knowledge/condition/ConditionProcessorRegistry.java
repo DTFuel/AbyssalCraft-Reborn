@@ -86,7 +86,7 @@ public final class ConditionProcessorRegistry {
                 return false;
             }
             KnowledgePredicate predicate = (KnowledgePredicate) c.getConditionObject();
-            Registry<Biome> biomes = p.registryAccess().registryOrThrow(Registries.BIOME);
+            Registry<Biome> biomes = p.level().registryAccess().registryOrThrow(Registries.BIOME);
             for (String trigger : d.getBiomeTriggers()) {
                 if (matchesRegistered(predicate, trigger, biomes)) {
                     return true;

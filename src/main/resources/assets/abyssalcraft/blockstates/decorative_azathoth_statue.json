@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "abyssalcraft:block/statue/azathoth"
+    },
+    "facing=east": {
+      "model": "abyssalcraft:block/statue/azathoth",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=south": {
+      "model": "abyssalcraft:block/statue/azathoth",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=west": {
+      "model": "abyssalcraft:block/statue/azathoth",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

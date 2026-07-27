@@ -1,3 +1,7 @@
 {
-  "variants": { "": { "model": "abyssalcraft:block/liquified_coralium_ore" } }
+  "variants": {
+    "": {
+      "model": "abyssalcraft:block/liquified_coralium_ore"
+    }
+  }
 }

@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.9,
   "input": {
     "tag": "forge:storage_blocks/copper"
   },
   "result": {
-    "item": "abyssalcraft:copper_crystal_cluster",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:copper_crystal_cluster"
   },
-  "experience": 0.9,
   "time": 200
 }

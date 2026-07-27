@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "item": "abyssalcraft:crystal_nitrate"
   },
   "result": {
-    "item": "abyssalcraft:crystal_nitrogen",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:crystal_nitrogen"
   },
   "secondary_result": {
-    "item": "abyssalcraft:crystal_oxygen",
-    "count": 3
+    "count": 3,
+    "item": "abyssalcraft:crystal_oxygen"
   },
-  "experience": 0.1,
   "time": 200
 }

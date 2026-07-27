@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 1.0,
   "input": {
     "item": "abyssalcraft:gatewaykeydl"
   },
   "result": {
-    "id": "abyssalcraft:gatewaykeyjzh",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:gatewaykeyjzh"
   },
-  "experience": 1,
   "time": 200
 }

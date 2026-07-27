@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:abyssal_shoggoth_flesh"
   },
   "result": {
-    "item": "abyssalcraft:crystal_shard_phosphorus",
-    "count": 8
+    "count": 8,
+    "item": "abyssalcraft:crystal_shard_phosphorus"
   },
   "secondary_result": {
-    "item": "abyssalcraft:crystal_fragment_coralium",
-    "count": 2
+    "count": 2,
+    "item": "abyssalcraft:crystal_fragment_coralium"
   },
-  "experience": 0.2,
   "time": 200
 }

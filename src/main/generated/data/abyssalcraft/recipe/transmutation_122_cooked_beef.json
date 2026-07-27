@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.3,
   "input": {
     "item": "abyssalcraft:anti_beef"
   },
   "result": {
-    "id": "minecraft:cooked_beef",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:cooked_beef"
   },
-  "experience": 0.3,
   "time": 200
 }

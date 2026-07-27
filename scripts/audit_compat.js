@@ -4,6 +4,9 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 const javaRoot = path.join(root, 'src', 'main', 'java');
 const platformRoot = path.join(javaRoot, 'com', 'shinoow', 'abyssalcraft', 'platform');
+const mixinVersionExceptions = new Map([
+    ['RecipeManagerCompatMixin', path.join(javaRoot, 'com', 'shinoow', 'abyssalcraft', 'mixin', 'RecipeManagerCompatMixin.java')],
+]);
 const allowedConditions = new Set(['forge', '<1.21', '>=1.21']);
 const loaderReference = /\bnet\.(?:minecraftforge|neoforged)\./;
 const directive = /^\s*(?:\*\/)?\/\/\?\s*(if\s+([^\s{]+)\s*\{|\}\s*else\s*\{|\})/;
@@ -45,8 +48,10 @@ for (const file of javaFiles) {
             if (!file.startsWith(platformRoot + path.sep)) {
                 if (condition === 'forge') {
                     errors.push(`${path.relative(root, file)}:${index + 1} uses a loader fork outside platform/**`);
-                } else {
+                } else if (mixinVersionExceptions.get(path.basename(file, '.java')) !== file) {
                     businessVersionForks++;
+                } else {
+                    conditions.add(condition);
                 }
             }
         } else if (token.startsWith('} else')) {
@@ -75,6 +80,7 @@ const platformSources = new Map(javaFiles
 const forkSymbols = new Set(platformForks.map(fork => fork.symbol));
 const reachable = new Set(['ModBootstrapCompat']);
 const mixinConfig = JSON.parse(fs.readFileSync(path.join(root, 'src', 'main', 'resources', 'abyssalcraft.mixins.json'), 'utf8'));
+const configuredMixins = new Set([...(mixinConfig.mixins || []), ...(mixinConfig.client || []), ...(mixinConfig.server || [])]);
 for (const entry of [...(mixinConfig.mixins || []), ...(mixinConfig.client || []), ...(mixinConfig.server || [])]) {
     if (entry.startsWith('platform.')) reachable.add(entry.substring('platform.'.length));
 }
@@ -111,6 +117,15 @@ for (const fork of platformForks) {
 for (const symbol of documentedForks) {
     if (!forkSymbols.has(symbol)) errors.push(`compat-audit.md documents stale platform fork ${symbol}`);
 }
+const documentedMixinExceptions = new Set([...compatSpec.matchAll(/^\| MIXIN `([^`]+)` \|/gm)].map(match => match[1]));
+for (const [symbol, file] of mixinVersionExceptions) {
+    if (!fs.existsSync(file)) errors.push(`missing mixin version exception source ${symbol}`);
+    if (!configuredMixins.has(symbol)) errors.push(`mixin version exception ${symbol} is not configured`);
+    if (!documentedMixinExceptions.has(symbol)) errors.push(`mixin version exception ${symbol} is undocumented`);
+}
+for (const symbol of documentedMixinExceptions) {
+    if (!mixinVersionExceptions.has(symbol)) errors.push(`compat-audit.md documents stale mixin exception ${symbol}`);
+}
 
 if (errors.length) {
     console.error('RR-COMPAT audit failed:');
@@ -120,4 +135,4 @@ if (errors.length) {
 
 const loaderForks = platformForks.filter(fork => fork.conditions.includes('forge')).length;
 const versionForks = platformForks.filter(fork => fork.conditions.some(condition => condition.includes('1.21'))).length;
-console.log(`RR_COMPAT_AUDIT_OK symbols=${platformForks.length} loader=${loaderForks} version=${versionForks} businessLoaderReferences=0 businessVersionForks=${businessVersionForks} documented=${documentedForks.size}`);
+console.log(`RR_COMPAT_AUDIT_OK symbols=${platformForks.length} loader=${loaderForks} version=${versionForks} businessLoaderReferences=0 businessVersionForks=${businessVersionForks} mixinExceptions=${mixinVersionExceptions.size} documented=${documentedForks.size}`);

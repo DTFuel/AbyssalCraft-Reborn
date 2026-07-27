@@ -1,8 +1,19 @@
 {
   "type": "minecraft:block",
-  "pools": [{
-    "conditions": [{"condition": "minecraft:survives_explosion"}],
-    "entries": [{"type": "minecraft:item", "name": "abyssalcraft:copper_crystal_cluster"}],
-    "rolls": 1
-  }]
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "abyssalcraft:copper_crystal_cluster"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
 }

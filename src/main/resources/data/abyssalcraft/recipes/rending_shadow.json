@@ -1,8 +1,0 @@
-{
-  "type": "abyssalcraft:rending",
-  "name": "Shadow",
-  "max_energy": 200,
-  "result": { "item": "abyssalcraft:shadow_gem" },
-  "entity": "#abyssalcraft:shadow",
-  "dimension": -1
-}

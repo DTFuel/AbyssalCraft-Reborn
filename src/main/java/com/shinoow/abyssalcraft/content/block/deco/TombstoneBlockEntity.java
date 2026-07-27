@@ -7,7 +7,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,6 +16,7 @@ import com.shinoow.abyssalcraft.config.ContentConfigMatrix;
 import com.shinoow.abyssalcraft.content.entity.ghoul.AbstractGhoul;
 import com.shinoow.abyssalcraft.content.entity.ghoul.GhoulEntities;
 import com.shinoow.abyssalcraft.platform.BlockEntityCompat;
+import com.shinoow.abyssalcraft.platform.MobSpawnCompat;
 
 /** Persistent server-side cooldown and ghoul spawning for all legacy tombstones. */
 public final class TombstoneBlockEntity extends BlockEntityCompat {
@@ -42,7 +42,7 @@ public final class TombstoneBlockEntity extends BlockEntityCompat {
         if (ghoul == null || spawn == null) return;
         ghoul.moveTo(spawn.getX() + 0.5D, spawn.getY(), spawn.getZ() + 0.5D,
             level.random.nextFloat() * 360.0F, 0.0F);
-        ghoul.finalizeSpawn(level, level.getCurrentDifficultyAt(spawn), MobSpawnType.TRIGGERED, null, null);
+        MobSpawnCompat.finalizeTriggeredSpawn(level, ghoul);
         level.addFreshEntity(ghoul);
     }
 

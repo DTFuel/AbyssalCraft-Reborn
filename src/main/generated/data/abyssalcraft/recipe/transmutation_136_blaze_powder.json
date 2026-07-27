@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:blaze_crystal_cluster"
   },
   "result": {
-    "id": "minecraft:blaze_powder",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:blaze_powder"
   },
-  "experience": 0.2,
   "time": 200
 }

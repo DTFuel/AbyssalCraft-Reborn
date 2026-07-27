@@ -34,6 +34,16 @@ public final class MobSpawnCompat {
         *///?}
     }
 
+    public static void finalizePortalSpawn(ServerLevel level, Mob mob) {
+        //? if <1.21 {
+        mob.finalizeSpawn(level, level.getCurrentDifficultyAt(mob.blockPosition()),
+            MobSpawnType.TRIGGERED, null, null);
+        //?} else {
+        /*mob.finalizeSpawn(level, level.getCurrentDifficultyAt(mob.blockPosition()),
+            MobSpawnType.TRIGGERED, null);
+        *///?}
+    }
+
     /** Create and spawn one mob at a viable position within the legacy 16-block disruption radius. */
     public static boolean spawnNear(ServerLevel level, BlockPos origin, EntityType<?> type) {
         return spawnNear(level, origin, type, mob -> {});

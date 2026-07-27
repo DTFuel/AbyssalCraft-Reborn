@@ -38,17 +38,19 @@ public final class ConfigCompat {
         private final ValueType valueType;
         private final Supplier<T> getter;
         private final Consumer<T> setter;
+        private final T defaultValue;
         private final double minimum;
         private final double maximum;
 
         private Entry(String category, String name, String comment, ValueType valueType,
-                Supplier<T> getter, Consumer<T> setter, double minimum, double maximum) {
+            Supplier<T> getter, Consumer<T> setter, T defaultValue, double minimum, double maximum) {
             this.category = category;
             this.name = name;
             this.comment = comment;
             this.valueType = valueType;
             this.getter = getter;
             this.setter = setter;
+            this.defaultValue = defaultValue;
             this.minimum = minimum;
             this.maximum = maximum;
         }
@@ -60,6 +62,7 @@ public final class ConfigCompat {
         public String path() { return category.isEmpty() ? name : category + "." + name; }
         public String comment() { return comment; }
         public ValueType valueType() { return valueType; }
+        public T defaultValue() { return defaultValue; }
 
         public String formattedValue() {
             Object value = get();
@@ -207,39 +210,39 @@ public final class ConfigCompat {
         /** Define a boolean option; the returned Supplier reads the live value. */
         public Supplier<Boolean> defineBool(String path, boolean defaultValue) {
             var value = b.define(path, defaultValue);
-            return add(path, ValueType.BOOLEAN, value, value::set, 0, 1);
+            return add(path, ValueType.BOOLEAN, value, value::set, defaultValue, 0, 1);
         }
 
         /** Define an int option clamped to {@code [min, max]}. */
         public Supplier<Integer> defineInt(String path, int defaultValue, int min, int max) {
             var value = b.defineInRange(path, defaultValue, min, max);
-            return add(path, ValueType.INTEGER, value, value::set, min, max);
+            return add(path, ValueType.INTEGER, value, value::set, defaultValue, min, max);
         }
 
         /** Define a double option clamped to {@code [min, max]}. */
         public Supplier<Double> defineDouble(String path, double defaultValue, double min, double max) {
             var value = b.defineInRange(path, defaultValue, min, max);
-            return add(path, ValueType.DOUBLE, value, value::set, min, max);
+            return add(path, ValueType.DOUBLE, value, value::set, defaultValue, min, max);
         }
 
         @SuppressWarnings("unchecked")
         public Supplier<List<? extends String>> defineStringList(String path, List<String> defaults) {
             var value = b.defineListAllowEmpty(path, defaults, element -> element instanceof String);
             return (Supplier<List<? extends String>>) (Supplier<?>) add(path, ValueType.STRING_LIST,
-                value, value::set, 0, 0);
+                value, value::set, List.copyOf(defaults), 0, 0);
         }
 
         @SuppressWarnings("unchecked")
         public Supplier<List<? extends Integer>> defineIntList(String path, List<Integer> defaults) {
             var value = b.defineListAllowEmpty(path, defaults, element -> element instanceof Integer);
             return (Supplier<List<? extends Integer>>) (Supplier<?>) add(path, ValueType.INTEGER_LIST,
-                value, value::set, 0, 0);
+                value, value::set, List.copyOf(defaults), 0, 0);
         }
 
         private <T> Entry<T> add(String name, ValueType valueType, Supplier<T> getter,
-                Consumer<T> setter, double minimum, double maximum) {
+                Consumer<T> setter, T defaultValue, double minimum, double maximum) {
             Entry<T> entry = new Entry<>(String.join(".", categories), name, pendingComment,
-                valueType, getter, setter, minimum, maximum);
+                valueType, getter, setter, defaultValue, minimum, maximum);
             pendingComment = "";
             entries.add(entry);
             return entry;

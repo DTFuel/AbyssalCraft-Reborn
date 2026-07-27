@@ -206,7 +206,7 @@ public final class LegacyCraftingRecipeData implements DataProvider {
     private static void applyRecipeReplacement(String legacyName, JsonObject recipe) {
         String output = switch (legacyName) {
             case "sacrificialaltar" -> "abyssalcraft:ritual_altar";
-            case "crate" -> "abyssalcraft:crystalbag_medium";
+            case "crate" -> "abyssalcraft:crate";
             default -> null;
         };
         if (output != null) recipe.getAsJsonObject("result").addProperty("item", output);

@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.9,
   "input": {
     "item": "abyssalcraft:block_of_refined_coralium"
   },
   "result": {
-    "item": "abyssalcraft:coralium_crystal_cluster",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:coralium_crystal_cluster"
   },
-  "experience": 0.9,
   "time": 200
 }

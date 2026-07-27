@@ -1,18 +1,18 @@
 {
   "required": true,
   "minVersion": "0.8.5",
-  "package": "com.shinoow.abyssalcraft",
+  "package": "com.shinoow.abyssalcraft.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "mixin.MineshaftCorridorMixin",
-    "mixin.PlacedFeatureMixin",
-    "platform.RecipeManagerCompatMixin",
-    "mixin.StructurePieceMixin",
-    "mixin.StructureStartMixin"
+    "MineshaftCorridorMixin",
+    "PlacedFeatureMixin",
+    "RecipeManagerCompatMixin",
+    "StructurePieceMixin",
+    "StructureStartMixin"
   ],
   "client": [
-    "mixin.client.BiomeClientVarsMixin",
-    "mixin.client.MobEffectClientVarsMixin"
+    "client.BiomeClientVarsMixin",
+    "client.MobEffectClientVarsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

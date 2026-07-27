@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:skin_of_the_dreadlands"
   },
   "result": {
-    "item": "abyssalcraft:crystal_shard_phosphorus",
-    "count": 8
+    "count": 8,
+    "item": "abyssalcraft:crystal_shard_phosphorus"
   },
   "secondary_result": {
-    "item": "abyssalcraft:dreadlands_essence",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:dreadlands_essence"
   },
-  "experience": 0.2,
   "time": 200
 }

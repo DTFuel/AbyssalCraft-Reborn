@@ -2,32 +2,32 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 8,
       "ingredient": {
         "item": "abyssalcraft:crystal_carbon"
-      },
-      "count": 8
+      }
     },
     {
+      "count": 13,
       "ingredient": {
         "item": "abyssalcraft:crystal_hydrogen"
-      },
-      "count": 13
+      }
     },
     {
+      "count": 5,
       "ingredient": {
         "item": "abyssalcraft:crystal_oxygen"
-      },
-      "count": 5
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_nitrogen"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "item": "minecraft:elytra",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:elytra"
   }
 }

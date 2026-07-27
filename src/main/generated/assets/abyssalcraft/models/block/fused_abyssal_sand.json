@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "abyssalcraft:block/abyssal_sand",
-    "side": "abyssalcraft:block/fused_abyssal_sand_side",
-    "top": "abyssalcraft:block/fused_abyssal_sand_top"
-  }
-}

@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "item": "abyssalcraft:crystal_alumina"
   },
   "result": {
-    "item": "abyssalcraft:crystal_aluminium",
-    "count": 2
+    "count": 2,
+    "item": "abyssalcraft:crystal_aluminium"
   },
   "secondary_result": {
-    "item": "abyssalcraft:crystal_oxygen",
-    "count": 3
+    "count": 3,
+    "item": "abyssalcraft:crystal_oxygen"
   },
-  "experience": 0.1,
   "time": 200
 }

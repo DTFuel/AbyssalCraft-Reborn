@@ -1,0 +1,637 @@
+{
+  "credit": "Deterministic object-bounds conversion of docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/cthulhustatue.obj",
+  "ambientocclusion": false,
+  "textures": {
+    "all": "abyssalcraft:block/statue/cthulhu",
+    "particle": "abyssalcraft:block/statue/cthulhu"
+  },
+  "elements": [
+    {
+      "name": "leftleg3",
+      "from": [
+        4.0068,
+        5.9782,
+        2.0005
+      ],
+      "to": [
+        6.0068,
+        9.9782,
+        4.0005
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "base",
+      "from": [
+        4.0068,
+        -0.0218,
+        4.0005
+      ],
+      "to": [
+        12.0068,
+        5.9782,
+        12.0005
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "leftarm",
+      "from": [
+        4.0068,
+        9.5464,
+        2.0005
+      ],
+      "to": [
+        6.0068,
+        13.0312,
+        8.3137
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "rightleg2",
+      "from": [
+        10.0068,
+        7.0728,
+        3.3165
+      ],
+      "to": [
+        12.0068,
+        9.9782,
+        6.8196
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "rightleg1",
+      "from": [
+        10.0068,
+        6.4782,
+        6.0005
+      ],
+      "to": [
+        12.0068,
+        9.4782,
+        9.0005
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "rightleg3",
+      "from": [
+        10.0068,
+        5.9782,
+        2.0005
+      ],
+      "to": [
+        12.0068,
+        9.9782,
+        4.0005
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "leftleg1",
+      "from": [
+        4.0068,
+        6.4782,
+        6.0005
+      ],
+      "to": [
+        6.0068,
+        9.4782,
+        9.0005
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "leftfoot",
+      "from": [
+        4.0068,
+        2.9782,
+        3.0005
+      ],
+      "to": [
+        6.0068,
+        5.9782,
+        4.0005
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "body",
+      "from": [
+        5.5068,
+        6.0846,
+        4.5005
+      ],
+      "to": [
+        10.5068,
+        13.8465,
+        10.6401
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "leftleg2",
+      "from": [
+        4.0068,
+        7.0728,
+        3.3165
+      ],
+      "to": [
+        6.0068,
+        9.9782,
+        6.8196
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle3",
+      "from": [
+        8.0068,
+        8.9047,
+        1.0352
+      ],
+      "to": [
+        9.0068,
+        13.9782,
+        3.4566
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle2",
+      "from": [
+        7.0068,
+        9.0548,
+        0.2781
+      ],
+      "to": [
+        8.0068,
+        13.9782,
+        3.3963
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "rightwing",
+      "from": [
+        8.5068,
+        6.115,
+        9.0005
+      ],
+      "to": [
+        11.5068,
+        15.1519,
+        11.5482
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle1",
+      "from": [
+        6.0068,
+        8.8833,
+        1.324
+      ],
+      "to": [
+        7.0068,
+        13.9782,
+        3.4724
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "head",
+      "from": [
+        6.0068,
+        12.9782,
+        2.5005
+      ],
+      "to": [
+        10.0068,
+        16.9782,
+        6.5005
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "rightarm",
+      "from": [
+        10.0068,
+        9.5464,
+        2.0005
+      ],
+      "to": [
+        12.0068,
+        13.0312,
+        8.3137
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle4",
+      "from": [
+        9.0068,
+        9.0362,
+        0.3431
+      ],
+      "to": [
+        10.0068,
+        13.9782,
+        3.4026
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "leftwing",
+      "from": [
+        4.5068,
+        6.115,
+        9.0005
+      ],
+      "to": [
+        7.5068,
+        15.1519,
+        11.5482
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "rightfoot",
+      "from": [
+        10.0068,
+        2.9782,
+        3.0005
+      ],
+      "to": [
+        12.0068,
+        5.9782,
+        4.0005
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    }
+  ]
+}

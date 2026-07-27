@@ -18,8 +18,10 @@ import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothBlocks;
 import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothOozeBlock;
 import com.shinoow.abyssalcraft.content.block.structure.SealingLockBlock;
 import com.shinoow.abyssalcraft.content.block.structure.StructureContent;
+import com.shinoow.abyssalcraft.content.entity.boss.BossEntities;
 import com.shinoow.abyssalcraft.content.machine.rendingpedestal.RendingPedestalBlock;
 import com.shinoow.abyssalcraft.content.machine.rendingpedestal.RendingPedestals;
+import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.platform.DataDirs;
 import com.shinoow.abyssalcraft.platform.StructureNbtCompat;
 
@@ -137,6 +139,8 @@ public final class StructureFixtureValidator {
                 StructureContent.SEALING_LOCK.get().defaultBlockState())) return "lock_missing_be";
         if (!(ShoggothBlocks.SHOGGOTH_BIOMASS.get() instanceof ShoggothBiomassBlock)) return "biomass_missing";
         if (!(ShoggothBlocks.SHOGGOTH_OOZE.get() instanceof ShoggothOozeBlock)) return "ooze_missing";
+        if (!BuiltInRegistries.ENTITY_TYPE.containsKey(ACRef.id("remnant"))
+            || BossEntities.REMNANT.get() == null) return "remnant_missing";
         return null;
     }
 
@@ -223,6 +227,7 @@ public final class StructureFixtureValidator {
     private static boolean isReadableMarker(String metadata) {
         return metadata.equals("tombstone") || metadata.equals("tree")
             || metadata.equals("treasure") || metadata.equals("chest")
+            || metadata.equals("remnant")
             || metadata.equals("idol") || metadata.equals("pedestal") || metadata.startsWith("crate")
             || metadata.startsWith("spawn:") || metadata.startsWith("sealing_lock:")
             || metadata.equals("shoggoth_biomass") || metadata.equals("shoggoth_ooze")

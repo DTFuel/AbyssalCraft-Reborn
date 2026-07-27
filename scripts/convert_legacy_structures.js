@@ -199,6 +199,71 @@ function setState(state, name, properties = {}) {
   }
 }
 
+function selected(properties, ...names) {
+  return Object.fromEntries(names.filter(name => properties[name] !== undefined)
+    .map(name => [name, properties[name]]));
+}
+
+function modernVanillaState(name, properties) {
+  switch (name) {
+    case 'minecraft:air': return blockState('minecraft:air');
+    case 'minecraft:anvil': return blockState('minecraft:anvil', selected(properties, 'facing'));
+    case 'minecraft:bed': return blockState('minecraft:black_bed', selected(properties, 'part', 'facing', 'occupied'));
+    case 'minecraft:bookshelf': return blockState('minecraft:bookshelf');
+    case 'minecraft:brewing_stand': return blockState('minecraft:brewing_stand',
+      selected(properties, 'has_bottle_0', 'has_bottle_1', 'has_bottle_2'));
+    case 'minecraft:carpet': {
+      const target = properties.color === 'silver' ? 'minecraft:light_gray_carpet'
+        : properties.color === 'red' ? 'minecraft:red_carpet' : null;
+      if (!target) throw new Error(`Unsupported legacy carpet color ${properties.color}`);
+      return blockState(target);
+    }
+    case 'minecraft:chest': return blockState('minecraft:chest', selected(properties, 'facing'));
+    case 'minecraft:crafting_table': return blockState('minecraft:crafting_table');
+    case 'minecraft:dirt': return blockState('minecraft:dirt');
+    case 'minecraft:enchanting_table': return blockState('minecraft:enchanting_table');
+    case 'minecraft:furnace': return blockState('minecraft:furnace',
+      { ...selected(properties, 'facing'), lit: 'false' });
+    case 'minecraft:grass': return blockState('minecraft:grass_block', selected(properties, 'snowy'));
+    case 'minecraft:iron_bars': return blockState('minecraft:iron_bars',
+      selected(properties, 'north', 'east', 'south', 'west'));
+    case 'minecraft:ladder': return blockState('minecraft:ladder', selected(properties, 'facing'));
+    case 'minecraft:lava': return blockState('minecraft:lava', selected(properties, 'level'));
+    case 'minecraft:piston_head': return blockState('minecraft:piston_head',
+      selected(properties, 'facing', 'short', 'type'));
+    case 'minecraft:redstone_torch':
+      return properties.facing === 'up'
+        ? blockState('minecraft:redstone_torch', { lit: 'true' })
+        : blockState('minecraft:redstone_wall_torch', { ...selected(properties, 'facing'), lit: 'true' });
+    case 'minecraft:redstone_wire': return blockState('minecraft:redstone_wire',
+      selected(properties, 'north', 'east', 'south', 'west', 'power'));
+    case 'minecraft:sand': return blockState('minecraft:sand');
+    case 'minecraft:stained_glass_pane': {
+      if (properties.color !== 'white') throw new Error(`Unsupported legacy glass color ${properties.color}`);
+      return blockState('minecraft:white_stained_glass_pane',
+        selected(properties, 'north', 'east', 'south', 'west'));
+    }
+    case 'minecraft:sticky_piston': return blockState('minecraft:sticky_piston',
+      selected(properties, 'facing', 'extended'));
+    case 'minecraft:stone_button': return blockState('minecraft:stone_button',
+      { ...selected(properties, 'facing', 'powered'), face: 'wall' });
+    case 'minecraft:stone_pressure_plate': return blockState('minecraft:stone_pressure_plate',
+      selected(properties, 'powered'));
+    case 'minecraft:structure_block': return blockState('minecraft:structure_block', selected(properties, 'mode'));
+    case 'minecraft:torch': return blockState('minecraft:wall_torch', selected(properties, 'facing'));
+    case 'minecraft:unlit_redstone_torch': return blockState('minecraft:redstone_wall_torch',
+      { ...selected(properties, 'facing'), lit: 'false' });
+    case 'minecraft:unpowered_repeater': return blockState('minecraft:repeater',
+      { ...selected(properties, 'delay', 'facing', 'locked'), powered: 'false' });
+    case 'minecraft:wall_banner': return blockState('minecraft:black_wall_banner', selected(properties, 'facing'));
+    case 'minecraft:wooden_button': return blockState('minecraft:oak_button',
+      { ...selected(properties, 'facing', 'powered'), face: 'wall' });
+    case 'minecraft:wooden_door': return blockState('minecraft:oak_door',
+      selected(properties, 'hinge', 'half', 'powered', 'facing', 'open'));
+    default: throw new Error(`Unmapped legacy vanilla block ${name}`);
+  }
+}
+
 function replacementMetadata(rule, oldName, properties) {
   const suffix = Object.keys(properties).sort().map(key => `${key}=${properties[key]}`).join(',');
   return `replacement:${rule}|${oldName}${suffix ? `|${suffix}` : ''}`;
@@ -322,7 +387,11 @@ function transformStructure(root, mappings, relativePath) {
     const oldName = compoundString(state, 'Name');
     const oldProperties = propertiesOf(state);
     if (!oldName.startsWith('abyssalcraft:')) {
-      paletteDecisions.push({ kind: 'vanilla', oldName, oldProperties });
+      const modern = modernVanillaState(oldName, oldProperties);
+      const target = compoundString(modern, 'Name');
+      const properties = propertiesOf(modern);
+      setState(state, target, properties);
+      paletteDecisions.push({ kind: 'vanilla', oldName, oldProperties, target, properties });
       continue;
     }
     const fixed = mappings.static[oldName];

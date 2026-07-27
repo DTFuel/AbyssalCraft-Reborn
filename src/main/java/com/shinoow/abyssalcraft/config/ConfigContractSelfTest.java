@@ -50,8 +50,9 @@ public final class ConfigContractSelfTest {
 
         Map<String, ConfigClosureAudit.Consumer> consumers = ConfigClosureAudit.consumersByKey();
         Set<String> accountedKeys = new HashSet<>(consumers.keySet());
-        require(accountedKeys.addAll(ConfigClosureAudit.blockedKeys()),
+        require(java.util.Collections.disjoint(accountedKeys, ConfigClosureAudit.blockedKeys()),
             "a config key is both consumed and blocked");
+        accountedKeys.addAll(ConfigClosureAudit.blockedKeys());
         require(accountedKeys.equals(fields), "consumer and blocked maps do not cover ACConfig reflection fields");
         consumers.forEach((key, consumer) -> {
             require(consumer != null && !consumer.owner().isBlank() && !consumer.symbol().isBlank(),
@@ -82,7 +83,7 @@ public final class ConfigContractSelfTest {
             "abyssalcraft:abyssal_wasteland;5")).isEmpty(),
             "invalid dimension book mapping did not fail closed");
 
-        ConfigEditorModel model = new ConfigEditorModel();
+        ConfigEditorModel model = ConfigEditorModel.headless();
         require(model.validate("general.hardcore_mode").isEmpty(), "boolean parse failed");
         model.setValue("general.knowledge_sync_delay", "19");
         require(!model.validate("general.knowledge_sync_delay").isEmpty(), "range validation failed");

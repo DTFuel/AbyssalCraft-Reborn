@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:dreaded_shard_of_abyssalnite"
   },
   "result": {
-    "id": "abyssalcraft:dreadium_ingot",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:dreadium_ingot"
   },
-  "experience": 0.2,
   "time": 200
 }

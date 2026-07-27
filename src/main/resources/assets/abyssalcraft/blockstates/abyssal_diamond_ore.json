@@ -1,3 +1,7 @@
 {
-  "variants": { "": { "model": "abyssalcraft:block/abyssal_diamond_ore" } }
+  "variants": {
+    "": {
+      "model": "abyssalcraft:block/abyssal_diamond_ore"
+    }
+  }
 }

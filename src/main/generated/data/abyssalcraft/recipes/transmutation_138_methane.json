@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:methane_crystal_cluster"
   },
   "result": {
-    "item": "abyssalcraft:methane",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:methane"
   },
-  "experience": 0.2,
   "time": 200
 }

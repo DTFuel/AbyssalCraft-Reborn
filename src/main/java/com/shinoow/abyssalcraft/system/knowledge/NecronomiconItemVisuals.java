@@ -2,6 +2,7 @@ package com.shinoow.abyssalcraft.system.knowledge;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -43,7 +44,8 @@ public final class NecronomiconItemVisuals {
                 "RR-CONTENT must port the legacy typed item expression before it can be rendered");
         }
         String namespace = matcher.group(1).equals("Blocks") ? "minecraft" : "abyssalcraft";
-        String path = RENAMES.getOrDefault(matcher.group(2), matcher.group(2));
+        String legacyPath = matcher.group(2).toLowerCase(Locale.ROOT);
+        String path = RENAMES.getOrDefault(legacyPath, legacyPath);
         ResourceLocation id = ACRef.of(namespace, path);
         if (!BuiltInRegistries.ITEM.containsKey(id)) {
             return Resolution.blocked(id.toString(),

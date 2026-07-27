@@ -2,14 +2,14 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_abyssalnite"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "id": "abyssalcraft:abyssalnite_ingot",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:abyssalnite_ingot"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:dreadium_katana_blade"
+    },
+    "%": {
+      "item": "abyssalcraft:dreadium_katana_hilt"
+    }
+  },
+  "pattern": [
+    "# ",
+    "% "
+  ],
+  "result": {
+    "id": "abyssalcraft:dreadium_katana"
+  }
+}

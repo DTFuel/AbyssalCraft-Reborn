@@ -138,6 +138,7 @@ public final class NecronomiconPageManifest {
             boolean resolvedItem = "ITEM".equals(legacy.visualKind());
             boolean resolvedImage = "IMAGE".equals(legacy.visualKind());
             boolean resolvedRecipe = "RECIPE".equals(legacy.visualKind());
+            boolean resolvedText = "NONE".equals(legacy.visualKind());
             ItemStack icon = resolvedItem ? itemVisual.stack().orElse(ItemStack.EMPTY) : ItemStack.EMPTY;
             ContentRef content = resolvedImage
                 ? active("image", "necronomicon-image-renderer", legacy.visualReference())
@@ -146,6 +147,8 @@ public final class NecronomiconPageManifest {
                     itemVisual.reason())
                 : resolvedRecipe
                 ? recipeContent(legacy)
+                : resolvedText
+                ? new ContentRef("text", legacy.owner(), legacy.textKey(), legacy.status(), legacy.reason())
                 : new ContentRef(legacy.visualKind().toLowerCase(java.util.Locale.ROOT), legacy.owner(),
                     legacy.visualReference(), legacy.status(), legacy.reason());
             ImageContent image = resolvedImage ? loadImage(legacy.visualReference()) : null;
@@ -162,7 +165,8 @@ public final class NecronomiconPageManifest {
                 ritual.research(), active("ritual", "RitualManifestCatalog",
                     "id=" + ritual.id() + "; legacyId=" + ritual.legacyId() + "; order=" + ritual.order()
                         + "; kind=" + ritual.kind() + "; bookType=" + ritual.bookType()
-                        + "; dimension=" + ritual.dimension().location() + "; pe=" + ritual.requiredEnergy()
+                        + "; dimension=" + (ritual.dimension() == null ? "any" : ritual.dimension().location())
+                        + "; pe=" + ritual.requiredEnergy()
                         + "; sacrifice=" + ritual.requiresSacrifice() + "; center=" + ritual.center()
                         + "; offerings=" + ritual.offeringLayout() + "; result=" + ritual.result()),
                 ritual.bookType()));

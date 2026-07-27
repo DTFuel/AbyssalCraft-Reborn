@@ -3,7 +3,9 @@ package com.shinoow.abyssalcraft.integration.jei;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
@@ -19,7 +21,6 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import com.shinoow.abyssalcraft.content.machine.transmutator.TransmutatorBlockEntity;
 import com.shinoow.abyssalcraft.content.machine.transmutator.Transmutators;
 import com.shinoow.abyssalcraft.platform.ACRef;
-import com.shinoow.abyssalcraft.platform.MachineItemCompat;
 
 /**
  * JEI fuel category for the Transmutator (RR-JEI-AUTO / TP.5b / T8.1b).
@@ -82,7 +83,7 @@ public final class TransmutatorFuelCategory implements IRecipeCategory<FuelRecip
         int burnTicks = recipe.burnTime();
         Component text = Component.translatable("jei.abyssalcraft.fuel_time",
             String.format("%.1f", burnTicks / 20.0));
-        graphics.drawString(graphics.pose().last().pose(), text, 44, 12,
+        graphics.drawString(Minecraft.getInstance().font, text, 44, 12,
             0x808080, false);
     }
 
@@ -97,7 +98,9 @@ public final class TransmutatorFuelCategory implements IRecipeCategory<FuelRecip
     }
 
     private static void tryAddFuel(List<FuelRecipe> fuels, String itemId) {
-        ItemStack stack = MachineItemCompat.stack(itemId);
+        ItemStack stack = BuiltInRegistries.ITEM.containsKey(ACRef.parse(itemId))
+            ? new ItemStack(BuiltInRegistries.ITEM.get(ACRef.parse(itemId)))
+            : ItemStack.EMPTY;
         if (!stack.isEmpty()) {
             int burnTime = TransmutatorBlockEntity.fuelBurnTime(stack);
             if (burnTime > 0) {

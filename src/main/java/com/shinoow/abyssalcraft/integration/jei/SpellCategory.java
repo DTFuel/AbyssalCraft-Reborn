@@ -2,6 +2,7 @@ package com.shinoow.abyssalcraft.integration.jei;
 
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -104,22 +105,22 @@ public final class SpellCategory implements IRecipeCategory<SpellManifest> {
                      double mouseX, double mouseY) {
         // Display spell name
         Component nameText = Component.translatable("spell.abyssalcraft." + spell.id());
-        graphics.drawString(graphics.pose().last().pose(), nameText, 2, 2, 0x404040, false);
+        graphics.drawString(Minecraft.getInstance().font, nameText, 2, 2, 0x404040, false);
 
         // Display PE cost
         Component peText = Component.translatable("jei.abyssalcraft.spell_energy",
             (int)spell.requiredEnergy());
-        graphics.drawString(graphics.pose().last().pose(), peText, 2, 14, 0x808080, false);
+        graphics.drawString(Minecraft.getInstance().font, peText, 2, 14, 0x808080, false);
 
         // Display target type
         String targetKey = "jei.abyssalcraft.spell_target." + spell.targetType().name().toLowerCase();
         Component targetText = Component.translatable(targetKey);
-        graphics.drawString(graphics.pose().last().pose(), targetText, 2, 26, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, targetText, 2, 26, 0x606060, false);
 
         // Display scroll type
         Component scrollText = Component.translatable("jei.abyssalcraft.scroll_type",
             spell.scrollType().name().toLowerCase());
-        graphics.drawString(graphics.pose().last().pose(), scrollText, 2, 68, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, scrollText, 2, 68, 0x606060, false);
     }
 
     /** Get every spell from the authoritative manifest catalog. */

@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.9,
   "input": {
     "item": "minecraft:coal_block"
   },
   "result": {
-    "item": "abyssalcraft:carbon_crystal_cluster",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:carbon_crystal_cluster"
   },
-  "experience": 0.9,
   "time": 200
 }

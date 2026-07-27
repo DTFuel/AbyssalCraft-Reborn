@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "tag": "c:nuggets/tin"
   },
   "result": {
-    "id": "abyssalcraft:crystal_shard_tin",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:crystal_shard_tin"
   },
-  "experience": 0.1,
   "time": 200
 }

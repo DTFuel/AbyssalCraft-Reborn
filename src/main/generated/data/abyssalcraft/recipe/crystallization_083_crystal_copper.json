@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.5,
   "input": {
     "tag": "c:ingots/brass"
   },
   "result": {
-    "id": "abyssalcraft:crystal_copper",
-    "count": 3
+    "count": 3,
+    "id": "abyssalcraft:crystal_copper"
   },
   "secondary_result": {
-    "id": "abyssalcraft:crystal_zinc",
-    "count": 2
+    "count": 2,
+    "id": "abyssalcraft:crystal_zinc"
   },
-  "experience": 0.5,
   "time": 200
 }

@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "abyssalcraft:block/tombstone_stone"
+    },
+    "facing=east": {
+      "model": "abyssalcraft:block/tombstone_stone",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=south": {
+      "model": "abyssalcraft:block/tombstone_stone",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=west": {
+      "model": "abyssalcraft:block/tombstone_stone",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

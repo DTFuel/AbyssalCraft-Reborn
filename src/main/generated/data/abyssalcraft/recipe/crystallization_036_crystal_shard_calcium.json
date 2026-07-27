@@ -1,16 +1,16 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "item": "minecraft:egg"
   },
   "result": {
-    "id": "abyssalcraft:crystal_shard_calcium",
-    "count": 4
+    "count": 4,
+    "id": "abyssalcraft:crystal_shard_calcium"
   },
   "secondary_result": {
-    "id": "abyssalcraft:crystal_shard_phosphorus",
-    "count": 4
+    "count": 4,
+    "id": "abyssalcraft:crystal_shard_phosphorus"
   },
-  "experience": 0.1,
   "time": 200
 }

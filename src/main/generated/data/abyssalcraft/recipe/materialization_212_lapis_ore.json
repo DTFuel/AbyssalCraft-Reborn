@@ -2,26 +2,26 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 7,
       "ingredient": {
         "item": "abyssalcraft:crystal_silica"
-      },
-      "count": 7
+      }
     },
     {
+      "count": 4,
       "ingredient": {
         "item": "abyssalcraft:crystal_sulfur"
-      },
-      "count": 4
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_magnesia"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "id": "minecraft:lapis_ore",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:lapis_ore"
   }
 }

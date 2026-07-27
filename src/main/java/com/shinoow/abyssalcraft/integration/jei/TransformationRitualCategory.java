@@ -2,6 +2,7 @@ package com.shinoow.abyssalcraft.integration.jei;
 
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -104,26 +105,26 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
                      double mouseX, double mouseY) {
         // Display ritual name
         Component nameText = Component.translatable("ritual.abyssalcraft." + ritual.id());
-        graphics.drawString(graphics.pose().last().pose(), nameText, 2, 2, 0x404040, false);
+        graphics.drawString(Minecraft.getInstance().font, nameText, 2, 2, 0x404040, false);
 
         // Display PE requirement
         if (ritual.requiredEnergy() > 0) {
             Component peText = Component.translatable("jei.abyssalcraft.ritual_energy",
                 (int)ritual.requiredEnergy());
-            graphics.drawString(graphics.pose().last().pose(), peText, 2, 14, 0x808080, false);
+            graphics.drawString(Minecraft.getInstance().font, peText, 2, 14, 0x808080, false);
         }
 
         // Display dimension requirement if present
         if (ritual.dimension() != null) {
             String dimName = ritual.dimension().location().getPath();
             Component dimText = Component.translatable("jei.abyssalcraft.ritual_dimension", dimName);
-            graphics.drawString(graphics.pose().last().pose(), dimText, 2, 26, 0x606060, false);
+            graphics.drawString(Minecraft.getInstance().font, dimText, 2, 26, 0x606060, false);
         }
 
         // Display book type requirement
         Component bookText = Component.translatable("jei.abyssalcraft.ritual_book_type",
             ritual.bookType());
-        graphics.drawString(graphics.pose().last().pose(), bookText, 2, 88, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, bookText, 2, 88, 0x606060, false);
     }
 
     /**

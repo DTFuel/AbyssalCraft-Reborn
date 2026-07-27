@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:coralium_crystal_cluster"
   },
   "result": {
-    "item": "abyssalcraft:refined_coralium_ingot",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:refined_coralium_ingot"
   },
-  "experience": 0.2,
   "time": 200
 }

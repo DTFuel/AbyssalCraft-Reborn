@@ -1,0 +1,340 @@
+{
+  "credit": "Deterministic object-bounds conversion of docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/azathothstatue.obj",
+  "ambientocclusion": false,
+  "textures": {
+    "all": "abyssalcraft:block/statue/azathoth",
+    "particle": "abyssalcraft:block/statue/azathoth"
+  },
+  "elements": [
+    {
+      "name": "limb8",
+      "from": [
+        8.9976,
+        6.0002,
+        4.7144
+      ],
+      "to": [
+        12.4824,
+        8.0002,
+        11.0275
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "limb5",
+      "from": [
+        3.7209,
+        10.0002,
+        5.9908
+      ],
+      "to": [
+        7.2564,
+        14.7322,
+        12.4935
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "base",
+      "from": [
+        3.9976,
+        0.0002,
+        4.0099
+      ],
+      "to": [
+        11.9976,
+        6.0002,
+        12.0099
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "limb3",
+      "from": [
+        3.4318,
+        8.0683,
+        4.9118
+      ],
+      "to": [
+        6.9976,
+        11.5531,
+        11.5275
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "limb4",
+      "from": [
+        8.9976,
+        8.0683,
+        4.9118
+      ],
+      "to": [
+        12.5634,
+        11.5531,
+        11.5275
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "limb7",
+      "from": [
+        3.5128,
+        6.0002,
+        4.7144
+      ],
+      "to": [
+        6.9976,
+        8.0002,
+        11.0275
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "limb6",
+      "from": [
+        8.7388,
+        10.0002,
+        5.9908
+      ],
+      "to": [
+        12.2743,
+        14.7322,
+        12.4935
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "limb1",
+      "from": [
+        6.9976,
+        6.0002,
+        4.5099
+      ],
+      "to": [
+        8.9976,
+        8.0002,
+        10.5099
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "limb2",
+      "from": [
+        6.9976,
+        10.0002,
+        5.8137
+      ],
+      "to": [
+        8.9976,
+        14.7322,
+        12.0099
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "core",
+      "from": [
+        5.9976,
+        7.1012,
+        5.9746
+      ],
+      "to": [
+        9.9976,
+        12.0002,
+        10.8736
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    }
+  ]
+}

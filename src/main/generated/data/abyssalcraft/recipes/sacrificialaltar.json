@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "abyssalcraft:shadow_fragment"
+    },
+    "$": {
+      "item": "abyssalcraft:shadow_gem"
+    },
+    "%": {
+      "item": "abyssalcraft:coralium_pearl"
+    },
+    "&": {
+      "item": "abyssalcraft:monolith_stone"
+    }
+  },
+  "pattern": [
+    "#%#",
+    "&$&",
+    "&&&"
+  ],
+  "result": {
+    "item": "abyssalcraft:ritual_altar"
+  }
+}

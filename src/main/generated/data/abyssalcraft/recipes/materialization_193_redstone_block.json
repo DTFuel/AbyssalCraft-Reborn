@@ -2,14 +2,14 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 9,
       "ingredient": {
         "item": "abyssalcraft:crystal_redstone"
-      },
-      "count": 9
+      }
     }
   ],
   "result": {
-    "item": "minecraft:redstone_block",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:redstone_block"
   }
 }

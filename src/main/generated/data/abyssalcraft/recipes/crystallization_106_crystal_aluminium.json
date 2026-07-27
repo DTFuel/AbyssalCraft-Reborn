@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "tag": "forge:dusts/aluminium"
   },
   "result": {
-    "item": "abyssalcraft:crystal_aluminium",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:crystal_aluminium"
   },
-  "experience": 0.1,
   "time": 200
 }

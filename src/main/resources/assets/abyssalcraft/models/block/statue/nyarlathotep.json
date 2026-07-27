@@ -1,0 +1,802 @@
+{
+  "credit": "Deterministic object-bounds conversion of docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/nyarlathotepstatue.obj",
+  "ambientocclusion": false,
+  "textures": {
+    "all": "abyssalcraft:block/statue/nyarlathotep",
+    "particle": "abyssalcraft:block/statue/nyarlathotep"
+  },
+  "elements": [
+    {
+      "name": "tentacle8",
+      "from": [
+        8.1723,
+        6.5013,
+        5.9905
+      ],
+      "to": [
+        11.6754,
+        10.9717,
+        7.9905
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle9",
+      "from": [
+        9.6849,
+        5.5213,
+        5.9905
+      ],
+      "to": [
+        11.6849,
+        8.3567,
+        10.3339
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle6",
+      "from": [
+        3.0535,
+        6.68,
+        13.0679
+      ],
+      "to": [
+        4.8268,
+        8.942,
+        14.3968
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle7",
+      "from": [
+        3.1849,
+        7.8717,
+        11.9905
+      ],
+      "to": [
+        4.1849,
+        8.8717,
+        13.9905
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle4",
+      "from": [
+        4.3271,
+        6.6717,
+        10.4453
+      ],
+      "to": [
+        6.9849,
+        12.6717,
+        13.1032
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle5",
+      "from": [
+        3.4881,
+        5.9717,
+        10.4679
+      ],
+      "to": [
+        6.0849,
+        6.9717,
+        14.5158
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle2",
+      "from": [
+        4.4044,
+        6.5013,
+        3.9039
+      ],
+      "to": [
+        8.3735,
+        10.9717,
+        7.6878
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle3",
+      "from": [
+        4.2932,
+        5.5156,
+        2.7905
+      ],
+      "to": [
+        8.9498,
+        8.1468,
+        6.7674
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle1",
+      "from": [
+        4.783,
+        9.1591,
+        7.1453
+      ],
+      "to": [
+        8.4849,
+        12.6622,
+        12.0422
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "rightarm",
+      "from": [
+        7.9112,
+        11.8612,
+        2.5759
+      ],
+      "to": [
+        10.1726,
+        13.9717,
+        5.8493
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "headtentacle1",
+      "from": [
+        6.9707,
+        15.5433,
+        5.9905
+      ],
+      "to": [
+        9.7991,
+        18.3717,
+        7.9905
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "headtentacle2",
+      "from": [
+        7.8354,
+        15.6811,
+        5.9905
+      ],
+      "to": [
+        11.2508,
+        18.3894,
+        7.9905
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "headtentacle3",
+      "from": [
+        9.4849,
+        14.5717,
+        5.9905
+      ],
+      "to": [
+        11.4849,
+        17.5717,
+        7.9905
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "headtentacle4",
+      "from": [
+        9.1515,
+        14.5717,
+        7.6982
+      ],
+      "to": [
+        10.9849,
+        15.5717,
+        10.8595
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "headtentacle5",
+      "from": [
+        7.3816,
+        14.5717,
+        10.0959
+      ],
+      "to": [
+        10.1849,
+        15.5717,
+        12.9486
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "headtentacle6",
+      "from": [
+        6.9943,
+        13.3596,
+        11.5959
+      ],
+      "to": [
+        8.7849,
+        15.5648,
+        13.3999
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "base",
+      "from": [
+        3.9849,
+        -0.0283,
+        3.9905
+      ],
+      "to": [
+        11.9849,
+        5.9717,
+        11.9905
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "head",
+      "from": [
+        6.9849,
+        13.9717,
+        5.9905
+      ],
+      "to": [
+        8.9849,
+        16.9717,
+        7.9905
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle12",
+      "from": [
+        8.2602,
+        8.9717,
+        2.2317
+      ],
+      "to": [
+        11.4168,
+        9.9717,
+        3.9741
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle13",
+      "from": [
+        11.1602,
+        7.9717,
+        3.0317
+      ],
+      "to": [
+        12.3849,
+        9.9717,
+        4.2565
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "body",
+      "from": [
+        6.1166,
+        8.9717,
+        4.9905
+      ],
+      "to": [
+        9.8641,
+        13.9717,
+        8.738
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle10",
+      "from": [
+        7.3713,
+        5.9717,
+        1.6905
+      ],
+      "to": [
+        10.1665,
+        8.9717,
+        4.4858
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "tentacle11",
+      "from": [
+        9.4427,
+        6.9717,
+        9.6975
+      ],
+      "to": [
+        10.9849,
+        7.9717,
+        11.9027
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    },
+    {
+      "name": "leftarm",
+      "from": [
+        5.8792,
+        12.2335,
+        7.9515
+      ],
+      "to": [
+        7.7603,
+        13.9717,
+        11.2622
+      ],
+      "faces": {
+        "down": {
+          "texture": "#all"
+        },
+        "up": {
+          "texture": "#all"
+        },
+        "north": {
+          "texture": "#all"
+        },
+        "south": {
+          "texture": "#all"
+        },
+        "west": {
+          "texture": "#all"
+        },
+        "east": {
+          "texture": "#all"
+        }
+      }
+    }
+  ]
+}

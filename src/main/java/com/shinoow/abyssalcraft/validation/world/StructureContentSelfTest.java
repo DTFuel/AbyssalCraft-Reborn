@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.validation.world;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.block.entity.BlockEntity;
 
 import com.shinoow.abyssalcraft.content.block.structure.CrateBlockEntity;
 import com.shinoow.abyssalcraft.content.block.structure.SealingLockBlockEntity;
@@ -18,10 +19,10 @@ public final class StructureContentSelfTest {
             "crate block registration mismatch");
         require(BuiltInRegistries.ITEM.getKey(StructureContent.CRATE.get().asItem()).getPath().equals("crate"),
             "crate item is not the placeable crate");
-        require(StructureContent.CRATE.get().newBlockEntity(BlockPos.ZERO,
-            StructureContent.CRATE.get().defaultBlockState()) instanceof CrateBlockEntity crate,
-            "crate did not create its own block entity");
-        require(crate.getContainerSize() == 27, "crate inventory is not 27 slots");
+        BlockEntity crateEntity = StructureContent.CRATE.get().newBlockEntity(BlockPos.ZERO,
+            StructureContent.CRATE.get().defaultBlockState());
+        require(crateEntity instanceof CrateBlockEntity, "crate did not create its own block entity");
+        require(CrateBlockEntity.SLOT_COUNT == 27, "crate inventory is not 27 slots");
 
         SealingLockBlockEntity lock = new SealingLockBlockEntity(BlockPos.ZERO,
             StructureContent.SEALING_LOCK.get().defaultBlockState());

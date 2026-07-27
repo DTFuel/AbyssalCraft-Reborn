@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "item": "minecraft:gold_ingot"
   },
   "result": {
-    "id": "abyssalcraft:crystal_gold",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:crystal_gold"
   },
-  "experience": 0.1,
   "time": 200
 }

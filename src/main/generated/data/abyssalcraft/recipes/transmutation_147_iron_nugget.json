@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:transmutation",
+  "experience": 0.2,
   "input": {
     "item": "abyssalcraft:crystal_iron"
   },
   "result": {
-    "item": "minecraft:iron_nugget",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:iron_nugget"
   },
-  "experience": 0.2,
   "time": 200
 }

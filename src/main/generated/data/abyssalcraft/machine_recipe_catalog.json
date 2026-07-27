@@ -1,0 +1,5935 @@
+{
+  "blocked": 0,
+  "entries": [
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:blaze_powder"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Items.BLAZE_POWDER, new ItemStack(ACItems.crystal_shard_blaze, 4), 0.1F);",
+      "ordinal": 1,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_blaze"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_001_crystal_shard_blaze",
+      "source_line": 113,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:bone_meal"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(Items.DYE, 1, 15), new ItemStack(ACItems.crystal_shard_phosphorus, 4), 0.0F);",
+      "ordinal": 2,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_002_crystal_shard_phosphorus",
+      "source_line": 114,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:water_bucket"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(Items.WATER_BUCKET, new ItemStack(ACItems.crystal_hydrogen, 12), new ItemStack(ACItems.crystal_shard_oxygen, 6), 0.1F);",
+      "ordinal": 3,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 12,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_shard_oxygen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_003_crystal_hydrogen",
+      "source_line": 115,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:potion"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER), new ItemStack(ACItems.crystal_shard_hydrogen, 6), new ItemStack(ACItems.crystal_shard_oxygen, 3), 0.1F);",
+      "ordinal": 4,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_shard_hydrogen"
+        },
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_shard_oxygen"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_004_crystal_shard_hydrogen",
+      "source_line": 116,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:methane"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(ACItems.methane, new ItemStack(ACItems.crystal_shard_oxygen, 4), new ItemStack(ACItems.crystal_hydrogen, 16), 0.1F);",
+      "ordinal": 5,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_oxygen"
+        },
+        {
+          "count": 16,
+          "item": "abyssalcraft:crystal_hydrogen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_005_crystal_shard_oxygen",
+      "source_line": 117,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:gunpowder"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(Items.GUNPOWDER, new ItemStack(ACItems.crystal_shard_nitrate, 16), new ItemStack(ACItems.crystal_shard_sulfur, 4), 0.1F);",
+      "ordinal": 6,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 16,
+          "item": "abyssalcraft:crystal_shard_nitrate"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_sulfur"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_006_crystal_shard_nitrate",
+      "source_line": 118,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:obsidian"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(Blocks.OBSIDIAN, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_magnesia, 4), 0.1F);",
+      "ordinal": 7,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_silica"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_magnesia"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_007_crystal_shard_silica",
+      "source_line": 119,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:stone"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(Blocks.STONE, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_magnesia, 4), 0.1F);",
+      "ordinal": 8,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_silica"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_magnesia"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_008_crystal_shard_silica",
+      "source_line": 120,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_silicon), new ItemStack(ACItems.crystal_oxygen, 2), 0.1F);",
+      "ordinal": 9,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silicon"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_oxygen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_009_crystal_silicon",
+      "source_line": 121,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_silica"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_silica), new ItemStack(ACItems.crystal_shard_silicon), new ItemStack(ACItems.crystal_shard_oxygen, 2), 0.1F);",
+      "ordinal": 10,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_silicon"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_shard_oxygen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_010_crystal_shard_silicon",
+      "source_line": 122,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_alumina"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_alumina), new ItemStack(ACItems.crystal_aluminium, 2), new ItemStack(ACItems.crystal_oxygen, 3), 0.1F);",
+      "ordinal": 11,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_aluminium"
+        },
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_oxygen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_011_crystal_aluminium",
+      "source_line": 123,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_alumina"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_alumina), new ItemStack(ACItems.crystal_shard_aluminium, 2), new ItemStack(ACItems.crystal_shard_oxygen, 3), 0.1F);",
+      "ordinal": 12,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_shard_aluminium"
+        },
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_shard_oxygen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_012_crystal_shard_aluminium",
+      "source_line": 124,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_magnesium), new ItemStack(ACItems.crystal_oxygen), 0.1F);",
+      "ordinal": 13,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesium"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_oxygen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_013_crystal_magnesium",
+      "source_line": 125,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_magnesia"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_magnesia), new ItemStack(ACItems.crystal_shard_magnesium), new ItemStack(ACItems.crystal_shard_oxygen), 0.1F);",
+      "ordinal": 14,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_magnesium"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_oxygen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_014_crystal_shard_magnesium",
+      "source_line": 126,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_methane"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_methane), new ItemStack(ACItems.crystal_carbon), new ItemStack(ACItems.crystal_hydrogen, 4), 0.1F);",
+      "ordinal": 15,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_hydrogen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_015_crystal_carbon",
+      "source_line": 127,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_methane"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_methane), new ItemStack(ACItems.crystal_shard_carbon), new ItemStack(ACItems.crystal_shard_hydrogen, 4), 0.1F);",
+      "ordinal": 16,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_carbon"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_hydrogen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_016_crystal_shard_carbon",
+      "source_line": 128,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrate"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_nitrate), new ItemStack(ACItems.crystal_nitrogen), new ItemStack(ACItems.crystal_oxygen, 3), 0.1F);",
+      "ordinal": 17,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrogen"
+        },
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_oxygen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_017_crystal_nitrogen",
+      "source_line": 129,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_nitrate"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_nitrate), new ItemStack(ACItems.crystal_shard_nitrogen), new ItemStack(ACItems.crystal_shard_oxygen, 3), 0.1F);",
+      "ordinal": 18,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_nitrogen"
+        },
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_shard_oxygen"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_018_crystal_shard_nitrogen",
+      "source_line": 130,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:rotten_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Items.ROTTEN_FLESH, new ItemStack(ACItems.crystal_shard_phosphorus, 8), 0.1F);",
+      "ordinal": 19,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_019_crystal_shard_phosphorus",
+      "source_line": 131,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:overworld_shoggoth_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(ACItems.overworld_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), 0.2F);",
+      "ordinal": 20,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_020_crystal_shard_phosphorus",
+      "source_line": 132,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssal_shoggoth_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(ACItems.abyssal_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_fragment_coralium, 2), 0.2F);",
+      "ordinal": 21,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_fragment_coralium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_021_crystal_shard_phosphorus",
+      "source_line": 133,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreaded_shoggoth_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(ACItems.dreaded_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_fragment_dreadium, 2), 0.2F);",
+      "ordinal": 22,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_fragment_dreadium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_022_crystal_shard_phosphorus",
+      "source_line": 134,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:omothol_shoggoth_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(ACItems.omothol_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_fragment_carbon, 2), 0.2F);",
+      "ordinal": 23,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_fragment_carbon"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_023_crystal_shard_phosphorus",
+      "source_line": 135,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:shadow_shoggoth_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(ACItems.shadow_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.shadow_gem, 1), 0.2F);",
+      "ordinal": 24,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:shadow_gem"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_024_crystal_shard_phosphorus",
+      "source_line": 136,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:coralium_plagued_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.coralium_plagued_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_shard_coralium), 0.2F);",
+      "ordinal": 25,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_coralium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_025_crystal_shard_phosphorus",
+      "source_line": 137,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:skin_of_the_abyssal_wasteland"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.skin_of_the_abyssal_wasteland), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.abyssal_wasteland_essence), 0.2F);",
+      "ordinal": 26,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssal_wasteland_essence"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_026_crystal_shard_phosphorus",
+      "source_line": 138,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:skin_of_the_dreadlands"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.skin_of_the_dreadlands), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.dreadlands_essence), 0.2F);",
+      "ordinal": 27,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreadlands_essence"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_027_crystal_shard_phosphorus",
+      "source_line": 139,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:skin_of_omothol"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.skin_of_omothol), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.omothol_essence), 0.2F);",
+      "ordinal": 28,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:omothol_essence"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_028_crystal_shard_phosphorus",
+      "source_line": 140,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreaded_shard_of_abyssalnite"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(ACItems.dreaded_shard_of_abyssalnite, new ItemStack(ACItems.crystal_shard_abyssalnite), new ItemStack(ACItems.crystal_shard_dreadium, 4), 0.2F);",
+      "ordinal": 29,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_abyssalnite"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_dreadium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_029_crystal_shard_abyssalnite",
+      "source_line": 141,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:bone"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Items.BONE, new ItemStack(ACItems.crystal_shard_calcium, 4), 0.2F);",
+      "ordinal": 30,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_calcium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_030_crystal_shard_calcium",
+      "source_line": 142,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:prismarine_shard"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(Items.PRISMARINE_SHARD, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_beryl, 4), 0.1F);",
+      "ordinal": 31,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_silica"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_beryl"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_031_crystal_shard_silica",
+      "source_line": 143,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:prismarine_crystals"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(Items.PRISMARINE_CRYSTALS, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_beryl, 4), 0.1F);",
+      "ordinal": 32,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_silica"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_beryl"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_032_crystal_shard_silica",
+      "source_line": 144,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:prismarine"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(Blocks.PRISMARINE, 1, 0), new ItemStack(ACItems.crystal_shard_silica, 16), new ItemStack(ACItems.crystal_shard_beryl, 27), 0.1F);",
+      "ordinal": 33,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 16,
+          "item": "abyssalcraft:crystal_shard_silica"
+        },
+        {
+          "count": 27,
+          "item": "abyssalcraft:crystal_shard_beryl"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_033_crystal_shard_silica",
+      "source_line": 145,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:prismarine_bricks"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(Blocks.PRISMARINE, 1, 1), new ItemStack(ACItems.crystal_silica, 4), new ItemStack(ACItems.crystal_beryl, 4), 0.1F);",
+      "ordinal": 34,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_beryl"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_034_crystal_silica",
+      "source_line": 146,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:dark_prismarine"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(Blocks.PRISMARINE, 1, 2), new ItemStack(ACItems.crystal_shard_silica, 32), new ItemStack(ACItems.crystal_shard_beryl, 32), 0.1F);",
+      "ordinal": 35,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 32,
+          "item": "abyssalcraft:crystal_shard_silica"
+        },
+        {
+          "count": 32,
+          "item": "abyssalcraft:crystal_shard_beryl"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_035_crystal_shard_silica",
+      "source_line": 147,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:egg"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(Items.EGG, new ItemStack(ACItems.crystal_shard_calcium, 4), new ItemStack(ACItems.crystal_shard_phosphorus, 4), 0.1F);",
+      "ordinal": 36,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_calcium"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_036_crystal_shard_calcium",
+      "source_line": 148,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:ghoul_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.ghoul_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 12), 0.2F);",
+      "ordinal": 37,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 12,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_037_crystal_shard_phosphorus",
+      "source_line": 149,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssal_ghoul_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.abyssal_ghoul_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.crystal_shard_coralium), 0.2F);",
+      "ordinal": 38,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 12,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_coralium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_038_crystal_shard_phosphorus",
+      "source_line": 150,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreaded_ghoul_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.dreaded_ghoul_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.crystal_shard_dreadium), 0.2F);",
+      "ordinal": 39,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 12,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_dreadium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_039_crystal_shard_phosphorus",
+      "source_line": 151,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:omothol_ghoul_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(ACItems.omothol_ghoul_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.crystal_fragment_carbon, 2), 0.2F);",
+      "ordinal": 40,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 12,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_fragment_carbon"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_040_crystal_shard_phosphorus",
+      "source_line": 152,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:shadow_ghoul_flesh"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(ACItems.shadow_ghoul_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.shadow_shard, 1), 0.2F);",
+      "ordinal": 41,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 12,
+          "item": "abyssalcraft:crystal_shard_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:shadow_shard"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_041_crystal_shard_phosphorus",
+      "source_line": 153,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:refined_coralium_ingot"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(ACItems.refined_coralium_ingot, new ItemStack(ACItems.crystal_coralium), 0.1F);",
+      "ordinal": 42,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_coralium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_042_crystal_coralium",
+      "source_line": 155,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:chunk_of_coralium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(ACItems.chunk_of_coralium, new ItemStack(ACItems.crystal_coralium), 0.1F);",
+      "ordinal": 43,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_coralium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_043_crystal_coralium",
+      "source_line": 156,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:liquified_coralium_ore"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(ACBlocks.liquified_coralium_ore, new ItemStack(ACItems.crystal_coralium), 0.1F);",
+      "ordinal": 44,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_coralium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_044_crystal_coralium",
+      "source_line": 157,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssalnite_ingot"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(ACItems.abyssalnite_ingot, new ItemStack(ACItems.crystal_abyssalnite), 0.1F);",
+      "ordinal": 45,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_abyssalnite"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_045_crystal_abyssalnite",
+      "source_line": 158,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreadium_ingot"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(ACItems.dreadium_ingot, new ItemStack(ACItems.crystal_dreadium), 0.1F);",
+      "ordinal": 46,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_dreadium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_046_crystal_dreadium",
+      "source_line": 159,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:iron_ingot"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Items.IRON_INGOT, new ItemStack(ACItems.crystal_iron), 0.1F);",
+      "ordinal": 47,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_iron"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_047_crystal_iron",
+      "source_line": 160,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:gold_ingot"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Items.GOLD_INGOT, new ItemStack(ACItems.crystal_gold), 0.1F);",
+      "ordinal": 48,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_gold"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_048_crystal_gold",
+      "source_line": 161,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:redstone"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Items.REDSTONE, new ItemStack(ACItems.crystal_redstone), 0.1F);",
+      "ordinal": 49,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_redstone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_049_crystal_redstone",
+      "source_line": 162,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:charcoal"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(ACItems.charcoal, new ItemStack(ACItems.crystal_carbon), 0.1F);",
+      "ordinal": 50,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_050_crystal_carbon",
+      "source_line": 163,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:coal"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(Items.COAL, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ACItems.crystal_carbon), 0.1F);",
+      "ordinal": 51,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_051_crystal_carbon",
+      "source_line": 164,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ores/abyssalnite"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"oreAbyssalnite\", \"crystalAbyssalnite\", 2, 0.1F);",
+      "ordinal": 52,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_abyssalnite"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_052_crystal_abyssalnite",
+      "source_line": 165,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ores/coralium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"oreCoralium\", \"crystalCoralium\", 2, 0.1F);",
+      "ordinal": 53,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_coralium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_053_crystal_coralium",
+      "source_line": 166,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ores/iron"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"oreIron\", \"crystalIron\", 2, 0.1F);",
+      "ordinal": 54,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_iron"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_054_crystal_iron",
+      "source_line": 167,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ores/gold"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"oreGold\", \"crystalGold\", 2, 0.1F);",
+      "ordinal": 55,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_gold"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_055_crystal_gold",
+      "source_line": 168,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ingots/tin"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"ingotTin\", \"crystalTin\", 1, 0.1F);",
+      "ordinal": 56,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_tin"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_056_crystal_tin",
+      "source_line": 169,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ores/tin"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"oreTin\", \"crystalTin\", 2, 0.1F);",
+      "ordinal": 57,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_tin"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_057_crystal_tin",
+      "source_line": 170,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ingots/copper"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"ingotCopper\", \"crystalCopper\", 1, 0.1F);",
+      "ordinal": 58,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_copper"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_058_crystal_copper",
+      "source_line": 171,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ores/copper"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"oreCopper\", \"crystalCopper\", 2, 0.1F);",
+      "ordinal": 59,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_copper"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_059_crystal_copper",
+      "source_line": 172,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ingots/aluminium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"ingotAluminum\", \"crystalAluminium\", 1, 0.1F);",
+      "ordinal": 60,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_aluminium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_060_crystal_aluminium",
+      "source_line": 173,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ingots/aluminium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"ingotAluminium\", \"crystalAluminium\", 1, 0.1F);",
+      "ordinal": 61,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_aluminium"
+        }
+      ],
+      "owner": "legacy-oredictionary-alias",
+      "reason": "duplicate spelling alias resolves to the preceding modern recipe",
+      "recipe_id": "",
+      "source_line": 174,
+      "status": "RETIRED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ores/aluminium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"oreAluminum\", \"crystalAluminium\", 2, 0.1F);",
+      "ordinal": 62,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_aluminium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_062_crystal_aluminium",
+      "source_line": 175,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:storage_blocks/copper"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"blockCopper\", \"crystalClusterCopper\", 1, 0.9F);",
+      "ordinal": 63,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:copper_crystal_cluster"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_063_copper_crystal_cluster",
+      "source_line": 176,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:storage_blocks/tin"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"blockTin\", \"crystalClusterTin\", 1, 0.9F);",
+      "ordinal": 64,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:tin_crystal_cluster"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_064_tin_crystal_cluster",
+      "source_line": 177,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:gold_block"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Blocks.GOLD_BLOCK, new ItemStack(ACBlocks.gold_crystal_cluster), 0.9F);",
+      "ordinal": 65,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:gold_crystal_cluster"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_065_gold_crystal_cluster",
+      "source_line": 178,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:iron_block"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Blocks.IRON_BLOCK, new ItemStack(ACBlocks.iron_crystal_cluster), 0.9F);",
+      "ordinal": 66,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:iron_crystal_cluster"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_066_iron_crystal_cluster",
+      "source_line": 179,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:block_of_abyssalnite"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACBlocks.block_of_abyssalnite), new ItemStack(ACBlocks.abyssalnite_crystal_cluster), 0.9F);",
+      "ordinal": 67,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssalnite_crystal_cluster"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_067_abyssalnite_crystal_cluster",
+      "source_line": 180,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:block_of_refined_coralium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACBlocks.block_of_refined_coralium), new ItemStack(ACBlocks.coralium_crystal_cluster), 0.9F);",
+      "ordinal": 68,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:coralium_crystal_cluster"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_068_coralium_crystal_cluster",
+      "source_line": 181,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:block_of_dreadium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACBlocks.block_of_dreadium), new ItemStack(ACBlocks.dreadium_crystal_cluster), 0.9F);",
+      "ordinal": 69,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreadium_crystal_cluster"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_069_dreadium_crystal_cluster",
+      "source_line": 182,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:coal_ore"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Blocks.COAL_ORE, new ItemStack(ACItems.crystal_carbon, 2), 0.1F);",
+      "ordinal": 70,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_070_crystal_carbon",
+      "source_line": 183,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:coal_block"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Blocks.COAL_BLOCK, new ItemStack(ACBlocks.carbon_crystal_cluster), 0.9F);",
+      "ordinal": 71,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:carbon_crystal_cluster"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_071_carbon_crystal_cluster",
+      "source_line": 184,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:redstone_ore"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Blocks.REDSTONE_ORE, new ItemStack(ACItems.crystal_redstone, 2), 0.1F);",
+      "ordinal": 72,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_redstone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_072_crystal_redstone",
+      "source_line": 185,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:redstone_block"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Blocks.REDSTONE_BLOCK, new ItemStack(ACBlocks.redstone_crystal_cluster), 0.9F);",
+      "ordinal": 73,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:redstone_crystal_cluster"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_073_redstone_crystal_cluster",
+      "source_line": 186,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ingots/zinc"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"ingotZinc\", \"crystalZinc\", 0.1F);",
+      "ordinal": 74,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_zinc"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_074_crystal_zinc",
+      "source_line": 187,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ores/zinc"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"oreZinc\", \"crystalZinc\", 2, 0.1F);",
+      "ordinal": 75,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_zinc"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_075_crystal_zinc",
+      "source_line": 188,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreaded_abyssalnite_ore"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(ACBlocks.dreaded_abyssalnite_ore, new ItemStack(ACItems.crystal_abyssalnite, 2), new ItemStack(ACItems.crystal_dreadium, 2), 0.2F);",
+      "ordinal": 76,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_abyssalnite"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_dreadium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_076_crystal_abyssalnite",
+      "source_line": 189,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:dusts/saltpeter"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(\"dustSaltpeter\", \"crystalPotassium\", 1, \"crystalNitrate\", 1, 0.1F);",
+      "ordinal": 77,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_potassium"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrate"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_077_crystal_potassium",
+      "source_line": 190,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ores/saltpeter"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(\"oreSaltpeter\", \"crystalPotassium\", 2, \"crystalNitrate\", 2, 0.1F);",
+      "ordinal": 78,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_potassium"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_nitrate"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_078_crystal_potassium",
+      "source_line": 191,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ingots/bronze"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(\"ingotBronze\", \"crystalCopper\", 3, \"crystalTin\", 1, 0.4F);",
+      "ordinal": 79,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_copper"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_tin"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_079_crystal_copper",
+      "source_line": 192,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:lapis_lazuli"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(new ItemStack(Items.DYE, 1, 4), new ItemStack(ACItems.crystal_silica, 6), new ItemStack(ACItems.crystal_sulfur, 4), 0.15F);",
+      "ordinal": 80,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_sulfur"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_080_crystal_silica",
+      "source_line": 193,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:lapis_ore"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(Blocks.LAPIS_ORE, new ItemStack(ACItems.crystal_silica, 21), new ItemStack(ACItems.crystal_potassium, 8), 0.15F);",
+      "ordinal": 81,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 21,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_potassium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_081_crystal_silica",
+      "source_line": 194,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:lapis_block"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(Blocks.LAPIS_BLOCK, new ItemStack(ACBlocks.silica_crystal_cluster, 6), new ItemStack(ACBlocks.sulfur_crystal_cluster, 4), 1.0F);",
+      "ordinal": 82,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:silica_crystal_cluster"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:sulfur_crystal_cluster"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_082_silica_crystal_cluster",
+      "source_line": 195,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ingots/brass"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(\"ingotBrass\", \"crystalCopper\", 3, \"crystalZinc\", 2, 0.5F);",
+      "ordinal": 83,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_copper"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_zinc"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_083_crystal_copper",
+      "source_line": 196,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ores/brass"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(\"oreBrass\", \"crystalCopper\", 6, \"crystalZinc\", 4, 0.5F);",
+      "ordinal": 84,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_copper"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_zinc"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_084_crystal_copper",
+      "source_line": 197,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:gold_nugget"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(Items.GOLD_NUGGET, new ItemStack(ACItems.crystal_shard_gold), 0.1F);",
+      "ordinal": 85,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_gold"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_085_crystal_shard_gold",
+      "source_line": 198,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssalnite_ingot"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.abyssalnite_ingot), new ItemStack(ACItems.crystal_shard_abyssalnite), 0.1F);",
+      "ordinal": 86,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_abyssalnite"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_086_crystal_shard_abyssalnite",
+      "source_line": 199,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:refined_coralium_ingot"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.refined_coralium_ingot), new ItemStack(ACItems.crystal_shard_coralium), 0.1F);",
+      "ordinal": 87,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_coralium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_087_crystal_shard_coralium",
+      "source_line": 200,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreadium_ingot"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.dreadium_ingot), new ItemStack(ACItems.crystal_shard_dreadium), 0.1F);",
+      "ordinal": 88,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_dreadium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_088_crystal_shard_dreadium",
+      "source_line": 201,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:nuggets/iron"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"nuggetIron\", \"crystalShardIron\", 0.1F);",
+      "ordinal": 89,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_iron"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_089_crystal_shard_iron",
+      "source_line": 202,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:nuggets/copper"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"nuggetCopper\", \"crystalShardCopper\", 0.1F);",
+      "ordinal": 90,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_copper"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_090_crystal_shard_copper",
+      "source_line": 203,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:nuggets/tin"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"nuggetTin\", \"crystalShardTin\", 0.1F);",
+      "ordinal": 91,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_tin"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_091_crystal_shard_tin",
+      "source_line": 204,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:nuggets/aluminium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"nuggetAluminium\", \"crystalShardAluminium\", 0.1F);",
+      "ordinal": 92,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_aluminium"
+        }
+      ],
+      "owner": "legacy-oredictionary-alias",
+      "reason": "duplicate spelling alias resolves to the preceding modern recipe",
+      "recipe_id": "",
+      "source_line": 205,
+      "status": "RETIRED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:nuggets/bronze"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(\"nuggetBronze\", \"crystalShardCopper\", 3, \"crystalShardTin\", 1, 0.1F);",
+      "ordinal": 93,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_shard_copper"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_tin"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_093_crystal_shard_copper",
+      "source_line": 206,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:nuggets/brass"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(\"nuggetBrass\", \"crystalShardCopper\", 3, \"crystalShardZinc\", 2, 0.1F);",
+      "ordinal": 94,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_shard_copper"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_shard_zinc"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_094_crystal_shard_copper",
+      "source_line": 207,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:coralium_gem"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(ACItems.coralium_gem, new ItemStack(ACItems.crystal_shard_coralium), 0.1F);",
+      "ordinal": 95,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_coralium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:crystallization_095_crystal_shard_coralium",
+      "source_line": 208,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:nuggets/zinc"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"nuggetZinc\", \"crystalShardZinc\", 0.1F);",
+      "ordinal": 96,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_zinc"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_096_crystal_shard_zinc",
+      "source_line": 209,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:nuggets/magnesium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"nuggetMagnesium\", \"crystalShardMagnesium\", 0.1F);",
+      "ordinal": 97,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_magnesium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_097_crystal_shard_magnesium",
+      "source_line": 210,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ingots/magnesium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"ingotMagnesium\", \"crystalMagnesium\", 0.1F);",
+      "ordinal": 98,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_098_crystal_magnesium",
+      "source_line": 211,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:nuggets/calcium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"nuggetCalcium\", \"crystalShardCalcium\", 0.1F);",
+      "ordinal": 99,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_calcium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_099_crystal_shard_calcium",
+      "source_line": 212,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:ingots/calcium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"ingotCalcium\", \"crystalCalcium\", 0.1F);",
+      "ordinal": 100,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_calcium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_100_crystal_calcium",
+      "source_line": 213,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:dusts/iron"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"dustIron\", \"crystalIron\", 0.1F);",
+      "ordinal": 101,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_iron"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_101_crystal_iron",
+      "source_line": 216,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:dusts/gold"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"dustGold\", \"crystalGold\", 0.1F);",
+      "ordinal": 102,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_gold"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_102_crystal_gold",
+      "source_line": 217,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:dusts/tin"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"dustTin\", \"crystalTin\", 0.1F);",
+      "ordinal": 103,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_tin"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_103_crystal_tin",
+      "source_line": 218,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:dusts/copper"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"dustCopper\", \"crystalCopper\", 0.1F);",
+      "ordinal": 104,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_copper"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_104_crystal_copper",
+      "source_line": 219,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:dusts/coal"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"dustCoal\", \"crystalCarbon\", 0.1F);",
+      "ordinal": 105,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_105_crystal_carbon",
+      "source_line": 220,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:dusts/aluminium"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"dustAluminium\", \"crystalAluminium\", 0.1F);",
+      "ordinal": 106,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_aluminium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_106_crystal_aluminium",
+      "source_line": 221,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:dusts/sulfur"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addSingleCrystallization(\"dustSulfur\", \"crystalSulfur\", 0.1F);",
+      "ordinal": 107,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_sulfur"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_107_crystal_sulfur",
+      "source_line": 222,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:dusts/bronze"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(\"dustBronze\", \"crystalCopper\", 3, \"crystalTin\", 1, 0.1F);",
+      "ordinal": 108,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_copper"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_tin"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_108_crystal_copper",
+      "source_line": 223,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "tag": "c:dusts/brass"
+        }
+      ],
+      "kind": "CRYSTALLIZATION",
+      "legacy_call": "AbyssalCraftAPI.addCrystallization(\"dustBrass\", \"crystalCopper\", 3, \"crystalZinc\", 2, 0.1F);",
+      "ordinal": 109,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 3,
+          "item": "abyssalcraft:crystal_copper"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_zinc"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:crystallization_109_crystal_copper",
+      "source_line": 224,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:darkstone"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.darkstone), new ItemStack(Blocks.STONE), 0.0F);",
+      "ordinal": 110,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:stone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_110_stone",
+      "source_line": 229,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreaded_shard_of_abyssalnite"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.dreaded_shard_of_abyssalnite, new ItemStack(ACItems.dreadium_ingot), 0.2F);",
+      "ordinal": 111,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreadium_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_111_dreadium_ingot",
+      "source_line": 230,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:stone"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(Blocks.STONE, new ItemStack(ACBlocks.darkstone), 0.0F);",
+      "ordinal": 112,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:darkstone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_112_darkstone",
+      "source_line": 231,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:stone_bricks"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(Blocks.STONEBRICK, new ItemStack(ACBlocks.darkstone_brick), 0.0F);",
+      "ordinal": 113,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:darkstone_brick"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_113_darkstone_brick",
+      "source_line": 232,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:darkstone_brick"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.darkstone_brick), new ItemStack(Blocks.STONEBRICK), 0.0F);",
+      "ordinal": 114,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:stone_bricks"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_114_stone_bricks",
+      "source_line": 233,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "minecraft:cobblestone"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(Blocks.COBBLESTONE, new ItemStack(ACBlocks.darkstone_cobblestone), 0.0F);",
+      "ordinal": 115,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:darkstone_cobblestone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_115_darkstone_cobblestone",
+      "source_line": 234,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:darkstone_cobblestone"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.darkstone_cobblestone), new ItemStack(Blocks.COBBLESTONE), 0.0F);",
+      "ordinal": 116,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:cobblestone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_116_cobblestone",
+      "source_line": 235,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:coralium_stone_brick"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.coralium_stone_brick), new ItemStack(ACItems.coralium_brick, 4), 0.0F);",
+      "ordinal": 117,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:coralium_brick"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_117_coralium_brick",
+      "source_line": 236,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:coralium_brick"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.coralium_brick, new ItemStack(ACBlocks.coralium_stone), 0.0F);",
+      "ordinal": 118,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:coralium_stone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_118_coralium_stone",
+      "source_line": 237,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dense_carbon_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.dense_carbon_cluster, new ItemStack(Items.DIAMOND), 0.5F);",
+      "ordinal": 119,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:diamond"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_119_diamond",
+      "source_line": 238,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:gatewaykeydl"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.dread_plagued_gateway_key, new ItemStack(ACItems.omothol_forged_gateway_key), 1.0F);",
+      "ordinal": 120,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:gatewaykeyjzh"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_120_gatewaykeyjzh",
+      "source_line": 239,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:ethaxium_brick"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.ethaxium_brick), new ItemStack(ACBlocks.ethaxium), 0.0F);",
+      "ordinal": 121,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:ethaxium"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_121_ethaxium",
+      "source_line": 241,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:anti_beef"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.anti_beef, new ItemStack(Items.COOKED_BEEF), 0.3F);",
+      "ordinal": 122,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:cooked_beef"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_122_cooked_beef",
+      "source_line": 242,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:anti_pork"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.anti_pork, new ItemStack(Items.COOKED_PORKCHOP), 0.3F);",
+      "ordinal": 123,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:cooked_porkchop"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_123_cooked_porkchop",
+      "source_line": 243,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:anti_chicken"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.anti_chicken, new ItemStack(Items.COOKED_CHICKEN), 0.3F);",
+      "ordinal": 124,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:cooked_chicken"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_124_cooked_chicken",
+      "source_line": 244,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:anti_bone"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.anti_bone, new ItemStack(Items.BONE, 2), 0.3F);",
+      "ordinal": 125,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "minecraft:bone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_125_bone",
+      "source_line": 245,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:rotten_anti_flesh"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.rotten_anti_flesh, new ItemStack(Items.ROTTEN_FLESH, 2), 0.3F);",
+      "ordinal": 126,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "minecraft:rotten_flesh"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_126_rotten_flesh",
+      "source_line": 246,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:anti_spider_eye"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.anti_spider_eye, new ItemStack(Items.SPIDER_EYE, 2), 0.3F);",
+      "ordinal": 127,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "minecraft:spider_eye"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_127_spider_eye",
+      "source_line": 247,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:anti_plagued_flesh"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.anti_plagued_flesh, new ItemStack(ACItems.coralium_plagued_flesh, 2), 0.3F);",
+      "ordinal": 128,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:coralium_plagued_flesh"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_128_coralium_plagued_flesh",
+      "source_line": 248,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:anti_ghoul_flesh"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(ACItems.anti_ghoul_flesh, new ItemStack(ACItems.ghoul_flesh, 2), 0.3F);",
+      "ordinal": 129,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:ghoul_flesh"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_129_ghoul_flesh",
+      "source_line": 249,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssalnite_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.abyssalnite_crystal_cluster), new ItemStack(ACItems.abyssalnite_ingot, 1), 0.2F);",
+      "ordinal": 130,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssalnite_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_130_abyssalnite_ingot",
+      "source_line": 251,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:coralium_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.coralium_crystal_cluster), new ItemStack(ACItems.refined_coralium_ingot, 1), 0.2F);",
+      "ordinal": 131,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:refined_coralium_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_131_refined_coralium_ingot",
+      "source_line": 252,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreadium_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.dreadium_crystal_cluster), new ItemStack(ACItems.dreadium_ingot, 1), 0.2F);",
+      "ordinal": 132,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreadium_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_132_dreadium_ingot",
+      "source_line": 253,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:iron_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.iron_crystal_cluster), new ItemStack(Items.IRON_INGOT, 1), 0.2F);",
+      "ordinal": 133,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:iron_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_133_iron_ingot",
+      "source_line": 254,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:gold_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.gold_crystal_cluster), new ItemStack(Items.GOLD_INGOT, 1), 0.2F);",
+      "ordinal": 134,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:gold_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_134_gold_ingot",
+      "source_line": 255,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:sulfur_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.sulfur_crystal_cluster), new ItemStack(ACItems.sulfur, 1), 0.2F);",
+      "ordinal": 135,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:sulfur"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_135_sulfur",
+      "source_line": 256,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:blaze_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.blaze_crystal_cluster), new ItemStack(Items.BLAZE_POWDER, 1), 0.2F);",
+      "ordinal": 136,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:blaze_powder"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_136_blaze_powder",
+      "source_line": 257,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:redstone_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.redstone_crystal_cluster), new ItemStack(Items.REDSTONE, 1), 0.2F);",
+      "ordinal": 137,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:redstone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_137_redstone",
+      "source_line": 258,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:methane_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.methane_crystal_cluster), new ItemStack(ACItems.methane, 1), 0.2F);",
+      "ordinal": 138,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:methane"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_138_methane",
+      "source_line": 259,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:aluminium_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalClusterAluminium\", \"ingotAluminum\", 0.2F);",
+      "ordinal": 139,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_aluminium",
+          "reason": "AC aluminium material preserves the legacy element",
+          "tag": "c:ingots/aluminium"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_aluminium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_139_crystal_aluminium",
+      "source_line": 260,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:aluminium_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalClusterAluminium\", \"ingotAluminium\", 0.2F);",
+      "ordinal": 140,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_aluminium",
+          "reason": "AC aluminium material preserves the legacy element",
+          "tag": "c:ingots/aluminium"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_aluminium"
+        }
+      ],
+      "owner": "legacy-oredictionary-alias",
+      "reason": "duplicate spelling alias resolves to the preceding modern recipe",
+      "recipe_id": "",
+      "source_line": 261,
+      "status": "RETIRED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:zinc_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalClusterZinc\", \"ingotZinc\", 0.2F);",
+      "ordinal": 141,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_zinc",
+          "reason": "AC zinc material preserves the legacy element",
+          "tag": "c:ingots/zinc"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_zinc"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_141_crystal_zinc",
+      "source_line": 262,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_abyssalnite"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_abyssalnite), new ItemStack(ACItems.abyssalnite_nugget), 0.1F);",
+      "ordinal": 142,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssalnite_nugget"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_142_abyssalnite_nugget",
+      "source_line": 263,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_coralium"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_coralium), new ItemStack(ACItems.refined_coralium_nugget), 0.1F);",
+      "ordinal": 143,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:refined_coralium_nugget"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_143_refined_coralium_nugget",
+      "source_line": 264,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_dreadium"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_dreadium), new ItemStack(ACItems.dreadium_nugget), 0.1F);",
+      "ordinal": 144,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreadium_nugget"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_144_dreadium_nugget",
+      "source_line": 265,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_aluminium"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalAluminium\", \"nuggetAluminum\", 0.1F);",
+      "ordinal": 145,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_shard_aluminium",
+          "reason": "AC aluminium shard preserves the legacy nugget scale",
+          "tag": "c:nuggets/aluminium"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_aluminium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_145_crystal_shard_aluminium",
+      "source_line": 266,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_aluminium"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalAluminium\", \"nuggetAluminium\", 0.1F);",
+      "ordinal": 146,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_shard_aluminium",
+          "reason": "AC aluminium shard preserves the legacy nugget scale",
+          "tag": "c:nuggets/aluminium"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_aluminium"
+        }
+      ],
+      "owner": "legacy-oredictionary-alias",
+      "reason": "duplicate spelling alias resolves to the preceding modern recipe",
+      "recipe_id": "",
+      "source_line": 267,
+      "status": "RETIRED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_iron"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalIron\", \"nuggetIron\", 0.2F);",
+      "ordinal": 147,
+      "output_resolutions": [
+        {
+          "item": "minecraft:iron_nugget",
+          "reason": "vanilla iron nugget is the exact modern material",
+          "tag": "c:nuggets/iron"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:iron_nugget"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_147_iron_nugget",
+      "source_line": 268,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_gold"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_gold), new ItemStack(Items.GOLD_NUGGET), 0.2F);",
+      "ordinal": 148,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:gold_nugget"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:transmutation_148_gold_nugget",
+      "source_line": 269,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_copper"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalCopper\", \"nuggetCopper\", 0.2F);",
+      "ordinal": 149,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_shard_copper",
+          "reason": "AC copper compatibility shard preserves the legacy nugget-scale output",
+          "tag": "c:nuggets/copper"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_copper"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_149_crystal_shard_copper",
+      "source_line": 270,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_tin"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalTin\", \"nuggetTin\", 0.2F);",
+      "ordinal": 150,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_shard_tin",
+          "reason": "AC tin compatibility shard preserves the legacy nugget-scale output",
+          "tag": "c:nuggets/tin"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_tin"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_150_crystal_shard_tin",
+      "source_line": 271,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_zinc"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalZinc\", \"nuggetZinc\", 0.2F);",
+      "ordinal": 151,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_shard_zinc",
+          "reason": "AC zinc shard preserves the legacy nugget scale",
+          "tag": "c:nuggets/zinc"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_zinc"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_151_crystal_shard_zinc",
+      "source_line": 272,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesium"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalMagnesium\", \"nuggetMagnesium\", 0.2F);",
+      "ordinal": 152,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_shard_magnesium",
+          "reason": "AC magnesium shard preserves the legacy nugget scale",
+          "tag": "c:nuggets/magnesium"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_magnesium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_152_crystal_shard_magnesium",
+      "source_line": 273,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:magnesium_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalClusterMagnesium\", \"ingotMagnesium\", 0.2F);",
+      "ordinal": 153,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_magnesium",
+          "reason": "AC magnesium material preserves the legacy element",
+          "tag": "c:ingots/magnesium"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_153_crystal_magnesium",
+      "source_line": 274,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_calcium"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalCalcium\", \"nuggetCalcium\", 0.2F);",
+      "ordinal": 154,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_shard_calcium",
+          "reason": "AC calcium shard preserves the legacy nugget scale",
+          "tag": "c:nuggets/calcium"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_shard_calcium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_154_crystal_shard_calcium",
+      "source_line": 275,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:calcium_crystal_cluster"
+        }
+      ],
+      "kind": "TRANSMUTATION",
+      "legacy_call": "AbyssalCraftAPI.addTransmutation(\"crystalClusterCalcium\", \"ingotCalcium\", 0.2F);",
+      "ordinal": 155,
+      "output_resolutions": [
+        {
+          "item": "abyssalcraft:crystal_calcium",
+          "reason": "AC calcium material preserves the legacy element",
+          "tag": "c:ingots/calcium"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_calcium"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:transmutation_155_crystal_calcium",
+      "source_line": 276,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_calcium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BONE), new ItemStack(ACItems.crystal_calcium));",
+      "ordinal": 156,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:bone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_156_bone",
+      "source_line": 280,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_phosphorus"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.ROTTEN_FLESH), new ItemStack(ACItems.crystal_phosphorus));",
+      "ordinal": 157,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:rotten_flesh"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_157_rotten_flesh",
+      "source_line": 281,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_coralium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.coralium_plagued_flesh), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_coralium));",
+      "ordinal": 158,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:coralium_plagued_flesh"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_158_coralium_plagued_flesh",
+      "source_line": 282,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.COAL, 1, 0), new ItemStack(ACItems.crystal_carbon));",
+      "ordinal": 159,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:coal"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_159_coal",
+      "source_line": 283,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.COAL, 1, 1), new ItemStack(ACItems.crystal_carbon));",
+      "ordinal": 160,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:charcoal"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_160_charcoal",
+      "source_line": 284,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_iron"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.IRON_INGOT), new ItemStack(ACItems.crystal_iron));",
+      "ordinal": 161,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:iron_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_161_iron_ingot",
+      "source_line": 285,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_gold"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.GOLD_INGOT), new ItemStack(ACItems.crystal_gold));",
+      "ordinal": 162,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:gold_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_162_gold_ingot",
+      "source_line": 286,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_blaze"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BLAZE_POWDER), new ItemStack(ACItems.crystal_blaze));",
+      "ordinal": 163,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:blaze_powder"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_163_blaze_powder",
+      "source_line": 287,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_blaze"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BLAZE_ROD), new ItemStack(ACItems.crystal_blaze, 2));",
+      "ordinal": 164,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:blaze_rod"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_164_blaze_rod",
+      "source_line": 288,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_abyssalnite"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.abyssalnite_ingot), new ItemStack(ACItems.crystal_abyssalnite));",
+      "ordinal": 165,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssalnite_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_165_abyssalnite_ingot",
+      "source_line": 289,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_coralium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.refined_coralium_ingot), new ItemStack(ACItems.crystal_coralium));",
+      "ordinal": 166,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:refined_coralium_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_166_refined_coralium_ingot",
+      "source_line": 290,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_dreadium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.dreadium_ingot), new ItemStack(ACItems.crystal_dreadium));",
+      "ordinal": 167,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreadium_ingot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_167_dreadium_ingot",
+      "source_line": 291,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_methane"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.methane), new ItemStack(ACItems.crystal_methane));",
+      "ordinal": 168,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:methane"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_168_methane",
+      "source_line": 292,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_potassium"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrate"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.nitre), new ItemStack(ACItems.crystal_potassium), new ItemStack(ACItems.crystal_nitrate));",
+      "ordinal": 169,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:nitre"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_169_nitre",
+      "source_line": 293,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_sulfur"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.sulfur), new ItemStack(ACItems.crystal_sulfur));",
+      "ordinal": 170,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:sulfur"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_170_sulfur",
+      "source_line": 294,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_redstone"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.REDSTONE), new ItemStack(ACItems.crystal_redstone));",
+      "ordinal": 171,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:redstone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_171_redstone",
+      "source_line": 295,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_dreadium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.dread_fragment), new ItemStack(ACItems.crystal_phosphorus, 2), new ItemStack(ACItems.crystal_dreadium));",
+      "ordinal": 172,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dread_fragment"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_172_dread_fragment",
+      "source_line": 296,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));",
+      "ordinal": 173,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:stone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_173_stone",
+      "source_line": 297,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_gold"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"oreGold\", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_gold));",
+      "ordinal": 174,
+      "output_resolutions": [
+        {
+          "item": "minecraft:gold_ore",
+          "reason": "vanilla gold ore is the exact legacy ore representative",
+          "tag": "c:ores/gold"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:gold_ore"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_174_gold_ore",
+      "source_line": 298,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_iron"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"oreIron\", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_iron));",
+      "ordinal": 175,
+      "output_resolutions": [
+        {
+          "item": "minecraft:iron_ore",
+          "reason": "vanilla iron ore is the exact legacy ore representative",
+          "tag": "c:ores/iron"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:iron_ore"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_175_iron_ore",
+      "source_line": 299,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"oreCoal\", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_carbon));",
+      "ordinal": 176,
+      "output_resolutions": [
+        {
+          "item": "minecraft:coal_ore",
+          "reason": "vanilla coal ore is the exact legacy ore representative",
+          "tag": "c:ores/coal"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:coal_ore"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_176_coal_ore",
+      "source_line": 300,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_redstone"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"oreRedstone\", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_redstone));",
+      "ordinal": 177,
+      "output_resolutions": [
+        {
+          "item": "minecraft:redstone_ore",
+          "reason": "vanilla redstone ore is the exact legacy ore representative",
+          "tag": "c:ores/redstone"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:redstone_ore"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_177_redstone_ore",
+      "source_line": 301,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_coralium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.coralium_ore), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_coralium));",
+      "ordinal": 178,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:coralium_ore"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_178_coralium_ore",
+      "source_line": 302,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_abyssalnite"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.abyssalnite_ore), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_abyssalnite));",
+      "ordinal": 179,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssalnite_ore"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_179_abyssalnite_ore",
+      "source_line": 303,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        },
+        {
+          "count": 2,
+          "item": "abyssalcraft:crystal_coralium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.coralium_infused_stone), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_coralium, 2));",
+      "ordinal": 180,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:coralium_infused_stone"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_180_coralium_infused_stone",
+      "source_line": 304,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_potassium"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrate"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.nitre_ore), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_potassium), new ItemStack(ACItems.crystal_nitrate));",
+      "ordinal": 181,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:nitre_ore"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_181_nitre_ore",
+      "source_line": 305,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.SPONGE), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_carbon));",
+      "ordinal": 182,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:sponge"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_182_sponge",
+      "source_line": 306,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 13,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_oxygen"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrogen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.ELYTRA), new ItemStack(ACItems.crystal_carbon, 8), new ItemStack(ACItems.crystal_hydrogen, 13), new ItemStack(ACItems.crystal_oxygen, 5), new ItemStack(ACItems.crystal_nitrogen));",
+      "ordinal": 183,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:elytra"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_183_elytra",
+      "source_line": 307,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_beryl"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.PRISMARINE_SHARD), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_beryl));",
+      "ordinal": 184,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:prismarine_shard"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_184_prismarine_shard",
+      "source_line": 308,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_beryl"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.PRISMARINE_CRYSTALS), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_beryl));",
+      "ordinal": 185,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:prismarine_crystals"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_185_prismarine_crystals",
+      "source_line": 309,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_beryl"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.PRISMARINE, 1, 0), new ItemStack(ACItems.crystal_silica, 4), new ItemStack(ACItems.crystal_beryl, 4));",
+      "ordinal": 186,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:prismarine"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_186_prismarine",
+      "source_line": 310,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 9,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 9,
+          "item": "abyssalcraft:crystal_beryl"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.PRISMARINE, 1, 1), new ItemStack(ACItems.crystal_silica, 9), new ItemStack(ACItems.crystal_beryl, 9));",
+      "ordinal": 187,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:prismarine_bricks"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_187_prismarine_bricks",
+      "source_line": 311,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 8,
+          "item": "abyssalcraft:crystal_beryl"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.PRISMARINE, 1, 2), new ItemStack(ACItems.crystal_silica, 8), new ItemStack(ACItems.crystal_beryl, 8), new ItemStack(ACItems.crystal_carbon));",
+      "ordinal": 188,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:dark_prismarine"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_188_dark_prismarine",
+      "source_line": 312,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 9,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 9,
+          "item": "abyssalcraft:crystal_beryl"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.SEA_LANTERN), new ItemStack(ACItems.crystal_silica, 9), new ItemStack(ACItems.crystal_beryl, 9));",
+      "ordinal": 189,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:sea_lantern"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_189_sea_lantern",
+      "source_line": 313,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_calcium"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_phosphorus"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.EGG), new ItemStack(ACItems.crystal_calcium), new ItemStack(ACItems.crystal_phosphorus));",
+      "ordinal": 190,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:egg"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_190_egg",
+      "source_line": 314,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_dreadium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.charcoal), new ItemStack(ACItems.crystal_carbon), new ItemStack(ACItems.crystal_dreadium));",
+      "ordinal": 191,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:charcoal"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_191_charcoal",
+      "source_line": 315,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 9,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.COAL_BLOCK), new ItemStack(ACItems.crystal_carbon, 9));",
+      "ordinal": 192,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:coal_block"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_192_coal_block",
+      "source_line": 316,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 9,
+          "item": "abyssalcraft:crystal_redstone"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.REDSTONE_BLOCK), new ItemStack(ACItems.crystal_redstone, 9));",
+      "ordinal": 193,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:redstone_block"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_193_redstone_block",
+      "source_line": 317,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 64,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.DIAMOND), new ItemStack(ACItems.crystal_carbon, 64));",
+      "ordinal": 194,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:diamond"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_194_diamond",
+      "source_line": 318,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        },
+        {
+          "count": 64,
+          "item": "abyssalcraft:crystal_carbon"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"oreDiamond\", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_carbon, 64));",
+      "ordinal": 195,
+      "output_resolutions": [
+        {
+          "item": "minecraft:diamond_ore",
+          "reason": "vanilla diamond ore is the exact legacy ore representative",
+          "tag": "c:ores/diamond"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:diamond_ore"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_195_diamond_ore",
+      "source_line": 319,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 1), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));",
+      "ordinal": 196,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:granite"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_196_granite",
+      "source_line": 320,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 2), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));",
+      "ordinal": 197,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:polished_granite"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_197_polished_granite",
+      "source_line": 321,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 3), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));",
+      "ordinal": 198,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:diorite"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_198_diorite",
+      "source_line": 322,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 4), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));",
+      "ordinal": 199,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:polished_diorite"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_199_polished_diorite",
+      "source_line": 323,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 5), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));",
+      "ordinal": 200,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:andesite"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_200_andesite",
+      "source_line": 324,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 6), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));",
+      "ordinal": 201,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:polished_andesite"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_201_polished_andesite",
+      "source_line": 325,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_phosphorus"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.LEATHER), new ItemStack(ACItems.crystal_phosphorus));",
+      "ordinal": 202,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:leather"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_202_leather",
+      "source_line": 326,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_phosphorus"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.RABBIT_HIDE), new ItemStack(ACItems.crystal_phosphorus));",
+      "ordinal": 203,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:rabbit_hide"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_203_rabbit_hide",
+      "source_line": 327,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_calcium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.RABBIT_FOOT), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_calcium));",
+      "ordinal": 204,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:rabbit_foot"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_204_rabbit_foot",
+      "source_line": 328,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 10,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_oxygen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"logWood\", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));",
+      "ordinal": 205,
+      "output_resolutions": [
+        {
+          "item": "minecraft:oak_log",
+          "reason": "oak log is the stable vanilla family representative",
+          "tag": "minecraft:logs"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:oak_log"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_205_oak_log",
+      "source_line": 329,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 10,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_oxygen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"plankWood\", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));",
+      "ordinal": 206,
+      "output_resolutions": [
+        {
+          "item": "minecraft:oak_planks",
+          "reason": "oak planks are the stable vanilla family representative",
+          "tag": "minecraft:planks"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:oak_planks"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_206_oak_planks",
+      "source_line": 330,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 10,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_oxygen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"treeSapling\", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));",
+      "ordinal": 207,
+      "output_resolutions": [
+        {
+          "item": "minecraft:oak_sapling",
+          "reason": "oak sapling is the stable vanilla family representative",
+          "tag": "minecraft:saplings"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:oak_sapling"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_207_oak_sapling",
+      "source_line": 331,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 10,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_oxygen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"treeLeaves\", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));",
+      "ordinal": 208,
+      "output_resolutions": [
+        {
+          "item": "minecraft:oak_leaves",
+          "reason": "oak leaves are the stable vanilla family representative",
+          "tag": "minecraft:leaves"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:oak_leaves"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_208_oak_leaves",
+      "source_line": 332,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 10,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_oxygen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"vine\", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));",
+      "ordinal": 209,
+      "output_resolutions": [
+        {
+          "item": "minecraft:vine",
+          "reason": "vanilla vine is the exact item represented by the tag",
+          "tag": "minecraft:vines"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:vine"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_209_vine",
+      "source_line": 333,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 10,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_oxygen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.DEADBUSH), new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));",
+      "ordinal": 210,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:dead_bush"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_210_dead_bush",
+      "source_line": 334,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_sulfur"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.DYE, 1, 4), new ItemStack(ACItems.crystal_silica, 6), new ItemStack(ACItems.crystal_sulfur, 4));",
+      "ordinal": 211,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:lapis_lazuli"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_211_lapis_lazuli",
+      "source_line": 335,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 7,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 4,
+          "item": "abyssalcraft:crystal_sulfur"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_magnesia"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"oreLapis\", new ItemStack(ACItems.crystal_silica, 7), new ItemStack(ACItems.crystal_sulfur, 4), new ItemStack(ACItems.crystal_magnesia));",
+      "ordinal": 212,
+      "output_resolutions": [
+        {
+          "item": "minecraft:lapis_ore",
+          "reason": "vanilla lapis ore is the exact legacy ore representative",
+          "tag": "c:ores/lapis"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:lapis_ore"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_212_lapis_ore",
+      "source_line": 336,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 54,
+          "item": "abyssalcraft:crystal_silica"
+        },
+        {
+          "count": 36,
+          "item": "abyssalcraft:crystal_sulfur"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.LAPIS_BLOCK), new ItemStack(ACItems.crystal_silica, 54), new ItemStack(ACItems.crystal_sulfur, 36));",
+      "ordinal": 213,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:lapis_block"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_213_lapis_block",
+      "source_line": 337,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 14,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_oxygen"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrogen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(\"listAllmeatraw\", new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));",
+      "ordinal": 214,
+      "output_resolutions": [
+        {
+          "item": "minecraft:beef",
+          "reason": "vanilla beef is the stable raw-meat representative",
+          "tag": "c:foods/raw_meat"
+        }
+      ],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:beef"
+        }
+      ],
+      "owner": "",
+      "reason": "legacy metadata or OreDictionary value replaced by its explicit modern item/tag",
+      "recipe_id": "abyssalcraft:materialization_214_beef",
+      "source_line": 339,
+      "status": "REPLACED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 14,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_oxygen"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrogen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BEEF), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));",
+      "ordinal": 215,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:beef"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_215_beef",
+      "source_line": 341,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 14,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_oxygen"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrogen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.CHICKEN), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));",
+      "ordinal": 216,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:chicken"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_216_chicken",
+      "source_line": 342,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 14,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_oxygen"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrogen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.PORKCHOP), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));",
+      "ordinal": 217,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:porkchop"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_217_porkchop",
+      "source_line": 343,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 14,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_oxygen"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrogen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.MUTTON), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));",
+      "ordinal": 218,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:mutton"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_218_mutton",
+      "source_line": 344,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 14,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_oxygen"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrogen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.RABBIT), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));",
+      "ordinal": 219,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "minecraft:rabbit"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_219_rabbit",
+      "source_line": 345,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 14,
+          "item": "abyssalcraft:crystal_hydrogen"
+        },
+        {
+          "count": 5,
+          "item": "abyssalcraft:crystal_carbon"
+        },
+        {
+          "count": 6,
+          "item": "abyssalcraft:crystal_oxygen"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_nitrogen"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.generic_meat), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));",
+      "ordinal": 220,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:generic_meat"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_220_generic_meat",
+      "source_line": 346,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_phosphorus"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.ghoul_flesh), new ItemStack(ACItems.crystal_phosphorus));",
+      "ordinal": 221,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:ghoul_flesh"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_221_ghoul_flesh",
+      "source_line": 348,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_coralium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.abyssal_ghoul_flesh), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_coralium));",
+      "ordinal": 222,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:abyssal_ghoul_flesh"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_222_abyssal_ghoul_flesh",
+      "source_line": 349,
+      "status": "MIGRATED"
+    },
+    {
+      "inputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_phosphorus"
+        },
+        {
+          "count": 1,
+          "item": "abyssalcraft:crystal_dreadium"
+        }
+      ],
+      "kind": "MATERIALIZATION",
+      "legacy_call": "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.dreaded_ghoul_flesh), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_dreadium));",
+      "ordinal": 223,
+      "output_resolutions": [],
+      "outputs": [
+        {
+          "count": 1,
+          "item": "abyssalcraft:dreaded_ghoul_flesh"
+        }
+      ],
+      "owner": "",
+      "reason": "all referenced input and output registry content is present",
+      "recipe_id": "abyssalcraft:materialization_223_dreaded_ghoul_flesh",
+      "source_line": 350,
+      "status": "MIGRATED"
+    }
+  ],
+  "migrated": 142,
+  "output_resolutions": [
+    {
+      "item": "minecraft:beef",
+      "reason": "vanilla beef is the stable raw-meat representative",
+      "tag": "c:foods/raw_meat"
+    },
+    {
+      "item": "abyssalcraft:crystal_aluminium",
+      "reason": "AC aluminium material preserves the legacy element",
+      "tag": "c:ingots/aluminium"
+    },
+    {
+      "item": "abyssalcraft:crystal_shard_aluminium",
+      "reason": "AC aluminium shard preserves the legacy nugget scale",
+      "tag": "c:nuggets/aluminium"
+    },
+    {
+      "item": "abyssalcraft:crystal_calcium",
+      "reason": "AC calcium material preserves the legacy element",
+      "tag": "c:ingots/calcium"
+    },
+    {
+      "item": "abyssalcraft:crystal_shard_calcium",
+      "reason": "AC calcium shard preserves the legacy nugget scale",
+      "tag": "c:nuggets/calcium"
+    },
+    {
+      "item": "abyssalcraft:crystal_magnesium",
+      "reason": "AC magnesium material preserves the legacy element",
+      "tag": "c:ingots/magnesium"
+    },
+    {
+      "item": "abyssalcraft:crystal_shard_magnesium",
+      "reason": "AC magnesium shard preserves the legacy nugget scale",
+      "tag": "c:nuggets/magnesium"
+    },
+    {
+      "item": "abyssalcraft:crystal_zinc",
+      "reason": "AC zinc material preserves the legacy element",
+      "tag": "c:ingots/zinc"
+    },
+    {
+      "item": "abyssalcraft:crystal_shard_zinc",
+      "reason": "AC zinc shard preserves the legacy nugget scale",
+      "tag": "c:nuggets/zinc"
+    },
+    {
+      "item": "abyssalcraft:crystal_copper",
+      "reason": "AC copper compatibility crystal preserves the legacy machine output element",
+      "tag": "c:ingots/copper"
+    },
+    {
+      "item": "abyssalcraft:crystal_shard_copper",
+      "reason": "AC copper compatibility shard preserves the legacy nugget-scale output",
+      "tag": "c:nuggets/copper"
+    },
+    {
+      "item": "minecraft:iron_nugget",
+      "reason": "vanilla iron nugget is the exact modern material",
+      "tag": "c:nuggets/iron"
+    },
+    {
+      "item": "abyssalcraft:crystal_tin",
+      "reason": "AC tin compatibility crystal preserves the legacy machine output element",
+      "tag": "c:ingots/tin"
+    },
+    {
+      "item": "abyssalcraft:crystal_shard_tin",
+      "reason": "AC tin compatibility shard preserves the legacy nugget-scale output",
+      "tag": "c:nuggets/tin"
+    },
+    {
+      "item": "minecraft:coal_ore",
+      "reason": "vanilla coal ore is the exact legacy ore representative",
+      "tag": "c:ores/coal"
+    },
+    {
+      "item": "minecraft:diamond_ore",
+      "reason": "vanilla diamond ore is the exact legacy ore representative",
+      "tag": "c:ores/diamond"
+    },
+    {
+      "item": "minecraft:gold_ore",
+      "reason": "vanilla gold ore is the exact legacy ore representative",
+      "tag": "c:ores/gold"
+    },
+    {
+      "item": "minecraft:iron_ore",
+      "reason": "vanilla iron ore is the exact legacy ore representative",
+      "tag": "c:ores/iron"
+    },
+    {
+      "item": "minecraft:lapis_ore",
+      "reason": "vanilla lapis ore is the exact legacy ore representative",
+      "tag": "c:ores/lapis"
+    },
+    {
+      "item": "minecraft:redstone_ore",
+      "reason": "vanilla redstone ore is the exact legacy ore representative",
+      "tag": "c:ores/redstone"
+    },
+    {
+      "item": "minecraft:oak_leaves",
+      "reason": "oak leaves are the stable vanilla family representative",
+      "tag": "minecraft:leaves"
+    },
+    {
+      "item": "minecraft:oak_log",
+      "reason": "oak log is the stable vanilla family representative",
+      "tag": "minecraft:logs"
+    },
+    {
+      "item": "minecraft:oak_planks",
+      "reason": "oak planks are the stable vanilla family representative",
+      "tag": "minecraft:planks"
+    },
+    {
+      "item": "minecraft:oak_sapling",
+      "reason": "oak sapling is the stable vanilla family representative",
+      "tag": "minecraft:saplings"
+    },
+    {
+      "item": "minecraft:vine",
+      "reason": "vanilla vine is the exact item represented by the tag",
+      "tag": "minecraft:vines"
+    }
+  ],
+  "replaced": 77,
+  "retired": 4,
+  "source": 223
+}

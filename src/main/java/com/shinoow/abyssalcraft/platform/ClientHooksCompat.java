@@ -82,12 +82,7 @@ public final class ClientHooksCompat {
         com.mojang.blaze3d.systems.RenderSystem.enableBlend();
         com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
         graphics.setColor(1.0F, 1.0F, 1.0F, resolvedAlpha);
-        //? if >=1.21 {
-        /*graphics.blit(net.minecraft.client.renderer.RenderType::guiTextured, texture,
-            0, 0, 0.0F, 0.0F, width, height, width, height);
-        *///?} else {
         graphics.blit(texture, 0, 0, 0.0F, 0.0F, width, height, width, height);
-        //?}
         graphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
         com.mojang.blaze3d.systems.RenderSystem.disableBlend();
     }

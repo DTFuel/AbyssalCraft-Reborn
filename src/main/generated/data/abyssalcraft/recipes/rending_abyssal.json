@@ -1,0 +1,11 @@
+{
+  "type": "abyssalcraft:rending",
+  "dimension": 50,
+  "entity": "#abyssalcraft:coralium_plague_carriers",
+  "max_energy": 100,
+  "name": "Abyssal",
+  "result": {
+    "count": 1,
+    "item": "abyssalcraft:abyssal_wasteland_essence"
+  }
+}

@@ -2,26 +2,26 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 6,
       "ingredient": {
         "item": "abyssalcraft:crystal_carbon"
-      },
-      "count": 6
+      }
     },
     {
+      "count": 10,
       "ingredient": {
         "item": "abyssalcraft:crystal_hydrogen"
-      },
-      "count": 10
+      }
     },
     {
+      "count": 5,
       "ingredient": {
         "item": "abyssalcraft:crystal_oxygen"
-      },
-      "count": 5
+      }
     }
   ],
   "result": {
-    "id": "minecraft:oak_log",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:oak_log"
   }
 }

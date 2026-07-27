@@ -2,26 +2,26 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_silica"
-      },
-      "count": 1
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_magnesia"
-      },
-      "count": 1
+      }
     },
     {
+      "count": 2,
       "ingredient": {
         "item": "abyssalcraft:crystal_coralium"
-      },
-      "count": 2
+      }
     }
   ],
   "result": {
-    "id": "abyssalcraft:coralium_infused_stone",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:coralium_infused_stone"
   }
 }

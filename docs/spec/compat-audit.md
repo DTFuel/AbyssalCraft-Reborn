@@ -99,7 +99,6 @@ A symbol may use more than one family. Loader-only rows have identical business-
 | `PotionBrewingCompat` | L-BUS, V-MENU | brewing bootstrap/machine | audit + both compile nodes |
 | `RecipeCompat` | L-REG, V-RECIPE | machine recipes | audit + recipe compile |
 | `RecipeDisplayCompat` | L-REG, V-RECIPE | recipe display integration | audit + recipe/client compile |
-| `RecipeManagerCompatMixin` | V-RECIPE | mixin-configured armor recycling gate | audit + both compile nodes |
 | `RecipeSerializerCompat` | L-REG, V-RECIPE | serializer registry | audit + recipe compile |
 | `RendingRecipeSerializer` | L-REG, V-RECIPE | rending recipes | audit + recipe compile |
 | `RitualTaskCompat` | L-HOOK | ritual scheduler bootstrap | audit + server compile |
@@ -120,6 +119,12 @@ A symbol may use more than one family. Loader-only rows have identical business-
 | `TransmutationRecipeSerializer` | L-REG, V-RECIPE | transmutation recipes | audit + recipe compile |
 | `WitherSkullCompat` | V-ENTITY | projectile consumers | audit + both compile nodes |
 | `WorldgenServerValidationCompat` | L-HOOK | `ModBootstrapCompat` | audit + server compile |
+
+## Mixin exceptions
+
+| Exception | Family | Reason | Validation |
+|---|---|---|---|
+| MIXIN `RecipeManagerCompatMixin` | V-RECIPE | Method descriptors differ across 1.20/1.21 and the class must remain under the dedicated `com.shinoow.abyssalcraft.mixin` package; placing it under `platform` would force Mixin to own the mod root package and prevent normal classloading. | configured mixin + both compile/runData nodes |
 
 `AttributeCompat` was removed as an unreachable, unconsumed version fork. `ModBootstrapCompat`, `ClientItemPropertiesCompat`, and `ShearableCompat` replace the former loader imports in the main entry point, client item-property registration, `RemnantMob`, and `EvilAnimal` without changing gameplay behavior.
 

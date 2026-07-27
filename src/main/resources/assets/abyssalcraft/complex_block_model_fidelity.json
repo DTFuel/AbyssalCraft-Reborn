@@ -1,0 +1,1223 @@
+{
+  "schema": 1,
+  "task": "T9.2b / PK-2b",
+  "algorithm": "SHA-256",
+  "entries": [
+    {
+      "block": "abyssalcraft:abyssal_abyssalnite_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abyssal_abyssalnite_ore.json",
+      "legacySha256": "5ec1909e626049067a6efaa44d082f0025da43b84ea7bde92279c2fae918b8e2",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abyssal_abyssalnite_ore.json",
+          "sha256": "5ec1909e626049067a6efaa44d082f0025da43b84ea7bde92279c2fae918b8e2"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/abyssalnite.png",
+          "sha256": "fbda6ff4ebfa3b52ec88a2f7e3ffc11cdac95922d76f2bcb79f3b77238aa1f8d"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/abyssal_abyssalnite_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/abyssal_abyssalnite_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/abyssal_stone.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/abyssalnite.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:abyssal_coralium_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abycorore.json",
+      "legacySha256": "57eb778871ba2e24b380ae2a0db6b5485f71dddb85752aaad17c0b74dabb6b0f",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abycorore.json",
+          "sha256": "57eb778871ba2e24b380ae2a0db6b5485f71dddb85752aaad17c0b74dabb6b0f"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/abyssal_coralium.png",
+          "sha256": "216cc89caee9cc0967a7adbef65c9375a92d242e9a495b0afca433da140ffc72"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/abyssal_coralium_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/abyssal_coralium_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/abyssal_stone.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/abyssal_coralium.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:abyssal_diamond_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abydiaore.json",
+      "legacySha256": "8a0c61ca352e38eebf65ba8ad44d8cf938c51618dea4fb30a264bd19b8397904",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abydiaore.json",
+          "sha256": "8a0c61ca352e38eebf65ba8ad44d8cf938c51618dea4fb30a264bd19b8397904"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/diamond.png",
+          "sha256": "bc75a9c293f03f0c059f481ccd4413365493d9b9f67145aa641673d6fe12f4cf"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/abyssal_diamond_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/abyssal_diamond_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/abyssal_stone.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/diamond.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:abyssal_gold_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abygolore.json",
+      "legacySha256": "05f799c7aca84dff60334bcdbba49755975d5db158ca761ff896cac047c1b763",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abygolore.json",
+          "sha256": "05f799c7aca84dff60334bcdbba49755975d5db158ca761ff896cac047c1b763"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/gold.png",
+          "sha256": "1401224680fd8c78e4bb1f96b27bbdceeb446111e15d424a4d4a6adfd1173567"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/abyssal_gold_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/abyssal_gold_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/abyssal_stone.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/gold.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:abyssal_iron_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abyiroore.json",
+      "legacySha256": "b59a6bd65d273e3f9e9d87b39d80dcb7c32abef7885ee5c0f4d2b1c9ba0901d5",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abyiroore.json",
+          "sha256": "b59a6bd65d273e3f9e9d87b39d80dcb7c32abef7885ee5c0f4d2b1c9ba0901d5"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/iron.png",
+          "sha256": "c7b27f8f3b88d0d33678dffd97b50724e313dd8b852ae55bed70af7af7726f4b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/abyssal_iron_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/abyssal_iron_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/abyssal_stone.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/iron.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:abyssal_nitre_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abynitore.json",
+      "legacySha256": "8029e05f45856cf7c2123fe16426818cfade3f212dc206492986c6a66f80dee5",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abynitore.json",
+          "sha256": "8029e05f45856cf7c2123fe16426818cfade3f212dc206492986c6a66f80dee5"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/nitre.png",
+          "sha256": "32882b8d224a7a16e4251251f8fea89393c0119fabb5e77d17143c1a25ed8c5b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/abyssal_nitre_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/abyssal_nitre_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/abyssal_stone.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/nitre.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:abyssalnite_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abyore.json",
+      "legacySha256": "9f8e2b83f10d5b1eed08a5a156899f5588b6c4692a3d0d2f556c3bb9bbcd4017",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abyore.json",
+          "sha256": "9f8e2b83f10d5b1eed08a5a156899f5588b6c4692a3d0d2f556c3bb9bbcd4017"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/abyssalnite.png",
+          "sha256": "fbda6ff4ebfa3b52ec88a2f7e3ffc11cdac95922d76f2bcb79f3b77238aa1f8d"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/abyssalnite_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/abyssalnite_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/abyssalnite.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:azathoth_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/azathothstatue.obj",
+      "legacySha256": "463ff0750b750393ac2ab95bc760c6c7579f765971488c86d962dcac7101fc10",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/azathothstatue.obj",
+          "sha256": "463ff0750b750393ac2ab95bc760c6c7579f765971488c86d962dcac7101fc10"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/azathothstatue.mtl",
+          "sha256": "e90cedca88688b1234c2f839ad739cfbb97fb94ad564c41778920680ea347855"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/azathothstatue.png",
+          "sha256": "7e5604729815db56cc40a2daeac66e34f6696c7b2dfc60766c902d3b8095c68d"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/azathoth_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/azathoth.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/azathoth.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:coralium_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/coraliumore.json",
+      "legacySha256": "a372f309cda833b6e87ba910ab6f88c9daf7a8057bde389579df36ffe57c121c",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/coraliumore.json",
+          "sha256": "a372f309cda833b6e87ba910ab6f88c9daf7a8057bde389579df36ffe57c121c"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/coralium.png",
+          "sha256": "0c4462da84fbd22d3d6eac18f68f48349eb1f9422f32f0dcbbfcc1e99b1d3c5b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/coralium_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/coralium_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/coralium.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:crystallizer",
+      "status": "ACTIVE",
+      "kind": "machine",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/crystallizer.json",
+      "legacySha256": "763e62e6d48071bb11898c8f22598525533ff8fcb23da427b3290eca68da78b9",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/crystallizer.json",
+          "sha256": "763e62e6d48071bb11898c8f22598525533ff8fcb23da427b3290eca68da78b9"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/crystallizer.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/crystallizer.json",
+        "src/main/resources/assets/abyssalcraft/models/block/crystallizer_active.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/crystallizer_front.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/crystallizer_side.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/crystallizer_top.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/crystallizer_front_active.png"
+      ],
+      "stateMapping": "four horizontal facings x lit=false/true; active model and front texture differ",
+      "geometryRationale": "Vanilla orientable geometry preserves distinct front/side/top faces and rotates through blockstate."
+    },
+    {
+      "block": "abyssalcraft:cthulhu_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/cthulhustatue.obj",
+      "legacySha256": "a14aa828cc33b5cfbcf0e608d331feb8e60683241d39bdfd6df9010d4ac2bdef",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/cthulhustatue.obj",
+          "sha256": "a14aa828cc33b5cfbcf0e608d331feb8e60683241d39bdfd6df9010d4ac2bdef"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/cthulhustatue.mtl",
+          "sha256": "ab90250affc26a13872bb243142e8c69e23db91a91b8dc9ca8f87ed036689086"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/cthulhustatue.png",
+          "sha256": "b9ed88f9a5e10097a7cbc52f56362d3b9ffa6ddc649967b978bb87884345641e"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/cthulhu_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/cthulhu.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/cthulhu.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:decorative_azathoth_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/azathothstatue.obj",
+      "legacySha256": "463ff0750b750393ac2ab95bc760c6c7579f765971488c86d962dcac7101fc10",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/azathothstatue.obj",
+          "sha256": "463ff0750b750393ac2ab95bc760c6c7579f765971488c86d962dcac7101fc10"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/azathothstatue.mtl",
+          "sha256": "e90cedca88688b1234c2f839ad739cfbb97fb94ad564c41778920680ea347855"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/azathothstatue.png",
+          "sha256": "7e5604729815db56cc40a2daeac66e34f6696c7b2dfc60766c902d3b8095c68d"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/decorative_azathoth_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/azathoth.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/azathoth.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:decorative_cthulhu_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/cthulhustatue.obj",
+      "legacySha256": "a14aa828cc33b5cfbcf0e608d331feb8e60683241d39bdfd6df9010d4ac2bdef",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/cthulhustatue.obj",
+          "sha256": "a14aa828cc33b5cfbcf0e608d331feb8e60683241d39bdfd6df9010d4ac2bdef"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/cthulhustatue.mtl",
+          "sha256": "ab90250affc26a13872bb243142e8c69e23db91a91b8dc9ca8f87ed036689086"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/cthulhustatue.png",
+          "sha256": "b9ed88f9a5e10097a7cbc52f56362d3b9ffa6ddc649967b978bb87884345641e"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/decorative_cthulhu_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/cthulhu.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/cthulhu.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:decorative_hastur_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/hasturstatue.obj",
+      "legacySha256": "883e3e210bff9c6fa39fbf4d702008ac1e1be715d87bfe033e79e6336f500bbd",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/hasturstatue.obj",
+          "sha256": "883e3e210bff9c6fa39fbf4d702008ac1e1be715d87bfe033e79e6336f500bbd"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/hasturstatue.mtl",
+          "sha256": "eb01ed3a6bd0834d8c843f1427710aa98d11283f8cc523c9cc6cc7107e76b6bd"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/hasturstatue.png",
+          "sha256": "edcc49708ac29c5275d23fa09934fea019798237aca5338ba99aab075ad98ae9"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/decorative_hastur_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/hastur.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/hastur.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:decorative_jzahar_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/jzaharstatue.obj",
+      "legacySha256": "194784df616130f859b8a3416d5ce624145a6b834aa58c867bbb101eb6f621f1",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/jzaharstatue.obj",
+          "sha256": "194784df616130f859b8a3416d5ce624145a6b834aa58c867bbb101eb6f621f1"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/jzaharstatue.mtl",
+          "sha256": "d81e1c7252bc07de8b10a9dc24b5f4f84ed15ebf2a9849529625d1e03580a5ed"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/jzaharstatue.png",
+          "sha256": "27f19a8264ee949b0c0d27e6a59e24e1e81808f29ab49778486e9600e273a2b6"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/decorative_jzahar_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/jzahar.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/jzahar.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:decorative_nyarlathotep_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/nyarlathotepstatue.obj",
+      "legacySha256": "1cc44457c16f9fce36a20afc3db10ff3b22df49959462f5ba7854bfd2825a8e1",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/nyarlathotepstatue.obj",
+          "sha256": "1cc44457c16f9fce36a20afc3db10ff3b22df49959462f5ba7854bfd2825a8e1"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/nyarlathotepstatue.mtl",
+          "sha256": "460d07bd1afa83662edd10722ffba6c2c68f2c5e564c5202ebeaaca3163a16a8"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/nyarlathotepstatue.png",
+          "sha256": "263a99078f41e9771703ac81f5a159f73771cf092f0331eb6ae9b919087e88da"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/decorative_nyarlathotep_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/nyarlathotep.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/nyarlathotep.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:decorative_shub_niggurath_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/shubniggurathstatue.obj",
+      "legacySha256": "5295fddf27a9333b9d43b15b782f38f72892abb3ea1f38032e9872d9f94a83ae",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/shubniggurathstatue.obj",
+          "sha256": "5295fddf27a9333b9d43b15b782f38f72892abb3ea1f38032e9872d9f94a83ae"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/shubniggurathstatue.mtl",
+          "sha256": "080ae8f13eeabe68e75bdf8910b59f4e818fae4e93d3a3d34d48bbf606cc7466"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/shubniggurathstatue.png",
+          "sha256": "3e8d9e283825ffbad5d546bc3fe8bf9bf365a6f341eda6c884f99a52b744a4f6"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/decorative_shub_niggurath_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/shub_niggurath.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/shub_niggurath.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:decorative_yog_sothoth_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/yogsothothstatue.obj",
+      "legacySha256": "d5079e8d0c3f5e07af4523d12bc0ad4aa3bba3ee112f7cb44b0ccc8bd9181e50",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/yogsothothstatue.obj",
+          "sha256": "d5079e8d0c3f5e07af4523d12bc0ad4aa3bba3ee112f7cb44b0ccc8bd9181e50"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/yogsothothstatue.mtl",
+          "sha256": "64b35d5400a7f542c885fc754a4f1ae9dac63fbf0ebbf89f6398f048b2d28e9a"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/yogsothothstatue.png",
+          "sha256": "f085396d724b21b2f0fdf88e8dd9dabb628aa6141e3d36fa3f33b0fcff39d357"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/decorative_yog_sothoth_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/yog_sothoth.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/yog_sothoth.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:deity_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/cthulhustatue.obj",
+      "legacySha256": "a14aa828cc33b5cfbcf0e608d331feb8e60683241d39bdfd6df9010d4ac2bdef",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/cthulhustatue.obj",
+          "sha256": "a14aa828cc33b5cfbcf0e608d331feb8e60683241d39bdfd6df9010d4ac2bdef"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/cthulhustatue.mtl",
+          "sha256": "ab90250affc26a13872bb243142e8c69e23db91a91b8dc9ca8f87ed036689086"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/cthulhustatue.png",
+          "sha256": "b9ed88f9a5e10097a7cbc52f56362d3b9ffa6ddc649967b978bb87884345641e"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/deity_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/cthulhu.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/cthulhu.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:dreaded_abyssalnite_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/dreadore.json",
+      "legacySha256": "68dcf27bd736fdc95b17f67e2122ed1d07be8a353f7a0bc817e2d8be4da9a921",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/dreadore.json",
+          "sha256": "68dcf27bd736fdc95b17f67e2122ed1d07be8a353f7a0bc817e2d8be4da9a921"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/dreaded_abyssalnite.png",
+          "sha256": "fa2d14a36e513e9c4d5a2bc2bb3e332a1c48d4b01a88f7c3ee27acf512aeda18"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/dreaded_abyssalnite_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/dreaded_abyssalnite_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/dreadstone.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/dreaded_abyssalnite.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:dreadlands_abyssalnite_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abydreadore.json",
+      "legacySha256": "ec77bd388e75d0e18455943d198963870f0dcd4b203d8239c9b2d830347dc781",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abydreadore.json",
+          "sha256": "ec77bd388e75d0e18455943d198963870f0dcd4b203d8239c9b2d830347dc781"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/abyssalnite.png",
+          "sha256": "fbda6ff4ebfa3b52ec88a2f7e3ffc11cdac95922d76f2bcb79f3b77238aa1f8d"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/dreadlands_abyssalnite_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/dreadlands_abyssalnite_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/dreadstone.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/abyssalnite.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:dreadlands_grass",
+      "status": "ACTIVE",
+      "kind": "multiface_ground",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/dreadgrass.json",
+      "legacySha256": "ffe02aacce037903650dc0fe395d5602e0026067706d305b73551cc2f8854d9e",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/dreadgrass.json",
+          "sha256": "ffe02aacce037903650dc0fe395d5602e0026067706d305b73551cc2f8854d9e"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/dreadlands_grass.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/dreadlands_grass.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/dreadlands_grass_side.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/dreadlands_dirt.png"
+      ],
+      "stateMapping": "single state -> distinct bottom/side/top plus tinted overlay",
+      "geometryRationale": "Vanilla grass parent retains legacy grass tint and separate dirt/side faces."
+    },
+    {
+      "block": "abyssalcraft:fused_abyssal_sand",
+      "status": "ACTIVE",
+      "kind": "multiface_ground",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/fusedabyssalsand.json",
+      "legacySha256": "f4f0f99c492b2290c6f0224a77a2d52c42ee20b5ab3b8c93972acc2ebf4ac909",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/fusedabyssalsand.json",
+          "sha256": "f4f0f99c492b2290c6f0224a77a2d52c42ee20b5ab3b8c93972acc2ebf4ac909"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/fused_abyssal_sand.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/fused_abyssal_sand.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/fused_abyssal_sand_side.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/abyssal_sand.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/fused_abyssal_sand_top.png"
+      ],
+      "stateMapping": "single state -> distinct bottom/side/top",
+      "geometryRationale": "cube_bottom_top replacement preserves the legacy three-surface material intent."
+    },
+    {
+      "block": "abyssalcraft:hastur_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/hasturstatue.obj",
+      "legacySha256": "883e3e210bff9c6fa39fbf4d702008ac1e1be715d87bfe033e79e6336f500bbd",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/hasturstatue.obj",
+          "sha256": "883e3e210bff9c6fa39fbf4d702008ac1e1be715d87bfe033e79e6336f500bbd"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/hasturstatue.mtl",
+          "sha256": "eb01ed3a6bd0834d8c843f1427710aa98d11283f8cc523c9cc6cc7107e76b6bd"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/hasturstatue.png",
+          "sha256": "edcc49708ac29c5275d23fa09934fea019798237aca5338ba99aab075ad98ae9"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/hastur_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/hastur.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/hastur.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:jzahar_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/jzaharstatue.obj",
+      "legacySha256": "194784df616130f859b8a3416d5ce624145a6b834aa58c867bbb101eb6f621f1",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/jzaharstatue.obj",
+          "sha256": "194784df616130f859b8a3416d5ce624145a6b834aa58c867bbb101eb6f621f1"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/jzaharstatue.mtl",
+          "sha256": "d81e1c7252bc07de8b10a9dc24b5f4f84ed15ebf2a9849529625d1e03580a5ed"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/jzaharstatue.png",
+          "sha256": "27f19a8264ee949b0c0d27e6a59e24e1e81808f29ab49778486e9600e273a2b6"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/jzahar_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/jzahar.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/jzahar.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:liquified_coralium_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abylcorore.json",
+      "legacySha256": "d28936b030171ee45519ec70fb8a3ac4805d33fe27708b1a9ee69bd4b83ae4c7",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abylcorore.json",
+          "sha256": "d28936b030171ee45519ec70fb8a3ac4805d33fe27708b1a9ee69bd4b83ae4c7"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/liquified_coralium.png",
+          "sha256": "4d8091d8ef6bcdea6f49ce72892d13cedd73fea5168af57a07d6dd39a32a801d"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/liquified_coralium_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/liquified_coralium_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/liquified_coralium.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:materializer",
+      "status": "ACTIVE",
+      "kind": "machine",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/materializer.json",
+      "legacySha256": "904d1265f84f6b27d432ec6e509b84c3f6b86ea4faa09ec2c127757568528cc8",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/materializer.json",
+          "sha256": "904d1265f84f6b27d432ec6e509b84c3f6b86ea4faa09ec2c127757568528cc8"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/materializer.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/materializer.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/materializer_front.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/materializer_side.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/materializer_top.png"
+      ],
+      "stateMapping": "four horizontal facings; no synthetic lit property",
+      "geometryRationale": "Vanilla orientable geometry preserves distinct front/side/top faces and rotates through blockstate."
+    },
+    {
+      "block": "abyssalcraft:nitre_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/nitreore.json",
+      "legacySha256": "4af1fc5c030ae5a83067aec60fbc6a5cdb10f4b6c71190450d514126e91000bd",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/nitreore.json",
+          "sha256": "4af1fc5c030ae5a83067aec60fbc6a5cdb10f4b6c71190450d514126e91000bd"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/nitre.png",
+          "sha256": "32882b8d224a7a16e4251251f8fea89393c0119fabb5e77d17143c1a25ed8c5b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/nitre_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/nitre_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/nitre.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:nyarlathotep_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/nyarlathotepstatue.obj",
+      "legacySha256": "1cc44457c16f9fce36a20afc3db10ff3b22df49959462f5ba7854bfd2825a8e1",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/nyarlathotepstatue.obj",
+          "sha256": "1cc44457c16f9fce36a20afc3db10ff3b22df49959462f5ba7854bfd2825a8e1"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/nyarlathotepstatue.mtl",
+          "sha256": "460d07bd1afa83662edd10722ffba6c2c68f2c5e564c5202ebeaaca3163a16a8"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/nyarlathotepstatue.png",
+          "sha256": "263a99078f41e9771703ac81f5a159f73771cf092f0331eb6ae9b919087e88da"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/nyarlathotep_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/nyarlathotep.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/nyarlathotep.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:pearlescent_coralium_ore",
+      "status": "ACTIVE",
+      "kind": "layered_ore",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abypcorore.json",
+      "legacySha256": "1751bae2b80d09191848b7440531cec941c2c36bddcafa94a2f0c99e4f2d0ea0",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/blockstates/abypcorore.json",
+          "sha256": "1751bae2b80d09191848b7440531cec941c2c36bddcafa94a2f0c99e4f2d0ea0"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+          "sha256": "1fca6bf227d47b257b87916de228e567b46aec0beef2092a746ab50084c30400"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/blocks/ores/pearlescent_coralium.png",
+          "sha256": "c620df8c1757e65d80b076e6582ca2563dce40a2151cae0de4cb186397cddbc9"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/pearlescent_coralium_ore.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/layered_ore.json",
+        "src/main/resources/assets/abyssalcraft/models/block/pearlescent_coralium_ore.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/ore_overlay/pearlescent_coralium.png"
+      ],
+      "stateMapping": "single state -> base cube plus 0.001-expanded overlay cube",
+      "geometryRationale": "Exact legacy two-layer cube geometry; modern child supplies independent host stone and ore overlay."
+    },
+    {
+      "block": "abyssalcraft:shub_niggurath_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/shubniggurathstatue.obj",
+      "legacySha256": "5295fddf27a9333b9d43b15b782f38f72892abb3ea1f38032e9872d9f94a83ae",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/shubniggurathstatue.obj",
+          "sha256": "5295fddf27a9333b9d43b15b782f38f72892abb3ea1f38032e9872d9f94a83ae"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/shubniggurathstatue.mtl",
+          "sha256": "080ae8f13eeabe68e75bdf8910b59f4e818fae4e93d3a3d34d48bbf606cc7466"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/shubniggurathstatue.png",
+          "sha256": "3e8d9e283825ffbad5d546bc3fe8bf9bf365a6f341eda6c884f99a52b744a4f6"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/shub_niggurath_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/shub_niggurath.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/shub_niggurath.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    },
+    {
+      "block": "abyssalcraft:tombstone_abyssal_stone",
+      "status": "ACTIVE",
+      "kind": "tombstone",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_abyssal_stone.json",
+      "legacySha256": "8e2b74aaefffa79ec5ec147a97242d7c1bda29dfdd25dff0010366e668f708df",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_abyssal_stone.json",
+          "sha256": "8e2b74aaefffa79ec5ec147a97242d7c1bda29dfdd25dff0010366e668f708df"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone.json",
+          "sha256": "7fb791884ba70a559ac74862c126d9a9666f4dc3327adaf6c0cc4689d401f14b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/tombstone_abyssal_stone.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/tombstone_abyssal_stone.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/abyssal_stone.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Exact eight-element legacy Blockbench tombstone geometry with material-specific modern textures."
+    },
+    {
+      "block": "abyssalcraft:tombstone_coralium_stone",
+      "status": "ACTIVE",
+      "kind": "tombstone",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_coralium_stone.json",
+      "legacySha256": "be5f6985be1ac16e4227f4faa218b4bc91428cf365715768510681135b70dc40",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_coralium_stone.json",
+          "sha256": "be5f6985be1ac16e4227f4faa218b4bc91428cf365715768510681135b70dc40"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone.json",
+          "sha256": "7fb791884ba70a559ac74862c126d9a9666f4dc3327adaf6c0cc4689d401f14b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/tombstone_coralium_stone.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/tombstone_coralium_stone.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/coralium_stone.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Exact eight-element legacy Blockbench tombstone geometry with material-specific modern textures."
+    },
+    {
+      "block": "abyssalcraft:tombstone_darkstone",
+      "status": "ACTIVE",
+      "kind": "tombstone",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_darkstone.json",
+      "legacySha256": "e2d17a23010bcac8d897bf5a20ba75ca5babff45e7d8bf67488fd53dab36fc5c",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_darkstone.json",
+          "sha256": "e2d17a23010bcac8d897bf5a20ba75ca5babff45e7d8bf67488fd53dab36fc5c"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone.json",
+          "sha256": "7fb791884ba70a559ac74862c126d9a9666f4dc3327adaf6c0cc4689d401f14b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/tombstone_darkstone.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/tombstone_darkstone.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/darkstone.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Exact eight-element legacy Blockbench tombstone geometry with material-specific modern textures."
+    },
+    {
+      "block": "abyssalcraft:tombstone_dreadstone",
+      "status": "ACTIVE",
+      "kind": "tombstone",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_dreadstone.json",
+      "legacySha256": "c07f80c3187a41b10f4659305b7533cdf3fc901b49ca6ca935e16adcbdadb1bd",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_dreadstone.json",
+          "sha256": "c07f80c3187a41b10f4659305b7533cdf3fc901b49ca6ca935e16adcbdadb1bd"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone.json",
+          "sha256": "7fb791884ba70a559ac74862c126d9a9666f4dc3327adaf6c0cc4689d401f14b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/tombstone_dreadstone.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/tombstone_dreadstone.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/dreadstone.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Exact eight-element legacy Blockbench tombstone geometry with material-specific modern textures."
+    },
+    {
+      "block": "abyssalcraft:tombstone_elysian_stone",
+      "status": "ACTIVE",
+      "kind": "tombstone",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_elysian_stone.json",
+      "legacySha256": "e064cb6a01755010928aeda7f565af80419c0b971bb3c2047d10d011970bd05d",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_elysian_stone.json",
+          "sha256": "e064cb6a01755010928aeda7f565af80419c0b971bb3c2047d10d011970bd05d"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone.json",
+          "sha256": "7fb791884ba70a559ac74862c126d9a9666f4dc3327adaf6c0cc4689d401f14b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/tombstone_elysian_stone.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/tombstone_elysian_stone.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/elysian_stone.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Exact eight-element legacy Blockbench tombstone geometry with material-specific modern textures."
+    },
+    {
+      "block": "abyssalcraft:tombstone_ethaxium",
+      "status": "ACTIVE",
+      "kind": "tombstone",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_ethaxium.json",
+      "legacySha256": "974c28049acaaec0193961c75da8abc2d88b5d7a0fdc1c8a3a540f79e815d423",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_ethaxium.json",
+          "sha256": "974c28049acaaec0193961c75da8abc2d88b5d7a0fdc1c8a3a540f79e815d423"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone.json",
+          "sha256": "7fb791884ba70a559ac74862c126d9a9666f4dc3327adaf6c0cc4689d401f14b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/tombstone_ethaxium.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/tombstone_ethaxium.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Exact eight-element legacy Blockbench tombstone geometry with material-specific modern textures."
+    },
+    {
+      "block": "abyssalcraft:tombstone_monolith_stone",
+      "status": "ACTIVE",
+      "kind": "tombstone",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_monolith_stone.json",
+      "legacySha256": "17dcbff0a3ca754c2705947f9573cd52b2f450c398eff04a64378ac308c102e0",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_monolith_stone.json",
+          "sha256": "17dcbff0a3ca754c2705947f9573cd52b2f450c398eff04a64378ac308c102e0"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone.json",
+          "sha256": "7fb791884ba70a559ac74862c126d9a9666f4dc3327adaf6c0cc4689d401f14b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/tombstone_monolith_stone.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/tombstone_monolith_stone.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/monolith_stone.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Exact eight-element legacy Blockbench tombstone geometry with material-specific modern textures."
+    },
+    {
+      "block": "abyssalcraft:tombstone_omothol_stone",
+      "status": "ACTIVE",
+      "kind": "tombstone",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_omothol_stone.json",
+      "legacySha256": "882e982e4f3264e8340956c275c97be9c567061907d75fc2a7b28841c6a4af07",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_omothol_stone.json",
+          "sha256": "882e982e4f3264e8340956c275c97be9c567061907d75fc2a7b28841c6a4af07"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone.json",
+          "sha256": "7fb791884ba70a559ac74862c126d9a9666f4dc3327adaf6c0cc4689d401f14b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/tombstone_omothol_stone.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/tombstone_omothol_stone.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/omothol_stone.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Exact eight-element legacy Blockbench tombstone geometry with material-specific modern textures."
+    },
+    {
+      "block": "abyssalcraft:tombstone_stone",
+      "status": "ACTIVE",
+      "kind": "tombstone",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_stone.json",
+      "legacySha256": "1a5d42800f5d7da1cd8844d42fe31b6280022940208311b45f4aa1daf5114509",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone_stone.json",
+          "sha256": "1a5d42800f5d7da1cd8844d42fe31b6280022940208311b45f4aa1daf5114509"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/tombstone.json",
+          "sha256": "7fb791884ba70a559ac74862c126d9a9666f4dc3327adaf6c0cc4689d401f14b"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/tombstone_stone.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/tombstone_stone.json"
+      ],
+      "textures": [],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Exact eight-element legacy Blockbench tombstone geometry with material-specific modern textures."
+    },
+    {
+      "block": "abyssalcraft:transmutator",
+      "status": "ACTIVE",
+      "kind": "machine",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/transmutator.json",
+      "legacySha256": "caecad9ffe1975d1e85710e98d1d03ce96984aa74c19e09511966fe8b767c87d",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/transmutator.json",
+          "sha256": "caecad9ffe1975d1e85710e98d1d03ce96984aa74c19e09511966fe8b767c87d"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/transmutator.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/transmutator.json",
+        "src/main/resources/assets/abyssalcraft/models/block/transmutator_active.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/transmutator_front.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/transmutator_side.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/transmutator_top.png",
+        "src/main/resources/assets/abyssalcraft/textures/block/transmutator_front_active.png"
+      ],
+      "stateMapping": "four horizontal facings x lit=false/true; active model and front texture differ",
+      "geometryRationale": "Vanilla orientable geometry preserves distinct front/side/top faces and rotates through blockstate."
+    },
+    {
+      "block": "abyssalcraft:yog_sothoth_statue",
+      "status": "ACTIVE",
+      "kind": "statue",
+      "legacySource": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/yogsothothstatue.obj",
+      "legacySha256": "d5079e8d0c3f5e07af4523d12bc0ad4aa3bba3ee112f7cb44b0ccc8bd9181e50",
+      "sourceArtifacts": [
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/yogsothothstatue.obj",
+          "sha256": "d5079e8d0c3f5e07af4523d12bc0ad4aa3bba3ee112f7cb44b0ccc8bd9181e50"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/yogsothothstatue.mtl",
+          "sha256": "64b35d5400a7f542c885fc754a4f1ae9dac63fbf0ebbf89f6398f048b2d28e9a"
+        },
+        {
+          "path": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures/model/blocks/yogsothothstatue.png",
+          "sha256": "f085396d724b21b2f0fdf88e8dd9dabb628aa6141e3d36fa3f33b0fcff39d357"
+        }
+      ],
+      "modernBlockstate": "src/main/resources/assets/abyssalcraft/blockstates/yog_sothoth_statue.json",
+      "modernModels": [
+        "src/main/resources/assets/abyssalcraft/models/block/statue/yog_sothoth.json"
+      ],
+      "textures": [
+        "src/main/resources/assets/abyssalcraft/textures/block/statue/yog_sothoth.png"
+      ],
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "geometryRationale": "Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking."
+    }
+  ]
+}

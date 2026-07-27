@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "tag": "c:dusts/copper"
   },
   "result": {
-    "id": "abyssalcraft:crystal_copper",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:crystal_copper"
   },
-  "experience": 0.1,
   "time": 200
 }

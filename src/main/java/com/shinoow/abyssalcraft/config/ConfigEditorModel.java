@@ -11,10 +11,21 @@ public final class ConfigEditorModel {
 
     private final List<ConfigCompat.Entry<?>> entries;
     private final Map<String, String> drafts = new LinkedHashMap<>();
+    private final Map<String, Object> headlessValues;
 
     public ConfigEditorModel() {
+        this(false);
+    }
+
+    private ConfigEditorModel(boolean headless) {
         entries = ConfigCompat.entries();
+        headlessValues = headless ? new LinkedHashMap<>() : null;
+        if (headless) entries.forEach(entry -> headlessValues.put(entry.path(), entry.defaultValue()));
         reload();
+    }
+
+    static ConfigEditorModel headless() {
+        return new ConfigEditorModel(true);
     }
 
     public List<ConfigCompat.Entry<?>> entries() {
@@ -49,16 +60,26 @@ public final class ConfigEditorModel {
                 return entry.path() + ": " + (ex.getMessage() == null ? "Invalid value" : ex.getMessage());
             }
         }
-        parsed.forEach(ConfigCompat.Entry::setParsed);
-        ConfigCompat.saveAll();
-        ComplexConfig.reload();
+        if (headlessValues != null) {
+            parsed.forEach((entry, value) -> headlessValues.put(entry.path(), value));
+        } else {
+            parsed.forEach(ConfigCompat.Entry::setParsed);
+            ConfigCompat.saveAll();
+            ComplexConfig.reload();
+        }
         reload();
         return "";
     }
 
     public void reload() {
         drafts.clear();
-        entries.forEach(entry -> drafts.put(entry.path(), entry.formattedValue()));
+        entries.forEach(entry -> drafts.put(entry.path(), headlessValues == null
+            ? entry.formattedValue() : format(headlessValues.get(entry.path()))));
+    }
+
+    private static String format(Object value) {
+        if (value instanceof List<?> list) return String.join(", ", list.stream().map(String::valueOf).toList());
+        return String.valueOf(value);
     }
 
     private ConfigCompat.Entry<?> entry(String path) {

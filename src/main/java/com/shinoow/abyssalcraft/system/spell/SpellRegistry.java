@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 
 import org.slf4j.Logger;
 
@@ -82,15 +83,28 @@ public final class SpellRegistry {
     }
 
     public Spell find(int bookTier, ScrollType held, String parentId, List<ItemStack> reagents) {
+        return find(bookTier, held, parentId, SpellAvailability::isEnabled, spell -> spell.matches(reagents));
+    }
+
+    Spell findIgnoringAvailability(int bookTier, ScrollType held, String parentId, List<ItemStack> reagents) {
+        return find(bookTier, held, parentId, id -> true, spell -> spell.matches(reagents));
+    }
+
+    Spell findForAvailabilityTest(int bookTier, ScrollType held, String parentId, Spell expected) {
+        return find(bookTier, held, parentId, SpellAvailability::isEnabled, spell -> spell == expected);
+    }
+
+    private Spell find(int bookTier, ScrollType held, String parentId, Predicate<String> enabled,
+                       Predicate<Spell> matches) {
         for (Spell spell : spells) {
             String requiredParent = spell instanceof ManifestSpell mounted
                 ? mounted.manifest().parentId() : spell.parent() == null ? null : spell.parent().id();
-                if (SpellAvailability.isEnabled(spell)
+                if (enabled.test(spell.id())
                     && spell.bookType() <= bookTier
                     && held.quality() >= spell.scrollType().quality()
-                        && (requiredParent == null || SpellAvailability.isEnabled(requiredParent))
+                        && (requiredParent == null || enabled.test(requiredParent))
                     && (requiredParent == null ? parentId.isEmpty() : requiredParent.equals(parentId))
-                    && spell.matches(reagents)) {
+                    && matches.test(spell)) {
                 return spell;
             }
         }

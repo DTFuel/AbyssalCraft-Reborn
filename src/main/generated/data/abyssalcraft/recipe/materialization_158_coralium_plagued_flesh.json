@@ -2,20 +2,20 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_phosphorus"
-      },
-      "count": 1
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_coralium"
-      },
-      "count": 1
+      }
     }
   ],
   "result": {
-    "id": "abyssalcraft:coralium_plagued_flesh",
-    "count": 1
+    "count": 1,
+    "id": "abyssalcraft:coralium_plagued_flesh"
   }
 }

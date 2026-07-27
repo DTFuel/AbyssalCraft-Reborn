@@ -1,3 +1,7 @@
 {
-  "variants": { "": { "model": "abyssalcraft:block/nitre_ore" } }
+  "variants": {
+    "": {
+      "model": "abyssalcraft:block/nitre_ore"
+    }
+  }
 }

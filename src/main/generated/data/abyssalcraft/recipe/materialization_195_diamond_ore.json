@@ -2,26 +2,26 @@
   "type": "abyssalcraft:materialization",
   "inputs": [
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_silica"
-      },
-      "count": 1
+      }
     },
     {
+      "count": 1,
       "ingredient": {
         "item": "abyssalcraft:crystal_magnesia"
-      },
-      "count": 1
+      }
     },
     {
+      "count": 64,
       "ingredient": {
         "item": "abyssalcraft:crystal_carbon"
-      },
-      "count": 64
+      }
     }
   ],
   "result": {
-    "id": "minecraft:diamond_ore",
-    "count": 1
+    "count": 1,
+    "id": "minecraft:diamond_ore"
   }
 }

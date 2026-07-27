@@ -1,12 +1,12 @@
 {
   "type": "abyssalcraft:crystallization",
+  "experience": 0.1,
   "input": {
     "tag": "forge:nuggets/iron"
   },
   "result": {
-    "item": "abyssalcraft:crystal_shard_iron",
-    "count": 1
+    "count": 1,
+    "item": "abyssalcraft:crystal_shard_iron"
   },
-  "experience": 0.1,
   "time": 200
 }

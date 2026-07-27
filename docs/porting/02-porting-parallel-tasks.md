@@ -184,7 +184,7 @@ flowchart LR
 | R7a | RR-RENAME · API 重命名行为报告 | ☐ owner:___ | R6 | `docs/spec/rename-regression.md` | T10.2 |
 | R7a | RR-BIOME · spawn modifier 双份 | ☑ owner:Agent C（提前交付） | R6 | 9 对 Forge/Neo spawn modifier 镜像并经双端启动/热重载解析；实际自然生成行为由 R4/R8 统计 | T10.4b（T10.4c 待 R4/R8） |
 | R7b-GATE | 两节点 build/runClient 全量自动回归 | ☐ owner:Gate Integrator | R7a 全部 ☑ | validation reports；无真人操作前置 | T10.5 / Gate M10 |
-| R8 | RR-SERVER · world/entity/loot 服务端矩阵 | ☐ owner:Agent SERVER | R7b-GATE | validation checklist | T11.2 |
+| R8 | RR-SERVER · world/entity/loot 服务端矩阵 | ☑ owner:GitHub Copilot | R7b-GATE | 固定 seed 双节点新世界+重启四阶段；world/structure/spawn/live loot/recipe/restart fail-closed 矩阵通过 | T11.2 |
 | U | U-FINAL + U-GATE · 全内容真人客户端矩阵 | ☐ owner:user+Validation Coordinator | R7b-GATE + 全部前序 `U-*` | 不拥有生产文件；仅用户证据与独立报告 | TP.7b,T5.9b,T6.* UX,T11.1 |
 | R8-Gate | 文档/index/发布产物收口 | ☐ owner:Gate Integrator | RR-SERVER,U-GATE | `DEVELOPMENT.md`, `docs/index/**`, release artifacts | T11.3,T11.4 / Gate M11 |
 
@@ -650,7 +650,7 @@ flowchart LR
 
 ### Stage V · 运行期验证 + 发布（前置：L，串行）
 **PV-1 · 两节点 runClient 全内容冒烟**  ☐ owner:___ — Maps T11.1
-**PV-2 · runServer 世界生成/结构/刷怪/战利品矩阵**  ☐ owner:___ — Maps T11.2
+**PV-2 · runServer 世界生成/结构/刷怪/战利品矩阵**  ☑ owner:GitHub Copilot — 固定 seed 双节点新世界+重启四阶段通过；Maps T11.2
 **PV-3 · 回写 DEVELOPMENT.md + index + 发布核对**  ☐ owner:___ — Owns `DEVELOPMENT.md`,`docs/index/**` · Maps T11.3,T11.4
 
 > **Gate V = DoD**（见总任务表）。

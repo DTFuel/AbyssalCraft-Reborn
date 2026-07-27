@@ -1,3 +1,7 @@
 {
-  "variants": { "": { "model": "abyssalcraft:block/dreadlands_abyssalnite_ore" } }
+  "variants": {
+    "": {
+      "model": "abyssalcraft:block/dreadlands_abyssalnite_ore"
+    }
+  }
 }

@@ -12,11 +12,24 @@ $properties = Join-Path $run 'server.properties'
 $backup = Join-Path $run 'server.properties.rr-server-matrix-backup'
 $nodes = if ($Node -eq 'all') { @('forge', 'neoforge') } else { @($Node) }
 $oldJavaToolOptions = $env:JAVA_TOOL_OPTIONS
+$localMavenInit = Join-Path $root 'build\local-maven.init.gradle'
+$matrixSeed = 1251393890
 
 function Invoke-MatrixPhase([string]$project, [string]$log) {
-    & (Join-Path $root 'gradlew.bat') $project '--console=plain' 2>&1 |
-        Tee-Object -FilePath $log
-    if ($LASTEXITCODE -ne 0) {
+    $arguments = @($project, '--console=plain')
+    if (Test-Path $localMavenInit) {
+        $arguments += @('--init-script', $localMavenInit)
+    }
+    $previousErrorActionPreference = $ErrorActionPreference
+    try {
+        $ErrorActionPreference = 'Continue'
+        & (Join-Path $root 'gradlew.bat') @arguments 2>&1 |
+            Tee-Object -FilePath $log
+        $exitCode = $LASTEXITCODE
+    } finally {
+        $ErrorActionPreference = $previousErrorActionPreference
+    }
+    if ($exitCode -ne 0) {
         throw "RR server matrix Gradle phase failed: $project"
     }
 }
@@ -38,6 +51,7 @@ try {
         Remove-Item $world, $log1, $log2 -Recurse -Force -ErrorAction SilentlyContinue
         @(
             "level-name=$worldName"
+            "level-seed=$matrixSeed"
             'server-port=0'
             'online-mode=false'
             'enable-query=false'
@@ -45,6 +59,9 @@ try {
         ) | Set-Content -Path $properties -Encoding ascii
 
         Invoke-MatrixPhase ":${version}:runServer" $log1
+        if ((Select-String -Path $log1 -SimpleMatch "seed=$matrixSeed").Count -ne 2) {
+            throw "RR server matrix did not use the fixed world seed: $loader"
+        }
         if (-not (Select-String -Quiet -Path $log1 -SimpleMatch 'RR_SERVER_MATRIX_PENDING phase=new_world restart=automatic')) {
             throw "RR server matrix phase one did not request restart: $loader"
         }

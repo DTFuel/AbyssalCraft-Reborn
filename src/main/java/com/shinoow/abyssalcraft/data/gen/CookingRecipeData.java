@@ -121,7 +121,8 @@ public final class CookingRecipeData implements DataProvider {
         entries.add(new Entry("darklands_oak_wood_2", Status.REPLACED,
             "smelting_darklands_oak_log", "", "", 0, 0,
             "legacy second log block is the same modern darklands_oak_log"));
-        blocked(entries, "coralium_infused_stone", "coralium_infused_stone is not registered");
+        add(entries, "coralium_infused_stone", "abyssalcraft:coralium_infused_stone",
+            "abyssalcraft:coralium_pearl", 1, 3.0F);
         add(entries, "pearlescent_coralium_ore", "abyssalcraft:pearlescent_coralium_ore",
             "abyssalcraft:coralium_pearl", 1, 3.0F);
         add(entries, "liquified_coralium_ore", "abyssalcraft:liquified_coralium_ore",

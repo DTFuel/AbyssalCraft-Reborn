@@ -1,7 +1,0 @@
-{
-  "parent": "abyssalcraft:block/deco_tombstone",
-  "textures": {
-    "all": "abyssalcraft:block/darkstone",
-    "particle": "abyssalcraft:block/darkstone"
-  }
-}

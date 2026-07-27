@@ -2,6 +2,7 @@ package com.shinoow.abyssalcraft.integration.jei;
 
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -69,9 +70,9 @@ public final class InfusionRitualCategory implements IRecipeCategory<RitualManif
     public void draw(RitualManifest ritual, IRecipeSlotsView slotsView, GuiGraphics graphics,
                      double mouseX, double mouseY) {
         Component energy = Component.translatable("jei.abyssalcraft.ritual_energy", (int) ritual.requiredEnergy());
-        graphics.drawString(graphics.pose().last().pose(), energy, 2, 2, 0x808080, false);
+        graphics.drawString(Minecraft.getInstance().font, energy, 2, 2, 0x808080, false);
         Component book = Component.translatable("jei.abyssalcraft.ritual_book_type", ritual.bookType());
-        graphics.drawString(graphics.pose().last().pose(), book, 2, 88, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, book, 2, 88, 0x606060, false);
     }
 
     public static List<RitualManifest> getInfusionRituals() {
