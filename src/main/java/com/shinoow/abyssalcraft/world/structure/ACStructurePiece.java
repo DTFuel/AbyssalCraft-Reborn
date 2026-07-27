@@ -51,9 +51,9 @@ public class ACStructurePiece extends StructurePiece {
         int oz = boundingBox.minZ() + 3;
         BlockState block = kind.block();
 
-        // 5x5 floor.
-        for (int dx = -2; dx <= 2; dx++) {
-            for (int dz = -2; dz <= 2; dz++) {
+        int radius = kind == StructureKind.DARK_RITUAL_GROUNDS ? 3 : 2;
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dz = -radius; dz <= radius; dz++) {
                 set(level, box, ox + dx, oy, oz + dz, block);
             }
         }
@@ -65,7 +65,10 @@ public class ACStructurePiece extends StructurePiece {
                 set(level, box, ox + c[0], oy + h, oz + c[1], block);
             }
         }
-        // Centre loot chest.
+        if (kind == StructureKind.DARK_RITUAL_GROUNDS) {
+            set(level, box, ox, oy + 1, oz, BaseBlocks.MONOLITH_STONE.get().defaultBlockState());
+            return;
+        }
         BlockPos chest = new BlockPos(ox, oy + 1, oz);
         if (box.isInside(chest)) {
             level.setBlock(chest, Blocks.CHEST.defaultBlockState(), 2);

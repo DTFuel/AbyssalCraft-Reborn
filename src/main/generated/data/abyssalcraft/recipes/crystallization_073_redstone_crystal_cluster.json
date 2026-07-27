@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "minecraft:redstone_block"
+  },
+  "result": {
+    "item": "abyssalcraft:redstone_crystal_cluster",
+    "count": 1
+  },
+  "experience": 0.9,
+  "time": 200
+}

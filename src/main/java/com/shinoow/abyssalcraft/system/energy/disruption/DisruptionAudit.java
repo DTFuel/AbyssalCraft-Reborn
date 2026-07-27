@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.system.energy.DeityType;
+
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 
 /** Frozen four-state audit for all twenty-seven disruptions registered by 1.12.2. */
 public final class DisruptionAudit {
@@ -14,15 +18,17 @@ public final class DisruptionAudit {
         "witherPotion", "coraliumPotion", "potentialEnergy", "freeze", "swarmShadow", "fireRain",
         "displace", "randomTeleport", "potentialEnergyDrain", "swarmSheep", "animalCorruption",
         "spawnShubOffspring", "sacrificeCorruptionJzahar", "sacrificeCorruptionYogSothoth",
-        "famineAzathoth", "famineShuNiggurath");
+        "famineAzathoth", "famineShuNiggurath", "ooze", "randomSwarm", "randomSpawn",
+        "invisibleSwarmHastur", "invisibleSwarmNyarlathotep");
 
-    public static final Set<String> BLOCKED = Set.of(
-        "ooze", "randomSwarm", "randomSpawn", "invisibleSwarmHastur", "invisibleSwarmNyarlathotep");
+    public static final Set<String> BLOCKED = Set.of();
 
     public static final Map<String, DeityType> DEITY_LIMITS = Map.of(
         "swarmSheep", DeityType.SHUBNIGGURATH,
         "animalCorruption", DeityType.SHUBNIGGURATH,
         "spawnShubOffspring", DeityType.SHUBNIGGURATH,
+        "invisibleSwarmHastur", DeityType.HASTUR,
+        "invisibleSwarmNyarlathotep", DeityType.NYARLATHOTEP,
         "sacrificeCorruptionJzahar", DeityType.JZAHAR,
         "sacrificeCorruptionYogSothoth", DeityType.YOGSOTHOTH,
         "famineAzathoth", DeityType.AZATHOTH,
@@ -41,6 +47,13 @@ public final class DisruptionAudit {
             require(disruption.deity() == DEITY_LIMITS.get(disruption.name()),
                 "disruption deity mapping changed: " + disruption.name());
         }
+        requireRegistryId(BuiltInRegistries.BLOCK, ACRef.id("shoggoth_ooze"));
+        requireRegistryId(BuiltInRegistries.ENTITY_TYPE, ACRef.id("lesserdreadbeast"));
+        requireRegistryId(BuiltInRegistries.ENTITY_TYPE, ACRef.vanilla("enderman"));
+    }
+
+    private static void requireRegistryId(net.minecraft.core.Registry<?> registry, ResourceLocation id) {
+        require(registry.containsKey(id), "disruption dependency missing registry id: " + id);
     }
 
     private static void require(boolean condition, String message) {

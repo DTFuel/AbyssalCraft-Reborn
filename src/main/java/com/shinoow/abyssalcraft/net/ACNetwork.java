@@ -16,6 +16,7 @@ import com.shinoow.abyssalcraft.net.server.FireMessage;
 import com.shinoow.abyssalcraft.net.server.InterdimensionalCageMessage;
 import com.shinoow.abyssalcraft.net.server.MobSpellMessage;
 import com.shinoow.abyssalcraft.net.server.OpenSpellbookMessage;
+import com.shinoow.abyssalcraft.net.server.NecronomiconPageActionMessage;
 import com.shinoow.abyssalcraft.net.server.PrepareSyncMessage;
 import com.shinoow.abyssalcraft.net.server.SpiritTabletMessage;
 import com.shinoow.abyssalcraft.net.server.StaffModeMessage;
@@ -31,12 +32,12 @@ import net.minecraft.server.level.ServerPlayer;
  * AbyssalCraft network layer (owned by PS-1, Stage S-A, Maps T7.1).
  *
  * <p>The single {@link NetworkChannel} (multiplexed envelope over Forge {@code SimpleChannel} /
- * NeoForge payloads, hidden in {@code platform/NetworkChannel}) plus the registration of all 23 mod
- * messages. This is the first runtime consumer of the compat, proving its send/receive path on both
+ * NeoForge payloads, hidden in {@code platform/NetworkChannel}) plus the frozen registration of 23
+ * legacy messages and one modern extension. This proves its send/receive path on both
  * loaders. {@link #bootstrap(Object)} is called once from the main class with the MOD event bus.
  *
- * <p>Ids 0-10 are server-bound (client&rarr;server), 11-22 client-bound (server&rarr;client); ids are
- * stable (the wire uses the numeric id, not the class name). Every message is a fork-free
+ * <p>Ids 0-10 and 23 are server-bound (client&rarr;server), 11-22 client-bound (server&rarr;client); ids
+ * are stable (the wire uses the numeric id, not the class name). Every message is a fork-free
  * {@link NetworkChannel.ACPacket} whose serialization uses only version-stable {@code FriendlyByteBuf}
  * primitives (varint / UTF / BlockPos / UUID / long / boolean / NBT; the lone ItemStack is written as
  * item-id + count to dodge the 1.21 {@code RegistryFriendlyByteBuf} requirement).
@@ -57,30 +58,33 @@ public final class ACNetwork {
 
     static {
         // --- server-bound (client -> server), ids 0-10 ---
-        CHANNEL.register(0, FireMessage.class, FireMessage::new);
-        CHANNEL.register(1, UpdateModeMessage.class, UpdateModeMessage::new);
-        CHANNEL.register(2, ToggleStateMessage.class, ToggleStateMessage::new);
-        CHANNEL.register(3, StaffOfRendingMessage.class, StaffOfRendingMessage::new);
-        CHANNEL.register(4, StaffModeMessage.class, StaffModeMessage::new);
-        CHANNEL.register(5, SpiritTabletMessage.class, SpiritTabletMessage::new);
-        CHANNEL.register(6, PrepareSyncMessage.class, PrepareSyncMessage::new);
-        CHANNEL.register(7, OpenSpellbookMessage.class, OpenSpellbookMessage::new);
-        CHANNEL.register(8, MobSpellMessage.class, MobSpellMessage::new);
-        CHANNEL.register(9, InterdimensionalCageMessage.class, InterdimensionalCageMessage::new);
-        CHANNEL.register(10, TransferStackMessage.class, TransferStackMessage::new);
+        CHANNEL.register(0, FireMessage.class, NetworkChannel.Direction.SERVER_BOUND, FireMessage::new);
+        CHANNEL.register(1, UpdateModeMessage.class, NetworkChannel.Direction.SERVER_BOUND, UpdateModeMessage::new);
+        CHANNEL.register(2, ToggleStateMessage.class, NetworkChannel.Direction.SERVER_BOUND, ToggleStateMessage::new);
+        CHANNEL.register(3, StaffOfRendingMessage.class, NetworkChannel.Direction.SERVER_BOUND, StaffOfRendingMessage::new);
+        CHANNEL.register(4, StaffModeMessage.class, NetworkChannel.Direction.SERVER_BOUND, StaffModeMessage::new);
+        CHANNEL.register(5, SpiritTabletMessage.class, NetworkChannel.Direction.SERVER_BOUND, SpiritTabletMessage::new);
+        CHANNEL.register(6, PrepareSyncMessage.class, NetworkChannel.Direction.SERVER_BOUND, PrepareSyncMessage::new);
+        CHANNEL.register(7, OpenSpellbookMessage.class, NetworkChannel.Direction.SERVER_BOUND, OpenSpellbookMessage::new);
+        CHANNEL.register(8, MobSpellMessage.class, NetworkChannel.Direction.SERVER_BOUND, MobSpellMessage::new);
+        CHANNEL.register(9, InterdimensionalCageMessage.class, NetworkChannel.Direction.SERVER_BOUND, InterdimensionalCageMessage::new);
+        CHANNEL.register(10, TransferStackMessage.class, NetworkChannel.Direction.SERVER_BOUND, TransferStackMessage::new);
         // --- client-bound (server -> client), ids 11-22 ---
-        CHANNEL.register(11, WindowPropertyMessage.class, WindowPropertyMessage::new);
-        CHANNEL.register(12, RitualMessage.class, RitualMessage::new);
-        CHANNEL.register(13, RitualStartMessage.class, RitualStartMessage::new);
-        CHANNEL.register(14, CleansingRitualMessage.class, CleansingRitualMessage::new);
-        CHANNEL.register(15, DisruptionMessage.class, DisruptionMessage::new);
-        CHANNEL.register(16, EvilSheepMessage.class, EvilSheepMessage::new);
-        CHANNEL.register(17, KnowledgeUnlockMessage.class, KnowledgeUnlockMessage::new);
-        CHANNEL.register(18, NecroDataCapMessage.class, NecroDataCapMessage::new);
-        CHANNEL.register(19, PEStreamMessage.class, PEStreamMessage::new);
-        CHANNEL.register(20, ShouldSyncMessage.class, ShouldSyncMessage::new);
-        CHANNEL.register(21, SyncNecromancyDataMessage.class, SyncNecromancyDataMessage::new);
-        CHANNEL.register(22, DisplayRoutesMessage.class, DisplayRoutesMessage::new);
+        CHANNEL.register(11, WindowPropertyMessage.class, NetworkChannel.Direction.CLIENT_BOUND, WindowPropertyMessage::new);
+        CHANNEL.register(12, RitualMessage.class, NetworkChannel.Direction.CLIENT_BOUND, RitualMessage::new);
+        CHANNEL.register(13, RitualStartMessage.class, NetworkChannel.Direction.CLIENT_BOUND, RitualStartMessage::new);
+        CHANNEL.register(14, CleansingRitualMessage.class, NetworkChannel.Direction.CLIENT_BOUND, CleansingRitualMessage::new);
+        CHANNEL.register(15, DisruptionMessage.class, NetworkChannel.Direction.CLIENT_BOUND, DisruptionMessage::new);
+        CHANNEL.register(16, EvilSheepMessage.class, NetworkChannel.Direction.CLIENT_BOUND, EvilSheepMessage::new);
+        CHANNEL.register(17, KnowledgeUnlockMessage.class, NetworkChannel.Direction.CLIENT_BOUND, KnowledgeUnlockMessage::new);
+        CHANNEL.register(18, NecroDataCapMessage.class, NetworkChannel.Direction.CLIENT_BOUND, NecroDataCapMessage::new);
+        CHANNEL.register(19, PEStreamMessage.class, NetworkChannel.Direction.CLIENT_BOUND, PEStreamMessage::new);
+        CHANNEL.register(20, ShouldSyncMessage.class, NetworkChannel.Direction.CLIENT_BOUND, ShouldSyncMessage::new);
+        CHANNEL.register(21, SyncNecromancyDataMessage.class, NetworkChannel.Direction.CLIENT_BOUND, SyncNecromancyDataMessage::new);
+        CHANNEL.register(22, DisplayRoutesMessage.class, NetworkChannel.Direction.CLIENT_BOUND, DisplayRoutesMessage::new);
+        // --- modern extension (not part of the frozen 23-message legacy catalog) ---
+        CHANNEL.register(23, NecronomiconPageActionMessage.class, NetworkChannel.Direction.SERVER_BOUND,
+            NecronomiconPageActionMessage::new);
     }
 
     /** Wire the channel to the MOD bus. Triggers the static registration first. */

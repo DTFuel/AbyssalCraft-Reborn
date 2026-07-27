@@ -1,0 +1,695 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AbyssalCraftAPI.addSingleCrystallization(Items.BLAZE_POWDER, new ItemStack(ACItems.crystal_shard_blaze, 4), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(new ItemStack(Items.DYE, 1, 15), new ItemStack(ACItems.crystal_shard_phosphorus, 4), 0.0F);
+AbyssalCraftAPI.addCrystallization(Items.WATER_BUCKET, new ItemStack(ACItems.crystal_hydrogen, 12), new ItemStack(ACItems.crystal_shard_oxygen, 6), 0.1F);
+AbyssalCraftAPI.addCrystallization(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER), new ItemStack(ACItems.crystal_shard_hydrogen, 6), new ItemStack(ACItems.crystal_shard_oxygen, 3), 0.1F);
+AbyssalCraftAPI.addCrystallization(ACItems.methane, new ItemStack(ACItems.crystal_shard_oxygen, 4), new ItemStack(ACItems.crystal_hydrogen, 16), 0.1F);
+AbyssalCraftAPI.addCrystallization(Items.GUNPOWDER, new ItemStack(ACItems.crystal_shard_nitrate, 16), new ItemStack(ACItems.crystal_shard_sulfur, 4), 0.1F);
+AbyssalCraftAPI.addCrystallization(Blocks.OBSIDIAN, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_magnesia, 4), 0.1F);
+AbyssalCraftAPI.addCrystallization(Blocks.STONE, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_magnesia, 4), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_silicon), new ItemStack(ACItems.crystal_oxygen, 2), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_silica), new ItemStack(ACItems.crystal_shard_silicon), new ItemStack(ACItems.crystal_shard_oxygen, 2), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_alumina), new ItemStack(ACItems.crystal_aluminium, 2), new ItemStack(ACItems.crystal_oxygen, 3), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_alumina), new ItemStack(ACItems.crystal_shard_aluminium, 2), new ItemStack(ACItems.crystal_shard_oxygen, 3), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_magnesium), new ItemStack(ACItems.crystal_oxygen), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_magnesia), new ItemStack(ACItems.crystal_shard_magnesium), new ItemStack(ACItems.crystal_shard_oxygen), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_methane), new ItemStack(ACItems.crystal_carbon), new ItemStack(ACItems.crystal_hydrogen, 4), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_methane), new ItemStack(ACItems.crystal_shard_carbon), new ItemStack(ACItems.crystal_shard_hydrogen, 4), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_nitrate), new ItemStack(ACItems.crystal_nitrogen), new ItemStack(ACItems.crystal_oxygen, 3), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_nitrate), new ItemStack(ACItems.crystal_shard_nitrogen), new ItemStack(ACItems.crystal_shard_oxygen, 3), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(Items.ROTTEN_FLESH, new ItemStack(ACItems.crystal_shard_phosphorus, 8), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(ACItems.overworld_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), 0.2F);
+AbyssalCraftAPI.addCrystallization(ACItems.abyssal_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_fragment_coralium, 2), 0.2F);
+AbyssalCraftAPI.addCrystallization(ACItems.dreaded_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_fragment_dreadium, 2), 0.2F);
+AbyssalCraftAPI.addCrystallization(ACItems.omothol_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_fragment_carbon, 2), 0.2F);
+AbyssalCraftAPI.addCrystallization(ACItems.shadow_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.shadow_gem, 1), 0.2F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.coralium_plagued_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_shard_coralium), 0.2F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.skin_of_the_abyssal_wasteland), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.abyssal_wasteland_essence), 0.2F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.skin_of_the_dreadlands), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.dreadlands_essence), 0.2F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.skin_of_omothol), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.omothol_essence), 0.2F);
+AbyssalCraftAPI.addCrystallization(ACItems.dreaded_shard_of_abyssalnite, new ItemStack(ACItems.crystal_shard_abyssalnite), new ItemStack(ACItems.crystal_shard_dreadium, 4), 0.2F);
+AbyssalCraftAPI.addSingleCrystallization(Items.BONE, new ItemStack(ACItems.crystal_shard_calcium, 4), 0.2F);
+AbyssalCraftAPI.addCrystallization(Items.PRISMARINE_SHARD, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_beryl, 4), 0.1F);
+AbyssalCraftAPI.addCrystallization(Items.PRISMARINE_CRYSTALS, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_beryl, 4), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(Blocks.PRISMARINE, 1, 0), new ItemStack(ACItems.crystal_shard_silica, 16), new ItemStack(ACItems.crystal_shard_beryl, 27), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(Blocks.PRISMARINE, 1, 1), new ItemStack(ACItems.crystal_silica, 4), new ItemStack(ACItems.crystal_beryl, 4), 0.1F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(Blocks.PRISMARINE, 1, 2), new ItemStack(ACItems.crystal_shard_silica, 32), new ItemStack(ACItems.crystal_shard_beryl, 32), 0.1F);
+AbyssalCraftAPI.addCrystallization(Items.EGG, new ItemStack(ACItems.crystal_shard_calcium, 4), new ItemStack(ACItems.crystal_shard_phosphorus, 4), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.ghoul_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 12), 0.2F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.abyssal_ghoul_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.crystal_shard_coralium), 0.2F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.dreaded_ghoul_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.crystal_shard_dreadium), 0.2F);
+AbyssalCraftAPI.addCrystallization(ACItems.omothol_ghoul_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.crystal_fragment_carbon, 2), 0.2F);
+AbyssalCraftAPI.addCrystallization(ACItems.shadow_ghoul_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.shadow_shard, 1), 0.2F);
+
+AbyssalCraftAPI.addSingleCrystallization(ACItems.refined_coralium_ingot, new ItemStack(ACItems.crystal_coralium), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(ACItems.chunk_of_coralium, new ItemStack(ACItems.crystal_coralium), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(ACBlocks.liquified_coralium_ore, new ItemStack(ACItems.crystal_coralium), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(ACItems.abyssalnite_ingot, new ItemStack(ACItems.crystal_abyssalnite), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(ACItems.dreadium_ingot, new ItemStack(ACItems.crystal_dreadium), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(Items.IRON_INGOT, new ItemStack(ACItems.crystal_iron), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(Items.GOLD_INGOT, new ItemStack(ACItems.crystal_gold), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(Items.REDSTONE, new ItemStack(ACItems.crystal_redstone), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(ACItems.charcoal, new ItemStack(ACItems.crystal_carbon), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(new ItemStack(Items.COAL, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ACItems.crystal_carbon), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("oreAbyssalnite", "crystalAbyssalnite", 2, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("oreCoralium", "crystalCoralium", 2, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("oreIron", "crystalIron", 2, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("oreGold", "crystalGold", 2, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("ingotTin", "crystalTin", 1, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("oreTin", "crystalTin", 2, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("ingotCopper", "crystalCopper", 1, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("oreCopper", "crystalCopper", 2, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("ingotAluminum", "crystalAluminium", 1, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("ingotAluminium", "crystalAluminium", 1, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("oreAluminum", "crystalAluminium", 2, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("blockCopper", "crystalClusterCopper", 1, 0.9F);
+AbyssalCraftAPI.addSingleCrystallization("blockTin", "crystalClusterTin", 1, 0.9F);
+AbyssalCraftAPI.addSingleCrystallization(Blocks.GOLD_BLOCK, new ItemStack(ACBlocks.gold_crystal_cluster), 0.9F);
+AbyssalCraftAPI.addSingleCrystallization(Blocks.IRON_BLOCK, new ItemStack(ACBlocks.iron_crystal_cluster), 0.9F);
+AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACBlocks.block_of_abyssalnite), new ItemStack(ACBlocks.abyssalnite_crystal_cluster), 0.9F);
+AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACBlocks.block_of_refined_coralium), new ItemStack(ACBlocks.coralium_crystal_cluster), 0.9F);
+AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACBlocks.block_of_dreadium), new ItemStack(ACBlocks.dreadium_crystal_cluster), 0.9F);
+AbyssalCraftAPI.addSingleCrystallization(Blocks.COAL_ORE, new ItemStack(ACItems.crystal_carbon, 2), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(Blocks.COAL_BLOCK, new ItemStack(ACBlocks.carbon_crystal_cluster), 0.9F);
+AbyssalCraftAPI.addSingleCrystallization(Blocks.REDSTONE_ORE, new ItemStack(ACItems.crystal_redstone, 2), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(Blocks.REDSTONE_BLOCK, new ItemStack(ACBlocks.redstone_crystal_cluster), 0.9F);
+AbyssalCraftAPI.addSingleCrystallization("ingotZinc", "crystalZinc", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("oreZinc", "crystalZinc", 2, 0.1F);
+AbyssalCraftAPI.addCrystallization(ACBlocks.dreaded_abyssalnite_ore, new ItemStack(ACItems.crystal_abyssalnite, 2), new ItemStack(ACItems.crystal_dreadium, 2), 0.2F);
+AbyssalCraftAPI.addCrystallization("dustSaltpeter", "crystalPotassium", 1, "crystalNitrate", 1, 0.1F);
+AbyssalCraftAPI.addCrystallization("oreSaltpeter", "crystalPotassium", 2, "crystalNitrate", 2, 0.1F);
+AbyssalCraftAPI.addCrystallization("ingotBronze", "crystalCopper", 3, "crystalTin", 1, 0.4F);
+AbyssalCraftAPI.addCrystallization(new ItemStack(Items.DYE, 1, 4), new ItemStack(ACItems.crystal_silica, 6), new ItemStack(ACItems.crystal_sulfur, 4), 0.15F);
+AbyssalCraftAPI.addCrystallization(Blocks.LAPIS_ORE, new ItemStack(ACItems.crystal_silica, 21), new ItemStack(ACItems.crystal_potassium, 8), 0.15F);
+AbyssalCraftAPI.addCrystallization(Blocks.LAPIS_BLOCK, new ItemStack(ACBlocks.silica_crystal_cluster, 6), new ItemStack(ACBlocks.sulfur_crystal_cluster, 4), 1.0F);
+AbyssalCraftAPI.addCrystallization("ingotBrass", "crystalCopper", 3, "crystalZinc", 2, 0.5F);
+AbyssalCraftAPI.addCrystallization("oreBrass", "crystalCopper", 6, "crystalZinc", 4, 0.5F);
+AbyssalCraftAPI.addSingleCrystallization(Items.GOLD_NUGGET, new ItemStack(ACItems.crystal_shard_gold), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.abyssalnite_ingot), new ItemStack(ACItems.crystal_shard_abyssalnite), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.refined_coralium_ingot), new ItemStack(ACItems.crystal_shard_coralium), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.dreadium_ingot), new ItemStack(ACItems.crystal_shard_dreadium), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("nuggetIron", "crystalShardIron", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("nuggetCopper", "crystalShardCopper", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("nuggetTin", "crystalShardTin", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("nuggetAluminium", "crystalShardAluminium", 0.1F);
+AbyssalCraftAPI.addCrystallization("nuggetBronze", "crystalShardCopper", 3, "crystalShardTin", 1, 0.1F);
+AbyssalCraftAPI.addCrystallization("nuggetBrass", "crystalShardCopper", 3, "crystalShardZinc", 2, 0.1F);
+AbyssalCraftAPI.addSingleCrystallization(ACItems.coralium_gem, new ItemStack(ACItems.crystal_shard_coralium), 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("nuggetZinc", "crystalShardZinc", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("nuggetMagnesium", "crystalShardMagnesium", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("ingotMagnesium", "crystalMagnesium", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("nuggetCalcium", "crystalShardCalcium", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("ingotCalcium", "crystalCalcium", 0.1F);
+
+
+AbyssalCraftAPI.addSingleCrystallization("dustIron", "crystalIron", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("dustGold", "crystalGold", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("dustTin", "crystalTin", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("dustCopper", "crystalCopper", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("dustCoal", "crystalCarbon", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("dustAluminium", "crystalAluminium", 0.1F);
+AbyssalCraftAPI.addSingleCrystallization("dustSulfur", "crystalSulfur", 0.1F);
+AbyssalCraftAPI.addCrystallization("dustBronze", "crystalCopper", 3, "crystalTin", 1, 0.1F);
+AbyssalCraftAPI.addCrystallization("dustBrass", "crystalCopper", 3, "crystalZinc", 2, 0.1F);
+
+
+
+
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.darkstone), new ItemStack(Blocks.STONE), 0.0F);
+AbyssalCraftAPI.addTransmutation(ACItems.dreaded_shard_of_abyssalnite, new ItemStack(ACItems.dreadium_ingot), 0.2F);
+AbyssalCraftAPI.addTransmutation(Blocks.STONE, new ItemStack(ACBlocks.darkstone), 0.0F);
+AbyssalCraftAPI.addTransmutation(Blocks.STONEBRICK, new ItemStack(ACBlocks.darkstone_brick), 0.0F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.darkstone_brick), new ItemStack(Blocks.STONEBRICK), 0.0F);
+AbyssalCraftAPI.addTransmutation(Blocks.COBBLESTONE, new ItemStack(ACBlocks.darkstone_cobblestone), 0.0F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.darkstone_cobblestone), new ItemStack(Blocks.COBBLESTONE), 0.0F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.coralium_stone_brick), new ItemStack(ACItems.coralium_brick, 4), 0.0F);
+AbyssalCraftAPI.addTransmutation(ACItems.coralium_brick, new ItemStack(ACBlocks.coralium_stone), 0.0F);
+AbyssalCraftAPI.addTransmutation(ACItems.dense_carbon_cluster, new ItemStack(Items.DIAMOND), 0.5F);
+AbyssalCraftAPI.addTransmutation(ACItems.dread_plagued_gateway_key, new ItemStack(ACItems.omothol_forged_gateway_key), 1.0F);
+
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.ethaxium_brick), new ItemStack(ACBlocks.ethaxium), 0.0F);
+AbyssalCraftAPI.addTransmutation(ACItems.anti_beef, new ItemStack(Items.COOKED_BEEF), 0.3F);
+AbyssalCraftAPI.addTransmutation(ACItems.anti_pork, new ItemStack(Items.COOKED_PORKCHOP), 0.3F);
+AbyssalCraftAPI.addTransmutation(ACItems.anti_chicken, new ItemStack(Items.COOKED_CHICKEN), 0.3F);
+AbyssalCraftAPI.addTransmutation(ACItems.anti_bone, new ItemStack(Items.BONE, 2), 0.3F);
+AbyssalCraftAPI.addTransmutation(ACItems.rotten_anti_flesh, new ItemStack(Items.ROTTEN_FLESH, 2), 0.3F);
+AbyssalCraftAPI.addTransmutation(ACItems.anti_spider_eye, new ItemStack(Items.SPIDER_EYE, 2), 0.3F);
+AbyssalCraftAPI.addTransmutation(ACItems.anti_plagued_flesh, new ItemStack(ACItems.coralium_plagued_flesh, 2), 0.3F);
+AbyssalCraftAPI.addTransmutation(ACItems.anti_ghoul_flesh, new ItemStack(ACItems.ghoul_flesh, 2), 0.3F);
+
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.abyssalnite_crystal_cluster), new ItemStack(ACItems.abyssalnite_ingot, 1), 0.2F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.coralium_crystal_cluster), new ItemStack(ACItems.refined_coralium_ingot, 1), 0.2F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.dreadium_crystal_cluster), new ItemStack(ACItems.dreadium_ingot, 1), 0.2F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.iron_crystal_cluster), new ItemStack(Items.IRON_INGOT, 1), 0.2F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.gold_crystal_cluster), new ItemStack(Items.GOLD_INGOT, 1), 0.2F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.sulfur_crystal_cluster), new ItemStack(ACItems.sulfur, 1), 0.2F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.blaze_crystal_cluster), new ItemStack(Items.BLAZE_POWDER, 1), 0.2F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.redstone_crystal_cluster), new ItemStack(Items.REDSTONE, 1), 0.2F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.methane_crystal_cluster), new ItemStack(ACItems.methane, 1), 0.2F);
+AbyssalCraftAPI.addTransmutation("crystalClusterAluminium", "ingotAluminum", 0.2F);
+AbyssalCraftAPI.addTransmutation("crystalClusterAluminium", "ingotAluminium", 0.2F);
+AbyssalCraftAPI.addTransmutation("crystalClusterZinc", "ingotZinc", 0.2F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_abyssalnite), new ItemStack(ACItems.abyssalnite_nugget), 0.1F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_coralium), new ItemStack(ACItems.refined_coralium_nugget), 0.1F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_dreadium), new ItemStack(ACItems.dreadium_nugget), 0.1F);
+AbyssalCraftAPI.addTransmutation("crystalAluminium", "nuggetAluminum", 0.1F);
+AbyssalCraftAPI.addTransmutation("crystalAluminium", "nuggetAluminium", 0.1F);
+AbyssalCraftAPI.addTransmutation("crystalIron", "nuggetIron", 0.2F);
+AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_gold), new ItemStack(Items.GOLD_NUGGET), 0.2F);
+AbyssalCraftAPI.addTransmutation("crystalCopper", "nuggetCopper", 0.2F);
+AbyssalCraftAPI.addTransmutation("crystalTin", "nuggetTin", 0.2F);
+AbyssalCraftAPI.addTransmutation("crystalZinc", "nuggetZinc", 0.2F);
+AbyssalCraftAPI.addTransmutation("crystalMagnesium", "nuggetMagnesium", 0.2F);
+AbyssalCraftAPI.addTransmutation("crystalClusterMagnesium", "ingotMagnesium", 0.2F);
+AbyssalCraftAPI.addTransmutation("crystalCalcium", "nuggetCalcium", 0.2F);
+AbyssalCraftAPI.addTransmutation("crystalClusterCalcium", "ingotCalcium", 0.2F);
+
+
+
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BONE), new ItemStack(ACItems.crystal_calcium));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.ROTTEN_FLESH), new ItemStack(ACItems.crystal_phosphorus));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.coralium_plagued_flesh), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_coralium));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.COAL, 1, 0), new ItemStack(ACItems.crystal_carbon));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.COAL, 1, 1), new ItemStack(ACItems.crystal_carbon));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.IRON_INGOT), new ItemStack(ACItems.crystal_iron));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.GOLD_INGOT), new ItemStack(ACItems.crystal_gold));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BLAZE_POWDER), new ItemStack(ACItems.crystal_blaze));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BLAZE_ROD), new ItemStack(ACItems.crystal_blaze, 2));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.abyssalnite_ingot), new ItemStack(ACItems.crystal_abyssalnite));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.refined_coralium_ingot), new ItemStack(ACItems.crystal_coralium));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.dreadium_ingot), new ItemStack(ACItems.crystal_dreadium));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.methane), new ItemStack(ACItems.crystal_methane));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.nitre), new ItemStack(ACItems.crystal_potassium), new ItemStack(ACItems.crystal_nitrate));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.sulfur), new ItemStack(ACItems.crystal_sulfur));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.REDSTONE), new ItemStack(ACItems.crystal_redstone));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.dread_fragment), new ItemStack(ACItems.crystal_phosphorus, 2), new ItemStack(ACItems.crystal_dreadium));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));
+AbyssalCraftAPI.addMaterialization("oreGold", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_gold));
+AbyssalCraftAPI.addMaterialization("oreIron", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_iron));
+AbyssalCraftAPI.addMaterialization("oreCoal", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_carbon));
+AbyssalCraftAPI.addMaterialization("oreRedstone", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_redstone));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.coralium_ore), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_coralium));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.abyssalnite_ore), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_abyssalnite));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.coralium_infused_stone), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_coralium, 2));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.nitre_ore), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_potassium), new ItemStack(ACItems.crystal_nitrate));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.SPONGE), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_carbon));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.ELYTRA), new ItemStack(ACItems.crystal_carbon, 8), new ItemStack(ACItems.crystal_hydrogen, 13), new ItemStack(ACItems.crystal_oxygen, 5), new ItemStack(ACItems.crystal_nitrogen));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.PRISMARINE_SHARD), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_beryl));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.PRISMARINE_CRYSTALS), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_beryl));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.PRISMARINE, 1, 0), new ItemStack(ACItems.crystal_silica, 4), new ItemStack(ACItems.crystal_beryl, 4));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.PRISMARINE, 1, 1), new ItemStack(ACItems.crystal_silica, 9), new ItemStack(ACItems.crystal_beryl, 9));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.PRISMARINE, 1, 2), new ItemStack(ACItems.crystal_silica, 8), new ItemStack(ACItems.crystal_beryl, 8), new ItemStack(ACItems.crystal_carbon));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.SEA_LANTERN), new ItemStack(ACItems.crystal_silica, 9), new ItemStack(ACItems.crystal_beryl, 9));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.EGG), new ItemStack(ACItems.crystal_calcium), new ItemStack(ACItems.crystal_phosphorus));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.charcoal), new ItemStack(ACItems.crystal_carbon), new ItemStack(ACItems.crystal_dreadium));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.COAL_BLOCK), new ItemStack(ACItems.crystal_carbon, 9));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.REDSTONE_BLOCK), new ItemStack(ACItems.crystal_redstone, 9));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.DIAMOND), new ItemStack(ACItems.crystal_carbon, 64));
+AbyssalCraftAPI.addMaterialization("oreDiamond", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_carbon, 64));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 1), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 2), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 3), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 4), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 5), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 6), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.LEATHER), new ItemStack(ACItems.crystal_phosphorus));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.RABBIT_HIDE), new ItemStack(ACItems.crystal_phosphorus));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.RABBIT_FOOT), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_calcium));
+AbyssalCraftAPI.addMaterialization("logWood", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));
+AbyssalCraftAPI.addMaterialization("plankWood", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));
+AbyssalCraftAPI.addMaterialization("treeSapling", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));
+AbyssalCraftAPI.addMaterialization("treeLeaves", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));
+AbyssalCraftAPI.addMaterialization("vine", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.DEADBUSH), new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.DYE, 1, 4), new ItemStack(ACItems.crystal_silica, 6), new ItemStack(ACItems.crystal_sulfur, 4));
+AbyssalCraftAPI.addMaterialization("oreLapis", new ItemStack(ACItems.crystal_silica, 7), new ItemStack(ACItems.crystal_sulfur, 4), new ItemStack(ACItems.crystal_magnesia));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.LAPIS_BLOCK), new ItemStack(ACItems.crystal_silica, 54), new ItemStack(ACItems.crystal_sulfur, 36));
+
+AbyssalCraftAPI.addMaterialization("listAllmeatraw", new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));
+
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BEEF), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.CHICKEN), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.PORKCHOP), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.MUTTON), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));
+AbyssalCraftAPI.addMaterialization(new ItemStack(Items.RABBIT), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.generic_meat), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));
+
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.ghoul_flesh), new ItemStack(ACItems.crystal_phosphorus));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.abyssal_ghoul_flesh), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_coralium));
+AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.dreaded_ghoul_flesh), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_dreadium));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,8 +30,8 @@ public final class ClientColorCompat {
 
     private ClientColorCompat() {}
 
-    private record ItemEntry(int rgb, List<Supplier<? extends ItemLike>> items) {}
-    private record BlockEntry(int rgb, List<Supplier<? extends Block>> blocks) {}
+    private record ItemEntry(java.util.function.IntSupplier rgb, List<Supplier<? extends ItemLike>> items) {}
+    private record BlockEntry(java.util.function.IntSupplier rgb, List<Supplier<? extends Block>> blocks) {}
     private record DynamicBlockEntry(BlockTint tint, List<Supplier<? extends Block>> blocks) {}
 
     private static final List<ItemEntry> ITEM_ENTRIES = new ArrayList<>();
@@ -46,11 +46,21 @@ public final class ClientColorCompat {
     /** Queue a tint colour (RGB) for one or more items. Call (client-side) before {@link #attach}. */
     @SafeVarargs
     public static void queue(int rgb, Supplier<? extends ItemLike>... items) {
+        queueDynamic(() -> rgb, items);
+    }
+
+    @SafeVarargs
+    public static void queueDynamic(java.util.function.IntSupplier rgb, Supplier<? extends ItemLike>... items) {
         ITEM_ENTRIES.add(new ItemEntry(rgb, List.of(items)));
     }
 
     @SafeVarargs
     public static void queueBlocks(int rgb, Supplier<? extends Block>... blocks) {
+        queueDynamicBlocks(() -> rgb, blocks);
+    }
+
+    @SafeVarargs
+    public static void queueDynamicBlocks(java.util.function.IntSupplier rgb, Supplier<? extends Block>... blocks) {
         BLOCK_ENTRIES.add(new BlockEntry(rgb, List.of(blocks)));
     }
 
@@ -64,13 +74,13 @@ public final class ClientColorCompat {
         modBus.addListener((RegisterColorHandlersEvent.Item event) -> {
             for (ItemEntry entry : ITEM_ENTRIES) {
                 ItemLike[] items = entry.items().stream().map(Supplier::get).toArray(ItemLike[]::new);
-                event.register((stack, tintIndex) -> tintIndex == 0 ? entry.rgb() : 0xFFFFFF, items);
+                event.register((stack, tintIndex) -> tintIndex == 0 ? entry.rgb().getAsInt() : 0xFFFFFF, items);
             }
         });
         modBus.addListener((RegisterColorHandlersEvent.Block event) -> {
             for (BlockEntry entry : BLOCK_ENTRIES) {
                 Block[] blocks = entry.blocks().stream().map(Supplier::get).toArray(Block[]::new);
-                event.register((state, level, pos, tintIndex) -> tintIndex == 0 ? entry.rgb() : 0xFFFFFF, blocks);
+                event.register((state, level, pos, tintIndex) -> tintIndex == 0 ? entry.rgb().getAsInt() : 0xFFFFFF, blocks);
             }
             for (DynamicBlockEntry entry : DYNAMIC_BLOCK_ENTRIES) {
                 Block[] blocks = entry.blocks().stream().map(Supplier::get).toArray(Block[]::new);

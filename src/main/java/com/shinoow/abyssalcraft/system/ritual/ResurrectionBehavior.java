@@ -18,6 +18,29 @@ import net.minecraft.world.level.Level;
 /** Faithful named-snapshot resurrection with legacy reanimation degradation. */
 public final class ResurrectionBehavior implements RitualBehavior {
 
+    @FunctionalInterface
+    interface DegradationRoll {
+        boolean shouldDegrade(ServerLevel level, int reanimations);
+    }
+
+    @FunctionalInterface
+    interface SpawnAttempt {
+        boolean add(ServerLevel level, Entity entity);
+    }
+
+    private final DegradationRoll degradationRoll;
+    private final SpawnAttempt spawnAttempt;
+
+    public ResurrectionBehavior() {
+        this((level, reanimations) -> level.random.nextFloat() < degradationChance(reanimations),
+            ServerLevel::addFreshEntity);
+    }
+
+    ResurrectionBehavior(DegradationRoll degradationRoll, SpawnAttempt spawnAttempt) {
+        this.degradationRoll = degradationRoll;
+        this.spawnAttempt = spawnAttempt;
+    }
+
     @Override
     public boolean canStart(ManifestRitual ritual, Level level, BlockPos altar,
                             Player player, RitualHost host) {
@@ -45,7 +68,9 @@ public final class ResurrectionBehavior implements RitualBehavior {
         revived.moveTo(altar.getX() + 0.5D, altar.getY() + 1.0D, altar.getZ() + 0.5D,
             revived.getYRot(), revived.getXRot());
         revived.setHealth(revived.getMaxHealth());
-        if (!server.addFreshEntity(revived)) throw new IllegalStateException("Unable to spawn resurrected mob");
+        boolean spawned = spawnAttempt.add(server, revived);
+        clearSnapshotAfterSpawn(snapshots, name, spawned);
+        if (!spawned) throw new IllegalStateException("Unable to spawn resurrected mob");
 
         LightningBolt lightning = EntityType.LIGHTNING_BOLT.create(server);
         if (lightning != null) {
@@ -53,23 +78,13 @@ public final class ResurrectionBehavior implements RitualBehavior {
             lightning.setVisualOnly(true);
             server.addFreshEntity(lightning);
         }
-        snapshots.clearEntry(name);
         host.setRitualCenter(net.minecraft.world.item.ItemStack.EMPTY);
     }
 
-    private static Mob degraded(ServerLevel level, Mob original, int crystalSize) {
+    private Mob degraded(ServerLevel level, Mob original, int crystalSize) {
         CompoundTag persistent = original.getPersistentData();
         int reanimations = persistent.getInt("Reanimations");
-        boolean degrade = switch (reanimations) {
-            case 4 -> level.random.nextFloat() < 0.90F;
-            case 5 -> level.random.nextFloat() < 0.75F;
-            case 6 -> level.random.nextFloat() < 0.60F;
-            case 7 -> level.random.nextFloat() < 0.45F;
-            case 8 -> level.random.nextFloat() < 0.30F;
-            case 9 -> level.random.nextFloat() < 0.15F;
-            case 10 -> true;
-            default -> false;
-        };
+        boolean degrade = degradationRoll.shouldDegrade(level, reanimations);
         if (!degrade) {
             persistent.putInt("Reanimations", reanimations + 1);
             return original;
@@ -88,9 +103,30 @@ public final class ResurrectionBehavior implements RitualBehavior {
 
     private static int crystalSize(net.minecraft.world.item.ItemStack stack) {
         String path = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(stack.getItem()).getPath();
+        return crystalOfferingSize(path);
+    }
+
+    static int crystalOfferingSize(String path) {
         if (path.startsWith("crystal_shard_")) return 0;
         if (path.startsWith("crystal_") && !path.endsWith("_cluster")) return 1;
         if (path.endsWith("_crystal_cluster")) return 2;
         return -1;
+    }
+
+    static float degradationChance(int reanimations) {
+        return switch (reanimations) {
+            case 4 -> 0.90F;
+            case 5 -> 0.75F;
+            case 6 -> 0.60F;
+            case 7 -> 0.45F;
+            case 8 -> 0.30F;
+            case 9 -> 0.15F;
+            case 10 -> 1.0F;
+            default -> 0.0F;
+        };
+    }
+
+    static void clearSnapshotAfterSpawn(NecromancyData snapshots, String name, boolean spawned) {
+        if (spawned) snapshots.clearEntry(name);
     }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "abyssalcraft:charcoal"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_carbon",
+    "count": 1
+  },
+  "experience": 0.1,
+  "time": 200
+}

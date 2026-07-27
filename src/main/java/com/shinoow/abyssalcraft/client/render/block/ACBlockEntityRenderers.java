@@ -1,5 +1,6 @@
 package com.shinoow.abyssalcraft.client.render.block;
 
+import com.shinoow.abyssalcraft.content.block.energy.EnergyBlocks;
 import com.shinoow.abyssalcraft.content.block.ritual.RitualBlocks;
 import com.shinoow.abyssalcraft.content.machine.researchtable.ResearchTables;
 import com.shinoow.abyssalcraft.content.machine.rendingpedestal.RendingPedestals;
@@ -32,5 +33,6 @@ public final class ACBlockEntityRenderers {
         renderers.registerBlockEntity(ResearchTables.RESEARCH_TABLE_BE.get(), ResearchTableRenderer::new);
         renderers.registerBlockEntity(RitualBlocks.RITUAL_PEDESTAL_BE.get(), RitualPedestalRenderer::new);
         renderers.registerBlockEntity(RendingPedestals.RENDING_PEDESTAL_BE.get(), RendingPedestalRenderer::new);
+        renderers.registerBlockEntity(EnergyBlocks.ENERGY_PEDESTAL_BE.get(), EnergyPedestalRenderer::new);
     }
 }

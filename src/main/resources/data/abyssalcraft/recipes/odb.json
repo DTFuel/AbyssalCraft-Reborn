@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["OCO","LBA","OO "],"key":{"O":{"item":"minecraft:obsidian"},"C":{"item":"abyssalcraft:oblivion_catalyst"},"L":{"item":"abyssalcraft:liquid_coralium_bucket"},"A":{"item":"abyssalcraft:liquid_antimatter_bucket"},"B":{"item":"abyssalcraft:odb_core"}},"result":{"item":"abyssalcraft:oblivion_deathbomb"}}

@@ -27,8 +27,12 @@ public enum StructureKind implements StringRepresentable {
     ABYRUIN("abyruin", "abyssalcraft:abyssal_stone_brick", "abyruin"),
     /** Dark shrine platform + a loot chest (1.12.2 {@code overworld/StructureDarkShrine}). */
     DARK_SHRINE("dark_shrine", "abyssalcraft:darkstone_brick", "dark_shrine"),
+    /** Programmatic Darklands ritual grounds, independently rate-gated from shrines. */
+    DARK_RITUAL_GROUNDS("dark_ritual_grounds", "abyssalcraft:darkstone_brick", "dark_shrine"),
     /** One of the three converted Shoggoth pit templates. */
     SHOGGOTH_PIT("shoggoth_pit", "abyssalcraft:monolith_stone", "graveyard"),
+    /** River-biome branch of the same three pit templates with its legacy independent rate. */
+    SHOGGOTH_PIT_RIVER("shoggoth_pit_river", "abyssalcraft:monolith_stone", "graveyard"),
     OMOTHOL_CITY("omothol_city", "abyssalcraft:omothol_stone", "omothol/house"),
     OMOTHOL_TEMPLE("omothol_temple", "abyssalcraft:omothol_stone", "omothol/house"),
     OMOTHOL_TOWER("omothol_tower", "abyssalcraft:omothol_stone", "omothol/house"),
@@ -60,7 +64,7 @@ public enum StructureKind implements StringRepresentable {
     }
 
     public boolean usesLegacyTemplate() {
-        return this != ABYRUIN;
+        return this != ABYRUIN && this != DARK_RITUAL_GROUNDS;
     }
 
     @Override

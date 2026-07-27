@@ -2,7 +2,7 @@
 
 - 里程碑 / Stage：M6 / Stage H2
 - 关联平行任务：PH-5（本框架）；**读 PS-8**（研究解锁门控 entry 显示）+ **读 PS-2**（同步 necrodata）；被 PS-6（仪式）/PS-7（法术）/PS-10（PoP）的 entry 引用
-- 状态：五本书物品、常驻信息树与42项五分类研究目录/状态/hint已接入，服务端necrodata同步handler已落地；完整旧recipe/ritual/spell/PoP页面、actions、忠实贴图布局与双端真人目视留T7.8c/T6.2b
+- 状态：五本书物品、常驻信息树与42项五分类研究目录/状态/hint已接入；Aklo knowledge 页正文、89 个图片页与 43 个可解析物品页已恢复为 ACTIVE。401 条 manifest 当前为 330 ACTIVE、71 BLOCKED、0 MISSING，其余 BLOCKED 不计完成。
 - 负责：PH-5
 - 最后更新：2026-07-25
 
@@ -12,20 +12,21 @@ AbyssalCraft 的 Necronomicon 书界面——一本自定义 GUI 书，按章节
 
 ## 2. 范围
 
-- 含：`client/necronomicon/{NecronomiconEntry,NecronomiconScreen,ACNecronomicon}`——递归书数据节点 + 书 Screen（导航 + PS-8 门控渲染）+ pilot 内容树 + open 入口。
+- 含：`client/necronomicon/{NecronomiconEntry,NecronomiconScreen,ACNecronomicon}`——递归书数据节点 + 书 Screen（导航 + PS-8 门控渲染）+ 可审计 manifest 内容树 + open 入口。
 - 不含（延后内容，依赖未移植 / 需人工）：
-  - **20+ 具体章节/页**：1.12.2 `Chapters`/`Pages` 全量 + 各 recipe/ritual/spell/PoP entry（`GuiNecronomicon*Entry`）——依赖未移植 research 物品、页贴图、正文文本。
+  - **旧页专用渲染**：322 个旧页均保留旧变量名、源码顺序、页码、book tier、标题/正文引用、视觉类型/引用、research 引用和原始构造表达式。89 个 IMAGE 页从 1.12.2 仓内快照迁移 75 张真实 PNG，按旧版左上 256x256 UV 渲染标题、图片和正文；旧英文标题/正文键已原值迁入，页面不再用变量名生成标题。
   - **忠实书贴图 / 页布局**：1.12.2 book 纹理 + 双页布局 + 按钮贴图（next/home/info/category）——资产迁移（PK）；本框架用 vanilla 背景 + 文字，fork-free。
   - **配方页渲染**：crystallizer/materializer/transmutator/anvil recipe 页（机器已移植，但页渲染 + 配方拉取 = 内容细节）。
-  - **Aklo 字体正文**：whisper 页用 Aklo 字体（PH-6 `AkloFont`）——字体框架 PH-6 已交付，具体 whisper 页属内容。
-  - **lang**：`gui.abyssalcraft.necronomicon.*` 翻译键（PK-4）。
+  - **Aklo 字体正文**：`INFORMATION_KNOWLEDGE_PAGE_4` 使用稳定的 `necronomicon.text.knowledge.aklo` 正文；screen 仅对 `aklo-content` owner 的正文应用 `Style.withFont(abyssalcraft:aklo)`，标题与内容状态仍使用默认字体。
+  - **其余语言翻译**：新增目录键已有 en_us/zh_cn；其他语言回退 en_us。
 
 ## 3. 设计 / 架构
 
 - 关键类：
   - `NecronomiconEntry`（递归数据节点，忠实 `api.necronomicon.NecroData` 树）：`id` / `titleKey` / `textKey`（nullable 正文）/ `icon:ItemStack` / 可选 `researchId:ResourceLocation`（门控）/ `children:List<NecronomiconEntry>`。builder `addChild`/`setResearch`。
   - `NecronomiconScreen extends Screen`（忠实 `GuiNecronomicon`，**plain Screen 非 menu**）：`Deque<NecronomiconEntry> path` 导航栈；`init` 为当前 entry 的**可见** children 建 category 按钮（下钻 `navigateTo`）+ path>1 时 back 按钮 + done；`render` 画背景（compat）+ super（按钮）+ 标题/正文（`font.split` 换行）最上层；`open(root)` 静态 = `Minecraft.getInstance().setScreen(...)`。
-  - `ACNecronomicon`：pilot 内容树（root + intro entry）+ `open()`（供未移植书物品右键调）。
+  - `ACNecronomicon`：常驻信息/研究树 + manifest 的 8 类内容目录 + `open()`。
+  - `LegacyNecronomiconPageCatalog` / `LegacyNecronomiconPageManifest` / `NecronomiconPageManifest`：从 1.12.2 `InternalNecroDataHandler#registerInternalPages` 冻结 322 个页面的完整构造字段；另从现代 catalog 枚举 62 ritual、14 spell、3 PoP。401 是条目总数，不代表 401 条均已完成。
 
 ## 4. 子系统内契约
 
@@ -52,10 +53,13 @@ AbyssalCraft 的 Necronomicon 书界面——一本自定义 GUI 书，按章节
 
 - 两节点 `compileJava --rerun-tasks`：BUILD SUCCESSFUL（`Screen` render fork 顺序 + `Button.builder`/`font.split` 双端）。
 - **两节点 `runClient` 抵标题屏资源初始化**：Sound engine started + 全 texture atlas 建成；`NecronomiconScreen`/`NecronomiconEntry`/`ACNecronomicon` 类加载零 link 错、零崩（客户端不因本框架破加载）。
-- 已机核：双端编译/build/JAR，42项研究与19个研究UI语言键在8语言对等；五本书、bookType门控与客户端同步类可加载。
-- 未机核：双端真人打开/翻页/同步即时变化与长文本布局目视；完整旧页面/actions仍属T7.8c/T6.2b。
+- 已机核：旧页 JSON 322 条与 Java ID 清单逐项顺序一致；313 个标题/正文键在 en_us/zh_cn 资源中零缺失；89 个 IMAGE 页全部 ACTIVE，89 个 page/reference 映射唯一，75 个 PNG 资源存在、完整、尺寸与 UV 可验证；合并状态为 330 ACTIVE/71 BLOCKED/0 MISSING，BLOCKED 不计 PASS。
+- Aklo 专项机核：knowledge 自测要求目标页唯一且 ACTIVE、双语言正文键存在且非空、font provider 为 bitmap 并指向迁移 PNG、可打印 ASCII glyph 完整、正文字符全部可映射、PNG 签名与 256x256 IHDR 有效。
+- 未机核：双端真人打开/翻页/同步即时变化与长文本布局；71 个 BLOCKED 页的剩余配方/缺失物品视觉仍属后续实现，不计完成。
 
 ## 修订日志
 
+- 2026-07-27：迁移 75 张 1.12.2 Necronomicon PNG，恢复 89 个 IMAGE 页的完整纹理/UV renderer 与资源解码 selftest，移除 `necronomicon-image-renderer=89` BLOCKED。
+- 2026-07-27：恢复 `INFORMATION_KNOWLEDGE_PAGE_4` 的稳定 Aklo 正文与 `abyssalcraft:aklo` renderer，加入资源/font/glyph/text 自动契约并移除 `aklo-content=1` BLOCKED。
 - 2026-07-25：RR-KNOWLEDGE（CR-70）接入42项五分类研究目录、状态/hint与协议v2同步；完整旧页面/actions和真人目视继续待办。
 - 2026-07-22：PH-5 建框架——`client/necronomicon/**`（递归 `NecronomiconEntry` + `NecronomiconScreen` 导航 + PS-8 只读门控 + pilot）；两节点编译 + runClient 抵标题屏。读 PS-8/PS-2 necrodata 门控 entry。20+ 具体章节/页 + 书贴图/布局 + 书物品 + lang 延后（依赖未移植 research/物品/贴图）；翻页/渲染观感人工。见平行表 PH-5。

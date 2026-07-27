@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "abyssalcraft:refined_coralium_ingot"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_shard_coralium",
+    "count": 1
+  },
+  "experience": 0.1,
+  "time": 200
+}

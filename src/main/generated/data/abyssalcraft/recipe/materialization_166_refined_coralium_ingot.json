@@ -1,0 +1,15 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_coralium"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "abyssalcraft:refined_coralium_ingot",
+    "count": 1
+  }
+}

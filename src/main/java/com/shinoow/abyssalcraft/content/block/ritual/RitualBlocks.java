@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -66,6 +67,11 @@ public final class RitualBlocks {
     public static final Supplier<Block> ODB_CORE = block("odb_core", () ->
         new OblivionDeathbombCoreBlock(BlockBehaviour.Properties.of()
             .strength(3.0F, 0.0F).sound(SoundType.METAL).requiresCorrectToolForDrops().noOcclusion()),
+        ChatFormatting.DARK_RED);
+
+    public static final Supplier<Block> OBLIVION_DEATHBOMB = block("oblivion_deathbomb", () ->
+        new TntBlock(BlockBehaviour.Properties.of()
+            .strength(3.0F, 0.0F).sound(SoundType.METAL).requiresCorrectToolForDrops()),
         ChatFormatting.DARK_RED);
 
     private static Supplier<Block> block(String id, Supplier<? extends Block> factory) {

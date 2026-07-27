@@ -46,6 +46,14 @@ public final class PortalSelfTest {
             "Overworld portal color changed");
         require(registry.get(ACDimensions.DARK_REALM).orElseThrow().color() == 0xFF000000,
             "Dark Realm portal color changed");
+        require(registry.get(ACDimensions.ABYSSAL_WASTELAND).orElseThrow().minimumBookType() == 1,
+            "Abyssal Wasteland must require the Abyssal Wasteland Necronomicon");
+        require(registry.get(ACDimensions.DREADLANDS).orElseThrow().minimumBookType() == 2,
+            "Dreadlands must require the Dreadlands Necronomicon");
+        require(registry.get(ACDimensions.OMOTHOL).orElseThrow().minimumBookType() == 3,
+            "Omothol must require the Omothol Necronomicon");
+        require(registry.get(ACDimensions.DARK_REALM).orElseThrow().minimumBookType() == 4,
+            "Dark Realm must require the Abyssalnomicon");
 
         System.out.println("RR_PORTAL_SELF_TEST_OK dimensions=7 edges=6 keyTiers=4");
     }

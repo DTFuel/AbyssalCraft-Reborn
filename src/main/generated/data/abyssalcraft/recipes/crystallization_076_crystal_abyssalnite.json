@@ -1,0 +1,16 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "abyssalcraft:dreaded_abyssalnite_ore"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_abyssalnite",
+    "count": 2
+  },
+  "secondary_result": {
+    "item": "abyssalcraft:crystal_dreadium",
+    "count": 2
+  },
+  "experience": 0.2,
+  "time": 200
+}

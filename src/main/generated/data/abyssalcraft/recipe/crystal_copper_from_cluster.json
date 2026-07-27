@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {"#": {"item": "abyssalcraft:copper_crystal_cluster"}},
+  "pattern": ["#"],
+  "result": {"count": 9, "id": "abyssalcraft:crystal_copper"}
+}

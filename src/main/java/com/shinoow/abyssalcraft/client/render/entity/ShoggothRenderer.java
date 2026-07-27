@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import com.shinoow.abyssalcraft.client.model.entity.ShoggothModel;
 import com.shinoow.abyssalcraft.client.render.entity.layers.SimpleEyesLayer;
+import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.content.entity.shoggoth.AbstractShoggoth;
 import com.shinoow.abyssalcraft.content.entity.shoggoth.GreaterShoggoth;
 import com.shinoow.abyssalcraft.content.entity.shoggoth.LesserShoggoth;
@@ -29,7 +30,7 @@ public class ShoggothRenderer extends MobRenderer<AbstractShoggoth, ShoggothMode
     public ShoggothRenderer(EntityRendererProvider.Context context, ResourceLocation texture, ResourceLocation eyes) {
         super(context, new ShoggothModel(context.bakeLayer(ModModelLayers.SHOGGOTH)), 0.7F);
         this.texture = texture;
-        if (eyes != null) {
+        if (eyes != null && ACConfig.shoggothGlowingEyes.get()) {
             addLayer(new SimpleEyesLayer<>(this, eyes));
         }
     }

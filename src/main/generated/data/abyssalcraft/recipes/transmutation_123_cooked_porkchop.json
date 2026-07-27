@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:anti_pork"
+  },
+  "result": {
+    "item": "minecraft:cooked_porkchop",
+    "count": 1
+  },
+  "experience": 0.3,
+  "time": 200
+}

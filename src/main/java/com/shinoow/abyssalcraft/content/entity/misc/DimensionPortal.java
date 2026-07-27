@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.content.entity.misc;
 import java.util.List;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -10,11 +11,17 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.level.Level;
 
 import com.shinoow.abyssalcraft.config.ACConfig;
+import com.shinoow.abyssalcraft.config.ComplexConfig;
+import com.shinoow.abyssalcraft.config.ContentConfigMatrix;
 import com.shinoow.abyssalcraft.content.entity.boss.BossMob;
 import com.shinoow.abyssalcraft.content.entity.boss.EliteMob;
 import com.shinoow.abyssalcraft.platform.ACRef;
@@ -22,6 +29,7 @@ import com.shinoow.abyssalcraft.platform.ACSimpleEntity;
 import com.shinoow.abyssalcraft.system.portal.DimensionData;
 import com.shinoow.abyssalcraft.system.portal.DimensionDataRegistry;
 import com.shinoow.abyssalcraft.world.portal.DimensionTeleport;
+import com.shinoow.abyssalcraft.world.ACDimensions;
 
 /**
  * Dimension portal entity (1.12.2 {@code portal}) and its single-use variant ({@code singleportal}),
@@ -78,7 +86,13 @@ public class DimensionPortal extends ACSimpleEntity {
 
     public DimensionData getDimensionData() {
         ResourceKey<Level> destination = getDestination();
-        return destination == null ? null : DimensionDataRegistry.instance().get(destination).orElse(null);
+        DimensionData data = destination == null ? null : DimensionDataRegistry.instance().get(destination).orElse(null);
+        if (data == null || !destination.equals(ACDimensions.ABYSSAL_WASTELAND)) return data;
+        int[] rgb = ComplexConfig.portalColor();
+        int color = 0xFF000000 | rgb[0] << 16 | rgb[1] << 8 | rgb[2];
+        return new DimensionData(data.dimension(), data.displayKey(), color, data.minimumGatewayTier(),
+            data.minimumBookType(),
+            data.connectedDimensions(), data.portalMob(), data.overlay());
     }
 
     public DimensionPortal setAnchor(BlockPos anchorPos) {
@@ -102,6 +116,8 @@ public class DimensionPortal extends ACSimpleEntity {
         ResourceKey<Level> destination = getDestination();
         if (level().isClientSide || destination == null) return;
 
+        tickPortalSpawn(destination);
+
         List<Entity> touching = level().getEntities(this, getBoundingBox(),
             e -> !(e instanceof DimensionPortal)
                 && !(e instanceof BossMob)
@@ -121,6 +137,26 @@ public class DimensionPortal extends ACSimpleEntity {
                 return;
             }
         }
+    }
+
+    private void tickPortalSpawn(ResourceKey<Level> destination) {
+        if (tickCount % 10 != 0 || !(level() instanceof ServerLevel server)
+                || destination.equals(level().dimension()) || !server.getGameRules().getBoolean("doMobSpawning")) return;
+        DimensionData data = getDimensionData();
+        if (data == null || data.portalMob().isEmpty()) return;
+        if (ContentConfigMatrix.portalSpawnsNearPlayer()
+                && server.getNearestPlayer(getX(), getY(), getZ(), 32.0D, false) == null) return;
+        EntityType<?> type = BuiltInRegistries.ENTITY_TYPE.getOptional(data.portalMob().get()).orElse(null);
+        if (type == null || server.getEntities(type, new AABB(blockPosition()).inflate(16.0D), Entity::isAlive).size() >= 10
+                || random.nextInt(2000) >= server.getDifficulty().getId()) return;
+        Entity entity = type.create(server);
+        if (entity == null) return;
+        BlockPos spawn = blockPosition().above();
+        entity.moveTo(spawn.getX() + 0.5D, spawn.getY(), spawn.getZ() + 0.5D,
+            random.nextFloat() * 360.0F, 0.0F);
+        if (entity instanceof Mob mob) mob.finalizeSpawn(server, server.getCurrentDifficultyAt(spawn),
+            MobSpawnType.PORTAL, null, null);
+        if (server.addFreshEntity(entity)) entity.setPortalCooldown();
     }
 
     @Override

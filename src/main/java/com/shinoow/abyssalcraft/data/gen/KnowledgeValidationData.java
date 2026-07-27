@@ -10,10 +10,15 @@ import net.minecraft.data.DataProvider;
 /** Datagen entry point for permanent RR-KNOWLEDGE invariants. */
 public final class KnowledgeValidationData implements DataProvider {
 
+    private final java.util.concurrent.CompletableFuture<net.minecraft.core.HolderLookup.Provider> lookup;
+
+    public KnowledgeValidationData(com.shinoow.abyssalcraft.platform.DataGenCompat.Gen gen) {
+        lookup = gen.lookup;
+    }
+
     @Override
     public CompletableFuture<?> run(CachedOutput output) {
-        KnowledgeSystemSelfTest.run();
-        return CompletableFuture.completedFuture(null);
+        return lookup.thenAccept(KnowledgeSystemSelfTest::run);
     }
 
     @Override

@@ -19,6 +19,7 @@ import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
 
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
 
 /**
@@ -60,9 +61,6 @@ public final class ClientHooksCompat {
     /** Queue work that runs once after each client game tick. */
     public static void queueClientTick(Runnable tick) {
         CLIENT_TICKS.add(tick);
-        if (Boolean.getBoolean("abyssalcraft.rrNetValidation")) {
-            System.out.println("RR_NET_CLIENT_TICK_QUEUED count=" + CLIENT_TICKS.size());
-        }
     }
 
     /** Queue a client key mapping for the loader's registration event. */
@@ -77,6 +75,23 @@ public final class ClientHooksCompat {
         return KEY_MAPPINGS.size();
     }
 
+    /** Draw a full-screen textured HUD layer with a clamped alpha. */
+    public static void blitFullscreen(GuiGraphics graphics, ResourceLocation texture,
+                                      int width, int height, float alpha) {
+        float resolvedAlpha = Math.max(0.0F, Math.min(1.0F, alpha));
+        com.mojang.blaze3d.systems.RenderSystem.enableBlend();
+        com.mojang.blaze3d.systems.RenderSystem.defaultBlendFunc();
+        graphics.setColor(1.0F, 1.0F, 1.0F, resolvedAlpha);
+        //? if >=1.21 {
+        /*graphics.blit(net.minecraft.client.renderer.RenderType::guiTextured, texture,
+            0, 0, 0.0F, 0.0F, width, height, width, height);
+        *///?} else {
+        graphics.blit(texture, 0, 0, 0.0F, 0.0F, width, height, width, height);
+        //?}
+        graphics.setColor(1.0F, 1.0F, 1.0F, 1.0F);
+        com.mojang.blaze3d.systems.RenderSystem.disableBlend();
+    }
+
     /** Attach the client-registration listeners to the MOD bus (client side only). */
     public static void attach(IEventBus modBus) {
         modBus.addListener((RegisterKeyMappingsEvent event) ->
@@ -84,10 +99,6 @@ public final class ClientHooksCompat {
         //? if forge {
         EventBuses.game().addListener((TickEvent.ClientTickEvent event) -> {
             if (event.phase == TickEvent.Phase.END) {
-                if (Boolean.getBoolean("abyssalcraft.rrNetValidation")
-                    && com.shinoow.abyssalcraft.client.network.RRNetClientValidation.markTickSeen()) {
-                    System.out.println("RR_NET_CLIENT_TICK_ACTIVE callbacks=" + CLIENT_TICKS.size());
-                }
                 CLIENT_TICKS.forEach(Runnable::run);
             }
         });

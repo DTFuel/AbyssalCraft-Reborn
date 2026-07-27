@@ -88,6 +88,24 @@ dependencies {
 }
 
 tasks {
+    val rrCompatAudit by registering(Exec::class) {
+        group = "verification"
+        description = "Audits loader-import boundaries and the reachable platform fork closure."
+        workingDir(rootProject.projectDir)
+        commandLine("node", "scripts/audit_compat.js")
+    }
+
+    register<Exec>("releaseAudit") {
+        group = "verification"
+        description = "Runs read-only R8/PV-3 release audits against existing production JARs."
+        workingDir(rootProject.projectDir)
+        commandLine("node", "scripts/run_release_audit.js")
+    }
+
+    named("check") {
+        dependsOn(rrCompatAudit)
+    }
+
     // CRITICAL: build from Stonecutter-preprocessed sources, not raw sources.
     // Loom 1.11 registers createMinecraftArtifacts lazily, so hook via configureEach.
     configureEach {
@@ -95,6 +113,8 @@ tasks {
     }
 
     processResources {
+        exclude("data/abyssalcraft/recipe/*_recycling.json")
+        exclude("data/abyssalcraft/recipes/*_recycling.json")
         val props = mapOf(
             "id" to project.property("mod.id"),
             "name" to project.property("mod.name"),

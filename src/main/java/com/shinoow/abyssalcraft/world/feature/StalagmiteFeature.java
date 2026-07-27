@@ -10,6 +10,9 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
 
+import com.shinoow.abyssalcraft.config.ACConfig;
+import com.shinoow.abyssalcraft.registry.BaseBlocks;
+
 /**
  * Tapering stone spire (owned by PG-4 / Stage G1) -- the modern port of the 1.12.2
  * {@code WorldGenAbyssalStalagmite}/{@code WorldGenDreadlandsStalagmite}. One block-state-configured
@@ -28,6 +31,10 @@ public class StalagmiteFeature extends Feature<BlockStateConfiguration> {
 
     @Override
     public boolean place(FeaturePlaceContext<BlockStateConfiguration> context) {
+        if (context.config().state.is(BaseBlocks.DREADSTONE.get())
+            && !ACConfig.generateDreadlandsStalagmite.get()) {
+            return false;
+        }
         WorldGenLevel level = context.level();
         BlockPos origin = context.origin();
         RandomSource random = context.random();

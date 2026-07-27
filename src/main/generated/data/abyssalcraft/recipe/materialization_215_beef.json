@@ -1,0 +1,33 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_hydrogen"
+      },
+      "count": 14
+    },
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_carbon"
+      },
+      "count": 5
+    },
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_oxygen"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_nitrogen"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "minecraft:beef",
+    "count": 1
+  }
+}

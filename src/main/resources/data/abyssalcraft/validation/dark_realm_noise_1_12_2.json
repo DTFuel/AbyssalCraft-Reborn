@@ -1,0 +1,630 @@
+{
+  "schema": 1,
+  "provenance": {
+    "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/common/world/ChunkGeneratorDarkRealm.java",
+    "sourceSha256": "a72af19687cf4ef7554cc0b051718237d97830eb84dd6646072ab6d48ecd391d",
+    "fixedSeed": 1251393890,
+    "algorithm": "minecraft-1.12.2-java-random-improved-octaves+ChunkGeneratorDarkRealm.initializeNoiseField",
+    "extractor": "scripts/extract_dark_realm_oracle.js",
+    "output": "density>0 means the legacy second pass writes minecraft:air at pos",
+    "coordinateDerivation": "chunk=floor(xz/16), local=xz-chunk*16, cell=[floor(localX/8),floor((y-30)/4),floor(localZ/8)]"
+  },
+  "samples": [
+    {
+      "pos": [
+        0,
+        64,
+        0
+      ],
+      "density": -2.672215166273416,
+      "air": false,
+      "chunk": [
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        8,
+        0
+      ]
+    },
+    {
+      "pos": [
+        16,
+        64,
+        16
+      ],
+      "density": -2.161503055067504,
+      "air": false,
+      "chunk": [
+        1,
+        1
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        8,
+        0
+      ]
+    },
+    {
+      "pos": [
+        32,
+        64,
+        32
+      ],
+      "density": -1.6832223300411093,
+      "air": false,
+      "chunk": [
+        2,
+        2
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        8,
+        0
+      ]
+    },
+    {
+      "pos": [
+        -16,
+        64,
+        -16
+      ],
+      "density": -3.3899241106217044,
+      "air": false,
+      "chunk": [
+        -1,
+        -1
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        8,
+        0
+      ]
+    },
+    {
+      "pos": [
+        -32,
+        64,
+        -32
+      ],
+      "density": -3.673420046395091,
+      "air": false,
+      "chunk": [
+        -2,
+        -2
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        8,
+        0
+      ]
+    },
+    {
+      "pos": [
+        8,
+        96,
+        8
+      ],
+      "density": -11.049462324148,
+      "air": false,
+      "chunk": [
+        0,
+        0
+      ],
+      "local": [
+        8,
+        8
+      ],
+      "cell": [
+        1,
+        16,
+        1
+      ]
+    },
+    {
+      "pos": [
+        24,
+        96,
+        24
+      ],
+      "density": -11.052516433281815,
+      "air": false,
+      "chunk": [
+        1,
+        1
+      ],
+      "local": [
+        8,
+        8
+      ],
+      "cell": [
+        1,
+        16,
+        1
+      ]
+    },
+    {
+      "pos": [
+        -8,
+        96,
+        -8
+      ],
+      "density": -11.045665235943918,
+      "air": false,
+      "chunk": [
+        -1,
+        -1
+      ],
+      "local": [
+        8,
+        8
+      ],
+      "cell": [
+        1,
+        16,
+        1
+      ]
+    },
+    {
+      "pos": [
+        -24,
+        96,
+        -24
+      ],
+      "density": -11.040135167525351,
+      "air": false,
+      "chunk": [
+        -2,
+        -2
+      ],
+      "local": [
+        8,
+        8
+      ],
+      "cell": [
+        1,
+        16,
+        1
+      ]
+    },
+    {
+      "pos": [
+        0,
+        30,
+        0
+      ],
+      "density": -35.88379513006558,
+      "air": false,
+      "chunk": [
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "pos": [
+        16,
+        30,
+        16
+      ],
+      "density": -35.885467856789376,
+      "air": false,
+      "chunk": [
+        1,
+        1
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "pos": [
+        0,
+        157,
+        0
+      ],
+      "density": -29.663419252975523,
+      "air": false,
+      "chunk": [
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        31,
+        0
+      ]
+    },
+    {
+      "pos": [
+        16,
+        157,
+        16
+      ],
+      "density": -29.663373371850618,
+      "air": false,
+      "chunk": [
+        1,
+        1
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        31,
+        0
+      ]
+    },
+    {
+      "pos": [
+        0,
+        80,
+        0
+      ],
+      "density": -6.583164170413955,
+      "air": false,
+      "chunk": [
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        12,
+        0
+      ]
+    },
+    {
+      "pos": [
+        0,
+        120,
+        0
+      ],
+      "density": -18.963278027493676,
+      "air": false,
+      "chunk": [
+        0,
+        0
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        22,
+        0
+      ]
+    },
+    {
+      "pos": [
+        64,
+        90,
+        64
+      ],
+      "density": -8.487547008101306,
+      "air": false,
+      "chunk": [
+        4,
+        4
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        15,
+        0
+      ]
+    },
+    {
+      "pos": [
+        -64,
+        110,
+        -64
+      ],
+      "density": -18.154861710676332,
+      "air": false,
+      "chunk": [
+        -4,
+        -4
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        20,
+        0
+      ]
+    },
+    {
+      "pos": [
+        48,
+        70,
+        48
+      ],
+      "density": -2.31421962643837,
+      "air": false,
+      "chunk": [
+        3,
+        3
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        10,
+        0
+      ]
+    },
+    {
+      "pos": [
+        -48,
+        100,
+        -48
+      ],
+      "density": -14.783178029617357,
+      "air": false,
+      "chunk": [
+        -3,
+        -3
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        17,
+        0
+      ]
+    },
+    {
+      "pos": [
+        80,
+        85,
+        80
+      ],
+      "density": -7.101151148798943,
+      "air": false,
+      "chunk": [
+        5,
+        5
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        13,
+        0
+      ]
+    },
+    {
+      "pos": [
+        -256,
+        82,
+        -160
+      ],
+      "density": 0.1363990750871924,
+      "air": true,
+      "chunk": [
+        -16,
+        -10
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        13,
+        0
+      ]
+    },
+    {
+      "pos": [
+        -256,
+        82,
+        -144
+      ],
+      "density": 0.4183891079624331,
+      "air": true,
+      "chunk": [
+        -16,
+        -9
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        13,
+        0
+      ]
+    },
+    {
+      "pos": [
+        -256,
+        82,
+        -128
+      ],
+      "density": 0.4150236283670843,
+      "air": true,
+      "chunk": [
+        -16,
+        -8
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        13,
+        0
+      ]
+    },
+    {
+      "pos": [
+        -256,
+        82,
+        -112
+      ],
+      "density": 0.14135636478650326,
+      "air": true,
+      "chunk": [
+        -16,
+        -7
+      ],
+      "local": [
+        0,
+        0
+      ],
+      "cell": [
+        0,
+        13,
+        0
+      ]
+    },
+    {
+      "pos": [
+        -256,
+        66,
+        -8
+      ],
+      "density": 1.1060481835326907,
+      "air": true,
+      "chunk": [
+        -16,
+        -1
+      ],
+      "local": [
+        0,
+        8
+      ],
+      "cell": [
+        0,
+        9,
+        1
+      ]
+    },
+    {
+      "pos": [
+        -256,
+        66,
+        8
+      ],
+      "density": 2.2782920109166316,
+      "air": true,
+      "chunk": [
+        -16,
+        0
+      ],
+      "local": [
+        0,
+        8
+      ],
+      "cell": [
+        0,
+        9,
+        1
+      ]
+    },
+    {
+      "pos": [
+        -256,
+        66,
+        24
+      ],
+      "density": 2.4300880058534613,
+      "air": true,
+      "chunk": [
+        -16,
+        1
+      ],
+      "local": [
+        0,
+        8
+      ],
+      "cell": [
+        0,
+        9,
+        1
+      ]
+    },
+    {
+      "pos": [
+        -256,
+        62,
+        40
+      ],
+      "density": 1.9258760420208558,
+      "air": true,
+      "chunk": [
+        -16,
+        2
+      ],
+      "local": [
+        0,
+        8
+      ],
+      "cell": [
+        0,
+        8,
+        1
+      ]
+    }
+  ]
+}

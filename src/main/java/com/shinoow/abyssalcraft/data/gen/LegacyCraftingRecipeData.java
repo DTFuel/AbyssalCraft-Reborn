@@ -45,7 +45,9 @@ public final class LegacyCraftingRecipeData implements DataProvider {
         Map.entry("transmutator_idle", "transmutator"),
         Map.entry("darklands_oak_wood", "darklands_oak_log"),
         Map.entry("darklands_oak_wood_2", "darklands_oak_log"),
-        Map.entry("dreadlands_door", "dreadwood_door")
+        Map.entry("dreadlands_door", "dreadwood_door"),
+        Map.entry("sacrificial_altar", "ritual_altar"),
+        Map.entry("wooden_crate", "crate")
     );
 
     private static final Map<String, String> LEGACY_ID_OVERRIDES = Map.of(
@@ -119,6 +121,7 @@ public final class LegacyCraftingRecipeData implements DataProvider {
                         continue;
                     }
                     JsonObject legacy = JsonParser.parseString(Files.readString(file)).getAsJsonObject();
+                    applyRecipeReplacement(legacyName, legacy);
                     Converted converted = convert(legacy, legacyFields);
                     String replacement = replacementFor(projectRoot, converted.forge());
                     if (replacement != null) {
@@ -159,7 +162,6 @@ public final class LegacyCraftingRecipeData implements DataProvider {
     }
 
     private static Converted convert(JsonObject source, Map<String, String> legacyFields) throws Blocked {
-        if (containsNbt(source)) throw new Blocked("legacy NBT/component recipe requires its content subsystem");
         String oldType = requiredString(source, "type");
         String type = switch (oldType) {
             case "minecraft:crafting_shaped", "forge:ore_shaped" -> "minecraft:crafting_shaped";
@@ -201,6 +203,15 @@ public final class LegacyCraftingRecipeData implements DataProvider {
         return new Converted(forge, neo);
     }
 
+    private static void applyRecipeReplacement(String legacyName, JsonObject recipe) {
+        String output = switch (legacyName) {
+            case "sacrificialaltar" -> "abyssalcraft:ritual_altar";
+            case "crate" -> "abyssalcraft:crystalbag_medium";
+            default -> null;
+        };
+        if (output != null) recipe.getAsJsonObject("result").addProperty("item", output);
+    }
+
     private static JsonObject convertIngredient(JsonElement element, Map<String, String> legacyFields)
             throws Blocked {
         if (element.isJsonArray()) {
@@ -212,6 +223,16 @@ public final class LegacyCraftingRecipeData implements DataProvider {
         }
         if (!element.isJsonObject()) throw new Blocked("non-object legacy ingredient");
         JsonObject source = element.getAsJsonObject();
+        if (source.has("type") && source.has("item")
+            && "minecraft:item_nbt".equals(source.get("type").getAsString())
+            && "minecraft:potion".equals(source.get("item").getAsString())) {
+            JsonObject target = new JsonObject();
+            target.addProperty("item", "minecraft:potion");
+            return target;
+        }
+        if (source.has("type") && "minecraft:item_nbt".equals(source.get("type").getAsString())) {
+            throw new Blocked("unsupported legacy NBT/component ingredient");
+        }
         if (!source.has("item")) throw new Blocked("legacy ingredient has no item");
         String item = source.get("item").getAsString();
         JsonObject target = new JsonObject();

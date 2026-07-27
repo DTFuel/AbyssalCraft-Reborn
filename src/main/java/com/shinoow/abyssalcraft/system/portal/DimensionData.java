@@ -15,6 +15,7 @@ public record DimensionData(
     String displayKey,
     int color,
     int minimumGatewayTier,
+    int minimumBookType,
     Set<ResourceKey<Level>> connectedDimensions,
     Optional<ResourceLocation> portalMob,
     Optional<ResourceLocation> overlay
@@ -28,6 +29,9 @@ public record DimensionData(
         Objects.requireNonNull(overlay, "overlay");
         if (minimumGatewayTier < 0 || minimumGatewayTier > 3) {
             throw new IllegalArgumentException("minimumGatewayTier must be between 0 and 3");
+        }
+        if (minimumBookType < 0 || minimumBookType > 4) {
+            throw new IllegalArgumentException("minimumBookType must be between 0 and 4");
         }
         connectedDimensions = Set.copyOf(new LinkedHashSet<>(connectedDimensions));
     }
@@ -47,6 +51,7 @@ public record DimensionData(
         private final int color;
         private final Set<ResourceKey<Level>> connectedDimensions = new LinkedHashSet<>();
         private int minimumGatewayTier;
+        private int minimumBookType;
         private ResourceLocation portalMob;
         private ResourceLocation overlay;
 
@@ -58,6 +63,11 @@ public record DimensionData(
 
         public Builder minimumGatewayTier(int tier) {
             minimumGatewayTier = tier;
+            return this;
+        }
+
+        public Builder minimumBookType(int bookType) {
+            minimumBookType = bookType;
             return this;
         }
 
@@ -80,7 +90,7 @@ public record DimensionData(
         }
 
         public DimensionData build() {
-            return new DimensionData(dimension, displayKey, color, minimumGatewayTier,
+            return new DimensionData(dimension, displayKey, color, minimumGatewayTier, minimumBookType,
                 connectedDimensions, Optional.ofNullable(portalMob), Optional.ofNullable(overlay));
         }
     }

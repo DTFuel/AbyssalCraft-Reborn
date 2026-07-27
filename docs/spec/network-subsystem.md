@@ -2,20 +2,20 @@
 
 - 里程碑 / Stage：M7 / Stage S-A
 - 关联平行任务：PS-1（本层）；下游 handler 消费者 PS-5/6/7/8/9
-- 状态：框架 + 全23消息序列化已交付；RR-KNOWLEDGE 的5条 handler与协议v2、R4 的 `OpenSpellbook`/`MobSpell`/`StaffMode`/`RitualStart`/`Ritual` handler 已落地；其余消息仍随所属系统任务完成
+- 状态：**冻结23条legacy消息 + 1条modern extension；19条MIGRATED、5条REPLACED、0条BLOCKED；双向接收门禁与永久datagen审计已就位**
 - 负责：PS-1
-- 最后更新：2026-07-25
+- 最后更新：2026-07-27
 
 ## 1. 概述 / 目标
 
-AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetworkWrapper` 通道 + `PacketDispatcher` 注册 23 条消息；移植后收敛为**一个多路复用通道** `net/ACNetwork`，其底层加载器分叉（Forge `SimpleChannel` / NeoForge 1.20.5+ Payload）全部封在 `platform/NetworkChannel`（PA-1）里。玩家可见效果通过各消息驱动（仪式反馈、扰动提示、势能粒子流、菜单同步、法术施放等），但这些效果的落地属于各所属系统任务；本层只保证**消息能被忠实序列化、注册、收发**。
+AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetworkWrapper` 通道 + `PacketDispatcher` 注册 23 条消息；移植后冻结这 23 条 legacy 目录，并追加 `NecronomiconPageActionMessage` 作为第 1 条 modern extension。全部消息收敛为**一个多路复用通道** `net/ACNetwork`，其底层加载器分叉（Forge `SimpleChannel` / NeoForge 1.20.5+ Payload）全部封在 `platform/NetworkChannel`（PA-1）里。
 
 ## 2. 范围
 
-- 含：`net/ACNetwork`（通道单例 + 23 消息注册 + `bootstrap`/发送便捷方法）、`net/server/**`（11 条 C→S 消息）、`net/client/**`（12 条 S→C 消息）、每条消息的忠实 `FriendlyByteBuf` 序列化、主类 `init` 里一行 `ACNetwork.bootstrap(modBus)`。
+- 含：`net/ACNetwork`（通道单例 + 24 消息注册 + 方向元数据 + `bootstrap`/发送便捷方法）、`net/server/**`（12 条 C→S，含 1 条 modern extension）、`net/client/**`（12 条 S→C）、每条消息的忠实 `FriendlyByteBuf` 序列化与完整 handler、主类 `init` 里一行 `ACNetwork.bootstrap(modBus)`、`net/{NetworkMessageAudit,NetworkSelfTest}.java` 永久审计、`data/gen/NetworkValidationData.java` datagen 入口。
 - 不含：
   - `platform/NetworkChannel` 本身（PA-1 冻结面；本层是其**首个运行期消费者**）。
-  - 其余未完成消息 `handle` 的业务效果随所属系统落地；知识/死灵的 `PrepareSync/KnowledgeUnlock/NecroDataCap/ShouldSync/SyncNecromancyData` 已实现。
+  - 各消息 handler 实现随所属系统任务交付（Fire/Rending/Cage/Tablet/Ritual/Knowledge/Necrodata/PE/Disruption/EvilSheep 分属PS-5/6/7/8/9等）；本层只保证消息能被忠实序列化、注册、收发、在正确线程执行。
 
 ## 3. 设计 / 架构
 
@@ -23,40 +23,42 @@ AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetwork
 - 关键类与职责：
   - `net/ACNetwork`：`public static final NetworkChannel CHANNEL = NetworkChannel.create("main")`；`static{}` 块按数字 id 注册全 23 消息；`bootstrap(Object modBus)` 触发静态注册再挂 mod-bus；`sendToServer/sendToPlayer/sendToAll` 便捷委托。
   - 每条消息 `implements NetworkChannel.ACPacket`，四要素：①全字段规范构造器（发送侧用）；②`(FriendlyByteBuf)` 解码构造器；③`write(FriendlyByteBuf)`；④`handle(Context)`（按所属任务逐步实现）。
-- 数据流：发送侧 `ACNetwork.sendToX(msg)` → `NetworkChannel` 用 `idOf(msg)` + `encodeBody`（`msg.write`）打包进多路复用 `Envelope(id, body)` → 网络 → 接收侧按 id 取解码器 `decoder.apply(buf)` 重建消息 → `ctx.enqueue(() -> msg.handle(ctx))` 在主线程执行。
+- 数据流：发送侧 `ACNetwork.sendToX(msg)` → `NetworkChannel` 用 `idOf(msg)` + `encodeBody`（`msg.write`）打包进多路复用 `Envelope(id, body)` → 网络 → 接收侧先从 Forge reception side / Neo payload context flow 得到实际方向并与注册元数据比较 → 方向正确才取 decoder、重建消息并排队 handler。反向消息在 decode 和 handler 之前拒绝。
 
 ### 消息表（id 稳定，wire 用数字 id 而非类名）
 
-| id | 类 | 方向 | 字段（序列化） | handler 目标 |
+| id | 类 | 方向 | 状态 | handler 目标 |
 |---|---|---|---|---|
-| 0 | FireMessage | C→S | `BlockPos` | mimic_fire 方块（未移植） |
-| 1 | UpdateModeMessage | C→S | `int mode, container`（2 varint） | 状态变换器/灵魂石板菜单（未移植） |
-| 2 | ToggleStateMessage | C→S | `BlockPos` | **PC-4 `ItemTransferHost`（已移植，接线延后）** |
-| 3 | StaffOfRendingMessage | C→S | `int id` + `InteractionHand`（varint + 0/1） | 撕裂 API / staff（未移植） |
-| 4 | StaffModeMessage | C→S | （无） | 已实现：只切换发送者主/副手 Gatekeeper Staff 的旧 0/1 兼容状态 |
-| 5 | SpiritTabletMessage | C→S | `int mode1,mode2` + `boolean openFilter,clearPath` | 灵魂石板菜单（未移植） |
-| 6 | PrepareSyncMessage | C→S | `UUID` | 死灵能力同步（PS-8） |
-| 7 | OpenSpellbookMessage | C→S | （无） | 已实现：服务端自行解析发送者主/副手 Necronomicon 并打开 7 槽 Spellbook |
-| 8 | MobSpellMessage | C→S | `int id` + `String spellID` + `int scrollType` | 已实现：仅实体目标提示；服务端忽略包内 spell/quality，重验正在使用的卷轴、50t、距离、PvP与PE |
-| 9 | InterdimensionalCageMessage | C→S | `int id` + `InteractionHand` | 能量物品（未移植） |
-| 10 | TransferStackMessage | C→S | `int slot` + `ItemStack`（**id+count**） | 物质化器背包菜单（未移植） |
-| 11 | WindowPropertyMessage | S→C | `int windowId,property,value`（3 varint） | vanilla 菜单 `ContainerData`（现代自动同步；手动需客户端玩家） |
-| 12 | RitualMessage | S→C | `String id,disruption` + `BlockPos` + `boolean failed` | 已实现：清理客户端活动仪式并播放成功/失败粒子与声音 |
-| 13 | RitualStartMessage | S→C | `BlockPos` + `String id` + `int sacrifice,timerMax` | 已实现：启动客户端法阵、祭品连线与超时状态 |
-| 14 | CleansingRitualMessage | S→C | `int x,z,biomeID` + `boolean batched` | 群系净化（未移植） |
-| 15 | DisruptionMessage | S→C | `String deity,name` + `BlockPos` | 扰动（PS-9） |
-| 16 | EvilSheepMessage | S→C | `UUID` + `String playerName` + `int id` | 邪恶绵羊（未移植） |
-| 17 | KnowledgeUnlockMessage | S→C | `int type` + `String data`（协议v2统一 namespaced/string payload） | 知识/死灵（已实现） |
-| 18 | NecroDataCapMessage | S→C | `CompoundTag`（NBT） | 死灵能力（PS-8） |
-| 19 | PEStreamMessage | S→C | `BlockPos posFrom,posTo` | 势能粒子流（PS-5） |
-| 20 | ShouldSyncMessage | S→C | `long` | 死灵同步（PS-8） |
-| 21 | SyncNecromancyDataMessage | S→C | `CompoundTag`（NBT） | 死灵（PS-8） |
-| 22 | DisplayRoutesMessage | S→C | `CompoundTag`（NBT） | 势能路径渲染（PS-5） |
+| 0 | FireMessage | C→S | MIGRATED | 服务端权威mimic_fire扑灭+声音 |
+| 1 | UpdateModeMessage | C→S | REPLACED | 服务端菜单按钮（StateTransformer/SpiritTablet） |
+| 2 | ToggleStateMessage | C→S | MIGRATED | 服务端权威ItemTransferHost开关+粒子 |
+| 3 | StaffOfRendingMessage | C→S | MIGRATED | 服务端权威Staff of Rending撕裂+多目标 |
+| 4 | StaffModeMessage | C→S | MIGRATED | 服务端权威Gatekeeper Staff模式切换 |
+| 5 | SpiritTabletMessage | C→S | MIGRATED | 服务端权威Spirit Tablet菜单设置 |
+| 6 | PrepareSyncMessage | C→S | MIGRATED | 服务端推送necrodata给请求者 |
+| 7 | OpenSpellbookMessage | C→S | MIGRATED | 服务端解析持书手并开Spellbook菜单 |
+| 8 | MobSpellMessage | C→S | MIGRATED | 服务端重验卷轴+目标+PE后施法 |
+| 9 | InterdimensionalCageMessage | C→S | MIGRATED | 服务端权威捕获目标+PE扣费 |
+| 10 | TransferStackMessage | C→S | REPLACED | 服务端虚拟结果槽与配方提交 |
+| 11 | WindowPropertyMessage | S→C | REPLACED | 客户端ContainerData（现代自动同步） |
+| 12 | RitualMessage | S→C | MIGRATED | 客户端仪式完成反馈（粒子+声音） |
+| 13 | RitualStartMessage | S→C | MIGRATED | 客户端仪式开始仪式+连线 |
+| 14 | CleansingRitualMessage | S→C | REPLACED | 客户端群系刷新（服务端发resend） |
+| 15 | DisruptionMessage | S→C | REPLACED | 客户端扰动反馈（服务端执行效果） |
+| 16 | EvilSheepMessage | S→C | MIGRATED | 客户端evil sheep主人链接 |
+| 17 | KnowledgeUnlockMessage | S→C | MIGRATED | 客户端知识解锁 |
+| 18 | NecroDataCapMessage | S→C | MIGRATED | 客户端necrodata覆写 |
+| 19 | PEStreamMessage | S→C | MIGRATED | 客户端PE粒子流 |
+| 20 | ShouldSyncMessage | S→C | MIGRATED | 客户端请求necrodata同步 |
+| 21 | SyncNecromancyDataMessage | S→C | MIGRATED | 客户端necrodata完整同步 |
+| 22 | DisplayRoutesMessage | S→C | MIGRATED | 客户端transfer路径粒子流 |
+| 23 | NecronomiconPageActionMessage | C→S | MIGRATED | modern extension；服务端权威页面动作 |
 
 ## 4. 子系统内契约
 
 - 通道名：`ACRef.id("main")` = `abyssalcraft:main`（多路复用信封另有 `abyssalcraft:net_envelope`，全在 compat 内）。
-- 消息 id：0–10 为 C→S，11–22 为 S→C，**稳定不可重排**（wire 传数字 id）。通道协议为v2，Forge两端版本谓词精确匹配；新消息追加更大id。
+- 消息 id：legacy 目录固定为 0–22；0–10 为 C→S，11–22 为 S→C。id 23 是 Necronomicon page action modern extension（C→S）。全目录**稳定不可重排**（wire 传数字 id）。通道协议保持 v2：本次仅增加本地注册方向元数据和接收门禁，Envelope 仍是同一 `id + body` wire bytes；若未来改变 Envelope 编码才升级协议。
+- 方向门禁：注册必须声明 `NetworkChannel.Direction`。Forge 从 `NetworkEvent.Context#getDirection().getReceptionSide()` 判定接收端；Neo 从 payload context `flow()` 判定 packet flow。方向不符时不得调用 decoder、不得 enqueue、不得执行 handler。
 - `ACPacket` 契约：`write(FriendlyByteBuf)` + `handle(Context)`；解码经 `(FriendlyByteBuf)` 构造器（注册为 `Function<FriendlyByteBuf,M>`）。
 - **`NetworkChannel.Context.player()` = 发送方玩家**（服务端侧）：C→S handler 拿到的是发送者，正确；**S→C（client-bound）handler 若需接收方（客户端）玩家，`Context.player()` 在 Forge 侧返回 `getSender()`（客户端接收时为 null）→ 须用 `SideExecutor` 客户端侧取 `Minecraft.getInstance().player`**（Neo 侧 `Context.player()` 返回接收方玩家，但为跨加载器一致，client-bound handler 一律走 SideExecutor）。
 - 对外 API：其他系统发消息用 `ACNetwork.sendToServer/sendToPlayer/sendToAll`；认领 handler 时编辑对应消息类的 `handle` 体。
@@ -76,20 +78,27 @@ AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetwork
 - **`Context.player()` 语义**：发送方（服务端）。client-bound handler 需客户端玩家 → SideExecutor（见 §4）。这是 23 条消息 handler 现全延后的部分原因（另一原因是目标系统未移植）。
 - **客户端字段不是权限**：`MobSpellMessage` 为兼容 wire 保留旧 spell ID/scroll type，但 handler 明确不读取它们来决定效果；权威数据来自发送者正在使用的 `ScrollItem`。`OpenSpellbookMessage` 同样无 hand/book tier 字段，服务端自行选择真实持书手。
 - **增量编译陈旧**：新增/移动源文件后 `:1.21.1-neoforge:compileJava` 可能 `UP-TO-DATE` 不真编译 → 用 `--rerun-tasks` 强制（本层实测 neo 首次 UP-TO-DATE，rerun 后才真编）。
-- **round-trip 自测判据**：write→decode 构造器→再 write，比较两次字节数组相等（对称即字节稳定），无需 `equals()`。24 项（23 消息 + KnowledgeUnlock 两分支）。
+- **round-trip 自测判据**：write→decode 构造器→再 write，比较两次字节数组相等（对称即字节稳定），无需 `equals()`。28 项（24 消息，KnowledgeUnlock 覆盖多个分支）。
+- **方向门禁自测判据**：24 个目录类型各做正确方向与反向方向两次 dispatch；正确方向必须完成 decode 并 enqueue，反向方向必须在 decode 前返回且不 enqueue。输出计数从 audit 实际方向逐项累计，不在测试中硬编码 12/12。
 
 ## 7. 验证 / DoD
 
-- 两节点 `compileJava --rerun-tasks`：BUILD SUCCESSFUL；neo `.class` 字节码核 ItemStack fork-free（24 个 net `.class`）。
-- 运行期（临时在主类 `init` 挂 `ACNetwork.selfTest()`，**验证后已还原**）：
-  - **forge `runServer`**：`network self-test: 24/24 messages round-tripped byte-stable` + `Done (6.816s)` + 干净 stop（bootstrap = Forge `SimpleChannel` 注册无崩）。
-  - **neo `runServer`**：`network self-test: 24/24` + bootstrap（Neo Payload `playBidirectional` 注册）无崩——**但未抵 Done**：崩在其后**无关**的 `data/abyssalcraft/dimension_type/mini.json` IntProvider 解析（1.21 要求 `min_inclusive/max_inclusive` 作直接子键，现文件多套一层 `"value"`；forge 1.20.1 同文件正常加载 `abyssalcraft:mini`）→ 非 `net/**` 范畴，属维度/世界数据任务，已登记 02 §7 协调项。
-  - **forge `runClient`**：`24/24` + 抵标题屏（Realms 可用性检查线程 = 标题屏判据）。
-  - **neo `runClient`**：`24/24` + 抵标题屏（LWJGL backend + OpenAL + ResourceManager reload；缺物品/方块模型告警为未移植资产、非网络、非崩）。
-- 未机核项（如实标注）：**实网逐消息 C↔S 同步**（真正跨进程发送→接收→handler 效果）需活的客户端-服务器会话，本机 headless 无法机核；本层运行期实证 = 通道 bootstrap 双端 + 全 23 消息字节稳定 round-trip 双端。各消息 handler 效果随所属系统落地时验证。
+- **两节点 `compileJava --rerun-tasks`**：BUILD SUCCESSFUL；neo `.class` 字节码核 ItemStack fork-free（24 个 net `.class`）。
+- **永久 datagen 审计**（`data/gen/NetworkValidationData.java` → `NetworkSelfTest.run()`）：
+  - `NetworkMessageAudit.validate(ACNetwork.CHANNEL)`：23 legacy + 1 modern extension 完整、id闭区间0–23、wire id与注册方向稳定、19/5/0审计结果。
+  - 28轮round-trip测试：write→decode→write字节稳定。
+  - 24×2方向矩阵输出 `RR_NET_DIRECTION_GATE_OK serverBound=12 clientBound=12 rejected=24`。
+  - 双端 `runData` 输出 `RR_NET_SELF_TEST_OK messages=24 migrated=19 replaced=5 blocked=0 roundTrips=28`。
+- **handler 实现审计**（`docs/spec/rr-net-message-audit.csv`）：
+  - 18条MIGRATED：服务端权威、权限/方向/线程正确、客户端反馈经SideExecutor。
+  - 5条REPLACED：UpdateMode/TransferStack菜单现代化、WindowProperty自动同步、CleansingRitual服务端resend、Disruption服务端执行。
+  - 0条BLOCKED：无废弃消息。
+- **实网验证遗留**：真正跨进程C↔S同步需活客户端-服务器会话（本机headless不可机核）；临时实网fixture（RRNetValidation/RRNetClientValidation）已删除，实网验证随各系统集成测试覆盖。
 
 ## 修订日志
 
-- 2026-07-25：RR-KNOWLEDGE（CR-70）把KnowledgeUnlock统一为String payload并将通道升v2；5条知识/necrodata handler接线完成。
+- 2026-07-27：R5 NET 方向契约——注册表增加方向元数据；Forge reception side / Neo payload context 在 decode 前拒绝反向 Envelope；永久自测增加 24×2 正负矩阵。协议保持 v2，目录冻结为 23 legacy + 1 modern extension（19/5/0，12 C→S + 12 S→C）。
+- 2026-07-27：RR-NET-AUTO / T7.1c 完成——全23条 legacy 消息handler已实现（18/5/0），删除临时实网验证fixture（RRNetValidation/RRNetClientValidation），建立永久datagen审计（NetworkValidationData→NetworkSelfTest→NetworkMessageAudit），清理ACClientSetup临时hook。
 - 2026-07-26：R4 接通 OpenSpellbook、MobSpell、StaffMode、RitualStart、Ritual handler；MobSpell 包内 spell/quality 降为不受信目标提示，客户端仪式状态经 SideExecutor 分发。
+- 2026-07-25：RR-KNOWLEDGE（CR-70）把KnowledgeUnlock统一为String payload并将通道升v2；5条知识/necrodata handler接线完成。
 - 2026-07-22：PS-1 建层——`net/ACNetwork` + 23 消息 + 主类 bootstrap；两节点编译 + 4 次启动（forge server/client、neo server/client）self-test 24/24；ItemStack fork（id+count）与 `Context.player()`=发送方两处发现登记。见平行表 CR-38。

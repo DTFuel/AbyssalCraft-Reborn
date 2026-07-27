@@ -27,7 +27,7 @@ public final class DemonSheepWoolLayer<T extends Mob> extends RenderLayer<T, Dem
                        float limbSwing, float limbSwingAmount, float partialTick, float ageInTicks,
                        float netHeadYaw, float headPitch) {
         if (entity.isInvisible()) return;
-        //? if forge {
+        //? if <1.21 {
         coloredCutoutModelCopyLayerRender(getParentModel(), wool, texture, poseStack, buffer, packedLight,
             entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, partialTick,
             1.0F, 1.0F, 1.0F);

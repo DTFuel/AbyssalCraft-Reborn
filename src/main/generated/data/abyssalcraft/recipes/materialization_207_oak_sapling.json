@@ -1,0 +1,27 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_carbon"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_hydrogen"
+      },
+      "count": 10
+    },
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_oxygen"
+      },
+      "count": 5
+    }
+  ],
+  "result": {
+    "item": "minecraft:oak_sapling",
+    "count": 1
+  }
+}

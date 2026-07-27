@@ -5,12 +5,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.function.Predicate;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
 
+import com.shinoow.abyssalcraft.config.ACConfig;
+import com.shinoow.abyssalcraft.config.ComplexConfig;
 import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.world.ACDimensions;
 
@@ -39,6 +42,15 @@ public final class DimensionDataRegistry {
 
     public synchronized List<DimensionData> values() {
         return List.copyOf(dimensions.values());
+    }
+
+    /** Server-authoritative Necronomicon tier for knowledge accessed in this dimension. */
+    public synchronized OptionalInt requiredBookType(ResourceKey<Level> dimension) {
+        ComplexConfig.DimensionBookMapping configured =
+            ComplexConfig.dimensionBookTypeMappings().get(dimension.location());
+        if (configured != null) return OptionalInt.of(configured.bookType());
+        DimensionData data = dimensions.get(dimension);
+        return data == null ? OptionalInt.empty() : OptionalInt.of(data.minimumBookType());
     }
 
     /** Stable legacy registration order used by Gateway Key target cycling. */
@@ -73,6 +85,8 @@ public final class DimensionDataRegistry {
                                                         ResourceKey<Level> to,
                                                         int gatewayTier) {
         if (gatewayTier < 0 || gatewayTier > 3 || from.equals(to)) return false;
+        if (gatewayTier == 0 && to == ACDimensions.ABYSSAL_WASTELAND
+            && from != configuredStartDimension()) return false;
         DimensionData fromData = dimensions.get(from);
         DimensionData toData = dimensions.get(to);
         if (fromData == null || toData == null) return false;
@@ -80,6 +94,19 @@ public final class DimensionDataRegistry {
         return gatewayTier >= requiredTier
             && fromData.isConnectedTo(to)
             && toData.isConnectedTo(from);
+    }
+
+    private static ResourceKey<Level> configuredStartDimension() {
+        return switch (ACConfig.startDimension.get()) {
+            case -1 -> Level.NETHER;
+            case 0 -> Level.OVERWORLD;
+            case 1 -> Level.END;
+            case 50 -> ACDimensions.ABYSSAL_WASTELAND;
+            case 51 -> ACDimensions.DREADLANDS;
+            case 52 -> ACDimensions.OMOTHOL;
+            case 53 -> ACDimensions.DARK_REALM;
+            default -> null;
+        };
     }
 
     public synchronized List<ResourceKey<Level>> reachableFrom(ResourceKey<Level> from,
@@ -97,18 +124,21 @@ public final class DimensionDataRegistry {
     private void registerDefaults() {
         register(DimensionData.builder(ACDimensions.ABYSSAL_WASTELAND,
                 "dimension.abyssalcraft.abyssal_wasteland", 0xFF00FF00)
+            .minimumBookType(1)
             .connectedTo(Level.OVERWORLD, ACDimensions.DREADLANDS)
             .portalMob(ACRef.id("abyssalzombie"))
             .build());
         register(DimensionData.builder(ACDimensions.DREADLANDS,
                 "dimension.abyssalcraft.dreadlands", 0xFFFF0000)
             .minimumGatewayTier(1)
+            .minimumBookType(2)
             .connectedTo(ACDimensions.ABYSSAL_WASTELAND, ACDimensions.OMOTHOL)
             .portalMob(ACRef.id("dreadling"))
             .build());
         register(DimensionData.builder(ACDimensions.OMOTHOL,
                 "dimension.abyssalcraft.omothol", 0xFF00FFFF)
             .minimumGatewayTier(2)
+            .minimumBookType(3)
             .connectedTo(ACDimensions.DREADLANDS, ACDimensions.DARK_REALM)
             .portalMob(ACRef.id("jzaharminion"))
             .overlay(ACRef.id("textures/model/omothol_portal.png"))
@@ -116,6 +146,7 @@ public final class DimensionDataRegistry {
         register(DimensionData.builder(ACDimensions.DARK_REALM,
                 "dimension.abyssalcraft.dark_realm", 0xFF000000)
             .minimumGatewayTier(2)
+            .minimumBookType(4)
             .connectedTo(ACDimensions.OMOTHOL)
             .portalMob(ACRef.id("shadowmonster"))
             .build());

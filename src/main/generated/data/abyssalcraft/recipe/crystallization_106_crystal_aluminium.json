@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "c:dusts/aluminium"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_aluminium",
+    "count": 1
+  },
+  "experience": 0.1,
+  "time": 200
+}

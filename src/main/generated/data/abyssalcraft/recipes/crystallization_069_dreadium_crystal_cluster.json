@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "abyssalcraft:block_of_dreadium"
+  },
+  "result": {
+    "item": "abyssalcraft:dreadium_crystal_cluster",
+    "count": 1
+  },
+  "experience": 0.9,
+  "time": 200
+}

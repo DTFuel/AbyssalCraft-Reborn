@@ -2,7 +2,7 @@
 
 - 里程碑 / Stage：M7 / Stage S-A
 - 关联平行任务：PS-4（本层）；下游 PS-11（效果 event hook）、PC-8（酿造配方）
-- 状态：5 MobEffect + 7 Potion、三自定义 DamageType、传播/免疫/解毒/唯一转化/Purge、食物与6条brewing mix已双端实现；动态Dreadlands群系扩散与剩余实体宿主留T7.10c
+- 状态：5 MobEffect + 7 Potion、三自定义 DamageType、传播/免疫/解毒/唯一转化/Purge、动态Dreadlands群系扩散、专属宿主与6条brewing mix已实现
 - 负责：PS-4
 - 最后更新：2026-07-25
 
@@ -14,7 +14,7 @@ AbyssalCraft 的药水效果 + 药水。忠实 1.12.2 `MiscHandler`/`PotionBuild
 
 - 含：`MobEffectCompat`、`ACEffects`、`ACDamageTypes`、`EffectHooks`、`PurgeHooks`、两种10剂 `AntidoteItem`、效果食物与 `PotionBrewingCompat` 六条旧 mix。
 - 行为：周期传播、on-hit、死亡 cloud/衰减传播、内建/配置 carrier+immunity、Coralium/Dread/Antimatter死亡转化、同一次死亡最多一个替代体、Purged 中传播/转化与六类交互限制。
-- 不含：高阶 Dread Plague 按 `no_dreadlands_spread` 动态改写群系；尚未完成实体/投射物宿主的专属施加点（T7.10c 与对应实体任务）。
+- Dread Plague：高阶效果（或Hardcore）每100t在服务端改写3x3方块覆盖的群系列，动态消费`no_dreadlands_spread`；排除Dark Realm、Omothol、既有Dreadlands变体与Purged。Dreaded Ghoul、legacy Dread mobs、Cha'garoth族、Dreadguard、Dread Shoggoth、Dread Slug、Dreaded Charge均有专属施加点。
 
 ## 3. 设计 / 架构
 
@@ -58,9 +58,10 @@ AbyssalCraft 的药水效果 + 药水。忠实 1.12.2 `MiscHandler`/`PotionBuild
 - 两节点 `runClient`：抵标题屏（effect/potion 注册不破客户端加载）。
 - 双端 production build/JAR通过；JAR含三 damage_type 与 bypass tags。
 - Forge黑盒：三 DamageType实际扣血；Antimatter→AntiPig；多效果同死即时`count:1`；Coralium antidote后NBT只剩antidote。Neo黑盒：三 DamageType实际扣血，Antimatter→AntiPig。
-- 未完成：T7.10c动态Dreadlands群系扩散、剩余宿主行为矩阵；效果图标/粒子/药水表现仍属客户端视觉验收。
+- 永久`RR_DREAD_PLAGUE_SELF_TEST_OK`覆盖配置开/关与动态重载、amplifier/Hardcore、线程/tick/维度/群系边界、8个宿主registry id及chunk unsaved持久化契约。本轮两节点执行均被Gradle缓存空Zip在配置期阻塞；效果图标/粒子/药水表现仍属客户端视觉验收。
 
 ## 修订日志
 
+- 2026-07-27：T7.10c完成Dread Plague动态群系扩散、配置消费、宿主registry审计和永久自测。
 - 2026-07-25：RR-KNOWLEDGE（CR-70）完成三DamageType、传播/carrier/immunity/两解毒/唯一转化/Purge、食物与六条brewing；双端专服关键行为通过，动态群系扩散拆T7.10c。
 - 2026-07-22：PS-4 建层——`platform/MobEffectCompat`（MobEffect tick + instance fork）+ `system/effect/ACEffects`（5 MobEffect + 7 Potion）；两节点编译 + runServer `/effect`「antimatter 杀牛」双端实证伤害 tick + runClient 标题屏。完整效果延 PS-11、酿造延 PC-8。见平行表 CR-46。

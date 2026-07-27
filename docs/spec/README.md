@@ -35,7 +35,7 @@
 | 网络（多路复用通道 + 23 消息双实现） | M7 / Stage S-A | [network-subsystem.md](network-subsystem.md) | 框架+23消息序列化已验证；RR-KNOWLEDGE将通道升v2并完成5条knowledge/necrodata handler，其余handler随所属系统 |
 | 能力 / 玩家数据（necrodata + 物品转移） | M7 / Stage S-A | [capability-subsystem.md](capability-subsystem.md) | RR-KNOWLEDGE 完成 Forge capability/Neo attachment、mutation变化检测、协议v2增量/全量handler与配置延迟同步；真人死亡/重连实网矩阵留T7.2c；item transfer由PC-4覆盖 |
 | 附魔（5：1.20 类 / 1.21 数据驱动） | M7 / Stage S-A | [enchantment-subsystem.md](enchantment-subsystem.md) | PS-3 交付 5 附魔双端可获得（`EnchantmentCompat` 1.20 类/1.21 datapack JSON + `ACEnchantments` ResourceKey）；两节点 `/enchant` 探针实证；效果延 PS-11 event hook，multi_rend/sapping 待 Staff |
-| 药水 / 效果（5 MobEffect + 7 药水） | M7 / Stage S-A | [potion-subsystem.md](potion-subsystem.md) | RR-KNOWLEDGE完成三DamageType、传播/carrier/immunity/两解毒/唯一转化/Purge、食物与6 mix；双端专服关键行为通过；动态Dreadlands与剩余宿主留T7.10c |
+| 药水 / 效果（5 MobEffect + 7 药水） | M7 / Stage S-A | [potion-subsystem.md](potion-subsystem.md) | 三DamageType、传播/carrier/immunity、解毒、转化/Purge、动态Dreadlands、专属宿主与6 mix完成；永久Dread Plague自测已接 |
 | 势能 / 能量（PE 网络框架） | M7 / Stage S-B | [energy-subsystem.md](energy-subsystem.md) | PS-5 交付能量框架（能量 BE 接口 + `PEUtils` 算术/传输，fork-free 同 PC-4）；两节点编译 + selfTest 双端 PASS；能量方块/idol/charm/采集链 = 内容，待未移植块/物品/Necronomicon |
 | 仪式（Necronomicon 仪式） | M7 / R4 | [ritual-subsystem.md](ritual-subsystem.md) | 62 注册项（40 infusion/3 creation/1 transformation/18 specialized）、持久 ceremony、18/18 行为、活祭/research/PE/disruption与客户端反馈完成；双端 Gate=`rituals=62 handlers=18`，真人视觉听觉留 R4-LIVE-GATE |
 | 法术（Necronomicon 法术） | M7 / R4 | [spell-subsystem.md](spell-subsystem.md) | 14 manifest/behavior、六卷轴、即时/蓄力、多容器PE、MobSpell服务端重验、7槽Spellbook与旧铭文overlay完成；双端 Gate=`spells=14 handlers=14 spellbook=14`、资源=`itemModels=29` |

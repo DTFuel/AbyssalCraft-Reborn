@@ -1,0 +1,16 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "minecraft:stone"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_shard_silica",
+    "count": 4
+  },
+  "secondary_result": {
+    "item": "abyssalcraft:crystal_shard_magnesia",
+    "count": 4
+  },
+  "experience": 0.1,
+  "time": 200
+}

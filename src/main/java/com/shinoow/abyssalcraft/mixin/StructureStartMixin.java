@@ -19,19 +19,27 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
 
 import com.shinoow.abyssalcraft.world.structure.LegacyStructurePlacementContext;
+import com.shinoow.abyssalcraft.AbyssalCraft;
+import com.shinoow.abyssalcraft.config.ComplexConfig;
 
 @Mixin(StructureStart.class)
 public abstract class StructureStartMixin {
 
     @Shadow @Final private Structure structure;
 
-    @Inject(method = "placeInChunk", at = @At("HEAD"))
+    @Inject(method = "placeInChunk", at = @At("HEAD"), cancellable = true)
     private void abyssalcraft$beginPalette(WorldGenLevel level, StructureManager structureManager,
                                             ChunkGenerator chunkGenerator, RandomSource random,
                                             BoundingBox chunkBox, ChunkPos chunkPos, CallbackInfo callback) {
         ResourceLocation structureId = level.registryAccess()
             .registryOrThrow(Registries.STRUCTURE)
             .getKey(structure);
+        if (structureId != null && AbyssalCraft.MODID.equals(structureId.getNamespace())
+                && ComplexConfig.structureGenerationDimensionBlacklist().contains(
+                    level.getLevel().dimension().location())) {
+            callback.cancel();
+            return;
+        }
         LegacyStructurePlacementContext.enter(structureId);
     }
 

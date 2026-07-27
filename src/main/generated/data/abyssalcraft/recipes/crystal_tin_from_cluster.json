@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {"#": {"item": "abyssalcraft:tin_crystal_cluster"}},
+  "pattern": ["#"],
+  "result": {"count": 9, "item": "abyssalcraft:crystal_tin"}
+}

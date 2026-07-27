@@ -20,6 +20,7 @@ import com.shinoow.abyssalcraft.net.server.FireMessage;
 import com.shinoow.abyssalcraft.net.server.InterdimensionalCageMessage;
 import com.shinoow.abyssalcraft.net.server.MobSpellMessage;
 import com.shinoow.abyssalcraft.net.server.OpenSpellbookMessage;
+import com.shinoow.abyssalcraft.net.server.NecronomiconPageActionMessage;
 import com.shinoow.abyssalcraft.net.server.PrepareSyncMessage;
 import com.shinoow.abyssalcraft.net.server.SpiritTabletMessage;
 import com.shinoow.abyssalcraft.net.server.StaffModeMessage;
@@ -29,7 +30,7 @@ import com.shinoow.abyssalcraft.net.server.TransferStackMessage;
 import com.shinoow.abyssalcraft.net.server.UpdateModeMessage;
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
 
-/** Frozen migration state for the twenty-three legacy network messages. */
+/** Frozen migration state for 23 legacy messages plus one modern extension. */
 public final class NetworkMessageAudit {
 
     public enum Direction { SERVER_BOUND, CLIENT_BOUND }
@@ -61,33 +62,45 @@ public final class NetworkMessageAudit {
         migrated(19, PEStreamMessage.class, Direction.CLIENT_BOUND),
         migrated(20, ShouldSyncMessage.class, Direction.CLIENT_BOUND),
         migrated(21, SyncNecromancyDataMessage.class, Direction.CLIENT_BOUND),
-        migrated(22, DisplayRoutesMessage.class, Direction.CLIENT_BOUND));
+        migrated(22, DisplayRoutesMessage.class, Direction.CLIENT_BOUND),
+        migrated(23, NecronomiconPageActionMessage.class, Direction.SERVER_BOUND));
 
     private NetworkMessageAudit() {}
 
     public static void validate(NetworkChannel channel) {
-        require(ALL.size() == 23, "network audit size changed");
+        require(ALL.size() == 24, "network audit size changed");
         Set<Integer> ids = new HashSet<>();
         Set<Class<?>> types = new HashSet<>();
         for (Entry entry : ALL) {
             require(ids.add(entry.id()), "duplicate audited packet id " + entry.id());
             require(types.add(entry.type()), "duplicate audited packet type " + entry.type().getName());
-            require(entry.direction() == (entry.id() <= 10 ? Direction.SERVER_BOUND : Direction.CLIENT_BOUND),
-                "packet direction changed for id " + entry.id());
             require(channel.registeredId(entry.type()) == entry.id(),
                 "wire id changed for " + entry.type().getSimpleName());
+            require(channel.registeredDirection(entry.type()) == platformDirection(entry.direction()),
+                "registered direction changed for " + entry.type().getSimpleName());
         }
-        require(ids.equals(java.util.stream.IntStream.range(0, 23).boxed()
-            .collect(java.util.stream.Collectors.toSet())), "wire ids are not the closed range 0..22");
-        require(channel.registeredCount() == 23 && channel.registeredIds().equals(ids),
+        require(ids.equals(java.util.stream.IntStream.range(0, 24).boxed()
+            .collect(java.util.stream.Collectors.toSet())), "wire ids are not the closed range 0..23");
+        require(channel.registeredCount() == 24 && channel.registeredIds().equals(ids),
             "registered network catalog differs from audit");
-        require(count(Status.MIGRATED) == 18, "migrated packet count changed");
+        require(count(Status.MIGRATED) == 19, "migrated packet count changed");
         require(count(Status.REPLACED) == 5, "replaced packet count changed");
         require(count(Status.BLOCKED) == 0, "blocked packet count changed");
+        require(count(Direction.SERVER_BOUND) == 12, "server-bound packet count changed");
+        require(count(Direction.CLIENT_BOUND) == 12, "client-bound packet count changed");
     }
 
     public static long count(Status status) {
         return ALL.stream().filter(entry -> entry.status() == status).count();
+    }
+
+    public static long count(Direction direction) {
+        return ALL.stream().filter(entry -> entry.direction() == direction).count();
+    }
+
+    public static NetworkChannel.Direction platformDirection(Direction direction) {
+        return direction == Direction.SERVER_BOUND
+            ? NetworkChannel.Direction.SERVER_BOUND : NetworkChannel.Direction.CLIENT_BOUND;
     }
 
     private static Entry migrated(int id, Class<? extends NetworkChannel.ACPacket> type, Direction direction) {

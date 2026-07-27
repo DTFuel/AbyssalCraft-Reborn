@@ -6,6 +6,7 @@ import java.util.function.Supplier;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -54,6 +55,14 @@ public final class ToolItems {
 
     public static final Supplier<Item> CUDGEL = special("cudgel", () ->
         ToolCompat.cudgel(new Item.Properties().durability(1500)));
+    public static final Supplier<Item> CORALIUM_LONGBOW = special("coralium_longbow", () ->
+        new BowItem(new Item.Properties().durability(1800)));
+    public static final Supplier<Item> DREADIUM_KATANA_HILT = special("dreadium_katana_hilt", () ->
+        new Item(new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> DREADIUM_KATANA_BLADE = special("dreadium_katana_blade", () ->
+        new Item(new Item.Properties().stacksTo(1)));
+    public static final Supplier<Item> DREADIUM_KATANA = special("dreadium_katana", () ->
+        ToolCompat.sword(DREADIUM, 8, -2.0F, new Item.Properties()));
 
     /** Register the five standard tools for one tier (vanilla-convention attack/speed modifiers). */
     private static void registerTier(String prefix, Tier tier) {

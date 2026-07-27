@@ -10,6 +10,7 @@ import com.shinoow.abyssalcraft.platform.DataRecipeCompat;
 import com.shinoow.abyssalcraft.platform.EnchantmentDataCompat;
 import com.shinoow.abyssalcraft.platform.ItemDataCompat;
 import com.shinoow.abyssalcraft.registry.ModRecipes;
+import com.shinoow.abyssalcraft.system.enchant.EnchantmentEffects;
 import com.shinoow.abyssalcraft.system.spell.SpellUtils;
 import com.shinoow.abyssalcraft.system.rending.RendingEnergyType;
 
@@ -71,7 +72,7 @@ public final class StaffOfRendingItem extends RitualEnergyItem {
 
     public int drainAmount(ItemStack stack) {
         int sapping = EnchantmentDataCompat.read(stack).getOrDefault(ACRef.id("sapping"), 0);
-        return tier + 1 + Math.max(0, Math.min(3, sapping));
+        return EnchantmentEffects.sappingDrainAmount(tier, sapping);
     }
 
     public int getEnergy(ItemStack stack, RendingEnergyType type) {

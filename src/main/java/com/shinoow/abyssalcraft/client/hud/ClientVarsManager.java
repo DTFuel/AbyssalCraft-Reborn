@@ -10,6 +10,7 @@ import com.mojang.logging.LogUtils;
 import com.shinoow.abyssalcraft.platform.ACRef;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.Minecraft;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
 
@@ -44,6 +45,9 @@ public final class ClientVarsManager implements ResourceManagerReloadListener {
             try (BufferedReader reader = resource.openAsReader()) {
                 ClientVars parsed = ClientVars.parse(JsonParser.parseReader(reader).getAsJsonObject());
                 current.set(parsed);
+                if (Minecraft.getInstance().level != null) {
+                    Minecraft.getInstance().level.clearTintCaches();
+                }
             } catch (Exception e) {
                 LOGGER.error("Failed to load clientvars.json, keeping defaults", e);
             }

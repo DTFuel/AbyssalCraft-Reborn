@@ -1,6 +1,8 @@
 package com.shinoow.abyssalcraft.client.hud;
 
 import com.shinoow.abyssalcraft.platform.ClientHooksCompat;
+import com.shinoow.abyssalcraft.content.item.transfer.SpiritTabletItem;
+import com.shinoow.abyssalcraft.content.item.transfer.SpiritTabletStorage;
 import com.shinoow.abyssalcraft.system.energy.IEnergyContainerItem;
 
 import net.minecraft.client.Minecraft;
@@ -13,8 +15,8 @@ import net.minecraft.world.item.ItemStack;
  * AC HUD relay (owned by PH-6): registers the client resource-reload listener ({@link ClientVarsManager}) and
  * the AC HUD overlays with the loader compat. The PE meter reads the held energy item ({@link
  * IEnergyContainerItem}, delivered CR-58) and draws its Potential Energy bar &mdash; so charging at a deity
- * statue (CR-59) is now visible. The remaining faithful HUD content (spirit-tablet path/filter, dimension
- * info) still needs its unported tools; those stay deferred (PH-6b).
+ * statue (CR-59) is now visible. Spirit-tablet information is read from the held stack synchronized by the
+ * server; the HUD never predicts mode, filter, or route state locally.
  */
 public final class ACHud {
 
@@ -24,6 +26,8 @@ public final class ACHud {
     public static void register() {
         ClientHooksCompat.queueReloadListener(ClientVarsManager.instance());
         ClientHooksCompat.queueOverlay("pe_meter", ACHud::renderPeMeter);
+        ClientHooksCompat.queueOverlay("spirit_tablet", ACHud::renderSpiritTablet);
+        ClientHooksCompat.queueOverlay("dimension_info", ACHud::renderDimensionInfo);
     }
 
     /** Draw the Potential Energy bar for the held energy item (Necronomicon/charm); nothing if none held. */
@@ -65,5 +69,60 @@ public final class ACHud {
             return off;
         }
         return null;
+    }
+
+    private static void renderSpiritTablet(GuiGraphics graphics, int width, int height) {
+        Minecraft minecraft = Minecraft.getInstance();
+        Player player = minecraft.player;
+        if (player == null) return;
+        ItemStack tablet = heldTablet(player);
+        if (tablet == null) return;
+
+        int x = 6;
+        int y = height - 44;
+        int routeSize = SpiritTabletStorage.route(tablet).size();
+        String dimension = SpiritTabletStorage.routeDimension(tablet);
+        String route = routeSize == 0 ? "-" : routeSize + " @ " + dimension;
+        graphics.drawString(minecraft.font, "Spirit Tablet  " + modeName(SpiritTabletStorage.mode(tablet)),
+            x, y, 0xFF59C6B4);
+        graphics.drawString(minecraft.font,
+            "Filter " + SpiritTabletStorage.filterCount(tablet) + "/" + SpiritTabletStorage.FILTER_SIZE
+                + "  subtype=" + onOff(SpiritTabletStorage.ignoreSubtypes(tablet))
+                + "  data=" + onOff(SpiritTabletStorage.matchComponents(tablet)),
+            x, y + 10, 0xFFD7D8D9);
+        graphics.drawString(minecraft.font, "Path " + route, x, y + 20,
+            SpiritTabletStorage.isRouteDimension(tablet, player.level().dimension().location())
+                ? 0xFF59C6B4 : 0xFFFF7777);
+    }
+
+    private static void renderDimensionInfo(GuiGraphics graphics, int width, int height) {
+        Minecraft minecraft = Minecraft.getInstance();
+        Player player = minecraft.player;
+        if (player == null) return;
+        String dimension = player.level().dimension().location().toString();
+        String biome = player.level().getBiome(player.blockPosition()).unwrapKey()
+            .map(key -> key.location().toString()).orElse("unknown");
+        int x = width - Math.max(minecraft.font.width(dimension), minecraft.font.width(biome)) - 6;
+        graphics.drawString(minecraft.font, dimension, x, 6, 0xFFD7D8D9);
+        graphics.drawString(minecraft.font, biome, x, 16, 0xFF999999);
+    }
+
+    private static ItemStack heldTablet(Player player) {
+        ItemStack main = player.getMainHandItem();
+        if (main.getItem() instanceof SpiritTabletItem) return main;
+        ItemStack off = player.getOffhandItem();
+        return off.getItem() instanceof SpiritTabletItem ? off : null;
+    }
+
+    private static String modeName(int mode) {
+        return switch (mode) {
+            case 0 -> "path";
+            case 1 -> "configure";
+            default -> "clear";
+        };
+    }
+
+    private static String onOff(boolean value) {
+        return value ? "on" : "off";
     }
 }

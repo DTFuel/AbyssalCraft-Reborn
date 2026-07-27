@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "minecraft:bone"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_shard_calcium",
+    "count": 4
+  },
+  "experience": 0.2,
+  "time": 200
+}

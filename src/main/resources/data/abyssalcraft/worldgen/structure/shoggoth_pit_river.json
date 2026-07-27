@@ -1,0 +1,7 @@
+{
+  "type": "abyssalcraft:structure",
+  "kind": "shoggoth_pit_river",
+  "biomes": "#abyssalcraft:has_structure/shoggoth_pit_river",
+  "step": "surface_structures",
+  "spawn_overrides": {}
+}

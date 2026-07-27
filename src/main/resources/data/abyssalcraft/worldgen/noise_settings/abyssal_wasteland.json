@@ -58,9 +58,13 @@
         "to_value": -1.0
       },
       "argument2": {
-        "type": "minecraft:mul",
-        "argument1": 1.4,
-        "argument2": "minecraft:overworld/continents"
+        "type": "minecraft:add",
+        "argument1": {
+          "type": "minecraft:mul",
+          "argument1": 1.4,
+          "argument2": "minecraft:overworld/continents"
+        },
+        "argument2": { "type": "abyssalcraft:configurable_amplified_offset" }
       }
     },
     "vein_toggle": 0,

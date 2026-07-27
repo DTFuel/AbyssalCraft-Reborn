@@ -1,0 +1,16 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_silica",
+    "count": 6
+  },
+  "secondary_result": {
+    "id": "abyssalcraft:crystal_sulfur",
+    "count": 4
+  },
+  "experience": 0.15,
+  "time": 200
+}

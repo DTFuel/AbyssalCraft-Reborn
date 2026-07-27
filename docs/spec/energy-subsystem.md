@@ -57,7 +57,7 @@ Depositioner容量10000，未激活量子15，POWER激活量子`20*max(amplifier
 
 ## 7. 验证 / DoD
 
-- 双端`compileJava`、`runData`与专服`Done`通过；永久标记：`RR_ENERGY_SELF_TEST_OK blocks=21 statues=7 charms=32 idol=1 pop=3 disruptions=22 blocked=5`。
+- 永久标记：`RR_ENERGY_SELF_TEST_OK blocks=21 statues=7 charms=32 idol=1 pop=3 disruptions=27 blocked=0`。本轮环境因 Gradle 缓存空 Zip 在配置期失败，未重写既有历史验证结论。
 - 双端真实ServerLevel：collector→relay→container实移10 PE；实心障碍阻断；红石暂停；pedestal→Necronomicon实移20 PE；Basic/Totem/Archway成型、加成与断裂解绑通过。
 - 双端停服重启逐字段恢复：collector 321、container 654、pedestal 777+满能书、relay 111、depositioner 888+tolerance/charm、statue tolerance/charm/PoP、idol 99、PoP `basic` identifier。
 - 资源审计：32相关方块、20网络块、8含兼容入口神像、32 charm模型、loot与pickaxe双目录零缺失；8语言文件各620键且集合一致。

@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.client.render.entity.layers;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import com.shinoow.abyssalcraft.client.model.entity.DragonModel;
+import com.shinoow.abyssalcraft.client.hud.ClientVarsManager;
 import com.shinoow.abyssalcraft.content.entity.boss.BossKind;
 import com.shinoow.abyssalcraft.content.entity.boss.BossMob;
 import com.shinoow.abyssalcraft.platform.DeathRayRenderCompat;
@@ -28,8 +29,9 @@ public final class DragonBossDeathRayLayer<T extends Mob> extends RenderLayer<T,
         float progress = (boss.getACDeathTime() + partialTick) / 200.0F;
         poseStack.pushPose();
         poseStack.translate(0.0F, -1.0F, -2.0F);
+        int color = ClientVarsManager.get().asorahDeathColor();
         DeathRayRenderCompat.render(poseStack, buffers, progress, 60,
-            0, 255, 255, 10.0F, 2.0F, true);
+            color >> 16 & 255, color >> 8 & 255, color & 255, 10.0F, 2.0F, true);
         poseStack.popPose();
     }
 }

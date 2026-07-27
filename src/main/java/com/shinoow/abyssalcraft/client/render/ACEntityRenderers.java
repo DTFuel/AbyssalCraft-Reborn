@@ -17,8 +17,12 @@ import com.shinoow.abyssalcraft.client.render.entity.ProjectileRenderers;
 import com.shinoow.abyssalcraft.client.render.entity.legacy.LegacyRenderers;
 import com.shinoow.abyssalcraft.client.render.entity.layers.StarSpawnTentacleLayer;
 import com.shinoow.abyssalcraft.client.render.entity.layers.DepthsArmorOuterLayer;
+import com.shinoow.abyssalcraft.content.block.energy.EnergyBlocks;
+import com.shinoow.abyssalcraft.content.block.ritual.RitualBlocks;
 import com.shinoow.abyssalcraft.content.entity.anti.AntiEntities;
 import com.shinoow.abyssalcraft.content.entity.legacy.LegacyEntities;
+import com.shinoow.abyssalcraft.content.machine.researchtable.ResearchTables;
+import com.shinoow.abyssalcraft.content.machine.rendingpedestal.RendingPedestals;
 import com.shinoow.abyssalcraft.platform.EntityRendererCompat;
 import com.shinoow.abyssalcraft.registry.ModModelLayers;
 
@@ -93,15 +97,24 @@ public final class ACEntityRenderers {
         long expectedEntities = BuiltInRegistries.ENTITY_TYPE.stream()
             .filter(type -> AbyssalCraft.MODID.equals(BuiltInRegistries.ENTITY_TYPE.getKey(type).getNamespace()))
             .count();
+        Set<BlockEntityType<?>> expectedBlockEntities = Set.of(
+            ResearchTables.RESEARCH_TABLE_BE.get(),
+            RitualBlocks.RITUAL_PEDESTAL_BE.get(),
+            RendingPedestals.RENDING_PEDESTAL_BE.get(),
+            EnergyBlocks.ENERGY_PEDESTAL_BE.get());
         if (registeredEntities.size() != expectedEntities
-            || !registeredBlockEntities.contains(com.shinoow.abyssalcraft.content.machine.researchtable.ResearchTables.RESEARCH_TABLE_BE.get())
-            || !registeredBlockEntities.contains(com.shinoow.abyssalcraft.content.block.ritual.RitualBlocks.RITUAL_PEDESTAL_BE.get())) {
-            throw new IllegalStateException("R2 renderer relay coverage changed: entities="
+            || !registeredBlockEntities.equals(expectedBlockEntities)) {
+            throw new IllegalStateException("R4 renderer relay coverage changed: entities="
                 + registeredEntities.size() + "/" + expectedEntities + ", blockEntities="
-                + registeredBlockEntities.size());
+                + registeredBlockEntities.size() + "/" + expectedBlockEntities.size());
         }
-        AbyssalCraft.LOGGER.info("R2_GATE_CLIENT_RENDERERS_OK entities={} blockEntities={}",
-            registeredEntities.size(), registeredBlockEntities.size());
+        AbyssalCraft.LOGGER.info(
+            "R4_BER_GATE_OK blockEntities={} research={} ritual={} rending={} energy={}",
+            registeredBlockEntities.size(),
+            registeredBlockEntities.contains(ResearchTables.RESEARCH_TABLE_BE.get()) ? 1 : 0,
+            registeredBlockEntities.contains(RitualBlocks.RITUAL_PEDESTAL_BE.get()) ? 1 : 0,
+            registeredBlockEntities.contains(RendingPedestals.RENDING_PEDESTAL_BE.get()) ? 1 : 0,
+            registeredBlockEntities.contains(EnergyBlocks.ENERGY_PEDESTAL_BE.get()) ? 1 : 0);
     }
 
     /** Register model-layer definitions (placeholder cube in E1; E2 appends faithful meshes). */

@@ -1,11 +1,17 @@
 package com.shinoow.abyssalcraft.system.spell;
 
+import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Supplier;
+
+import com.shinoow.abyssalcraft.config.ACConfig;
 
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.ItemStack;
 
 /** Permanent source-derived invariants for the fourteen-spell roster. */
 public final class SpellManifestSelfTest {
@@ -76,7 +82,66 @@ public final class SpellManifestSelfTest {
         require(SpellBehaviorRegistry.instance().size() == 14
             && SpellBehaviorRegistry.instance().ids().equals(allBehaviors),
             "spell behavior coverage changed");
-        System.out.println("RR_SPELL_MANIFEST_SELF_TEST_OK spells=14 entity=7 entityOrSelf=1 block=2 self=4 charging=11 handlers=14 spellbook=14");
+        validateAvailabilityMatrix(spells, runtime);
+        System.out.println("RR_SPELL_MANIFEST_SELF_TEST_OK spells=14 entity=7 entityOrSelf=1 block=2 self=4 charging=11 handlers=14 spellbook=14 availabilityMatrix=14x2");
+    }
+
+    private static void validateAvailabilityMatrix(List<SpellManifest> manifests, List<Spell> runtime) {
+        Map<String, Supplier<Boolean>> policies = SpellAvailability.enabledById();
+        require(policies.keySet().equals(manifests.stream().map(SpellManifest::id).collect(java.util.stream.Collectors.toSet())),
+            "spell availability policy does not cover the manifest exactly");
+        for (int index = 0; index < manifests.size(); index++) {
+            SpellManifest manifest = manifests.get(index);
+            Spell spell = runtime.get(index);
+            String configField = configField(manifest.id());
+            try {
+                Field field = ACConfig.class.getField(configField);
+                Object original = field.get(null);
+                try {
+                    field.set(null, (Supplier<Boolean>) () -> false);
+                    require(!SpellAvailability.isEnabled(manifest.id()) && !SpellAvailability.isEnabled(spell),
+                        "disabled spell remains available: " + manifest.id());
+                    for (String alias : manifest.aliases()) require(!SpellAvailability.isEnabled(alias),
+                        "disabled spell alias remains available: " + alias);
+                    List<ItemStack> reagents = manifest.reagents().stream().map(SpellIngredient::example).toList();
+                    require(SpellRegistry.instance().find(manifest.bookType(), manifest.scrollType(),
+                        manifest.parentId() == null ? "" : manifest.parentId(), reagents) == null,
+                        "disabled spell remains inscribable: " + manifest.id());
+                    field.set(null, (Supplier<Boolean>) () -> true);
+                    require(SpellAvailability.isEnabled(manifest.id()) && SpellAvailability.isEnabled(spell),
+                        "enabled spell remains unavailable: " + manifest.id());
+                    for (String alias : manifest.aliases()) require(SpellAvailability.isEnabled(alias),
+                        "enabled spell alias remains unavailable: " + alias);
+                    require(SpellRegistry.instance().find(manifest.bookType(), manifest.scrollType(),
+                        manifest.parentId() == null ? "" : manifest.parentId(), reagents) == spell,
+                        "enabled spell remains uninscribable: " + manifest.id());
+                } finally {
+                    field.set(null, original);
+                }
+            } catch (ReflectiveOperationException exception) {
+                throw new IllegalStateException("missing spell config field: " + configField, exception);
+            }
+        }
+    }
+
+    private static String configField(String id) {
+        return switch (id) {
+            case "entropy" -> "entropy_spell";
+            case "lifedrain" -> "life_drain_spell";
+            case "mining" -> "mining_spell";
+            case "graspofcthulhu" -> "grasp_of_cthulhu_spell";
+            case "invisibility" -> "invisibility_spell";
+            case "detachment" -> "detachment_spell";
+            case "stealvigor" -> "steal_vigor_spell";
+            case "sirenssong" -> "sirens_song_spell";
+            case "undeathtodust" -> "undeath_to_dust_spell";
+            case "oozeremoval" -> "ooze_removal_spell";
+            case "teleporthostiles" -> "teleport_hostile_spell";
+            case "floating" -> "floating_spell";
+            case "teleportHome" -> "teleport_home_spell";
+            case "compass" -> "compass_spell";
+            default -> throw new IllegalStateException("unknown spell id: " + id);
+        };
     }
 
     private static long count(List<SpellManifest> spells, SpellManifest.TargetType type) {

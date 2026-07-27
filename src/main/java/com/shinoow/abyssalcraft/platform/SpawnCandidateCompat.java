@@ -1,9 +1,13 @@
 package com.shinoow.abyssalcraft.platform;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BiomeTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -11,6 +15,8 @@ import net.minecraft.world.level.biome.MobSpawnSettings.SpawnerData;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.Level;
 
+import com.shinoow.abyssalcraft.config.ACConfig;
+import com.shinoow.abyssalcraft.config.ContentConfigMatrix;
 import com.shinoow.abyssalcraft.content.entity.boss.BossEntities;
 import com.shinoow.abyssalcraft.content.entity.demon.DemonEntities;
 import com.shinoow.abyssalcraft.content.entity.ghoul.GhoulEntities;
@@ -27,6 +33,21 @@ import net.minecraftforge.event.level.LevelEvent;
 public final class SpawnCandidateCompat {
 
     public record Candidate(String entityId, int weight, int minCount, int maxCount) {}
+
+    public record ConfiguredSpawnContext(boolean evilAnimalBiome, boolean netherBiome,
+                                         boolean dictionaryAquaticBiome, boolean vanillaAquaticBiome,
+                                         boolean forestBiome, boolean darkForestBiome) {}
+
+    private static final TagKey<Biome> EVIL_ANIMAL_BIOMES = biomeTag("evil_animal_spawns");
+    private static final TagKey<Biome> DICTIONARY_AQUATIC_BIOMES = biomeTag("dictionary_aquatic_spawns");
+    private static final TagKey<Biome> VANILLA_AQUATIC_BIOMES = biomeTag("vanilla_aquatic_spawns");
+    private static final TagKey<Biome> FOREST_BIOMES = biomeTag("dark_offspring_spawns");
+    private static final TagKey<Biome> DARK_FOREST_BIOMES = biomeTag("dark_offspring_double_spawns");
+
+    private static final List<String> EVIL_ANIMALS = List.of(
+        "evil_pig", "evil_cow", "evil_chicken", "evil_sheep");
+    private static final List<String> DEMON_ANIMALS = List.of(
+        "demon_pig", "demon_cow", "demon_chicken", "demon_sheep");
 
     private static final List<Candidate> SHADOW_REALM = List.of(
         candidate("shadowcreature", 60, 1, 5),
@@ -64,15 +85,59 @@ public final class SpawnCandidateCompat {
 
         boolean abyssalWasteland = level.dimension() == ACDimensions.ABYSSAL_WASTELAND;
         boolean dreadlands = level.dimension() == ACDimensions.DREADLANDS;
-        if (!abyssalWasteland && !dreadlands) return;
-
-        ResourceKey<Biome> biome = level.getBiome(event.getPos()).unwrapKey().orElse(null);
-        List<Candidate> snapshot = candidateSnapshot(level.dimension(), biome, event.getPos().getY());
-        if (snapshot.isEmpty()) return;
-        for (SpawnerData spawner : List.copyOf(event.getSpawnerDataList())) {
-            event.removeSpawnerData(spawner);
+        if (abyssalWasteland && ACConfig.no_spectral_dragons.get()) {
+            EntityType<?> spectralDragon = BossEntities.DRAGON_MINION.get();
+            for (SpawnerData spawner : List.copyOf(event.getSpawnerDataList())) {
+                if (spawner.type == spectralDragon) event.removeSpawnerData(spawner);
+            }
         }
-        for (SpawnerData spawner : spawners(snapshot)) event.addSpawnerData(spawner);
+        Holder<Biome> biome = level.getBiome(event.getPos());
+        if (abyssalWasteland || dreadlands) {
+            ResourceKey<Biome> biomeKey = biome.unwrapKey().orElse(null);
+            List<Candidate> snapshot = candidateSnapshot(level.dimension(), biomeKey, event.getPos().getY());
+            if (!snapshot.isEmpty()) {
+                if (ContentConfigMatrix.purgeMobSpawns()) {
+                    for (SpawnerData spawner : List.copyOf(event.getSpawnerDataList())) {
+                        event.removeSpawnerData(spawner);
+                    }
+                }
+                for (SpawnerData spawner : spawners(snapshot)) event.addSpawnerData(spawner);
+            }
+        }
+
+        ConfiguredSpawnContext context = new ConfiguredSpawnContext(
+            biome.is(EVIL_ANIMAL_BIOMES), biome.is(BiomeTags.IS_NETHER),
+            biome.is(DICTIONARY_AQUATIC_BIOMES), biome.is(VANILLA_AQUATIC_BIOMES),
+            biome.is(FOREST_BIOMES), biome.is(DARK_FOREST_BIOMES));
+        for (Candidate candidate : configuredCandidateSnapshot(context,
+                ACConfig.evilAnimalSpawnWeight.get(), ACConfig.demonAnimalSpawnWeight.get(),
+                ACConfig.depthsGhoulBiomeDictSpawn.get(), ACConfig.abyssalZombieBiomeDictSpawn.get(),
+                ACConfig.darkOffspringSpawnWeight.get())) {
+            event.addSpawnerData(spawner(candidate));
+        }
+    }
+
+    public static List<Candidate> configuredCandidateSnapshot(ConfiguredSpawnContext context,
+            int evilAnimalWeight, int demonAnimalWeight, boolean depthsGhoulDictionary,
+            boolean abyssalZombieDictionary, int darkOffspringWeight) {
+        List<Candidate> candidates = new ArrayList<>();
+        if (context.evilAnimalBiome() && evilAnimalWeight > 0) {
+            EVIL_ANIMALS.forEach(id -> candidates.add(candidate(id, evilAnimalWeight, 1, 3)));
+        }
+        if (context.netherBiome() && demonAnimalWeight > 0) {
+            DEMON_ANIMALS.forEach(id -> candidates.add(candidate(id, demonAnimalWeight, 1, 3)));
+        }
+        boolean depthsGhoulBiome = depthsGhoulDictionary
+            ? context.dictionaryAquaticBiome() : context.vanillaAquaticBiome();
+        if (depthsGhoulBiome) candidates.add(candidate("depths_ghoul", 1, 1, 3));
+        boolean abyssalZombieBiome = abyssalZombieDictionary
+            ? context.dictionaryAquaticBiome() : context.vanillaAquaticBiome();
+        if (abyssalZombieBiome) candidates.add(candidate("abyssalzombie", 10, 1, 3));
+        if ((context.forestBiome() || context.darkForestBiome()) && darkOffspringWeight > 0) {
+            int weight = context.darkForestBiome() ? darkOffspringWeight * 2 : darkOffspringWeight;
+            candidates.add(candidate("shuboffspring", weight, 1, 3));
+        }
+        return List.copyOf(candidates);
     }
 
     public static List<Candidate> candidateSnapshot(ResourceKey<Level> dimension,
@@ -89,6 +154,10 @@ public final class SpawnCandidateCompat {
 
     private static Candidate candidate(String entityId, int weight, int min, int max) {
         return new Candidate(entityId, weight, min, max);
+    }
+
+    private static TagKey<Biome> biomeTag(String path) {
+        return TagKey.create(net.minecraft.core.registries.Registries.BIOME, ACRef.id(path));
     }
 
     private static SpawnerData spawner(Candidate candidate) {

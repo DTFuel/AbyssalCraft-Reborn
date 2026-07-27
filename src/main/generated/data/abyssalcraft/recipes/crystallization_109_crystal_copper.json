@@ -1,0 +1,16 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "forge:dusts/brass"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_copper",
+    "count": 3
+  },
+  "secondary_result": {
+    "item": "abyssalcraft:crystal_zinc",
+    "count": 2
+  },
+  "experience": 0.1,
+  "time": 200
+}

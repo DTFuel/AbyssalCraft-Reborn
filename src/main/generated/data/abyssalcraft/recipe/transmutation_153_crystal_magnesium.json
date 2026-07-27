@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:magnesium_crystal_cluster"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_magnesium",
+    "count": 1
+  },
+  "experience": 0.2,
+  "time": 200
+}

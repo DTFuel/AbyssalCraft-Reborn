@@ -11,7 +11,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.shinoow.abyssalcraft.client.necronomicon.ACNecronomicon;
+import com.shinoow.abyssalcraft.client.necronomicon.NecronomiconEntry;
+import com.shinoow.abyssalcraft.client.ClientFxConfig;
+import com.shinoow.abyssalcraft.platform.ConfigCompat;
 import com.shinoow.abyssalcraft.registry.ModSounds;
+import com.shinoow.abyssalcraft.system.knowledge.NecronomiconPageManifest;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifest;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifestCatalog;
 
@@ -43,7 +48,21 @@ public final class ClientFxSelfTest {
 
     private ClientFxSelfTest() {}
 
-    public static void run() {
+    public static void run(net.minecraft.core.HolderLookup.Provider registries) {
+        com.shinoow.abyssalcraft.system.client.ClientInputContract.validate();
+        com.shinoow.abyssalcraft.client.ClientVarsConsumers.ConsumerStats consumerStats =
+            com.shinoow.abyssalcraft.client.ClientVarsConsumers.validate();
+        require(consumerStats.defined() == 94 && consumerStats.consumed() == 94
+            && consumerStats.blocked().isEmpty(), "clientvars consumer closure is incomplete: " + consumerStats);
+        com.shinoow.abyssalcraft.AbyssalCraft.LOGGER.info(
+            "RR_CLIENT_HUD_GATE_OK overlays=3 keybinds=5 tabletAuthority=server dimension=live");
+        com.shinoow.abyssalcraft.AbyssalCraft.LOGGER.info(
+            "RR_CLIENTVARS_CONSUMER_GATE_OK defined={} consumed={} blocked={}",
+            consumerStats.defined(), consumerStats.consumed(), consumerStats.blocked().size());
+        validateClientFxConfigContract();
+        validateClientVarsContract();
+        requireResource("assets/abyssalcraft/textures/misc/coraliumblur.png");
+        requireResource("assets/abyssalcraft/textures/misc/coraliumblur.png.mcmeta");
         for (String texture : SKY_TEXTURES) {
             requireResource("assets/abyssalcraft/textures/environment/" + texture + ".png");
         }
@@ -98,10 +117,67 @@ public final class ClientFxSelfTest {
                 "ritual " + manifest.id() + " no longer exposes an eight-slot ItemRitual display layout");
         }
 
+        Set<String> uiEntries = new LinkedHashSet<>();
+        collectEntryIds(ACNecronomicon.root(4, registries), uiEntries);
+        for (NecronomiconPageManifest.PageEntry page : NecronomiconPageManifest.pages()) {
+            require(uiEntries.contains(page.id().getPath()), "Necronomicon UI is missing manifest page " + page.id());
+        }
+
         System.out.printf(
             "RR_CLIENT_FX_SELF_TEST_OK skies=%d particles=%d sounds=45 ogg=%d subtitles=%d rituals=%d%n",
             SKY_TEXTURES.size(), PARTICLES.size(), oggPaths.size(), subtitleKeys,
             RitualManifestCatalog.entries().size());
+    }
+
+    private static void validateClientFxConfigContract() {
+        require(config("client.dark_realm_smoke_particles").equals(Boolean.TRUE),
+            "darkRealmSmokeParticles default must be true");
+        require(config("client.depths_helmet_overlay_opacity").equals(1.0D),
+            "depthsHelmetOverlayOpacity default must be 1.0");
+        require(config("mod_compat.hcdarkness_aw").equals(Boolean.TRUE), "hcdarkness_aw default must be true");
+        require(config("mod_compat.hcdarkness_dl").equals(Boolean.TRUE), "hcdarkness_dl default must be true");
+        require(config("mod_compat.hcdarkness_omt").equals(Boolean.TRUE), "hcdarkness_omt default must be true");
+        require(config("mod_compat.hcdarkness_dr").equals(Boolean.TRUE), "hcdarkness_dr default must be true");
+
+        require(ClientFxConfig.clampOpacity(0.0D) == 0.5F, "overlay opacity lower clamp changed");
+        require(ClientFxConfig.clampOpacity(0.75D) == 0.75F, "overlay opacity pass-through changed");
+        require(ClientFxConfig.clampOpacity(2.0D) == 1.0F, "overlay opacity upper clamp changed");
+        require(ClientFxConfig.Dimension.ABYSSAL_WASTELAND.legacyMinimumLight() == 0.25F,
+            "Abyssal Wasteland legacy light profile changed");
+        require(ClientFxConfig.Dimension.DREADLANDS.legacyMinimumLight() == 0.35F,
+            "Dreadlands legacy light profile changed");
+        require(ClientFxConfig.Dimension.OMOTHOL.legacyMinimumLight() == 0.25F,
+            "Omothol legacy light profile changed");
+        require(ClientFxConfig.Dimension.DARK_REALM.legacyMinimumLight() == 0.10F,
+            "Dark Realm legacy light profile changed");
+        require(!mapped(ClientFxConfig.Dimension.ABYSSAL_WASTELAND, false, true, true, true, true),
+            "hardcore darkness must be disabled when the compatibility mod is absent");
+        for (ClientFxConfig.Dimension dimension : ClientFxConfig.Dimension.values()) {
+            require(mapped(dimension, true,
+                dimension == ClientFxConfig.Dimension.ABYSSAL_WASTELAND,
+                dimension == ClientFxConfig.Dimension.DREADLANDS,
+                dimension == ClientFxConfig.Dimension.OMOTHOL,
+                dimension == ClientFxConfig.Dimension.DARK_REALM),
+                "hardcore darkness config is not mapped to " + dimension);
+        }
+        require(ClientFxConfig.defaults(() -> true, () -> 1.0D,
+            () -> true, () -> true, () -> true, () -> true), "client FX defaults changed");
+    }
+
+    private static Object config(String path) {
+        return ConfigCompat.entries().stream().filter(entry -> entry.path().equals(path)).findFirst()
+            .orElseThrow(() -> new IllegalStateException("RR client-fx config path is missing: " + path)).get();
+    }
+
+    private static boolean mapped(ClientFxConfig.Dimension dimension, boolean loaded,
+                                  boolean wasteland, boolean dreadlands, boolean omothol, boolean darkRealm) {
+        return ClientFxConfig.hardcoreDarkness(dimension, () -> loaded, () -> wasteland, () -> dreadlands,
+            () -> omothol, () -> darkRealm);
+    }
+
+    private static void collectEntryIds(NecronomiconEntry entry, Set<String> ids) {
+        require(ids.add(entry.id()), "duplicate Necronomicon UI entry " + entry.id());
+        entry.children().forEach(child -> collectEntryIds(child, ids));
     }
 
     private static String soundPath(JsonElement element) {
@@ -133,5 +209,35 @@ public final class ClientFxSelfTest {
         if (!condition) {
             throw new IllegalStateException("RR client-fx self-test failed: " + message);
         }
+    }
+
+    /**
+     * Validates {@code clientvars.json} against the complete {@link com.shinoow.abyssalcraft.client.hud.ClientVars}
+     * contract: ensures all 94 fields (plus version) are present, parseable, and valid.
+     */
+    private static void validateClientVarsContract() {
+        JsonObject clientvars = requireJson("assets/abyssalcraft/clientvars.json");
+        require(clientvars.has("version"), "clientvars.json is missing version field");
+        require(clientvars.get("version").getAsInt() == com.shinoow.abyssalcraft.client.hud.ClientVars.VERSION,
+            "clientvars.json version mismatch");
+
+        com.shinoow.abyssalcraft.client.hud.ClientVars.ContractStats stats =
+            com.shinoow.abyssalcraft.client.hud.ClientVars.contractStats();
+        require(stats.fields() == com.shinoow.abyssalcraft.client.hud.ClientVars.FIELD_COUNT,
+            "ClientVars contract changed: expected " + com.shinoow.abyssalcraft.client.hud.ClientVars.FIELD_COUNT
+            + " fields but found " + stats.fields());
+
+        // Parse to trigger full validation (color decoding, range checks, etc.)
+        com.shinoow.abyssalcraft.client.hud.ClientVars parsed =
+            com.shinoow.abyssalcraft.client.hud.ClientVars.parse(clientvars);
+        require(parsed.crystalColors().length == com.shinoow.abyssalcraft.client.hud.ClientVars.CRYSTAL_COLOR_COUNT,
+            "crystalColors must contain exactly " + com.shinoow.abyssalcraft.client.hud.ClientVars.CRYSTAL_COLOR_COUNT
+            + " entries");
+
+        // Smoke-test a few getters
+        parsed.abyssalWastelandR();
+        parsed.color("darklandsGrassColor");
+        parsed.crystalColor(0);
+        parsed.asorahDeathColor();
     }
 }

@@ -49,6 +49,7 @@ public class SpiritTabletMessage implements NetworkChannel.ACPacket {
         if (clearPath) {
             clearRoute(player.getMainHandItem());
             clearRoute(player.getOffhandItem());
+            player.inventoryMenu.broadcastChanges();
             return;
         }
         if (openFilter) {
@@ -58,6 +59,7 @@ public class SpiritTabletMessage implements NetworkChannel.ACPacket {
         }
         setMode(player.getMainHandItem(), mode1);
         setMode(player.getOffhandItem(), mode2);
+        player.inventoryMenu.broadcastChanges();
     }
 
     private static void clearRoute(ItemStack stack) {

@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.content.entity.boss;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -35,6 +36,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import com.shinoow.abyssalcraft.config.ACConfig;
+import com.shinoow.abyssalcraft.config.ContentConfigMatrix;
 import com.shinoow.abyssalcraft.content.entity.behavior.EldritchEntities;
 import com.shinoow.abyssalcraft.content.entity.misc.BlackHole;
 import com.shinoow.abyssalcraft.content.entity.misc.Implosion;
@@ -55,6 +57,7 @@ public final class JzaharBoss extends BossMob implements RangedAttackMob {
 
     private int shoutTicks;
     private int iframes;
+    private int creativeDialogCooldown;
     private boolean chargingShout;
     private MeleeAttackGoal meleeGoal;
     private RangedAttackGoal rangedGoal;
@@ -110,7 +113,9 @@ public final class JzaharBoss extends BossMob implements RangedAttackMob {
         updateBossBarColor();
         regenerate();
         if (iframes > 0) iframes--;
+        if (creativeDialogCooldown > 0) creativeDialogCooldown--;
         if (getACDeathTime() > 0) return;
+        tickFourthWallDialog();
         decrementTimers();
         LivingEntity target = getTarget();
         if (target == null || !target.isAlive()) return;
@@ -177,6 +182,7 @@ public final class JzaharBoss extends BossMob implements RangedAttackMob {
         tag.putInt("GlobalCooldown", getTimer(GLOBAL_COOLDOWN));
         tag.putInt("ShoutTicks", shoutTicks);
         tag.putInt("IFrames", iframes);
+        tag.putInt("CreativeDialogCooldown", creativeDialogCooldown);
         tag.putBoolean("ChargingShout", chargingShout);
     }
 
@@ -190,6 +196,7 @@ public final class JzaharBoss extends BossMob implements RangedAttackMob {
         setTimer(GLOBAL_COOLDOWN, tag.getInt("GlobalCooldown"));
         shoutTicks = tag.getInt("ShoutTicks");
         iframes = Math.max(0, tag.getInt("IFrames"));
+        creativeDialogCooldown = Math.max(0, tag.getInt("CreativeDialogCooldown"));
         chargingShout = tag.getBoolean("ChargingShout");
     }
 
@@ -289,6 +296,20 @@ public final class JzaharBoss extends BossMob implements RangedAttackMob {
         int pace = ACConfig.jzaharHealingPace.get();
         int amount = ACConfig.jzaharHealingAmount.get();
         if (amount > 0 && pace > 0 && tickCount % pace == 0) heal(amount);
+    }
+
+    private void tickFourthWallDialog() {
+        if (creativeDialogCooldown > 0 || !fourthWallDialogEnabled(
+            ContentConfigMatrix.showBossDialogs(), ACConfig.jzaharBreaksFourthWall.get())) return;
+        Player player = level().getNearestPlayer(this, 5.0D);
+        if (player == null || !player.isCreative()) return;
+        creativeDialogCooldown = 1200;
+        player.sendSystemMessage(Component.translatable("message.abyssalcraft.jzahar.creative.1", player.getName()));
+        player.sendSystemMessage(Component.translatable("message.abyssalcraft.jzahar.creative.2"));
+    }
+
+    public static boolean fourthWallDialogEnabled(boolean showBossDialogs, boolean breaksFourthWall) {
+        return showBossDialogs && breaksFourthWall;
     }
 
     private int timerStep() {

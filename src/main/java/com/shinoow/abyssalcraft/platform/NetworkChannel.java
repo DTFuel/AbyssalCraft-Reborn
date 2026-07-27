@@ -7,6 +7,7 @@ import java.util.function.Function;
 
 import io.netty.buffer.Unpooled;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.protocol.PacketFlow;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -38,6 +39,8 @@ import net.neoforged.neoforge.network.registration.PayloadRegistrar;
  */
 public final class NetworkChannel {
 
+    public enum Direction { SERVER_BOUND, CLIENT_BOUND }
+
     /** A message; implementations are shared across loaders. */
     public interface ACPacket {
         void write(FriendlyByteBuf buf);
@@ -55,7 +58,7 @@ public final class NetworkChannel {
     private static final int MAX_BODY_BYTES = 1 << 20;
 
     private final ResourceLocation channelId;
-    private final Map<Integer, Function<FriendlyByteBuf, ? extends ACPacket>> decoders = new HashMap<>();
+    private final Map<Integer, Registration<? extends ACPacket>> registrations = new HashMap<>();
     private final Map<Class<?>, Integer> idByType = new HashMap<>();
 
     //? if forge {
@@ -70,26 +73,27 @@ public final class NetworkChannel {
         return new NetworkChannel(ACRef.id(name));
     }
 
-    /** Register a message type with a numeric id and its decoder (before {@link #bootstrap(Object)}). */
-    public <M extends ACPacket> void register(int id, Class<M> type, Function<FriendlyByteBuf, M> decoder) {
-        if (id < 0 || decoders.containsKey(id)) {
+    /** Register a message type with a numeric id, direction and decoder. */
+    public <M extends ACPacket> void register(int id, Class<M> type, Direction direction,
+                                              Function<FriendlyByteBuf, M> decoder) {
+        if (id < 0 || registrations.containsKey(id)) {
             throw new IllegalArgumentException("Duplicate or invalid packet id: " + id);
         }
         if (idByType.containsKey(type)) {
             throw new IllegalArgumentException("Duplicate packet type: " + type.getName());
         }
-        decoders.put(id, decoder);
+        registrations.put(id, new Registration<>(direction, decoder));
         idByType.put(type, id);
     }
 
     /** Stable wire ids currently registered on this channel. */
     public Set<Integer> registeredIds() {
-        return Set.copyOf(decoders.keySet());
+        return Set.copyOf(registrations.keySet());
     }
 
     /** Number of registered packet types. */
     public int registeredCount() {
-        return decoders.size();
+        return registrations.size();
     }
 
     /** Stable wire id assigned to {@code type}, or {@code -1} when it is not registered. */
@@ -97,12 +101,19 @@ public final class NetworkChannel {
         return idByType.getOrDefault(type, -1);
     }
 
+    /** Registered reception direction for {@code type}, or {@code null} when it is not registered. */
+    public Direction registeredDirection(Class<? extends ACPacket> type) {
+        int id = registeredId(type);
+        Registration<? extends ACPacket> registration = registrations.get(id);
+        return registration == null ? null : registration.direction();
+    }
+
     /** Encode, decode and encode a packet again for permanent wire-format validation. */
     public byte[] roundTrip(ACPacket msg) {
         int id = idOf(msg);
         byte[] first = encodeBody(msg);
         FriendlyByteBuf input = new FriendlyByteBuf(Unpooled.wrappedBuffer(first));
-        ACPacket decoded = decoders.get(id).apply(input);
+        ACPacket decoded = registrations.get(id).decoder().apply(input);
         if (input.isReadable()) {
             throw new IllegalStateException("Packet decoder left trailing bytes for id " + id);
         }
@@ -128,23 +139,33 @@ public final class NetworkChannel {
         return body;
     }
 
-    private void dispatch(int id, byte[] body, Context ctx) {
-        Function<FriendlyByteBuf, ? extends ACPacket> decoder = decoders.get(id);
-        if (decoder == null || body == null || body.length > MAX_BODY_BYTES) {
-            return;
+    private boolean dispatch(int id, byte[] body, Direction receptionDirection, Context ctx) {
+        Registration<? extends ACPacket> registration = registrations.get(id);
+        if (registration == null || registration.direction() != receptionDirection
+                || body == null || body.length > MAX_BODY_BYTES) {
+            return false;
         }
         FriendlyByteBuf input = new FriendlyByteBuf(Unpooled.wrappedBuffer(body));
-        ACPacket msg = decoder.apply(input);
+        ACPacket msg = registration.decoder().apply(input);
         if (input.isReadable()) {
-            return;
+            return false;
         }
-        ctx.enqueue(() -> {
-            msg.handle(ctx);
-            if (Boolean.getBoolean("abyssalcraft.rrNetValidation")) {
-                com.shinoow.abyssalcraft.net.RRNetValidation.recordHandled(id, ctx.player());
-            }
-        });
+        ctx.enqueue(() -> msg.handle(ctx));
+        return true;
     }
+
+    /** Exercise the production direction gate without running the packet handler. */
+    public boolean testDirectionGate(ACPacket msg, Direction receptionDirection) {
+        boolean[] enqueued = { false };
+        boolean accepted = dispatch(idOf(msg), encodeBody(msg), receptionDirection, new Context() {
+            @Override public Player player() { return null; }
+            @Override public void enqueue(Runnable task) { enqueued[0] = true; }
+        });
+        return accepted && enqueued[0];
+    }
+
+    private record Registration<M extends ACPacket>(Direction direction,
+                                                      Function<FriendlyByteBuf, M> decoder) {}
 
     //? if forge {
     /** Wire the Forge SimpleChannel and register the multiplexed envelope. */
@@ -157,7 +178,9 @@ public final class NetworkChannel {
             buf -> new Envelope(buf.readVarInt(), buf.readByteArray(MAX_BODY_BYTES)),
                 (env, ctxSupplier) -> {
                     NetworkEvent.Context ctx = ctxSupplier.get();
-                    dispatch(env.id, env.body, new Context() {
+                    Direction direction = ctx.getDirection().getReceptionSide().isServer()
+                        ? Direction.SERVER_BOUND : Direction.CLIENT_BOUND;
+                    dispatch(env.id, env.body, direction, new Context() {
                         @Override public Player player() { return ctx.getSender(); }
                         @Override public void enqueue(Runnable task) { ctx.enqueueWork(task); }
                     });
@@ -189,11 +212,14 @@ public final class NetworkChannel {
 
     private void registerPayloads(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar(Integer.toString(PROTOCOL));
-        registrar.playBidirectional(Envelope.TYPE, Envelope.STREAM_CODEC, (envelope, ctx) ->
-                dispatch(envelope.id(), envelope.body(), new Context() {
+        registrar.playBidirectional(Envelope.TYPE, Envelope.STREAM_CODEC, (envelope, ctx) -> {
+            Direction direction = ctx.flow() == PacketFlow.SERVERBOUND
+                ? Direction.SERVER_BOUND : Direction.CLIENT_BOUND;
+            dispatch(envelope.id(), envelope.body(), direction, new Context() {
                     @Override public Player player() { return ctx.player(); }
                     @Override public void enqueue(Runnable task) { ctx.enqueueWork(task); }
-                }));
+            });
+        });
     }
 
     public void sendToServer(ACPacket msg) {

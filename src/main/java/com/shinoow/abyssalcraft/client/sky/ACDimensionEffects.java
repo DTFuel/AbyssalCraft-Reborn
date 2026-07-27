@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.client.sky;
 
 import com.shinoow.abyssalcraft.platform.DimensionSkyCompat;
+import com.shinoow.abyssalcraft.client.ClientFxConfig;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.Vec3;
@@ -42,6 +43,7 @@ public class ACDimensionEffects extends DimensionSkyCompat {
     private final boolean foggy;
     private final ResourceLocation skyTexture;
     private final SkyTint tint;
+    private final ClientFxConfig.Dimension dimension;
 
     /**
      * @param fog   constant fog colour, or {@code null} to keep the overworld-style brightness-scaled fog
@@ -49,27 +51,30 @@ public class ACDimensionEffects extends DimensionSkyCompat {
      * @param foggy whether thick "XZ" fog shows (1.12.2 {@code doesXZShowFog})
      */
     public ACDimensionEffects(Vec3 fog, boolean foggy) {
-        this(fog, foggy, null, null);
+        this(fog, foggy, null, null, null);
     }
 
     /**
      * @param skyTexture the tinted skybox texture, or {@code null} for a plain void sky
      * @param tint       the live skybox tint (ignored when {@code skyTexture} is {@code null})
      */
-    public ACDimensionEffects(Vec3 fog, boolean foggy, ResourceLocation skyTexture, SkyTint tint) {
+    public ACDimensionEffects(Vec3 fog, boolean foggy, ResourceLocation skyTexture, SkyTint tint,
+                              ClientFxConfig.Dimension dimension) {
         // No clouds (Float.NaN); no solid ground; void sky base (custom skybox on top); default lightmap/ambient.
         super(Float.NaN, false, SkyType.NONE, false, false);
         this.fog = fog;
         this.foggy = foggy;
         this.skyTexture = skyTexture;
         this.tint = tint;
+        this.dimension = dimension;
     }
 
     @Override
     public Vec3 getBrightnessDependentFogColor(Vec3 color, float sunHeight) {
         // AC dims used a constant fog (1.12.2 zeroed the celestial-angle term); null keeps the vanilla
         // overworld scaling for the Abyssal Wasteland.
-        return fog != null ? fog : color.scale(sunHeight * 0.94F + 0.06F);
+        Vec3 resolved = fog != null ? fog : color.scale(sunHeight * 0.94F + 0.06F);
+        return isHardcoreDarkness() ? resolved.scale(dimension.legacyMinimumLight()) : resolved;
     }
 
     @Override
@@ -95,6 +100,15 @@ public class ACDimensionEffects extends DimensionSkyCompat {
     @Override
     protected int skyBlue() {
         return tint.blue();
+    }
+
+    @Override
+    protected float skyBrightness() {
+        return isHardcoreDarkness() ? dimension.legacyMinimumLight() : 1.0F;
+    }
+
+    private boolean isHardcoreDarkness() {
+        return dimension != null && ClientFxConfig.hardcoreDarkness(dimension);
     }
 
     private static Vec3 fromPacked(int rgb, float mul) {

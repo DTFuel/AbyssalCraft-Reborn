@@ -16,6 +16,7 @@ public final class ACDamageTypes {
     public static final ResourceKey<DamageType> ANTIMATTER = key("antimatter");
     public static final ResourceKey<DamageType> ACID = key("acid");
     public static final ResourceKey<DamageType> SPELL = key("spell");
+    public static final ResourceKey<DamageType> SHADOW = key("shadow");
 
     private ACDamageTypes() {}
 

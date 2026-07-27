@@ -1,5 +1,7 @@
 package com.shinoow.abyssalcraft.platform;
 
+import java.util.Map;
+
 //? if >=1.21 {
 /*import com.mojang.serialization.MapCodec;
 *///?} else {
@@ -17,18 +19,17 @@ public final class DensityFunctionCompat {
 
     private DensityFunctionCompat() {}
 
-    /** Create a one-entry density-function registrar and register the supplied dispatch codec. */
-    public static ModRegistrar<?> single(String name,
-                                         KeyDispatchDataCodec<? extends DensityFunction> dispatchCodec) {
+    /** Create a density-function registrar and register the supplied dispatch codecs. */
+    public static ModRegistrar<?> register(Map<String, KeyDispatchDataCodec<? extends DensityFunction>> codecs) {
         //? if >=1.21 {
         /*ModRegistrar<MapCodec<? extends DensityFunction>> registrar =
             ModRegistrar.of(Registries.DENSITY_FUNCTION_TYPE, AbyssalCraft.MODID);
-        registrar.register(name, dispatchCodec::codec);
+        codecs.forEach((name, codec) -> registrar.register(name, codec::codec));
         return registrar;
         *///?} else {
         ModRegistrar<Codec<? extends DensityFunction>> registrar =
             ModRegistrar.of(Registries.DENSITY_FUNCTION_TYPE, AbyssalCraft.MODID);
-        registrar.register(name, dispatchCodec::codec);
+        codecs.forEach((name, codec) -> registrar.register(name, codec::codec));
         return registrar;
         //?}
     }

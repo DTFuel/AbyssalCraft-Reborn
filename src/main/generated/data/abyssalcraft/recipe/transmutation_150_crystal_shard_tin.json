@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:crystal_tin"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_shard_tin",
+    "count": 1
+  },
+  "experience": 0.2,
+  "time": 200
+}

@@ -1,0 +1,16 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "forge:nuggets/bronze"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_shard_copper",
+    "count": 3
+  },
+  "secondary_result": {
+    "item": "abyssalcraft:crystal_shard_tin",
+    "count": 1
+  },
+  "experience": 0.1,
+  "time": 200
+}

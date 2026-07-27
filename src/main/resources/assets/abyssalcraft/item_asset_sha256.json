@@ -1,0 +1,30 @@
+{
+  "sourceRoot": "docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/textures",
+  "algorithm": "SHA-256",
+  "assets": {
+    "item/overworld_shoggoth_flesh.png": ["items/shoggothflesh_overworld.png", "1a81582eb8a8701b88b73e5f36d4e4e54727de6ff257d6b4079b70375740b159"],
+    "item/abyssal_shoggoth_flesh.png": ["items/shoggothflesh_abyssalwasteland.png", "2f2c2d53385ac57cdaeef8a1b07954a6690c560fb02737dad10b254f0c8811cb"],
+    "item/dreaded_shoggoth_flesh.png": ["items/shoggothflesh_dreadlands.png", "986ab4f02dec415f6d58732d7b8f1b5b660c26946e5c16f7515b79c5b244d213"],
+    "item/omothol_shoggoth_flesh.png": ["items/shoggothflesh_omothol.png", "809a0a155ca654936b43214dfe0f8ad372b09b72c687087e8fea3f3f25fad7c1"],
+    "item/shadow_shoggoth_flesh.png": ["items/shoggothflesh_darkrealm.png", "e08e8e04899898b4839dcba8dfe7c6cc275eed925e8a418f7b2ed8dda9f9ac60"],
+    "item/abyssal_wasteland_necronomicon.png": ["items/necronomicon_cor.png", "350a35c8c92ecd642d27f4833723caad3c8d639ce1d61fc15b20e482418509fe"],
+    "item/abyssal_wasteland_necronomicon_back.png": ["items/necronomicon_cor_back.png", "615f7f5b30b0e5891038f6968fec929d1f1b56350a7dcdef75c5f03b70874f0f"],
+    "item/dreadlands_necronomicon.png": ["items/necronomicon_dre.png", "3ef198196a7877e3aa8b6fd6e7c54aa45fbd417f7331334b80970972151c163f"],
+    "item/dreadlands_necronomicon_back.png": ["items/necronomicon_dre_back.png", "2aade478a2eaf74d30cd7994f8465c8abcdea679f0dd6155b49b4d8bcb9ac920"],
+    "item/omothol_necronomicon.png": ["items/necronomicon_omt.png", "30b39000459788ec474c75a1d7671b8b2c5b7ee7f14aaa9679d069766fcb138d"],
+    "item/omothol_necronomicon_back.png": ["items/necronomicon_omt_back.png", "39019a85212f2d5100f8a94079a0549181e84ffaa9ac6823ac06e66044e3bf78"],
+    "item/abyssalnomicon.png": ["items/abyssalnomicon.png", "2a3d1778e7feb761e1307326b2db15d9bf34e3de55b808098dfc52be9f82bff8"],
+    "item/abyssalnomicon_back.png": ["items/abyssalnomicon_back.png", "57e6e13356f3c645189cbb7ef1bd2f77816219c01bfc36884dfe06b45321c02b"],
+    "item/necronomicon_back.png": ["items/necronomicon_back.png", "490da94ad8b91ec7bf195bd11e79c6060e0d4129907e7547850820f4fb0784e8"],
+    "item/oblivion_catalyst/container.png": ["items/oblivion_catalyst/container.png", "092dff132cb42461ab78da07f87889f97cae4894af0f56250e8683aed110ec9c"],
+    "item/oblivion_catalyst/circle.png": ["items/oblivion_catalyst/circle.png", "193c95f7a225dd8c0cb2855d26d4aaf5ddc7d1e2db3c7e18c61fcb3b41470cff"],
+    "item/oblivion_catalyst/circle.png.mcmeta": ["items/oblivion_catalyst/circle.png.mcmeta", "9b92eb3ddda0c025bd76751217e53f2624339382c604026dadc0b84e53cefd44"],
+    "item/oblivion_catalyst/eye.png": ["items/oblivion_catalyst/eye.png", "29758d45200a6e3265b7ddac7d299a7bf9d19778f15a9109a83b9592be817b09"],
+    "item/oblivion_catalyst/eye.png.mcmeta": ["items/oblivion_catalyst/eye.png.mcmeta", "d7aba6b8f4caf27dbc8ef8bcf203574b5d46a599f5d7d2d1434bbdebf71d8e05"],
+    "item/spell_staff.png": ["items/drainstaff.png", "89ab344ee4cd2c98fbeae6d0933f0d480367722a26af245365d8e2a4473866c8"],
+    "item/spirit_tablet/spirit_tablet_shard_1.png": ["items/spirit_tablet/spirit_tablet_shard_1.png", "2c3fc7736c6588f8f446ad9ab5c8107ceb27a7ea1ffca89401b9cd4a8a8f399e"],
+    "item/spirit_tablet/spirit_tablet_shard_2.png": ["items/spirit_tablet/spirit_tablet_shard_2.png", "f75f5e80d3fb14c3e81dcd00fe7f1801ba5aecd4beaccf8e1edd36b5eb88727a"],
+    "item/spirit_tablet/spirit_tablet_shard_3.png": ["items/spirit_tablet/spirit_tablet_shard_3.png", "3059e75383658c33c0c1d53f986b929bbdbf7cff5d516fbe427c30af18e1c005"],
+    "item/crystal_dreadium.png": ["items/katana.png", "4a9d9ef0d1a6a75fbf6ce3be9d53150f5ae1ca0550486153b299b1fc9cbe47e0"]
+  }
+}

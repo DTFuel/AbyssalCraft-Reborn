@@ -9,6 +9,7 @@
     "abyssalcraft:crystal_shard_blaze",
     "abyssalcraft:crystal_shard_calcium",
     "abyssalcraft:crystal_shard_carbon",
+    "abyssalcraft:crystal_shard_copper",
     "abyssalcraft:crystal_shard_coralium",
     "abyssalcraft:crystal_shard_dreadium",
     "abyssalcraft:crystal_shard_gold",
@@ -26,6 +27,7 @@
     "abyssalcraft:crystal_shard_silica",
     "abyssalcraft:crystal_shard_silicon",
     "abyssalcraft:crystal_shard_sulfur",
+    "abyssalcraft:crystal_shard_tin",
     "abyssalcraft:crystal_shard_zinc"
   ]
 }

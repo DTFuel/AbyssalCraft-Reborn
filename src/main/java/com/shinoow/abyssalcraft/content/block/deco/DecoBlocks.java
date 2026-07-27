@@ -7,6 +7,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.ChatFormatting;
 
@@ -41,6 +42,8 @@ public final class DecoBlocks {
 
     /** {@code minecraft:item} registrar for the block items. */
     public static final ModRegistrar<Item> ITEMS = ModRegistrar.of(Registries.ITEM, AbyssalCraft.MODID);
+    public static final ModRegistrar<BlockEntityType<?>> BLOCK_ENTITIES =
+        ModRegistrar.of(Registries.BLOCK_ENTITY_TYPE, AbyssalCraft.MODID);
 
     // --- Decorative deity statues (facing; strength 6.0 / 12.0, from 1.12.2) ---
     public static final Supplier<Block> DECORATIVE_CTHULHU_STATUE = facing("decorative_cthulhu_statue", 6.0F, 12.0F, DecoFacingBlock.ShapeKind.STATUE);
@@ -64,6 +67,11 @@ public final class DecoBlocks {
     public static final Supplier<Block> TOMBSTONE_ETHAXIUM = facing("tombstone_ethaxium", 2.5F, 20.0F, DecoFacingBlock.ShapeKind.TOMBSTONE);
     public static final Supplier<Block> TOMBSTONE_MONOLITH_STONE = facing("tombstone_monolith_stone", 2.5F, 20.0F, DecoFacingBlock.ShapeKind.TOMBSTONE);
     public static final Supplier<Block> TOMBSTONE_OMOTHOL_STONE = facing("tombstone_omothol_stone", 2.5F, 20.0F, DecoFacingBlock.ShapeKind.TOMBSTONE);
+    public static final Supplier<BlockEntityType<TombstoneBlockEntity>> TOMBSTONE_BE =
+        BLOCK_ENTITIES.register("tombstone", () -> BlockEntityType.Builder.of(TombstoneBlockEntity::new,
+            TOMBSTONE_STONE.get(), TOMBSTONE_ABYSSAL_STONE.get(), TOMBSTONE_CORALIUM_STONE.get(),
+            TOMBSTONE_DARKSTONE.get(), TOMBSTONE_DREADSTONE.get(), TOMBSTONE_ELYSIAN_STONE.get(),
+            TOMBSTONE_ETHAXIUM.get(), TOMBSTONE_MONOLITH_STONE.get(), TOMBSTONE_OMOTHOL_STONE.get()).build(null));
 
     // --- Ingot / storage blocks (metal; 5.0 / 6.0) ---
     public static final Supplier<Block> BLOCK_OF_ABYSSALNITE = solid("block_of_abyssalnite", 5.0F, 6.0F, SoundType.METAL);
@@ -90,8 +98,9 @@ public final class DecoBlocks {
 
     /** Register a horizontally-facing decorative block plus its item. */
     private static Supplier<Block> facing(String name, float hardness, float resistance, DecoFacingBlock.ShapeKind shape) {
-        return blocked(name, () -> new DecoFacingBlock(
-            BlockBehaviour.Properties.of().strength(hardness, resistance).sound(SoundType.STONE).noOcclusion(), shape));
+        return blocked(name, () -> shape == DecoFacingBlock.ShapeKind.TOMBSTONE
+            ? new TombstoneBlock(BlockBehaviour.Properties.of().strength(hardness, resistance).sound(SoundType.STONE).noOcclusion())
+            : new DecoFacingBlock(BlockBehaviour.Properties.of().strength(hardness, resistance).sound(SoundType.STONE).noOcclusion(), shape));
     }
 
     /** Register a plain full-cube block plus its item. */

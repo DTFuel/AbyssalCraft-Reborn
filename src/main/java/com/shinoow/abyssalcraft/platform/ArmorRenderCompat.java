@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import net.minecraft.client.model.Model;
+import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -29,6 +30,18 @@ public final class ArmorRenderCompat {
     public static void render(Model model, PoseStack poseStack, VertexConsumer consumer,
                               int packedLight, int packedOverlay, int rgb) {
         render(model, poseStack, consumer, packedLight, packedOverlay, rgb, 1.0F);
+    }
+
+    public static void renderPart(ModelPart part, PoseStack poseStack, VertexConsumer consumer,
+                                  int packedLight, int packedOverlay, int rgb) {
+        //? if >=1.21 {
+        /*part.render(poseStack, consumer, packedLight, packedOverlay, 0xFF000000 | rgb);
+        *///?} else {
+        float red = (rgb >> 16 & 255) / 255.0F;
+        float green = (rgb >> 8 & 255) / 255.0F;
+        float blue = (rgb & 255) / 255.0F;
+        part.render(poseStack, consumer, packedLight, packedOverlay, red, green, blue, 1.0F);
+        //?}
     }
 
     public static void render(Model model, PoseStack poseStack, VertexConsumer consumer,

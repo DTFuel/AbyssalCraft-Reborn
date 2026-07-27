@@ -1,5 +1,7 @@
 package com.shinoow.abyssalcraft.platform;
 
+import java.util.function.Consumer;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
@@ -33,15 +35,17 @@ public final class MobSpawnCompat {
     }
 
     /** Create and spawn one mob at a viable position within the legacy 16-block disruption radius. */
-    public static boolean spawnNear(ServerLevel level, BlockPos origin, EntityType<? extends Mob> type) {
-        Mob mob = type.create(level);
-        if (mob == null) {
-            return false;
-        }
+    public static boolean spawnNear(ServerLevel level, BlockPos origin, EntityType<?> type) {
+        return spawnNear(level, origin, type, mob -> {});
+    }
+
+    public static boolean spawnNear(ServerLevel level, BlockPos origin, EntityType<?> type, Consumer<Mob> setup) {
+        if (!(type.create(level) instanceof Mob mob)) return false;
         BlockPos spawnPos = findSpawnPosition(level, origin);
         mob.moveTo(spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5,
             level.random.nextFloat() * 360.0F, 0.0F);
         finalizeSpawnerSpawn(level, mob);
+        setup.accept(mob);
         return level.addFreshEntity(mob);
     }
 

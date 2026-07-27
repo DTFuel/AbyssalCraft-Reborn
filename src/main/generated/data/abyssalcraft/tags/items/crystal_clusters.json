@@ -9,6 +9,7 @@
     "abyssalcraft:blaze_crystal_cluster",
     "abyssalcraft:calcium_crystal_cluster",
     "abyssalcraft:carbon_crystal_cluster",
+    "abyssalcraft:copper_crystal_cluster",
     "abyssalcraft:coralium_crystal_cluster",
     "abyssalcraft:dreadium_crystal_cluster",
     "abyssalcraft:gold_crystal_cluster",
@@ -26,6 +27,7 @@
     "abyssalcraft:silica_crystal_cluster",
     "abyssalcraft:silicon_crystal_cluster",
     "abyssalcraft:sulfur_crystal_cluster",
+    "abyssalcraft:tin_crystal_cluster",
     "abyssalcraft:zinc_crystal_cluster"
   ]
 }

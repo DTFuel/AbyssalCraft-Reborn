@@ -20,8 +20,7 @@ import net.minecraft.world.level.Level;
  * fills the {@link DisruptionHandler} singleton (the trigger -- a PE manipulator drawing energy without a
  * Place of Power -- lands with the unported PS-5 manipulator block).
  *
- * <p>Twenty-two entries are implemented. The five unsupported entries remain explicitly BLOCKED in
- * {@link DisruptionAudit}: ooze, random swarm/spawn, and the two invisible deity swarms.
+ * <p>All twenty-seven legacy entries are implemented and permanently closed by {@link DisruptionAudit}.
  */
 public final class Disruptions {
 
@@ -69,12 +68,19 @@ public final class Disruptions {
         handler.registerDisruption(new PotentialEnergyDisruption());
         handler.registerDisruption(new DrainNearbyPEDisruption());
         handler.registerDisruption(new AnimalCorruptionDisruption());
+        handler.registerDisruption(new OozeDisruption());
+        handler.registerDisruption(new RandomMobDisruption("randomSwarm", 4));
+        handler.registerDisruption(new RandomMobDisruption("randomSpawn", 1));
         handler.registerDisruption(new SacrificeCorruptionDisruption(
             "sacrificeCorruptionJzahar", DeityType.JZAHAR));
         handler.registerDisruption(new SacrificeCorruptionDisruption(
             "sacrificeCorruptionYogSothoth", DeityType.YOGSOTHOTH));
         handler.registerDisruption(new FireDisruption());
         handler.registerDisruption(new FireRainDisruption());
+        handler.registerDisruption(new InvisibleSwarmDisruption(
+            "invisibleSwarmHastur", DeityType.HASTUR));
+        handler.registerDisruption(new InvisibleSwarmDisruption(
+            "invisibleSwarmNyarlathotep", DeityType.NYARLATHOTEP));
     }
 
     /** Faithful {@code DisruptionTeleportRandomly}: fling the player up to 32 blocks away (vanilla ender maths). */

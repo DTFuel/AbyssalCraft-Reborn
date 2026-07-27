@@ -24,6 +24,7 @@ import com.shinoow.abyssalcraft.net.server.FireMessage;
 import com.shinoow.abyssalcraft.net.server.InterdimensionalCageMessage;
 import com.shinoow.abyssalcraft.net.server.MobSpellMessage;
 import com.shinoow.abyssalcraft.net.server.OpenSpellbookMessage;
+import com.shinoow.abyssalcraft.net.server.NecronomiconPageActionMessage;
 import com.shinoow.abyssalcraft.net.server.PrepareSyncMessage;
 import com.shinoow.abyssalcraft.net.server.SpiritTabletMessage;
 import com.shinoow.abyssalcraft.net.server.StaffModeMessage;
@@ -32,8 +33,6 @@ import com.shinoow.abyssalcraft.net.server.ToggleStateMessage;
 import com.shinoow.abyssalcraft.net.server.TransferStackMessage;
 import com.shinoow.abyssalcraft.net.server.UpdateModeMessage;
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
-import com.shinoow.abyssalcraft.system.client.ClientInputContract;
-
 import io.netty.buffer.Unpooled;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -52,7 +51,6 @@ public final class NetworkSelfTest {
 
     public static void run() {
         NetworkMessageAudit.validate(ACNetwork.CHANNEL);
-        ClientInputContract.validate();
         require(BuiltInRegistries.BLOCK.getKey(DemonBlocks.MIMIC_FIRE.get()).toString()
             .equals("abyssalcraft:mimic_fire"), "mimic fire registry id changed");
         require(RitualItems.INTERDIMENSIONAL_CAGE.get() instanceof InterdimensionalCageItem,
@@ -100,19 +98,47 @@ public final class NetworkSelfTest {
             new DisruptionMessage("CTHULHU", "lightning", from),
             new EvilSheepMessage(uuid, "RRNet", 42),
             new KnowledgeUnlockMessage(1, "abyssalcraft:ghoul"),
+            new KnowledgeUnlockMessage(3, "abyssalcraft:artifact_fixture"),
+            new KnowledgeUnlockMessage(4, "abyssalcraft:page_fixture"),
+            new KnowledgeUnlockMessage(5, "book/4"),
             new KnowledgeUnlockMessage(7, "abyssalcraft:root"),
             new NecroDataCapMessage(data.copy()),
             new PEStreamMessage(from, to),
             new ShouldSyncMessage(123456789L),
             new SyncNecromancyDataMessage(data.copy()),
             new DisplayRoutesMessage(routes));
+        samples = new java.util.ArrayList<>(samples);
+        samples.add(new NecronomiconPageActionMessage(
+            com.shinoow.abyssalcraft.platform.ACRef.id("legacy/information_abyssalcraft_page_1")));
 
         for (NetworkChannel.ACPacket sample : samples) {
             byte[] first = encode(sample);
             byte[] second = ACNetwork.CHANNEL.roundTrip(sample);
             require(Arrays.equals(first, second), "packet round-trip changed: " + sample.getClass().getSimpleName());
         }
-        System.out.println("RR_NET_SELF_TEST_OK messages=23 migrated=18 replaced=5 blocked=0 roundTrips=24 keybinds=5 handlers=5");
+        int serverBound = 0;
+        int clientBound = 0;
+        int rejected = 0;
+        for (NetworkMessageAudit.Entry entry : NetworkMessageAudit.ALL) {
+            NetworkChannel.ACPacket sample = samples.stream()
+                .filter(packet -> packet.getClass() == entry.type())
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException(
+                    "direction gate sample missing: " + entry.type().getSimpleName()));
+            NetworkChannel.Direction expected = NetworkMessageAudit.platformDirection(entry.direction());
+            NetworkChannel.Direction reverse = expected == NetworkChannel.Direction.SERVER_BOUND
+                ? NetworkChannel.Direction.CLIENT_BOUND : NetworkChannel.Direction.SERVER_BOUND;
+            require(ACNetwork.CHANNEL.testDirectionGate(sample, expected),
+                "expected direction rejected: " + entry.type().getSimpleName());
+            require(!ACNetwork.CHANNEL.testDirectionGate(sample, reverse),
+                "reverse direction reached handler queue: " + entry.type().getSimpleName());
+            if (expected == NetworkChannel.Direction.SERVER_BOUND) serverBound++;
+            else clientBound++;
+            rejected++;
+        }
+        System.out.println("RR_NET_DIRECTION_GATE_OK serverBound=" + serverBound
+            + " clientBound=" + clientBound + " rejected=" + rejected);
+        System.out.println("RR_NET_SELF_TEST_OK messages=24 migrated=19 replaced=5 blocked=0 roundTrips=28");
     }
 
     private static byte[] encode(NetworkChannel.ACPacket packet) {

@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["CBC","BTB","CLC"],"key":{"C":{"item":"abyssalcraft:coralium_brick"},"B":{"item":"abyssalcraft:block_of_refined_coralium"},"T":{"item":"abyssalcraft:transmutation_gem"},"L":{"item":"abyssalcraft:liquid_coralium_bucket"}},"result":{"id":"abyssalcraft:transmutator"}}

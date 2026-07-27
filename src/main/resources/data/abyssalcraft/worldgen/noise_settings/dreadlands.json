@@ -59,9 +59,13 @@
         "argument2": "minecraft:overworld/base_3d_noise"
       },
       "argument2": {
-        "type": "minecraft:mul",
-        "argument1": 1.25,
-        "argument2": "minecraft:overworld/continents"
+        "type": "minecraft:add",
+        "argument1": {
+          "type": "minecraft:mul",
+          "argument1": 1.25,
+          "argument2": "minecraft:overworld/continents"
+        },
+        "argument2": { "type": "abyssalcraft:configurable_amplified_offset" }
       }
     },
     "vein_toggle": 0,

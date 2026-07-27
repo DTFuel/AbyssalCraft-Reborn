@@ -1,3 +1,8 @@
 {
-  "values": []
+  "values": [
+    "abyssalcraft:staff_of_rending",
+    "abyssalcraft:abyssal_wasteland_staff_of_rending",
+    "abyssalcraft:dreadlands_staff_of_rending",
+    "abyssalcraft:omothol_staff_of_rending"
+  ]
 }

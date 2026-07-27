@@ -11,6 +11,7 @@
 2. **只改** 自己 `Owns` 的文件；`Reads` 只读。
 3. 完成时按 §1 协议回写三处文档。
 4. 一个阶段任务全 ☑ → 跑该阶段 Gate（集成/构建/冒烟）→ 解锁下一阶段。
+5. `U-*` 不按本节认领：用户只执行 [用户验证车道](03-user-validation-plan.md) 的检查表，由 Validation Coordinator 记录独立证据，Gate Integrator 回写状态。
 
 ## 1. 进度回写协议
 
@@ -20,9 +21,10 @@
   - (a) 本表：任务 ☐→☑ + 产出说明；
    - (b) [总任务表](01-porting-task-plan.md)：勾掉映射的 `T*`；
    - (c) [设计案](00-porting-design.md)：仅当某「待验证」项已解决或设计变更时。
-4. **Gate**：某阶段任务全 ☑ → 跑该阶段集成检查 → 解锁下阶段。
+4. **Gate**：某阶段 Agent 任务全 ☑ → 跑该阶段 AUTO/CODE Gate → 解锁下阶段；不等待 `U-*`。`U-*` 只汇入最终 `U-GATE/M11`。
 5. **变更请求**：要动 §2 冻结约定或他人 `Owns` 文件 → 在 §7 加一行并暂停协调。
 6. **子系统详情写 `docs/spec/`**：子系统的详细设计 / 内契约 / 实现记忆 / 踩坑 / 逐项验证写 `docs/spec/<子系统>.md`（[索引与模板](../spec/README.md)）。主文档与仓库记忆只留任务勾选 / 验收 / Gate 状态 + 一行进度 + 指向 spec 的链接，**不复制细节**。
+7. **用户证据不回写生产任务**：用户失败新建 `FIX-U-*`，由原源码 owner 修复并重跑自动 Gate；Validation Coordinator 不修改源码、relay、lang 或共享状态文档。
 
 ## 2. 共享约定（冻结 — 无 CR 不得改）
 
@@ -149,7 +151,7 @@ flowchart LR
 | R1-Gate | R1 总 Gate | ☑ owner:Agent A | RR-MACHINE-UX ☑ + R1-AUTO-GATE ☑ | Forge/NeoForge 真人活玩家矩阵、逐字段重启证据、双端 runData/build 与无验证属性专服 smoke 均通过 | 解锁 R2 |
 | R2 | RR-DATA · M1 recipe/tag/loot | ☑ owner:Agent A | R1 | 401 crafting=305迁移/61替代/35依赖阻塞/0淘汰；53 smelting=51/1/1/0；177逻辑 tags、13矿忠实 loot与双端真实玩法矩阵完成 | T1.4b,1.9b/c,1.10b |
 | R2 | RR-WORLD · 现代混合保真自动切片 | ☑ owner:GitHub Copilot | R1 | 四维地形、真实材料/carver、第六群系、36+House 模板壳体/布局、Chains、Mineshaft/Stronghold AC palette+loot；双端 compile/runData/production JAR/runServer/重启矩阵 | T5.2b,5.3b,5.4b,5.5b/c,5.6b,5.8e,5.9 |
-| R2-FIDELITY-AUTO（非阻塞） | RR-WORLD-FIDELITY-AUTO · oracle/动态内容/性能门禁 | ☐ owner:GitHub Copilot | RR-WORLD | `validation/world-{oracle,performance,structure}`、worldgen实现与独立spec；不写用户证据 | T5.2c,5.3c,5.4c,5.6c,5.9b 自动片段 |
+| R2-FIDELITY-AUTO（非阻塞） | RR-WORLD-FIDELITY-AUTO · oracle/动态内容/性能门禁 | ☐ owner:Agent WORLD | RR-WORLD | `validation/world-{oracle,performance,structure}`、worldgen实现与独立spec；不写用户证据 | T5.2c,5.3c,5.4c,5.6c,5.9b 自动片段 |
 | R2 | RR-RENDER-AUTO · 模型/renderer/layer/BER 实现与加载门禁 | ☑ owner:GitHub Copilot | R1 | 9 legacy、12 effect、动态层/真实触发、Samurai/Depths/怪物甲、Research Table/Pedestal BER、双端 build/runClient/JAR | T4.3b/c；T4.2b-4.6c 实现侧 |
 | R2-FIDELITY（非阻塞） | RR-RENDER-VISUAL · Forge/Neo 游戏内总场景目视 | ☑ owner:GitHub Copilot+user | RR-RENDER-AUTO | 双端六区总场景覆盖 legacy/effect/projectile/ODB/动态层/护甲/Boss death/两现有BER并最终确认无问题；临时入口清零、双端production build/JAR审计通过 | T4.2b,4.4b,4.5b/c,4.6b/c |
 | R2 | RR-MENU-HOST-CORE · Research Table GUI | ☑ owner:GitHub Copilot | RR-MACHINE-CONTENT | 176×238 GUI、方块朝向/形状/光粒子、专用资源；Forge/Neo 真实 36 槽 Screen 点击和截图目视通过 | T2.6b；羽毛 BER=T2.6c/RR-RENDER |
@@ -167,12 +169,13 @@ flowchart LR
 | HOST-FOLLOWUP（非阻塞） | RR-BER-FUTURE-HOSTS · 后续宿主随内容交付 | ☐ owner:各宿主owner | 对应真实 BlockEntityType | 断头/spawner/sealing lock/rending/ODB 等各归自己的内容目录；不得反向阻塞 R4 | T4.6d 后续片段 |
 | R4-CODE-GATE | 游戏逻辑与现有宿主自动集成 Gate | ☐ owner:Gate Integrator | R4-AUTO-GATE,RR-ENTITY-BEHAVIOR,RR-BER-R4-HOSTS | 仅 relay、双节点 compile/runData/build/runServer/JAR；不等待用户矩阵 | 解锁 R5 Agent 任务 |
 | U | U-R4 · Portal/Spellbook/仪式真人矩阵 | ☐ owner:user+Validation Coordinator | R4-AUTO-GATE | 不拥有生产文件；证据独占 `run/validation/user/U-R4/` | [用户验证车道](03-user-validation-plan.md) |
-| R5 | RR-NET-AUTO · 23消息生产闭包与自动门禁 | ☐ owner:GitHub Copilot | R4-AUTO-GATE | `net/**`,`client/network/**`；临时验证 hook 由 Gate owner 协调；不含真人实网 | T7.1c 实现片段 |
-| R5 | RR-CLIENT-GUI-AUTO · GUI/书/HUD/input与剩余机器宿主 | ☐ owner:GitHub Copilot | R4-AUTO-GATE | `client/{screen,necronomicon,hud,font,input}/**` + `content/machine/{statetransformer,rendingpedestal}/**` + energy/facebook GUI；同一owner含Screen/BER避免互等 | T2.9c/d,T6.1c/d,T6.2b/c,T6.6b-d 实现片段 |
+| R5 | RR-NET-AUTO · 23消息生产闭包与自动门禁 | ☐ owner:Agent NET | R4-AUTO-GATE | `net/**`（除 `net/ACNetwork.java` relay）、`client/network/**`；临时验证 hook 由 Gate owner 协调；不含真人实网 | T7.1c 实现片段 |
+| R5 | RR-CLIENT-GUI-AUTO · GUI/书/HUD/input与剩余机器宿主 | ☐ owner:Agent GUI | R4-AUTO-GATE | `client/screen/{energy,item,machine,facebook}/**` + `client/{necronomicon,hud,font,input}/**` + `content/machine/{statetransformer,rendingpedestal}/**` + knowledge/page消费面；同一owner含Screen/BER避免互等 | T2.9c/d,T6.1c/d,T6.2b/c,T6.6b-d,T7.8c 实现片段 |
 | R5 | RR-CLIENT-FX-AUTO · sky/particle/sound 行为 | ☑ owner:GitHub Copilot | R4-AUTO-GATE | `client/{sky,particle,ritual}/**`,`registry/ModParticles`,`platform/DimensionSkyCompat`；Gate=`RR_CLIENT_FX_SELF_TEST_OK` | T6.3b,T6.4b,T6.5b |
-| R5 | RR-JEI-AUTO · 燃料/剩余分类/转移 | ☐ owner:Agent JEI | R4-AUTO-GATE | 仅 `integration/jei/**`；语言键与relay交Gate owner | TP.5b,T8.1b 实现片段 |
+| R5 | RR-JEI-AUTO · 燃料/剩余分类/转移 | ☐ owner:Agent JEI | R4-AUTO-GATE | `integration/jei/**`（除 `ACJEIPlugin.java` relay）；语言键与接线交 Gate owner | TP.5b,T8.1b 实现片段 |
+| R5 | RR-SYSTEM-AUTO · 扰动/附魔/效果/复活/配置余量 | ☐ owner:Agent SYSTEM | RR-CLIENT-GUI-AUTO,R4-AUTO-GATE | `system/{energy/disruption,effect,enchant,data}/**`,`common/handlers/**`,`config/**`,`client/screen/config/**`；compat/跨owner宿主只提CR | T7.5c,T7.9b/c,T7.10c,T7.11c,T8.2c |
 | R5 | RR-ADV-API · 命令/进度/IMC/API | ☑ owner:GitHub Copilot | R4-AUTO-GATE | 双端9×2 schema/Gate与外部ServiceLoader消费者；Forge真实联网权限/toggle/9进度/书页/幂等/重连，Forge五项旧IMC；生产临时夹具清零 | T8.3b,T8.4b/c |
-| R5-CODE-GATE | 客户端/网络/JEI 自动集成 Gate | ☐ owner:Gate Integrator | R4-CODE-GATE,RR-NET-AUTO,RR-CLIENT-GUI-AUTO,RR-CLIENT-FX-AUTO,RR-JEI-AUTO,RR-ADV-API | client/network relays※ + 双节点自动矩阵；不等待 `U-*` | 解锁 R6 |
+| R5-CODE-GATE | 客户端/网络/系统/JEI 自动集成 Gate | ☐ owner:Gate Integrator | R4-CODE-GATE,RR-NET-AUTO,RR-CLIENT-GUI-AUTO,RR-CLIENT-FX-AUTO,RR-JEI-AUTO,RR-SYSTEM-AUTO,RR-ADV-API | client/network relays※ + 双节点自动矩阵；不等待 `U-*` | 解锁 R6 |
 | U | U-NET/U-GUI/U-FX/U-JEI | ☐ owner:user+Validation Coordinator | 各对应 `RR-*-AUTO` | 不拥有生产文件；每项独占 `run/validation/user/<U-ID>/` | [用户验证车道](03-user-validation-plan.md) |
 | R6 | RR-ASSET · 全贴图/模型/lang | ☐ owner:___ | R5-CODE-GATE | `assets/abyssalcraft/**`（非 data） | TP.6b,T9.1b-4b |
 | R6 | RR-DATAGEN · 全配方/loot/tag 双形态 | ☐ owner:___ | R5-CODE-GATE | `data/gen/**`, `src/main/{resources,generated}/data/**` | T2.10b,T9.5b,T10.3b |
@@ -184,6 +187,55 @@ flowchart LR
 | R8 | RR-SERVER · world/entity/loot 服务端矩阵 | ☐ owner:Agent SERVER | R7b-GATE | validation checklist | T11.2 |
 | U | U-FINAL + U-GATE · 全内容真人客户端矩阵 | ☐ owner:user+Validation Coordinator | R7b-GATE + 全部前序 `U-*` | 不拥有生产文件；仅用户证据与独立报告 | TP.7b,T5.9b,T6.* UX,T11.1 |
 | R8-Gate | 文档/index/发布产物收口 | ☐ owner:Gate Integrator | RR-SERVER,U-GATE | `DEVELOPMENT.md`, `docs/index/**`, release artifacts | T11.3,T11.4 / Gate M11 |
+
+### 当前波次独占写入表（覆盖历史 §6）
+
+> 下表只覆盖当前 R4-R5/R2-FIDELITY 收口波次。未列路径一律只读；需要新增 compat、注册、语言键或 provider 接线时，功能 Agent 只提交 CR/接线清单，由 Gate Integrator 串行修改。
+
+| Owner | 独占写入 | 只读依赖 / 禁止写入 |
+|---|---|---|
+| Agent NET | `net/{client,server}/**`, `net/{NetworkMessageAudit,NetworkSelfTest,RRNetValidation}.java`, `client/network/**`, `data/gen/NetworkValidationData.java`, `docs/spec/network-subsystem.md`, `docs/spec/rr-net-message-audit.csv` | 只读系统宿主；禁止写 `net/ACNetwork.java`、`platform/**`、GUI、relay、lang、三张任务表 |
+| Agent GUI | `client/screen/{energy,item,machine,facebook}/**`, `client/{necronomicon,hud,font,input}/**`, `content/machine/{statetransformer,rendingpedestal}/**`, `content/item/{tablet,page}/**`, `content/menu/facebook/**`, `system/knowledge/**`, `data/gen/{StateTransformerValidationData,RendingPedestalValidationData}.java`, `docs/spec/{machine-subsystem,necronomicon-gui-subsystem,hud-font-clientvars-subsystem,knowledge-subsystem}.md` | 只读 net/energy/ritual；禁止写 `client/screen/config/**`、BER relay、registry、datagen relay、platform、lang、三张任务表 |
+| Agent BER | 仅新增 `client/render/block/*Energy*Renderer.java` 与 `docs/spec/client-rendering-subsystem.md` 的独占新小节 | 只读 energy BE；禁止写 `ACBlockEntityRenderers.java` 及 GUI/Rending 文件 |
+| Agent JEI | `integration/jei/**`（除 `ACJEIPlugin.java`）, `docs/spec/integration-subsystem.md` | 只读 recipe/ritual/spell/rending；禁止写 lang、recipe owner、relay |
+| Agent SYSTEM | `system/{energy/disruption,effect,enchant,data}/**`, `common/handlers/**`, `config/**`, `client/screen/config/**`, `docs/spec/{disruption-subsystem,enchantment-subsystem,potion-subsystem,saveddata-hooks-subsystem}.md` | 只读 GUI/knowledge 与内容宿主；禁止写 `system/knowledge/**`、platform、world、lang、relay |
+| Agent WORLD | `world/density/**`, `world/structure/**`, `validation/world-*`, `docs/spec/worldgen-subsystem.md` 的独占新小节 | `world/portal/**` 与内容宿主只读；跨 owner marker 通过 CR，不直接写 content |
+| Validation Coordinator | `run/validation/user/<U-ID>/**`（每项独占目录） | 不写任何生产源码/资源；不直接回写共享状态文档 |
+| Gate Integrator | `AbyssalCraft.java`, `registry/{ModRegistries,ModCreativeTabs,ModMenus,ModParticles}.java`, `data/ACDataGenerators.java`, `client/ACClientSetup.java`, `client/render/block/ACBlockEntityRenderers.java`, `net/ACNetwork.java`, `integration/jei/ACJEIPlugin.java`, `platform/**`, `assets/abyssalcraft/lang/**`, `DEVELOPMENT.md`, `docs/porting/01-03*` | 不替功能 Agent 扩大业务范围；只做 CR、接线、状态与串行 Gate |
+
+### 当前波次无环 DAG
+
+```mermaid
+flowchart LR
+  R4A["R4-AUTO-GATE ☑"] --> BER["RR-BER-R4-HOSTS"]
+  R4A --> NET["RR-NET-AUTO"]
+  R4A --> GUI["RR-CLIENT-GUI-AUTO"]
+  R4A --> JEI["RR-JEI-AUTO"]
+  R4A --> UR4["U-R4"]
+  BER --> R4C["R4-CODE-GATE"]
+  NET --> R5C["R5-CODE-GATE"]
+  GUI --> R5C
+  GUI --> SYSTEM["RR-SYSTEM-AUTO"]
+  SYSTEM --> R5C
+  JEI --> R5C
+  R4C --> R5C
+  R5C --> R6["R6 Agent tasks"]
+  NET --> UNET["U-NET"]
+  GUI --> UGUI["U-GUI"]
+  SYSTEM --> USYSTEM["U-SYSTEM"]
+  JEI --> UJEI["U-JEI"]
+  UR4 --> UG["U-GATE"]
+  UNET --> UG
+  UGUI --> UG
+  USYSTEM --> UG
+  UJEI --> UG
+  R6 --> R7["R7b-GATE"]
+  R7 --> UFINAL["U-FINAL"]
+  UFINAL --> UG
+  R7 --> SERVER["RR-SERVER"]
+  SERVER --> M11["M11"]
+  UG --> M11
+```
 
 ## 4. 任务详情
 

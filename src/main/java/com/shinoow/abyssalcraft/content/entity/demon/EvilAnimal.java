@@ -23,17 +23,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-//? if forge {
-import net.minecraftforge.common.IForgeShearable;
-//?} else {
-/*import net.neoforged.neoforge.common.IShearable;
-*///?}
-
 import com.shinoow.abyssalcraft.content.entity.base.ACMob;
 import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.content.entity.shoggoth.AbstractShoggoth;
 import com.shinoow.abyssalcraft.net.ACNetwork;
 import com.shinoow.abyssalcraft.net.client.EvilSheepMessage;
+import com.shinoow.abyssalcraft.platform.ShearableCompat;
 
 /**
  * Evil animal (owned by PD-4, Stage D2a) -- a hostile farm animal (ported from 1.12.2
@@ -44,13 +39,7 @@ import com.shinoow.abyssalcraft.net.client.EvilSheepMessage;
  * <p>The death transform honors its config and the Shoggoth-kill exception; shearing always transforms,
  * matching the legacy distinction between death and shearing paths.
  */
-public class EvilAnimal extends ACMob implements
-//? if forge {
-    IForgeShearable
-//?} else {
-    /*IShearable
-    *///?}
-{
+public class EvilAnimal extends ACMob implements ShearableCompat {
 
     private final AnimalKind kind;
     private boolean convertedByShearing;
@@ -156,28 +145,16 @@ public class EvilAnimal extends ACMob implements
         if (transform) convertToDemon((ServerLevel) level());
     }
 
-    //? if forge {
     @Override
-    public boolean isShearable(ItemStack item, Level level, net.minecraft.core.BlockPos pos) {
+    public boolean acIsShearable(Player player, ItemStack item, Level level, net.minecraft.core.BlockPos pos) {
         return isAlive();
     }
 
     @Override
-    public List<ItemStack> onSheared(Player player, ItemStack item, Level level,
-                                     net.minecraft.core.BlockPos pos, int fortune) {
+    public List<ItemStack> acOnSheared(Player player, ItemStack item, Level level,
+                                      net.minecraft.core.BlockPos pos) {
         return shear(player);
     }
-    //?} else {
-    /*@Override
-    public boolean isShearable(Player player, ItemStack item, Level level, net.minecraft.core.BlockPos pos) {
-        return isAlive();
-    }
-
-    @Override
-    public List<ItemStack> onSheared(Player player, ItemStack item, Level level, net.minecraft.core.BlockPos pos) {
-        return shear(player);
-    }
-    *///?}
 
     private List<ItemStack> shear(Player player) {
         int count = 1 + getRandom().nextInt(3);

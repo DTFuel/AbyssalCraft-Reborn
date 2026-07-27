@@ -44,14 +44,22 @@ public final class ACDataGenerators {
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.MenuHostValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.StateTransformerValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.RendingPedestalValidationData(gen));
-        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.KnowledgeValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.KnowledgeValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.R2GateValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.EnergyValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.PortalValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.RitualSpellPortalValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.SystemMatrixValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.EntityBehaviorValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.NetworkValidationData());
-        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.ClientFxValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.ClientFxValidationData(gen));
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.LangValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.AdvApiValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.ConfigValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.AssetBlockValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.AssetCatalogValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.JEIAutomationValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.WorldgenValidationData(gen.packOutput));
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.DatagenClosureValidationData(gen));
     }
 }

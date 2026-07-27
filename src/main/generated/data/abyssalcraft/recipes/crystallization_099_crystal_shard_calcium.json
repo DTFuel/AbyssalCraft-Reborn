@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "forge:nuggets/calcium"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_shard_calcium",
+    "count": 1
+  },
+  "experience": 0.1,
+  "time": 200
+}

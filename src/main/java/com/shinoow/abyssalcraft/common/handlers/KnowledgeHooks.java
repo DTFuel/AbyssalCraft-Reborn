@@ -18,6 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.core.BlockPos;
 
@@ -74,8 +75,12 @@ public final class KnowledgeHooks {
             }
         }
         if (player.tickCount % 200 != 0) {
+            if (player.tickCount % 20 == 0) {
+                scanArtifacts(player);
+            }
             return;
         }
+        scanArtifacts(player);
         player.level().getBiome(BlockPos.containing(player.position())).unwrapKey().ifPresent(key -> {
             String id = key.location().toString();
             NecroData data = NecroDataCapability.get(player);
@@ -87,6 +92,7 @@ public final class KnowledgeHooks {
 
     /** Complete the four book-tier research entries when a real book is opened. */
     public static void onBookOpened(ServerPlayer player, int bookType) {
+        onWhisper(player, "book/" + bookType);
         int completed = com.shinoow.abyssalcraft.system.knowledge.KnowledgeContent
             .completeAvailable(player, bookType);
         if (completed > 0) {
@@ -132,5 +138,72 @@ public final class KnowledgeHooks {
         if (data.triggerMiscUnlock(plagueId)) {
             completeAndSync(player, 6, plagueId, -1);
         }
+    }
+
+    /** Record acquisition of an AbyssalCraft artifact from any inventory-producing game path. */
+    public static boolean onArtifactAcquired(ServerPlayer player, ItemStack stack) {
+        if (stack.isEmpty()) {
+            return false;
+        }
+        ResourceLocation id = BuiltInRegistries.ITEM.getKey(stack.getItem());
+        if (!"abyssalcraft".equals(id.getNamespace())) {
+            return false;
+        }
+        NecroData data = NecroDataCapability.get(player);
+        if (!data.triggerArtifactUnlock(id.toString())) {
+            return false;
+        }
+        completeAndSync(player, 3, id.toString(), -1);
+        return true;
+    }
+
+    /** Record a lost-page item action after its server-owned knowledge payload has been validated. */
+    public static boolean onPageStudied(ServerPlayer player, String knowledge) {
+        if (!validTrigger(knowledge)) {
+            return false;
+        }
+        NecroData data = NecroDataCapability.get(player);
+        if (!data.triggerPageUnlock(knowledge)) {
+            return false;
+        }
+        completeAndSync(player, 4, knowledge, -1);
+        return true;
+    }
+
+    /** Record a server-side Necronomicon action as a whisper event. */
+    public static boolean onWhisper(ServerPlayer player, String whisper) {
+        if (!validTrigger(whisper)) {
+            return false;
+        }
+        NecroData data = NecroDataCapability.get(player);
+        if (!data.triggerWhisperUnlock(whisper)) {
+            return false;
+        }
+        completeAndSync(player, 5, whisper, -1);
+        return true;
+    }
+
+    /** Record successful server-side Necronomicon action dispatch. */
+    public static boolean onAction(ServerPlayer player, String action) {
+        if (!validTrigger(action)) {
+            return false;
+        }
+        NecroData data = NecroDataCapability.get(player);
+        String trigger = "action/" + action;
+        if (!data.triggerMiscUnlock(trigger)) {
+            return false;
+        }
+        completeAndSync(player, 6, trigger, -1);
+        return true;
+    }
+
+    private static void scanArtifacts(ServerPlayer player) {
+        for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
+            onArtifactAcquired(player, player.getInventory().getItem(slot));
+        }
+    }
+
+    private static boolean validTrigger(String value) {
+        return value != null && !value.isBlank() && value.length() <= 256;
     }
 }

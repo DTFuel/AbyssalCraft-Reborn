@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:anti_spider_eye"
+  },
+  "result": {
+    "id": "minecraft:spider_eye",
+    "count": 2
+  },
+  "experience": 0.3,
+  "time": 200
+}

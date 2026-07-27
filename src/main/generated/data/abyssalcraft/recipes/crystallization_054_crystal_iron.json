@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "forge:ores/iron"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_iron",
+    "count": 2
+  },
+  "experience": 0.1,
+  "time": 200
+}

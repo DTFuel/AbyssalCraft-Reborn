@@ -185,6 +185,9 @@ public final class ModCreativeTabs {
                 acceptAll(output, MaterialItems.CRYSTAL_SHARDS);
                 acceptAll(output, MaterialItems.CRYSTAL_FRAGMENTS);
                 acceptAll(output, CrystalClusterBlocks.CLUSTERS);
+                acceptAll(output, MaterialItems.MACHINE_COMPAT_CRYSTALS);
+                acceptAll(output, MaterialItems.MACHINE_COMPAT_SHARDS);
+                acceptAll(output, CrystalClusterBlocks.MACHINE_COMPAT_CLUSTERS);
             })
             .build());
 

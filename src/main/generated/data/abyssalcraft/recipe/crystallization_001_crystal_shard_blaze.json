@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "minecraft:blaze_powder"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_shard_blaze",
+    "count": 4
+  },
+  "experience": 0.1,
+  "time": 200
+}

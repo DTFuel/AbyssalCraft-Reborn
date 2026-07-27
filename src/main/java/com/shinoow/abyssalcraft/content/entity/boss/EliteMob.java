@@ -27,7 +27,7 @@ import com.shinoow.abyssalcraft.registry.ModSounds;
 // "//? only in platform/ + main class" rule; see docs/spec/geckolib-model-porting.md).
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.util.GeckoLibUtil;
-//? if forge {
+//? if <1.21 {
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 //?} else {

@@ -19,6 +19,8 @@ import com.shinoow.abyssalcraft.system.energy.disruption.CorruptionRegistry;
 import com.shinoow.abyssalcraft.system.energy.disruption.DisruptionAudit;
 import com.shinoow.abyssalcraft.system.energy.disruption.DisruptionHandler;
 import com.shinoow.abyssalcraft.system.energy.disruption.FireRainDisruption;
+import com.shinoow.abyssalcraft.system.energy.disruption.InvisibleSwarmDisruption;
+import com.shinoow.abyssalcraft.system.effect.DreadPlagueSelfTest;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -95,6 +97,9 @@ public final class EnergySelfTest {
             DisruptionAudit.validate(DisruptionHandler.instance());
             require(CorruptionRegistry.animalMappings() == 4, "animal corruption mapping count changed");
             require(FireRainDisruption.candidateCount() == 8, "fire-rain candidate count changed");
+            require(InvisibleSwarmDisruption.minimumCount() == 2 && InvisibleSwarmDisruption.maximumCount() == 5,
+                "invisible swarm bounds changed");
+            DreadPlagueSelfTest.run();
 
         String[] charmFamilies = {"charm", "cthulhucharm", "hasturcharm", "jzaharcharm",
             "azathothcharm", "nyarlathotepcharm", "yogsothothcharm", "shubniggurathcharm"};
@@ -173,7 +178,7 @@ public final class EnergySelfTest {
             && restored.collectors().equals(state.collectors()),
             "manipulator legacy-state round-trip changed");
 
-        System.out.println("RR_ENERGY_SELF_TEST_OK blocks=21 statues=7 charms=32 idol=1 pop=3 disruptions=22 blocked=5");
+        System.out.println("RR_ENERGY_SELF_TEST_OK blocks=21 statues=7 charms=32 idol=1 pop=3 disruptions=27 blocked=0");
     }
 
     private static void checkIds(List<Supplier<Block>> blocks, EnergyBlockKind kind) {

@@ -16,6 +16,7 @@ import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.platform.MobEffectCompat;
 import com.shinoow.abyssalcraft.system.effect.ACDamageTypes;
 import com.shinoow.abyssalcraft.system.effect.ACEffects;
+import com.shinoow.abyssalcraft.system.effect.DreadPlagueSpread;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -62,6 +63,7 @@ public final class EffectHooks {
 
     public static void dreadTick(LivingEntity entity, int amplifier) {
         if (entity.level().isClientSide) return;
+        DreadPlagueSpread.tick((ServerLevel) entity.level(), entity.blockPosition(), amplifier, entity.tickCount);
         if (entity instanceof ServerPlayer player) {
             if (entity.tickCount % 200 == 0) KnowledgeHooks.onPlagueTick(player, "dread_plague");
             player.causeFoodExhaustion(0.025F * (amplifier + 2));

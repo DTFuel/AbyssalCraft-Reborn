@@ -14,10 +14,8 @@ import com.shinoow.abyssalcraft.system.effect.ACEffects;
 
 /**
  * Dread slug (1.12.2 {@code dreadslug}), lobbed by dreadlands mobs. Faithful vanilla flight via
- * {@link ThrowableProjectile}; on entity impact it deals thrown damage and (via the base) discards.
- *
- * <p>Deferred until their subsystems are ported: the {@code dread_plague} potion applied on hit, the
- * dread-immunity check ({@code EntityUtil.isEntityDread}), and hardcore armour-bypass ({@code ACConfig}).
+ * {@link ThrowableProjectile}; on entity impact it deals thrown damage, applies Dread Plague to
+ * non-immune targets and (via the base) discards.
  */
 public class DreadSlug extends ACThrowableProjectile {
 

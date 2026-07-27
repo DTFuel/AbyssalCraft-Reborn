@@ -75,6 +75,11 @@ public final class SpiritTabletStorage {
         return tag.contains("RouteDimension") && tag.getString("RouteDimension").equals(dimension.toString());
     }
 
+    public static String routeDimension(ItemStack tablet) {
+        CompoundTag tag = ItemDataCompat.copyData(tablet);
+        return tag.contains("RouteDimension") ? tag.getString("RouteDimension") : "-";
+    }
+
     public static boolean ignoreSubtypes(ItemStack tablet) {
         CompoundTag tag = ItemDataCompat.copyData(tablet);
         return tag.getBoolean("FilterSubtypes");
@@ -100,6 +105,12 @@ public final class SpiritTabletStorage {
             ContainerCompat.loadItems(root.getCompound(FILTER_KEY), filter, registries);
         }
         return filter;
+    }
+
+    public static int filterCount(ItemStack tablet) {
+        CompoundTag root = ItemDataCompat.copyData(tablet);
+        if (!root.contains(FILTER_KEY, Tag.TAG_COMPOUND)) return 0;
+        return root.getCompound(FILTER_KEY).getList("Items", Tag.TAG_COMPOUND).size();
     }
 
     public static void saveFilter(ItemStack tablet, NonNullList<ItemStack> filter,

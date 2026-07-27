@@ -9,7 +9,7 @@ import com.shinoow.abyssalcraft.content.entity.boss.BossMob;
 import com.shinoow.abyssalcraft.content.entity.boss.BossKind;
 
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
-//? if forge {
+//? if <1.21 {
 import software.bernie.geckolib.core.object.Color;
 //?} else {
 /*import software.bernie.geckolib.util.Color;

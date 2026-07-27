@@ -7,16 +7,20 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.biome.Biome;
+
 /**
  * Registry of {@link IConditionProcessor}s keyed by {@link IUnlockCondition#getType()} (owned by PS-8),
  * faithful to the 1.12.2 {@code api.knowledge.condition.ConditionProcessorRegistry}. The built-in processors
  * for the string-list condition types are registered on construction (modernised out of the 1.12.2
  * {@code MiscHandler} into the registry itself, so PS-8 needs no mod-init hook).
  *
- * <p><b>Deferred:</b> the two predicate processors — type {@code 5} (biome {@code Predicate}) and type
- * {@code 6} (entity-class {@code Predicate}) — resolve a trigger name back to a live {@code Biome} /
- * {@code EntityType} via registries and are left out here (loader-registry-sensitive, and their conditions
- * reference unported biomes/entities); content registers them alongside those predicate conditions.
+ * <p>The two predicate processors resolve persisted resource ids through the live registries before applying
+ * their catalog predicates. This keeps stale or malformed ids from satisfying a condition after reconnect.
  */
 public final class ConditionProcessorRegistry {
 
@@ -78,9 +82,13 @@ public final class ConditionProcessorRegistry {
             return false;
         });
         processors.put(5, (c, d, p) -> {
+            if (p == null) {
+                return false;
+            }
             KnowledgePredicate predicate = (KnowledgePredicate) c.getConditionObject();
+            Registry<Biome> biomes = p.registryAccess().registryOrThrow(Registries.BIOME);
             for (String trigger : d.getBiomeTriggers()) {
-                if (predicate.matches(trigger)) {
+                if (matchesRegistered(predicate, trigger, biomes)) {
                     return true;
                 }
             }
@@ -89,7 +97,7 @@ public final class ConditionProcessorRegistry {
         processors.put(6, (c, d, p) -> {
             KnowledgePredicate predicate = (KnowledgePredicate) c.getConditionObject();
             for (String trigger : d.getEntityTriggers()) {
-                if (predicate.matches(trigger)) {
+                if (matchesRegistered(predicate, trigger, BuiltInRegistries.ENTITY_TYPE)) {
                     return true;
                 }
             }
@@ -104,5 +112,14 @@ public final class ConditionProcessorRegistry {
             }
             return true;
         });
+    }
+
+    public static <T> boolean matchesRegistered(KnowledgePredicate predicate, String trigger, Registry<T> registry) {
+        ResourceLocation id = ResourceLocation.tryParse(trigger);
+        if (id == null || !registry.containsKey(id)) {
+            return false;
+        }
+        T value = registry.get(id);
+        return value != null && predicate.matches(registry.getKey(value).toString());
     }
 }

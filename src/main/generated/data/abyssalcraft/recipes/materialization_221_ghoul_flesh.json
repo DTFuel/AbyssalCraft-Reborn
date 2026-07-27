@@ -1,0 +1,15 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_phosphorus"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "abyssalcraft:ghoul_flesh",
+    "count": 1
+  }
+}

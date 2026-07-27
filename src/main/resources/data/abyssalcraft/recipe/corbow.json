@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"equipment","pattern":[" IS","PBS"," IS"],"key":{"I":{"item":"abyssalcraft:refined_coralium_ingot"},"P":{"item":"abyssalcraft:coralium_pearl"},"B":{"item":"minecraft:bow"},"S":{"item":"minecraft:string"}},"result":{"id":"abyssalcraft:coralium_longbow"}}

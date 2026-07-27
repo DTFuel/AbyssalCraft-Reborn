@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:coralium_stone_brick"
+  },
+  "result": {
+    "id": "abyssalcraft:coralium_brick",
+    "count": 4
+  },
+  "experience": 0,
+  "time": 200
+}

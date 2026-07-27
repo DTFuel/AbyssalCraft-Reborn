@@ -31,6 +31,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 *///?}
 
 import com.shinoow.abyssalcraft.AbyssalCraft;
+import com.shinoow.abyssalcraft.content.block.world.LiquidCoraliumBlock;
 
 public final class LiquidCoraliumCompat {
 
@@ -47,7 +48,7 @@ public final class LiquidCoraliumCompat {
     public static final Supplier<Fluid> SOURCE = FLUIDS.register("liquid_coralium", () -> createFluid(true));
     public static final Supplier<Fluid> FLOWING = FLUIDS.register("flowing_liquid_coralium", () -> createFluid(false));
     public static final Supplier<LiquidBlock> BLOCK = BLOCKS.register("liquid_coralium", () ->
-        new LiquidBlock((FlowingFluid) SOURCE.get(), BlockBehaviour.Properties.of().replaceable()
+        new LiquidCoraliumBlock((FlowingFluid) SOURCE.get(), BlockBehaviour.Properties.of().replaceable()
             .noCollission().strength(100.0F).noLootTable().liquid().lightLevel(state -> 15)));
     public static final Supplier<Item> BUCKET = ITEMS.register("liquid_coralium_bucket", () ->
         new BucketItem(SOURCE.get(), new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));

@@ -157,5 +157,8 @@ public final class BaseBlockData extends BlockModelGen {
         for (var cluster : CrystalClusterBlocks.CLUSTERS) {
             sharedModel(cluster.get(), "crystal_cluster");
         }
+        for (var cluster : CrystalClusterBlocks.MACHINE_COMPAT_CLUSTERS) {
+            sharedModel(cluster.get(), "crystal_cluster");
+        }
     }
 }

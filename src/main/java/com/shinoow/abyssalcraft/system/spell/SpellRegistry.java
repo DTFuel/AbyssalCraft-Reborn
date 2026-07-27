@@ -85,8 +85,10 @@ public final class SpellRegistry {
         for (Spell spell : spells) {
             String requiredParent = spell instanceof ManifestSpell mounted
                 ? mounted.manifest().parentId() : spell.parent() == null ? null : spell.parent().id();
-            if (spell.bookType() <= bookTier
+                if (SpellAvailability.isEnabled(spell)
+                    && spell.bookType() <= bookTier
                     && held.quality() >= spell.scrollType().quality()
+                        && (requiredParent == null || SpellAvailability.isEnabled(requiredParent))
                     && (requiredParent == null ? parentId.isEmpty() : requiredParent.equals(parentId))
                     && spell.matches(reagents)) {
                 return spell;

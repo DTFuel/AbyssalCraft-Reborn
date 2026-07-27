@@ -77,6 +77,24 @@
 - Liquid Coralium 已有 source/flowing/block/bucket、双 loader bucket capability、still/flowing 资源与无几何流体 block model；Transmutation Gem 是 10 次可复用燃料。
 - 26 crystal cluster 已注册、染色/命名、loot/tag/model 完整，并生成 52 条双版本压缩/拆解配方；Neo 服务器 recipes 从 1330 增至 1382。
 
+### 0.7 R6 RR-DATAGEN-MACHINE（2026-07-27）
+
+- 冻结源为 `docs/AbyssalCraft-1.12.2/.../common/AbyssalCrafting.java`：crystallization 109、transmutation 46、materialization 68，合计精确 223 条调用。`LegacyMachineRecipeSource` 保留每条原调用、源行、现代输入/输出与数量；`LegacyMachineRecipeCatalog` 为每条分配 `MIGRATED` / `REPLACED` / `BLOCKED` / `RETIRED`，四态总和必须为 223。
+- `MIGRATED` 与 `REPLACED` 才生成 recipe；两者必须有唯一现代 recipe id 和非空输入/输出。`BLOCKED` 不计完成，必须精确指向 `item-registry/<id>`、`common-item-tag/<tag>` 或 recipe model owner；不得使用 pending、catalog 自身或泛化 owner。`RETIRED` 仅用于 Aluminum/Aluminium 等映射到同一现代 tag 的旧重复 alias。
+- `MachineRecipeData` 直接消费 catalog，不维护第二份手写子集。Crystallization 写真实 `secondary_result`；materialization 写 1–5 个 counted `inputs`；transmutation 保留 XP/time。Anvil forging 与四条 production rending 同一 provider 双写，但不计入 223 的 synthesis 审计口径。
+- 每次 datagen 同时写 1.20.1 `recipes/` + `result.item` + `forge:` common tags，以及 1.21.1 `recipe/` + `result.id` + `c:` common tags。根 `data/abyssalcraft/machine_recipe_catalog.json` 输出 `source=223`、四态计数和全部逐条记录（旧调用、现代 recipe id、owner/reason、输入输出）。
+- 永久不变量拒绝：源调用数变化、ordinal 重复、四态求和不等于 223、可执行 recipe id 缺失/重复、非执行项无 owner、任意空输入/输出。2026-07-27 编辑器 Java 诊断、223 调用独立解析检查（109+46+68）和 diff check 通过；Gradle 在 javac 前仍被外部缓存的 `java.util.zip.ZipException: zip file is empty` 阻断，工作区内零字节 jar/zip 为 0，故本轮未声称 runData/build 完成。
+- 单一 integrator 闭包固定为 **142 MIGRATED + 77 REPLACED + 4 RETIRED + 0 BLOCKED = 223**，可执行项 219。`scripts/audit_machine_catalog.ps1` 是不依赖 Gradle 的旧源解析器；它从仓库根或任一 `versions/*` 子项目目录都先向上定位根目录，再核 109/46/68 分类、25 次输出解析、48 条多输入、48 条双输出、alias、重复 classification key 与 schema 断言。
+- 运行时不再依赖 `docs/...` 相对当前工作目录：脚本从权威旧 Java 源确定性写出 `data/abyssalcraft/catalog/legacy_machine_calls.txt`（保留原源行位置），`LegacyMachineRecipeSource` 优先从 classpath 读取该打包资源，仅在开发 classpath 缺资源时向上寻找仓库旧源。`legacy_machine_catalog.json` 是同一脚本生成并自验 stale 的 source-derived audit，不是 recipe datagen 产物，也不声称执行过 `runData`；真实双版本 recipe ID/JSON 仍由 `MachineRecipeData` 产生。
+- 本轮 `:1.20.1-forge:compileJava` 在 javac 前被工作区外 Gradle 9 Kotlin DSL immutable workspace 修改错误阻断；未访问或修改该外部缓存，未声称 compile/runData 成功。可重复的工作区内验证为三种 cwd 的纯脚本 audit、永久 JSON parse/闭包核和限定 diff check。
+
+#### 旧 OreDictionary 输出解析
+
+- 旧 API 允许输出使用 OreDictionary 字符串；现代 recipe result 必须是具体 item，禁止运行时枚举 tag。`MachineOutputResolutionCatalog` 按插入顺序冻结全部 25 个旧输出 tag，`LegacyMachineRecipeSource` 仅在输出参数位置解析；输入参数仍保留现代 tag。
+- 原版已有精确物品时固定原版代表：raw meat→beef，六类 ore→对应普通 ore，logs/planks/saplings/leaves→oak 系列，vines→vine，iron nugget→iron nugget，copper ingot→copper ingot。
+- AC 当前注册了对应元素材料时优先 AC：aluminium/zinc/magnesium/calcium 的 ingot 语义固定为对应 crystal，nugget 语义固定为对应 crystal shard。铜/锡兼容内容现已注册 `crystal_copper` / `crystal_tin`、对应 shard 和 cluster；四个旧输出 tag 因此精确映射到同元素 crystal/shard，不再降级为铜锭或铁系占位。`blockCopper` / `blockTin` 输入仍分别保留 `c:storage_blocks/copper` / `c:storage_blocks/tin` tag，输出 cluster 直接解析为 AC 注册方块物品。
+- 永久 audit 拒绝：显式映射目录不是 25 项、冻结源不再发生恰好 25 次输出解析、任一实际输出 tag 未被 catalog 覆盖、目标 item 不在运行时 registry、重建 catalog 后映射或顺序变化。25 次调用中 Aluminum/Aluminium 两组旧拼写 alias 各归一到同一现代 tag；copper ingot 仅作输入，仍保留 tag。`machine_recipe_catalog.json` 同时记录全局映射及每条 recipe 使用的 tag/item/reason；输出解析项计为 `REPLACED`，不再产生 `machine-recipe-model/output-tag/*` BLOCKED。
+
 ---
 
 > **以下为 2026-07-21 历史试点记录，只读。** 其中“三机器共用三槽炉”“任意燃料”和 `ProcessingRecipe` 等描述已被 §0 取代。

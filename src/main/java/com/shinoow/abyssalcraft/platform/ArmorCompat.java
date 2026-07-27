@@ -143,7 +143,7 @@ public final class ArmorCompat {
         @Override
         public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
             if (visual == Visual.DREADIUM_SAMURAI) {
-                consumer.accept(com.shinoow.abyssalcraft.client.render.armor.ACArmorVisuals.samuraiExtension());
+                consumer.accept(ArmorClientCompat.samuraiExtension());
             }
         }
         //?}

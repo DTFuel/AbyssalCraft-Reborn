@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "minecraft:coal_ore"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_carbon",
+    "count": 2
+  },
+  "experience": 0.1,
+  "time": 200
+}

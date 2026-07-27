@@ -15,7 +15,9 @@ import com.shinoow.abyssalcraft.client.screen.item.CrystalBagScreen;
 import com.shinoow.abyssalcraft.client.screen.item.BookOfManyFacesScreen;
 import com.shinoow.abyssalcraft.client.screen.item.SpiritTabletScreen;
 import com.shinoow.abyssalcraft.client.screen.item.SpellbookScreen;
+import com.shinoow.abyssalcraft.client.screen.config.ACConfigScreen;
 import com.shinoow.abyssalcraft.client.ritual.ClientRitualEffects;
+import com.shinoow.abyssalcraft.client.hud.ClientVarsManager;
 import com.shinoow.abyssalcraft.content.item.material.MaterialItems;
 import com.shinoow.abyssalcraft.content.block.energy.EnergyBlocks;
 import com.shinoow.abyssalcraft.content.block.deco.DecoBlocks;
@@ -36,6 +38,7 @@ import com.shinoow.abyssalcraft.platform.ClientHooksCompat;
 import com.shinoow.abyssalcraft.platform.ParticleCompat;
 import com.shinoow.abyssalcraft.registry.ModParticles;
 import com.shinoow.abyssalcraft.registry.ModMenus;
+import net.minecraft.client.gui.screens.Screen;
 
 /**
  * Client-setup relay (skeleton).
@@ -66,6 +69,10 @@ public final class ACClientSetup {
         ClientScreenCompat.queue(ModMenus.BOOK_OF_MANY_FACES, BookOfManyFacesScreen::new);
     }
 
+    public static Screen createConfigScreen(Screen parent) {
+        return new ACConfigScreen(parent);
+    }
+
     /** Called by the real loader registration callback after every queued screen is installed. */
     public static void validateR2GateScreens() {
         if (ClientScreenCompat.queuedCount() != 13
@@ -86,10 +93,18 @@ public final class ACClientSetup {
     /** Queue per-element crystal tint colours (PB-1) with the colour compat (called client-side). */
     public static void registerItemColors() {
         for (int i = 0; i < MaterialItems.CRYSTAL_ELEMENTS.length; i++) {
-            ClientColorCompat.queue(MaterialItems.CRYSTAL_COLORS[i],
+            int colorIndex = i;
+            ClientColorCompat.queueDynamic(() -> ClientVarsManager.get().crystalColor(colorIndex),
                 MaterialItems.CRYSTALS.get(i), MaterialItems.CRYSTAL_SHARDS.get(i), MaterialItems.CRYSTAL_FRAGMENTS.get(i),
                 CrystalClusterBlocks.CLUSTERS.get(i));
-            ClientColorCompat.queueBlocks(MaterialItems.CRYSTAL_COLORS[i], CrystalClusterBlocks.CLUSTERS.get(i));
+            ClientColorCompat.queueDynamicBlocks(() -> ClientVarsManager.get().crystalColor(colorIndex),
+                CrystalClusterBlocks.CLUSTERS.get(i));
+        }
+        for (int i = 0; i < MaterialItems.MACHINE_COMPAT_ELEMENTS.length; i++) {
+            int color = MaterialItems.MACHINE_COMPAT_COLORS[i];
+            ClientColorCompat.queue(color, MaterialItems.MACHINE_COMPAT_CRYSTALS.get(i),
+                MaterialItems.MACHINE_COMPAT_SHARDS.get(i), CrystalClusterBlocks.MACHINE_COMPAT_CLUSTERS.get(i));
+            ClientColorCompat.queueBlocks(color, CrystalClusterBlocks.MACHINE_COMPAT_CLUSTERS.get(i));
         }
         ClientColorCompat.queue(0x910000, DecoBlocks.DREADLANDS_GRASS);
         ClientColorCompat.queueBlocks(0x910000, DecoBlocks.DREADLANDS_GRASS);
@@ -109,8 +124,6 @@ public final class ACClientSetup {
     public static void registerClientTicks() {
         com.shinoow.abyssalcraft.client.input.ClientInputHandler.register();
         ClientHooksCompat.queueClientTick(ClientRitualEffects::tick);
-        if (Boolean.getBoolean("abyssalcraft.rrNetValidation")) {
-            ClientHooksCompat.queueClientTick(com.shinoow.abyssalcraft.client.network.RRNetClientValidation::tick);
-        }
+        ClientFxEffects.register();
     }
 }

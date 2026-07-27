@@ -13,6 +13,7 @@ import net.minecraftforge.event.entity.living.AnimalTameEvent;
 import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
@@ -28,6 +29,7 @@ import net.neoforged.neoforge.event.entity.living.AnimalTameEvent;
 import net.neoforged.neoforge.event.entity.living.BabyEntitySpawnEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingKnockBackEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
 import net.neoforged.neoforge.event.entity.player.CanPlayerSleepEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -59,12 +61,24 @@ public final class GameHooksCompat {
         EventBuses.game().addListener((LivingDeathEvent event) -> onLivingDeath(event));
         EventBuses.game().addListener((AdvancementEvent.AdvancementEarnEvent event) -> onAdvancementEarned(event));
         //? if forge {
-        EventBuses.game().addListener((LivingHurtEvent event) ->
-            com.shinoow.abyssalcraft.common.handlers.EffectHooks.onLivingHurt(event.getEntity(), event.getSource()));
+        EventBuses.game().addListener((LivingHurtEvent event) -> {
+            com.shinoow.abyssalcraft.common.handlers.EffectHooks.onLivingHurt(event.getEntity(), event.getSource());
+            event.setAmount(com.shinoow.abyssalcraft.system.enchant.EnchantmentEffects
+                .modifyDamage(event.getEntity(), event.getSource(), event.getAmount()));
+        });
         //?} else {
-        /*EventBuses.game().addListener((LivingDamageEvent.Pre event) ->
-            com.shinoow.abyssalcraft.common.handlers.EffectHooks.onLivingHurt(event.getEntity(), event.getSource()));
+        /*EventBuses.game().addListener((LivingDamageEvent.Pre event) -> {
+            com.shinoow.abyssalcraft.common.handlers.EffectHooks.onLivingHurt(event.getEntity(), event.getSource());
+            event.setNewDamage(com.shinoow.abyssalcraft.system.enchant.EnchantmentEffects
+                .modifyDamage(event.getEntity(), event.getSource(), event.getNewDamage()));
+        });
         *///?}
+        EventBuses.game().addListener((LivingKnockBackEvent event) -> {
+            if (com.shinoow.abyssalcraft.system.enchant.EnchantmentEffects.preventsKnockback(event.getEntity())) {
+                event.setCanceled(true);
+                event.getEntity().setDeltaMovement(0.0D, 0.0D, 0.0D);
+            }
+        });
         EventBuses.game().addListener((PlayerEvent.PlayerChangedDimensionEvent event) -> onChangedDimension(event));
         EventBuses.game().addListener((PlayerEvent.PlayerLoggedInEvent event) -> onLoggedIn(event));
         EventBuses.game().addListener((PlayerEvent.PlayerLoggedOutEvent event) -> onLoggedOut(event));
@@ -80,18 +94,14 @@ public final class GameHooksCompat {
         EventBuses.game().addListener((TickEvent.PlayerTickEvent event) -> {
             if (event.phase == TickEvent.Phase.END && event.player instanceof net.minecraft.server.level.ServerPlayer player) {
                 KnowledgeHooks.onPlayerTick(player);
-                if (Boolean.getBoolean("abyssalcraft.rrNetValidation")) {
-                    com.shinoow.abyssalcraft.net.RRNetValidation.serverTick(player);
-                }
+                com.shinoow.abyssalcraft.content.item.armor.ArmorEffects.tick(player);
             }
         });
         //?} else {
         /*EventBuses.game().addListener((PlayerTickEvent.Post event) -> {
             if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
                 KnowledgeHooks.onPlayerTick(player);
-                if (Boolean.getBoolean("abyssalcraft.rrNetValidation")) {
-                    com.shinoow.abyssalcraft.net.RRNetValidation.serverTick(player);
-                }
+                com.shinoow.abyssalcraft.content.item.armor.ArmorEffects.tick(player);
             }
         });
         *///?}

@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:crystal_copper"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_shard_copper",
+    "count": 1
+  },
+  "experience": 0.2,
+  "time": 200
+}

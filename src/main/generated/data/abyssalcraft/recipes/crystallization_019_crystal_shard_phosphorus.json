@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "minecraft:rotten_flesh"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_shard_phosphorus",
+    "count": 8
+  },
+  "experience": 0.1,
+  "time": 200
+}

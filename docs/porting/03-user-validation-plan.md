@@ -37,8 +37,8 @@ flowchart LR
 | U-GUI | ☐ | 现有五机器及 State Transformer、Rending、Energy、Facebook、Bag/Tablet/Spellbook；书页、HUD、Aklo、clientvars、5 keybind | RR-CLIENT-GUI-AUTO | `run/validation/user/U-GUI/` | T6.1b-e,T6.2c,T6.6e |
 | U-FX | ☐ | 四维天空/雾；关键环境、实体、仪式、Boss 声音与字幕 | RR-CLIENT-FX-AUTO | `run/validation/user/U-FX/` | T6.3c,T6.5c |
 | U-JEI | ☐ | 全分类、燃料、多输入/双输出、催化剂、点击区与配方转移；缺 JEI 启动负测 | RR-JEI-AUTO | `run/validation/user/U-JEI/` | TP.5b,TP.7b,T8.1c |
-| U-SYSTEM | ☐ | research/书门控、五附魔、配置 GUI、Dread Plague、复活消费与重启、剩余系统交互 | R5-CODE-GATE | `run/validation/user/U-SYSTEM/` | T7.8c,T7.9b-c,T7.10c,T7.11c,T8.2c 的 live 片段 |
-| U-FINAL | ☐ | 两节点全内容客户端回归：创造栏、放置、机器、GUI、实体、维度、仪式、法术、PE、JEI | R7b-GATE,U-CONTENT..U-SYSTEM | `run/validation/user/U-FINAL/` | T11.1 |
+| U-SYSTEM | ☐ | research/书门控、五附魔、配置 GUI、Dread Plague、复活消费与重启、剩余系统交互 | RR-CLIENT-GUI-AUTO,RR-SYSTEM-AUTO | `run/validation/user/U-SYSTEM/` | T7.8c,T7.9b-c,T7.10c,T7.11c,T8.2c 的 live 片段 |
+| U-FINAL | ☐ | 两节点全内容客户端回归：创造栏、放置、机器、GUI、实体、维度、仪式、法术、PE、JEI | R7b-GATE,U-CONTENT,U-WORLD,U-R4,U-NET,U-GUI,U-FX,U-JEI,U-SYSTEM | `run/validation/user/U-FINAL/` | T11.1 |
 
 ## 3. 用户验收协议
 

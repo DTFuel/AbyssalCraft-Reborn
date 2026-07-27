@@ -1,0 +1,21 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_carbon"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_dreadium"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "abyssalcraft:charcoal",
+    "count": 1
+  }
+}

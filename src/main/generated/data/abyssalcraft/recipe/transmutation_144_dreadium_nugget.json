@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:crystal_dreadium"
+  },
+  "result": {
+    "id": "abyssalcraft:dreadium_nugget",
+    "count": 1
+  },
+  "experience": 0.1,
+  "time": 200
+}

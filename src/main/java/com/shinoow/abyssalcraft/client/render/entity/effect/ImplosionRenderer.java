@@ -5,7 +5,9 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 
 import com.shinoow.abyssalcraft.content.entity.misc.Implosion;
+import com.shinoow.abyssalcraft.client.hud.ClientVarsManager;
 import com.shinoow.abyssalcraft.platform.ACRef;
+import com.shinoow.abyssalcraft.platform.ArmorRenderCompat;
 import com.shinoow.abyssalcraft.registry.ModModelLayers;
 
 import net.minecraft.client.model.geom.ModelPart;
@@ -40,7 +42,8 @@ public final class ImplosionRenderer extends EntityRenderer<Implosion> {
             poseStack.mulPose(Axis.YP.rotationDegrees(index * 60.0F));
             poseStack.mulPose(Axis.ZP.rotationDegrees(index * 37.0F + age));
             poseStack.scale(scale, scale, scale);
-            quad.render(poseStack, consumer, 15728880, OverlayTexture.NO_OVERLAY);
+            ArmorRenderCompat.renderPart(quad, poseStack, consumer, 15728880, OverlayTexture.NO_OVERLAY,
+                ClientVarsManager.get().implosionColor());
             poseStack.popPose();
         }
         poseStack.popPose();

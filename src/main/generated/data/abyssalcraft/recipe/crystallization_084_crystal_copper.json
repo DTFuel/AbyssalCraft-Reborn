@@ -1,0 +1,16 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "c:ores/brass"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_copper",
+    "count": 6
+  },
+  "secondary_result": {
+    "id": "abyssalcraft:crystal_zinc",
+    "count": 4
+  },
+  "experience": 0.5,
+  "time": 200
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "abyssalcraft:item/necronomicon_book",
+  "textures": {
+    "0": "abyssalcraft:item/abyssal_wasteland_necronomicon",
+    "1": "abyssalcraft:item/abyssal_wasteland_necronomicon_back"
+  }
+}

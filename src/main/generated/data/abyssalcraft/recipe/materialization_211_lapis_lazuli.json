@@ -1,0 +1,21 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_silica"
+      },
+      "count": 6
+    },
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_sulfur"
+      },
+      "count": 4
+    }
+  ],
+  "result": {
+    "id": "minecraft:lapis_lazuli",
+    "count": 1
+  }
+}

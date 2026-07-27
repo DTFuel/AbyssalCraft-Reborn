@@ -201,6 +201,57 @@ AbyssalCraft 的世界生成：4 个自定义维度（Abyssal Wasteland / Dreadl
 - **T5.6c**：crate/spawner/pedestal/lock/biomass/ooze 等缺宿主内容仍是确定性 marker/稳定替代；须由对应内容任务接入真实玩法。模板旋转、拼缝以及 Mineshaft/Stronghold 旧 piece 图仍需 fixture/人工对账。
 - **T5.2c/T5.3c/T5.4c/T5.9b**：四维地形与结构的双端 spectator 视觉/性能矩阵未执行；自然刷怪统计和玩家正常 portal 链仍分别归 T5.8d/T5.7b。自动服务器证据不能替代这些验收。
 
+## 15. 自动验证矩阵（RR-WORLD-FIDELITY-AUTO）
+
+### 15.1 当前工具
+
+- `WorldgenPerformanceSampler`：在真实 `ServerLevel` 上采样 AW/Dreadlands 固定路线的 p50/p95。
+- `DarkRealmNoiseOracle`：比较 Dark Realm 固定采样点与 1.12.2 oracle；没有基线时明确返回未执行原因，不算通过。
+- `StructureFixtureValidator`：逐个读取当前节点 classpath 中的 37 个 legacy `.nbt`。
+- `EntitySpawnStatistics`：读取真实 biome 注册表并统计 AC spawn 条目。
+- `WorldgenFinalMatrix`：datagen 入口执行静态可用项，server 入口执行需要 `ServerLevel` 的项目；任何 `FAIL` 均使门禁失败。
+
+### 15.2 结构 Fixture 验证（T5.6c）
+
+模板清单直接使用实际资源相对路径，包含 `omothol/ethaxium_house`，不再维护与资源名不一致的逻辑名称数组。Forge 从 `data/abyssalcraft/structures/legacy/` 读取，NeoForge 从 `data/abyssalcraft/structure/legacy/` 读取。
+
+每个模板均通过 Minecraft `NbtIo` 解压为 `CompoundTag`，并验证：
+
+1. 根 NBT 可解析，且 `size`、`palette`、`blocks` 类型正确。
+2. `size` 为三个正整数，`palette` 与 `blocks` 非空。
+3. 每个 palette 条目含字符串 `Name`，可解析为 `ResourceLocation`，并存在于 `BuiltInRegistries.BLOCK`。
+4. 每个 block 含整数 `state`，且索引落在 palette 范围内。
+5. structure block 的 `metadata`（兼容旧 `name`）可由 `LegacyTemplatePiece` 的动态 marker 分支判读。
+6. 方块实体 NBT 中的 `LootTable` 可解析为合法 `ResourceLocation`。
+
+缺资源、压缩流损坏、字段缺失或类型错误、未注册 block、越界 state、未知 marker、非法 loot 均立即返回带模板路径和具体原因的 `RR_WORLD_FIXTURE_FAIL`，不存在忽略异常或只读首字节的成功路径。
+
+成功输出包含实际审计计数：
+
+```text
+RR_WORLD_FIXTURE_OK templates=37 procedural=2 paletteEntries=<n> blocks=<n> markers=<n> lootRefs=<n>
+```
+
+旋转、拼缝和整体视觉仍属于 U-WORLD 人工验收；这不降低 NBT、palette、marker 与 loot 审计的硬失败语义。
+
+### 15.3 门禁语义与执行
+
+`WorldgenValidationData` 已在 datagen 注册并调用 `WorldgenFinalMatrix.executeMatrix()`。矩阵只有在全部要求项完成且没有未执行项时才输出 `PASS`；存在外部基线或 server context 缺口时输出 `FAIL`，不再使用“带阻塞项也通过”的表述。
+
+双节点最窄验证命令：
+
+```powershell
+.\gradlew.bat :1.20.1-forge:compileJava :1.21.1-neoforge:compileJava --rerun-tasks
+.\gradlew.bat :1.20.1-forge:runData
+.\gradlew.bat :1.21.1-neoforge:runData
+```
+
+性能与 spawn 采样必须通过 `WorldgenFinalMatrix.executeServerMatrix(...)` 在真实 server level 上执行。Dark Realm 逐位旧版保真仍以 `scripts/capture_dark_realm_oracle.js` 取得的 1.12.2 基线为前置证据；缺少该证据时不得写成通过。
+
+### 15.4 与 U-WORLD 的边界
+
+自动验证负责 NBT/palette/marker/loot 完整性、固定点噪声对照、性能数值和 spawn data。U-WORLD 负责四维视觉、结构旋转与拼缝、天空/雾、实际自然刷怪体验、玩家 Portal 往返和长时生态。自动检查失败时不进入人工验收；自动检查通过也不能替代这些人工项目。
+
 ## 修订日志
 
 - 2026-07-25：RR-WORLD 自动切片收口（§14）：真实世界材料/carver、四维现代混合地形、第六群系、36+House 模板转换与布局、Chains、Mineshaft/Stronghold AC palette+loot 通过双端 compile/runData/production JAR/runServer 与 Neo 重启矩阵。将旧噪声 oracle、动态 marker 真实玩法和人工视觉拆为独立未完成任务。

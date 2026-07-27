@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#abyssalcraft:vanilla_aquatic_spawns",
+    { "id": "#forge:is_water", "required": false },
+    { "id": "#forge:is_beach", "required": false },
+    { "id": "#forge:is_swamp", "required": false },
+    { "id": "#c:is_water", "required": false },
+    { "id": "#c:is_beach", "required": false },
+    { "id": "#c:is_swamp", "required": false }
+  ]
+}

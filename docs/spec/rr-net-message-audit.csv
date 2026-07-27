@@ -22,3 +22,4 @@ id,name,direction,status,modern_contract
 20,ShouldSyncMessage,S2C,MIGRATED,client requests authoritative resync
 21,SyncNecromancyDataMessage,S2C,MIGRATED,server-authoritative client necrodata snapshot
 22,DisplayRoutesMessage,S2C,MIGRATED,bounded client transfer-route visualization
+23,NecronomiconPageActionMessage,C2S,MIGRATED,modern extension for server-authoritative page actions

@@ -1,0 +1,1 @@
+// Moved to platform/RecipeManagerCompatMixin.java; retained empty only while an editor buffer owns this path.

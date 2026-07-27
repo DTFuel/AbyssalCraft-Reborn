@@ -11,6 +11,7 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 
 import com.shinoow.abyssalcraft.registry.ModWorldgen;
+import com.shinoow.abyssalcraft.world.WorldgenConfigGate;
 
 /**
  * The single programmatic AbyssalCraft structure (owned by PG-5 / Stage G1). Its {@link StructureKind}
@@ -35,6 +36,10 @@ public class ACStructure extends Structure {
 
     @Override
     protected Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
+        if (!WorldgenConfigGate.allowsStructure(kind, context.chunkPos().x, context.chunkPos().z,
+            context.random()::nextInt)) {
+            return Optional.empty();
+        }
         int x = context.chunkPos().getMiddleBlockX();
         int z = context.chunkPos().getMiddleBlockZ();
         int y = context.chunkGenerator().getFirstOccupiedHeight(x, z,

@@ -13,10 +13,10 @@
 - **PJ-2 配置 ☑**：`config/ACConfig` 全 130 标量选项（COMMON 126 + CLIENT 4，12 类）经 `platform/ConfigCompat.Builder`。
 - **PJ-2b 非标量配置 ☑**：blacklist/carrier/immunity/transformation/dimension mapping/RGB/矿参数以受校验 list/map 格式解析为 `ComplexConfig` 不可变快照，并在本模组 common config loading/reloading 刷新。
 - **PJ-4 进度 ☑**：`data/abyssalcraft/advancements`（1.20.1 复数）+ `advancement`（1.21 单数）双目录各 9 进度。
-- **PJ-1 JEI ◐**：`integration/jei/ACJEIPlugin`（PP-5 ※ 接力）+ 3 机器分类（PP-5）+ 新 `AnvilForgingCategory`；`platform/DataRecipeCompat.allOfType` 枚举 data-recipe。
+- **PJ-1 JEI ☑ (RR-JEI-AUTO / TP.5b / T8.1b)**：`integration/jei/ACJEIPlugin`（PP-5 ※ 接力）+ 10 完整分类：3 机器配方（PP-5）+ anvil forging + **2 燃料分类** + rending + **2 ritual 分类**（creation/transformation）+ **精选 spell 展示**。服务端权威：recipe managers、manifest catalogs、fuel predicates。`JEIAuditGate` 永久审计。
 
-**延后（硬阻塞，均分离为显式后续任务，见平行表「Stage J 延后收尾」）**：
-- **PJ-1b**：JEI rending / ritual(creation+transformation) / spell 分类——rending 输入是实体（JEI 无原生实体槽）+ pedestal 机器未移植；ritual/spell 的 `RitualRegistry`/`SpellRegistry` 是 PS-6/PS-7 框架、零具体配方。
+**延后（非阻塞或已分离）**：
+- **PJ-1b 剩余**：40 Infusion rituals（数量太多，不单独展示）；6 其余 spell（价值较低，已精选 8 个核心法术）；Rending Pedestal 机器宿主（归 RR-CLIENT-GUI-AUTO）。
 - **PJ-2c**：所有保留配置的跨系统生产消费者与游戏内配置 GUI；本轮仅 plague 名单、demon transformation 等已接消费者。
 - ~~**PJ-4b**~~ **RR-ADV-API 已完成**：双端 `IACPlugin` ServiceLoader/显式注册、五项实体扩展生产 sink 与 Forge 旧 IMC 桥已落地；13项配方/Crystal/Ghoul贴图旧 key 明确迁移到 datapack/resource pack。
 
@@ -30,7 +30,31 @@
 
 **插件 API**：`integration/api/{IACPlugin,ACPluginContext,ACPluginRegistry}` 以 `META-INF/services` 自动发现，按稳定ID在 `ServerAboutToStartEvent` 原子发布不可变快照；失败provider回滚。Shoggoth食物与两类瘟疫 immunity/carrier 均接入真实消费端。Forge `IMCCompat` 在 `InterModProcessEvent` 桥接5个旧实体key；NeoForge 21.1无loader IMC，使用类型化API。完整契约见 [`advancement-plugin-api.md`](advancement-plugin-api.md)。
 
-**JEI**：`@JeiPlugin` 自动发现（缺 JEI 不崩，非 mods.toml 硬依赖，API modCompileOnly）。分类 extends JEI `IRecipeCategory`，`registerCategories`/`registerRecipes`（经 `RecipeCompat.allOfType`/`DataRecipeCompat.allOfType` 枚举配方）/`registerRecipeCatalysts`（催化剂方块）三段注册。
+**JEI（RR-JEI-AUTO 完整实现）**：`@JeiPlugin` 自动发现（缺 JEI 不崩，非 mods.toml 硬依赖，API modCompileOnly）。分类 extends JEI `IRecipeCategory`，`registerCategories`/`registerRecipes`（经 `RecipeCompat.allOfType`/`DataRecipeCompat.allOfType` 枚举配方，或从 manifest catalogs 获取）/`registerRecipeCatalysts`（催化剂方块）三段注册。
+
+**10 JEI 分类明细**（RR-JEI-AUTO）：
+1. **Crystallization**（PP-5 交付）：crystallizer 配方，input → result + secondary。催化剂：crystallizer 方块。
+2. **Materialization**（PP-5 交付）：materializer 配方，multi-input → result。催化剂：materializer 方块。
+3. **Transmutation**（PP-5 交付）：transmutator 配方，input → result。催化剂：transmutator 方块。
+4. **Anvil Forging**（PJ-1 交付）：anvil forging 配方，input1 + input2 → result（显示 XP price）。催化剂：vanilla anvil。
+5. **Crystallizer Fuel**（新增）：crystallizer 燃料展示。5 项燃料（dread/blaze/methane），显示燃烧时长。催化剂：crystallizer 方块。
+6. **Transmutator Fuel*jei.abyssalcraft.<name>`（RR-JEI-AUTO 统一格式）。新增 fuel/ritual/spell lang 键：
+  - `jei.abyssalcraft.crystallizer_fuel` / `transmutator_fuel`
+  - `jei.abyssalcraft.rending` / `rending_energy` / `essence_type`
+  - `jei.abyssalcraft.creation_ritual` / `transformation_ritual` / `ritual_energy` / `ritual_book_type` / `ritual_dimension`
+  - `jei.abyssalcraft.spell` / `spell_energy` / `spell_target.*` / `scroll_type`
+  - `jei.abyssalcraft.fuel_time` / `anvil_price`（已有）um 系列），显示燃烧时长。催化剂：transmutator 方块。
+7. **Rending**（新增）：rending 配方。实体名 + 能量需求 → essence。催化剂：staff of rending（虽 pedestal 未实现，配方已存在）。
+8. **Creation Ritual**（新增）：creation ritual 展示。3 个 scroll 配方（basic/lesser/moderate），显示中央祭坛 + 8 基座供品 → 卷轴。
+9. **Transformation Ritual**（新增）：transformation ritual 展示。1 个 ethaxium 配方（soul sand → ethaxium），显示 8 基座供品 + 维度要求。
+10. **Spell**（新增）：精选 spell 展示。8 个核心法术（lifedrain/mining/invisibility/stealvigor/oozeremoval/teleportHome/undeathtodust/teleporthostiles），显示铭刻试剂 + PE 成本 + 目标类型 + 卷轴等级。
+
+**审计系统**：`JEIAuditGate` 提供可由 Gate Integrator 调用的永久审计：
+- `runFullAudit()`: 全量审计，返回分类数量、UID 唯一性、配方非空、燃料/manifest 计数、催化剂契约提醒。
+- `checkLegacyCategories()`: 分类状态闭包，标记每个分类为 NEW/RETAINED/REPLACED/RETIRED/DEFERRED_TOO_MANY。
+- 所有数据从服务端权威来源获取：`DataRecipeCompat`、`RitualManifestCatalog`（62 rituals）、`SpellManifestCatalog`（14 spells）、`CrystallizerBlockEntity.fuelBurnTime`、`TransmutatorBlockEntity.fuelBurnTime`。零 copy-drift。
+
+**Infusion rituals 不展示原因**：40 个 Infusion rituals 数量过多，单独展示会污染 JEI 面板；已在 `JEIAuditGate.CategoryStatus.DEFERRED_TOO_MANY` 明确记录。仅展示 Creation（3）、Transformation（1）两类有明确价值的 ritual。
 
 ## 4. 子系统内契约
 
@@ -61,7 +85,8 @@
 
 - 两节点 `compileJava` EXIT=0（命令/配置/JEI anvil + `DataRecipeCompat.allOfType` + `CommandCompat`/`RegisterCommandsEvent` fork）。
 - **forge `runServer` `Done`**：配置生成 355 行 `abyssalcraft-common.toml`（12 类忠实默认+注释）+ 9 advancement 零加载错 + 控制台 `/acunlockallknowledge` → 「A player is required to run this command here」（证命令注册+抵执行，非 Unknown command）。
-- **人工目视（未做）**：JEI 面板内分类/催化剂/跳转、带玩家跑命令解锁+客户端 GUI 反映、配置 GUI 改值——headless 不能开 JEI/带玩家/开菜单。CLIENT 配置（4 项）在 runClient 生成（未单独跑）。
+- **人工目视（未做7：**RR-JEI-AUTO（TP.5b/T8.1b）完成**：新增 6 分类（crystallizer/transmutator fuel、rending、creation/transformation ritual、精选 spell），共 10 分类。`JEIAuditGate` 永久审计（分类数量/UID/配方非空/manifest 一致性）。服务端权威数据，零 copy-drift。Infusion rituals（40 个）明确标记 DEFERRED_TOO_MANY。`integration/jei/**` 完整（除 `ACJEIPlugin.java` relay 待 Gate 集成）。
+- 2026-07-2）**：JEI 面板内分类/催化剂/跳转、带玩家跑命令解锁+客户端 GUI 反映、配置 GUI 改值——headless 不能开 JEI/带玩家/开菜单。CLIENT 配置（4 项）在 runClient 生成（未单独跑）。
 - **RR-ADV-API 自动/实网**：双端 `compileJava/runData` 输出 `RR_ADV_API_SELF_TEST_OK advancements=9 schemas=2 retainedImc=5 retiredImc=13 pluginLifecycle=ok commandToggle=ok`；Forge/Neo外部fixture mod均由ServiceLoader发现并命中五类真实消费端，Forge另有5个真实IMC消息；双端9进度专服加载无解析错。真实联网 `RRAdvClient` 覆盖无权限拒绝、OP两次toggle、9进度事件与书页即时同步、重复幂等和同名重连持久化。
 
 ## 修订日志

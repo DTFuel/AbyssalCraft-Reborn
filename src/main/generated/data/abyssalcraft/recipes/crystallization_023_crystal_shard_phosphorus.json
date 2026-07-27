@@ -1,0 +1,16 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "abyssalcraft:omothol_shoggoth_flesh"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_shard_phosphorus",
+    "count": 8
+  },
+  "secondary_result": {
+    "item": "abyssalcraft:crystal_fragment_carbon",
+    "count": 2
+  },
+  "experience": 0.2,
+  "time": 200
+}

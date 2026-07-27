@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp",
     { "id": "abyssalcraft:abyssal_wastelands", "required": false },
     { "id": "abyssalcraft:abyssal_swamp", "required": false },
     { "id": "abyssalcraft:omothol", "required": false },

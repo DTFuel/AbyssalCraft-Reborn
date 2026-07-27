@@ -1,5 +1,6 @@
 package com.shinoow.abyssalcraft.platform;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 //? if >=1.21 {
 /*import net.minecraft.core.component.DataComponents;
@@ -15,6 +16,14 @@ public final class ItemNameCompat {
         /*return stack.has(DataComponents.CUSTOM_NAME);
         *///?} else {
         return stack.hasCustomHoverName();
+        //?}
+    }
+
+    public static void setCustomName(ItemStack stack, Component name) {
+        //? if >=1.21 {
+        /*stack.set(DataComponents.CUSTOM_NAME, name);
+        *///?} else {
+        stack.setHoverName(name);
         //?}
     }
 }

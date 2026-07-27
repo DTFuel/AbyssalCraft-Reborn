@@ -8,10 +8,15 @@ import net.minecraft.data.DataProvider;
 /** Datagen entry point for permanent RR-CLIENT-FX invariants (sky / particle / sound resources). */
 public final class ClientFxValidationData implements DataProvider {
 
+    private final java.util.concurrent.CompletableFuture<net.minecraft.core.HolderLookup.Provider> lookup;
+
+    public ClientFxValidationData(com.shinoow.abyssalcraft.platform.DataGenCompat.Gen gen) {
+        lookup = gen.lookup;
+    }
+
     @Override
     public CompletableFuture<?> run(CachedOutput output) {
-        ClientFxSelfTest.run();
-        return CompletableFuture.completedFuture(null);
+        return lookup.thenAccept(ClientFxSelfTest::run);
     }
 
     @Override

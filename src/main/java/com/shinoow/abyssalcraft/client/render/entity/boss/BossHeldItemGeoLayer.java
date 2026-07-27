@@ -16,7 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import software.bernie.geckolib.cache.object.GeoBone;
 import software.bernie.geckolib.renderer.GeoRenderer;
 import software.bernie.geckolib.renderer.layer.BlockAndItemGeoLayer;
-//? if forge {
+//? if <1.21 {
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 //?} else {
 /*import software.bernie.geckolib.animatable.GeoAnimatable;

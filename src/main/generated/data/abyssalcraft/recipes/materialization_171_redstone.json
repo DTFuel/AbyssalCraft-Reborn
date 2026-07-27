@@ -1,0 +1,15 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_redstone"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "minecraft:redstone",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "c:storage_blocks/copper"
+  },
+  "result": {
+    "id": "abyssalcraft:copper_crystal_cluster",
+    "count": 1
+  },
+  "experience": 0.9,
+  "time": 200
+}

@@ -60,7 +60,81 @@
 - **forge `runClient`** 进世界后干净退出 BUILD SUCCESSFUL：Sound engine started 且**无** `sounds.json` 解析错；`particles.png-atlas` 建成且**无** `abyssal_fx` sprite 错；4 个 AC 维度加载且**无** DimensionSpecialEffects fallback 警告。
 - **人工目视（未做）**：AC 维度内实际雾色/天空观感、`/particle abyssalcraft:abyssal_fx` 生成观感、音效播放——headless 不能开窗/入维/截图。
 
+## 8. Energy Pedestal BER (RR-BER-R4-HOSTS)
+
+> Owner: Agent BER · Task: RR-BER-R4-HOSTS (Stage R4) · CR-TBD
+
+### 8.1 概述 / 目标
+
+忠实移植 1.12.2 `TileEntitySingletonInventoryBlockRenderer` 对 **energy pedestal** 的浮空物品渲染。这是 R3/R4 前唯一真实存在且确实需要特殊渲染的 energy 宿主。
+
+### 8.2 范围与审计结果
+
+**审计结论**：
+- **需要 BER**：**EnergyPedestalBlockEntity** — 单槽库存（存储能量物品），玩家右键放入/取出，物品浮空展示在基座上方并旋转。1.12.2 使用 `TileEntitySingletonInventoryBlockRenderer` 渲染。
+- **不需要 BER**（带证据）：
+  - **EnergyContainerBlockEntity** — 双槽库存（输入/输出能量物品），**有 GUI**（`MenuProvider`），玩家通过 `EnergyContainerMenu`/`EnergyContainerScreen` 交互，不需要浮空展示。
+  - **EnergyDepositionerBlockEntity** — 双槽库存（Stone Tablet 处理），**有 GUI**（`MenuProvider`），玩家通过 `EnergyDepositionerMenu`/`EnergyDepositionerScreen` 交互，不需要浮空展示。
+  - **其他 energy 宿主** — DeityStatueBlockEntity（无库存，充能区域效果）、EnergyCollectorBlockEntity（无库存，收集 PE）、EnergyRelayBlockEntity（无库存，传输 PE）、IdolOfFadingBlockEntity（无库存，区域效果）、PlaceOfPowerBaseBlockEntity（无库存，多方块结构基座）— 均无单槽展示库存，不需要 BER。
+
+**不属于本任务**：
+- Research Table / Ritual Pedestal / Rending Pedestal — 已在 R2/R3 完成（`ResearchTableRenderer`/`RitualPedestalRenderer`/`RendingPedestalRenderer`）。
+- 断头（severed heads）、Jzahar spawner、sealing lock、ODB — 属于后续内容，不在 R4 范围。
+
+### 8.3 实现
+
+**文件**：`client/render/block/EnergyPedestalRenderer.java`（新增）
+
+**设计**：
+- 继承 `BlockEntityRenderer<EnergyPedestalBlockEntity>`
+- 读取 `pedestal.getStoredItem()`（继承自 `InventoryBlockEntity.getStoredItem()`，等价于 1.12.2 `ISingletonInventory`）
+- 浮空高度：`BlockItem` 0.56F，其他物品 0.37F（忠实 `RitualPedestalRenderer` 高度）
+- 旋转：基于世界时间 `getLevel().getGameTime() + partialTick`（Y 轴连续旋转）
+- 渲染位置：中心 (0.5, 1.5, 0.5)，Z/X 翻转 180°，然后下移 height，最后 Y 旋转
+- 使用 `ItemRenderer.renderStatic`，`ItemDisplayContext.GROUND`，`OverlayTexture.NO_OVERLAY`
+
+**注册**：由 Gate Integrator 在 `ACBlockEntityRenderers.register` 添加一行：
+```java
+renderers.registerBlockEntity(EnergyBlocks.ENERGY_PEDESTAL_BE.get(), EnergyPedestalRenderer::new);
+```
+
+**跨版本 / 加载器要点**：
+- **完全 fork-free**：`BlockEntityRenderer`/`BlockEntityRendererProvider.Context`/`PoseStack`/`Axis`/`ItemRenderer`/`ItemDisplayContext`/`OverlayTexture` 在 1.20.1 与 1.21.1 同签名
+- 零平台分叉代码，无需修改 `platform/`
+
+### 8.4 验证 / DoD
+
+- **编译**：两节点 `compileJava` EXIT=0，`EnergyPedestalRenderer` 零告警
+- **静态检查**：
+  - `EnergyPedestalBlockEntity extends InventoryEnergyBlockEntity extends InventoryBlockEntity`（✓ 有 `getStoredItem()`）
+  - `EnergyBlocks.ENERGY_PEDESTAL_BE` 已注册（✓ R3 RR-ENERGY）
+  - 注册行由 Gate Integrator 添加到 `ACBlockEntityRenderers.java`（Gate 前置）
+- **运行期**（待 Gate）：两节点 `runClient` 加载 `EnergyPedestalRenderer` 零错，pedestal 放入能量物品后浮空旋转可见（人工目视）
+
+### 8.5 建议验证命令
+
+由 Gate Integrator 或后续验证执行：
+
+```mcfunction
+# Forge/NeoForge 各测试一次
+/give @s abyssalcraft:energy_pedestal
+/give @s abyssalcraft:cthulhu_charm  # 示例能量物品
+# 放置 pedestal，右键放入 charm，观察浮空旋转渲染
+```
+
+**预期结果**：
+- Pedestal 上方可见 charm 物品模型
+- 物品持续 Y 轴旋转
+- BlockItem（如放 crystal cluster）高度 0.56F，普通物品 0.37F
+- 移除物品后渲染消失
+
+**阻塞因素（无）**：
+- `EnergyPedestalBlockEntity` 已在 R3 完成（RR-ENERGY）✓
+- `InventoryBlockEntity.getStoredItem()` 已存在（PC-1 框架）✓
+- `ItemRenderer`/`PoseStack` 均为 vanilla fork-free API ✓
+
 ## 修订日志
 
+- **2026-07-27**：添加 §8 Energy Pedestal BER（RR-BER-R4-HOSTS，Agent BER）。审计证明只有 EnergyPedestalBlockEntity 需要 BER；EnergyContainer/Depositioner 有 GUI 不需要浮空渲染；其他 energy 宿主无展示库存。新增 `EnergyPedestalRenderer.java`（忠实 `RitualPedestalRenderer` 模式），注册行交 Gate Integrator。
 - 2026-07-24：记录 RR-RENDER-AUTO 双端 client load gate：Forge/Neo 均抵 Sound Engine + atlas，实体 renderer/model layer/BER/GeckoLib 零异常；游戏内视觉仍独立待验，详情见 entity subsystem §12.6。
 - 2026-07-22：初版（PH-2/PH-3/PH-4，Stage H1，CR-52）。雾色 + 音效 + 粒子框架双端交付；天空盒渲染与带数据粒子延后。

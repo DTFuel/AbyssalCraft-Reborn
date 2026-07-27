@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "forge:storage_blocks/tin"
+  },
+  "result": {
+    "item": "abyssalcraft:tin_crystal_cluster",
+    "count": 1
+  },
+  "experience": 0.9,
+  "time": 200
+}

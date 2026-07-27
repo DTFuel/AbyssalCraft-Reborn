@@ -4,6 +4,7 @@ import com.shinoow.abyssalcraft.system.cap.necrodata.NecroData;
 import com.shinoow.abyssalcraft.system.knowledge.condition.ConditionProcessorRegistry;
 import com.shinoow.abyssalcraft.system.knowledge.condition.IUnlockCondition;
 import com.shinoow.abyssalcraft.system.knowledge.condition.NecronomiconCondition;
+import com.shinoow.abyssalcraft.system.portal.DimensionDataRegistry;
 
 import net.minecraft.world.entity.player.Player;
 
@@ -31,6 +32,9 @@ public final class KnowledgeGate {
         if (cond.getType() == -2) {
             return false;
         }
+        if (!isBookAllowedInDimension(player, bookType)) {
+            return false;
+        }
         if (cond instanceof NecronomiconCondition bookCondition) {
             return bookType >= bookCondition.requiredBookType();
         }
@@ -50,6 +54,9 @@ public final class KnowledgeGate {
         if (research.getRequiredLevel() == -2) {
             return false;
         }
+        if (!isBookAllowedInDimension(player, bookType)) {
+            return false;
+        }
         if (research.getRequiredLevel() == -1
                 || data.hasUnlockedAllKnowledge()
                 || data.getCompletedResearches().contains(research.getID().toString())) {
@@ -65,5 +72,11 @@ public final class KnowledgeGate {
             data.completeResearch(research.getID().toString());
         }
         return unlocked;
+    }
+
+    private static boolean isBookAllowedInDimension(Player player, int bookType) {
+        if (bookType < 0) return true;
+        return DimensionDataRegistry.instance().requiredBookType(player.level().dimension()).stream()
+            .anyMatch(required -> bookType >= required);
     }
 }

@@ -1,0 +1,15 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_methane"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "item": "abyssalcraft:methane",
+    "count": 1
+  }
+}

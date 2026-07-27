@@ -14,6 +14,8 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
@@ -27,7 +29,7 @@ import com.shinoow.abyssalcraft.registry.ModSounds;
 // documented GeckoLib exception to the "//? only in platform/ + main class" rule; see docs/spec/geckolib-model-porting.md.
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.util.GeckoLibUtil;
-//? if forge {
+//? if <1.21 {
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 //?} else {
@@ -36,6 +38,7 @@ import software.bernie.geckolib.animation.AnimatableManager;
 *///?}
 
 import com.shinoow.abyssalcraft.config.ACConfig;
+import com.shinoow.abyssalcraft.config.ContentConfigMatrix;
 
 /**
  * Single class over the four boss-bar bosses (owned by PD-7, Stage D2b); the {@link BossKind} is baked
@@ -47,6 +50,7 @@ public class BossMob extends ACBossMob implements GeoEntity {
 
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
     private final BossKind kind;
+    private int dialogPhase;
 
     public BossMob(EntityType<? extends Monster> type, Level level, BossKind kind) {
         super(type, level, kind.color());
@@ -80,6 +84,17 @@ public class BossMob extends ACBossMob implements GeoEntity {
     }
 
     @Override
+    public void tick() {
+        super.tick();
+        if (level().isClientSide || !ContentConfigMatrix.showBossDialogs()) return;
+        int phase = getTarget() == null ? 0 : getHealth() <= getMaxHealth() * 0.5F ? 2 : 1;
+        if (phase > dialogPhase) {
+            dialogPhase = phase;
+            broadcastDialog(phase == 1 ? "engage" : "phase");
+        }
+    }
+
+    @Override
     protected void tickDeath() {
         int duration = getACDeathDuration();
         if (level().isClientSide) {
@@ -93,6 +108,7 @@ public class BossMob extends ACBossMob implements GeoEntity {
         setDeltaMovement(0.0D, 0.0D, 0.0D);
         tickACDeath(acDeathTime);
         if (acDeathTime >= duration && !isRemoved()) {
+            if (ContentConfigMatrix.showBossDialogs()) broadcastDialog("defeated");
             level().broadcastEntityEvent(this, (byte) 60);
             remove(Entity.RemovalReason.KILLED);
         }
@@ -104,6 +120,7 @@ public class BossMob extends ACBossMob implements GeoEntity {
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         if (getACDeathTime() > 0) tag.putInt("ACDeathTime", getACDeathTime());
+        tag.putInt("DialogPhase", dialogPhase);
     }
 
     @Override
@@ -112,6 +129,13 @@ public class BossMob extends ACBossMob implements GeoEntity {
         int acDeathTime = tag.getInt("ACDeathTime");
         setSyncedDeathTime(acDeathTime);
         if (acDeathTime > 0) deathTime = acDeathTime;
+        dialogPhase = Math.max(0, tag.getInt("DialogPhase"));
+    }
+
+    private void broadcastDialog(String phase) {
+        Component message = Component.translatable("message.abyssalcraft.boss." + phase, getDisplayName());
+        for (ServerPlayer player : level().getEntitiesOfClass(ServerPlayer.class,
+                getBoundingBox().inflate(64.0D))) player.sendSystemMessage(message);
     }
 
     @Override

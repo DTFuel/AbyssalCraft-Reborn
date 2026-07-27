@@ -1,0 +1,21 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_phosphorus"
+      },
+      "count": 1
+    },
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_dreadium"
+      },
+      "count": 1
+    }
+  ],
+  "result": {
+    "id": "abyssalcraft:dreaded_ghoul_flesh",
+    "count": 1
+  }
+}

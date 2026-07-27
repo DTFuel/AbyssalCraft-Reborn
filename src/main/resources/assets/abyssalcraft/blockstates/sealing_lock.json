@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "locked=true": { "model": "abyssalcraft:block/sealing_lock" },
+    "locked=false": { "model": "abyssalcraft:block/sealing_lock" }
+  }
+}

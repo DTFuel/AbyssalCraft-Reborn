@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:rotten_anti_flesh"
+  },
+  "result": {
+    "id": "minecraft:rotten_flesh",
+    "count": 2
+  },
+  "experience": 0.3,
+  "time": 200
+}

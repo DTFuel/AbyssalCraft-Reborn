@@ -19,7 +19,7 @@ import net.minecraft.world.entity.LivingEntity;
 import software.bernie.geckolib.cache.object.BakedGeoModel;
 import software.bernie.geckolib.renderer.GeoRenderer;
 import software.bernie.geckolib.renderer.layer.GeoRenderLayer;
-//? if forge {
+//? if <1.21 {
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 //?} else {
 /*import software.bernie.geckolib.animatable.GeoAnimatable;

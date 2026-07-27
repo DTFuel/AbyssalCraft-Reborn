@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "c:ores/gold"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_gold",
+    "count": 2
+  },
+  "experience": 0.1,
+  "time": 200
+}

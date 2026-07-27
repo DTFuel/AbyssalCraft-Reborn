@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.content.entity.anti;
 
 import com.shinoow.abyssalcraft.content.entity.base.ACMob;
+import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.registry.ModSounds;
 
 import net.minecraft.sounds.SoundEvent;
@@ -32,6 +33,7 @@ public class AntiPlayer extends ACMob implements AntiEntity {
 
     public AntiPlayer(EntityType<? extends Monster> type, Level level) {
         super(type, level);
+        setCanPickUpLoot(ACConfig.antiPlayersPickupLoot.get());
     }
 
     @Override

@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/orientable",
   "textures": {
-    "all": "minecraft:block/blast_furnace_top"
+    "front": "abyssalcraft:block/materializer_front",
+    "side": "abyssalcraft:block/materializer_side",
+    "top": "abyssalcraft:block/materializer_top"
   }
 }

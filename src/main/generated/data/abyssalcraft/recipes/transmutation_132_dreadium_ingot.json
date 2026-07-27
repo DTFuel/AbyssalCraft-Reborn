@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:dreadium_crystal_cluster"
+  },
+  "result": {
+    "item": "abyssalcraft:dreadium_ingot",
+    "count": 1
+  },
+  "experience": 0.2,
+  "time": 200
+}

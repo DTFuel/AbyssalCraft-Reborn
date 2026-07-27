@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.shinoow.abyssalcraft.config.ACConfig;
+import com.shinoow.abyssalcraft.config.ComplexConfig;
 import com.shinoow.abyssalcraft.platform.CapabilityAccess;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -73,6 +75,11 @@ public class SpiritItem extends ItemEntity {
     }
 
     private void deliver(BlockPos target) {
+        if (ComplexConfig.itemTransportBlacklist().contains(
+                BuiltInRegistries.ITEM.getKey(getItem().getItem()))) {
+            dropAndDiscard();
+            return;
+        }
         CapabilityAccess.ItemView inventory = CapabilityAccess.itemView(level(), target, facing);
         if (inventory == null) {
             dropAndDiscard();

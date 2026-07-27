@@ -1,0 +1,1931 @@
+{
+    "source":  223,
+    "migrated":  142,
+    "replaced":  77,
+    "retired":  4,
+    "blocked":  0,
+    "kinds":  {
+                  "crystallization":  109,
+                  "transmutation":  46,
+                  "materialization":  68
+              },
+    "output_resolver_count":  25,
+    "resolved_output_count":  25,
+    "multi_input":  48,
+    "dual_output":  48,
+    "executable_classification_keys":  219,
+    "source_resource":  "data/abyssalcraft/catalog/legacy_machine_calls.txt",
+    "output_resolutions":  [
+                               {
+                                   "tag":  "c:foods/raw_meat",
+                                   "item":  "minecraft:beef",
+                                   "reason":  "vanilla beef is the stable raw-meat representative"
+                               },
+                               {
+                                   "tag":  "c:ingots/aluminium",
+                                   "item":  "abyssalcraft:crystal_aluminium",
+                                   "reason":  "AC aluminium material preserves the legacy element"
+                               },
+                               {
+                                   "tag":  "c:nuggets/aluminium",
+                                   "item":  "abyssalcraft:crystal_shard_aluminium",
+                                   "reason":  "AC aluminium shard preserves the legacy nugget scale"
+                               },
+                               {
+                                   "tag":  "c:ingots/calcium",
+                                   "item":  "abyssalcraft:crystal_calcium",
+                                   "reason":  "AC calcium material preserves the legacy element"
+                               },
+                               {
+                                   "tag":  "c:nuggets/calcium",
+                                   "item":  "abyssalcraft:crystal_shard_calcium",
+                                   "reason":  "AC calcium shard preserves the legacy nugget scale"
+                               },
+                               {
+                                   "tag":  "c:ingots/magnesium",
+                                   "item":  "abyssalcraft:crystal_magnesium",
+                                   "reason":  "AC magnesium material preserves the legacy element"
+                               },
+                               {
+                                   "tag":  "c:nuggets/magnesium",
+                                   "item":  "abyssalcraft:crystal_shard_magnesium",
+                                   "reason":  "AC magnesium shard preserves the legacy nugget scale"
+                               },
+                               {
+                                   "tag":  "c:ingots/zinc",
+                                   "item":  "abyssalcraft:crystal_zinc",
+                                   "reason":  "AC zinc material preserves the legacy element"
+                               },
+                               {
+                                   "tag":  "c:nuggets/zinc",
+                                   "item":  "abyssalcraft:crystal_shard_zinc",
+                                   "reason":  "AC zinc shard preserves the legacy nugget scale"
+                               },
+                               {
+                                   "tag":  "c:ingots/copper",
+                                   "item":  "abyssalcraft:crystal_copper",
+                                   "reason":  "AC copper compatibility crystal preserves the legacy machine output element"
+                               },
+                               {
+                                   "tag":  "c:nuggets/copper",
+                                   "item":  "abyssalcraft:crystal_shard_copper",
+                                   "reason":  "AC copper compatibility shard preserves the legacy nugget-scale output"
+                               },
+                               {
+                                   "tag":  "c:nuggets/iron",
+                                   "item":  "minecraft:iron_nugget",
+                                   "reason":  "vanilla iron nugget is the exact modern material"
+                               },
+                               {
+                                   "tag":  "c:ingots/tin",
+                                   "item":  "abyssalcraft:crystal_tin",
+                                   "reason":  "AC tin compatibility crystal preserves the legacy machine output element"
+                               },
+                               {
+                                   "tag":  "c:nuggets/tin",
+                                   "item":  "abyssalcraft:crystal_shard_tin",
+                                   "reason":  "AC tin compatibility shard preserves the legacy nugget-scale output"
+                               },
+                               {
+                                   "tag":  "c:ores/coal",
+                                   "item":  "minecraft:coal_ore",
+                                   "reason":  "vanilla coal ore is the exact legacy ore representative"
+                               },
+                               {
+                                   "tag":  "c:ores/diamond",
+                                   "item":  "minecraft:diamond_ore",
+                                   "reason":  "vanilla diamond ore is the exact legacy ore representative"
+                               },
+                               {
+                                   "tag":  "c:ores/gold",
+                                   "item":  "minecraft:gold_ore",
+                                   "reason":  "vanilla gold ore is the exact legacy ore representative"
+                               },
+                               {
+                                   "tag":  "c:ores/iron",
+                                   "item":  "minecraft:iron_ore",
+                                   "reason":  "vanilla iron ore is the exact legacy ore representative"
+                               },
+                               {
+                                   "tag":  "c:ores/lapis",
+                                   "item":  "minecraft:lapis_ore",
+                                   "reason":  "vanilla lapis ore is the exact legacy ore representative"
+                               },
+                               {
+                                   "tag":  "c:ores/redstone",
+                                   "item":  "minecraft:redstone_ore",
+                                   "reason":  "vanilla redstone ore is the exact legacy ore representative"
+                               },
+                               {
+                                   "tag":  "minecraft:leaves",
+                                   "item":  "minecraft:oak_leaves",
+                                   "reason":  "oak leaves are the stable vanilla family representative"
+                               },
+                               {
+                                   "tag":  "minecraft:logs",
+                                   "item":  "minecraft:oak_log",
+                                   "reason":  "oak log is the stable vanilla family representative"
+                               },
+                               {
+                                   "tag":  "minecraft:planks",
+                                   "item":  "minecraft:oak_planks",
+                                   "reason":  "oak planks are the stable vanilla family representative"
+                               },
+                               {
+                                   "tag":  "minecraft:saplings",
+                                   "item":  "minecraft:oak_sapling",
+                                   "reason":  "oak sapling is the stable vanilla family representative"
+                               },
+                               {
+                                   "tag":  "minecraft:vines",
+                                   "item":  "minecraft:vine",
+                                   "reason":  "vanilla vine is the exact item represented by the tag"
+                               }
+                           ],
+    "entries":  [
+                    {
+                        "ordinal":  1,
+                        "source_line":  113,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_001",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Items.BLAZE_POWDER, new ItemStack(ACItems.crystal_shard_blaze, 4), 0.1F);"
+                    },
+                    {
+                        "ordinal":  2,
+                        "source_line":  114,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_002",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(Items.DYE, 1, 15), new ItemStack(ACItems.crystal_shard_phosphorus, 4), 0.0F);"
+                    },
+                    {
+                        "ordinal":  3,
+                        "source_line":  115,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_003",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(Items.WATER_BUCKET, new ItemStack(ACItems.crystal_hydrogen, 12), new ItemStack(ACItems.crystal_shard_oxygen, 6), 0.1F);"
+                    },
+                    {
+                        "ordinal":  4,
+                        "source_line":  116,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_004",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER), new ItemStack(ACItems.crystal_shard_hydrogen, 6), new ItemStack(ACItems.crystal_shard_oxygen, 3), 0.1F);"
+                    },
+                    {
+                        "ordinal":  5,
+                        "source_line":  117,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_005",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(ACItems.methane, new ItemStack(ACItems.crystal_shard_oxygen, 4), new ItemStack(ACItems.crystal_hydrogen, 16), 0.1F);"
+                    },
+                    {
+                        "ordinal":  6,
+                        "source_line":  118,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_006",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(Items.GUNPOWDER, new ItemStack(ACItems.crystal_shard_nitrate, 16), new ItemStack(ACItems.crystal_shard_sulfur, 4), 0.1F);"
+                    },
+                    {
+                        "ordinal":  7,
+                        "source_line":  119,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_007",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(Blocks.OBSIDIAN, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_magnesia, 4), 0.1F);"
+                    },
+                    {
+                        "ordinal":  8,
+                        "source_line":  120,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_008",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(Blocks.STONE, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_magnesia, 4), 0.1F);"
+                    },
+                    {
+                        "ordinal":  9,
+                        "source_line":  121,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_009",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_silicon), new ItemStack(ACItems.crystal_oxygen, 2), 0.1F);"
+                    },
+                    {
+                        "ordinal":  10,
+                        "source_line":  122,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_010",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_silica), new ItemStack(ACItems.crystal_shard_silicon), new ItemStack(ACItems.crystal_shard_oxygen, 2), 0.1F);"
+                    },
+                    {
+                        "ordinal":  11,
+                        "source_line":  123,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_011",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_alumina), new ItemStack(ACItems.crystal_aluminium, 2), new ItemStack(ACItems.crystal_oxygen, 3), 0.1F);"
+                    },
+                    {
+                        "ordinal":  12,
+                        "source_line":  124,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_012",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_alumina), new ItemStack(ACItems.crystal_shard_aluminium, 2), new ItemStack(ACItems.crystal_shard_oxygen, 3), 0.1F);"
+                    },
+                    {
+                        "ordinal":  13,
+                        "source_line":  125,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_013",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_magnesium), new ItemStack(ACItems.crystal_oxygen), 0.1F);"
+                    },
+                    {
+                        "ordinal":  14,
+                        "source_line":  126,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_014",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_magnesia), new ItemStack(ACItems.crystal_shard_magnesium), new ItemStack(ACItems.crystal_shard_oxygen), 0.1F);"
+                    },
+                    {
+                        "ordinal":  15,
+                        "source_line":  127,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_015",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_methane), new ItemStack(ACItems.crystal_carbon), new ItemStack(ACItems.crystal_hydrogen, 4), 0.1F);"
+                    },
+                    {
+                        "ordinal":  16,
+                        "source_line":  128,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_016",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_methane), new ItemStack(ACItems.crystal_shard_carbon), new ItemStack(ACItems.crystal_shard_hydrogen, 4), 0.1F);"
+                    },
+                    {
+                        "ordinal":  17,
+                        "source_line":  129,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_017",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_nitrate), new ItemStack(ACItems.crystal_nitrogen), new ItemStack(ACItems.crystal_oxygen, 3), 0.1F);"
+                    },
+                    {
+                        "ordinal":  18,
+                        "source_line":  130,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_018",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.crystal_shard_nitrate), new ItemStack(ACItems.crystal_shard_nitrogen), new ItemStack(ACItems.crystal_shard_oxygen, 3), 0.1F);"
+                    },
+                    {
+                        "ordinal":  19,
+                        "source_line":  131,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_019",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Items.ROTTEN_FLESH, new ItemStack(ACItems.crystal_shard_phosphorus, 8), 0.1F);"
+                    },
+                    {
+                        "ordinal":  20,
+                        "source_line":  132,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_020",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(ACItems.overworld_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), 0.2F);"
+                    },
+                    {
+                        "ordinal":  21,
+                        "source_line":  133,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_021",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(ACItems.abyssal_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_fragment_coralium, 2), 0.2F);"
+                    },
+                    {
+                        "ordinal":  22,
+                        "source_line":  134,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_022",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(ACItems.dreaded_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_fragment_dreadium, 2), 0.2F);"
+                    },
+                    {
+                        "ordinal":  23,
+                        "source_line":  135,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_023",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(ACItems.omothol_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_fragment_carbon, 2), 0.2F);"
+                    },
+                    {
+                        "ordinal":  24,
+                        "source_line":  136,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_024",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(ACItems.shadow_shoggoth_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.shadow_gem, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  25,
+                        "source_line":  137,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_025",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.coralium_plagued_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.crystal_shard_coralium), 0.2F);"
+                    },
+                    {
+                        "ordinal":  26,
+                        "source_line":  138,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_026",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.skin_of_the_abyssal_wasteland), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.abyssal_wasteland_essence), 0.2F);"
+                    },
+                    {
+                        "ordinal":  27,
+                        "source_line":  139,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_027",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.skin_of_the_dreadlands), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.dreadlands_essence), 0.2F);"
+                    },
+                    {
+                        "ordinal":  28,
+                        "source_line":  140,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_028",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.skin_of_omothol), new ItemStack(ACItems.crystal_shard_phosphorus, 8), new ItemStack(ACItems.omothol_essence), 0.2F);"
+                    },
+                    {
+                        "ordinal":  29,
+                        "source_line":  141,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_029",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(ACItems.dreaded_shard_of_abyssalnite, new ItemStack(ACItems.crystal_shard_abyssalnite), new ItemStack(ACItems.crystal_shard_dreadium, 4), 0.2F);"
+                    },
+                    {
+                        "ordinal":  30,
+                        "source_line":  142,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_030",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Items.BONE, new ItemStack(ACItems.crystal_shard_calcium, 4), 0.2F);"
+                    },
+                    {
+                        "ordinal":  31,
+                        "source_line":  143,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_031",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(Items.PRISMARINE_SHARD, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_beryl, 4), 0.1F);"
+                    },
+                    {
+                        "ordinal":  32,
+                        "source_line":  144,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_032",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(Items.PRISMARINE_CRYSTALS, new ItemStack(ACItems.crystal_shard_silica, 4), new ItemStack(ACItems.crystal_shard_beryl, 4), 0.1F);"
+                    },
+                    {
+                        "ordinal":  33,
+                        "source_line":  145,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_033",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(Blocks.PRISMARINE, 1, 0), new ItemStack(ACItems.crystal_shard_silica, 16), new ItemStack(ACItems.crystal_shard_beryl, 27), 0.1F);"
+                    },
+                    {
+                        "ordinal":  34,
+                        "source_line":  146,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_034",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(Blocks.PRISMARINE, 1, 1), new ItemStack(ACItems.crystal_silica, 4), new ItemStack(ACItems.crystal_beryl, 4), 0.1F);"
+                    },
+                    {
+                        "ordinal":  35,
+                        "source_line":  147,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_035",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(Blocks.PRISMARINE, 1, 2), new ItemStack(ACItems.crystal_shard_silica, 32), new ItemStack(ACItems.crystal_shard_beryl, 32), 0.1F);"
+                    },
+                    {
+                        "ordinal":  36,
+                        "source_line":  148,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_036",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(Items.EGG, new ItemStack(ACItems.crystal_shard_calcium, 4), new ItemStack(ACItems.crystal_shard_phosphorus, 4), 0.1F);"
+                    },
+                    {
+                        "ordinal":  37,
+                        "source_line":  149,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_037",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.ghoul_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 12), 0.2F);"
+                    },
+                    {
+                        "ordinal":  38,
+                        "source_line":  150,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_038",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.abyssal_ghoul_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.crystal_shard_coralium), 0.2F);"
+                    },
+                    {
+                        "ordinal":  39,
+                        "source_line":  151,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_039",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(ACItems.dreaded_ghoul_flesh), new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.crystal_shard_dreadium), 0.2F);"
+                    },
+                    {
+                        "ordinal":  40,
+                        "source_line":  152,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_040",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(ACItems.omothol_ghoul_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.crystal_fragment_carbon, 2), 0.2F);"
+                    },
+                    {
+                        "ordinal":  41,
+                        "source_line":  153,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_041",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(ACItems.shadow_ghoul_flesh, new ItemStack(ACItems.crystal_shard_phosphorus, 12), new ItemStack(ACItems.shadow_shard, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  42,
+                        "source_line":  155,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_042",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(ACItems.refined_coralium_ingot, new ItemStack(ACItems.crystal_coralium), 0.1F);"
+                    },
+                    {
+                        "ordinal":  43,
+                        "source_line":  156,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_043",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(ACItems.chunk_of_coralium, new ItemStack(ACItems.crystal_coralium), 0.1F);"
+                    },
+                    {
+                        "ordinal":  44,
+                        "source_line":  157,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_044",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(ACBlocks.liquified_coralium_ore, new ItemStack(ACItems.crystal_coralium), 0.1F);"
+                    },
+                    {
+                        "ordinal":  45,
+                        "source_line":  158,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_045",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(ACItems.abyssalnite_ingot, new ItemStack(ACItems.crystal_abyssalnite), 0.1F);"
+                    },
+                    {
+                        "ordinal":  46,
+                        "source_line":  159,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_046",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(ACItems.dreadium_ingot, new ItemStack(ACItems.crystal_dreadium), 0.1F);"
+                    },
+                    {
+                        "ordinal":  47,
+                        "source_line":  160,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_047",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Items.IRON_INGOT, new ItemStack(ACItems.crystal_iron), 0.1F);"
+                    },
+                    {
+                        "ordinal":  48,
+                        "source_line":  161,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_048",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Items.GOLD_INGOT, new ItemStack(ACItems.crystal_gold), 0.1F);"
+                    },
+                    {
+                        "ordinal":  49,
+                        "source_line":  162,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_049",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Items.REDSTONE, new ItemStack(ACItems.crystal_redstone), 0.1F);"
+                    },
+                    {
+                        "ordinal":  50,
+                        "source_line":  163,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_050",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(ACItems.charcoal, new ItemStack(ACItems.crystal_carbon), 0.1F);"
+                    },
+                    {
+                        "ordinal":  51,
+                        "source_line":  164,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_051",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(Items.COAL, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(ACItems.crystal_carbon), 0.1F);"
+                    },
+                    {
+                        "ordinal":  52,
+                        "source_line":  165,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_052",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"oreAbyssalnite\", \"crystalAbyssalnite\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  53,
+                        "source_line":  166,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_053",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"oreCoralium\", \"crystalCoralium\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  54,
+                        "source_line":  167,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_054",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"oreIron\", \"crystalIron\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  55,
+                        "source_line":  168,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_055",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"oreGold\", \"crystalGold\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  56,
+                        "source_line":  169,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_056",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"ingotTin\", \"crystalTin\", 1, 0.1F);"
+                    },
+                    {
+                        "ordinal":  57,
+                        "source_line":  170,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_057",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"oreTin\", \"crystalTin\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  58,
+                        "source_line":  171,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_058",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"ingotCopper\", \"crystalCopper\", 1, 0.1F);"
+                    },
+                    {
+                        "ordinal":  59,
+                        "source_line":  172,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_059",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"oreCopper\", \"crystalCopper\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  60,
+                        "source_line":  173,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_060",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"ingotAluminum\", \"crystalAluminium\", 1, 0.1F);"
+                    },
+                    {
+                        "ordinal":  61,
+                        "source_line":  174,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "RETIRED",
+                        "classification_key":  "",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"ingotAluminium\", \"crystalAluminium\", 1, 0.1F);"
+                    },
+                    {
+                        "ordinal":  62,
+                        "source_line":  175,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_062",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"oreAluminum\", \"crystalAluminium\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  63,
+                        "source_line":  176,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_063",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"blockCopper\", \"crystalClusterCopper\", 1, 0.9F);"
+                    },
+                    {
+                        "ordinal":  64,
+                        "source_line":  177,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_064",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"blockTin\", \"crystalClusterTin\", 1, 0.9F);"
+                    },
+                    {
+                        "ordinal":  65,
+                        "source_line":  178,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_065",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Blocks.GOLD_BLOCK, new ItemStack(ACBlocks.gold_crystal_cluster), 0.9F);"
+                    },
+                    {
+                        "ordinal":  66,
+                        "source_line":  179,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_066",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Blocks.IRON_BLOCK, new ItemStack(ACBlocks.iron_crystal_cluster), 0.9F);"
+                    },
+                    {
+                        "ordinal":  67,
+                        "source_line":  180,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_067",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACBlocks.block_of_abyssalnite), new ItemStack(ACBlocks.abyssalnite_crystal_cluster), 0.9F);"
+                    },
+                    {
+                        "ordinal":  68,
+                        "source_line":  181,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_068",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACBlocks.block_of_refined_coralium), new ItemStack(ACBlocks.coralium_crystal_cluster), 0.9F);"
+                    },
+                    {
+                        "ordinal":  69,
+                        "source_line":  182,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_069",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACBlocks.block_of_dreadium), new ItemStack(ACBlocks.dreadium_crystal_cluster), 0.9F);"
+                    },
+                    {
+                        "ordinal":  70,
+                        "source_line":  183,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_070",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Blocks.COAL_ORE, new ItemStack(ACItems.crystal_carbon, 2), 0.1F);"
+                    },
+                    {
+                        "ordinal":  71,
+                        "source_line":  184,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_071",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Blocks.COAL_BLOCK, new ItemStack(ACBlocks.carbon_crystal_cluster), 0.9F);"
+                    },
+                    {
+                        "ordinal":  72,
+                        "source_line":  185,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_072",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Blocks.REDSTONE_ORE, new ItemStack(ACItems.crystal_redstone, 2), 0.1F);"
+                    },
+                    {
+                        "ordinal":  73,
+                        "source_line":  186,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_073",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Blocks.REDSTONE_BLOCK, new ItemStack(ACBlocks.redstone_crystal_cluster), 0.9F);"
+                    },
+                    {
+                        "ordinal":  74,
+                        "source_line":  187,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_074",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"ingotZinc\", \"crystalZinc\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  75,
+                        "source_line":  188,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_075",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"oreZinc\", \"crystalZinc\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  76,
+                        "source_line":  189,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_076",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(ACBlocks.dreaded_abyssalnite_ore, new ItemStack(ACItems.crystal_abyssalnite, 2), new ItemStack(ACItems.crystal_dreadium, 2), 0.2F);"
+                    },
+                    {
+                        "ordinal":  77,
+                        "source_line":  190,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_077",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(\"dustSaltpeter\", \"crystalPotassium\", 1, \"crystalNitrate\", 1, 0.1F);"
+                    },
+                    {
+                        "ordinal":  78,
+                        "source_line":  191,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_078",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(\"oreSaltpeter\", \"crystalPotassium\", 2, \"crystalNitrate\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  79,
+                        "source_line":  192,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_079",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(\"ingotBronze\", \"crystalCopper\", 3, \"crystalTin\", 1, 0.4F);"
+                    },
+                    {
+                        "ordinal":  80,
+                        "source_line":  193,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_080",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(new ItemStack(Items.DYE, 1, 4), new ItemStack(ACItems.crystal_silica, 6), new ItemStack(ACItems.crystal_sulfur, 4), 0.15F);"
+                    },
+                    {
+                        "ordinal":  81,
+                        "source_line":  194,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_081",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(Blocks.LAPIS_ORE, new ItemStack(ACItems.crystal_silica, 21), new ItemStack(ACItems.crystal_potassium, 8), 0.15F);"
+                    },
+                    {
+                        "ordinal":  82,
+                        "source_line":  195,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_082",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(Blocks.LAPIS_BLOCK, new ItemStack(ACBlocks.silica_crystal_cluster, 6), new ItemStack(ACBlocks.sulfur_crystal_cluster, 4), 1.0F);"
+                    },
+                    {
+                        "ordinal":  83,
+                        "source_line":  196,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_083",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(\"ingotBrass\", \"crystalCopper\", 3, \"crystalZinc\", 2, 0.5F);"
+                    },
+                    {
+                        "ordinal":  84,
+                        "source_line":  197,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_084",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(\"oreBrass\", \"crystalCopper\", 6, \"crystalZinc\", 4, 0.5F);"
+                    },
+                    {
+                        "ordinal":  85,
+                        "source_line":  198,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_085",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(Items.GOLD_NUGGET, new ItemStack(ACItems.crystal_shard_gold), 0.1F);"
+                    },
+                    {
+                        "ordinal":  86,
+                        "source_line":  199,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_086",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.abyssalnite_ingot), new ItemStack(ACItems.crystal_shard_abyssalnite), 0.1F);"
+                    },
+                    {
+                        "ordinal":  87,
+                        "source_line":  200,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_087",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.refined_coralium_ingot), new ItemStack(ACItems.crystal_shard_coralium), 0.1F);"
+                    },
+                    {
+                        "ordinal":  88,
+                        "source_line":  201,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_088",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(new ItemStack(ACItems.dreadium_ingot), new ItemStack(ACItems.crystal_shard_dreadium), 0.1F);"
+                    },
+                    {
+                        "ordinal":  89,
+                        "source_line":  202,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_089",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"nuggetIron\", \"crystalShardIron\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  90,
+                        "source_line":  203,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_090",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"nuggetCopper\", \"crystalShardCopper\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  91,
+                        "source_line":  204,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_091",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"nuggetTin\", \"crystalShardTin\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  92,
+                        "source_line":  205,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "RETIRED",
+                        "classification_key":  "",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"nuggetAluminium\", \"crystalShardAluminium\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  93,
+                        "source_line":  206,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_093",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(\"nuggetBronze\", \"crystalShardCopper\", 3, \"crystalShardTin\", 1, 0.1F);"
+                    },
+                    {
+                        "ordinal":  94,
+                        "source_line":  207,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_094",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(\"nuggetBrass\", \"crystalShardCopper\", 3, \"crystalShardZinc\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  95,
+                        "source_line":  208,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "crystallization_095",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(ACItems.coralium_gem, new ItemStack(ACItems.crystal_shard_coralium), 0.1F);"
+                    },
+                    {
+                        "ordinal":  96,
+                        "source_line":  209,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_096",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"nuggetZinc\", \"crystalShardZinc\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  97,
+                        "source_line":  210,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_097",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"nuggetMagnesium\", \"crystalShardMagnesium\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  98,
+                        "source_line":  211,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_098",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"ingotMagnesium\", \"crystalMagnesium\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  99,
+                        "source_line":  212,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_099",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"nuggetCalcium\", \"crystalShardCalcium\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  100,
+                        "source_line":  213,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_100",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"ingotCalcium\", \"crystalCalcium\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  101,
+                        "source_line":  216,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_101",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"dustIron\", \"crystalIron\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  102,
+                        "source_line":  217,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_102",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"dustGold\", \"crystalGold\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  103,
+                        "source_line":  218,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_103",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"dustTin\", \"crystalTin\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  104,
+                        "source_line":  219,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_104",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"dustCopper\", \"crystalCopper\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  105,
+                        "source_line":  220,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_105",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"dustCoal\", \"crystalCarbon\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  106,
+                        "source_line":  221,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_106",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"dustAluminium\", \"crystalAluminium\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  107,
+                        "source_line":  222,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_107",
+                        "legacy_call":  "AbyssalCraftAPI.addSingleCrystallization(\"dustSulfur\", \"crystalSulfur\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  108,
+                        "source_line":  223,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_108",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(\"dustBronze\", \"crystalCopper\", 3, \"crystalTin\", 1, 0.1F);"
+                    },
+                    {
+                        "ordinal":  109,
+                        "source_line":  224,
+                        "kind":  "CRYSTALLIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "crystallization_109",
+                        "legacy_call":  "AbyssalCraftAPI.addCrystallization(\"dustBrass\", \"crystalCopper\", 3, \"crystalZinc\", 2, 0.1F);"
+                    },
+                    {
+                        "ordinal":  110,
+                        "source_line":  229,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_110",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.darkstone), new ItemStack(Blocks.STONE), 0.0F);"
+                    },
+                    {
+                        "ordinal":  111,
+                        "source_line":  230,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_111",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.dreaded_shard_of_abyssalnite, new ItemStack(ACItems.dreadium_ingot), 0.2F);"
+                    },
+                    {
+                        "ordinal":  112,
+                        "source_line":  231,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_112",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(Blocks.STONE, new ItemStack(ACBlocks.darkstone), 0.0F);"
+                    },
+                    {
+                        "ordinal":  113,
+                        "source_line":  232,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_113",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(Blocks.STONEBRICK, new ItemStack(ACBlocks.darkstone_brick), 0.0F);"
+                    },
+                    {
+                        "ordinal":  114,
+                        "source_line":  233,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_114",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.darkstone_brick), new ItemStack(Blocks.STONEBRICK), 0.0F);"
+                    },
+                    {
+                        "ordinal":  115,
+                        "source_line":  234,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_115",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(Blocks.COBBLESTONE, new ItemStack(ACBlocks.darkstone_cobblestone), 0.0F);"
+                    },
+                    {
+                        "ordinal":  116,
+                        "source_line":  235,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_116",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.darkstone_cobblestone), new ItemStack(Blocks.COBBLESTONE), 0.0F);"
+                    },
+                    {
+                        "ordinal":  117,
+                        "source_line":  236,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_117",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.coralium_stone_brick), new ItemStack(ACItems.coralium_brick, 4), 0.0F);"
+                    },
+                    {
+                        "ordinal":  118,
+                        "source_line":  237,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_118",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.coralium_brick, new ItemStack(ACBlocks.coralium_stone), 0.0F);"
+                    },
+                    {
+                        "ordinal":  119,
+                        "source_line":  238,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_119",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.dense_carbon_cluster, new ItemStack(Items.DIAMOND), 0.5F);"
+                    },
+                    {
+                        "ordinal":  120,
+                        "source_line":  239,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_120",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.dread_plagued_gateway_key, new ItemStack(ACItems.omothol_forged_gateway_key), 1.0F);"
+                    },
+                    {
+                        "ordinal":  121,
+                        "source_line":  241,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_121",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.ethaxium_brick), new ItemStack(ACBlocks.ethaxium), 0.0F);"
+                    },
+                    {
+                        "ordinal":  122,
+                        "source_line":  242,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_122",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.anti_beef, new ItemStack(Items.COOKED_BEEF), 0.3F);"
+                    },
+                    {
+                        "ordinal":  123,
+                        "source_line":  243,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_123",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.anti_pork, new ItemStack(Items.COOKED_PORKCHOP), 0.3F);"
+                    },
+                    {
+                        "ordinal":  124,
+                        "source_line":  244,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_124",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.anti_chicken, new ItemStack(Items.COOKED_CHICKEN), 0.3F);"
+                    },
+                    {
+                        "ordinal":  125,
+                        "source_line":  245,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_125",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.anti_bone, new ItemStack(Items.BONE, 2), 0.3F);"
+                    },
+                    {
+                        "ordinal":  126,
+                        "source_line":  246,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_126",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.rotten_anti_flesh, new ItemStack(Items.ROTTEN_FLESH, 2), 0.3F);"
+                    },
+                    {
+                        "ordinal":  127,
+                        "source_line":  247,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_127",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.anti_spider_eye, new ItemStack(Items.SPIDER_EYE, 2), 0.3F);"
+                    },
+                    {
+                        "ordinal":  128,
+                        "source_line":  248,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_128",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.anti_plagued_flesh, new ItemStack(ACItems.coralium_plagued_flesh, 2), 0.3F);"
+                    },
+                    {
+                        "ordinal":  129,
+                        "source_line":  249,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_129",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(ACItems.anti_ghoul_flesh, new ItemStack(ACItems.ghoul_flesh, 2), 0.3F);"
+                    },
+                    {
+                        "ordinal":  130,
+                        "source_line":  251,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_130",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.abyssalnite_crystal_cluster), new ItemStack(ACItems.abyssalnite_ingot, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  131,
+                        "source_line":  252,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_131",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.coralium_crystal_cluster), new ItemStack(ACItems.refined_coralium_ingot, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  132,
+                        "source_line":  253,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_132",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.dreadium_crystal_cluster), new ItemStack(ACItems.dreadium_ingot, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  133,
+                        "source_line":  254,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_133",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.iron_crystal_cluster), new ItemStack(Items.IRON_INGOT, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  134,
+                        "source_line":  255,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_134",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.gold_crystal_cluster), new ItemStack(Items.GOLD_INGOT, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  135,
+                        "source_line":  256,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_135",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.sulfur_crystal_cluster), new ItemStack(ACItems.sulfur, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  136,
+                        "source_line":  257,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_136",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.blaze_crystal_cluster), new ItemStack(Items.BLAZE_POWDER, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  137,
+                        "source_line":  258,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_137",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.redstone_crystal_cluster), new ItemStack(Items.REDSTONE, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  138,
+                        "source_line":  259,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_138",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACBlocks.methane_crystal_cluster), new ItemStack(ACItems.methane, 1), 0.2F);"
+                    },
+                    {
+                        "ordinal":  139,
+                        "source_line":  260,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_139",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalClusterAluminium\", \"ingotAluminum\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  140,
+                        "source_line":  261,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "RETIRED",
+                        "classification_key":  "",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalClusterAluminium\", \"ingotAluminium\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  141,
+                        "source_line":  262,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_141",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalClusterZinc\", \"ingotZinc\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  142,
+                        "source_line":  263,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_142",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_abyssalnite), new ItemStack(ACItems.abyssalnite_nugget), 0.1F);"
+                    },
+                    {
+                        "ordinal":  143,
+                        "source_line":  264,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_143",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_coralium), new ItemStack(ACItems.refined_coralium_nugget), 0.1F);"
+                    },
+                    {
+                        "ordinal":  144,
+                        "source_line":  265,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_144",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_dreadium), new ItemStack(ACItems.dreadium_nugget), 0.1F);"
+                    },
+                    {
+                        "ordinal":  145,
+                        "source_line":  266,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_145",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalAluminium\", \"nuggetAluminum\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  146,
+                        "source_line":  267,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "RETIRED",
+                        "classification_key":  "",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalAluminium\", \"nuggetAluminium\", 0.1F);"
+                    },
+                    {
+                        "ordinal":  147,
+                        "source_line":  268,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_147",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalIron\", \"nuggetIron\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  148,
+                        "source_line":  269,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "transmutation_148",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(new ItemStack(ACItems.crystal_gold), new ItemStack(Items.GOLD_NUGGET), 0.2F);"
+                    },
+                    {
+                        "ordinal":  149,
+                        "source_line":  270,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_149",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalCopper\", \"nuggetCopper\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  150,
+                        "source_line":  271,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_150",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalTin\", \"nuggetTin\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  151,
+                        "source_line":  272,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_151",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalZinc\", \"nuggetZinc\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  152,
+                        "source_line":  273,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_152",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalMagnesium\", \"nuggetMagnesium\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  153,
+                        "source_line":  274,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_153",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalClusterMagnesium\", \"ingotMagnesium\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  154,
+                        "source_line":  275,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_154",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalCalcium\", \"nuggetCalcium\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  155,
+                        "source_line":  276,
+                        "kind":  "TRANSMUTATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "transmutation_155",
+                        "legacy_call":  "AbyssalCraftAPI.addTransmutation(\"crystalClusterCalcium\", \"ingotCalcium\", 0.2F);"
+                    },
+                    {
+                        "ordinal":  156,
+                        "source_line":  280,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_156",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BONE), new ItemStack(ACItems.crystal_calcium));"
+                    },
+                    {
+                        "ordinal":  157,
+                        "source_line":  281,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_157",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.ROTTEN_FLESH), new ItemStack(ACItems.crystal_phosphorus));"
+                    },
+                    {
+                        "ordinal":  158,
+                        "source_line":  282,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_158",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.coralium_plagued_flesh), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_coralium));"
+                    },
+                    {
+                        "ordinal":  159,
+                        "source_line":  283,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_159",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.COAL, 1, 0), new ItemStack(ACItems.crystal_carbon));"
+                    },
+                    {
+                        "ordinal":  160,
+                        "source_line":  284,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_160",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.COAL, 1, 1), new ItemStack(ACItems.crystal_carbon));"
+                    },
+                    {
+                        "ordinal":  161,
+                        "source_line":  285,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_161",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.IRON_INGOT), new ItemStack(ACItems.crystal_iron));"
+                    },
+                    {
+                        "ordinal":  162,
+                        "source_line":  286,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_162",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.GOLD_INGOT), new ItemStack(ACItems.crystal_gold));"
+                    },
+                    {
+                        "ordinal":  163,
+                        "source_line":  287,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_163",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BLAZE_POWDER), new ItemStack(ACItems.crystal_blaze));"
+                    },
+                    {
+                        "ordinal":  164,
+                        "source_line":  288,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_164",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BLAZE_ROD), new ItemStack(ACItems.crystal_blaze, 2));"
+                    },
+                    {
+                        "ordinal":  165,
+                        "source_line":  289,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_165",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.abyssalnite_ingot), new ItemStack(ACItems.crystal_abyssalnite));"
+                    },
+                    {
+                        "ordinal":  166,
+                        "source_line":  290,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_166",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.refined_coralium_ingot), new ItemStack(ACItems.crystal_coralium));"
+                    },
+                    {
+                        "ordinal":  167,
+                        "source_line":  291,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_167",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.dreadium_ingot), new ItemStack(ACItems.crystal_dreadium));"
+                    },
+                    {
+                        "ordinal":  168,
+                        "source_line":  292,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_168",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.methane), new ItemStack(ACItems.crystal_methane));"
+                    },
+                    {
+                        "ordinal":  169,
+                        "source_line":  293,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_169",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.nitre), new ItemStack(ACItems.crystal_potassium), new ItemStack(ACItems.crystal_nitrate));"
+                    },
+                    {
+                        "ordinal":  170,
+                        "source_line":  294,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_170",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.sulfur), new ItemStack(ACItems.crystal_sulfur));"
+                    },
+                    {
+                        "ordinal":  171,
+                        "source_line":  295,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_171",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.REDSTONE), new ItemStack(ACItems.crystal_redstone));"
+                    },
+                    {
+                        "ordinal":  172,
+                        "source_line":  296,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_172",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.dread_fragment), new ItemStack(ACItems.crystal_phosphorus, 2), new ItemStack(ACItems.crystal_dreadium));"
+                    },
+                    {
+                        "ordinal":  173,
+                        "source_line":  297,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_173",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));"
+                    },
+                    {
+                        "ordinal":  174,
+                        "source_line":  298,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_174",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"oreGold\", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_gold));"
+                    },
+                    {
+                        "ordinal":  175,
+                        "source_line":  299,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_175",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"oreIron\", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_iron));"
+                    },
+                    {
+                        "ordinal":  176,
+                        "source_line":  300,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_176",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"oreCoal\", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_carbon));"
+                    },
+                    {
+                        "ordinal":  177,
+                        "source_line":  301,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_177",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"oreRedstone\", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_redstone));"
+                    },
+                    {
+                        "ordinal":  178,
+                        "source_line":  302,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_178",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.coralium_ore), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_coralium));"
+                    },
+                    {
+                        "ordinal":  179,
+                        "source_line":  303,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_179",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.abyssalnite_ore), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_abyssalnite));"
+                    },
+                    {
+                        "ordinal":  180,
+                        "source_line":  304,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_180",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.coralium_infused_stone), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_coralium, 2));"
+                    },
+                    {
+                        "ordinal":  181,
+                        "source_line":  305,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_181",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACBlocks.nitre_ore), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_potassium), new ItemStack(ACItems.crystal_nitrate));"
+                    },
+                    {
+                        "ordinal":  182,
+                        "source_line":  306,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_182",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.SPONGE), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_carbon));"
+                    },
+                    {
+                        "ordinal":  183,
+                        "source_line":  307,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_183",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.ELYTRA), new ItemStack(ACItems.crystal_carbon, 8), new ItemStack(ACItems.crystal_hydrogen, 13), new ItemStack(ACItems.crystal_oxygen, 5), new ItemStack(ACItems.crystal_nitrogen));"
+                    },
+                    {
+                        "ordinal":  184,
+                        "source_line":  308,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_184",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.PRISMARINE_SHARD), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_beryl));"
+                    },
+                    {
+                        "ordinal":  185,
+                        "source_line":  309,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_185",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.PRISMARINE_CRYSTALS), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_beryl));"
+                    },
+                    {
+                        "ordinal":  186,
+                        "source_line":  310,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_186",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.PRISMARINE, 1, 0), new ItemStack(ACItems.crystal_silica, 4), new ItemStack(ACItems.crystal_beryl, 4));"
+                    },
+                    {
+                        "ordinal":  187,
+                        "source_line":  311,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_187",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.PRISMARINE, 1, 1), new ItemStack(ACItems.crystal_silica, 9), new ItemStack(ACItems.crystal_beryl, 9));"
+                    },
+                    {
+                        "ordinal":  188,
+                        "source_line":  312,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_188",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.PRISMARINE, 1, 2), new ItemStack(ACItems.crystal_silica, 8), new ItemStack(ACItems.crystal_beryl, 8), new ItemStack(ACItems.crystal_carbon));"
+                    },
+                    {
+                        "ordinal":  189,
+                        "source_line":  313,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_189",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.SEA_LANTERN), new ItemStack(ACItems.crystal_silica, 9), new ItemStack(ACItems.crystal_beryl, 9));"
+                    },
+                    {
+                        "ordinal":  190,
+                        "source_line":  314,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_190",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.EGG), new ItemStack(ACItems.crystal_calcium), new ItemStack(ACItems.crystal_phosphorus));"
+                    },
+                    {
+                        "ordinal":  191,
+                        "source_line":  315,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_191",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.charcoal), new ItemStack(ACItems.crystal_carbon), new ItemStack(ACItems.crystal_dreadium));"
+                    },
+                    {
+                        "ordinal":  192,
+                        "source_line":  316,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_192",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.COAL_BLOCK), new ItemStack(ACItems.crystal_carbon, 9));"
+                    },
+                    {
+                        "ordinal":  193,
+                        "source_line":  317,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_193",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.REDSTONE_BLOCK), new ItemStack(ACItems.crystal_redstone, 9));"
+                    },
+                    {
+                        "ordinal":  194,
+                        "source_line":  318,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_194",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.DIAMOND), new ItemStack(ACItems.crystal_carbon, 64));"
+                    },
+                    {
+                        "ordinal":  195,
+                        "source_line":  319,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_195",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"oreDiamond\", new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia), new ItemStack(ACItems.crystal_carbon, 64));"
+                    },
+                    {
+                        "ordinal":  196,
+                        "source_line":  320,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_196",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 1), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));"
+                    },
+                    {
+                        "ordinal":  197,
+                        "source_line":  321,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_197",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 2), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));"
+                    },
+                    {
+                        "ordinal":  198,
+                        "source_line":  322,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_198",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 3), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));"
+                    },
+                    {
+                        "ordinal":  199,
+                        "source_line":  323,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_199",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 4), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));"
+                    },
+                    {
+                        "ordinal":  200,
+                        "source_line":  324,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_200",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 5), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));"
+                    },
+                    {
+                        "ordinal":  201,
+                        "source_line":  325,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_201",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.STONE, 1, 6), new ItemStack(ACItems.crystal_silica), new ItemStack(ACItems.crystal_magnesia));"
+                    },
+                    {
+                        "ordinal":  202,
+                        "source_line":  326,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_202",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.LEATHER), new ItemStack(ACItems.crystal_phosphorus));"
+                    },
+                    {
+                        "ordinal":  203,
+                        "source_line":  327,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_203",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.RABBIT_HIDE), new ItemStack(ACItems.crystal_phosphorus));"
+                    },
+                    {
+                        "ordinal":  204,
+                        "source_line":  328,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_204",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.RABBIT_FOOT), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_calcium));"
+                    },
+                    {
+                        "ordinal":  205,
+                        "source_line":  329,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_205",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"logWood\", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));"
+                    },
+                    {
+                        "ordinal":  206,
+                        "source_line":  330,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_206",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"plankWood\", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));"
+                    },
+                    {
+                        "ordinal":  207,
+                        "source_line":  331,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_207",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"treeSapling\", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));"
+                    },
+                    {
+                        "ordinal":  208,
+                        "source_line":  332,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_208",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"treeLeaves\", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));"
+                    },
+                    {
+                        "ordinal":  209,
+                        "source_line":  333,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_209",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"vine\", new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));"
+                    },
+                    {
+                        "ordinal":  210,
+                        "source_line":  334,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_210",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.DEADBUSH), new ItemStack(ACItems.crystal_carbon, 6), new ItemStack(ACItems.crystal_hydrogen, 10), new ItemStack(ACItems.crystal_oxygen, 5));"
+                    },
+                    {
+                        "ordinal":  211,
+                        "source_line":  335,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_211",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.DYE, 1, 4), new ItemStack(ACItems.crystal_silica, 6), new ItemStack(ACItems.crystal_sulfur, 4));"
+                    },
+                    {
+                        "ordinal":  212,
+                        "source_line":  336,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_212",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"oreLapis\", new ItemStack(ACItems.crystal_silica, 7), new ItemStack(ACItems.crystal_sulfur, 4), new ItemStack(ACItems.crystal_magnesia));"
+                    },
+                    {
+                        "ordinal":  213,
+                        "source_line":  337,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_213",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Blocks.LAPIS_BLOCK), new ItemStack(ACItems.crystal_silica, 54), new ItemStack(ACItems.crystal_sulfur, 36));"
+                    },
+                    {
+                        "ordinal":  214,
+                        "source_line":  339,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "REPLACED",
+                        "classification_key":  "materialization_214",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(\"listAllmeatraw\", new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));"
+                    },
+                    {
+                        "ordinal":  215,
+                        "source_line":  341,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_215",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.BEEF), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));"
+                    },
+                    {
+                        "ordinal":  216,
+                        "source_line":  342,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_216",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.CHICKEN), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));"
+                    },
+                    {
+                        "ordinal":  217,
+                        "source_line":  343,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_217",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.PORKCHOP), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));"
+                    },
+                    {
+                        "ordinal":  218,
+                        "source_line":  344,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_218",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.MUTTON), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));"
+                    },
+                    {
+                        "ordinal":  219,
+                        "source_line":  345,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_219",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(Items.RABBIT), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));"
+                    },
+                    {
+                        "ordinal":  220,
+                        "source_line":  346,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_220",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.generic_meat), new ItemStack(ACItems.crystal_hydrogen, 14), new ItemStack(ACItems.crystal_carbon, 5), new ItemStack(ACItems.crystal_oxygen, 6), new ItemStack(ACItems.crystal_nitrogen));"
+                    },
+                    {
+                        "ordinal":  221,
+                        "source_line":  348,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_221",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.ghoul_flesh), new ItemStack(ACItems.crystal_phosphorus));"
+                    },
+                    {
+                        "ordinal":  222,
+                        "source_line":  349,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_222",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.abyssal_ghoul_flesh), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_coralium));"
+                    },
+                    {
+                        "ordinal":  223,
+                        "source_line":  350,
+                        "kind":  "MATERIALIZATION",
+                        "status":  "MIGRATED",
+                        "classification_key":  "materialization_223",
+                        "legacy_call":  "AbyssalCraftAPI.addMaterialization(new ItemStack(ACItems.dreaded_ghoul_flesh), new ItemStack(ACItems.crystal_phosphorus), new ItemStack(ACItems.crystal_dreadium));"
+                    }
+                ]
+}

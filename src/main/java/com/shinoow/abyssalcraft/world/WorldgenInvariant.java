@@ -14,6 +14,7 @@ public final class WorldgenInvariant {
     private WorldgenInvariant() {}
 
     public static void validate() {
+        WorldgenResourceAudit.validate();
         long sequential = sampleHash();
         CompletableFuture<Long> first = CompletableFuture.supplyAsync(WorldgenInvariant::sampleHash);
         CompletableFuture<Long> second = CompletableFuture.supplyAsync(WorldgenInvariant::sampleHash);

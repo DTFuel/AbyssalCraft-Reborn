@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.platform;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -39,13 +40,21 @@ public final class BiomeMutationCompat {
     /** Rewrite selected world quart columns throughout a chunk, retaining every unselected biome. */
     public static boolean rewriteQuartColumns(ServerLevel level, LevelChunk chunk,
                                               Set<Long> columns, ResourceKey<Biome> target) {
+        return rewriteQuartColumns(level, chunk, columns, current -> true, target);
+    }
+
+    public static boolean rewriteQuartColumns(ServerLevel level, LevelChunk chunk,
+                                              Set<Long> columns, Predicate<ResourceKey<Biome>> canReplace,
+                                              ResourceKey<Biome> target) {
         if (columns.isEmpty()) return false;
         Registry<Biome> registry = level.registryAccess().registryOrThrow(Registries.BIOME);
         Holder<Biome> replacement = registry.getHolderOrThrow(target);
         boolean[] changed = {false};
         chunk.fillBiomesFromNoise((quartX, quartY, quartZ, sampler) -> {
             Holder<Biome> current = chunk.getNoiseBiome(quartX, quartY, quartZ);
-            if (!columns.contains(quartColumn(quartX, quartZ)) || current.is(target)) return current;
+                ResourceKey<Biome> currentKey = current.unwrapKey().orElse(null);
+                if (!columns.contains(quartColumn(quartX, quartZ)) || current.is(target)
+                    || currentKey == null || !canReplace.test(currentKey)) return current;
             changed[0] = true;
             return replacement;
         }, level.getChunkSource().randomState().sampler());

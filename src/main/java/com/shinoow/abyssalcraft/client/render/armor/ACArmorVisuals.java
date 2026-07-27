@@ -17,31 +17,13 @@ public final class ACArmorVisuals {
 
     private ACArmorVisuals() {}
 
-    public static
-    //? if forge {
-    net.minecraftforge.client.extensions.common.IClientItemExtensions
-    //?} else {
-    /*net.neoforged.neoforge.client.extensions.common.IClientItemExtensions
-    *///?}
-    samuraiExtension() {
-        return new
-        //? if forge {
-        net.minecraftforge.client.extensions.common.IClientItemExtensions
-        //?} else {
-        /*net.neoforged.neoforge.client.extensions.common.IClientItemExtensions
-        *///?}
-        () {
-            @Override
-            public HumanoidModel<?> getHumanoidArmorModel(LivingEntity entity, ItemStack stack,
-                                                           EquipmentSlot slot, HumanoidModel<?> defaultModel) {
-                HumanoidModel<LivingEntity> model = slot == EquipmentSlot.LEGS ? inner() : outer();
-                @SuppressWarnings("unchecked")
-                HumanoidModel<LivingEntity> source = (HumanoidModel<LivingEntity>) defaultModel;
-                source.copyPropertiesTo(model);
-                setVisible(model, slot);
-                return model;
-            }
-        };
+    public static HumanoidModel<?> samuraiModel(EquipmentSlot slot, HumanoidModel<?> defaultModel) {
+        HumanoidModel<LivingEntity> model = slot == EquipmentSlot.LEGS ? inner() : outer();
+        @SuppressWarnings("unchecked")
+        HumanoidModel<LivingEntity> source = (HumanoidModel<LivingEntity>) defaultModel;
+        source.copyPropertiesTo(model);
+        setVisible(model, slot);
+        return model;
     }
 
     private static HumanoidModel<LivingEntity> inner() {

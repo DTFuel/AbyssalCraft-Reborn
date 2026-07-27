@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "c:nuggets/zinc"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_shard_zinc",
+    "count": 1
+  },
+  "experience": 0.1,
+  "time": 200
+}

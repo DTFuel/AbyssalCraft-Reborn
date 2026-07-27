@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.client.necronomicon;
 import com.shinoow.abyssalcraft.system.knowledge.IResearchItem;
 import com.shinoow.abyssalcraft.system.advancement.AdvancementKnowledge;
 import com.shinoow.abyssalcraft.system.knowledge.KnowledgeContent;
+import com.shinoow.abyssalcraft.system.knowledge.NecronomiconPageManifest;
 import com.shinoow.abyssalcraft.system.knowledge.condition.IUnlockCondition;
 import com.shinoow.abyssalcraft.system.knowledge.condition.KnowledgePredicate;
 
@@ -25,7 +26,7 @@ public final class ACNecronomicon {
     private static final String K = "gui.abyssalcraft.necronomicon.";
 
     /** The Necronomicon content tree (always-visible information chapters). */
-    public static NecronomiconEntry root(int bookType) {
+    public static NecronomiconEntry root(int bookType, net.minecraft.core.HolderLookup.Provider registries) {
         NecronomiconEntry root = new NecronomiconEntry("root", K + "title", null, new ItemStack(Items.BOOK));
 
         // Introduction (always visible).
@@ -76,6 +77,25 @@ public final class ACNecronomicon {
         research.addChild(progression);
         root.addChild(research);
 
+        NecronomiconPageManifest.bootstrap(registries);
+        NecronomiconEntry catalog = new NecronomiconEntry("catalog", K + "catalog.title");
+        for (NecronomiconPageManifest.PageType type : NecronomiconPageManifest.PageType.values()) {
+            NecronomiconEntry category = new NecronomiconEntry("catalog_" + type.name().toLowerCase(java.util.Locale.ROOT),
+                K + "catalog." + type.name().toLowerCase(java.util.Locale.ROOT));
+            for (NecronomiconPageManifest.PageEntry page : NecronomiconPageManifest.pagesByType(type)) {
+                if (!NecronomiconPageManifest.isAvailableForBook(page, bookType)) continue;
+                NecronomiconEntry entry = new NecronomiconEntry(
+                    page.id().getPath(), page.titleKey(), page.textKey(), page.icon()).setContent(page.content())
+                    .setImage(page.image())
+                    .setPageAction(page.id())
+                    .setRequiredBookType(page.requiredBookType());
+                if (page.researchId() != null) entry.setResearch(page.researchId());
+                category.addChild(entry);
+            }
+            if (!category.children().isEmpty()) catalog.addChild(category);
+        }
+        root.addChild(catalog);
+
         return root;
     }
 
@@ -125,6 +145,7 @@ public final class ACNecronomicon {
 
     /** Open the Necronomicon for the client player (invoked by the book item on right-click). */
     public static void open(int bookType) {
-        NecronomiconScreen.open(root(bookType), bookType);
+        var level = net.minecraft.client.Minecraft.getInstance().level;
+        if (level != null) NecronomiconScreen.open(root(bookType, level.registryAccess()), bookType);
     }
 }

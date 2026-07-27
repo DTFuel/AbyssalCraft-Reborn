@@ -14,10 +14,8 @@ import net.minecraft.world.item.enchantment.Enchantment;
  * <p>The enchantment <em>definitions</em> are loader-forked (1.20.1 registers {@code Enchantment}
  * instances via {@code platform/EnchantmentCompat}; 1.21 loads them as datapack JSON under
  * {@code data/abyssalcraft/enchantment/}), but the {@link ResourceKey} identity is version-stable, so
- * business + effect code references an enchantment through these keys on both loaders. The enchantment
- * <em>effects</em> (iron-wall knockback lock, light-pierce bonus vs shadow, blinding light) land with
- * the event-handler subsystem (PS-11); {@code multi_rend}/{@code sapping} drive the not-yet-ported Staff
- * of Rending.
+ * business + effect code references an enchantment through these keys on both loaders. Production
+ * consumers live in {@link EnchantmentEffects} and the Staff of Rending network path.
  */
 public final class ACEnchantments {
 

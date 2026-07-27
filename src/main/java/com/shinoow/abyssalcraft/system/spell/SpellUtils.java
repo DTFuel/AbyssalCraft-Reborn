@@ -40,7 +40,8 @@ public final class SpellUtils {
     * spell was cast.
      */
     public static boolean castOnTarget(Level level, Player player, EntityTargetSpell spell, ItemStack energyItem) {
-        if (level.isClientSide || !(energyItem.getItem() instanceof IEnergyContainerItem energy)) {
+        if (level.isClientSide || !SpellAvailability.isEnabled(spell)
+            || !(energyItem.getItem() instanceof IEnergyContainerItem energy)) {
             return false;
         }
         if (energy.getContainedEnergy(energyItem) < spell.requiredEnergy()) {
@@ -59,7 +60,7 @@ public final class SpellUtils {
     public static boolean castManifest(Level level, Player player, ManifestSpell spell, ItemStack source,
                                        ScrollType quality, LivingEntity requestedTarget) {
         if (!(level instanceof ServerLevel server) || !(player instanceof ServerPlayer caster)
-            || spell == null || quality == ScrollType.NONE
+            || spell == null || !SpellAvailability.isEnabled(spell) || quality == ScrollType.NONE
             || quality.quality() < spell.scrollType().quality()) {
             return false;
         }

@@ -40,12 +40,6 @@ import net.minecraft.world.item.trading.MerchantOffers;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 
-//? if forge {
-import net.minecraftforge.common.IForgeShearable;
-//?} else {
-/*import net.neoforged.neoforge.common.IShearable;
-*///?}
-
 import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothBlocks;
 import com.shinoow.abyssalcraft.content.entity.ai.WorshipGoal;
 import com.shinoow.abyssalcraft.content.item.book.BookItems;
@@ -53,16 +47,11 @@ import com.shinoow.abyssalcraft.content.item.misc.MiscItems;
 import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.platform.ArmorDurabilityCompat;
 import com.shinoow.abyssalcraft.platform.MerchantOfferCompat;
+import com.shinoow.abyssalcraft.platform.ShearableCompat;
 import com.shinoow.abyssalcraft.registry.ModSounds;
 
 /** Seven-profession Remnant merchant with persistent offers, anger and one-time shearing. */
-public class RemnantMob extends EliteMob implements Merchant,
-//? if forge {
-    IForgeShearable
-//?} else {
-    /*IShearable
-    *///?}
-{
+public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
 
     private static final EntityDataAccessor<Integer> PROFESSION =
         SynchedEntityData.defineId(RemnantMob.class, EntityDataSerializers.INT);
@@ -293,27 +282,15 @@ public class RemnantMob extends EliteMob implements Merchant,
         return false;
     }
 
-    //? if forge {
     @Override
-    public boolean isShearable(ItemStack stack, Level level, BlockPos pos) {
+    public boolean acIsShearable(Player player, ItemStack stack, Level level, BlockPos pos) {
         return isAlive() && !sheared;
     }
 
     @Override
-    public List<ItemStack> onSheared(Player player, ItemStack stack, Level level, BlockPos pos, int fortune) {
+    public List<ItemStack> acOnSheared(Player player, ItemStack stack, Level level, BlockPos pos) {
         return shear(player, stack);
     }
-    //?} else {
-    /*@Override
-    public boolean isShearable(Player player, ItemStack stack, Level level, BlockPos pos) {
-        return isAlive() && !sheared;
-    }
-
-    @Override
-    public List<ItemStack> onSheared(Player player, ItemStack stack, Level level, BlockPos pos) {
-        return shear(player, stack);
-    }
-    *///?}
 
     private List<ItemStack> shear(Player player, ItemStack shears) {
         int count = 1 + getRandom().nextInt(3);

@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:calcium_crystal_cluster"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_calcium",
+    "count": 1
+  },
+  "experience": 0.2,
+  "time": 200
+}

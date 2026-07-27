@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "abyssalcraft:block/crystallizer_front_active",
+    "side": "abyssalcraft:block/crystallizer_side",
+    "top": "abyssalcraft:block/crystallizer_top"
+  }
+}

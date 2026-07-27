@@ -7,7 +7,7 @@ import com.shinoow.abyssalcraft.platform.SideExecutor;
 import com.shinoow.abyssalcraft.platform.TooltipCompat;
 import com.shinoow.abyssalcraft.system.energy.IEnergyTransporterItem;
 import com.shinoow.abyssalcraft.system.energy.EnergyItemInteractions;
-import com.shinoow.abyssalcraft.system.energy.structure.StructureHandler;
+import com.shinoow.abyssalcraft.system.knowledge.NecronomiconActions;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -62,7 +62,6 @@ public class NecronomiconItem extends TooltipCompat implements IEnergyTransporte
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (player.isShiftKeyDown()) {
-            // Sneak-use runs the NecronomiconActionRegistry action in 1.12.2 (deferred: unported actions).
             return InteractionResultHolder.pass(stack);
         }
         if (level.isClientSide) {
@@ -85,14 +84,7 @@ public class NecronomiconItem extends TooltipCompat implements IEnergyTransporte
             return InteractionResult.PASS;
         }
         BlockPos pos = context.getClickedPos();
-        StructureHandler structures = StructureHandler.instance();
-        if (!structures.canFormStructure(level, pos, bookType, player)) {
-            return InteractionResult.PASS;
-        }
-        if (!level.isClientSide) {
-            structures.formStructure(level, pos, bookType, player);
-        }
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        return NecronomiconActions.execute(player, level, pos, bookType);
     }
 
     @Override

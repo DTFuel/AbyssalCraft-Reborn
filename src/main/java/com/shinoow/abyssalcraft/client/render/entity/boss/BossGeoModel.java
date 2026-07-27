@@ -9,7 +9,7 @@ import com.shinoow.abyssalcraft.content.entity.boss.BossMob;
 import com.shinoow.abyssalcraft.platform.ACRef;
 
 import software.bernie.geckolib.model.GeoModel;
-//? if forge {
+//? if <1.21 {
 import software.bernie.geckolib.core.animation.AnimationState;
 //?} else {
 /*import software.bernie.geckolib.animation.AnimationState;

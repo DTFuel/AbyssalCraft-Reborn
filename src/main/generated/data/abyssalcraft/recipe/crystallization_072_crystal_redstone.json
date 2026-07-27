@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "minecraft:redstone_ore"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_redstone",
+    "count": 2
+  },
+  "experience": 0.1,
+  "time": 200
+}

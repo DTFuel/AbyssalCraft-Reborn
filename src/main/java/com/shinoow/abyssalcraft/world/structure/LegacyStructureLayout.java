@@ -22,7 +22,8 @@ public final class LegacyStructureLayout {
     public static void addPieces(StructureKind kind, StructureTemplateManager manager, RandomSource random,
                                  BlockPos origin, Consumer<StructurePiece> output) {
         switch (kind) {
-            case GRAVEYARD, DARK_SHRINE, SHOGGOTH_PIT -> output.accept(LegacyTemplatePiece.create(kind, manager, random, origin));
+            case GRAVEYARD, DARK_SHRINE, SHOGGOTH_PIT, SHOGGOTH_PIT_RIVER ->
+                output.accept(LegacyTemplatePiece.create(kind, manager, random, origin));
             case OMOTHOL_CITY -> add(output, kind, manager, template("omothol/" + CITY.get(random.nextInt(CITY.size()))),
                 Rotation.getRandom(random), origin);
             case OMOTHOL_TEMPLE -> add(output, kind, manager, template("omothol/temple"), Rotation.getRandom(random), origin);
@@ -59,7 +60,8 @@ public final class LegacyStructureLayout {
                 add(output, kind, manager, template("temple/jzahartemple_middle_left"), Rotation.NONE, middle.east(32));
                 add(output, kind, manager, template("temple/jzahartemple_back"), Rotation.NONE, middle.south(32).west(9));
             }
-            case ABYRUIN -> throw new IllegalArgumentException("Abyruin is not template-backed");
+            case ABYRUIN, DARK_RITUAL_GROUNDS ->
+                throw new IllegalArgumentException(kind.getSerializedName() + " is not template-backed");
         }
     }
 

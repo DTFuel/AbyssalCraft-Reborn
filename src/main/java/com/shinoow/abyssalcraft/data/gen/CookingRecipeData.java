@@ -174,19 +174,24 @@ public final class CookingRecipeData implements DataProvider {
             "abyssalcraft:refined_coralium_ingot", 2, 3.0F);
         add(entries, "coin", "abyssalcraft:coin", "minecraft:iron_ingot", 4, 0.5F);
 
-        armor(entries, "leather", "minecraft", "minecraft:leather");
-        armor(entries, "abyssalnite", "abyssalcraft", "abyssalcraft:abyssalnite_ingot");
-        armor(entries, "refined_coralium", "abyssalcraft", "abyssalcraft:refined_coralium_ingot");
-        armor(entries, "dreadium", "abyssalcraft", "abyssalcraft:dreadium_ingot");
-        armor(entries, "ethaxium", "abyssalcraft", "abyssalcraft:ethaxium_nugget");
+        armor(entries, "leather");
+        armor(entries, "abyssalnite");
+        armor(entries, "refined_coralium");
+        armor(entries, "dreadium");
+        armor(entries, "ethaxium");
         return entries;
     }
 
-    private static void armor(List<Entry> entries, String material, String namespace, String result) {
+    private static void armor(List<Entry> entries, String material) {
         String[] pieces = {"helmet", "chestplate", "leggings", "boots"};
         for (String piece : pieces) {
-            add(entries, material + "_" + piece + "_recycling",
-                namespace + ":" + material + "_" + piece, result, 1, 1.0F);
+            String result = material.equals("leather") ? "minecraft:leather"
+                : "abyssalcraft:" + (material.equals("refined_coralium") ? "refined_coralium_ingot"
+                    : material + "_ingot");
+            entries.add(new Entry(material + "_" + piece + "_recycling", Status.MIGRATED,
+                "smelting_" + material + "_" + piece + "_recycling",
+                (material.equals("leather") ? "minecraft:" : "abyssalcraft:") + material + "_" + piece,
+                result, 1, 0.1F, ""));
         }
     }
 

@@ -38,14 +38,22 @@ public final class CrystalClusterRecipeData implements DataProvider {
         Path base = packOutput.getOutputFolder(PackOutput.Target.DATA_PACK).resolve(AbyssalCraft.MODID);
         List<CompletableFuture<?>> futures = new ArrayList<>(104);
         for (String element : MaterialItems.CRYSTAL_ELEMENTS) {
+            saveElement(futures, output, base, element);
+        }
+        for (String element : MaterialItems.MACHINE_COMPAT_ELEMENTS) {
+            saveElement(futures, output, base, element);
+        }
+        return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
+    }
+
+    private static void saveElement(List<CompletableFuture<?>> futures, CachedOutput output, Path base,
+                                    String element) {
             String crystal = AbyssalCraft.MODID + ":crystal_" + element;
             String cluster = AbyssalCraft.MODID + ":" + element + "_crystal_cluster";
             saveBoth(futures, output, base, element + "_crystal_cluster",
                 shaped(crystal, cluster, 1, "item"), shaped(crystal, cluster, 1, "id"));
             saveBoth(futures, output, base, "crystal_" + element + "_from_cluster",
                 shaped(cluster, crystal, 9, "item"), shaped(cluster, crystal, 9, "id"));
-        }
-        return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
     }
 
     private static void saveBoth(List<CompletableFuture<?>> futures, CachedOutput output, Path base, String name,

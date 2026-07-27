@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:ethaxium_brick"
+  },
+  "result": {
+    "item": "abyssalcraft:ethaxium",
+    "count": 1
+  },
+  "experience": 0,
+  "time": 200
+}

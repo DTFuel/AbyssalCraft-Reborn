@@ -1,0 +1,16 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "abyssalcraft:dreaded_shoggoth_flesh"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_shard_phosphorus",
+    "count": 8
+  },
+  "secondary_result": {
+    "id": "abyssalcraft:crystal_fragment_dreadium",
+    "count": 2
+  },
+  "experience": 0.2,
+  "time": 200
+}

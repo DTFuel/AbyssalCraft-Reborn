@@ -1,0 +1,16 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "minecraft:lapis_ore"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_silica",
+    "count": 21
+  },
+  "secondary_result": {
+    "id": "abyssalcraft:crystal_potassium",
+    "count": 8
+  },
+  "experience": 0.15,
+  "time": 200
+}

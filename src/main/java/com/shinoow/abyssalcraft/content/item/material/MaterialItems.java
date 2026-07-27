@@ -57,6 +57,12 @@ public final class MaterialItems {
     public static final List<Supplier<Item>> CRYSTAL_SHARDS = new ArrayList<>();
     public static final List<Supplier<Item>> CRYSTAL_FRAGMENTS = new ArrayList<>();
 
+    /** Legacy machine-recipe compatibility crystals, kept outside the ordinal-indexed 26-element set. */
+    public static final String[] MACHINE_COMPAT_ELEMENTS = {"copper", "tin"};
+    public static final int[] MACHINE_COMPAT_COLORS = {0xD67C55, 0xD9D9D9};
+    public static final List<Supplier<Item>> MACHINE_COMPAT_CRYSTALS = new ArrayList<>();
+    public static final List<Supplier<Item>> MACHINE_COMPAT_SHARDS = new ArrayList<>();
+
     /** Plain crafting materials (registry id == texture id). */
     private static final String[] BASIC = {
         "abyssalnite_ingot", "refined_coralium_ingot", "dreadium_ingot", "ethaxium_ingot",
@@ -85,6 +91,10 @@ public final class MaterialItems {
             CRYSTALS.add(reg("crystal_" + element));
             CRYSTAL_SHARDS.add(reg("crystal_shard_" + element));
             CRYSTAL_FRAGMENTS.add(reg("crystal_fragment_" + element));
+        }
+        for (String element : MACHINE_COMPAT_ELEMENTS) {
+            MACHINE_COMPAT_CRYSTALS.add(reg("crystal_" + element));
+            MACHINE_COMPAT_SHARDS.add(reg("crystal_shard_" + element));
         }
     }
 }

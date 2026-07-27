@@ -1,0 +1,16 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "item": "abyssalcraft:crystal_magnesia"
+  },
+  "result": {
+    "id": "abyssalcraft:crystal_magnesium",
+    "count": 1
+  },
+  "secondary_result": {
+    "id": "abyssalcraft:crystal_oxygen",
+    "count": 1
+  },
+  "experience": 0.1,
+  "time": 200
+}

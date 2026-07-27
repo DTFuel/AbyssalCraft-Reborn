@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:transmutation",
+  "input": {
+    "item": "abyssalcraft:anti_plagued_flesh"
+  },
+  "result": {
+    "item": "abyssalcraft:coralium_plagued_flesh",
+    "count": 2
+  },
+  "experience": 0.3,
+  "time": 200
+}

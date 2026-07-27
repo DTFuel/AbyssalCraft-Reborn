@@ -21,8 +21,13 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlac
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 import com.shinoow.abyssalcraft.AbyssalCraft;
+import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.content.block.deco.DecoBlocks;
+import com.shinoow.abyssalcraft.content.block.energy.EnergyBlocks;
 import com.shinoow.abyssalcraft.content.block.material.CrystalClusterBlocks;
+import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothBlocks;
+import com.shinoow.abyssalcraft.content.block.structure.StructureContent;
+import com.shinoow.abyssalcraft.content.machine.rendingpedestal.RendingPedestals;
 import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.platform.StructureCompat;
 import com.shinoow.abyssalcraft.registry.BaseBlocks;
@@ -36,6 +41,7 @@ public final class LegacyTemplatePiece extends TemplateStructurePiece {
         DecoBlocks.DECORATIVE_JZAHAR_STATUE, DecoBlocks.DECORATIVE_AZATHOTH_STATUE,
         DecoBlocks.DECORATIVE_NYARLATHOTEP_STATUE, DecoBlocks.DECORATIVE_YOG_SOTHOTH_STATUE,
         DecoBlocks.DECORATIVE_SHUB_NIGGURATH_STATUE);
+    private static final List<java.util.function.Supplier<Block>> FUNCTIONAL_STATUES = EnergyBlocks.DEITY_STATUES;
 
     private final StructureKind kind;
     private final Rotation rotation;
@@ -57,14 +63,15 @@ public final class LegacyTemplatePiece extends TemplateStructurePiece {
 
     public static LegacyTemplatePiece create(StructureKind kind, StructureTemplateManager manager,
                                              RandomSource random, BlockPos origin) {
-        Rotation rotation = kind == StructureKind.SHOGGOTH_PIT ? Rotation.getRandom(random) : Rotation.NONE;
+        Rotation rotation = kind == StructureKind.SHOGGOTH_PIT || kind == StructureKind.SHOGGOTH_PIT_RIVER
+            ? Rotation.getRandom(random) : Rotation.NONE;
         ResourceLocation template;
         BlockPos position = origin;
         if (kind == StructureKind.GRAVEYARD) {
             String size = switch (random.nextInt(3)) { case 0 -> "small"; case 1 -> "medium"; default -> "large"; };
             template = ACRef.id("legacy/graveyard/graveyard_" + size);
             position = position.below();
-        } else if (kind == StructureKind.SHOGGOTH_PIT) {
+        } else if (kind == StructureKind.SHOGGOTH_PIT || kind == StructureKind.SHOGGOTH_PIT_RIVER) {
             int variant = random.nextInt(3) + 1;
             template = ACRef.id("legacy/shoggothlair/shoggothlair_" + variant);
             position = position.offset(-6, -9, variant == 1 ? -27 : variant == 2 ? -21 : -19);
@@ -102,21 +109,43 @@ public final class LegacyTemplatePiece extends TemplateStructurePiece {
                 level.getLevel().registryAccess();
                 level.setBlock(pos.below(), BaseBlocks.DEAD_TREE_LOG.get().defaultBlockState(), 2);
             }
-        } else if (metadata.equals("treasure") || metadata.equals("chest") || metadata.startsWith("crate")) {
+        } else if (metadata.startsWith("spawn:")) {
+            level.setBlock(pos, Blocks.SPAWNER.defaultBlockState(), 2);
+        } else if (metadata.equals("treasure") || metadata.equals("chest")) {
             if (random.nextBoolean()) {
                 level.setBlock(pos, Blocks.CHEST.defaultBlockState(), 2);
                 StructureCompat.setChestLoot(level.getLevel(), pos, kind.lootTable(), random.nextLong());
             }
+        } else if (metadata.startsWith("crate")) {
+            level.setBlock(pos, StructureContent.CRATE.get().defaultBlockState(), 2);
+            if (!(level.getBlockEntity(pos) instanceof com.shinoow.abyssalcraft.content.block.structure.CrateBlockEntity)) {
+                throw new IllegalStateException("Crate marker did not create its loot host at " + pos);
+            }
+            StructureCompat.setChestLoot(level.getLevel(), pos, kind.lootTable(), random.nextLong());
+        } else if (metadata.equals("pedestal")) {
+            level.setBlock(pos, RendingPedestals.RENDING_PEDESTAL.get().defaultBlockState(), 2);
         } else if (metadata.startsWith("statue")) {
             if (random.nextInt(10) < 6) {
                 level.setBlock(pos, BaseBlocks.MONOLITH_STONE.get().defaultBlockState(), 2);
             } else {
-                level.setBlock(pos, facing(STATUES.get(random.nextInt(STATUES.size())).get().defaultBlockState(), Direction.SOUTH), 2);
+                List<java.util.function.Supplier<Block>> statues = ACConfig.generateStatuesInLairs.get()
+                    && random.nextInt(5) == 0 ? FUNCTIONAL_STATUES : STATUES;
+                level.setBlock(pos, facing(statues.get(random.nextInt(statues.size())).get().defaultBlockState(),
+                    Direction.SOUTH), 2);
             }
-        } else if (metadata.startsWith("bm") || metadata.startsWith("replacement:shoggoth_biomass")) {
-            level.setBlock(pos, BaseBlocks.MONOLITH_STONE.get().defaultBlockState(), 2);
-        } else if (metadata.equals("idol") || metadata.startsWith("replacement:sealing_lock")) {
-            level.setBlock(pos, BaseBlocks.CHISELED_DARKSTONE_BRICK.get().defaultBlockState(), 2);
+        } else if (metadata.startsWith("bm") || metadata.equals("shoggoth_biomass")
+            || metadata.startsWith("replacement:shoggoth_biomass")) {
+            level.setBlock(pos, ShoggothBlocks.SHOGGOTH_BIOMASS.get().defaultBlockState(), 2);
+        } else if (metadata.equals("shoggoth_ooze") || metadata.startsWith("replacement:shoggoth_ooze")) {
+            level.setBlock(pos, ShoggothBlocks.SHOGGOTH_OOZE.get().defaultBlockState(), 2);
+        } else if (metadata.equals("idol") || metadata.startsWith("sealing_lock:")
+            || metadata.startsWith("replacement:sealing_lock")) {
+            level.setBlock(pos, StructureContent.SEALING_LOCK.get().defaultBlockState(), 2);
+            if (level.getBlockEntity(pos) instanceof com.shinoow.abyssalcraft.content.block.structure.SealingLockBlockEntity lock) {
+                lock.configureMarker(metadata);
+            } else {
+                throw new IllegalStateException("Sealing lock marker did not create its host at " + pos);
+            }
         } else if (metadata.startsWith("crystal")) {
             level.setBlock(pos, CrystalClusterBlocks.CLUSTERS.get(random.nextInt(CrystalClusterBlocks.CLUSTERS.size()))
                 .get().defaultBlockState(), 2);

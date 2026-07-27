@@ -198,7 +198,7 @@ public final class SacthothBoss extends BossMob {
                 target.getBoundingBox().inflate(2.0D), LivingEntity::isAlive)) {
             if (nearby == this || nearby != target && getRandom().nextInt(3) != 0) continue;
             float damage = Math.max(0.0F, (float) (7.5D - distanceTo(nearby)));
-            if (damage <= 0.0F || !nearby.hurt(ACDamageTypes.source(this, ACDamageTypes.ANTIMATTER), damage)) continue;
+            if (damage <= 0.0F || !nearby.hurt(ACDamageTypes.source(this, ACDamageTypes.SHADOW), damage)) continue;
             nearby.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, nearby == target ? 200 : 100));
             nearby.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,
                 nearby == target ? 200 : 100, 1));

@@ -315,7 +315,9 @@ public final class LegacyHostileMob extends Monster implements RangedAttackMob {
         for (LivingEntity living : level().getEntitiesOfClass(LivingEntity.class,
             direct.getBoundingBox().inflate(2.0D), entity -> entity.isAlive() && entity != this)) {
             float damage = Math.max(0.0F, (float) (4.5D - distanceTo(living)));
-            if (damage > 0.0F && living.hurt(damageSources().magic(), damage)) {
+            if (damage > 0.0F && living.hurt(
+                    com.shinoow.abyssalcraft.system.effect.ACDamageTypes.source(
+                        this, com.shinoow.abyssalcraft.system.effect.ACDamageTypes.SHADOW), damage)) {
                 living.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, living == direct ? 200 : 100));
                 living.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,
                     living == direct ? 200 : 100, 1));

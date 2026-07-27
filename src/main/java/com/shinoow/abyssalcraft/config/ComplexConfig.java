@@ -71,7 +71,7 @@ public final class ComplexConfig {
         return current().structureDimensions();
     }
 
-    public static List<DimensionBookMapping> dimensionBookTypeMappings() {
+    public static Map<ResourceLocation, DimensionBookMapping> dimensionBookTypeMappings() {
         return current().dimensionBookMappings();
     }
 
@@ -163,23 +163,34 @@ public final class ComplexConfig {
         return Set.copyOf(result);
     }
 
-    private static List<DimensionBookMapping> parseDimensionMappings() {
-        java.util.ArrayList<DimensionBookMapping> result = new java.util.ArrayList<>();
-        for (String row : ACConfig.dimensionBookTypeMappings.get()) {
+    static Map<ResourceLocation, DimensionBookMapping> parseDimensionMappings(List<? extends String> rows) {
+        Map<ResourceLocation, DimensionBookMapping> result = new HashMap<>();
+        for (String row : rows) {
             String[] fields = row.split(";", 3);
             try {
-                ResourceLocation dimension = ACRef.parse(fields[0]);
-                int tier = fields.length >= 2 ? Integer.parseInt(fields[1]) : -1;
-                if (fields.length < 2 || tier < 0 || tier > 4) {
-                    warn("Invalid dimension book mapping", row);
-                    continue;
+                if (fields.length < 2 || fields[0].isBlank() || fields[1].isBlank()) {
+                    throw new IllegalArgumentException("missing dimension or book type");
                 }
-                result.add(new DimensionBookMapping(dimension, tier, fields.length == 3 ? fields[2] : ""));
+                ResourceLocation dimension = ACRef.parse(fields[0]);
+                int tier = Integer.parseInt(fields[1]);
+                if (tier < 0 || tier > 4) {
+                    throw new IllegalArgumentException("book type outside 0-4");
+                }
+                DimensionBookMapping mapping = new DimensionBookMapping(
+                    dimension, tier, fields.length == 3 ? fields[2].trim() : "");
+                if (result.putIfAbsent(dimension, mapping) != null) {
+                    throw new IllegalArgumentException("duplicate dimension");
+                }
             } catch (RuntimeException ex) {
                 warn("Invalid dimension book mapping", row);
+                return Map.of();
             }
         }
-        return List.copyOf(result);
+        return Map.copyOf(result);
+    }
+
+    private static Map<ResourceLocation, DimensionBookMapping> parseDimensionMappings() {
+        return parseDimensionMappings(ACConfig.dimensionBookTypeMappings.get());
     }
 
     private static ResourceLocation parseEntity(String value) {
@@ -218,6 +229,6 @@ public final class ComplexConfig {
         Set<ResourceLocation> blackHoleDimensions,
         Set<ResourceLocation> oreDimensions,
         Set<ResourceLocation> structureDimensions,
-        List<DimensionBookMapping> dimensionBookMappings
+        Map<ResourceLocation, DimensionBookMapping> dimensionBookMappings
     ) {}
 }

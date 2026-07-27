@@ -231,6 +231,14 @@ public final class ACTagData implements DataProvider {
             itemTag(tags, "crystal_shards/" + element, shard);
             itemTag(tags, "crystal_fragments/" + element, fragment);
         }
+        for (String element : MaterialItems.MACHINE_COMPAT_ELEMENTS) {
+            String crystal = id("crystal_" + element);
+            String shard = id("crystal_shard_" + element);
+            add(tags, item("abyssalcraft", "crystals"), crystal);
+            add(tags, item("abyssalcraft", "crystal_shards"), shard);
+            itemTag(tags, "crystals/" + element, crystal);
+            itemTag(tags, "crystal_shards/" + element, shard);
+        }
 
         List<CompletableFuture<?>> futures = new ArrayList<>();
         for (Map.Entry<TagPath, List<String>> entry : tags.entrySet()) {

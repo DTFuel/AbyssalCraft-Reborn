@@ -56,6 +56,11 @@ public abstract class DimensionSkyCompat extends DimensionSpecialEffects {
 
     protected abstract int skyBlue();
 
+    /** Live skybox brightness multiplier used by dimension-specific render policy. */
+    protected float skyBrightness() {
+        return 1.0F;
+    }
+
     //? if forge {
     @Override
     public boolean renderSky(ClientLevel level, int ticks, float partialTick, PoseStack poseStack,
@@ -76,7 +81,9 @@ public abstract class DimensionSkyCompat extends DimensionSpecialEffects {
             return false;
         }
         setupFog.run();
-        drawSkyBox(frustumMatrix, texture, skyRed() / 255.0F, skyGreen() / 255.0F, skyBlue() / 255.0F);
+        float brightness = Math.max(0.0F, Math.min(1.0F, skyBrightness()));
+        drawSkyBox(frustumMatrix, texture, skyRed() / 255.0F * brightness,
+            skyGreen() / 255.0F * brightness, skyBlue() / 255.0F * brightness);
         return true;
     }
 

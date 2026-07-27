@@ -1,0 +1,21 @@
+{
+  "type": "abyssalcraft:materialization",
+  "inputs": [
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_silica"
+      },
+      "count": 9
+    },
+    {
+      "ingredient": {
+        "item": "abyssalcraft:crystal_beryl"
+      },
+      "count": 9
+    }
+  ],
+  "result": {
+    "id": "minecraft:prismarine_bricks",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "forge:ores/coralium"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_coralium",
+    "count": 2
+  },
+  "experience": 0.1,
+  "time": 200
+}

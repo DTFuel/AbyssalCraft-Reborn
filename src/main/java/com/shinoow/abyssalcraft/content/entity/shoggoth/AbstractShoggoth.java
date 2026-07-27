@@ -15,6 +15,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -361,6 +362,12 @@ public abstract class AbstractShoggoth extends ACMob implements EntityPartCompat
     @Override
     public boolean hurtPart(EntityPartCompat.Part<?> part, DamageSource source, float amount) {
         return hurt(source, amount);
+    }
+
+    @Override
+    public boolean isInvulnerableTo(DamageSource source) {
+        return !ACConfig.no_projectile_damage_immunity.get() && source.is(DamageTypeTags.IS_PROJECTILE)
+            || super.isInvulnerableTo(source);
     }
 
     protected abstract PartProfile partProfile();

@@ -1,5 +1,6 @@
 package com.shinoow.abyssalcraft.registry;
 
+import java.util.Map;
 import java.util.function.Supplier;
 
 import net.minecraft.core.registries.Registries;
@@ -14,6 +15,7 @@ import com.shinoow.abyssalcraft.platform.ModRegistrar;
 import com.shinoow.abyssalcraft.platform.DensityFunctionCompat;
 import com.shinoow.abyssalcraft.platform.StructureCompat;
 import com.shinoow.abyssalcraft.world.density.DarkRealmCavityMask;
+import com.shinoow.abyssalcraft.world.density.ConfigurableAmplifiedOffset;
 import com.shinoow.abyssalcraft.world.feature.DeadTreeFeature;
 import com.shinoow.abyssalcraft.world.feature.CoraliumSwampOreFeature;
 import com.shinoow.abyssalcraft.world.feature.ChainsFeature;
@@ -50,7 +52,9 @@ public final class ModWorldgen {
 
     /** Fixed-seed Dark Realm cavity density function (Codec on 1.20, MapCodec on 1.21). */
     public static final ModRegistrar<?> DENSITY_FUNCTION_TYPES =
-        DensityFunctionCompat.single("dark_realm_cavity_mask", DarkRealmCavityMask.CODEC);
+        DensityFunctionCompat.register(Map.of(
+            "dark_realm_cavity_mask", DarkRealmCavityMask.CODEC,
+            "configurable_amplified_offset", ConfigurableAmplifiedOffset.CODEC));
 
     /** Stage G0 example: a trivial pillar feature proving the code-feature -> JSON -> biome path. */
     public static final Supplier<MiniPillarFeature> MINI_PILLAR =

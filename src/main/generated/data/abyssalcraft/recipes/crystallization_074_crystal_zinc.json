@@ -1,0 +1,12 @@
+{
+  "type": "abyssalcraft:crystallization",
+  "input": {
+    "tag": "forge:ingots/zinc"
+  },
+  "result": {
+    "item": "abyssalcraft:crystal_zinc",
+    "count": 1
+  },
+  "experience": 0.1,
+  "time": 200
+}

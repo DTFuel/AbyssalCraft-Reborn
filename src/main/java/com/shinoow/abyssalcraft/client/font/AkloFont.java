@@ -10,8 +10,7 @@ import net.minecraft.resources.ResourceLocation;
  * id backed by {@code assets/abyssalcraft/font/aklo.json}. Apply it via
  * {@code Style.EMPTY.withFont(AkloFont.location())} on a {@link net.minecraft.network.chat.Component}.
  *
- * <p>The {@code aklo.json} shipped here references the vanilla default font (a loadable placeholder); the
- * faithful Aklo glyph bitmap is an asset migration deferred to PK.
+ * <p>The {@code aklo.json} shipped here maps printable ASCII through the migrated Aklo glyph bitmap.
  */
 public final class AkloFont {
 

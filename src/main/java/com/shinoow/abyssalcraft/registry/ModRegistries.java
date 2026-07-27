@@ -11,6 +11,7 @@ import com.shinoow.abyssalcraft.content.block.material.CrystalClusterBlocks;
 import com.shinoow.abyssalcraft.content.block.portal.PortalBlocks;
 import com.shinoow.abyssalcraft.content.block.ritual.RitualBlocks;
 import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothBlocks;
+import com.shinoow.abyssalcraft.content.block.structure.StructureContent;
 import com.shinoow.abyssalcraft.content.blockentity.base.MachineBlockEntities;
 import com.shinoow.abyssalcraft.content.entity.anti.AntiEntities;
 import com.shinoow.abyssalcraft.content.entity.boss.BossEntities;
@@ -48,6 +49,7 @@ import com.shinoow.abyssalcraft.content.recipe.base.ProcessingRecipes;
 import com.shinoow.abyssalcraft.platform.LiquidAntimatterCompat;
 import com.shinoow.abyssalcraft.platform.ModRegistrar;
 import com.shinoow.abyssalcraft.platform.LiquidCoraliumCompat;
+import com.shinoow.abyssalcraft.platform.ContentLootCompat;
 import com.shinoow.abyssalcraft.system.effect.ACEffects;
 
 /**
@@ -69,6 +71,7 @@ public final class ModRegistries {
     /** Every mod DeferredRegister wrapper, in mount order. Extended one line at a time per Gate. */
     public static final List<ModRegistrar<?>> ALL = List.of(
         ModCreativeTabs.TABS,
+        ContentLootCompat.MODIFIERS,
         // M0 vertical slice (Gate A4): demo block/item + demo creative tab.
         DemoRegistrar.BLOCKS,
         DemoRegistrar.ITEMS,
@@ -117,6 +120,7 @@ public final class ModRegistries {
         // Stage B1 decorative/plain-function blocks (PB-5): statues/mural/tombstones/ingot blocks/ground/sand/glass/plants + BlockItems.
         DecoBlocks.BLOCKS,
         DecoBlocks.ITEMS,
+        DecoBlocks.BLOCK_ENTITIES,
         DemonBlocks.BLOCKS,
         // Stage B2 tools (PB-6): 4 material tiers x {pickaxe, axe, shovel, hoe, sword}.
         ToolItems.ITEMS,
@@ -172,6 +176,9 @@ public final class ModRegistries {
         ShoggothEntities.ITEMS,
         ShoggothBlocks.BLOCKS,
         ShoggothBlocks.ITEMS,
+        StructureContent.BLOCKS,
+        StructureContent.ITEMS,
+        StructureContent.BLOCK_ENTITIES,
         // Stage D2a projectiles (PD-6): 5 projectile EntityTypes (acid/coralium arrow/dreaded charge/dread slug/ink).
         ProjectileEntities.ENTITIES,
         // Stage D2a misc entities (PD-6): 10 non-living EntityTypes (black hole/implosion/ODB/portal/spirit item/...).
