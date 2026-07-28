@@ -36,8 +36,8 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
  *
  * <p>Usage: modules call {@link #register} from their registrar static init (guaranteed loaded via
  * {@code ModRegistries.ALL}); the main class calls {@link #attach} once to hook the event. Without a
- * placement rule a mob added to a biome spawner ignores light/ground checks, so this pairs with the
- * per-family {@code forge/biome_modifier/spawn_*.json} to make faithful hostile spawning work.
+ * placement rule a mob listed by a biome or biome modifier ignores light/ground checks, so this
+ * remains the shared placement gate for all data-driven natural spawning.
  */
 public final class SpawnPlacementCompat {
 

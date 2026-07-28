@@ -1,4 +1,4 @@
 {
   "parent": "abyssalcraft:block/ghoul_head",
-  "textures": { "all": "abyssalcraft:block/dghead" }
+  "textures": { "all": "abyssalcraft:block/ghoul_head/depths_ghoul" }
 }

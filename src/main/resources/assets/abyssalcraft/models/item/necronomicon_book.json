@@ -1,5 +1,6 @@
 {
   "credit": "Made with Blockbench",
+  "ambientocclusion": false,
   "textures": {
     "0": "abyssalcraft:item/necronomicon",
     "1": "abyssalcraft:item/necronomicon_back",

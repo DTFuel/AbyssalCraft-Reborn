@@ -7,7 +7,7 @@ import net.minecraft.world.level.levelgen.DensityFunction;
 
 import com.shinoow.abyssalcraft.config.ACConfig;
 
-/** Deterministic terrain offset selected dynamically by the legacy amplified-world config. */
+/** Optional deterministic terrain offset controlled by the legacy amplified-world config. */
 public final class ConfigurableAmplifiedOffset implements DensityFunction.SimpleFunction {
 
     public static final ConfigurableAmplifiedOffset INSTANCE = new ConfigurableAmplifiedOffset();

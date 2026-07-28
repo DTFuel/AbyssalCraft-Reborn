@@ -17,7 +17,6 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 
 import com.shinoow.abyssalcraft.platform.ACRef;
-import com.shinoow.abyssalcraft.system.ritual.RitualIngredient;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifest;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifestCatalog;
 
@@ -29,9 +28,6 @@ import com.shinoow.abyssalcraft.system.ritual.RitualManifestCatalog;
  * Displays 8 pedestal offerings and transformed result block. Only TRANSFORMATION kind rituals.
  */
 public final class TransformationRitualCategory implements IRecipeCategory<RitualManifest> {
-
-    private static final int WIDTH = 140;
-    private static final int HEIGHT = 100;
 
     private final RecipeType<RitualManifest> type;
     private final Component title;
@@ -58,12 +54,12 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
 
     @Override
     public int getWidth() {
-        return WIDTH;
+        return RitualJeiLayout.WIDTH;
     }
 
     @Override
     public int getHeight() {
-        return HEIGHT;
+        return RitualJeiLayout.HEIGHT;
     }
 
     @Override
@@ -73,28 +69,12 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, RitualManifest ritual, IFocusGroup focuses) {
-        // 8 pedestal offerings arranged in a circle
-        List<RitualIngredient> offerings = ritual.offeringLayout();
-        int[][] pedestalPositions = {
-            {30, 25}, {62, 15}, {94, 25},  // top row (positions 0, 1, 2)
-            {104, 42},                      // right middle (position 3)
-            {94, 59}, {62, 69}, {30, 59},  // bottom row (positions 4, 5, 6)
-            {20, 42}                        // left middle (position 7)
-        };
-
-        for (int i = 0; i < offerings.size() && i < pedestalPositions.length; i++) {
-            RitualIngredient ingredient = offerings.get(i);
-            if (!ingredient.isEmpty()) {
-                int[] pos = pedestalPositions[i];
-                builder.addSlot(RecipeIngredientRole.INPUT, pos[0], pos[1])
-                    .setBackground(slot, -1, -1)
-                    .addItemStack(ingredient.example());
-            }
-        }
+        RitualJeiLayout.addOfferings(builder, ritual.offeringLayout(), slot);
 
         // Transformation result (right side)
         if (ritual.result() != null) {
-            builder.addSlot(RecipeIngredientRole.OUTPUT, 118, 42).setBackground(slot, -1, -1)
+            builder.addSlot(RecipeIngredientRole.OUTPUT, RitualJeiLayout.OUTPUT_X, RitualJeiLayout.OUTPUT_Y)
+                .setBackground(slot, -1, -1)
                 .addItemStack(new ItemStack(
                     net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ritual.result())));
         }
@@ -116,15 +96,16 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
 
         // Display dimension requirement if present
         if (ritual.dimension() != null) {
-            String dimName = ritual.dimension().location().getPath();
-            Component dimText = Component.translatable("jei.abyssalcraft.ritual_dimension", dimName);
+            var id = ritual.dimension().location();
+            Component dimension = Component.translatable("dimension." + id.getNamespace() + "." + id.getPath());
+            Component dimText = Component.translatable("jei.abyssalcraft.ritual_dimension", dimension);
             graphics.drawString(Minecraft.getInstance().font, dimText, 2, 26, 0x606060, false);
         }
 
         // Display book type requirement
         Component bookText = Component.translatable("jei.abyssalcraft.ritual_book_type",
             ritual.bookType());
-        graphics.drawString(Minecraft.getInstance().font, bookText, 2, 88, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, bookText, 2, RitualJeiLayout.FOOTER_Y, 0x606060, false);
     }
 
     /**

@@ -2,6 +2,16 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
+const {
+    LANGUAGES: LOCALIZATION_LANGUAGES,
+    ENTITY_NAME_ROWS,
+    DISPLAY_NAME_OVERRIDES,
+    TERM_REPLACEMENTS,
+    IDENTICAL_TO_ENGLISH,
+    MIRRORED_NAME_PAIRS,
+    ID_FAMILY_TERMS,
+    ID_FAMILY_EXCEPTIONS,
+} = require('./localization_name_contract');
 
 const ROOT = path.resolve(__dirname, '..');
 const ASSET_ROOTS = [
@@ -209,11 +219,54 @@ function auditModel(reference, owner, defaultNamespace = 'abyssalcraft') {
     if (!file) return;
     const model = readJson(file);
     if (model.parent) auditModel(model.parent, relativePath, 'minecraft');
+    if (model.loader === '__LOADER__:obj') {
+        const [objNamespace, objPath] = split(model.model || '', 'abyssalcraft');
+        if (objNamespace !== 'abyssalcraft' || !objPath.endsWith('.obj')) {
+            missing.push(`${relativePath} invalid OBJ reference ${model.model}`);
+        } else {
+            requireAsset(objPath, relativePath);
+            const materialPath = objPath.replace(/\.obj$/, '.mtl');
+            const materialFile = requireAsset(materialPath, relativePath);
+            if (materialFile) {
+                const material = fs.readFileSync(materialFile, 'utf8');
+                const texture = material.match(/^map_Kd\s+(\S+)$/m)?.[1];
+                if (texture) auditTexture(texture, materialPath);
+                else missing.push(`${materialPath} missing map_Kd texture`);
+            }
+        }
+    }
     for (const texture of Object.values(model.textures || {})) {
         if (typeof texture === 'string' && !texture.startsWith('#')) {
             auditTexture(texture, relativePath);
         }
     }
+}
+
+const modelMetadata = new Map();
+
+function inspectModel(reference, defaultNamespace = 'abyssalcraft', visiting = new Set()) {
+    const [namespace, name] = split(reference, defaultNamespace);
+    if (namespace === 'minecraft') {
+        return { customGeometry: false, guiDisplay: name.startsWith('block/') };
+    }
+    if (namespace !== 'abyssalcraft' || visiting.has(name)) {
+        return { customGeometry: false, guiDisplay: false };
+    }
+    if (modelMetadata.has(name)) return modelMetadata.get(name);
+    const file = find(`models/${name}.json`);
+    if (!file) return { customGeometry: false, guiDisplay: false };
+    const model = readJson(file);
+    const nextVisiting = new Set(visiting).add(name);
+    const inherited = model.parent
+        ? inspectModel(model.parent, 'minecraft', nextVisiting)
+        : { customGeometry: false, guiDisplay: false };
+    const metadata = {
+        customGeometry: model.loader === '__LOADER__:obj' || Array.isArray(model.elements)
+            || inherited.customGeometry,
+        guiDisplay: model.display?.gui != null || inherited.guiDisplay,
+    };
+    modelMetadata.set(name, metadata);
+    return metadata;
 }
 
 function visit(value, owner) {
@@ -235,8 +288,17 @@ for (const file of blockstates) visit(readJson(file), relative(file, ROOT));
 
 const itemModels = ASSET_ROOTS.flatMap(root => walk(path.join(root, 'models/item')))
     .filter(file => file.endsWith('.json'));
+let customItemModels = 0;
 for (const file of itemModels) {
-    auditModel(`abyssalcraft:item/${path.basename(file, '.json')}`, relative(file, ROOT));
+    const reference = `abyssalcraft:item/${path.basename(file, '.json')}`;
+    auditModel(reference, relative(file, ROOT));
+    const itemModel = readJson(file);
+    if (typeof itemModel.parent !== 'string' || !itemModel.parent.startsWith('abyssalcraft:block/')) continue;
+    const metadata = inspectModel(reference);
+    if (metadata.customGeometry) {
+        customItemModels++;
+        if (!metadata.guiDisplay) missing.push(`${reference} custom geometry has no GUI display transform`);
+    }
 }
 
 function requireModelContract(name, parent, textures, renderType) {
@@ -254,25 +316,152 @@ function requireModelContract(name, parent, textures, renderType) {
     }
 }
 
+function requireElementModelContract(name, expectedElements, requiresRotation = true) {
+    const file = requireAsset(`models/block/${name}.json`, `element model contract ${name}`);
+    if (!file) return;
+    const model = readJson(file);
+    if (!Array.isArray(model.elements) || model.elements.length !== expectedElements) {
+        missing.push(`element model contract ${name} elements=${model.elements?.length}, expected=${expectedElements}`);
+    }
+    if (requiresRotation && !model.elements?.some(element => element.rotation)) {
+        missing.push(`element model contract ${name} has no rotated elements`);
+    }
+}
+
 const energyTiers = ['', 'overworld_', 'abyssal_wasteland_', 'dreadlands_', 'omothol_'];
 const energyModelName = (prefix, kind) => prefix ? `${prefix}energy_${kind}` : `energy${kind}`;
+const energyContainerHosts = {
+    '': null,
+    'overworld_': 'minecraft:block/stone',
+    'abyssal_wasteland_': 'abyssalcraft:block/abyssal_stone',
+    'dreadlands_': 'abyssalcraft:block/dreadstone',
+    'omothol_': 'abyssalcraft:block/omothol_stone',
+};
 for (const prefix of energyTiers) {
+    const tiered = energyContainerHosts[prefix] != null;
+    const collectorTextures = {
+        '2': 'abyssalcraft:block/energycollector',
+        '3': 'abyssalcraft:block/energy_glow',
+        particle: 'abyssalcraft:block/monolith_stone',
+        side: 'abyssalcraft:block/monolith_stone',
+    };
+    if (tiered) {
+        collectorTextures['4'] = energyContainerHosts[prefix];
+        collectorTextures['5'] = 'abyssalcraft:block/energy_trim';
+    }
     requireModelContract(energyModelName(prefix, 'collector'),
-        'abyssalcraft:block/layered_ore', {
-            all: 'abyssalcraft:block/energy_glow', overlay: 'abyssalcraft:block/energycollector',
-        }, 'minecraft:cutout');
+        `abyssalcraft:block/${tiered ? 'tiered_energy_collector' : 'energy_collector'}`,
+        collectorTextures, 'minecraft:cutout');
+    const containerTextures = {
+        '0': 'abyssalcraft:block/monolith_stone',
+        '2': 'abyssalcraft:block/energycontainer',
+        '3': 'abyssalcraft:block/energy_glow',
+    };
+    if (energyContainerHosts[prefix]) {
+        containerTextures['4'] = 'abyssalcraft:block/energy_trim';
+        containerTextures['5'] = energyContainerHosts[prefix];
+    }
     requireModelContract(energyModelName(prefix, 'container'),
-        'abyssalcraft:block/layered_ore', {
-            all: 'abyssalcraft:block/energy_glow', overlay: 'abyssalcraft:block/energycontainer',
-        }, 'minecraft:cutout');
+        `abyssalcraft:block/${prefix ? 'tiered_energy_container' : 'energy_container'}`,
+        containerTextures, 'minecraft:cutout');
     requireModelContract(energyModelName(prefix, 'pedestal'),
         'abyssalcraft:block/rending_pedestal', {
             '0': 'abyssalcraft:block/energy_glow', '1': 'abyssalcraft:block/energy_trim',
         }, 'minecraft:cutout');
+    const relayTextures = {
+        '0': 'abyssalcraft:block/monolith_stone',
+        '2': 'abyssalcraft:block/energy_glow',
+        particle: 'abyssalcraft:block/monolith_stone',
+    };
+    if (tiered) {
+        relayTextures['3'] = 'abyssalcraft:block/energy_trim';
+        relayTextures['4'] = energyContainerHosts[prefix];
+    }
+    requireModelContract(energyModelName(prefix, 'relay'),
+        `abyssalcraft:block/${tiered ? 'tiered_energy_relay' : 'energy_relay'}`,
+        relayTextures, 'minecraft:cutout');
 }
-requireModelContract('energydepositioner', 'abyssalcraft:block/layered_ore', {
-    all: 'abyssalcraft:block/energy_glow', overlay: 'abyssalcraft:block/energydepositioner',
+requireElementModelContract('energy_collector', 9, false);
+requireElementModelContract('tiered_energy_collector', 12, false);
+requireElementModelContract('energy_container', 14);
+requireElementModelContract('tiered_energy_container', 26);
+requireElementModelContract('energy_relay', 23);
+requireElementModelContract('tiered_energy_relay', 26);
+requireElementModelContract('energy_depositioner', 9, false);
+requireModelContract('energydepositioner', 'abyssalcraft:block/energy_depositioner', {
+    '0': 'abyssalcraft:block/monolith_stone', '1': 'abyssalcraft:block/shoggoth_ooze',
+    '2': 'abyssalcraft:block/energydepositioner', particle: 'abyssalcraft:block/monolith_stone',
 }, 'minecraft:cutout');
+
+const ghoulHead = readJson(requireAsset('models/block/ghoul_head.json', 'Ghoul head geometry'));
+if (ghoulHead.parent === 'minecraft:block/cube_all' || ghoulHead.elements?.length !== 7) {
+    missing.push(`Ghoul head must use the seven-element legacy head geometry`);
+}
+if (ghoulHead.render_type !== 'minecraft:cutout'
+    || ghoulHead.elements?.some(element => element.shade !== false)) {
+    missing.push('Ghoul head must use cutout rendering with unshaded legacy elements');
+}
+for (const [id, skin] of Object.entries({
+    dghead: 'depths_ghoul', phead: 'depths_ghoul_pete',
+    whead: 'depths_ghoul_wilson', ohead: 'depths_ghoul_orange',
+})) {
+    requireModelContract(id, 'abyssalcraft:block/ghoul_head', {
+        all: `abyssalcraft:block/ghoul_head/${skin}`,
+    });
+    const texture = requireAsset(`textures/block/ghoul_head/${skin}.png`, `${id} square head texture`);
+    const dimensions = texture && pngDimensions(texture);
+    if (!dimensions || dimensions.width !== 128 || dimensions.height !== 128) {
+        missing.push(`${id} head texture must use a 128x128 square block atlas`);
+    }
+    const item = readJson(requireAsset(`models/item/${id}.json`, `${id} item model`));
+    if (item.parent !== 'minecraft:item/generated' || item.textures?.layer0 !== `abyssalcraft:block/${id}`) {
+        missing.push(`${id} must retain its legacy two-dimensional inventory model`);
+    }
+}
+if (JSON.stringify(ghoulHead.elements?.[0]?.faces?.north?.uv) !== JSON.stringify([1.125, 1.125, 2.25, 2.25])) {
+    missing.push('Ghoul head UVs do not match the square legacy-skin atlas');
+}
+
+for (const [texture, expectedFrames] of [
+    ['item/essence_of_the_gatekeeper.png', null],
+    ['item/transmutation_gem/gem.png', [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]],
+    ['item/transmutation_gem/container.png',
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 6, 5, 4, 3, 2, 1]],
+]) {
+    const png = requireAsset(`textures/${texture}`, `${texture} animation`);
+    const meta = requireAsset(`textures/${texture}.mcmeta`, `${texture} animation metadata`);
+    if (!png || !meta) continue;
+    const dimensions = pngDimensions(png);
+    const animation = readJson(meta).animation;
+    if (!dimensions || dimensions.height !== dimensions.width * 8 || !animation) {
+        missing.push(`${texture} must be an eight-frame vertical animation`);
+    }
+    if (expectedFrames && JSON.stringify(animation.frames) !== JSON.stringify(expectedFrames)) {
+        missing.push(`${texture} legacy animation frame order changed`);
+    }
+}
+
+const bladeModel = readJson(requireAsset('models/item/dreadium_katana_blade.json', 'Dreadium Katana blade'));
+if (bladeModel.textures?.layer0 !== 'abyssalcraft:item/dreadium_katana_blade') {
+    missing.push('Dreadium Katana blade does not use the legacy dreadblade texture');
+}
+const necronomiconModel = readJson(requireAsset('models/item/necronomicon_book.json', 'Necronomicon geometry'));
+if (necronomiconModel.ambientocclusion !== false) {
+    missing.push('Necronomicon thin geometry must disable ambient occlusion');
+}
+const bowModel = readJson(requireAsset('models/item/coralium_longbow.json', 'Coralium Longbow model'));
+if (bowModel.parent !== 'minecraft:item/bow' || bowModel.overrides?.length !== 3
+    || bowModel.overrides[0]?.predicate?.pulling !== 1
+    || bowModel.overrides[1]?.predicate?.pull !== 0.65
+    || bowModel.overrides[2]?.predicate?.pull !== 0.9) {
+    missing.push('Coralium Longbow must expose the three legacy pulling models');
+}
+const itemProperties = fs.readFileSync(path.join(ROOT,
+    'src/main/java/com/shinoow/abyssalcraft/client/ClientItemProperties.java'), 'utf8');
+if (!itemProperties.includes('ACRef.vanilla("pull")')
+    || !itemProperties.includes('ACRef.vanilla("pulling")')) {
+    missing.push('Coralium Longbow vanilla pull/pulling item properties are not registered');
+}
 
 const javaFiles = walk(path.join(ROOT, 'src/main/java/com/shinoow/abyssalcraft/client'))
     .filter(file => file.endsWith('.java'));
@@ -438,10 +627,128 @@ if (legacyTextureFiles.length !== 644 || legacyTextureEntries.length !== 644) {
 if (legacyTextureCounts.BLOCKED !== 0) missing.push(`legacy texture blocked=${legacyTextureCounts.BLOCKED}`);
 
 const languageFiles = walk(path.join(ASSET_ROOTS[0], 'lang')).filter(file => file.endsWith('.json'));
-const languageKeys = new Map(languageFiles.map(file => [path.basename(file, '.json'), Object.keys(readJson(file))]));
+const languageData = new Map(languageFiles.map(file => [path.basename(file, '.json'), readJson(file)]));
+const languageKeys = new Map([...languageData].map(([language, entries]) => [language, Object.keys(entries)]));
 const englishKeys = new Set(languageKeys.get('en_us') || []);
 const languageMissing = Object.fromEntries([...languageKeys].map(([language, keys]) =>
     [language, [...englishKeys].filter(key => !new Set(keys).has(key)).length]));
+const englishEntries = languageData.get('en_us') || {};
+const contentNamePattern = /^(?:block|item|entity|fluid)\.abyssalcraft\./;
+const placeholderSignature = value => (String(value).match(/%(?:\d+\$)?[sdif]/g) || []).sort().join('|');
+const expectedLanguageSet = new Set(LOCALIZATION_LANGUAGES);
+for (const language of LOCALIZATION_LANGUAGES) {
+    if (!languageData.has(language)) missing.push(`localization language missing ${language}`);
+}
+for (const language of languageData.keys()) {
+    if (!expectedLanguageSet.has(language)) missing.push(`unexpected localization language ${language}`);
+}
+for (const [language, entries] of languageData) {
+    const keys = new Set(Object.keys(entries));
+    for (const key of englishKeys) {
+        if (!keys.has(key)) missing.push(`translation key missing ${language}:${key}`);
+    }
+    for (const key of keys) {
+        if (!englishKeys.has(key)) missing.push(`translation key not present in en_us ${language}:${key}`);
+    }
+    for (const [key, englishValue] of Object.entries(englishEntries)) {
+        const value = entries[key];
+        if (placeholderSignature(value) !== placeholderSignature(englishValue)) {
+            missing.push(`translation placeholder mismatch ${language}:${key}`);
+        }
+        if (language !== 'en_us' && contentNamePattern.test(key) && value === englishValue
+            && /[A-Za-z]{3}/.test(value) && !IDENTICAL_TO_ENGLISH[language]?.has(key)) {
+            missing.push(`unexpected English content name ${language}:${key}`);
+        }
+    }
+}
+for (const row of ENTITY_NAME_ROWS) {
+    const key = `entity.abyssalcraft.${row[0]}`;
+    for (let index = 0; index < LOCALIZATION_LANGUAGES.length; index++) {
+        const language = LOCALIZATION_LANGUAGES[index];
+        if (languageData.get(language)?.[key] !== row[index + 1]) {
+            missing.push(`canonical entity name mismatch ${language}:${key}`);
+        }
+    }
+}
+for (const [language, overrides] of Object.entries(DISPLAY_NAME_OVERRIDES)) {
+    const entries = languageData.get(language) || {};
+    for (const [key, expected] of Object.entries(overrides)) {
+        if (entries[key] !== expected) missing.push(`canonical display name mismatch ${language}:${key}`);
+    }
+}
+for (const [language, replacements] of Object.entries(TERM_REPLACEMENTS)) {
+    const entries = languageData.get(language) || {};
+    for (const [forbidden] of replacements) {
+        for (const [key, value] of Object.entries(entries)) {
+            if (typeof value === 'string' && value.includes(forbidden)) {
+                missing.push(`non-canonical term ${language}:${key}:${forbidden}`);
+            }
+        }
+    }
+    const dreadlandsTerm = language === 'zh_cn' ? '恐惧之地' : '恐懼之地';
+    for (const [key, value] of Object.entries(entries)) {
+        if (contentNamePattern.test(key) && key.includes('.darklands') && value.includes(dreadlandsTerm)) {
+            missing.push(`Darklands/Dreadlands name collision ${language}:${key}`);
+        }
+    }
+}
+for (const [language, families] of Object.entries(ID_FAMILY_TERMS)) {
+    const entries = languageData.get(language) || {};
+    for (const [family, expectedTerm] of Object.entries(families)) {
+        for (const [key, value] of Object.entries(entries)) {
+            if (!contentNamePattern.test(key) || !key.toLowerCase().includes(family)
+                || ID_FAMILY_EXCEPTIONS.has(key)) continue;
+            if (!value.includes(expectedTerm)) {
+                missing.push(`localized name family mismatch ${language}:${family}:${key}`);
+            }
+        }
+    }
+}
+const requiredEntityScripts = {
+    ja_jp: /[\u3040-\u30ff\u3400-\u9fff]/,
+    ko_kr: /[\uac00-\ud7af]/,
+    ru_ru: /[\u0400-\u04ff]/,
+    zh_cn: /[\u3400-\u9fff]/,
+    zh_tw: /[\u3400-\u9fff]/,
+};
+for (const [language, scriptPattern] of Object.entries(requiredEntityScripts)) {
+    for (const [key, value] of Object.entries(languageData.get(language) || {})) {
+        if (key.startsWith('entity.abyssalcraft.') && !scriptPattern.test(value)) {
+            missing.push(`entity name uses wrong script ${language}:${key}`);
+        }
+    }
+}
+const spawnEggTemplates = {
+    en_us: base => `${base} Spawn Egg`,
+    es_es: base => `Huevo generador de ${base}`,
+    fr_fr: base => `Œuf d’apparition de ${base}`,
+    ja_jp: base => `${base}のスポーンエッグ`,
+    ko_kr: base => `${base} 생성 알`,
+    ru_ru: base => `Яйцо призыва: ${base}`,
+    zh_cn: base => `${base}刷怪蛋`,
+    zh_tw: base => `${base}生成蛋`,
+};
+const localizedSpawnEggKeys = Object.keys(englishEntries)
+    .filter(key => /^item\.abyssalcraft\..+_spawn_egg$/.test(key));
+for (const [language, entries] of languageData) {
+    for (const key of localizedSpawnEggKeys) {
+        const id = key.slice('item.abyssalcraft.'.length, -'_spawn_egg'.length);
+        const entityName = entries[`entity.abyssalcraft.${id}`];
+        if (entityName && entries[key] !== spawnEggTemplates[language](entityName)) {
+            missing.push(`spawn egg name mismatch ${language}:${key}`);
+        }
+    }
+    for (const [sourceKey, targetKey] of MIRRORED_NAME_PAIRS) {
+        if (entries[sourceKey] !== entries[targetKey]) {
+            missing.push(`mirrored display name mismatch ${language}:${sourceKey}:${targetKey}`);
+        }
+    }
+}
+for (const [key, value] of Object.entries(englishEntries)) {
+    if (contentNamePattern.test(key) && /\s(?:Of|The)\s/.test(value)) {
+        missing.push(`English display-name article capitalization ${key}`);
+    }
+}
 const requiredJeiKeys = new Set([
     'jei.abyssalcraft.anvil_forging', 'jei.abyssalcraft.anvil_price',
     'jei.abyssalcraft.crystallizer_fuel', 'jei.abyssalcraft.transmutator_fuel',
@@ -463,6 +770,29 @@ for (const [language, keys] of languageKeys) {
     const keySet = new Set(keys);
     for (const key of requiredJeiKeys) {
         if (!keySet.has(key)) missing.push(`JEI translation missing ${language}:${key}`);
+    }
+}
+const necronomiconNameKeys = [
+    'item.abyssalcraft.abyssal_wasteland_necronomicon',
+    'item.abyssalcraft.dreadlands_necronomicon',
+    'item.abyssalcraft.omothol_necronomicon',
+];
+const dimensionTitlePairs = [
+    ['dimension.abyssalcraft.abyssal_wasteland', 'gui.abyssalcraft.necronomicon.abyssal_wasteland.title'],
+    ['dimension.abyssalcraft.dreadlands', 'gui.abyssalcraft.necronomicon.dreadlands.title'],
+    ['dimension.abyssalcraft.omothol', 'gui.abyssalcraft.necronomicon.omothol.title'],
+    ['dimension.abyssalcraft.dark_realm', 'gui.abyssalcraft.necronomicon.dark_realm.title'],
+];
+for (const [language, entries] of languageData) {
+    const names = necronomiconNameKeys.map(key => entries[key]);
+    if (names.some(name => typeof name !== 'string') || new Set(names).size !== names.length) {
+        missing.push(`advanced Necronomicon names are not distinct in ${language}`);
+    }
+    for (const [dimensionKey, titleKey] of dimensionTitlePairs) {
+        if (typeof entries[dimensionKey] !== 'string' || entries[dimensionKey] === dimensionKey
+            || entries[dimensionKey] !== entries[titleKey]) {
+            missing.push(`dimension translation mismatch ${language}:${dimensionKey}`);
+        }
     }
 }
 
@@ -502,6 +832,7 @@ if (missing.length) {
 
 console.log(`RR_ASSET_AUDIT_OK missing=0 blockstates=${blockstates.length} itemModels=${itemModels.length}`
     + ` models=${models.size} textures=${pngFiles.length} referencedTextures=${textures.size}`
+    + ` customItemDisplays=${customItemModels}`
     + ` directRefs=${directReferences} particles=${particleFiles.length} sounds=${Object.keys(sounds).length}`
     + ` ogg=${soundFiles.size} screens=${screens} entities=${entities} modelLayers=${modelLayers}`
     + ` fonts=1 languages=${languageFiles.length} ledger=${Object.keys(ledgerEntries).length}`);
@@ -512,3 +843,6 @@ console.log(`RR_LEGACY_TEXTURE_AUDIT_OK source=${legacyTextureFiles.length}`
 console.log(`RR_ASSET_LANG_KEYSET ${JSON.stringify(Object.fromEntries([...languageKeys].map(([key, value]) => [key, value.length])))}`);
 console.log(`RR_ASSET_LANG_MISSING_VS_EN_US ${JSON.stringify(languageMissing)}`);
 console.log(`RR_ASSET_JEI_LANG_OK languages=${languageFiles.length} keys=${requiredJeiKeys.size}`);
+console.log(`RR_ASSET_LANG_NAMES_OK languages=${languageFiles.length}`
+    + ` entities=${ENTITY_NAME_ROWS.length} spawnEggs=${localizedSpawnEggKeys.length}`
+    + ` mirrored=${MIRRORED_NAME_PAIRS.length}`);

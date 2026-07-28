@@ -1,5 +1,7 @@
 {
   "credit": "Port of docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/layered_cube.json",
+  "parent": "minecraft:block/block",
+  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "#all"
   },

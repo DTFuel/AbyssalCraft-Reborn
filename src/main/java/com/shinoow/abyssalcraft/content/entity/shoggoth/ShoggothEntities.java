@@ -22,10 +22,9 @@ import com.shinoow.abyssalcraft.platform.SpawnPlacementCompat;
  * (via {@link SpawnPlacementCompat}). Both registrars attach to the MOD bus through
  * {@code ModRegistries.ALL}.
  *
- * <p>Natural spawning is completed by the forge {@code biome_modifier/spawn_shoggoth.json}; the
- * neoforge spawn double is deferred to Stage L (PL-4). Loot lives in {@code loot_tables/entities/*}
- * (dual-pathed for 1.20.1 / 1.21). Renderers land in Stage E, so these are verified on a dedicated
- * server with {@code /summon}.
+ * <p>Natural spawning is data-driven: Abyssal Wasteland biomes own their spawner entries directly,
+ * while loader-specific {@code biome_modifier/spawn_shoggoth.json} files add the family to the other
+ * dimensions. Loot lives in {@code loot_tables/entities/*} (dual-pathed for 1.20.1 / 1.21).
  */
 public final class ShoggothEntities {
 

@@ -92,6 +92,68 @@ public abstract class BlockModelGen extends BlockStateProvider {
         simpleBlockWithItem(block, model);
     }
 
+    /** Legacy open-frame Energy Container geometry; tiered variants add host-stone bands. */
+    protected void energyContainer(Block block, ResourceLocation hostStone) {
+        boolean tiered = hostStone != null;
+        var builder = models().withExistingParent(path(block),
+                modLoc(tiered ? "block/tiered_energy_container" : "block/energy_container"))
+            .texture("0", tex("monolith_stone"))
+            .texture("2", tex("energycontainer"))
+            .texture("3", tex("energy_glow"))
+            .texture("particle", tex("monolith_stone"))
+            .renderType("cutout");
+        if (tiered) {
+            builder.texture("4", tex("energy_trim"))
+                .texture("5", hostStone);
+        }
+        simpleBlockWithItem(block, builder);
+    }
+
+    /** Legacy open-frame collector geometry; tiered variants add host-stone bands. */
+    protected void energyCollector(Block block, ResourceLocation hostStone) {
+        boolean tiered = hostStone != null;
+        var builder = models().withExistingParent(path(block),
+                modLoc(tiered ? "block/tiered_energy_collector" : "block/energy_collector"))
+            .texture("2", tex("energycollector"))
+            .texture("3", tex("energy_glow"))
+            .texture("particle", tex("monolith_stone"))
+            .texture("side", tex("monolith_stone"))
+            .renderType("cutout");
+        if (tiered) {
+            builder.texture("4", hostStone)
+                .texture("5", tex("energy_trim"));
+        }
+        simpleBlockWithItem(block, builder);
+    }
+
+    /** Legacy six-way relay geometry with its directional pointer and tier bands. */
+    protected void energyRelay(Block block, ResourceLocation hostStone) {
+        boolean tiered = hostStone != null;
+        var builder = models().withExistingParent(path(block),
+                modLoc(tiered ? "block/tiered_energy_relay" : "block/energy_relay"))
+            .texture("0", tex("monolith_stone"))
+            .texture("2", tex("energy_glow"))
+            .texture("particle", tex("monolith_stone"))
+            .renderType("cutout");
+        if (tiered) {
+            builder.texture("3", tex("energy_trim"))
+                .texture("4", hostStone);
+        }
+        directionalBlock(block, builder);
+        simpleBlockItem(block, builder);
+    }
+
+    /** Legacy Energy Depositioner frame, ooze columns and central overlay. */
+    protected void energyDepositioner(Block block) {
+        ModelFile model = models().withExistingParent(path(block), modLoc("block/energy_depositioner"))
+            .texture("0", tex("monolith_stone"))
+            .texture("1", tex("shoggoth_ooze"))
+            .texture("2", tex("energydepositioner"))
+            .texture("particle", tex("monolith_stone"))
+            .renderType("cutout");
+        simpleBlockWithItem(block, model);
+    }
+
     /** Child of an existing geometry with a replaceable {@code #all} texture. */
     protected void parentModel(Block block, String parent, String texture) {
         ModelFile model = models().withExistingParent(path(block), modLoc("block/" + parent))

@@ -18,15 +18,25 @@ public final class EnergyBlockData extends BlockModelGen {
 
     @Override
     protected void generate() {
-        EnergyBlocks.ENERGY_COLLECTORS.forEach(block ->
-            layeredCube(block.get(), "energy_glow", "energycollector"));
-        EnergyBlocks.ENERGY_CONTAINERS.forEach(block ->
-            layeredCube(block.get(), "energy_glow", "energycontainer"));
+        energyCollector(EnergyBlocks.ENERGY_COLLECTORS.get(0).get(), null);
+        energyCollector(EnergyBlocks.ENERGY_COLLECTORS.get(1).get(), mcLoc("block/stone"));
+        energyCollector(EnergyBlocks.ENERGY_COLLECTORS.get(2).get(), modLoc("block/abyssal_stone"));
+        energyCollector(EnergyBlocks.ENERGY_COLLECTORS.get(3).get(), modLoc("block/dreadstone"));
+        energyCollector(EnergyBlocks.ENERGY_COLLECTORS.get(4).get(), modLoc("block/omothol_stone"));
+        energyContainer(EnergyBlocks.ENERGY_CONTAINERS.get(0).get(), null);
+        energyContainer(EnergyBlocks.ENERGY_CONTAINERS.get(1).get(), mcLoc("block/stone"));
+        energyContainer(EnergyBlocks.ENERGY_CONTAINERS.get(2).get(), modLoc("block/abyssal_stone"));
+        energyContainer(EnergyBlocks.ENERGY_CONTAINERS.get(3).get(), modLoc("block/dreadstone"));
+        energyContainer(EnergyBlocks.ENERGY_CONTAINERS.get(4).get(), modLoc("block/omothol_stone"));
         EnergyBlocks.ENERGY_PEDESTALS.forEach(block ->
             energyPedestal(block.get(), "energy_glow", "energy_trim"));
-        EnergyBlocks.ENERGY_RELAYS.forEach(block -> directionalCube(block.get(), "energy_glow"));
+        energyRelay(EnergyBlocks.ENERGY_RELAYS.get(0).get(), null);
+        energyRelay(EnergyBlocks.ENERGY_RELAYS.get(1).get(), mcLoc("block/stone"));
+        energyRelay(EnergyBlocks.ENERGY_RELAYS.get(2).get(), modLoc("block/abyssal_stone"));
+        energyRelay(EnergyBlocks.ENERGY_RELAYS.get(3).get(), modLoc("block/dreadstone"));
+        energyRelay(EnergyBlocks.ENERGY_RELAYS.get(4).get(), modLoc("block/omothol_stone"));
 
-        layeredCube(EnergyBlocks.ENERGY_DEPOSITIONER.get(), "energy_glow", "energydepositioner");
+        energyDepositioner(EnergyBlocks.ENERGY_DEPOSITIONER.get());
         parentModel(EnergyBlocks.IDOL_OF_FADING.get(), "deco_statue", "monolith_stone");
         parentModel(EnergyBlocks.MONOLITH_PILLAR.get(), "deco_statue", "monolith_pillar");
         cubeWithoutItem(EnergyBlocks.PLACE_OF_POWER_BASE.get(), "monolith_stone");

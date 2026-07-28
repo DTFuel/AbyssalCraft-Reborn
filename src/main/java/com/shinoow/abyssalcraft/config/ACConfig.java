@@ -377,8 +377,8 @@ public final class ACConfig {
                 .defineBool("generate_graveyards", true);
         generateOmotholStructures = b.comment("Toggles whether or not to generate the 'Temple City of Omothol' (Except the Temple of J'zahar).")
                 .defineBool("generate_omothol_structures", true);
-        useAmplifiedWorldType = b.comment("Toggles whether or not the dimensions will have their terrain affected by the Amplified world type.")
-                .defineBool("use_amplified_world_type", true);
+        useAmplifiedWorldType = b.comment("Applies an amplified terrain offset to the AbyssalCraft dimensions.")
+                .defineBool("use_amplified_world_type", false);
         generateCoraliumOre = b.comment("Toggles whether or not to generate Coralium Ore in the Overworld.")
                 .defineBool("generate_coralium_ore", true);
         generateNitreOre = b.comment("Toggles whether or not to generate Nitre Ore in the Overworld.")

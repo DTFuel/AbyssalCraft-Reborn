@@ -1,6 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": ["abyssalcraft:abyssal_wastelands", "abyssalcraft:abyssal_desert", "abyssalcraft:abyssal_plateau"],
-  "features": ["abyssalcraft:chains"],
-  "step": "surface_structures"
-}

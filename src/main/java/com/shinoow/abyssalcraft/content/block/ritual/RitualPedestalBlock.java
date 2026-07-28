@@ -40,9 +40,10 @@ public class RitualPedestalBlock extends InteractiveBlockCompat implements Entit
                     held.shrink(1);
                 }
             } else if (!current.isEmpty()) {
+                ItemStack removed = current.copy();
                 pedestal.consumeOffering();
-                if (!player.addItem(current)) {
-                    player.drop(current, false);
+                if (!player.addItem(removed)) {
+                    player.drop(removed, false);
                 }
             }
         }

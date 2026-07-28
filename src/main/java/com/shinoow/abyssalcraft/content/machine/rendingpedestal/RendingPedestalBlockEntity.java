@@ -203,6 +203,13 @@ public class RendingPedestalBlockEntity extends InventoryEnergyBlockEntity
     }
 
     @Override
+    public ItemStack removeItem(int slot, int count) {
+        ItemStack removed = super.removeItem(slot, count);
+        if (slot == SLOT_STAFF && !removed.isEmpty()) markUpdated();
+        return removed;
+    }
+
+    @Override
     public Component getDisplayName() {
         return Component.translatable("container.abyssalcraft.rending_pedestal");
     }

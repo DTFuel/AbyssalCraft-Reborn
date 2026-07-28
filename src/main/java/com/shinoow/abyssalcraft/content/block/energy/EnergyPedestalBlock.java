@@ -58,11 +58,11 @@ public class EnergyPedestalBlock extends TieredEnergyBlock {
         if (!(level.getBlockEntity(pos) instanceof EnergyPedestalBlockEntity pedestal)) {
             return false;
         }
-        ItemStack stack = pedestal.removeItemNoUpdate(0);
+        ItemStack stack = pedestal.getStoredItem();
         if (stack.isEmpty()) {
             return false;
         }
-        pedestal.setChanged();
+        pedestal.setStoredItem(ItemStack.EMPTY);
         if (!player.addItem(stack)) {
             player.drop(stack, false);
         }

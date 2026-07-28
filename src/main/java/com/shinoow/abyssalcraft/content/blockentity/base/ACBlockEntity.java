@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.content.blockentity.base;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -21,15 +22,14 @@ public abstract class ACBlockEntity extends BlockEntityCompat {
     }
 
     /**
-     * Flag the block entity dirty and push a block update so neighbours / renderers refresh. Use for
-     * visible state changes (facing, displayed item); pure inventory persistence only needs
-     * {@link #setChanged()}.
+     * Flag the block entity dirty and send its update tag to tracking clients. Use for visible state
+     * changes (facing, displayed item); pure inventory persistence only needs {@link #setChanged()}.
      */
     protected void markUpdated() {
         setChanged();
-        if (level != null) {
+        if (level != null && !level.isClientSide) {
             BlockState state = getBlockState();
-            level.sendBlockUpdated(worldPosition, state, state, 3);
+            level.sendBlockUpdated(worldPosition, state, state, Block.UPDATE_CLIENTS);
         }
     }
 }

@@ -1,6 +1,9 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "abyssalcraft:block/energy_relay",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "all": "abyssalcraft:block/energy_glow"
+    "0": "abyssalcraft:block/monolith_stone",
+    "2": "abyssalcraft:block/energy_glow",
+    "particle": "abyssalcraft:block/monolith_stone"
   }
 }

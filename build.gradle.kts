@@ -136,6 +136,9 @@ tasks {
         )
         inputs.properties(props)
         filesMatching(listOf("META-INF/mods.toml", "META-INF/neoforge.mods.toml")) { expand(props) }
+        filesMatching("assets/abyssalcraft/models/block/statue/*.json") {
+            filter { line -> line.replace("__LOADER__", loader) }
+        }
         if (loader == "forge") exclude("META-INF/neoforge.mods.toml")
         else exclude("META-INF/mods.toml")
         // Binary structure templates use the last remaining datapack directory fork:

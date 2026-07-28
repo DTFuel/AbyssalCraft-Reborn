@@ -4,6 +4,7 @@ import com.shinoow.abyssalcraft.content.item.scroll.ScrollItem;
 import com.shinoow.abyssalcraft.content.item.scroll.ScrollItems;
 import com.shinoow.abyssalcraft.content.item.tablet.StoneTabletStorage;
 import com.shinoow.abyssalcraft.content.item.tablet.TabletItems;
+import com.shinoow.abyssalcraft.content.item.tool.ToolItems;
 import com.shinoow.abyssalcraft.platform.ACRef;
 
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -25,5 +26,11 @@ public final class ClientItemProperties {
             (stack, level, entity, seed) -> ScrollItem.spellId(stack).isEmpty() ? 0.0F : 1.0F);
         ItemProperties.register(TabletItems.STONE_TABLET.get(), ACRef.id("cursed"),
             (stack, level, entity, seed) -> StoneTabletStorage.isCursed(stack) ? 1.0F : 0.0F);
+        ItemProperties.register(ToolItems.CORALIUM_LONGBOW.get(), ACRef.vanilla("pull"),
+            (stack, level, entity, seed) -> entity != null && entity.getUseItem() == stack
+                ? entity.getTicksUsingItem() / 20.0F : 0.0F);
+        ItemProperties.register(ToolItems.CORALIUM_LONGBOW.get(), ACRef.vanilla("pulling"),
+            (stack, level, entity, seed) -> entity != null && entity.isUsingItem()
+                && entity.getUseItem() == stack ? 1.0F : 0.0F);
     }
 }

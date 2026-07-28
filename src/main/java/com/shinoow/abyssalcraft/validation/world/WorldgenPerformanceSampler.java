@@ -11,6 +11,7 @@ import jdk.jfr.Name;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.chunk.ChunkAccess;
 
 /**
@@ -62,6 +63,9 @@ public final class WorldgenPerformanceSampler {
         List<Long> latencies = new ArrayList<>();
         List<Long> gcPauses = new ArrayList<>();
         int warnings = 0;
+        int minimumSurface = Integer.MAX_VALUE;
+        int maximumSurface = Integer.MIN_VALUE;
+        int floorAir = 0;
 
         try {
             level.getChunk(WARMUP_CHUNK_X, WARMUP_CHUNK_Z);
@@ -101,6 +105,19 @@ public final class WorldgenPerformanceSampler {
                 if (level.getBlockState(testPos).isAir()) {
                     // Air at Y64 might be valid in some biomes, but log for awareness
                 }
+                for (int localZ = 0; localZ < 16; localZ += 5) {
+                    for (int localX = 0; localX < 16; localX += 5) {
+                        int worldX = (chunkX << 4) + localX;
+                        int worldZ = (chunkZ << 4) + localZ;
+                        int surface = stableSurfaceHeight(level, worldX, worldZ);
+                        minimumSurface = Math.min(minimumSurface, surface);
+                        maximumSurface = Math.max(maximumSurface, surface);
+                        if ("DL".equals(dimName)
+                            && level.getBlockState(new BlockPos(worldX, level.getMinBuildHeight(), worldZ)).isAir()) {
+                            floorAir++;
+                        }
+                    }
+                }
 
             } catch (Exception e) {
                 warnings++;
@@ -125,21 +142,41 @@ public final class WorldgenPerformanceSampler {
 
         long p50Ms = p50 / 1_000_000;
         long p95Ms = p95 / 1_000_000;
-        boolean passed = warnings == 0 && sorted.length == route.length
+        int maximumAllowedSurface = "AW".equals(dimName) ? 160 : 192;
+        boolean terrainPassed = minimumSurface > level.getMinBuildHeight()
+            && maximumSurface < maximumAllowedSurface
+            && (!"DL".equals(dimName) || minimumSurface >= 56 && floorAir == 0);
+        boolean passed = warnings == 0 && sorted.length == route.length && terrainPassed
             && p50Ms <= MAX_P50_MS && p95Ms <= MAX_P95_MS;
         String routeMs = latencies.stream()
             .map(duration -> Long.toString(duration / 1_000_000))
             .collect(java.util.stream.Collectors.joining(","));
         String routeGcMs = gcPauses.stream().map(Object::toString)
             .collect(java.util.stream.Collectors.joining(","));
-        return String.format("RR_WORLD_PERF_%s_%s p50=%dms p95=%dms samples=%d routeMs=%s routeGcMs=%s warnings=%d seed=%d",
+        return String.format("RR_WORLD_PERF_%s_%s p50=%dms p95=%dms samples=%d routeMs=%s routeGcMs=%s warnings=%d seed=%d minSurface=%d maxSurface=%d floorAir=%d terrain=%s",
             dimName, passed ? "OK" : "FAIL", p50Ms, p95Ms, sorted.length, routeMs, routeGcMs,
-            warnings, level.getSeed());
+            warnings, level.getSeed(), minimumSurface, maximumSurface, floorAir,
+            terrainPassed ? "bounded" : "invalid");
     }
 
     private static long gcCollectionTime() {
         return ManagementFactory.getGarbageCollectorMXBeans().stream()
             .mapToLong(bean -> Math.max(0L, bean.getCollectionTime())).sum();
+    }
+
+    private static int stableSurfaceHeight(ServerLevel level, int x, int z) {
+        int height = level.getHeight(Heightmap.Types.WORLD_SURFACE, x, z);
+        for (int y = height - 1; y >= level.getMinBuildHeight() + 3; y--) {
+            boolean continuous = true;
+            for (int depth = 0; depth < 4; depth++) {
+                if (level.getBlockState(new BlockPos(x, y - depth, z)).isAir()) {
+                    continuous = false;
+                    break;
+                }
+            }
+            if (continuous) return y + 1;
+        }
+        return level.getMinBuildHeight();
     }
 
     @Name("abyssalcraft.WorldgenChunkSample")

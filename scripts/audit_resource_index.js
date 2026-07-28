@@ -142,6 +142,12 @@ function normalizeLoot(json) {
   });
 }
 
+function normalizeModel(json) {
+  if (json.loader === 'forge:obj' || json.loader === 'neoforge:obj') {
+    json.loader = '__LOADER__:obj';
+  }
+}
+
 function contentHash(name, bytes) {
   let normalized = bytes;
   if (name.endsWith('.json') || name === 'pack.mcmeta') {
@@ -149,6 +155,7 @@ function contentHash(name, bytes) {
     if (/\/recipe\//.test(name)) normalizeRecipe(json);
     if (/\/advancement\//.test(name)) normalizeAdvancement(json);
     if (/\/loot_table\//.test(name)) normalizeLoot(json);
+    if (/^assets\/[^/]+\/models\/.+\.json$/.test(name)) normalizeModel(json);
     normalized = Buffer.from(JSON.stringify(stable(json)));
   }
   return crypto.createHash('sha256').update(normalized).digest('hex');

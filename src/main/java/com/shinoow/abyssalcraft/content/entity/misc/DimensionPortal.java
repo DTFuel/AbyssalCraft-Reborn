@@ -45,6 +45,9 @@ import com.shinoow.abyssalcraft.world.ACDimensions;
  */
 public class DimensionPortal extends ACSimpleEntity {
 
+    public static final int TRANSIENT_LIFETIME_TICKS = 20 * 60;
+    private static final int PERSISTENT_LIFETIME = -1;
+
     private static final EntityDataAccessor<String> DESTINATION =
         SynchedEntityData.defineId(DimensionPortal.class, EntityDataSerializers.STRING);
     private static final EntityDataAccessor<Boolean> UNCHAINED =
@@ -52,6 +55,7 @@ public class DimensionPortal extends ACSimpleEntity {
 
     private final boolean singleUse;
     private BlockPos anchorPos;
+    private int remainingLifetime = TRANSIENT_LIFETIME_TICKS;
 
     public DimensionPortal(EntityType<?> type, Level level, boolean singleUse) {
         super(type, level);
@@ -98,7 +102,22 @@ public class DimensionPortal extends ACSimpleEntity {
 
     public DimensionPortal setAnchor(BlockPos anchorPos) {
         this.anchorPos = anchorPos.immutable();
+        remainingLifetime = PERSISTENT_LIFETIME;
         return this;
+    }
+
+    public int getRemainingLifetime() {
+        return remainingLifetime;
+    }
+
+    public DimensionPortal setRemainingLifetime(int ticks) {
+        if (anchorPos != null) throw new IllegalStateException("Anchored portals have no finite lifetime");
+        remainingLifetime = Math.max(1, ticks);
+        return this;
+    }
+
+    public static int initialLifetime(boolean anchored) {
+        return anchored ? PERSISTENT_LIFETIME : TRANSIENT_LIFETIME_TICKS;
     }
 
     public boolean isAnchoredAt(BlockPos pos) {
@@ -114,6 +133,10 @@ public class DimensionPortal extends ACSimpleEntity {
     @Override
     public void tick() {
         super.tick();
+        if (!level().isClientSide && anchorPos == null && --remainingLifetime <= 0) {
+            discard();
+            return;
+        }
         ResourceKey<Level> destination = getDestination();
         if (level().isClientSide || destination == null) return;
 
@@ -167,6 +190,7 @@ public class DimensionPortal extends ACSimpleEntity {
             tag.putString("Destination", destination.location().toString());
         tag.putBoolean("Unchained", isUnchained());
         if (anchorPos != null) tag.putLong("AnchorPos", anchorPos.asLong());
+        else tag.putInt("RemainingLifetime", remainingLifetime);
     }
 
     @Override
@@ -175,5 +199,9 @@ public class DimensionPortal extends ACSimpleEntity {
             setDestination(ResourceKey.create(Registries.DIMENSION, ACRef.parse(tag.getString("Destination"))));
         setUnchained(tag.getBoolean("Unchained"));
         anchorPos = tag.contains("AnchorPos") ? BlockPos.of(tag.getLong("AnchorPos")) : null;
+        remainingLifetime = anchorPos != null ? PERSISTENT_LIFETIME
+            : tag.contains("RemainingLifetime")
+                ? Math.max(1, tag.getInt("RemainingLifetime"))
+                : TRANSIENT_LIFETIME_TICKS;
     }
 }

@@ -17,12 +17,24 @@
     }
   },
   "spawners": {
-    "monster": [],
+    "monster": [
+      { "type": "minecraft:zombie", "weight": 50, "minCount": 1, "maxCount": 5 },
+      { "type": "minecraft:skeleton", "weight": 50, "minCount": 1, "maxCount": 5 },
+      { "type": "abyssalcraft:depths_ghoul", "weight": 1, "minCount": 1, "maxCount": 5 },
+      { "type": "abyssalcraft:abyssalzombie", "weight": 60, "minCount": 1, "maxCount": 5 },
+      { "type": "abyssalcraft:gskeleton", "weight": 15, "minCount": 1, "maxCount": 1 },
+      { "type": "abyssalcraft:dragonminion", "weight": 1, "minCount": 1, "maxCount": 1 },
+      { "type": "abyssalcraft:lesser_shoggoth", "weight": 3, "minCount": 1, "maxCount": 1 },
+      { "type": "abyssalcraft:shoggoth", "weight": 3, "minCount": 1, "maxCount": 1 },
+      { "type": "abyssalcraft:greater_shoggoth", "weight": 1, "minCount": 1, "maxCount": 1 }
+    ],
     "creature": [],
     "ambient": [],
     "axolotls": [],
     "underground_water_creature": [],
-    "water_creature": [],
+    "water_creature": [
+      { "type": "abyssalcraft:coraliumsquid", "weight": 10, "minCount": 4, "maxCount": 4 }
+    ],
     "water_ambient": [],
     "misc": []
   },

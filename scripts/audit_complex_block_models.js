@@ -122,6 +122,16 @@ const tombstones = [
     ['tombstone_ethaxium', 'ethaxium'], ['tombstone_monolith_stone', 'monolith_stone'],
     ['tombstone_omothol_stone', 'omothol_stone'],
 ];
+const legacyCustomDisplay = {
+    gui: { rotation: [30, 45, 0], translation: [0, 0, 0], scale: [0.625, 0.625, 0.625] },
+    ground: { rotation: [0, 0, 0], translation: [0, 3, 0], scale: [0.25, 0.25, 0.25] },
+    head: { rotation: [0, 180, 0], translation: [0, 0, 0], scale: [1, 1, 1] },
+    fixed: { rotation: [0, 180, 0], translation: [0, 0, 0], scale: [0.5, 0.5, 0.5] },
+    thirdperson_righthand: {
+        rotation: [75, 315, 0], translation: [0, 2.5, 0], scale: [0.375, 0.375, 0.375],
+    },
+    firstperson_righthand: { rotation: [0, 315, 0], translation: [0, 0, 0], scale: [0.4, 0.4, 0.4] },
+};
 const ores = [
     ['coralium_ore', 'stone', 'coralium', 'coraliumore'],
     ['abyssalnite_ore', 'stone', 'abyssalnite', 'abyore'],
@@ -162,7 +172,20 @@ function hostTexture(name) {
     return name === 'stone' ? 'minecraft:block/stone' : modernTexture(name);
 }
 
+function visibleElements(elements) {
+    return structuredClone(elements).map(element => {
+        for (const [face, definition] of Object.entries(element.faces || {})) {
+            if (definition.texture === '#-1') delete element.faces[face];
+        }
+        return element;
+    });
+}
+
 function generate() {
+    write(asset('models/block/legacy_custom_model.json'), stableJson({
+        credit: 'Shared 1.12.2 custom-block item transforms',
+        display: legacyCustomDisplay,
+    }));
     const ownedBlocks = [...statueBlocks.map(value => value[0]), ...tombstones.map(value => value[0]),
         ...ores.map(value => value[0]), ...machines.map(value => value[0]),
         'dreadlands_grass', 'fused_abyssal_sand'];
@@ -176,19 +199,74 @@ function generate() {
         const obj = legacy(`models/block/${source}.obj`);
         const textureSource = legacy(`textures/model/blocks/${source}.png`);
         const textureTarget = asset(`textures/block/statue/${deity}.png`);
-        const elements = parseObj(obj);
-        if (elements.length < 5) throw new Error(`${source}.obj produced only ${elements.length} elements`);
+        const objects = parseObj(obj);
+        if (objects.length < 5) throw new Error(`${source}.obj produced only ${objects.length} objects`);
         write(textureTarget, fs.readFileSync(textureSource));
+        write(asset(`models/block/statue/${source}.obj`), fs.readFileSync(obj));
+        write(asset(`models/block/statue/${source}.mtl`), [
+            `# Deterministic material remap of ${relative(legacy(`models/block/${source}.mtl`))}`,
+            '',
+            'newmtl None',
+            'Ka 1.000000 1.000000 1.000000',
+            `map_Kd ${modernTexture(`statue/${deity}`)}`,
+            '',
+        ].join('\n'));
         write(asset(`models/block/statue/${deity}.json`), stableJson({
-            credit: `Deterministic object-bounds conversion of ${relative(obj)}`,
-            ambientocclusion: false,
-            textures: { all: modernTexture(`statue/${deity}`), particle: modernTexture(`statue/${deity}`) },
-            elements,
+            credit: `Exact OBJ port of ${relative(obj)}`,
+            loader: '__LOADER__:obj',
+            model: `abyssalcraft:models/block/statue/${source}.obj`,
+            flip_v: true,
+            automatic_culling: true,
+            shade_quads: true,
+            emissive_ambient: false,
+            render_type: 'minecraft:translucent',
+            textures: { particle: modernTexture(`statue/${deity}`) },
         }));
     }
     for (const [block, deity] of statueBlocks) {
         write(asset(`blockstates/${block}.json`), stableJson(horizontalState(`statue/${deity}`)));
-        write(asset(`models/item/${block}.json`), stableJson({ parent: `abyssalcraft:block/statue/${deity}` }));
+        write(asset(`models/item/${block}.json`), stableJson({
+            parent: `abyssalcraft:block/statue/${deity}`,
+            display: legacyCustomDisplay,
+        }));
+    }
+
+    for (const [source, target] of [
+        ['energycontainer', 'energy_container'],
+        ['tiered_energycontainer', 'tiered_energy_container'],
+    ]) {
+        const legacyModel = readJson(legacy(`models/block/${source}.json`));
+        write(asset(`models/block/${target}.json`), stableJson({
+            credit: `Exact element geometry port of ${relative(legacy(`models/block/${source}.json`))}`,
+            parent: 'abyssalcraft:block/legacy_custom_model',
+            elements: legacyModel.elements,
+        }));
+    }
+    for (const [source, target] of [
+        ['energycollector', 'energy_collector'],
+        ['tiered_energycollector', 'tiered_energy_collector'],
+        ['energydepositioner', 'energy_depositioner'],
+    ]) {
+        const legacyModel = readJson(legacy(`models/block/${source}.json`));
+        write(asset(`models/block/${target}.json`), stableJson({
+            credit: `Exact element geometry port of ${relative(legacy(`models/block/${source}.json`))}`,
+            parent: 'abyssalcraft:block/legacy_custom_model',
+            render_type: 'minecraft:cutout',
+            elements: visibleElements(legacyModel.elements),
+        }));
+    }
+    const relayDisplay = readJson(legacy('models/item/energyrelay.json')).display;
+    for (const [source, target] of [
+        ['energyrelay', 'energy_relay'],
+        ['tiered_energyrelay', 'tiered_energy_relay'],
+    ]) {
+        const legacyModel = readJson(legacy(`models/block/${source}.json`));
+        write(asset(`models/block/${target}.json`), stableJson({
+            credit: `Exact element geometry port of ${relative(legacy(`models/block/${source}.json`))}`,
+            render_type: 'minecraft:cutout',
+            elements: visibleElements(legacyModel.elements),
+            display: relayDisplay,
+        }));
     }
 
     const tombstoneParent = readJson(legacy('models/block/tombstone.json'));
@@ -212,6 +290,8 @@ function generate() {
     const layered = readJson(legacy('models/block/layered_cube.json'));
     write(asset('models/block/layered_ore.json'), stableJson({
         credit: `Port of ${relative(legacy('models/block/layered_cube.json'))}`,
+        parent: 'minecraft:block/block',
+        render_type: 'minecraft:cutout',
         ambientocclusion: layered.ambientocclusion,
         textures: layered.textures,
         elements: layered.elements,
@@ -257,7 +337,7 @@ function generate() {
         entries.push(entry(block, 'statue', `models/block/${source}.obj`,
             [`models/block/statue/${deity}.json`], [`textures/block/statue/${deity}.png`],
             'facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states',
-            'Legacy OBJ object groups become distinct bounded cuboids; preserves multipart silhouette without loader-specific OBJ baking.',
+            'Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation.',
             [`models/block/${source}.mtl`, `textures/model/blocks/${source}.png`]));
     }
     for (const [block] of tombstones) entries.push(entry(block, 'tombstone', `models/block/${block}.json`,
@@ -357,22 +437,38 @@ function audit() {
             }
         });
         if (item.kind === 'statue') {
-            const elements = models[0]?.elements || [];
-            if (elements.length < 5) failures.push(`${owner}: statue geometry has only ${elements.length} elements`);
-            for (const element of elements) {
-                const faces = element.faces || {};
-                if (Object.keys(faces).length !== 6) {
-                    failures.push(`${owner}: statue element ${element.name || '<unnamed>'} does not have six faces`);
-                    continue;
+            const model = models[0] || {};
+            const itemModel = auditModel(asset(`models/item/${owner.slice('abyssalcraft:'.length)}.json`), owner) || {};
+            if (JSON.stringify(itemModel.display?.gui?.rotation) !== JSON.stringify(legacyCustomDisplay.gui.rotation)
+                || JSON.stringify(itemModel.display?.gui?.scale) !== JSON.stringify(legacyCustomDisplay.gui.scale)) {
+                failures.push(`${owner}: statue item is missing the legacy GUI transform`);
+            }
+            if (model.loader !== '__LOADER__:obj') failures.push(`${owner}: statue loader=${model.loader}`);
+            if (model.flip_v !== true) failures.push(`${owner}: statue OBJ must enable flip_v`);
+            if (model.render_type !== 'minecraft:translucent') {
+                failures.push(`${owner}: statue render_type=${model.render_type}`);
+            }
+            const modelReference = typeof model.model === 'string' ? model.model : '';
+            const expectedSource = path.basename(item.legacySource, '.obj');
+            const expectedReference = `abyssalcraft:models/block/statue/${expectedSource}.obj`;
+            if (modelReference !== expectedReference) {
+                failures.push(`${owner}: statue model=${modelReference}, expected=${expectedReference}`);
+            } else {
+                const targetObj = asset(modelReference.slice('abyssalcraft:'.length));
+                const targetMtl = targetObj.replace(/\.obj$/, '.mtl');
+                if (requireFile(targetObj, owner) && sha256(targetObj) !== sha256(source)) {
+                    failures.push(`${owner}: modern OBJ does not exactly preserve legacy geometry`);
                 }
-                for (const [direction, face] of Object.entries(faces)) {
-                    if (!Array.isArray(face.uv) || face.uv.length !== 4
-                            || face.uv.some(value => !Number.isFinite(value) || value < 0 || value > 16)
-                            || face.uv[0] === face.uv[2] || face.uv[1] === face.uv[3]) {
-                        failures.push(`${owner}: statue element ${element.name || '<unnamed>'} has invalid ${direction} UV`);
+                if (requireFile(targetMtl, owner)) {
+                    const material = fs.readFileSync(targetMtl, 'utf8');
+                    const expectedTexture = Object.values(model.textures || {}).find(value => value?.includes('statue/'));
+                    if (!expectedTexture || !material.includes(`map_Kd ${expectedTexture}`)) {
+                        failures.push(`${owner}: modern MTL does not bind ${expectedTexture}`);
                     }
                 }
             }
+            const objects = parseObj(source);
+            if (objects.length < 5) failures.push(`${owner}: statue OBJ has only ${objects.length} objects`);
             auditHorizontal(owner, state, false);
         } else if (item.kind === 'tombstone') {
             if ((models[0]?.elements || []).length !== 8) failures.push(`${owner}: tombstone geometry is not the legacy eight-element form`);
@@ -381,11 +477,29 @@ function audit() {
             const parent = models.find(model => model.elements)?.elements || [];
             if (parent.length !== 2) failures.push(`${owner}: layered ore must have exactly base and overlay elements`);
             if (!models.some(model => model.textures?.all && model.textures?.overlay)) failures.push(`${owner}: layered ore textures incomplete`);
+            if (!models.some(model => model.render_type === 'minecraft:cutout')) {
+                failures.push(`${owner}: layered ore parent must use minecraft:cutout`);
+            }
         } else if (item.kind === 'machine') auditHorizontal(owner, state, item.modernModels.length === 2);
         else if (item.kind === 'multiface_ground') {
             const textures = models[0]?.textures || {};
             const distinct = new Set(Object.values(textures).filter(value => typeof value === 'string'));
             if (distinct.size < 3) failures.push(`${owner}: multiface ground has fewer than three texture bindings`);
+        }
+    }
+    for (const [model, expectedElements] of Object.entries({
+        energy_collector: 9,
+        tiered_energy_collector: 12,
+        energy_relay: 23,
+        tiered_energy_relay: 26,
+        energy_depositioner: 9,
+    })) {
+        const generated = auditModel(asset(`models/block/${model}.json`), `abyssalcraft:${model}`);
+        if ((generated?.elements || []).length !== expectedElements) {
+            failures.push(`abyssalcraft:${model}: elements=${generated?.elements?.length}, expected=${expectedElements}`);
+        }
+        if (generated?.render_type !== 'minecraft:cutout') {
+            failures.push(`abyssalcraft:${model}: render_type=${generated?.render_type}`);
         }
     }
     const counts = Object.fromEntries([...new Set(catalog.entries.map(item => item.kind))].sort()

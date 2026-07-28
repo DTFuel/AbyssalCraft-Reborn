@@ -31,6 +31,19 @@ public class EnergyPedestalBlockEntity extends InventoryEnergyBlockEntity
         return stack.getItem() instanceof IEnergyContainerItem;
     }
 
+    @Override
+    public void setItem(int slot, ItemStack stack) {
+        super.setItem(slot, stack);
+        markUpdated();
+    }
+
+    @Override
+    public ItemStack removeItem(int slot, int count) {
+        ItemStack removed = super.removeItem(slot, count);
+        if (!removed.isEmpty()) markUpdated();
+        return removed;
+    }
+
     private static int capacity(BlockState state) {
         return state.getBlock() instanceof EnergyPedestalBlock pedestal
             ? pedestal.tier().pedestalCapacity()

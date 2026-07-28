@@ -38,9 +38,10 @@ import com.shinoow.abyssalcraft.content.recipe.materialization.CountedIngredient
 import com.shinoow.abyssalcraft.content.recipe.materialization.MaterializationRecipe;
 import com.shinoow.abyssalcraft.content.recipe.transmutation.TransmutationRecipe;
 import com.shinoow.abyssalcraft.platform.ACRef;
+import com.shinoow.abyssalcraft.platform.ContainerCompat;
 import com.shinoow.abyssalcraft.platform.ItemDataCompat;
-import com.shinoow.abyssalcraft.platform.MachineItemCompat;
 import com.shinoow.abyssalcraft.platform.LiquidCoraliumCompat;
+import com.shinoow.abyssalcraft.platform.MachineItemCompat;
 
 public final class MachineSelfTest {
 
@@ -51,6 +52,8 @@ public final class MachineSelfTest {
         NonNullList<ItemStack> contents = NonNullList.withSize(18, ItemStack.EMPTY);
         contents.set(0, new ItemStack(MaterialItems.CRYSTALS.get(3).get(), 2));
         contents.set(1, new ItemStack(MaterialItems.CRYSTALS.get(3).get(), 3));
+        testContainerSnapshotReplacement(registries);
+
         CrystalBagStorage.save(bag, contents, registries);
 
         CountedIngredient fiveShards = new CountedIngredient(Ingredient.of(MaterialItems.CRYSTALS.get(3).get()), 5);
@@ -218,6 +221,16 @@ public final class MachineSelfTest {
         automatedExtraction.removeItem(CrystallizerBlockEntity.SLOT_OUTPUT, 1);
         require(automatedExtraction.write(registries).getList("OutputExperience", Tag.TAG_COMPOUND).isEmpty(),
             "automated output extraction left claimable player XP");
+    }
+
+    private static void testContainerSnapshotReplacement(HolderLookup.Provider registries) {
+        NonNullList<ItemStack> clientItems = NonNullList.withSize(1, ItemStack.EMPTY);
+        clientItems.set(0, new ItemStack(Items.DIAMOND));
+        NonNullList<ItemStack> serverItems = NonNullList.withSize(1, ItemStack.EMPTY);
+        CompoundTag emptySnapshot = new CompoundTag();
+        ContainerCompat.saveItems(emptySnapshot, serverItems, registries);
+        ContainerCompat.loadItems(emptySnapshot, clientItems, registries);
+        require(clientItems.get(0).isEmpty(), "empty inventory snapshot retained a stale client item");
     }
 
     private static void require(boolean condition, String message) {

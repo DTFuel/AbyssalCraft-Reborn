@@ -35,6 +35,24 @@ public final class EnergyGuiSelfTest {
             && energyOutput.getContainedEnergy(output) == 20.0F,
             "Energy Container did not transfer 20 PE through both slots");
 
+        TestEnergyPedestal pedestal = new TestEnergyPedestal();
+        pedestal.setItem(0, input.copy());
+        ItemStack removed = pedestal.removeItem(0, 1);
+        require(!removed.isEmpty() && pedestal.getStoredItem().isEmpty()
+            && pedestal.renderUpdates() == 2,
+            "Energy Pedestal visible slot did not refresh after insert and extraction");
+
+        TestEnergyPedestal serverPedestal = new TestEnergyPedestal();
+        TestEnergyPedestal clientPedestal = new TestEnergyPedestal();
+        serverPedestal.setStoredItem(input.copy());
+        applyUpdateTag(clientPedestal, updateTag(serverPedestal, registries), registries);
+        require(!clientPedestal.getStoredItem().isEmpty(),
+            "Energy Pedestal update tag did not populate the client slot");
+        serverPedestal.setStoredItem(ItemStack.EMPTY);
+        applyUpdateTag(clientPedestal, updateTag(serverPedestal, registries), registries);
+        require(clientPedestal.getStoredItem().isEmpty(),
+            "Energy Pedestal empty update tag retained the stale client item");
+
         ItemStack tablet = new ItemStack(TabletItems.STONE_TABLET.get());
         NonNullList<ItemStack> contents = NonNullList.withSize(StoneTabletStorage.INVENTORY_SIZE, ItemStack.EMPTY);
         contents.set(0, new ItemStack(Items.COBBLESTONE, 64));
@@ -78,16 +96,50 @@ public final class EnergyGuiSelfTest {
                 .is(BaseBlocks.DARKLANDS_OAK_LOG.get()),
             "Depositioner Darklands block mapping changed");
 
-        System.out.println("RR_ENERGY_GUI_SELF_TEST_OK screens=2 slots=4 depositionerTicks=200");
+        System.out.println("RR_ENERGY_GUI_SELF_TEST_OK screens=2 slots=4 pedestalSync=2 depositionerTicks=200");
     }
 
     private static void require(boolean condition, String message) {
         if (!condition) throw new IllegalStateException(message);
     }
 
+    private static CompoundTag updateTag(TestEnergyPedestal pedestal, HolderLookup.Provider registries) {
+        //? if >=1.21 {
+        /*return pedestal.getUpdateTag(registries);
+        *///?} else {
+        return pedestal.getUpdateTag();
+        //?}
+    }
+
+    private static void applyUpdateTag(TestEnergyPedestal pedestal, CompoundTag tag,
+                                       HolderLookup.Provider registries) {
+        //? if >=1.21 {
+        /*pedestal.handleUpdateTag(tag, registries);
+        *///?} else {
+        pedestal.handleUpdateTag(tag);
+        //?}
+    }
+
     private static final class TestEnergyContainer extends EnergyContainerBlockEntity {
         private TestEnergyContainer() {
             super(BlockPos.ZERO, EnergyBlocks.ENERGY_CONTAINERS.get(0).get().defaultBlockState());
+        }
+    }
+
+    private static final class TestEnergyPedestal extends EnergyPedestalBlockEntity {
+        private int renderUpdates;
+
+        private TestEnergyPedestal() {
+            super(BlockPos.ZERO, EnergyBlocks.ENERGY_PEDESTALS.get(0).get().defaultBlockState());
+        }
+
+        @Override
+        protected void markUpdated() {
+            renderUpdates++;
+        }
+
+        private int renderUpdates() {
+            return renderUpdates;
         }
     }
 

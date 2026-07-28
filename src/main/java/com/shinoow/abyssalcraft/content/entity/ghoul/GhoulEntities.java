@@ -22,10 +22,9 @@ import com.shinoow.abyssalcraft.platform.SpawnPlacementCompat;
  * {@link SpawnPlacementCompat}). Both registrars are attached to the MOD bus through
  * {@code ModRegistries.ALL}; the attribute + placement events are hooked once from the main class.
  *
- * <p>Natural spawning is completed by the forge {@code biome_modifier/spawn_ghoul.json} (which adds
- * the ghouls to biome spawner lists); the neoforge spawn double is deferred to Stage L (PL-4). Loot
- * lives in {@code loot_tables/entities/*} (dual-pathed for 1.20.1 / 1.21). Renderers land in Stage E,
- * so these are verified on a dedicated server with {@code /summon}.
+ * <p>Natural spawning is data-driven: dimension-owned ghouls are listed directly by their biome,
+ * while loader-specific biome modifiers handle cross-biome additions. Loot lives in
+ * {@code loot_tables/entities/*} (dual-pathed for 1.20.1 / 1.21).
  */
 public final class GhoulEntities {
 

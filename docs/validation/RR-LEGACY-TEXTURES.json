@@ -4187,12 +4187,12 @@
     {
       "source": "items/db.png",
       "sha256": "f2f90ea7702e57400f4ad24994b880d672ee23b7c7eb97f25905836a74e79606",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/dreadium_katana_blade.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/dc.png",

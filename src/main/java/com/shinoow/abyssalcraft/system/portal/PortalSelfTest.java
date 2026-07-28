@@ -2,6 +2,7 @@ package com.shinoow.abyssalcraft.system.portal;
 
 import net.minecraft.world.level.Level;
 
+import com.shinoow.abyssalcraft.content.entity.misc.DimensionPortal;
 import com.shinoow.abyssalcraft.world.ACDimensions;
 
 /** Permanent invariants for the Gateway Key dimension graph. */
@@ -24,6 +25,16 @@ public final class PortalSelfTest {
             "tier-two key must add Omothol and the Dark Realm");
         require(registry.availableForGatewayTier(3, true).size() == 7,
             "Silver Key with vanilla handling must expose all registered dimensions");
+        require(registry.gatewayKeyDestinations(0).size() == 1,
+            "tier-zero Gateway Key must target only the Abyssal Wasteland");
+        require(registry.gatewayKeyDestinations(1).size() == 2,
+            "tier-one Gateway Key must add only the Dreadlands");
+        require(registry.gatewayKeyDestinations(2).size() == 4
+            && registry.gatewayKeyDestinations(3).size() == 4,
+            "advanced Gateway Keys must expose exactly four AbyssalCraft dimensions");
+        require(registry.gatewayKeyDestinations(3).stream().allMatch(data ->
+            data.dimension().location().getNamespace().equals("abyssalcraft")),
+            "Gateway Key target list contains a non-AbyssalCraft dimension");
 
         requireEdge(registry, Level.OVERWORLD, ACDimensions.ABYSSAL_WASTELAND, 0);
         requireEdge(registry, ACDimensions.ABYSSAL_WASTELAND, ACDimensions.DREADLANDS, 1);
@@ -54,8 +65,12 @@ public final class PortalSelfTest {
             "Omothol must require the Omothol Necronomicon");
         require(registry.get(ACDimensions.DARK_REALM).orElseThrow().minimumBookType() == 4,
             "Dark Realm must require the Abyssalnomicon");
+        require(DimensionPortal.TRANSIENT_LIFETIME_TICKS == 1200
+            && DimensionPortal.initialLifetime(false) == 1200
+            && DimensionPortal.initialLifetime(true) < 0,
+            "Portal lifetime contract changed");
 
-        System.out.println("RR_PORTAL_SELF_TEST_OK dimensions=7 edges=6 keyTiers=4");
+        System.out.println("RR_PORTAL_SELF_TEST_OK dimensions=7 edges=6 keyTiers=4 transientLifetime=1200");
     }
 
     private static void requireEdge(DimensionDataRegistry registry,

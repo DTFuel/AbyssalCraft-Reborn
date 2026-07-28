@@ -40,6 +40,8 @@ public final class JEIAuditGate {
         counts.put("categories", CATEGORY_UIDS.size());
         require(CATEGORY_UIDS.size() == 12, "expected 12 unique category UIDs", errors);
         auditTransfers(counts, errors);
+        errors.addAll(RitualJeiLayout.audit());
+        counts.put("ritual_layout_slots", 10);
 
         List<RitualManifest> rituals = RitualManifestCatalog.entries();
         List<RitualManifest> infusions = InfusionRitualCategory.getInfusionRituals();

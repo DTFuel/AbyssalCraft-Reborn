@@ -197,7 +197,7 @@ public final class ConfigClosureAudit {
         put(entries, "RR-SYSTEM", "syncDataOnBookOpening", "KnowledgeHooks#onBookOpened");
         put(entries, "RR-SYSTEM", "knowledgeSyncDelay", "KnowledgeHooks#onChangedDimension");
         put(entries, "RR-SYSTEM", "no_potion_clouds", "EffectHooks#createCarrierCloud/spreadDeath");
-        put(entries, "RR-SYSTEM", "vanilla_handling", "GatewayKeyItem#cycleDestination");
+        put(entries, "RR-SYSTEM", "vanilla_handling", "PortalAnchorBlockEntity#toggle");
         put(entries, "RR-SYSTEM", "portalCooldown", "DimensionPortal#tick");
         put(entries, "RR-SYSTEM", "no_dreadlands_spread", "DreadPlagueSpread#tick");
         put(entries, "RR-SYSTEM", "no_odb_explosions", "OblivionDeathbombCoreBlock#use");

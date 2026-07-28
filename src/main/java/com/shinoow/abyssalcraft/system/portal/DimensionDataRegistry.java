@@ -64,6 +64,20 @@ public final class DimensionDataRegistry {
             .toList();
     }
 
+    /** Gateway Key targets: only AbyssalCraft dimensions, in stable progression order. */
+    public synchronized List<DimensionData> gatewayKeyDestinations(int gatewayTier) {
+        if (gatewayTier < 0 || gatewayTier > 3) return List.of();
+        return dimensions.values().stream()
+            .filter(data -> data.dimension().location().getNamespace().equals("abyssalcraft"))
+            .filter(data -> data.minimumGatewayTier() <= gatewayTier)
+            .toList();
+    }
+
+    public synchronized boolean isGatewayKeyDestination(ResourceKey<Level> dimension, int gatewayTier) {
+        return gatewayKeyDestinations(gatewayTier).stream()
+            .anyMatch(data -> data.dimension().equals(dimension));
+    }
+
     public synchronized boolean isAvailableForGatewayTier(ResourceKey<Level> dimension,
                                                             int gatewayTier,
                                                             boolean includeVanillaDimensions) {

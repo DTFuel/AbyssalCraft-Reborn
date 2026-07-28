@@ -1,1 +1,4 @@
-{ "parent": "abyssalcraft:block/whead" }
+{
+	"parent": "minecraft:item/generated",
+	"textures": { "layer0": "abyssalcraft:block/whead" }
+}

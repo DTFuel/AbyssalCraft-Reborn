@@ -10,7 +10,7 @@
 现代 Portal 链由四部分组成：
 
 - `DimensionDataRegistry`：七个可参与传送的维度、稳定顺序、颜色、最低 Gateway Key 等级、双向连通边和可选 portal mob/overlay。
-- `GatewayKeyItem`：三级 Gateway Key 与 Silver Key；目标以 namespaced dimension 字符串存入 `ItemDataCompat`，普通右击/潜行右击前后循环。
+- `GatewayKeyItem`：三级 Gateway Key 与 Silver Key；目标以 namespaced dimension 字符串存入 `ItemDataCompat`。潜行右击仅在四个 AbyssalCraft 维度间按等级循环，普通右击方块由服务端校验连通性后放置传送门。
 - `PortalAnchorBlock` / `PortalAnchorBlockEntity`：普通与 unchained Anchor，共用持久 BE；保存 destination、颜色、关联 portal UUID，并维护 `PortalAnchorIndex`。
 - `DimensionPortal` / `DimensionTeleport`：同步 destination/unchained，拒绝 Boss、骑乘、死亡与冷却实体，通过 `TeleportCompat` 跨版本传送。
 

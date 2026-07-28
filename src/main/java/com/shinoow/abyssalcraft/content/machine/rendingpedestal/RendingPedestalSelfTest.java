@@ -91,8 +91,13 @@ public final class RendingPedestalSelfTest {
             && restored.canTakeItemThroughFace(2, restored.getItem(2), Direction.DOWN)
             && !restored.canTakeItemThroughFace(2, restored.getItem(2), Direction.NORTH),
             "Rending Pedestal sided output map changed");
+        int updatesBeforeRemoval = pedestal.renderUpdates();
+        ItemStack removedStaff = pedestal.removeItem(RendingPedestalBlockEntity.SLOT_STAFF, 1);
+        require(!removedStaff.isEmpty() && pedestal.getItem(RendingPedestalBlockEntity.SLOT_STAFF).isEmpty()
+            && pedestal.renderUpdates() == updatesBeforeRemoval + 1,
+            "Rending Pedestal staff removal did not refresh the client renderer");
 
-        System.out.println("RR_RENDING_PEDESTAL_SELF_TEST_OK recipes=4 slots=6 pe=5000 ledgers=4");
+        System.out.println("RR_RENDING_PEDESTAL_SELF_TEST_OK recipes=4 slots=6 pe=5000 ledgers=4 staffSync=ok");
     }
 
     private static List<RendingRecipe> recipes() {
@@ -117,6 +122,8 @@ public final class RendingPedestalSelfTest {
     }
 
     private static final class TestPedestal extends RendingPedestalBlockEntity {
+        private int renderUpdates;
+
         private TestPedestal() {
             super(BlockPos.ZERO, RendingPedestals.RENDING_PEDESTAL.get().defaultBlockState());
         }
@@ -129,6 +136,15 @@ public final class RendingPedestalSelfTest {
 
         private void read(CompoundTag tag, HolderLookup.Provider registries) {
             loadData(tag, registries);
+        }
+
+        @Override
+        protected void markUpdated() {
+            renderUpdates++;
+        }
+
+        private int renderUpdates() {
+            return renderUpdates;
         }
     }
 }

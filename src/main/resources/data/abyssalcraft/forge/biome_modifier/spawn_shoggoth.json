@@ -1,11 +1,6 @@
 {
   "type": "forge:add_spawns",
   "biomes": [
-    "abyssalcraft:abyssal_wastelands",
-    "abyssalcraft:abyssal_swamp",
-    "abyssalcraft:abyssal_desert",
-    "abyssalcraft:abyssal_plateau",
-    "abyssalcraft:coralium_lake",
     "abyssalcraft:dreadlands",
     "abyssalcraft:dreadlands_forest",
     "abyssalcraft:dreadlands_mountains",

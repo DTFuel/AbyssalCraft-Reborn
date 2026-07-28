@@ -15,6 +15,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoorBlock;
 
 import com.shinoow.abyssalcraft.AbyssalCraft;
 import com.shinoow.abyssalcraft.platform.DataGenCompat;
@@ -62,7 +63,7 @@ public final class ACBlockLoot implements DataProvider {
                     ? blockTable(itemEntry("abyssalcraft:omothol_stone", 1, 1))
                 : "coralium_infused_stone".equals(path)
                     ? blockTable(itemEntry("abyssalcraft:coralium_pearl", 1, 1))
-                : blockTable(itemEntry("abyssalcraft:" + path, 1, 1));
+                : selfDropTable(block, id);
             futures.add(DataProvider.saveStable(output, table,
                 root.resolve("loot_tables/blocks").resolve(path + ".json")));
             futures.add(DataProvider.saveStable(output, table,
@@ -96,6 +97,26 @@ public final class ACBlockLoot implements DataProvider {
     }
 
     private static JsonObject blockTable(JsonObject entry) {
+        return blockTable(entry, null);
+    }
+
+    private static JsonObject selfDropTable(Block block, ResourceLocation id) {
+        JsonObject condition = block instanceof DoorBlock ? lowerDoorHalfCondition(id) : null;
+        return blockTable(itemEntry(id.toString(), 1, 1), condition);
+    }
+
+    private static JsonObject lowerDoorHalfCondition(ResourceLocation id) {
+        JsonObject properties = new JsonObject();
+        properties.addProperty("half", "lower");
+
+        JsonObject condition = new JsonObject();
+        condition.addProperty("condition", "minecraft:block_state_property");
+        condition.addProperty("block", id.toString());
+        condition.add("properties", properties);
+        return condition;
+    }
+
+    private static JsonObject blockTable(JsonObject entry, JsonObject extraCondition) {
         JsonArray entries = new JsonArray();
         entries.add(entry);
 
@@ -103,6 +124,9 @@ public final class ACBlockLoot implements DataProvider {
         survives.addProperty("condition", "minecraft:survives_explosion");
         JsonArray conditions = new JsonArray();
         conditions.add(survives);
+        if (extraCondition != null) {
+            conditions.add(extraCondition);
+        }
 
         JsonObject pool = new JsonObject();
         pool.addProperty("rolls", 1);

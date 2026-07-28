@@ -1,4 +1,5 @@
 {
+  "parent": "abyssalcraft:block/legacy_custom_model",
   "textures": {
     "particle": "abyssalcraft:block/crystal_cluster",
     "0": "abyssalcraft:block/crystal_cluster"

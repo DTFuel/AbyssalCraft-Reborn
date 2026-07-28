@@ -1,6 +1,6 @@
 package com.shinoow.abyssalcraft.content.block.ritual;
 
-import com.shinoow.abyssalcraft.platform.BlockEntityCompat;
+import com.shinoow.abyssalcraft.content.blockentity.base.ACBlockEntity;
 import com.shinoow.abyssalcraft.platform.ContainerCompat;
 import com.shinoow.abyssalcraft.platform.MachineItemCompat;
 
@@ -14,10 +14,10 @@ import net.minecraft.world.level.block.state.BlockState;
 /**
  * Ritual pedestal block entity (owned by content/block/ritual): holds a single offering for a nearby
  * {@link RitualAltarBlock}. Implements {@link RitualPedestal} so the altar's ring scan (CR-62) can gather
- * and consume the offering. The stack persists through {@link BlockEntityCompat} (the 1.20 &harr; 1.21
+ * and consume the offering. The stack persists through {@link ACBlockEntity} (the 1.20 &harr; 1.21
  * save/load fork) + {@link ContainerCompat} (the ItemStack NBT fork), kept out of this business code.
  */
-public class RitualPedestalBlockEntity extends BlockEntityCompat implements RitualPedestal {
+public class RitualPedestalBlockEntity extends ACBlockEntity implements RitualPedestal {
 
     private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
 
@@ -37,13 +37,13 @@ public class RitualPedestalBlockEntity extends BlockEntityCompat implements Ritu
         ItemStack remainder = MachineItemCompat.craftingRemainder(offering.copyWithCount(1));
         offering.shrink(Math.min(count, offering.getCount()));
         if (offering.isEmpty()) items.set(0, remainder);
-        setChanged();
+        markUpdated();
     }
 
     /** Place {@code offering} on the pedestal (a single item). */
     public void setOffering(ItemStack offering) {
         items.set(0, offering);
-        setChanged();
+        markUpdated();
     }
 
     @Override

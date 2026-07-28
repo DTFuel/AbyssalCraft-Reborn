@@ -1,1 +1,4 @@
-{ "parent": "abyssalcraft:block/phead" }
+{
+	"parent": "minecraft:item/generated",
+	"textures": { "layer0": "abyssalcraft:block/phead" }
+}

@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -29,6 +31,12 @@ public final class WorldgenResourceAudit {
     private static final List<String> MODIFIERS = List.of(
         "feature_world_ores", "feature_abyssal_ores", "feature_dreadlands_ores",
         "feature_abyssal_wasteland_pillars");
+    private static final List<String> ABYSSAL_WASTELAND_BIOMES = List.of(
+        "abyssal_wastelands", "abyssal_swamp", "abyssal_desert", "abyssal_plateau", "coralium_lake");
+    private static final List<String> ABYSSAL_WASTELAND_MONSTERS = List.of(
+        "minecraft:zombie", "minecraft:skeleton", "abyssalcraft:depths_ghoul",
+        "abyssalcraft:abyssalzombie", "abyssalcraft:gskeleton", "abyssalcraft:dragonminion",
+        "abyssalcraft:lesser_shoggoth", "abyssalcraft:shoggoth", "abyssalcraft:greater_shoggoth");
 
     private WorldgenResourceAudit() {}
 
@@ -45,9 +53,11 @@ public final class WorldgenResourceAudit {
         }
         validateLoaderPlacement("forge");
         validateLoaderPlacement("neoforge");
+        validateAbyssalWastelandSpawns();
+        validateTerrainDensityGuards();
         validateStructure("dark_ritual_grounds");
         validateStructure("shoggoth_pit_river");
-        System.out.printf("RR_WORLD_RESOURCE_AUDIT_OK features=%d blocks=%d loaders=2 structures=2%n",
+        System.out.printf("RR_WORLD_RESOURCE_AUDIT_OK features=%d blocks=%d loaders=2 structures=2 biomeSpawns=5x10 terrainBounds=2%n",
             FEATURE_IDS.size(), ORE_BLOCKS.size());
     }
 
@@ -66,6 +76,74 @@ public final class WorldgenResourceAudit {
         readJson("worldgen/structure/" + id + ".json");
         readJson("worldgen/structure_set/" + id + ".json");
         readJson("tags/worldgen/biome/has_structure/" + id + ".json");
+    }
+
+    private static void validateAbyssalWastelandSpawns() {
+        for (String biome : ABYSSAL_WASTELAND_BIOMES) {
+            JsonObject spawners = readJson("worldgen/biome/" + biome + ".json").getAsJsonObject("spawners");
+            JsonArray monsters = spawners.getAsJsonArray("monster");
+            JsonArray waterCreatures = spawners.getAsJsonArray("water_creature");
+            require(monsters.size() == ABYSSAL_WASTELAND_MONSTERS.size(),
+                biome + " monster spawner count changed: " + monsters.size());
+            for (String entity : ABYSSAL_WASTELAND_MONSTERS) {
+                require(hasSpawner(monsters, entity), biome + " is missing monster spawner " + entity);
+            }
+            require(waterCreatures.size() == 1 && hasSpawner(waterCreatures, "abyssalcraft:coraliumsquid"),
+                biome + " must contain exactly one Coralium Squid spawner");
+        }
+        for (String loader : List.of("forge", "neoforge")) {
+            String shoggothModifier = readResource(loader + "/biome_modifier/spawn_shoggoth.json");
+            for (String biome : ABYSSAL_WASTELAND_BIOMES) {
+                require(!shoggothModifier.contains(ACRef.id(biome).toString()),
+                    loader + " Shoggoth modifier duplicates biome-owned spawns for " + biome);
+            }
+            requireMissingResource(loader + "/biome_modifier/spawn_abyssal_wasteland.json");
+            requireMissingResource(loader + "/biome_modifier/spawn_coralium_squid.json");
+            requireMissingResource(loader + "/biome_modifier/feature_chains.json");
+        }
+        requireMissingResource("worldgen/configured_feature/chains.json");
+        requireMissingResource("worldgen/placed_feature/chains.json");
+        JsonObject pillars = readJson("worldgen/configured_feature/abyssal_wasteland_pillars.json");
+        require("abyssalcraft:chains".equals(pillars.get("type").getAsString()),
+            "Abyssal Wasteland pillar toggle must own the sole Chains feature");
+    }
+
+    private static boolean hasSpawner(JsonArray spawners, String entity) {
+        for (JsonElement element : spawners) {
+            if (entity.equals(element.getAsJsonObject().get("type").getAsString())) return true;
+        }
+        return false;
+    }
+
+    private static void validateTerrainDensityGuards() {
+        JsonObject wasteland = readJson("worldgen/noise_settings/abyssal_wasteland.json")
+            .getAsJsonObject("noise_router").getAsJsonObject("final_density");
+        require("minecraft:min".equals(wasteland.get("type").getAsString()),
+            "Abyssal Wasteland final density must have a top cap");
+        requireGradient(wasteland.getAsJsonObject("argument2"), 128, 192, 1.0D, -4.0D,
+            "Abyssal Wasteland top cap");
+
+        JsonObject dreadlands = readJson("worldgen/noise_settings/dreadlands.json")
+            .getAsJsonObject("noise_router").getAsJsonObject("final_density");
+        require("minecraft:max".equals(dreadlands.get("type").getAsString()),
+            "Dreadlands final density must have a solid floor");
+        JsonObject cappedTerrain = dreadlands.getAsJsonObject("argument1");
+        require("minecraft:min".equals(cappedTerrain.get("type").getAsString()),
+            "Dreadlands terrain must have a top cap");
+        requireGradient(cappedTerrain.getAsJsonObject("argument2"), 160, 224, 1.0D, -4.0D,
+            "Dreadlands top cap");
+        requireGradient(dreadlands.getAsJsonObject("argument2"), 55, 64, 1.0D, -64.0D,
+            "Dreadlands solid floor");
+    }
+
+    private static void requireGradient(JsonObject gradient, int fromY, int toY,
+                                        double fromValue, double toValue, String owner) {
+        require("minecraft:y_clamped_gradient".equals(gradient.get("type").getAsString())
+            && gradient.get("from_y").getAsInt() == fromY
+            && gradient.get("to_y").getAsInt() == toY
+            && gradient.get("from_value").getAsDouble() == fromValue
+            && gradient.get("to_value").getAsDouble() == toValue,
+            owner + " changed");
     }
 
     private static JsonObject readJson(String path) {
@@ -88,6 +166,15 @@ public final class WorldgenResourceAudit {
             }
         } catch (IOException exception) {
             throw new IllegalStateException("unable to read worldgen resource " + fullPath, exception);
+        }
+    }
+
+    private static void requireMissingResource(String path) {
+        String fullPath = "/data/abyssalcraft/" + path;
+        try (InputStream stream = WorldgenResourceAudit.class.getResourceAsStream(fullPath)) {
+            require(stream == null, "obsolete worldgen resource still present " + fullPath);
+        } catch (IOException exception) {
+            throw new IllegalStateException("unable to inspect worldgen resource " + fullPath, exception);
         }
     }
 

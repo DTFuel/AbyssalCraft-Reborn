@@ -17,17 +17,11 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 
 import com.shinoow.abyssalcraft.content.block.ritual.RitualBlocks;
-import com.shinoow.abyssalcraft.system.ritual.RitualIngredient;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifest;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifestCatalog;
 
 /** JEI presentation of non-item-output rituals such as portals, summons and area effects. */
 public final class RitualCategory implements IRecipeCategory<RitualManifest> {
-
-    private static final int[][] PEDESTAL_POSITIONS = {
-        {30, 25}, {62, 15}, {94, 25}, {104, 42},
-        {94, 59}, {62, 69}, {30, 59}, {20, 42}
-    };
 
     private final RecipeType<RitualManifest> type;
     private final Component title;
@@ -43,25 +37,18 @@ public final class RitualCategory implements IRecipeCategory<RitualManifest> {
 
     @Override public RecipeType<RitualManifest> getRecipeType() { return type; }
     @Override public Component getTitle() { return title; }
-    @Override public int getWidth() { return 140; }
-    @Override public int getHeight() { return 100; }
+    @Override public int getWidth() { return RitualJeiLayout.WIDTH; }
+    @Override public int getHeight() { return RitualJeiLayout.HEIGHT; }
     @Override public IDrawable getIcon() { return icon; }
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, RitualManifest ritual, IFocusGroup focuses) {
         if (!ritual.center().isEmpty()) {
-            builder.addSlot(RecipeIngredientRole.INPUT, 62, 38).setBackground(slot, -1, -1)
+            builder.addSlot(RecipeIngredientRole.INPUT, RitualJeiLayout.CENTER_X, RitualJeiLayout.CENTER_Y)
+                .setBackground(slot, -1, -1)
                 .addItemStack(ritual.center().example());
         }
-        List<RitualIngredient> offerings = ritual.offeringLayout();
-        for (int index = 0; index < offerings.size(); index++) {
-            RitualIngredient ingredient = offerings.get(index);
-            if (!ingredient.isEmpty()) {
-                int[] position = PEDESTAL_POSITIONS[index];
-                builder.addSlot(RecipeIngredientRole.INPUT, position[0], position[1])
-                    .setBackground(slot, -1, -1).addItemStack(ingredient.example());
-            }
-        }
+        RitualJeiLayout.addOfferings(builder, ritual.offeringLayout(), slot);
     }
 
     @Override
@@ -72,7 +59,7 @@ public final class RitualCategory implements IRecipeCategory<RitualManifest> {
         Component energy = Component.translatable("jei.abyssalcraft.ritual_energy", (int) ritual.requiredEnergy());
         graphics.drawString(Minecraft.getInstance().font, energy, 2, 14, 0x808080, false);
         Component kind = Component.translatable("jei.abyssalcraft.ritual_kind." + ritual.kind().name().toLowerCase());
-        graphics.drawString(Minecraft.getInstance().font, kind, 2, 88, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, kind, 2, RitualJeiLayout.FOOTER_Y, 0x606060, false);
     }
 
     public static List<RitualManifest> getRituals() {

@@ -1,0 +1,5 @@
+# Deterministic material remap of docs/AbyssalCraft-1.12.2/src/main/resources/assets/abyssalcraft/models/block/hasturstatue.mtl
+
+newmtl None
+Ka 1.000000 1.000000 1.000000
+map_Kd abyssalcraft:block/statue/hastur

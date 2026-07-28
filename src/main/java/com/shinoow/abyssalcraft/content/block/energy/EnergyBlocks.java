@@ -39,7 +39,7 @@ public final class EnergyBlocks {
 
     /** Pilot deity statue -- the PE source. Stores its deity for the deferred deity-filtered network. */
     public static final Supplier<Block> DEITY_STATUE = BLOCKS.register("deity_statue", () ->
-        new DeityStatueBlock(BlockBehaviour.Properties.of().strength(3.5F), DeityType.CTHULHU));
+        new DeityStatueBlock(BlockBehaviour.Properties.of().strength(3.5F).noOcclusion(), DeityType.CTHULHU));
 
     public static final Supplier<BlockItem> DEITY_STATUE_ITEM = ITEMS.register("deity_statue", () ->
         new BlockItem(DEITY_STATUE.get(), new Item.Properties()));
@@ -57,7 +57,7 @@ public final class EnergyBlocks {
 
     public static final List<Supplier<Block>> ENERGY_COLLECTORS = Stream.of(EnergyTier.values())
         .map(tier -> registerEnergyBlock(EnergyBlockKind.COLLECTOR.id(tier),
-            () -> new EnergyCollectorBlock(BlockBehaviour.Properties.of().strength(3.0F, 12.0F), tier)))
+            () -> new EnergyCollectorBlock(BlockBehaviour.Properties.of().strength(3.0F, 12.0F).noOcclusion(), tier)))
         .toList();
 
     public static final Supplier<BlockEntityType<EnergyCollectorBlockEntity>> ENERGY_COLLECTOR_BE =
@@ -68,7 +68,7 @@ public final class EnergyBlocks {
 
     public static final List<Supplier<Block>> ENERGY_CONTAINERS = Stream.of(EnergyTier.values())
         .map(tier -> registerEnergyBlock(EnergyBlockKind.CONTAINER.id(tier),
-            () -> new EnergyContainerBlock(BlockBehaviour.Properties.of().strength(6.0F, 12.0F), tier)))
+            () -> new EnergyContainerBlock(BlockBehaviour.Properties.of().strength(6.0F, 12.0F).noOcclusion(), tier)))
         .toList();
 
     public static final Supplier<BlockEntityType<EnergyContainerBlockEntity>> ENERGY_CONTAINER_BE =
@@ -81,7 +81,7 @@ public final class EnergyBlocks {
 
     public static final List<Supplier<Block>> ENERGY_PEDESTALS = Stream.of(EnergyTier.values())
         .map(tier -> registerEnergyBlock(EnergyBlockKind.PEDESTAL.id(tier),
-            () -> new EnergyPedestalBlock(BlockBehaviour.Properties.of().strength(6.0F, 12.0F), tier)))
+            () -> new EnergyPedestalBlock(BlockBehaviour.Properties.of().strength(6.0F, 12.0F).noOcclusion(), tier)))
         .toList();
 
     public static final Supplier<BlockEntityType<EnergyPedestalBlockEntity>> ENERGY_PEDESTAL_BE =
@@ -92,7 +92,7 @@ public final class EnergyBlocks {
 
     public static final List<Supplier<Block>> ENERGY_RELAYS = Stream.of(EnergyTier.values())
         .map(tier -> registerEnergyBlock(EnergyBlockKind.RELAY.id(tier),
-            () -> new EnergyRelayBlock(BlockBehaviour.Properties.of().strength(6.0F, 12.0F), tier)))
+            () -> new EnergyRelayBlock(BlockBehaviour.Properties.of().strength(6.0F, 12.0F).noOcclusion(), tier)))
         .toList();
 
     public static final Supplier<BlockEntityType<EnergyRelayBlockEntity>> ENERGY_RELAY_BE =
@@ -102,7 +102,7 @@ public final class EnergyBlocks {
                 ENERGY_RELAYS.stream().map(Supplier::get).toArray(Block[]::new)).build(null));
 
     public static final Supplier<Block> ENERGY_DEPOSITIONER = registerEnergyBlock("energydepositioner", () ->
-        new EnergyDepositionerBlock(BlockBehaviour.Properties.of().strength(6.0F, 12.0F)));
+        new EnergyDepositionerBlock(BlockBehaviour.Properties.of().strength(6.0F, 12.0F).noOcclusion()));
 
     public static final Supplier<BlockEntityType<EnergyDepositionerBlockEntity>> ENERGY_DEPOSITIONER_BE =
         BLOCK_ENTITIES.register("energy_depositioner", () ->

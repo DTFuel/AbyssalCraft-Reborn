@@ -1,4 +1,5 @@
 {
+    "parent": "abyssalcraft:block/legacy_custom_model",
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
         "particle": "abyssalcraft:block/monolith_stone",

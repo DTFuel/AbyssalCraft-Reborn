@@ -1,9 +1,12 @@
 {
-  "parent": "abyssalcraft:block/layered_ore",
+  "parent": "abyssalcraft:block/tiered_energy_collector",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "abyssalcraft:block/energy_glow",
-    "overlay": "abyssalcraft:block/energycollector",
-    "particle": "abyssalcraft:block/energy_glow"
+    "2": "abyssalcraft:block/energycollector",
+    "3": "abyssalcraft:block/energy_glow",
+    "4": "abyssalcraft:block/omothol_stone",
+    "5": "abyssalcraft:block/energy_trim",
+    "particle": "abyssalcraft:block/monolith_stone",
+    "side": "abyssalcraft:block/monolith_stone"
   }
 }

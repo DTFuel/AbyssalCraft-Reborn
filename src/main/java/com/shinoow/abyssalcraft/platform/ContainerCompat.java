@@ -29,6 +29,7 @@ public final class ContainerCompat {
 
     /** Read all stacks from the {@code Items} tag. {@code registries} is ignored on 1.20.1. */
     public static void loadItems(CompoundTag tag, NonNullList<ItemStack> items, HolderLookup.Provider registries) {
+        items.clear();
         //? if >=1.21 {
         /*ContainerHelper.loadAllItems(tag, items, registries);
         *///?} else {

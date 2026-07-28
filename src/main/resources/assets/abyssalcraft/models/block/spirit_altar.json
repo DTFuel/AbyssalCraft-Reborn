@@ -1,4 +1,5 @@
 {
+  "parent": "abyssalcraft:block/legacy_custom_model",
   "textures": {
     "base": "abyssalcraft:block/darkstone",
     "rim": "abyssalcraft:block/monolith_stone",

@@ -1,4 +1,5 @@
 {
+  "parent": "abyssalcraft:block/legacy_custom_model",
   "textures": {
     "all": "abyssalcraft:block/monolith_stone",
     "particle": "abyssalcraft:block/monolith_stone"

@@ -1,9 +1,10 @@
 {
-  "parent": "abyssalcraft:block/layered_ore",
+  "parent": "abyssalcraft:block/energy_container",
   "render_type": "minecraft:cutout",
   "textures": {
-    "all": "abyssalcraft:block/energy_glow",
-    "overlay": "abyssalcraft:block/energycontainer",
-    "particle": "abyssalcraft:block/energy_glow"
+    "0": "abyssalcraft:block/monolith_stone",
+    "2": "abyssalcraft:block/energycontainer",
+    "3": "abyssalcraft:block/energy_glow",
+    "particle": "abyssalcraft:block/monolith_stone"
   }
 }

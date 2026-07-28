@@ -83,16 +83,12 @@ public abstract class BlockEntityCompat extends BlockEntity {
     //? if >=1.21 {
     /*@Override
     public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        CompoundTag tag = new CompoundTag();
-        saveData(tag, registries);
-        return tag;
+        return saveWithoutMetadata(registries);
     }
     *///?} else {
     @Override
     public CompoundTag getUpdateTag() {
-        CompoundTag tag = new CompoundTag();
-        saveData(tag, null);
-        return tag;
+        return saveWithoutMetadata();
     }
     //?}
 
