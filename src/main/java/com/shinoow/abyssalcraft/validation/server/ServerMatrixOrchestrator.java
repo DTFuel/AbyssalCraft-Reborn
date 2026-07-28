@@ -66,6 +66,7 @@ public final class ServerMatrixOrchestrator {
         EntityBehaviorSelfTest.run();
         NaturalSpawnServerFixture.run(server);
         ServerRuntimeDataFixture.run(server);
+        FoodInteractionFixture.run(server.overworld());
         MachineSelfTest.run(server.registryAccess());
         RitualManifestSelfTest.run();
         SpellManifestSelfTest.run();

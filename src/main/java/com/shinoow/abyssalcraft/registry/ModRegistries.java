@@ -72,10 +72,6 @@ public final class ModRegistries {
     public static final List<ModRegistrar<?>> ALL = List.of(
         ModCreativeTabs.TABS,
         ContentLootCompat.MODIFIERS,
-        // M0 vertical slice (Gate A4): demo block/item + demo creative tab.
-        DemoRegistrar.BLOCKS,
-        DemoRegistrar.ITEMS,
-        DemoRegistrar.TABS,
         // Pilot machine framework (Gate P1): crystal items + BE/menu/recipe example types.
         CrystalItems.ITEMS,
         MachineBlockEntities.BLOCK_ENTITIES,

@@ -2,7 +2,7 @@
 
 ## 1. Scope and result
 
-Status: **PASS (static closure)** on 2026-07-27. This audit covers the 1.20.1 Forge to 1.21.1 NeoForge API and data-directory rename boundary, Stonecutter node selection, modern content IDs, and the explicit legacy rename maps used by current generators and Necronomicon rendering. It does not change runtime behavior or claim that arbitrary legacy saves receive a global data fixer.
+Status: **PASS (static closure)** on 2026-07-28. This audit covers the 1.20.1 Forge to 1.21.1 NeoForge API and data-directory rename boundary, Stonecutter node selection, modern content IDs, and the explicit legacy rename maps used by current generators and Necronomicon rendering. It does not change runtime behavior or claim that arbitrary legacy saves receive a global data fixer.
 
 Permanent command:
 
@@ -13,7 +13,7 @@ node scripts/audit_renames.js
 Current result:
 
 ```text
-RR_RENAME_AUDIT_OK json=2212 paired=984 recipes=976 mappings=49 stale=0
+RR_RENAME_AUDIT_OK json=2619 paired=1186 recipes=1364 mappings=49 stale=0
 ```
 
 The script reads only `src/main/resources/data`, `src/main/generated/data`, and the four explicit Java map owners listed in section 5. It parses every current JSON file, checks dual directory layouts, checks recipe result keys, verifies modern rename targets have a consumer, and rejects old namespaced item IDs that remain in current JSON values (apart from two documented cross-registry collisions).

@@ -13,16 +13,11 @@ import com.shinoow.abyssalcraft.platform.EntityRendererCompat;
  * fork-free {@link EntityRendererCompat.Renderers#registerBlockEntity} sink (BE renderers share the same
  * {@code RegisterRenderers} event as entity renderers). Called from {@code ACEntityRenderers}.
  *
- * <p>Faithful BERs are registered when their modern BlockEntityType exists:
- * <ul>
- *   <li>the ritual / energy / sacrificial / rending <b>altars &amp; pedestals</b> (1.12.2
- *       {@code TileEntitySingletonInventoryBlockRenderer} -- a floating stored item) &rarr; Stage S
- *       (ritual / PE-energy / PoP / rending);</li>
- *   <li>the four severed <b>heads</b> (1.12.2 {@code TileEntityDirectionalRenderer} -- a directional head
- *       model) and the <b>Jzahar spawner</b> &rarr; later stages.</li>
- * </ul>
- * Research Table renders its legacy feather and Ritual Pedestal renders its stored offering. Remaining
- * TESRs stay deferred until their owning content provides a real BlockEntityType.
+ * <p>The complete modern BER set is Research Table (legacy feather) plus Ritual, Rending and Energy
+ * Pedestals (displayed inventory). Other registered block entities use static blockstate models,
+ * screens, or server-side state only. Legacy severed-head TESRs are replaced by facing blockstate
+ * models, and legacy Jzahar spawners are replaced by the vanilla spawner host; neither owns a modern
+ * AbyssalCraft BlockEntityType.
  */
 public final class ACBlockEntityRenderers {
 

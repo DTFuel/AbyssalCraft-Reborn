@@ -85,8 +85,8 @@ public final class ACEntityRenderers {
         MiscRenderers.register(audited, handled);
         ProjectileRenderers.register(audited, handled);
         LegacyRenderers.register(audited, handled);
-        // PE-6: BlockEntity renderers ride the same RegisterRenderers event; none faithful yet (all
-        // 1.12.2 TESR-bearing blocks are un-ported Stage-S -- altars/pedestals, heads, spawner).
+        // BlockEntity renderers ride the same RegisterRenderers event. The four modern hosts that
+        // need dynamic world rendering are kept exact by the gate below.
         ACBlockEntityRenderers.register(audited);
         // E1 default: placeholder for every AC entity not yet handled by an E2 family renderer.
         for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
@@ -109,7 +109,7 @@ public final class ACEntityRenderers {
                 + registeredBlockEntities.size() + "/" + expectedBlockEntities.size());
         }
         AbyssalCraft.LOGGER.info(
-            "R4_BER_GATE_OK blockEntities={} research={} ritual={} rending={} energy={}",
+            "RR_BER_HOST_CLOSURE_OK registered={} research={} ritual={} rending={} energy={}",
             registeredBlockEntities.size(),
             registeredBlockEntities.contains(ResearchTables.RESEARCH_TABLE_BE.get()) ? 1 : 0,
             registeredBlockEntities.contains(RitualBlocks.RITUAL_PEDESTAL_BE.get()) ? 1 : 0,

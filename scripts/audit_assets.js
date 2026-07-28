@@ -79,6 +79,12 @@ function decodablePng(file) {
     }
 }
 
+function pngDimensions(file) {
+    const bytes = fs.readFileSync(file);
+    if (bytes.length < 24 || bytes.subarray(0, 8).toString('hex') !== '89504e470d0a1a0a') return null;
+    return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
+}
+
 function legacyTextureDisposition(source, modernByHash, sourceHash) {
     const exactTargets = modernByHash.get(sourceHash);
     if (exactTargets) {
@@ -233,6 +239,41 @@ for (const file of itemModels) {
     auditModel(`abyssalcraft:item/${path.basename(file, '.json')}`, relative(file, ROOT));
 }
 
+function requireModelContract(name, parent, textures, renderType) {
+    const file = requireAsset(`models/block/${name}.json`, `model contract ${name}`);
+    if (!file) return;
+    const model = readJson(file);
+    if (model.parent !== parent) missing.push(`model contract ${name} parent=${model.parent}, expected=${parent}`);
+    if (renderType && model.render_type !== renderType) {
+        missing.push(`model contract ${name} render_type=${model.render_type}, expected=${renderType}`);
+    }
+    for (const [slot, texture] of Object.entries(textures)) {
+        if (model.textures?.[slot] !== texture) {
+            missing.push(`model contract ${name} texture ${slot}=${model.textures?.[slot]}, expected=${texture}`);
+        }
+    }
+}
+
+const energyTiers = ['', 'overworld_', 'abyssal_wasteland_', 'dreadlands_', 'omothol_'];
+const energyModelName = (prefix, kind) => prefix ? `${prefix}energy_${kind}` : `energy${kind}`;
+for (const prefix of energyTiers) {
+    requireModelContract(energyModelName(prefix, 'collector'),
+        'abyssalcraft:block/layered_ore', {
+            all: 'abyssalcraft:block/energy_glow', overlay: 'abyssalcraft:block/energycollector',
+        }, 'minecraft:cutout');
+    requireModelContract(energyModelName(prefix, 'container'),
+        'abyssalcraft:block/layered_ore', {
+            all: 'abyssalcraft:block/energy_glow', overlay: 'abyssalcraft:block/energycontainer',
+        }, 'minecraft:cutout');
+    requireModelContract(energyModelName(prefix, 'pedestal'),
+        'abyssalcraft:block/rending_pedestal', {
+            '0': 'abyssalcraft:block/energy_glow', '1': 'abyssalcraft:block/energy_trim',
+        }, 'minecraft:cutout');
+}
+requireModelContract('energydepositioner', 'abyssalcraft:block/layered_ore', {
+    all: 'abyssalcraft:block/energy_glow', overlay: 'abyssalcraft:block/energydepositioner',
+}, 'minecraft:cutout');
+
 const javaFiles = walk(path.join(ROOT, 'src/main/java/com/shinoow/abyssalcraft/client'))
     .filter(file => file.endsWith('.java'));
 const directPattern = /ACRef\.id\("(textures\/[^"]+|font\/[^"]+)"\)/g;
@@ -300,6 +341,21 @@ const pngFiles = ASSET_ROOTS.flatMap(root => walk(path.join(root, 'textures')))
 for (const file of pngFiles) {
     if (!decodablePng(file)) {
         missing.push(`undecodable PNG ${relative(file, ROOT)}`);
+    }
+}
+
+const clusterTexture = requireAsset('textures/block/crystal_cluster.png', 'animated crystal cluster');
+const clusterMetadata = requireAsset('textures/block/crystal_cluster.png.mcmeta', 'animated crystal cluster');
+if (clusterTexture) {
+    const dimensions = pngDimensions(clusterTexture);
+    if (!dimensions || dimensions.width !== 16 || dimensions.height !== 256) {
+        missing.push(`crystal cluster texture dimensions expected=16x256 actual=${dimensions && `${dimensions.width}x${dimensions.height}`}`);
+    }
+}
+if (clusterMetadata) {
+    const animation = readJson(clusterMetadata).animation;
+    if (!animation || !Number.isInteger(animation.frametime) || animation.frametime < 1) {
+        missing.push('crystal cluster animation metadata has no positive integer frametime');
     }
 }
 
@@ -386,6 +442,29 @@ const languageKeys = new Map(languageFiles.map(file => [path.basename(file, '.js
 const englishKeys = new Set(languageKeys.get('en_us') || []);
 const languageMissing = Object.fromEntries([...languageKeys].map(([language, keys]) =>
     [language, [...englishKeys].filter(key => !new Set(keys).has(key)).length]));
+const requiredJeiKeys = new Set([
+    'jei.abyssalcraft.anvil_forging', 'jei.abyssalcraft.anvil_price',
+    'jei.abyssalcraft.crystallizer_fuel', 'jei.abyssalcraft.transmutator_fuel',
+    'jei.abyssalcraft.rending', 'jei.abyssalcraft.infusion_ritual', 'jei.abyssalcraft.ritual',
+    'jei.abyssalcraft.creation_ritual', 'jei.abyssalcraft.transformation_ritual', 'jei.abyssalcraft.spell',
+    'jei.abyssalcraft.fuel_time', 'jei.abyssalcraft.ritual_energy',
+    'jei.abyssalcraft.ritual_book_type', 'jei.abyssalcraft.ritual_dimension',
+    'jei.abyssalcraft.rending_energy', 'jei.abyssalcraft.essence_type',
+    'jei.abyssalcraft.spell_energy', 'jei.abyssalcraft.scroll_type',
+    ...[
+        'infusion', 'creation', 'transformation', 'portal', 'summon', 'respawn_jzahar',
+        'breeding', 'dread_spawn', 'potion_aoe', 'resurrection', 'cleansing', 'corruption',
+        'infesting', 'curing', 'purging', 'mass_enchanting', 'weather', 'house',
+    ].map(kind => `jei.abyssalcraft.ritual_kind.${kind}`),
+    ...['entity', 'entity_or_self', 'block', 'self']
+        .map(target => `jei.abyssalcraft.spell_target.${target}`),
+]);
+for (const [language, keys] of languageKeys) {
+    const keySet = new Set(keys);
+    for (const key of requiredJeiKeys) {
+        if (!keySet.has(key)) missing.push(`JEI translation missing ${language}:${key}`);
+    }
+}
 
 const legacyByHash = new Map(walk(LEGACY_ROOT).filter(file => fs.statSync(file).isFile()).map(file =>
     [crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'), relative(file, LEGACY_ROOT)]));
@@ -432,3 +511,4 @@ console.log(`RR_LEGACY_TEXTURE_AUDIT_OK source=${legacyTextureFiles.length}`
     + ` retired=${legacyTextureCounts.RETIRED} blocked=${legacyTextureCounts.BLOCKED}`);
 console.log(`RR_ASSET_LANG_KEYSET ${JSON.stringify(Object.fromEntries([...languageKeys].map(([key, value]) => [key, value.length])))}`);
 console.log(`RR_ASSET_LANG_MISSING_VS_EN_US ${JSON.stringify(languageMissing)}`);
+console.log(`RR_ASSET_JEI_LANG_OK languages=${languageFiles.length} keys=${requiredJeiKeys.size}`);

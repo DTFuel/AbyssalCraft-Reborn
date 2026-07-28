@@ -6,6 +6,8 @@
 
 ---
 
+> **现态覆盖（2026-07-28）**：下方 2026-07-27 的 `BLOCKED` 分析是实现接线前的历史记录，已被当前永久 Gate 取代。Forge/Neo 固定 seed 新世界与持久化重启矩阵均执行真实 `ServerLevel`：Dark Realm oracle `matches=28 mismatches=0`，结构 `templates=37 procedural=2 markerHosts=6/6`，spawn `biomesChecked=10`，AW/DL 19 样本路线均满足 p50 <= 100 ms、p95 <= 500 ms。当前结论为 `RR_WORLD_SERVER_MATRIX_PASS checks=6`；人工地形观感仍归 `U-WORLD`。
+
 ## 执行摘要
 
 已完成 T5.2c/T5.3c/T5.4c/T5.6c/T5.8d/T5.9b 的自动验证框架和工具实现。所有代码均位于 `validation/world/**` 目录，遵循只读边界（world/portal、content、platform、relay、lang 未修改）。

@@ -6,9 +6,11 @@ import java.util.List;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.random.WeightedRandomList;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings.SpawnerData;
@@ -26,13 +28,19 @@ import com.shinoow.abyssalcraft.world.darklands.DarklandsBiomes;
 
 //? if forge {
 import net.minecraftforge.event.level.LevelEvent;
+import net.minecraftforge.event.ForgeEventFactory;
 //?} else {
 /*import net.neoforged.neoforge.event.level.LevelEvent;
+import net.neoforged.neoforge.event.EventHooks;
 *///?}
 
 public final class SpawnCandidateCompat {
 
     public record Candidate(String entityId, int weight, int minCount, int maxCount) {}
+
+    public record PotentialSpawnsObservation(ResourceKey<Level> dimension, ResourceKey<Biome> biome,
+                                             int y, List<Candidate> candidates,
+                                             boolean candidatesPresentInEventList) {}
 
     public record ConfiguredSpawnContext(boolean evilAnimalBiome, boolean netherBiome,
                                          boolean dictionaryAquaticBiome, boolean vanillaAquaticBiome,
@@ -73,6 +81,8 @@ public final class SpawnCandidateCompat {
 
     private static List<SpawnerData> shadowRealmSpawners;
     private static List<SpawnerData> dreadlandsOverrideSpawners;
+    private static final Object OBSERVATION_LOCK = new Object();
+    private static final List<PotentialSpawnsObservation> OBSERVATIONS = new ArrayList<>();
 
     private SpawnCandidateCompat() {}
 
@@ -92,16 +102,18 @@ public final class SpawnCandidateCompat {
             }
         }
         Holder<Biome> biome = level.getBiome(event.getPos());
+        ResourceKey<Biome> biomeKey = biome.unwrapKey().orElse(null);
+        List<Candidate> snapshot = candidateSnapshot(level.dimension(), biomeKey, event.getPos().getY());
+        List<SpawnerData> addedSnapshotSpawners = List.of();
         if (abyssalWasteland || dreadlands) {
-            ResourceKey<Biome> biomeKey = biome.unwrapKey().orElse(null);
-            List<Candidate> snapshot = candidateSnapshot(level.dimension(), biomeKey, event.getPos().getY());
             if (!snapshot.isEmpty()) {
                 if (ContentConfigMatrix.purgeMobSpawns()) {
                     for (SpawnerData spawner : List.copyOf(event.getSpawnerDataList())) {
                         event.removeSpawnerData(spawner);
                     }
                 }
-                for (SpawnerData spawner : spawners(snapshot)) event.addSpawnerData(spawner);
+                addedSnapshotSpawners = spawners(snapshot);
+                for (SpawnerData spawner : addedSnapshotSpawners) event.addSpawnerData(spawner);
             }
         }
 
@@ -114,6 +126,41 @@ public final class SpawnCandidateCompat {
                 ACConfig.depthsGhoulBiomeDictSpawn.get(), ACConfig.abyssalZombieBiomeDictSpawn.get(),
                 ACConfig.darkOffspringSpawnWeight.get())) {
             event.addSpawnerData(spawner(candidate));
+        }
+        observePotentialSpawns(level.dimension(), biomeKey, event.getPos().getY(), snapshot,
+            event.getSpawnerDataList().containsAll(addedSnapshotSpawners));
+    }
+
+    public static void resetPotentialSpawnsObservations() {
+        synchronized (OBSERVATION_LOCK) {
+            OBSERVATIONS.clear();
+        }
+    }
+
+    public static List<PotentialSpawnsObservation> potentialSpawnsObservations() {
+        synchronized (OBSERVATION_LOCK) {
+            return List.copyOf(OBSERVATIONS);
+        }
+    }
+
+    /** Query the loader's real PotentialSpawns hook against the biome's current monster list. */
+    public static List<SpawnerData> queryPotentialSpawns(ServerLevel level, BlockPos pos) {
+        WeightedRandomList<SpawnerData> base = level.getBiome(pos).value().getMobSettings()
+            .getMobs(MobCategory.MONSTER);
+        //? if forge {
+        return ForgeEventFactory.getPotentialSpawns(level, MobCategory.MONSTER, pos, base).unwrap();
+        //?} else {
+        /*return EventHooks.getPotentialSpawns(level, MobCategory.MONSTER, pos, base).unwrap();
+        *///?}
+    }
+
+    private static void observePotentialSpawns(ResourceKey<Level> dimension, ResourceKey<Biome> biome,
+            int y, List<Candidate> candidates, boolean candidatesPresentInEventList) {
+        if (!Boolean.getBoolean("abyssalcraft.rrServerMatrix")) return;
+        PotentialSpawnsObservation observation = new PotentialSpawnsObservation(
+            dimension, biome, y, List.copyOf(candidates), candidatesPresentInEventList);
+        synchronized (OBSERVATION_LOCK) {
+            OBSERVATIONS.add(observation);
         }
     }
 

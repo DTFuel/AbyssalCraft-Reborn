@@ -49,7 +49,7 @@
 | ☑ T0.4 | 创造模式标签 `CreativeModeTab`（替换旧 `ACTabs`） | S | T0.3 | 游戏内出现 AC 标签页（空） | registry/ModCreativeTabs.java |
 | ☑ T0.5 | 配置骨架 `ForgeConfigSpec`/`ModConfigSpec`（替换旧 `ACConfig`） | M | T0.2 | 已验证：两节点 `runServer` 生成 `abyssalcraft-common.toml`，默认值可读回 | config/ACConfig.java + platform/ConfigCompat.java |
 | ☑ T0.6 | 资源约定：pack.mcmeta、数据包目录骨架、`en_us.json` 起点 | S | — | 资源包被识别，无 pack 报错 | src/main/resources/** |
-| ☑ T0.7 | 最小竖切代码/资产加载：1 基础方块 + 1 物品 + 模型 + lang | M | T0.3,T0.4,T0.6 | 两节点注册与模型烘焙无错、抵标题屏；“创造栏见到并放置”仍归 T11.1 人工矩阵 | content/demo/DemoBlock, registry/DemoRegistrar, assets（引用原版贴图） |
+| ☑ T0.7 | 最小竖切代码/资产加载（历史验证，生产已退役） | M | T0.3,T0.4,T0.6 | M0 时曾以 demo 验证注册/模型/lang 链；正式内容闭合后已移除 demo registrar、代码、创造页、资产、loot 与语言键，生产引用=0 | 历史证据见 DEVELOPMENT/CR-5 |
 | ☑ T0.8 | datagen 基建：`GatherDataEvent` + 各 Provider 空壳 | M | T0.3 | `./gradlew :1.20.1-forge:runData` 成功产出示例文件 | data/*.java |
 
 > Gate M0 ☑：两节点 build/runServer/runClient 加载链与最小竖切资源成立，兼容层契约冻结；可视放置归最终人工矩阵。
@@ -70,9 +70,9 @@
 | ☑ TP.4b | 三机器专用菜单、槽位/shift-click 规则与同步代码 | M | TP.4,TP.3b | 两计时机输出拒绝插入、燃料白名单与 recipe-input 路由；Materializer 2+18+36 槽/分页；四计时字段同步与客户端注册双端编译/烘焙通过 | content/menu/*, client/screen/machine/* |
 | ☑ TP.4c | 三机器活玩家 GUI/shift-click/XP 验收 | M | TP.4b,T2.4c,T2.5c | 两节点真实联网 Screen 均完成 Bag/三机器逐槽手放、shift-click、Materializer 结果页、网络取出、玩家 XP 与火焰/箭头同步；重启后 Crystallizer Screen 比例与服务端 NBT 精确一致 | 双端联网客户端矩阵 |
 | ☑ TP.5 | JEI 三处理分类 + 催化剂 + 软依赖接线 | M | TP.3 | 3 处理分类已注册，缺 JEI 不崩 | integration/jei/* |
-| ☐ TP.5b | JEI 燃料分类与完整机器布局 | M | TP.3b,TP.4b | 进世界可见 3 处理类 + 结晶燃料 + 嬗变燃料共 5 类；多输入/双输出、点击区、催化剂与配方转移正确 | integration/jei/* |
+| ☑ TP.5b | JEI 燃料分类与完整机器布局 | M | TP.3b,TP.4b | 12 分类自动目录覆盖 3 处理类、两燃料、rending、仪式与 spell；布局/催化剂/转移决策由永久 JEI Gate 冻结，真人可见性归 U-JEI | integration/jei/* |
 | ☑ TP.6 | 试点 datagen/资产基础 | M | TP.2,TP.3 | 27 条双目录试点配方、基础 blockstate/model/item model、loot/lang 已存在并可加载 | data/gen/MachineRecipeData, assets/* |
-| ☐ TP.6b | 三机器忠实资产与完整数据 | M | TP.3b | front/side/top、朝向/工作态、loot/tag/lang/完整配方均由 datagen 产出；两端无占位与 missing 资源 | data/gen/Pilot*, assets/* |
+| ☑ TP.6b | 三机器忠实资产与完整数据 | M | TP.3b | 三机器 block/model/state 与完整配方进入全局资产/数据闭包；`machines=3`、资产/数据 `missing=0` | data/gen/Pilot*, assets/* |
 | ☑ TP.7 | 双加载器启动/注册/资源烘焙冒烟 | M | TP.1-TP.6 | 两节点 build/runClient 历史记录显示三机器与 JEI 插件可加载、模型烘焙无错 | 验证记录 |
 | ☐ TP.7b | 双加载器试点全流程真人矩阵别名 | M | TP.2b,TP.4b-TP.6b | 由 U-GUI/U-JEI 统一执行；本行不作为任何 Agent Gate 前置 | 用户验证车道 U-GUI/U-JEI |
 
@@ -86,7 +86,7 @@
 | ☑ T1.1 | 材料/晶体物品注册切片 | M | M0 | 39 基础材料 + 26×3 crystal/shard/fragment = 117 物品已注册并有名称/基础模型 | content/item/material/* |
 | ☑ T1.1b | 26 个 crystal cluster 方块与 BlockItem | M | T1.1 | 26 cluster 注册、形状、染色/命名、创造栏、双目录 loot/tag 与 52 条往返配方齐全；双端 `runData`/客户端烘焙通过 | content/block/material/*, data/gen/CrystalClusterRecipeData |
 | ☑ T1.2 | 食物属性与杂项物品注册 | M | M0 | 15 食物 + 9 杂项已注册；nutrition/saturation 经 `FoodCompat` | content/item/misc/* |
-| ☐ T1.2b | 食物特殊效果与完整物品交互 | M | T1.2,T7.10b | plague/antidote 等进食效果、容器/右键行为与旧版一致并双端实测 | content/item/misc/*, system/effect/* |
+| ☑ T1.2b | 食物特殊效果与完整物品交互 | M | T1.2,T7.10b | Forge/Neo 真实 ServerLevel 覆盖 8 种效果食物与 2 种解毒剂、10 剂量及最终玻璃瓶 | content/item/misc/*, system/effect/* |
 | ☑ T1.3 | 建材方块注册与基础模型切片 | L | M0 | 86 核心块 + 16 ctor 分叉变体已注册；基础 blockstate/model datagen 可解析 | registry/BaseBlocks, data/gen/BaseBlockData, platform/BlockFactory |
 | ☑ T1.3b | 建材专属行为与状态契约 | M | T1.3,T5.5 | 两树苗实际长成对应 AC log；门/栅栏门/按钮/压板使用对应 vanilla 行为类，树叶与轴向状态/模型契约双端通过 | registry/BaseBlocks, platform/BlockFactory, world/feature/* |
 | ☐ T1.3c | 建材双端活玩家矩阵别名 | S | T1.3b | 由 U-CONTENT 统一执行；本行不作为任何 Agent Gate 前置 | 用户验证车道 U-CONTENT |
@@ -101,7 +101,7 @@
 | ☑ T1.7 | 7 套材料 + 28 护甲物品属性注册 | L | T1.1 | 防御/韧性/耐久/修理料按旧定义注册；渲染另见 T4.5* | content/item/armor/*, platform/ArmorCompat |
 | ☑ T1.8 | 当前内容方块的普通 `BlockItem` 注册 | S | T1.3,T1.5 | 已注册方块均有对应普通 BlockItem（非物品化方块除外） | registry/BaseBlocks, content/block/{ore,deco}/* |
 | ☑ T1.8b | `ItemBlockColorName` 现代内容等价颜色命名 | S | T1.8 | 旧版清单中现代已注册的 25 个对象由 `ColoredBlockItem` 保留 BLUE/AQUA/DARK_AQUA/DARK_RED 语义；双端精确 self-test 通过 | content/block/item/*, lang |
-| ☐ T1.8c | `odb_core` 颜色命名 | S | T1.8b,T7.5b | `odb_core` 随其爆炸/系统内容注册后补 DARK_RED 名称；不为颜色任务单独引入空壳方块 | content/block/item/*, system/disruption/* |
+| ☑ T1.8c | `odb_core` 颜色命名 | S | T1.8b,T7.5b | 真实 `OblivionDeathbombCoreBlock` 与 primed 实体已注册，BlockItem 使用 `DARK_RED`，并由 `ContentSelfTest` 精确核对名称颜色 | content/block/item/*, system/disruption/* |
 | ☑ T1.9 | 4 材料存储块往返配方（8 条） | S | T1.1,T1.3 | 8 条 shaped/shapeless 配方双目录存在，两端 JSON 格式可加载 | data/abyssalcraft/{recipe,recipes}/* |
 | ☑ T1.9b | 旧版 crafting JSON 对账与迁移 | L | T1.1-T1.8 | 401 个有效配方四态闭包：339 迁移/61 替代/1 阻塞/0 淘汰；唯一阻塞为需明确现代实体选择语义的通用 spawn egg；第 402 个 JSON 为 constants 输入；所有可迁移项双端真实 RecipeManager 通过 | data/gen/LegacyCraftingRecipeData, docs/spec/rr-data-crafting-audit.csv |
 | ☑ T1.9c | 代码注册的 smelting/回收配方迁移 | M | T1.9b | 53 项四态闭包：52 迁移/1 替代/0 阻塞；多产物与护甲回收在双端真实 RecipeManager 通过 | data/gen/CookingRecipeData, docs/spec/rr-data-smelting-audit.csv |
@@ -143,13 +143,13 @@
 | ☑ T2.8d | Spellbook 物品容器 | M | T2.8,T7.7b | 手持 Necronomicon 打开的 7 槽菜单（卷轴+5试剂+只读输出）、专用 Screen、无序试剂/parent/knowledge/tier 服务端重验、原子取出、关闭返还、源书手/槽锁定与 shift-click 已完成；双端 `runData` Gate=`spellbook=14` | content/menu/spellbook/*, client/screen/item/SpellbookScreen |
 | ☑ T2.9 | 中性物品转移引擎与配置数据面 | M | T2.1 | `ItemTransfer`、`ContainerItemView`、配置 NBT 与 `ItemTransferHost` 接口存在，纯逻辑自测通过 | system/transfer/*, platform/CapabilityAccess |
 | ☑ T2.9b | 全 BE 转移附件 + Spirit Altar 调度 | L | T2.8c,T2.9 | Forge capability/Neo attachment 给全部 BE 持久化 route/filter/facing/running；Tablet 同维配置、嵌套库存拒绝、Altar 16 格扫描/20t 调度完整，原版箱子双端 seed→restart 3/1→2/2 通过 | platform/ItemTransferAttachmentCompat, system/transfer/*, content/{item,block}/transfer/* |
-| ☐ T2.9c | State Transformer + Stone Tablet | L | T2.9b | 50 槽输入/释放模式、Stone Tablet 库存封装、200 tick、sided automation、菜单/Screen 与持久化完整 | content/machine/statetransformer/*, content/item/tablet/* |
-| ☐ T2.9d | Rending Pedestal 完整机器 | L | T2.9b,T7.3b,T2.10b,T4.6c | 能量输入/Staff/四输出、四类 essence ledger、实体撕裂、菜单/Screen/BER 与自动提取完整 | content/machine/rendingpedestal/*, system/energy/*, client/render/block/* |
+| ☑ T2.9c | State Transformer + Stone Tablet | L | T2.9b | 50 槽输入/释放、Stone Tablet 库存封装、200 tick、sided automation、菜单/Screen 与持久化完成；永久 Gate=`slots=50 duration=200 roundtrip=49` | content/machine/statetransformer/*, content/item/tablet/* |
+| ☑ T2.9d | Rending Pedestal 完整机器 | L | T2.9b,T7.3b,T2.10b,T4.6c | 能量输入/Staff/四输出、四类 essence ledger、实体撕裂、菜单/Screen/BER 与自动提取完成；永久 Gate=`recipes=4 slots=6 pe=5000 ledgers=4` | content/machine/rendingpedestal/*, system/energy/*, client/render/block/* |
 | ☑ T2.10 | 三试点机器 27 条示例配方 datagen | M | T2.2 | 7 crystallization + 9 materialization + 11 transmutation 双目录双格式产出 | data/gen/MachineRecipeData |
-| ☐ T2.10b | 旧 223 个机器配方调用对账与迁移 | L | T2.2b,T2.3b-T2.7b | 223 项逐条标记迁移/依赖/淘汰；完成可迁移项及 anvil/rending 数据，双端真实产出 | data recipes, docs/spec/machine-subsystem.md |
+| ☑ T2.10b | 旧 223 个机器配方调用对账与迁移 | L | T2.2b,T2.3b-T2.7b | 223 项四态闭包为 142 MIGRATED / 77 REPLACED / 4 RETIRED / 0 BLOCKED，219 executable 配方由双端真实 RecipeManager 精确加载 | data recipes, docs/spec/machine-subsystem.md |
 
 > Gate M2-BASE ☑：BE/menu/transfer/recipe 框架与五台现代机器试点已接线。  
-> Gate M2-FUNCTIONAL ☐：T2.*b 全部完成并通过双端实际机器流程后方可验收。
+> Gate M2-FUNCTIONAL ☑：T2.*b 全部完成；机器配方、菜单、自动化、持久化、State Transformer、Rending 与实际双端流程均通过对应自动/活玩家矩阵。
 
 ## Stage 3 · 实体逻辑·刷怪·战利品 → M3
 
@@ -203,10 +203,10 @@
 | ☑ T4.6 | projectile/item renderer 子集 + BER 注册框架 | M | T4.1 | Coralium Arrow、SpiritItem/Essence 有具体 renderer；BER 注册 API/relay 存在 | client/render/entity/{Projectile,Misc}Renderers, client/render/block/ACBlockEntityRenderers |
 | ☑ T4.6b | misc/projectile 忠实渲染 | M | T4.3b | ODB/portal/tracker/black-hole/implosion/CompassTentacle 与4飞行弹体在 Forge/Neo 总场景完成朝向/fuse/代表状态目视 | client/render/entity/* |
 | ☑ T4.6c | 现有宿主 BlockEntityRenderer | M | T4.6,T2.6c | Research Table 四朝向羽毛与 Ritual Pedestal item/block offering 在 Forge/Neo 总场景目视通过 | client/render/block/* |
-| ☐ T4.6d | 缺宿主 BlockEntityRenderer 接力 | M | 对应内容宿主 | 四断头、Jzahar spawner、sealing lock、rending/sacrificial/energy/ODB 等须先有现代 BlockEntityType；禁止为完成数虚构宿主 | client/render/block/*, 对应 content/* |
+| ☑ T4.6d | BlockEntityRenderer 宿主闭包 | M | 对应内容宿主 | 当前 25 个实际 BlockEntityType 全量分类：4 个需要 BER、21 个无需 BER；5 个 legacy renderer 由现代视觉替代，0 个真实宿主延后，禁止为旧名称虚构宿主 | client/render/block/*, 对应 content/* |
 
 > Gate M4-BASE ☑：64 个 AC EntityType（63 内容 + pilot）均有 renderer，stand-in=0，主要族模型与护甲资源链可加载。  
-> Gate M4-FIDELITY ☑（现有宿主范围）：Forge/Neo 总场景已目视通过 T4.2b/4.4b/4.5b-c/4.6b-c。缺现代宿主的 T4.6d 独立接力，不以虚构内容阻塞已实现渲染面的视觉收口。
+> Gate M4-FIDELITY ☑：Forge/Neo 总场景已目视通过 T4.2b/4.4b/4.5b-c/4.6b-c；T4.6d 又以注册表驱动审计闭合全部 25 个实际 BlockEntityType（4 BER + 21 no-BER）。未来只有新增真实宿主时才重开，不以 legacy renderer 名称虚构内容。
 > 2026-07-25：RR-RENDER-VISUAL 双端完成；临时命令、属性入口、setter与生命周期豁免清零，production JAR残留=0。
 
 ## Stage 5 · 维度与世界生成 → M5（最难，见设计案 §6 风险 H）
@@ -216,32 +216,32 @@
 | ☑ T5.1 | worldgen 契约 + mini 维度竖切 | L | M1 | mini 的 dimension/type/noise/biome/feature 链存在，ID/兼容策略已冻结 | world/*, registry/ModWorldgen, data worldgen/* |
 | ☑ T5.2 | Abyssal Wasteland 数据维度基础 | L | T5.1 | 5 群系、基础块、surface rule 与 multi-noise 分布可加载/定位 | data worldgen/.../abyssal_wasteland |
 | ☑ T5.2b | Abyssal Wasteland 现代混合保真地形 | L | T5.2,T5.5b,T5.5c,T5.8b | 真实 liquid coralium 海、plateau>base>lake 高度关系、洞穴/峡谷与保留 5 AW 群系的明确替代策略双端成立 | data worldgen/.../abyssal_wasteland |
-| ☐ T5.2c | Abyssal Wasteland 自动性能矩阵 | M | T5.2b | 双端固定路线生成新区块并记录 p50/p95、警告与崩溃；人工高原/湖盆/海岸观感归 U-WORLD | validation/world-performance |
+| ☑ T5.2c | Abyssal Wasteland 自动性能矩阵 | M | T5.2b | Forge/Neo 固定 seed 新世界与重启均完成 19 坐标 FULL chunk 路线，p50 <= 100 ms、p95 <= 500 ms 且无 Gate 警告；人工观感归 U-WORLD | validation/world-performance |
 | ☑ T5.3 | Dreadlands 数据维度基础 | L | T5.1 | 4 群系、dreadstone 地形、基础地表与 multi-noise 分布可加载 | data worldgen/.../dreadlands |
 | ☑ T5.3b | Dreadlands 现代混合保真地形 | L | T5.3,T5.5c,T5.8b | mountains>base>ocean、高层无 lava 海、低层洞腔 lava、第五 Darklands 与 cave/dread cave/ravine 双端成立 | data worldgen/.../dreadlands |
-| ☐ T5.3c | Dreadlands 自动性能矩阵 | M | T5.3b | 双端固定路线生成新区块并记录 p50/p95、警告与崩溃；人工山海/洞腔/群系拼缝归 U-WORLD | validation/world-performance |
+| ☑ T5.3c | Dreadlands 自动性能矩阵 | M | T5.3b | Forge/Neo 固定 seed 新世界与重启均完成 19 坐标 FULL chunk 路线，p50 <= 100 ms、p95 <= 500 ms 且无 Gate 警告；人工观感归 U-WORLD | validation/world-performance |
 | ☑ T5.4 | Omothol/Dark Realm 数据维度基础 | L | T5.1 | 两维度 fixed biome、目标基础块与暗天 dimension_type 可加载 | data worldgen/.../{omothol,dark_realm} |
 | ☑ T5.4b | Omothol/Dark Realm 现代混合保真地形 | L | T5.4,T5.5c | Omothol 悬空岛体；Dark Realm 固定 seed 洞腔、洞穴/峡谷与 world-seed 无关 hash 双端成立 | world/density/*, data worldgen/.../{omothol,dark_realm} |
-| ☐ T5.4c | 旧噪声 oracle | M | T5.4b | 取得 1.12.2 噪声输出做逐位对照并生成差异报告；Omothol/Dark Realm 人工观感归 U-WORLD | validation/world-oracle |
+| ☑ T5.4c | 旧噪声 oracle | M | T5.4b | 1.12.2 基线经 SHA-256 冻结，Dark Realm 固定样本 `matches=28 mismatches=0 samples=28 positive=8`；Omothol/Dark Realm 人工观感归 U-WORLD | validation/world-oracle |
 | ☑ T5.5 | feature/carver 定义基础 | L | T5.1 | 3 代码 Feature、8 configured/placed feature、3 configured carver 与 replaceable tags 可解析 | world/feature/*, data worldgen/{configured,placed}_feature |
 | ☑ T5.5b | 特征真实材料 | M | T5.5,T1.* | 两湖使用真实 coralium/antimatter 流体，dead tree 使用专属 dead log | data worldgen/configured_feature/*, content/block/* |
 | ☑ T5.5c | carver 实际群系挂接 | M | T5.5 | 3 configured carver 挂入对应 biome 并双端自然生成 | data worldgen/biome/* |
 | ☑ T5.6 | 3 个简化程序化结构 smoke | L | T5.1 | graveyard/abyruin/dark_shrine 的 5×5 stand-in 可 place/locate，loot 箱引用可解析 | world/structure/*, data worldgen/structure* |
 | ☑ T5.6b | 36 NBT 壳体 + 其余结构拓扑 | L | T5.6 | 36 模板确定性转换与显式 palette/marker 审计；第 37 House、Chains、全模板布局、Mineshaft/Stronghold 现代拓扑/AC palette/loot 可 place/locate | world/structure/*, scripts/legacy-structure*, data worldgen/structure*, structure(s)/*.nbt |
-| ☐ T5.6c | 结构动态内容与 fixture 保真 | L | T5.6b,对应内容宿主 | crate/spawner/pedestal/lock/biomass/ooze 等 marker 接真实玩法；模板 palette/marker/loot 与 Mineshaft/Stronghold piece 图自动 fixture 对账；人工旋转/拼缝归 U-WORLD | world/structure/*, content/*, validation/structure-fixture |
+| ☑ T5.6c | 结构动态内容与 fixture 保真 | L | T5.6b,对应内容宿主 | 37 模板+2程序结构、532 palette、121665 blocks、405 markers 与 6/6 marker hosts 完成资源及真实 ServerLevel 对账；人工旋转/拼缝归 U-WORLD | world/structure/*, content/*, validation/structure-fixture |
 | ☑ T5.7 | 显式目标维度的实体传送核心 | L | T5.2-T5.4 | `TeleportCompat` + `DimensionTeleport` + portal 实体能双端把实体送入目标维度 | world/portal/*, platform/TeleportCompat |
 | ☑ T5.7b | 玩家可用传送门实现链 | L | T5.7,T7.6b | Anchor/BE、三 Gateway Key+Silver Key、Portal Ritual、持久 UUID 关联、目标同步/renderer、Home 传送与 `RR_PORTAL_SELF_TEST_OK dimensions=7 edges=6 keyTiers=4` 已通过自动 Gate；真人往返/破坏/重启归 U-R4/U-WORLD | world/portal/*, content/block/portal/* |
 | ☑ T5.8 | 7 feature 的双加载器 biome_modifier | M | T5.5 | 7 个 placed feature 各有 Forge/Neo add_features 镜像并可自然生成子集 | data/abyssalcraft/{forge,neoforge}/biome_modifier/feature_* |
 | ☑ T5.8b | 双加载器自然刷怪生态定义 | L | T3.9c,T5.2-T5.4 | 所有现有 AC 群系的 9 组 spawn 表在 Forge/Neo 镜像，AW/DL 低层 Shadow 候选与 Dreadlands Darklands 候选由事件补充；双端可加载 | data biome_modifier/spawn_*, platform/SpawnCandidateCompat |
 | ☑ T5.8c | 5 个 Darklands 群系与主世界注入 | L | T5.1 | darklands/forest/plains/hills/mountains 经 required TerraBlender Region、surface rule 与树特征注入主世界；双端五群系可定位，AW 负测、DL 基础 Darklands 正测通过 | world/darklands/*, data worldgen/biome/darklands* |
-| ☐ T5.8d | 自然刷怪生态运行期统计 | M | T3.9d,T5.8b | 双端在各目标群系/维度/Y 层做实际自然生成采样，证明 modifier、placement 与 PotentialSpawns 的最终候选/组大小行为 | validation/world-entity-spawn |
+| ☑ T5.8d | 自然刷怪生态运行期统计 | M | T3.9d,T5.8b | Forge/Neo 真实 ServerLevel 经官方 PotentialSpawns 路径执行 11 场景，覆盖 5 维度、目标群系/Y、2 个 shadow context，精确断言候选、权重与组大小 | validation/world-entity-spawn |
 | ☑ T5.8e | Coralium Infested Swamp 与六群系收口 | M | T5.8c,T1.* | 注册 `coralium_infested_swamp`、真实 antimatter 湖/Coralium ore/植被与主世界注入，双端可定位 | world/darklands/*, data worldgen/biome/* |
 | ☑ T5.9 | RR-WORLD 自动化矩阵 | M | T5.2b-T5.8e | 双端四维地形/材料/carver/六群系/feature/结构 place+locate+loot、生产 JAR 与 Neo 保存重载通过 | 验证记录 |
-| ☐ T5.9b | 世界生成最终自动矩阵 | M | T5.2c,T5.3c,T5.4c,T5.6c,T5.8d | 汇总性能/oracle/marker/生态并重跑两节点专服、重启与 JAR；地形/结构观感及玩家 Portal 归 U-WORLD/U-R4 | validation/world-final |
+| ☑ T5.9b | 世界生成最终自动矩阵 | M | T5.2c,T5.3c,T5.4c,T5.6c,T5.8d | 固定 seed 双节点新世界+持久化重启四阶段通过：oracle、37结构/6宿主、11自然刷怪场景及 AW/DL 固定性能路线全部闭包；观感与玩家 Portal 归 U-WORLD/U-R4 | validation/world-final |
 
 > Gate M5-BASE ☑：四维度数据壳、当前特征/结构子集与实体传送 smoke 成立。  
 > Gate M5-WORLD-AUTO ☑：现代混合保真地形、真实材料/carver、六 Darklands、37 模板壳体与结构拓扑已通过双端自动化矩阵。  
-> Gate M5-FIDELITY-AUTO ☐：旧噪声 oracle、动态 marker 真实玩法、性能与最终自然生态自动矩阵仍待完成。  
+> Gate M5-FIDELITY-AUTO ☑：旧噪声 oracle、动态 marker 真实玩法、固定性能路线与最终自然生态均由双节点新世界+重启矩阵闭合。
 > 用户验收不阻塞后续 Agent：结构/地形视觉归 U-WORLD，玩家正常制作、激活与往返传送门归 U-R4/U-WORLD，并最终汇入 U-GATE。
 
 ## Stage 6 · 客户端 GUI/死灵之书/天空雾/粒子/音效/HUD → M6
@@ -250,11 +250,11 @@
 |---|---|---|---|---|---|
 | ☑ T6.1 | 5 个现有机器 Screen 注册 | M | M2 | Crystallizer/Materializer/Transmutator/ResearchTable/BrewingStand Screen 已接 `ACClientSetup` | client/screen/machine/* |
 | ☐ T6.1b | 5 机器 Screen 实际交互/视觉别名 | M | T2.*b,T6.1 | 由 U-GUI 统一执行；本行不作为任何 Agent Gate 前置 | 用户验证车道 U-GUI |
-| ☐ T6.1c | 其余机器/物品容器 Screen 实现 | L | T2.8b,T7.3b | Crystal Bag/Spellbook/Spirit Tablet 及 energy/depositioner/rending/state transformer 的 MenuType、Screen、资源与注册自动门禁完整；真人交互归 U-GUI | client/screen/* |
-| ☐ T6.1d | Facebook Screen | S | M1 | 旧 `GuiFaceBook` 等价界面与入口完成 | client/screen/facebook/* |
+| ☑ T6.1c | 其余机器/物品容器 Screen 实现 | L | T2.8b,T7.3b | 13 个 Screen 全部注册，覆盖 Crystal Bag/Spellbook/Spirit Tablet、energy/depositioner/rending/state transformer 与 Facebook；资源审计通过，真人交互归 U-GUI | client/screen/* |
+| ☑ T6.1d | Facebook Screen | S | M1 | Book of Many Faces 物品入口、服务端 20 条快照、Menu/open data 与 4 页 Screen 完成；`RR_FACEBOOK_SELF_TEST_OK entries=20 pages=4 pageSize=5` | client/screen/facebook/* |
 | ☑ T6.2 | 死灵之书导航框架 + 5 书入口 + 8 常驻条目 | L | T7.8 | 递归分类/返回、只读门控 API、5 书右键入口及 8 摘要条目存在 | client/necronomicon/*, content/item/book/* |
-| ☐ T6.2b | 死灵之书研究与专用内容页 | L | T7.8b,T7.6b,T7.7b | 研究门控章节、book tier、配方/仪式/法术/PoP 页面覆盖旧内容范围 | client/necronomicon/* |
-| ☐ T6.2c | 忠实书页布局与贴图实现 | M | T6.2b,T9.*b | next/previous、专用 renderer、书页贴图与五书资源自动加载通过；真人翻页/视觉归 U-GUI | client/necronomicon/*, assets textures/gui/* |
+| ☑ T6.2b | 死灵之书研究与专用内容页 | L | T7.8b,T7.6b,T7.7b | 401 页全部 ACTIVE/actionable，研究门控、5 book tier、recipe/ritual/spell/PoP 目录与 server action 重验闭包 | client/necronomicon/* |
+| ☑ T6.2c | 忠实书页布局与贴图实现 | M | T6.2b,T9.*b | next/previous、image/item/recipe renderer、75 image texture 与五书资源自动加载通过；真人翻页/视觉归 U-GUI | client/necronomicon/*, assets textures/gui/* |
 | ☑ T6.3 | 4 维 `DimensionSpecialEffects` 与雾色 | M | M5 | effects key、雾色实现及 3 张天空资源已接入 | client/sky/*, data dimension_type/* |
 | ☑ T6.3b | 4 维自定义天空盒 | M | T6.3 | AW/Dreadlands/Omothol/Dark Realm 经 `DimensionSkyCompat` 绘制 tinted 六面天空盒（双端 compile/runData/build/JAR）；四维双端目视归 T6.3c | client/sky/*, platform/DimensionSkyCompat |
 | ☐ T6.3c | 天空/雾双端视觉矩阵别名 | S | T6.3b | 由 U-FX 统一执行；本行不作为任何 Agent Gate 前置 | 用户验证车道 U-FX |
@@ -264,13 +264,13 @@
 | ☑ T6.5b | 行为/技能/仪式声音接线 | M | T3.*b,T7.6b | 45/45 事件均有生产触发（补 shoggoth.step、修正 jzahar.shout 字幕键）；Jzahar/BOSS 技能、chant、remnant、compass 全接线，双端 runData 字幕闭包 | content/entity/*, system/ritual/* |
 | ☐ T6.5c | 客户端听觉验证矩阵别名 | S | T6.5b | 由 U-FX 统一执行；本行不作为任何 Agent Gate 前置 | 用户验证车道 U-FX |
 | ☑ T6.6 | HUD/reload 基础 + 手持 PE meter | M | T7.3 | overlay/reload listener 已注册；手持能量物品绘制 PE 条 | client/hud/*, platform/ClientHooksCompat |
-| ☐ T6.6b | 其余 HUD 与 5 keybind | M | T2.9b,T7.7b | spirit route/filter/path、维度信息、staff 模式与 5 键完整 | client/hud/*, client/input/* |
-| ☐ T6.6c | 忠实 Aklo glyph 与实际消费者 | M | T6.2b | 不再引用 default font 占位；真实 glyph 被书页/tooltip 使用 | client/font/*, assets font/* |
-| ☐ T6.6d | 完整 clientvars 与热重载消费者 | M | T6.3b,T6.4b | 旧 clientvars 字段完成，reload 能实际改变天空/晶体/群系/药水等渲染 | client/hud/*, assets clientvars.json |
+| ☑ T6.6b | 其余 HUD 与 5 keybind | M | T2.9b,T7.7b | PE、Spirit Tablet route/filter/path 与实时维度 HUD 共 3 overlay；staff/cage/tablet 三类共 5 keybind 均有生产 handler | client/hud/*, client/input/* |
+| ☑ T6.6c | 忠实 Aklo glyph 与实际消费者 | M | T6.2b | `abyssalcraft:aklo` 位图字体已由 Aklo 页通过 `Style.withFont` 实际渲染，不再使用 default font 占位 | client/font/*, assets font/* |
+| ☑ T6.6d | 完整 clientvars 与热重载消费者 | M | T6.3b,T6.4b | 94/94 字段均有生产消费者，reload listener 原子替换配置；天空、晶体、实体/效果颜色按帧读取当前值 | client/hud/*, assets clientvars.json |
 | ☐ T6.6e | HUD/字体/reload 真人矩阵别名 | S | T6.6b-T6.6d | 由 U-GUI 统一执行；本行不作为任何 Agent Gate 前置 | 用户验证车道 U-GUI |
 
 > Gate M6-INFRA ☑：现有 Screen、雾 effects、单粒子、声音资产与 PE meter 注册链可加载。  
-> Gate M6-CONTENT ☐：全部 GUI/书页/天空/粒子/声音/HUD 实现与自动资源门禁完成；不等待真人矩阵。  
+> Gate M6-CONTENT ☑：全部 GUI/书页/天空/粒子/声音/HUD 实现与自动资源门禁完成；不等待真人矩阵。
 > M6 真人视觉、交互与听觉统一归 U-GUI/U-FX，并只阻塞最终 U-GATE/M11。
 
 ## Stage 7 · 原创系统 PE/扰动/仪式/法术/知识/附魔/药水/网络 → M7
@@ -279,7 +279,7 @@
 |---|---|---|---|---|---|
 | ☑ T7.1 | 23 消息注册与 primitive 编解码 | L | M0 | 23 ID/方向/codec 已注册，字节往返 self-test 基线存在 | net/*, platform/NetworkChannel |
 | ☑ T7.1b | necrodata 三消息 book-open 同步链 | M | T7.1,T7.2 | Sync/ShouldSync/PrepareSync handler 与 client apply 已接线 | net/{client,server}/*Necro*, client/necronomicon/ClientNecroSync |
-| ☐ T7.1c | 其余消息 handler 生产闭包与自动门禁 | L | T7.3b,T7.5b,T7.6b,T7.7b,T7.8b,T7.10b,T7.11b | 23 条逐项归为 MIGRATED/REPLACED/BLOCKED，生产 handler/替代契约、方向、权限与线程断言通过双端 compile/runData/build，临时实网 fixture 清零；真人收发归 U-NET | net/*, client/network/* |
+| ☑ T7.1c | 其余消息 handler 生产闭包与自动门禁 | L | T7.3b,T7.5b,T7.6b,T7.7b,T7.8b,T7.10b,T7.11b | 24 消息为 19 MIGRATED / 5 REPLACED / 0 BLOCKED；方向拒绝 24、codec round-trip 28，生产 handler/权限/线程契约双端 Gate 通过；真人收发归 U-NET | net/*, client/network/* |
 | ☑ T7.2 | necrodata 跨加载器存储 + NBT 数据层 | M | M0 | Forge capability/Neo attachment、copy-on-death 配置与 `NecroData` save/apply API 存在 | platform/PlayerDataCompat, system/cap/necrodata/* |
 | ☑ T7.2b | necrodata mutation、持久与同步实现 | M | T7.1b,T7.2 | Forge capability/Neo attachment、死亡复制配置、全部 mutation 变化检测、协议 v2 增量/全量 handler、登录/重生/换维延迟同步与开书配置已接线；双端 compile/runData/server/build 通过 | system/cap/necrodata/*, net/*, platform/PlayerDataCompat |
 | ☐ T7.2c | 活玩家死亡/重连/实网同步矩阵别名 | M | T7.2b | 由 U-NET 统一执行；本行不作为任何 Agent Gate 前置 | 用户验证车道 U-NET |
@@ -289,37 +289,37 @@
 | ☑ T7.4b | Basic/Totem Pole/Archway 多方块 | L | T7.3b,T7.4 | 三 PoP 的成员/主 BE、形状、书本成型、拆除解绑、RANGE加成、renderData 与周期validate完成 | system/energy/structure/*, content/block/energy/* |
 | ☑ T7.5 | Disruption 框架 + 10 个 vanilla-only 扰动 | L | T7.3 | handler/deity 过滤与 lightning、5 potion、4 player 扰动已注册 | system/energy/disruption/* |
 | ☑ T7.5b | 扰动触发器 + 当前可实现内容 | L | T7.3b,T7.5 | statue/depositioner tolerance已接触发；旧27项中22项MIGRATED并逐项审计，服务端反馈完成 | system/energy/disruption/* |
-| ☐ T7.5c | 外部依赖扰动5项 | M | T3.9d,T7.5b | ooze、randomSwarm、randomSpawn、两invisibleSwarm在忠实依赖/候选池冻结后迁移；不得以替代内容伪报 | system/energy/disruption/* |
+| ☑ T7.5c | 外部依赖扰动5项 | M | T3.9d,T7.5b | ooze 使用真实分层 `shoggoth_ooze` 半径2-5；randomSwarm/randomSpawn 使用当前群系加权 MONSTER 池生成4/1只；两 invisibleSwarm 各生成2-5只隐身II 12000 tick Enderman；27 MIGRATED / 0 BLOCKED | system/energy/disruption/* |
 | ☑ T7.6 | Ritual 框架 + altar/pedestal + 1 infusion pilot | L | T7.1,T7.2 | 8 基座扫描、offerings、书 PE 扣除与 nether_star+diamond pilot 产物链存在 | system/ritual/*, content/block/ritual/* |
 | ☑ T7.6b | 旧仪式内容与 ceremony | L | T7.1,T7.3b,T7.8b | 旧版 **62 个注册项**逐条冻结：40 infusion+3 creation+1 transformation+18 specialized；持久 ceremony、20t PE、活祭、research、原子供品、失败扰动、18/18 行为、客户端法阵/祭品粒子与结果反馈完成；双端 Gate=`rituals=62 handlers=18` | system/ritual/*, content/block/ritual/* |
 | ☑ T7.7 | Spell 框架 + `SpellUtils` + Life Drain staff pilot | L | T7.1,T7.3 | registry/reagent/book tier/scroll type、服务端 raytrace/PE 扣除与单一 Life Drain 注册存在 | system/spell/*, content/item/staff/* |
 | ☑ T7.7b | 其余 13 法术 + scroll/staff/spellbook | L | T7.1,T7.3b,T7.8b | 14 法术 manifest/真实效果、六卷轴、即时/50t蓄力、多容器PE回滚、绝对法术伤害/PvP门、MobSpell目标提示+服务端重验、7槽Spellbook、旧版统一铭文overlay与29模型资源Gate完成；旧版无“可选法术Staff”生产契约，现代 `spell_staff` 保持明确 Life Drain pilot | system/spell/*, content/item/{scroll,staff}/*, content/menu/spellbook/* |
 | ☑ T7.8 | Knowledge/Research/Condition 框架 + 10 处理器 | L | T7.2 | registry/gate、10 类处理器、NecroData 持久层与同步基座存在 | system/knowledge/* |
 | ☑ T7.8b | 42 research + 42 conditions + 核心触发/目录 | L | T7.2b,T3.10b,T5.* | 旧目录 42 research、42 conditions（33 内联+9 运行期）、type 5/6、11 offerings、杀怪/维度/群系/plague/book 触发、分类研究目录/状态/hint 与 8 语言闭合；永久 Gate=`42/42/11` | system/knowledge/*, common/handlers/*, client/necronomicon/* |
-| ☐ T7.8c | artifact/page/whisper 与完整旧书消费实现 | L | T7.8b,T6.2b,T7.6b,T7.7b | 为真实 ItemPage/内容补生产触发；完整 recipe/ritual/spell/PoP 页面、正文与潜行 actions 通过自动目录/资源门禁；真人门控归 U-SYSTEM | system/knowledge/*, content/item/*, client/necronomicon/* |
+| ☑ T7.8c | artifact/page/whisper 与完整旧书消费实现 | L | T7.8b,T6.2b,T7.6b,T7.7b | artifact/page/whisper 生产触发、401 页 recipe/ritual/spell/PoP 内容、正文与 server-authoritative page actions 均通过目录/资源门禁；真人门控归 U-SYSTEM | system/knowledge/*, content/item/*, client/necronomicon/* |
 | ☑ T7.9 | 5 个跨版本附魔定义/加载路径 | M | M1 | Forge 代码附魔与 Neo 数据驱动 JSON 均有 5 个 key，加载 schema 成立 | system/enchant/*, platform/EnchantmentCompat, data enchantment/* |
-| ☐ T7.9b | 5 附魔全部可获得/适用 | M | T7.7b | multi_rend/sapping 不再使用空类别/tag；五个附魔通过获取与适用矩阵 | system/enchant/*, data tags/item/* |
-| ☐ T7.9c | 5 附魔效果 | M | T7.11b,T3.10b | iron_wall/blinding_light/light_pierce/multi_rend/sapping 的战斗/工具效果逐项双端通过 | common/handlers/*, system/enchant/* |
+| ☑ T7.9b | 5 附魔全部可获得/适用 | M | T7.7b | 五附魔权重/等级/成本与 5 target 冻结；multi_rend/sapping 精确覆盖四级 Staff of Rending | system/enchant/*, data tags/item/* |
+| ☑ T7.9c | 5 附魔效果 | M | T7.11b,T3.10b | iron_wall、blinding_light、light_pierce、multi_rend、sapping 均接生产 hook，并由 `effects=5` 矩阵逐项断言 | common/handlers/*, system/enchant/* |
 | ☑ T7.10 | 5 MobEffect + 7 Potion + 基础伤害 tick | M | M0 | 五效果/七药水注册；三 harmful 基础 tick 可造成伤害 | system/effect/*, platform/MobEffectCompat |
 | ☑ T7.10b | plague/antidote/antimatter 核心语义 | M | T7.10,T8.2b,T3.10b | 三 DamageType、传播/cloud/on-hit/death、carrier/immunity、两解毒、唯一死亡转化、Purged 六类交互、现有实体/食物施加点与 6 brewing mix 已实现；双端 damage/Antimatter 专服 smoke 通过 | system/effect/*, common/handlers/*, platform/PotionBrewingCompat |
-| ☐ T7.10c | Dreadlands 动态扩散与剩余宿主集成 | M | T7.10b,T3.4c,T3.5c,T5.3b | 高阶 Dread Plague 按 `no_dreadlands_spread` 动态改写群系；剩余 ghoul/projectile/实体专属施加点随宿主任务接入并完成双端行为矩阵 | system/effect/*, content/entity/*, world/* |
+| ☑ T7.10c | Dreadlands 动态扩散与剩余宿主集成 | M | T7.10b,T3.4c,T3.5c,T5.3b | 高阶 Dread Plague 按实时 `no_dreadlands_spread`/hardcore/amplifier 在服务端改写 3x3 quart columns；6 biome 与 8 host 生产矩阵通过 | system/effect/*, content/entity/*, world/* |
 | ☑ T7.11 | SavedData 结构 + 杀怪/换维知识 hook | M | T7.8 | ≤20 快照 save/load 结构与两类事件 hook 存在 | system/data/*, platform/{SavedData,GameHooks}Compat, common/handlers/KnowledgeHooks |
 | ☑ T7.11b | SavedData 生产 + 知识/Plague/Purge hooks | M | T7.8b,T7.10b | 命名非 Boss Mob 死亡快照、≤20 淘汰、crystal size、真实压缩 NBT 落盘与同世界重启通过；biome/plague/Purge/mutation hooks 已接线 | system/data/*, common/handlers/*, platform/GameHooksCompat |
-| ☐ T7.11c | 剩余 page/附魔 hooks + 复活自动矩阵 | M | T7.11b,T7.6b,T7.8c,T7.9c | 补 page 与 5 附魔生产事件；Resurrection 读取/晶体尺寸/劣化/成功 clear 通过双端 fixture 与重启自动门禁；真人逐实体消费归 U-SYSTEM | system/data/*, system/ritual/*, common/handlers/* |
+| ☑ T7.11c | 剩余 page/附魔 hooks + 复活自动矩阵 | M | T7.11b,T7.6b,T7.8c,T7.9c | page 与 5 附魔生产事件闭合；Resurrection snapshot/3 crystal size/4-10 劣化/failure retain/success clear 通过矩阵，真实 spawn 与重启 fixture 通过 | system/data/*, system/ritual/*, common/handlers/* |
 
 > Gate M7-FRAMEWORK ☑：网络 codec、能力存储及 PE/PoP/扰动/仪式/法术/知识/附魔/药水/SavedData 的框架或 pilot 已落地。  
-> Gate M7-CODE ☐：全部 `T7.*b/c` 的生产实现与自动门禁清零；不等待真人矩阵。系统活会话、附魔/复活/知识交互统一归 U-NET/U-SYSTEM。
+> Gate M7-CODE ☑：全部 `T7.*b/c` 的生产实现与自动门禁清零；系统活会话、附魔/复活/知识交互仍独立归 U-NET/U-SYSTEM。
 
 ## Stage 8 · 集成 JEI/配置/命令/进度 → M8
 
 | ID | 任务 | Cx | 依赖 | 验收标准 | 文件 |
 |---|---|---|---|---|---|
 | ☑ T8.1 | JEI 软依赖 + 3 机器/anvil 共 4 分类 | L | M2,M7 | 4 RecipeType、催化剂与 optional JEI 接线存在；缺 JEI 不崩 | integration/jei/* |
-| ☐ T8.1b | 其余 JEI 分类 | L | T2.*b,T7.6b,T7.7b | 两燃料、rending、ritual/creation/transformation 及设计确认后的 spell 分类完整 | integration/jei/* |
+| ☑ T8.1b | 其余 JEI 分类 | L | T2.*b,T7.6b,T7.7b | 永久 Gate 冻结 12 分类：两燃料、rending、ritual/creation/transformation、spell 与处理分类均完整 | integration/jei/* |
 | ☐ T8.1c | JEI 真人交互矩阵别名 | M | T8.1b | 由 U-JEI 统一执行；本行不作为任何 Agent Gate 前置 | 用户验证车道 U-JEI |
 | ☑ T8.2 | 130 个标量配置定义 | M | T0.5 | 126 COMMON + 4 CLIENT bool/int/double 定义可生成 TOML | config/ACConfig, platform/ConfigCompat |
 | ☑ T8.2b | 非标量配置定义/解析服务 | M | T8.2 | String/list/map 黑名单、carrier/immunity/转化/维度映射/RGB/矿参数已定义、校验为不可变快照并在本模组 common config load/reload 时刷新 | config/*, platform/ConfigCompat |
-| ☐ T8.2c | 配置消费者与 GUI 实现 | L | T8.2b | 每个保留配置有生产消费者；配置 Screen 注册、保存/reload 与行为变更通过自动门禁；真人编辑体验归 U-SYSTEM | config/*, client/screen/config/*, 各业务系统 |
+| ☑ T8.2c | 配置消费者与 GUI 实现 | L | T8.2b | 145/145 保留配置均指向非审计生产消费者，0 BLOCKED；Mod List 配置 Screen 注册，校验/save/reload/行为读取自动门禁通过；真人编辑体验归 U-SYSTEM | config/*, client/screen/config/*, 各业务系统 |
 | ☑ T8.3 | `/acunlockallknowledge` 命令实现 | S | T7.8 | Brigadier 注册、level 2 权限门与服务端 necrodata toggle 存在 | system/command/* |
 | ☑ T8.3b | 活玩家命令与客户端同步验收 | S | T7.2b,T8.3 | Forge真实联网验证无权限拒绝、OP解锁/重锁、已打开书即时刷新与同名重连持久化；双端协议/Gate通过 | system/command/*, 人工验证 |
 | ☑ T8.4 | 9 个进度 JSON 双目录 | M | M1,M3 | advancement(s) 双目录各 9 个 JSON 可解析 | data advancements |
@@ -327,25 +327,25 @@
 | ☑ T8.4c | IMC handler + `IACPlugin` API | M | T3.4b,T2.10b | ServiceLoader/显式API双端实现并由外部fixture消费；Forge五项旧实体IMC实测，13项旧运行时配方/贴图key文档化迁移 | integration/* |
 
 > Gate M8-BASE ☑：4 个 JEI 分类、130 标量定义、命令代码与 9 进度资源存在。  
-> Gate M8-INTEGRATION ☐：命令/进度/IMC/API 已由 RR-ADV-API 收口；仍待剩余 JEI 分类/转移与配置消费/GUI。
+> Gate M8-INTEGRATION ☑：命令/进度/IMC/API、12 JEI 分类与转移决策、145 配置消费者及配置 GUI 自动契约全部收口；真人 JEI/配置体验归 U-JEI/U-SYSTEM。
 
 ## Stage 9 · 资产迁移 + datagen + i18n → M9
 
 | ID | 任务 | Cx | 依赖 | 验收标准 | 文件 |
 |---|---|---|---|---|---|
 | ☑ T9.1 | 51 张确定性贴图迁移 tranche | M | M1 | 41 item + 10 block 按 name-chain 迁移并逐字节校验 | assets/.../textures/**, run/_texreport_* |
-| ☐ T9.1b | 余贴图迁移与全引用/视觉审计 | L | T1-T8 | 旧 644 PNG 逐项迁移/替代/淘汰；复杂多面/分层/染色资源与模型联动，无 missing/紫黑 | assets/.../textures/** |
+| ☑ T9.1b | 余贴图迁移与全引用自动审计 | L | T1-T8 | 旧 644 PNG 全部归档为 504 MIGRATED / 131 REPLACED / 9 RETIRED / 0 BLOCKED；533 当前纹理及全引用 `missing=0`，真人紫黑/观感归 U-ASSET | assets/.../textures/** |
 | ☑ T9.2 | 基础建材 blockstate/model datagen | L | T1.3 | `BaseBlockData`/`BlockModelGen` 可生成 cube/slab/stairs/column/wall/fence 等基础模型 | data/gen/BaseBlockData, platform/BlockModelGen |
-| ☐ T9.2b | 复杂方块模型/状态 | L | T9.1b | layered 矿、多面机器/草沙、雕像/墓碑与全部朝向/工作态模型完成 | data providers, assets models/block, blockstates |
+| ☑ T9.2b | 复杂方块模型/状态 | L | T9.1b | 42 个复杂宿主全部 ACTIVE，layered 矿、多面机器/草沙、雕像/墓碑及朝向/工作态的 blockstate/model/texture 引用闭包；真人几何观感归 U-ASSET | data providers, assets models/block, blockstates |
 | ☑ T9.3 | 174 个基础物品模型 datagen | M | T1.* | `ModelItemData` 为已有贴图物品/spawn egg 生成基础模型且不覆盖手写项 | data/gen/ModelItemData, platform/ItemModelGen |
-| ☐ T9.3b | 余物品模型 | M | T9.1b | 无贴图、tint crystal、多层书/催化剂及所有注册物品均有正确模型 | assets models/item, data/gen/ModelItemData |
+| ☑ T9.3b | 余物品模型 | M | T9.1b | demo 退役后的 560 个注册物品逐项具有已有、生成或 BlockItem owner；全局模型/贴图引用 `missing=0` | assets models/item, data/gen/ModelItemData |
 | ☑ T9.4 | 8 语言 419 键同步基线 | M | M1-M8 | 8 个 JSON 在 419 键基线上通过解析/映射校验 | assets lang |
-| ☐ T9.4b | 当前语言键集合全量同步 | S | T9.4 | 2026-07-27 实盘为 `en_us/zh_cn=755`、其余 6 文件各 634；以内容冻结后的 `en_us` 为键源补齐 121 键并保持 8 文件键集合一致，再复核翻译质量 | assets lang |
+| ☑ T9.4b | 当前语言键集合全量同步 | S | T9.4 | 8 个语言文件均为 1361 键且 keyset/占位符同构；永久 Gate 逐项覆盖 232 Block + 560 Item 的真实 description ID，JEI 40 键亦冻结 | assets lang |
 | ☑ T9.5 | 当前 datagen/静态数据 tranche | M | M1-M3 | 当前手写双目录 loot/recipe/advancement、27 机器配方与 140 个单目录生成 block loot 已产出 | data providers, data resources |
-| ☐ T9.5b | 全局 loot/tag/recipe 汇总 | L | T1.*b,T2.10b,T3.8b | M1 数据与 69 实体 loot 已完成；继续收口 223 机器配方、slab/进度及全仓悬空引用 | data providers, data resources |
+| ☑ T9.5b | 全局 loot/tag/recipe 汇总 | L | T1.*b,T2.10b,T3.8b | demo loot 退役后全仓 2617 个 JSON / 1628 个逻辑资源完成 serializer、输出、tag、loot、advancement、worldgen 与双目录引用闭包，`missing=0` | data providers, data resources |
 
 > Gate M9-BASE ☑：已有贴图 tranche、基础模型 provider、419 键语言基线与当前数据 provider 可运行。  
-> Gate M9-COMPLETE ☐：T9.*b 清零，两节点 `runData` 输出对等，所有资源/翻译/数据引用完整且游戏内无 missing。
+> Gate M9-COMPLETE ☑：T9.*b 清零，双节点资源/编译与 Forge `runData` 通过；644 旧纹理、42 复杂模型、560 item owner、8×1361 语言键及全局引用闭包；雕像逐面 OBJ UV、晶簇动画帧与势能分层模型已加入永久 Gate，真人观感归 U-ASSET。
 
 ## Stage U · 用户真人验证（独立非代码车道）
 
@@ -358,16 +358,16 @@
 | ID | 任务 | Cx | 依赖 | 验收标准 | 文件 |
 |---|---|---|---|---|---|
 | ☑ T10.1 | Stonecutter 指令位置盘点 | S | M8 | 已识别当前 53 个含指令文件及 platform/main 外的例外线索 | 全仓扫描记录 |
-| ☐ T10.1b | 兼容层完整审计与违规清零 | M | M8 | platform/与主类外指令逐项迁移或正式豁免；直接分叉 API 报告归零并形成 `compat-audit.md` | platform/*, 各处 //? |
-| ☐ T10.2 | 原版重命名/加载器差异回归核对（ResourceLocation/AttributeModifier/appendHoverText/BE save-load/事件总线/config/capability/Payload） | M | M8 | 两节点编译+运行行为一致 | platform/* |
+| ☑ T10.1b | 兼容层完整审计与违规清零 | M | M8 | 永久 Gate `RR_COMPAT_AUDIT_OK symbols=89 loader=60 version=49 businessLoaderReferences=0 businessVersionForks=62 mixinExceptions=1 documented=89`，报告见 `compat-audit.md` | platform/*, 各处 //? |
+| ☑ T10.2 | 原版重命名/加载器差异回归核对（ResourceLocation/AttributeModifier/appendHoverText/BE save-load/事件总线/config/capability/Payload） | M | M8 | demo loot 退役后永久 Gate `RR_RENAME_AUDIT_OK json=2619 paired=1186 recipes=1364 mappings=49 stale=0`，Forge datagen 与双节点 compile 通过 | platform/* |
 | ☑ T10.3 | 手写 recipe/loot/advancement 与生成 recipe 双目录基线 | S | M9 | 已有手写数据与 MachineRecipeData 双目录先例存在 | data resources/providers |
-| ☐ T10.3b | 全数据包叶子目录双形态核对 | M | T9.5b | 修复 140 个生成 loot 仅 `loot_table/`、structure 模板等缺口；两节点加载零警告 | data providers |
+| ☑ T10.3b | 全数据包叶子目录双形态核对 | M | T9.5b | 全仓逻辑/物理资源对与 loader 专属目录由 datagen closure 审计，2617 JSON、1628 logical、`missing=0`；双节点专服加载通过 | data providers |
 | ☑ T10.4 | 7 个 feature modifier Forge/Neo 镜像 | S | T5.8 | 7 feature modifier 双份存在 | data forge/biome_modifier, neoforge/biome_modifier |
 | ☑ T10.4b | spawn biome_modifier 双份与结构一致 | M | T3.9c,T5.8b | 9 对 Forge/Neo spawn 文件逐项镜像，loader type 之外权重/组大小一致；双端启动与 `/reload` 可解析 | data forge/biome_modifier, neoforge/biome_modifier |
-| ☐ T10.4c | spawn modifier 运行期行为对等 | M | T3.9d,T5.8d | 双端自然刷怪采样证明最终候选、权重趋势、组大小和维度/Y 上下文一致 | validation/entity-spawn |
-| ☐ T10.5 | 两节点 `build`+`runClient` 全量回归 | M | T10.1b,T10.2,T10.3b,T10.4c | 两节点行为对等、差异仅限有意隔离 | 验证 |
+| ☑ T10.4c | spawn modifier 运行期行为对等 | M | T3.9d,T5.8d | Forge/Neo 官方 PotentialSpawns API 各触发 11 个场景，精确验证最终候选、权重、组大小、5 维度与 Y 上下文 | validation/entity-spawn |
+| ☑ T10.5 | 两节点 `build`+`runClient` 全量回归 | M | T10.1b,T10.2,T10.3b,T10.4c | Forge/Neo 全量 build 通过；隔离 gameDir 客户端各连续 2 tick 抵 TitleScreen 后正常退出，`RR_CLIENT_SMOKE_RUNNER_OK nodes=2`，真人视觉/交互不在此 Gate | 验证 |
 
-> Gate M10：`./gradlew build` 两节点全绿、两节点 `runClient` 行为对等、兼容层审计无遗漏。
+> Gate M10 ☑：双节点 build 与隔离客户端 TitleScreen smoke 全绿，compat/rename 审计无遗漏；真人视觉、音频与交互仅归 `U-*`。
 
 ## Stage 11 · 运行期验证 + 发布 DoD → M11
 

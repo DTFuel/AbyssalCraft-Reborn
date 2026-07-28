@@ -1,6 +1,9 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "abyssalcraft:block/layered_ore",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "all": "abyssalcraft:block/energydepositioner"
+    "all": "abyssalcraft:block/energy_glow",
+    "overlay": "abyssalcraft:block/energydepositioner",
+    "particle": "abyssalcraft:block/energy_glow"
   }
 }

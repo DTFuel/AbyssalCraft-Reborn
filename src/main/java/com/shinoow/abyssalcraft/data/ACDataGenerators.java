@@ -58,6 +58,7 @@ public final class ACDataGenerators {
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.ConfigValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.AssetBlockValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.AssetCatalogValidationData());
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.BlockEntityRendererHostValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.JEIAutomationValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.WorldgenValidationData(gen.packOutput));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.DatagenClosureValidationData(gen));

@@ -1,7 +1,9 @@
 {
-  "parent": "abyssalcraft:block/deco_statue",
+  "parent": "abyssalcraft:block/rending_pedestal",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "all": "abyssalcraft:block/monolith_stone",
-    "particle": "abyssalcraft:block/monolith_stone"
+    "0": "abyssalcraft:block/energy_glow",
+    "1": "abyssalcraft:block/energy_trim",
+    "particle": "abyssalcraft:block/energy_glow"
   }
 }

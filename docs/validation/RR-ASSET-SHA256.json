@@ -90,10 +90,6 @@
       "sha256": "dbed1e65e039f336d06040830fb2c46c15576fe6935ccff08d1bf0fe1c204342",
       "source": "ported-or-authored"
     },
-    "blockstates/demo_block.json": {
-      "sha256": "bbf3306d4215556989d734e17e6a54942e7895a4607e6cbbc310e316892da323",
-      "source": "ported-or-authored"
-    },
     "blockstates/dghead.json": {
       "sha256": "ccf2e14050c9659564e8045d246968d695ed0d4e56f85d90ee1fa62d994e3090",
       "source": "ported-or-authored"
@@ -331,35 +327,35 @@
       "source": "ported-or-authored"
     },
     "lang/en_us.json": {
-      "sha256": "f6eb9a89201861464b6a707e646d40b223989fc752144fa112557e897bbc5d0a",
+      "sha256": "64fb82226a7c1eced238d436ecf035623a1c5f22775fccff18fe002f526b9ed0",
       "source": "ported-or-authored"
     },
     "lang/es_es.json": {
-      "sha256": "0f2f98b9bd3687542b09e9a9240200803ffd29503b7b8cc3b7ceab69f1e86a41",
+      "sha256": "997cd9f43161913d498f0c031631c6b9769ad2c53d42d25af06853433a9fe83a",
       "source": "ported-or-authored"
     },
     "lang/fr_fr.json": {
-      "sha256": "b83d595fd83b04cbacbb372ebff6f88e0d3f95a255d66ee78c30f3584da6c96f",
+      "sha256": "5b8288940f986414664669237af7c3410dc9575727f3f9fa3ea3b5260b94eb22",
       "source": "ported-or-authored"
     },
     "lang/ja_jp.json": {
-      "sha256": "43af39a9301722d5d7858c4fd4b6c21c467d9927bc5b8a701dd90721805fcc32",
+      "sha256": "8d232ec5025ee807b8872e7ee33ffb0f43b0d8a985cf142d40eca99f16901fd9",
       "source": "ported-or-authored"
     },
     "lang/ko_kr.json": {
-      "sha256": "567253f34a72029ddb1168ae68db6e088ebcde62dfc0b8fcd008b3d1ed114bda",
+      "sha256": "3d0c2ffa37a0d39b233bad8fdc8410b8952a81a01d3429f2ad06bd1331b1a1b1",
       "source": "ported-or-authored"
     },
     "lang/ru_ru.json": {
-      "sha256": "4cdd70a23fbc9a3cac9be79d920d76efd82e210ade5018a83090d29aa1a2ee62",
+      "sha256": "9ea2780ac434150c23476ac360c9c097f630adccabc1882c52b99efb8f419a1a",
       "source": "ported-or-authored"
     },
     "lang/zh_cn.json": {
-      "sha256": "72cfec7512aecafe75c199d088a397f776c3b445f1b5b72c5f844e722ebd4398",
+      "sha256": "91fac8fcf07fb5fbc0f7f51fc325267c03ad118d3e4f2b92c242f38722e64e23",
       "source": "ported-or-authored"
     },
     "lang/zh_tw.json": {
-      "sha256": "4b512ce054461be6d2a9d59d56e386219b21331fa9c9eddbf980f4937956178d",
+      "sha256": "a34d9d1f8742d96543de498c2c0441e9f5ac1aee727e4cb3ad35a922ef8cfe81",
       "source": "ported-or-authored"
     },
     "models/block/abyssal_abyssalnite_ore.json": {
@@ -424,10 +420,6 @@
     },
     "models/block/deco_tombstone.json": {
       "sha256": "01117551082b4cf4f96963303fe823f961d80b1daed1fdd7356636bd5022c3e3",
-      "source": "ported-or-authored"
-    },
-    "models/block/demo_block.json": {
-      "sha256": "9ac3d408f7d3ff06e0425eac5ef94e2e4186429af26bea3f445cab3fdd551f7f",
       "source": "ported-or-authored"
     },
     "models/block/dghead.json": {
@@ -583,31 +575,31 @@
       "source": "ported-or-authored"
     },
     "models/block/statue/azathoth.json": {
-      "sha256": "089bab2fe06f1b700ebdff20ebfaaad892d8a257d3474f88b7eade4db53164c7",
+      "sha256": "e5291e30909067c55c184827b721295c76d06eb0dbf6be6d298d8d9b9b77091a",
       "source": "ported-or-authored"
     },
     "models/block/statue/cthulhu.json": {
-      "sha256": "3292db185fa89b596c3d6fe7102210beb52a890a26259b904d8c1429a5728e8c",
+      "sha256": "b472d6300cac2eca643ef4c182e66d370828d1d1665bde75bc71d700474503fa",
       "source": "ported-or-authored"
     },
     "models/block/statue/hastur.json": {
-      "sha256": "eefaafa028af0a7ced4c2373ec199ad88e3b0b07c8f01e2c8bcdc17cf42b5416",
+      "sha256": "a9b7f1493fc7a9913e833f4b04291a7503ae50e876c3461d6801677064055c99",
       "source": "ported-or-authored"
     },
     "models/block/statue/jzahar.json": {
-      "sha256": "2ba039a5377d692dc487fd95d62cbe998c3edc9a40c642b28d1eb67a969aae4a",
+      "sha256": "8c0e6bfb8a304fd988f8401c19aef6641ae5ff42744da4d06197d75ec539bfab",
       "source": "ported-or-authored"
     },
     "models/block/statue/nyarlathotep.json": {
-      "sha256": "6ff99858376f5066c253f8aeff7828f9cc93a2f7e599239e141906739a946f69",
+      "sha256": "969777bd67b272ea65b4da5062b59a41b744b444c2daf810519f547c8a92bae3",
       "source": "ported-or-authored"
     },
     "models/block/statue/shub_niggurath.json": {
-      "sha256": "9c5a37058ec3d8cb096073513bb577578580bab4dbd1b99a9a3255a594ba00f0",
+      "sha256": "cae6f9056327b95fbc3ecd6248a0c676339d8dc3b806c3a4d3c0281130a0f511",
       "source": "ported-or-authored"
     },
     "models/block/statue/yog_sothoth.json": {
-      "sha256": "97c0b8b6cc7e884d3781fde678ee1f16ee0d2e53a3186276b38136c886e05334",
+      "sha256": "177d1b4240195f4a4f316406fc2e6c9188d8716b8a004965a039124f8385fc73",
       "source": "ported-or-authored"
     },
     "models/block/stone_tablet_on_transformer.json": {
@@ -1240,14 +1232,6 @@
     },
     "models/item/deity_statue.json": {
       "sha256": "9edd090835a3b3b852557b595f9b662eb177c520db406f784a2e4e8b49aa2a18",
-      "source": "ported-or-authored"
-    },
-    "models/item/demo_block.json": {
-      "sha256": "f25519ec1443d5c29846dbacc7cfea0112970429db9de30fedf37cff5826f41b",
-      "source": "ported-or-authored"
-    },
-    "models/item/demo_item.json": {
-      "sha256": "998c02be54a55579ffe421687a4d25a5b519ed8bd65d5abce32afd343750e872",
       "source": "ported-or-authored"
     },
     "models/item/dense_carbon_cluster.json": {
@@ -2449,6 +2433,10 @@
     "textures/block/crystal_cluster.png": {
       "sha256": "e28295c4e4e3616ff47f6f1ff954a4735bb39f644b81ed95cc3bd9dd45dd8012",
       "source": "legacy:textures/blocks/crystalcluster.png"
+    },
+    "textures/block/crystal_cluster.png.mcmeta": {
+      "sha256": "ded717f14aa8f096f3328261b1e6ff37631a4fcbbb0edaa25076ee89424b8c36",
+      "source": "ported-or-authored"
     },
     "textures/block/crystallizer_front.png": {
       "sha256": "ba1477d7b326727449f2ba6590fabba9ee9629998587ae51700d6b32377b6824",
@@ -5199,15 +5187,15 @@
       "source": "datagen"
     },
     "models/block/abyssal_wasteland_energy_collector.json": {
-      "sha256": "9fc89543ead802b279d799349472d2366f84ee3528b460a68faf8e4141667310",
+      "sha256": "57140a0bbd90cc7096583182de597887678a64923afe7d1451136896f83a8198",
       "source": "datagen"
     },
     "models/block/abyssal_wasteland_energy_container.json": {
-      "sha256": "c315c9ee814eca7cd3d8d247c4f706d8e5419645921c13638c59740c8228e7fa",
+      "sha256": "8c50a6bacb9a0d4406b1cc310e9168c5413971b546292a98eff0b5a8e6307d76",
       "source": "datagen"
     },
     "models/block/abyssal_wasteland_energy_pedestal.json": {
-      "sha256": "a201fa46d417b2782520782e01b52d42b5d5c6b6da4f4af95eae52efe9bf91e9",
+      "sha256": "f520cbcc8a042b566e387e19bce2777b5751d2d2e2e1e979b4d95bcff9411b00",
       "source": "datagen"
     },
     "models/block/abyssal_wasteland_energy_relay.json": {
@@ -5687,15 +5675,15 @@
       "source": "datagen"
     },
     "models/block/dreadlands_energy_collector.json": {
-      "sha256": "9fc89543ead802b279d799349472d2366f84ee3528b460a68faf8e4141667310",
+      "sha256": "57140a0bbd90cc7096583182de597887678a64923afe7d1451136896f83a8198",
       "source": "datagen"
     },
     "models/block/dreadlands_energy_container.json": {
-      "sha256": "c315c9ee814eca7cd3d8d247c4f706d8e5419645921c13638c59740c8228e7fa",
+      "sha256": "8c50a6bacb9a0d4406b1cc310e9168c5413971b546292a98eff0b5a8e6307d76",
       "source": "datagen"
     },
     "models/block/dreadlands_energy_pedestal.json": {
-      "sha256": "a201fa46d417b2782520782e01b52d42b5d5c6b6da4f4af95eae52efe9bf91e9",
+      "sha256": "f520cbcc8a042b566e387e19bce2777b5751d2d2e2e1e979b4d95bcff9411b00",
       "source": "datagen"
     },
     "models/block/dreadlands_energy_relay.json": {
@@ -6003,19 +5991,19 @@
       "source": "datagen"
     },
     "models/block/energycollector.json": {
-      "sha256": "9fc89543ead802b279d799349472d2366f84ee3528b460a68faf8e4141667310",
+      "sha256": "57140a0bbd90cc7096583182de597887678a64923afe7d1451136896f83a8198",
       "source": "datagen"
     },
     "models/block/energycontainer.json": {
-      "sha256": "c315c9ee814eca7cd3d8d247c4f706d8e5419645921c13638c59740c8228e7fa",
+      "sha256": "8c50a6bacb9a0d4406b1cc310e9168c5413971b546292a98eff0b5a8e6307d76",
       "source": "datagen"
     },
     "models/block/energydepositioner.json": {
-      "sha256": "286b6547235e49aa9f4e8eb6cdaf81f99567c4fcc7ecdab7e421a49bb6ca948d",
+      "sha256": "46967e14943caf039eab78948ea69da159161d4513595a7f92affda66be52240",
       "source": "datagen"
     },
     "models/block/energypedestal.json": {
-      "sha256": "a201fa46d417b2782520782e01b52d42b5d5c6b6da4f4af95eae52efe9bf91e9",
+      "sha256": "f520cbcc8a042b566e387e19bce2777b5751d2d2e2e1e979b4d95bcff9411b00",
       "source": "datagen"
     },
     "models/block/energyrelay.json": {
@@ -6095,15 +6083,15 @@
       "source": "datagen"
     },
     "models/block/omothol_energy_collector.json": {
-      "sha256": "9fc89543ead802b279d799349472d2366f84ee3528b460a68faf8e4141667310",
+      "sha256": "57140a0bbd90cc7096583182de597887678a64923afe7d1451136896f83a8198",
       "source": "datagen"
     },
     "models/block/omothol_energy_container.json": {
-      "sha256": "c315c9ee814eca7cd3d8d247c4f706d8e5419645921c13638c59740c8228e7fa",
+      "sha256": "8c50a6bacb9a0d4406b1cc310e9168c5413971b546292a98eff0b5a8e6307d76",
       "source": "datagen"
     },
     "models/block/omothol_energy_pedestal.json": {
-      "sha256": "a201fa46d417b2782520782e01b52d42b5d5c6b6da4f4af95eae52efe9bf91e9",
+      "sha256": "f520cbcc8a042b566e387e19bce2777b5751d2d2e2e1e979b4d95bcff9411b00",
       "source": "datagen"
     },
     "models/block/omothol_energy_relay.json": {
@@ -6115,15 +6103,15 @@
       "source": "datagen"
     },
     "models/block/overworld_energy_collector.json": {
-      "sha256": "9fc89543ead802b279d799349472d2366f84ee3528b460a68faf8e4141667310",
+      "sha256": "57140a0bbd90cc7096583182de597887678a64923afe7d1451136896f83a8198",
       "source": "datagen"
     },
     "models/block/overworld_energy_container.json": {
-      "sha256": "c315c9ee814eca7cd3d8d247c4f706d8e5419645921c13638c59740c8228e7fa",
+      "sha256": "8c50a6bacb9a0d4406b1cc310e9168c5413971b546292a98eff0b5a8e6307d76",
       "source": "datagen"
     },
     "models/block/overworld_energy_pedestal.json": {
-      "sha256": "a201fa46d417b2782520782e01b52d42b5d5c6b6da4f4af95eae52efe9bf91e9",
+      "sha256": "f520cbcc8a042b566e387e19bce2777b5751d2d2e2e1e979b4d95bcff9411b00",
       "source": "datagen"
     },
     "models/block/overworld_energy_relay.json": {

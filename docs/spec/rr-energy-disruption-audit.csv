@@ -16,12 +16,12 @@ randomTeleport,DisruptionTeleportRandomly,MIGRATED,PlayerDisruption,vanilla rand
 potentialEnergyDrain,DisruptionDrainNearbyPE,MIGRATED,DrainNearbyPEDisruption,collector and item PE
 swarmSheep,DisruptionSwarm,MIGRATED,SwarmDisruption,EvilSheep and vanilla Sheep
 animalCorruption,DisruptionAnimalCorruption,MIGRATED,AnimalCorruptionDisruption,four verified farm-animal mappings
-ooze,DisruptionOoze,BLOCKED,,missing faithful shoggoth_ooze block
-randomSwarm,DisruptionRandomSwarm,BLOCKED,,candidate ecology not frozen
-randomSpawn,DisruptionRandomSpawn,BLOCKED,,candidate ecology not frozen
+ooze,DisruptionOoze,MIGRATED,OozeDisruption,registered layered shoggoth_ooze radius 2-5
+randomSwarm,DisruptionRandomSwarm,MIGRATED,RandomMobDisruption,current biome weighted MONSTER pool count 4
+randomSpawn,DisruptionRandomSpawn,MIGRATED,RandomMobDisruption,current biome weighted MONSTER pool count 1
 spawnShubOffspring,DisruptionSpawn,MIGRATED,SpawnDisruption,registered Shub Offspring
-invisibleSwarmHastur,DisruptionInvisibleSwarm,BLOCKED,,missing faithful invisible-swarm design
-invisibleSwarmNyarlathotep,DisruptionInvisibleSwarm,BLOCKED,,missing faithful invisible-swarm design
+invisibleSwarmHastur,DisruptionInvisibleSwarm,MIGRATED,InvisibleSwarmDisruption,2-5 Endermen with invisibility II for 12000 ticks
+invisibleSwarmNyarlathotep,DisruptionInvisibleSwarm,MIGRATED,InvisibleSwarmDisruption,2-5 Endermen with invisibility II for 12000 ticks
 sacrificeCorruptionJzahar,DisruptionSacrificeCorruption,MIGRATED,SacrificeCorruptionDisruption,legacy sacrifice predicate
 sacrificeCorruptionYogSothoth,DisruptionSacrificeCorruption,MIGRATED,SacrificeCorruptionDisruption,legacy sacrifice predicate
 famineAzathoth,DisruptionFamine,MIGRATED,PlayerDisruption,zero food level

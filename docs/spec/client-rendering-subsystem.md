@@ -136,5 +136,12 @@ renderers.registerBlockEntity(EnergyBlocks.ENERGY_PEDESTAL_BE.get(), EnergyPedes
 ## 修订日志
 
 - **2026-07-27**：添加 §8 Energy Pedestal BER（RR-BER-R4-HOSTS，Agent BER）。审计证明只有 EnergyPedestalBlockEntity 需要 BER；EnergyContainer/Depositioner 有 GUI 不需要浮空渲染；其他 energy 宿主无展示库存。新增 `EnergyPedestalRenderer.java`（忠实 `RitualPedestalRenderer` 模式），注册行交 Gate Integrator。
+- **2026-07-28 / T4.6d Agent 自动闭包**：冻结注册表实际存在的 25 个 AbyssalCraft `BlockEntityType`（不是按旧 TESR 清单猜测）。需要且已注册 BER 的 4 个为 `research_table`、`ritual_pedestal`、`rending_pedestal`、`energy_pedestal`；其余 21 个不需要 BER：
+  - GUI/容器内部展示：`crate`、`crystallizer`、`energy_container`、`energy_depositioner`、`materializer`、`sequential_brewing_stand`、`state_transformer`、`transmutator`；
+  - 静态 blockstate/model 或无展示库存的逻辑宿主：`deity_statue`、`energy_collector`、`energy_relay`、`idol_of_fading`、`multi_block`、`ritual_altar`、`spirit_altar`、`tombstone`；
+  - 无方块的框架 smoke 类型：`directional`、`inventory`、`machine`；
+  - `sealing_lock`：BE 仅持久化 unlocked/marker，外观与碰撞由 `LOCKED` blockstate 的静态模型表达；`portal_anchor`：BE 仅保存目的地/颜色/portal UUID，动态 portal 由独立 `DimensionPortal` 实体渲染。二者均不添加 BER。
+  - Legacy 分类：四断头（`dghead`/`phead`/`whead`/`ohead`）为 **REPLACED**，现代实现是带 `facing` variant 的静态 blockstate/model，无 `BlockEntityType`；Jzahar spawner 为 **REPLACED**，结构 marker 放置 vanilla `Blocks.SPAWNER`，使用 vanilla spawner BE/renderer。没有无理由永久 BLOCKED 项，也没有等待虚构宿主的 DEFERRED 项。
+  - 永久自动门：client runtime 精确断言上述 4 个 BER；server datagen 的 `BlockEntityRendererHostAudit` 仅依赖通用注册表，断言 `registered=4/noBer=21/total=25/replacedLegacy=5/deferredLegacy=0`，不加载 client 类。
 - 2026-07-24：记录 RR-RENDER-AUTO 双端 client load gate：Forge/Neo 均抵 Sound Engine + atlas，实体 renderer/model layer/BER/GeckoLib 零异常；游戏内视觉仍独立待验，详情见 entity subsystem §12.6。
 - 2026-07-22：初版（PH-2/PH-3/PH-4，Stage H1，CR-52）。雾色 + 音效 + 粒子框架双端交付；天空盒渲染与带数据粒子延后。

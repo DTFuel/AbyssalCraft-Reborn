@@ -72,6 +72,26 @@ public abstract class BlockModelGen extends BlockStateProvider {
         simpleBlockItem(block, model);
     }
 
+    /** Opaque full-cube base with a cutout overlay expanded by the shared layered model. */
+    protected void layeredCube(Block block, String base, String overlay) {
+        ModelFile model = models().withExistingParent(path(block), modLoc("block/layered_ore"))
+            .texture("all", tex(base))
+            .texture("overlay", tex(overlay))
+            .texture("particle", tex(base))
+            .renderType("cutout");
+        simpleBlockWithItem(block, model);
+    }
+
+    /** Pedestal geometry with independent body and top-emblem textures. */
+    protected void energyPedestal(Block block, String body, String emblem) {
+        ModelFile model = models().withExistingParent(path(block), modLoc("block/rending_pedestal"))
+            .texture("0", tex(body))
+            .texture("1", tex(emblem))
+            .texture("particle", tex(body))
+            .renderType("cutout");
+        simpleBlockWithItem(block, model);
+    }
+
     /** Child of an existing geometry with a replaceable {@code #all} texture. */
     protected void parentModel(Block block, String parent, String texture) {
         ModelFile model = models().withExistingParent(path(block), modLoc("block/" + parent))

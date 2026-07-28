@@ -18,12 +18,15 @@ public final class EnergyBlockData extends BlockModelGen {
 
     @Override
     protected void generate() {
-        EnergyBlocks.ENERGY_COLLECTORS.forEach(block -> cube(block.get(), "energycollector"));
-        EnergyBlocks.ENERGY_CONTAINERS.forEach(block -> cube(block.get(), "energycontainer"));
-        EnergyBlocks.ENERGY_PEDESTALS.forEach(block -> parentModel(block.get(), "deco_statue", "monolith_stone"));
+        EnergyBlocks.ENERGY_COLLECTORS.forEach(block ->
+            layeredCube(block.get(), "energy_glow", "energycollector"));
+        EnergyBlocks.ENERGY_CONTAINERS.forEach(block ->
+            layeredCube(block.get(), "energy_glow", "energycontainer"));
+        EnergyBlocks.ENERGY_PEDESTALS.forEach(block ->
+            energyPedestal(block.get(), "energy_glow", "energy_trim"));
         EnergyBlocks.ENERGY_RELAYS.forEach(block -> directionalCube(block.get(), "energy_glow"));
 
-        cube(EnergyBlocks.ENERGY_DEPOSITIONER.get(), "energydepositioner");
+        layeredCube(EnergyBlocks.ENERGY_DEPOSITIONER.get(), "energy_glow", "energydepositioner");
         parentModel(EnergyBlocks.IDOL_OF_FADING.get(), "deco_statue", "monolith_stone");
         parentModel(EnergyBlocks.MONOLITH_PILLAR.get(), "deco_statue", "monolith_pillar");
         cubeWithoutItem(EnergyBlocks.PLACE_OF_POWER_BASE.get(), "monolith_stone");

@@ -26,7 +26,7 @@ Date: 2026-07-27
 - Crafting audit: 339 MIGRATED, 61 REPLACED, 1 BLOCKED, 0 RETIRED. The sole BLOCKED entry is the legacy generic spawn egg, which has no semantically equivalent modern item without an explicit entity-selection design.
 - Smelting audit: 52 MIGRATED, 1 REPLACED, 0 BLOCKED, 0 RETIRED.
 - Tags: 181 logical tags and 351 physical files.
-- Asset audit: 533 textures and 1819 ledger entries; missing=0. The Powerstone Tracker item-atlas copy is byte-identical to its legacy renderer texture.
+- Asset audit: 533 textures and 1816 ledger entries; missing=0. The Powerstone Tracker item-atlas copy is byte-identical to its legacy renderer texture.
 - Forge JAR: `1a3f577dd5abb304cdfc9d3cfed972241ef8517213641b69c8eb31a0462b2fc2`
 - NeoForge JAR: `0c59ebc25856c7e3877213a14c40db549be515f07c8829a81cc9b03eceb3d400`
 - Release JAR audit: 11457 combined entries and 74 structures across the two rebuilt JARs.
@@ -37,3 +37,13 @@ Date: 2026-07-27
 ## Gate boundary
 
 `T11.2` / `RR-SERVER` is complete. `T11.1`, every `U-*`, `U-GATE`, `T11.3`, `T11.4`, `R8-Gate`, and M11 remain incomplete; this automatic report does not change their status.
+
+## 2026-07-28 evidence refresh
+
+- Forge and NeoForge each passed the unchanged two-phase server matrix after the latest source changes: `RR_SERVER_MATRIX_RUNNER_OK nodes=1 phases=2`.
+- Food interaction closure: `RR_FOOD_INTERACTION_OK effectFoods=8 antidotes=2 doses=10 container=glass_bottle` on both loaders.
+- Loader event closure: `RR_SPAWN_MODIFIER_BEHAVIOR_OK callbacks=11 applied=2 shadowContexts=2 dimensions=5 scenarios=11 weights=exact groups=exact` on both loaders.
+- World closure: oracle 28/28, structure marker hosts 6/6, and both fixed AW/DL routes below their unchanged limits.
+- Forge datagen closure after demo retirement: 232 registered blocks, 560 registered item model owners, 8 languages with 1361 identical keys and complete Block/Item description coverage, all 25 real block-entity hosts classified, and 2617 JSON / 1628 logical datapack resources with `missing=0`.
+- Client asset repair: all 15 statue hosts now consume OBJ-derived per-face UVs, the 16x256 crystal-cluster strip has explicit animation metadata, and energy collector/container/depositioner/pedestal models use audited base/overlay geometry instead of `cube_all` or statue placeholders. Forge/Neo title-screen resource baking passed.
+- The release JAR hashes above were not recomputed by this refresh. `U-GATE`, release packaging, `T11.3`, and `T11.4` remain open.

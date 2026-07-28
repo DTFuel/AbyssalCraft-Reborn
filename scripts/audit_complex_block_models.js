@@ -43,15 +43,23 @@ function parseObj(file) {
     const objects = [];
     let current = null;
     const vertices = [];
+    const textureCoordinates = [];
     for (const line of fs.readFileSync(file, 'utf8').split(/\r?\n/)) {
         const fields = line.trim().split(/\s+/);
         if (fields[0] === 'o') {
-            current = { name: fields.slice(1).join('_'), indices: new Set() };
+            current = { name: fields.slice(1).join('_'), indices: new Set(), faces: [] };
             objects.push(current);
         } else if (fields[0] === 'v') {
             vertices.push(fields.slice(1, 4).map(Number));
+        } else if (fields[0] === 'vt') {
+            textureCoordinates.push(fields.slice(1, 3).map(Number));
         } else if (fields[0] === 'f' && current) {
-            fields.slice(1).forEach(token => current.indices.add(Number(token.split('/')[0]) - 1));
+            const face = fields.slice(1).map(token => {
+                const [vertex, texture] = token.split('/').map(Number);
+                current.indices.add(vertex - 1);
+                return { vertex: vertex - 1, texture: texture - 1 };
+            });
+            current.faces.push(face);
         }
     }
     return objects.filter(object => object.indices.size >= 4).map(object => {
@@ -59,11 +67,34 @@ function parseObj(file) {
         const mins = [0, 1, 2].map(axis => Math.min(...points.map(point => point[axis])) * 16);
         const maxs = [0, 1, 2].map(axis => Math.max(...points.map(point => point[axis])) * 16);
         const clamp = value => Number(Math.max(-16, Math.min(32, value)).toFixed(4));
+        const faces = {};
+        const directions = ['north', 'south', 'up', 'down', 'east', 'west'];
+        if (object.faces.length !== directions.length) {
+            throw new Error(`${relative(file)} ${object.name} has ${object.faces.length} faces, expected six`);
+        }
+        for (let faceIndex = 0; faceIndex < object.faces.length; faceIndex++) {
+            const face = object.faces[faceIndex];
+            const direction = directions[faceIndex];
+            const coordinates = face.map(reference => textureCoordinates[reference.texture]);
+            if (coordinates.some(value => !value)) {
+                throw new Error(`${relative(file)} ${object.name} has a face without texture coordinates`);
+            }
+            const u = coordinates.map(value => value[0] * 16);
+            const v = coordinates.map(value => (1 - value[1]) * 16);
+            faces[direction] = {
+                texture: '#all',
+                uv: [Math.min(...u), Math.min(...v), Math.max(...u), Math.max(...v)]
+                    .map(value => Number(value.toFixed(4))),
+            };
+        }
+        if (Object.keys(faces).length !== 6) {
+            throw new Error(`${relative(file)} ${object.name} produced ${Object.keys(faces).length} model faces`);
+        }
         return {
             name: object.name,
             from: mins.map(clamp),
             to: maxs.map(clamp),
-            faces: allFaces('#all'),
+            faces,
         };
     }).filter(element => element.from.some((value, axis) => value !== element.to[axis]));
 }
@@ -328,6 +359,20 @@ function audit() {
         if (item.kind === 'statue') {
             const elements = models[0]?.elements || [];
             if (elements.length < 5) failures.push(`${owner}: statue geometry has only ${elements.length} elements`);
+            for (const element of elements) {
+                const faces = element.faces || {};
+                if (Object.keys(faces).length !== 6) {
+                    failures.push(`${owner}: statue element ${element.name || '<unnamed>'} does not have six faces`);
+                    continue;
+                }
+                for (const [direction, face] of Object.entries(faces)) {
+                    if (!Array.isArray(face.uv) || face.uv.length !== 4
+                            || face.uv.some(value => !Number.isFinite(value) || value < 0 || value > 16)
+                            || face.uv[0] === face.uv[2] || face.uv[1] === face.uv[3]) {
+                        failures.push(`${owner}: statue element ${element.name || '<unnamed>'} has invalid ${direction} UV`);
+                    }
+                }
+            }
             auditHorizontal(owner, state, false);
         } else if (item.kind === 'tombstone') {
             if ((models[0]?.elements || []).length !== 8) failures.push(`${owner}: tombstone geometry is not the legacy eight-element form`);

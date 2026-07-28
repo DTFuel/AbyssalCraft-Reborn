@@ -134,7 +134,7 @@ flowchart LR
 | ☑ | RR-MENU-HOST-TRANSFER | Spirit Tablet 5 槽/按钮/主副手 UX、全 BE capability/attachment、Spirit Altar 调度与双端重启矩阵 | T2.8c,T2.9b |
 | ☑ | R2-AUTO-GATE | 91 registrar/12 R2 registrar、3菜单宿主、7 Screen、64 renderer、25 layer、2 BER与capability接线不变量；双端runData/build/server/client/JAR | R2实现侧自动集成 |
 | ☑ | R2-Gate | RR-DATA/WORLD/RENDER-AUTO/MENU-HOST与自动Gate全部通过；两条R2-FIDELITY保持独立未完成且不阻塞R3 | 解锁R3 |
-| ☑ | RR-ENERGY | 21网络块、7功能神像、32 charm、Idol、3 PoP与22 MIGRATED+5 BLOCKED扰动闭包；双端runData/真实Level/重启/server/build/JAR | T7.3b,T7.4b,T7.5b |
+| ☑ | RR-ENERGY | 21网络块、7功能神像、32 charm、Idol、3 PoP与27 MIGRATED+0 BLOCKED扰动闭包；双端runData/真实Level/重启/server/build/JAR | T7.3b,T7.4b,T7.5b,T7.5c |
 | ☑ | RR-KNOWLEDGE | 42 research/42 conditions/11 offerings、necrodata持久同步实现、效果/转化/Purge、死亡快照生产与非标量配置解析；双端runData/build/server/JAR及关键效果smoke | T7.2b,T7.8b,T7.10b,T7.11b,T8.2b |
 | ☑ | R3-Gate | RR-ENERGY与RR-KNOWLEDGE双车道完成；同一最终源码双端runData同时通过两永久Gate，production build/JAR与专服/重启通过；拆分后的后续任务不属于本Gate完成面 | 解锁R4 |
 
@@ -151,39 +151,39 @@ flowchart LR
 | R1-Gate | R1 总 Gate | ☑ owner:Agent A | RR-MACHINE-UX ☑ + R1-AUTO-GATE ☑ | Forge/NeoForge 真人活玩家矩阵、逐字段重启证据、双端 runData/build 与无验证属性专服 smoke 均通过 | 解锁 R2 |
 | R2 | RR-DATA · M1 recipe/tag/loot | ☑ owner:Agent A | R1 | 401 crafting=305迁移/61替代/35依赖阻塞/0淘汰；53 smelting=51/1/1/0；177逻辑 tags、13矿忠实 loot与双端真实玩法矩阵完成 | T1.4b,1.9b/c,1.10b |
 | R2 | RR-WORLD · 现代混合保真自动切片 | ☑ owner:GitHub Copilot | R1 | 四维地形、真实材料/carver、第六群系、36+House 模板壳体/布局、Chains、Mineshaft/Stronghold AC palette+loot；双端 compile/runData/production JAR/runServer/重启矩阵 | T5.2b,5.3b,5.4b,5.5b/c,5.6b,5.8e,5.9 |
-| R2-FIDELITY-AUTO（非阻塞） | RR-WORLD-FIDELITY-AUTO · oracle/动态内容/性能门禁 | ☐ owner:Agent WORLD | RR-WORLD | `validation/world-{oracle,performance,structure}`、worldgen实现与独立spec；不写用户证据 | T5.2c,5.3c,5.4c,5.6c,5.9b 自动片段 |
+| R2-FIDELITY-AUTO（非阻塞） | RR-WORLD-FIDELITY-AUTO · oracle/动态内容/性能门禁 | ☑ owner:GitHub Copilot | RR-WORLD | 28/28 oracle、37模板+2程序结构/6 marker hosts、双端19坐标AW/DL性能与11场官方自然刷怪路径通过；不写用户证据 | T5.2c,5.3c,5.4c,5.6c,5.8d,5.9b |
 | R2 | RR-RENDER-AUTO · 模型/renderer/layer/BER 实现与加载门禁 | ☑ owner:GitHub Copilot | R1 | 9 legacy、12 effect、动态层/真实触发、Samurai/Depths/怪物甲、Research Table/Pedestal BER、双端 build/runClient/JAR | T4.3b/c；T4.2b-4.6c 实现侧 |
 | R2-FIDELITY（非阻塞） | RR-RENDER-VISUAL · Forge/Neo 游戏内总场景目视 | ☑ owner:GitHub Copilot+user | RR-RENDER-AUTO | 双端六区总场景覆盖 legacy/effect/projectile/ODB/动态层/护甲/Boss death/两现有BER并最终确认无问题；临时入口清零、双端production build/JAR审计通过 | T4.2b,4.4b,4.5b/c,4.6b/c |
 | R2 | RR-MENU-HOST-CORE · Research Table GUI | ☑ owner:GitHub Copilot | RR-MACHINE-CONTENT | 176×238 GUI、方块朝向/形状/光粒子、专用资源；Forge/Neo 真实 36 槽 Screen 点击和截图目视通过 | T2.6b；羽毛 BER=T2.6c/RR-RENDER |
 | R2 | RR-MENU-HOST-BREWING · 顺序酿造完整语义 | ☑ owner:GitHub Copilot | RR-MACHINE-CONTENT | 8 槽/面自动化/hook/remainder/400t GUI；双端两级酿造 820t 与真实 Screen shift-click/动态视觉通过 | T2.7b |
 | R2 | RR-MENU-HOST-TRANSFER · Tablet/附件/Altar | ☑ owner:GitHub Copilot | RR-MACHINE-CONTENT | Tablet 5 槽/按钮/主副手 UX、全 BE Forge capability/Neo attachment、Altar 16 格扫描/20t 调度；双端重启与真实 Screen 矩阵通过 | T2.8c,T2.9b；T2.8d/T2.9c/d 为后续任务 |
 | R2-AUTO-GATE | registrar/provider/screen/renderer/BER/capability自动门禁 | ☑ owner:GitHub Copilot | RR-DATA、RR-WORLD、RR-RENDER-AUTO、三RR-MENU-HOST均☑ | `R2_GATE_SELF_TEST_OK`；双端25 layers/64 renderers/2 BER/7 screens；runData/build/server/client/JAR全绿 | R2实现侧自动集成 |
-| R2-Gate | 实现/数据引用/注册/客户端 relay 总Gate | ☑ owner:GitHub Copilot | R2-AUTO-GATE ☑ | 双端无属性专服Done/reload、`acrrrender` Unknown、客户端atlas完成、production JAR元数据/资源/验证残留审计通过 | 解锁 R3；两条R2-FIDELITY仍☐ |
-| R3 | RR-ENERGY · PE/PoP/Disruption 内容 | ☑ owner:GitHub Copilot | R2-Gate | 21网络块、7功能神像+兼容入口、32 charm、Idol、3 PoP、22 MIGRATED+5 BLOCKED审计；双端runData/真实Level/重启/专服/build/JAR门禁 | T7.3b,7.4b,7.5b；T7.5c显式后续 |
-| R3 | RR-KNOWLEDGE · capability/effect/research/SavedData/config 实现切片 | ☑ owner:GitHub Copilot | R2-Gate | 42/42/11目录、协议v2与延迟同步、三伤害/五效果/七药水、传播/解毒/唯一转化/Purge、快照真实落盘重启、复杂配置reload；双端runData/build/server/JAR。真人实网/旧书消费/动态群系/复活/GUI已拆为独立☐ | T7.2b,7.8b,7.10b,7.11b,T8.2b；余T7.2c/7.8c/7.10c/7.11c/T8.2c |
-| R3-Gate | 系统 API/存档/配置双节点 Gate | ☑ owner:GitHub Copilot | RR-ENERGY、RR-KNOWLEDGE均☑ | 双端runData同时输出`RR_ENERGY_SELF_TEST_OK`与`RR_KNOWLEDGE_SELF_TEST_OK`；双端production build/JAR、专服与重启通过，临时探针为0 | 解锁 R4；拆出的T7.2c/5c/8c/10c/11c/T8.2c继续独立☐ |
+| R2-Gate | 实现/数据引用/注册/客户端 relay 总Gate | ☑ owner:GitHub Copilot | R2-AUTO-GATE ☑ | 双端无属性专服Done/reload、`acrrrender` Unknown、客户端atlas完成、production JAR元数据/资源/验证残留审计通过；两条R2-FIDELITY后续亦已☑ | 解锁 R3 |
+| R3 | RR-ENERGY · PE/PoP/Disruption 内容 | ☑ owner:GitHub Copilot | R2-Gate | 21网络块、7功能神像+兼容入口、32 charm、Idol、3 PoP、27 MIGRATED+0 BLOCKED审计；双端runData/真实Level/重启/专服/build/JAR门禁 | T7.3b,7.4b,7.5b,7.5c |
+| R3 | RR-KNOWLEDGE · capability/effect/research/SavedData/config 实现切片 | ☑ owner:GitHub Copilot | R2-Gate | 42/42/11目录、协议v2与延迟同步、三伤害/五效果/七药水、传播/解毒/唯一转化/Purge、快照真实落盘重启、复杂配置reload；后续旧书消费、动态群系、复活与配置GUI自动切片均已闭合，真人实网仅归U-NET | T7.2b,7.8b/c,T7.10b/c,T7.11b/c,T8.2b/c |
+| R3-Gate | 系统 API/存档/配置双节点 Gate | ☑ owner:GitHub Copilot | RR-ENERGY、RR-KNOWLEDGE均☑ | 双端runData同时输出`RR_ENERGY_SELF_TEST_OK`与`RR_KNOWLEDGE_SELF_TEST_OK`；双端production build/JAR、专服与重启通过，临时探针为0；后续自动切片已由R5-CODE-GATE闭合 | 解锁 R4 |
 | R4 | RR-RITUAL-SPELL-PORTAL-AUTO · 仪式/法术/玩家传送门实现 | ☑ owner:GitHub Copilot | R3 | 62仪式/18专用、14法术/14 handler/14 Spellbook配方、Anchor/Key/Portal链、必要网络/客户端FX、29 item models+3 block sets | T7.6b,T7.7b,T5.7b 实现片段 |
 | R4-AUTO-GATE | RR-RITUAL-SPELL-PORTAL 双节点自动门禁 | ☑ owner:GitHub Copilot | RR-RITUAL-SPELL-PORTAL实现 | Forge/Neo `compileJava --rerun-tasks` 与 `runData`：`rituals=62 handlers=18`、`spells=14 handlers=14 spellbook=14`、`itemModels=29 blockSets=3 damageTags=4`、Portal=`7/6/4` | R4 代码/数据/资源切片 |
 | R4 | RR-ENTITY-BEHAVIOR · 全实体专属行为/loot/spawn | ☑ owner:GitHub Copilot | R3 | 全族专属行为、69 loot→97逻辑/194物理现代表、69死亡路径、双端11场真实NaturalSpawner、实体/owner重启持久化、无属性server reload与production JAR零fixture门禁通过 | T3.2b-3.8b,3.9d,3.10c |
-| R4 | RR-BER-R4-HOSTS · R4前已存在宿主 BER | ☐ owner:Agent BER | R3-Gate,R4-AUTO-GATE | 仅 `client/render/block/*Energy*Renderer.java` 等新增 renderer；Research/Ritual 已冻结；注册行由 Gate owner 串行接入 | T4.6d 的 R3/R4 真实宿主片段 |
-| HOST-FOLLOWUP（非阻塞） | RR-BER-FUTURE-HOSTS · 后续宿主随内容交付 | ☐ owner:各宿主owner | 对应真实 BlockEntityType | 断头/spawner/sealing lock/rending/ODB 等各归自己的内容目录；不得反向阻塞 R4 | T4.6d 后续片段 |
-| R4-CODE-GATE | 游戏逻辑与现有宿主自动集成 Gate | ☐ owner:Gate Integrator | R4-AUTO-GATE,RR-ENTITY-BEHAVIOR,RR-BER-R4-HOSTS | 仅 relay、双节点 compile/runData/build/runServer/JAR；不等待用户矩阵 | 解锁 R5 Agent 任务 |
+| R4 | RR-BER-R4-HOSTS · 当前实际宿主 BER 闭包 | ☑ owner:GitHub Copilot | R3-Gate,R4-AUTO-GATE | 注册表全量冻结 25 个实际 BE host：4 BER + 21 no-BER；5 个 legacy renderer 已有现代替代，`deferredLegacy=0` | T4.6d |
+| HOST-FOLLOWUP（非阻塞） | RR-BER-FUTURE-HOSTS · 后续新增宿主随内容交付 | ☑ owner:各宿主owner | 对应真实 BlockEntityType | 当前无待实现真实宿主；未来只有新增 BlockEntityType 时才重开，不为旧名称虚构宿主 | T4.6d 后续契约 |
+| R4-CODE-GATE | 游戏逻辑与现有宿主自动集成 Gate | ☑ owner:GitHub Copilot | R4-AUTO-GATE,RR-ENTITY-BEHAVIOR,RR-BER-R4-HOSTS | relay、双节点 compile/runData/build、固定 seed server+restart 与 JAR Gate 通过；不等待用户矩阵 | 解锁 R5 Agent 任务 |
 | U | U-R4 · Portal/Spellbook/仪式真人矩阵 | ☐ owner:user+Validation Coordinator | R4-AUTO-GATE | 不拥有生产文件；证据独占 `run/validation/user/U-R4/` | [用户验证车道](03-user-validation-plan.md) |
-| R5 | RR-NET-AUTO · 23消息生产闭包与自动门禁 | ☐ owner:Agent NET | R4-AUTO-GATE | `net/**`（除 `net/ACNetwork.java` relay）、`client/network/**`；临时验证 hook 由 Gate owner 协调；不含真人实网 | T7.1c 实现片段 |
-| R5 | RR-CLIENT-GUI-AUTO · GUI/书/HUD/input与剩余机器宿主 | ☐ owner:Agent GUI | R4-AUTO-GATE | `client/screen/{energy,item,machine,facebook}/**` + `client/{necronomicon,hud,font,input}/**` + `content/machine/{statetransformer,rendingpedestal}/**` + knowledge/page消费面；同一owner含Screen/BER避免互等 | T2.9c/d,T6.1c/d,T6.2b/c,T6.6b-d,T7.8c 实现片段 |
+| R5 | RR-NET-AUTO · 24消息生产闭包与自动门禁 | ☑ owner:GitHub Copilot | R4-AUTO-GATE | 19 MIGRATED + 5 REPLACED + 0 BLOCKED，方向拒绝24、roundTrips=28；生产 handler/权限/线程契约闭合 | T7.1c |
+| R5 | RR-CLIENT-GUI-AUTO · GUI/书/HUD/input与剩余机器宿主 | ☑ owner:GitHub Copilot | R4-AUTO-GATE | 13 Screen、401 actionable书页、3 HUD/5键、Aklo实际消费、94/94 clientvars、State Transformer/Rending及4 BER闭包 | T2.9c/d,T6.1c,T6.2b/c,T6.6b-d,T7.8c |
 | R5 | RR-CLIENT-FX-AUTO · sky/particle/sound 行为 | ☑ owner:GitHub Copilot | R4-AUTO-GATE | `client/{sky,particle,ritual}/**`,`registry/ModParticles`,`platform/DimensionSkyCompat`；Gate=`RR_CLIENT_FX_SELF_TEST_OK` | T6.3b,T6.4b,T6.5b |
-| R5 | RR-JEI-AUTO · 燃料/剩余分类/转移 | ☐ owner:Agent JEI | R4-AUTO-GATE | `integration/jei/**`（除 `ACJEIPlugin.java` relay）；语言键与接线交 Gate owner | TP.5b,T8.1b 实现片段 |
-| R5 | RR-SYSTEM-AUTO · 扰动/附魔/效果/复活/配置余量 | ☐ owner:Agent SYSTEM | RR-CLIENT-GUI-AUTO,R4-AUTO-GATE | `system/{energy/disruption,effect,enchant,data}/**`,`common/handlers/**`,`config/**`,`client/screen/config/**`；compat/跨owner宿主只提CR | T7.5c,T7.9b/c,T7.10c,T7.11c,T8.2c |
+| R5 | RR-JEI-AUTO · 燃料/剩余分类/转移 | ☑ owner:GitHub Copilot | R4-AUTO-GATE | 永久 Gate：12 categories、62 rituals、14 spells、5+15 fuels、4 rending、12 transfer decisions；40 个 JEI 语言键闭包 | TP.5b,T8.1b 实现片段 |
+| R5 | RR-SYSTEM-AUTO · 扰动/附魔/效果/复活/配置余量 | ☑ owner:GitHub Copilot | RR-CLIENT-GUI-AUTO,R4-AUTO-GATE | 27扰动/0阻塞、附魔5/5、Dread Plague 6 biome/8 host、复活矩阵与145配置消费者全部闭包 | T7.5c,T7.9b/c,T7.10c,T7.11c,T8.2c |
 | R5 | RR-ADV-API · 命令/进度/IMC/API | ☑ owner:GitHub Copilot | R4-AUTO-GATE | 双端9×2 schema/Gate与外部ServiceLoader消费者；Forge真实联网权限/toggle/9进度/书页/幂等/重连，Forge五项旧IMC；生产临时夹具清零 | T8.3b,T8.4b/c |
-| R5-CODE-GATE | 客户端/网络/系统/JEI 自动集成 Gate | ☐ owner:Gate Integrator | R4-CODE-GATE,RR-NET-AUTO,RR-CLIENT-GUI-AUTO,RR-CLIENT-FX-AUTO,RR-JEI-AUTO,RR-SYSTEM-AUTO,RR-ADV-API | client/network relays※ + 双节点自动矩阵；不等待 `U-*` | 解锁 R6 |
+| R5-CODE-GATE | 客户端/网络/系统/JEI 自动集成 Gate | ☑ owner:GitHub Copilot | R4-CODE-GATE,RR-NET-AUTO,RR-CLIENT-GUI-AUTO,RR-CLIENT-FX-AUTO,RR-JEI-AUTO,RR-SYSTEM-AUTO,RR-ADV-API | NET/GUI/FX/JEI/SYSTEM/ADV-API 永久 Gate、双节点 build/server 与客户端资源初始化通过；不等待 `U-*` | 解锁 R6 |
 | U | U-NET/U-GUI/U-FX/U-JEI | ☐ owner:user+Validation Coordinator | 各对应 `RR-*-AUTO` | 不拥有生产文件；每项独占 `run/validation/user/<U-ID>/` | [用户验证车道](03-user-validation-plan.md) |
-| R6 | RR-ASSET · 全贴图/模型/lang | ☐ owner:___ | R5-CODE-GATE | `assets/abyssalcraft/**`（非 data） | TP.6b,T9.1b-4b |
-| R6 | RR-DATAGEN · 全配方/loot/tag 双形态 | ☐ owner:___ | R5-CODE-GATE | `data/gen/**`, `src/main/{resources,generated}/data/**` | T2.10b,T9.5b,T10.3b |
-| R6-Gate | 两节点 runData + missing resource 审计 | ☐ owner:___ | R6 全部 ☑ | validation reports | Gate MP/M1/M2/M9 内容收口 |
-| R7a | RR-COMPAT · compat/`//?` 审计 | ☐ owner:___ | R6 | `platform/**`, `docs/spec/compat-audit.md` | T10.1b |
-| R7a | RR-RENAME · API 重命名行为报告 | ☐ owner:___ | R6 | `docs/spec/rename-regression.md` | T10.2 |
-| R7a | RR-BIOME · spawn modifier 双份 | ☑ owner:Agent C（提前交付） | R6 | 9 对 Forge/Neo spawn modifier 镜像并经双端启动/热重载解析；实际自然生成行为由 R4/R8 统计 | T10.4b（T10.4c 待 R4/R8） |
-| R7b-GATE | 两节点 build/runClient 全量自动回归 | ☐ owner:Gate Integrator | R7a 全部 ☑ | validation reports；无真人操作前置 | T10.5 / Gate M10 |
+| R6 | RR-ASSET · 全贴图/模型/lang | ☑ owner:GitHub Copilot | R5-CODE-GATE | demo生产内容清零；644旧纹理=504迁移+131替代+9淘汰，42复杂模型ACTIVE，560 item owners，8×1361语言键且覆盖232 Block/560 Item，资产引用`missing=0`；雕像OBJ UV/晶簇动画/势能分层模型永久Gate通过 | TP.6b,T9.1b-4b |
+| R6 | RR-DATAGEN · 全配方/loot/tag 双形态 | ☑ owner:GitHub Copilot | R5-CODE-GATE | 223 machine calls 四态闭包；demo loot退役后2617 JSON / 1628 logical 全仓语义与双目录审计 `missing=0` | T2.10b,T9.5b,T10.3b |
+| R6-Gate | 两节点 runData + missing resource 审计 | ☑ owner:GitHub Copilot | R6 全部 ☑ | Forge全量runData、Neo compile/resource assembly、双端客户端烘焙及独立资产审计均通过，`missing=0` | Gate MP/M1/M2/M9 内容收口 |
+| R7a | RR-COMPAT · compat/`//?` 审计 | ☑ owner:GitHub Copilot | R6 | `RR_COMPAT_AUDIT_OK symbols=89 loader=60 version=49 businessLoaderReferences=0 businessVersionForks=62 mixinExceptions=1 documented=89` | T10.1b |
+| R7a | RR-RENAME · API 重命名行为报告 | ☑ owner:GitHub Copilot | R6 | `RR_RENAME_AUDIT_OK json=2619 paired=1186 recipes=1364 mappings=49 stale=0`；报告冻结API/目录/ID回归契约 | T10.2 |
+| R7a | RR-BIOME · spawn modifier 双份与运行期行为 | ☑ owner:Agent C+GitHub Copilot | R6 | 9 对镜像经双端加载；官方 loader PotentialSpawns 查询在 11 场景精确验证最终候选、权重、组大小、5 维度与 Y 上下文 | T10.4b/T10.4c |
+| R7b-GATE | 两节点 build/runClient 全量自动回归 | ☑ owner:GitHub Copilot | R7a 全部 ☑ | 双节点全量 build；隔离客户端各唯一抵达 TitleScreen 两 tick 并正常退出，`RR_CLIENT_SMOKE_RUNNER_OK nodes=2`；无真人操作前置 | T10.5 / Gate M10 |
 | R8 | RR-SERVER · world/entity/loot 服务端矩阵 | ☑ owner:GitHub Copilot | R7b-GATE | 固定 seed 双节点新世界+重启四阶段；world/structure/spawn/live loot/recipe/restart fail-closed 矩阵通过 | T11.2 |
 | U | U-FINAL + U-GATE · 全内容真人客户端矩阵 | ☐ owner:user+Validation Coordinator | R7b-GATE + 全部前序 `U-*` | 不拥有生产文件；仅用户证据与独立报告 | TP.7b,T5.9b,T6.* UX,T11.1 |
 | R8-Gate | 文档/index/发布产物收口 | ☐ owner:Gate Integrator | RR-SERVER,U-GATE | `DEVELOPMENT.md`, `docs/index/**`, release artifacts | T11.3,T11.4 / Gate M11 |
@@ -525,7 +525,7 @@ flowchart LR
 
 > 把 S-C 的具体扰动延后从「模糊延后」分离为下列显式可跟踪任务（含延后原因 + 依赖 + 已就位物料）。
 
-**PS-9b · 内容依赖扰动（延自 PS-9）**  ☑ owner:GitHub Copilot — RR-ENERGY在依赖就绪后将旧27项闭包为**22项MIGRATED + 5项BLOCKED**。新增spawn/swarm、PE注入/抽取、animal/sacrifice corruption、displace、fire/fireRain等12项，与PS-9的10项共同由`Disruptions.bootstrap()`注册；跨版本点收敛于`IgniteCompat`、`MobSpawnCompat`、`TamableCompat`。statue/depositioner tolerance触发链与服务端本地化反馈已接入，永久`DisruptionAudit`逐项校验注册集合、deity映射及`22+5=27`闭包，双端`runData`输出`RR_ENERGY_SELF_TEST_OK ... disruptions=22 blocked=5`。**忠实BLOCKED（转T7.5c）**：ooze缺`shoggoth_ooze`块，randomSwarm/randomSpawn候选生态未冻结，两invisibleSwarm缺忠实隐形群体设计；不得用替代内容伪造。PS-1 `DisruptionMessage`客户端网络FX仍归R5。 · Owns `system/energy/disruption/**`（接力 PS-9） · Reads PS-9,PS-5,PD-5,PD-7 · Maps T7.5b/T7.5c
+**PS-9b · 内容依赖扰动（延自 PS-9）**  ☑ owner:GitHub Copilot — 旧27项已闭包为**27 MIGRATED + 0 BLOCKED**并全部由`Disruptions.bootstrap()`注册；跨版本点收敛于`IgniteCompat`、`MobSpawnCompat`、`TamableCompat`。后续T7.5c以真实分层`shoggoth_ooze`、当前群系加权MONSTER候选池及旧版2-5只Enderman隐身II 12000 tick语义补齐五项，永久`DisruptionAudit`逐项校验注册集合、deity映射和三类关键依赖，双端`runData`输出`RR_ENERGY_SELF_TEST_OK ... disruptions=27 blocked=0`。PS-1 `DisruptionMessage`客户端网络FX已由R5闭合。 · Owns `system/energy/disruption/**`（接力 PS-9） · Reads PS-9,PS-5,PD-5,PD-7 · Maps T7.5b/T7.5c
 
 ---
 

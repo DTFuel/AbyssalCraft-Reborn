@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 import java.util.concurrent.CompletableFuture;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,9 +16,12 @@ import java.util.regex.Pattern;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.shinoow.abyssalcraft.AbyssalCraft;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
+import net.minecraft.resources.ResourceLocation;
 
 /** Datagen entry point for permanent R6 RR-ASSET-LANG invariants. */
 public final class LangValidationData implements DataProvider {
@@ -30,6 +34,7 @@ public final class LangValidationData implements DataProvider {
     @Override
     public CompletableFuture<?> run(CachedOutput output) {
         Map<String, String> reference = readLanguage("en_us");
+        RegistryCoverage coverage = validateRegisteredDescriptions(reference);
         for (String language : LANGUAGES) {
             Map<String, String> translations = readLanguage(language);
             require(translations.keySet().equals(reference.keySet()),
@@ -45,8 +50,29 @@ public final class LangValidationData implements DataProvider {
                     language + " has mismatched format placeholders for " + key);
             }
         }
-        System.out.printf("RR_ASSET_LANG_AUDIT_OK languages=%d keys=%d%n", LANGUAGES.size(), reference.size());
+        System.out.printf("RR_ASSET_LANG_AUDIT_OK languages=%d keys=%d blocks=%d items=%d%n",
+            LANGUAGES.size(), reference.size(), coverage.blocks(), coverage.items());
         return CompletableFuture.completedFuture(null);
+    }
+
+    private static RegistryCoverage validateRegisteredDescriptions(Map<String, String> reference) {
+        TreeSet<String> missing = new TreeSet<>();
+        int blocks = 0;
+        int items = 0;
+        for (ResourceLocation id : BuiltInRegistries.BLOCK.keySet()) {
+            if (!id.getNamespace().equals(AbyssalCraft.MODID)) continue;
+            blocks++;
+            String key = BuiltInRegistries.BLOCK.get(id).getDescriptionId();
+            if (!reference.containsKey(key)) missing.add(key + " <- block " + id);
+        }
+        for (ResourceLocation id : BuiltInRegistries.ITEM.keySet()) {
+            if (!id.getNamespace().equals(AbyssalCraft.MODID)) continue;
+            items++;
+            String key = BuiltInRegistries.ITEM.get(id).getDescriptionId();
+            if (!reference.containsKey(key)) missing.add(key + " <- item " + id);
+        }
+        require(missing.isEmpty(), "registered content is missing en_us descriptions: " + missing);
+        return new RegistryCoverage(blocks, items);
     }
 
     private static Map<String, String> readLanguage(String language) {
@@ -80,6 +106,8 @@ public final class LangValidationData implements DataProvider {
     private static void require(boolean condition, String message) {
         if (!condition) throw new IllegalStateException("RR-ASSET-LANG: " + message);
     }
+
+    private record RegistryCoverage(int blocks, int items) {}
 
     @Override
     public String getName() {
