@@ -327,35 +327,35 @@
       "source": "ported-or-authored"
     },
     "lang/en_us.json": {
-      "sha256": "f992c9f0889e3fb2d1225350047a299ef4feda95436498bb08af9043f05b2893",
+      "sha256": "6e7c121f6f884a47584014759f74e5fa55b51e2c77389b351f0c9d95c251a3f3",
       "source": "ported-or-authored"
     },
     "lang/es_es.json": {
-      "sha256": "b6195dc359b1cfa19632d616718a6720585d8e7e3a42dddc708d64af3fca860d",
+      "sha256": "3dd6ea27741b2eeeafc5d694c8b9fb94661abd55be8472b18f39b5b762896f09",
       "source": "ported-or-authored"
     },
     "lang/fr_fr.json": {
-      "sha256": "826f71ec862fb3b5ad89029bb495fc89f9b23ed5ff6cfa16b1eb39e8add7d93e",
+      "sha256": "be70d338f4cdfa13e8362096cb3c95d511521d94cf27675bd7267bc6139c5304",
       "source": "ported-or-authored"
     },
     "lang/ja_jp.json": {
-      "sha256": "a85433bec8fbf59065b5a29423fbbee84c17f440af9b2ace10ca80b5ed5b907a",
+      "sha256": "1b05b4527f706f711dd963ee3b1eebdbc106e1954e6e0b80fcff677e80e0fc4e",
       "source": "ported-or-authored"
     },
     "lang/ko_kr.json": {
-      "sha256": "36f4a02b915d699a3c1ec4122958d7221f4bfb084164cc5a60d9d59583e5319e",
+      "sha256": "8eb6fb0423e85679027b833554e50a605899a9074327bceecf5e1a657dc07244",
       "source": "ported-or-authored"
     },
     "lang/ru_ru.json": {
-      "sha256": "e89032476a1d7914aaaf6623b22a027d3a808ed943b5dfe7beb2b5cae77ed4d1",
+      "sha256": "3e3abbdae62dac91dd65bb062588a66b523fd6c11063d604971edaaf689827f9",
       "source": "ported-or-authored"
     },
     "lang/zh_cn.json": {
-      "sha256": "93054449b0a4f87775a7afd8fdc49e9038d6701f7259e4a9ea05c69f48d9b3ba",
+      "sha256": "bbaf34f1a4b130b1cac0544d3371d76dc7d96ddd02877199003d65ad8b371180",
       "source": "ported-or-authored"
     },
     "lang/zh_tw.json": {
-      "sha256": "5316beee0d0c77276677099b96556b0ff1793cdb45ce1eb3508efd61baa9da2d",
+      "sha256": "2d97163d94a9e9cfd904a050507d955e010128936eaec08537eb74a4779b5602",
       "source": "ported-or-authored"
     },
     "models/block/abyssal_abyssalnite_ore.json": {

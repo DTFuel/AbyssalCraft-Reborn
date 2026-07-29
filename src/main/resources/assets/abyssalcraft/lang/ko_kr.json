@@ -1363,5 +1363,6 @@
   "item.abyssalcraft.refined_coralium_boots": "정제된 코랄리움 부츠",
   "item.abyssalcraft.refined_coralium_chestplate": "정제된 코랄리움 갑옷",
   "item.abyssalcraft.refined_coralium_helmet": "정제된 코랄리움 헬멧",
-  "item.abyssalcraft.refined_coralium_leggings": "정제된 코랄리움 레깅스"
+  "item.abyssalcraft.refined_coralium_leggings": "정제된 코랄리움 레깅스",
+  "gui.abyssalcraft.necronomicon.back": "뒤로"
 }

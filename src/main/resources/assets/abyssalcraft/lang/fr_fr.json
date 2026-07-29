@@ -1363,5 +1363,6 @@
   "item.abyssalcraft.refined_coralium_boots": "Bottes de Coralium Métallique",
   "item.abyssalcraft.refined_coralium_chestplate": "Plastron de Coralium Métallique",
   "item.abyssalcraft.refined_coralium_helmet": "Heaume de Coralium Métallique",
-  "item.abyssalcraft.refined_coralium_leggings": "Jambières de Coralium Métallique"
+  "item.abyssalcraft.refined_coralium_leggings": "Jambières de Coralium Métallique",
+  "gui.abyssalcraft.necronomicon.back": "Retour"
 }

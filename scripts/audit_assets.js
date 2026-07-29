@@ -11,6 +11,7 @@ const {
     MIRRORED_NAME_PAIRS,
     ID_FAMILY_TERMS,
     ID_FAMILY_EXCEPTIONS,
+    UI_TEXT_ROWS,
 } = require('./localization_name_contract');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -670,6 +671,15 @@ for (const row of ENTITY_NAME_ROWS) {
         }
     }
 }
+for (const row of UI_TEXT_ROWS) {
+    const key = row[0];
+    for (let index = 0; index < LOCALIZATION_LANGUAGES.length; index++) {
+        const language = LOCALIZATION_LANGUAGES[index];
+        if (languageData.get(language)?.[key] !== row[index + 1]) {
+            missing.push(`canonical UI text mismatch ${language}:${key}`);
+        }
+    }
+}
 for (const [language, overrides] of Object.entries(DISPLAY_NAME_OVERRIDES)) {
     const entries = languageData.get(language) || {};
     for (const [key, expected] of Object.entries(overrides)) {
@@ -845,4 +855,4 @@ console.log(`RR_ASSET_LANG_MISSING_VS_EN_US ${JSON.stringify(languageMissing)}`)
 console.log(`RR_ASSET_JEI_LANG_OK languages=${languageFiles.length} keys=${requiredJeiKeys.size}`);
 console.log(`RR_ASSET_LANG_NAMES_OK languages=${languageFiles.length}`
     + ` entities=${ENTITY_NAME_ROWS.length} spawnEggs=${localizedSpawnEggKeys.length}`
-    + ` mirrored=${MIRRORED_NAME_PAIRS.length}`);
+    + ` mirrored=${MIRRORED_NAME_PAIRS.length} ui=${UI_TEXT_ROWS.length}`);

@@ -7,6 +7,7 @@ const {
     TERM_REPLACEMENTS,
     MIRRORED_NAME_PAIRS,
     ID_FAMILY_TERMS,
+    UI_TEXT_ROWS,
 } = require('./localization_name_contract');
 
 const ROOT = path.resolve(__dirname, '..');
@@ -74,7 +75,7 @@ const ZH_ENTITIES = new Map([
 const ZH_EXPLICIT = new Map([
     ['container.abyssalcraft.spirit_tablet', '灵魂石板过滤器'],
     ['gui.abyssalcraft.necronomicon.abyssal_wasteland.text', '第一个深渊维度：永恒暮色下由深渊石构成的荒芜大地。珊瑚侵染了沼泽与湖泊，暗影生物四处游荡。通过珊瑚浸染石构成的传送门可抵达此地。'],
-    ['gui.abyssalcraft.necronomicon.ac.text', 'AbyssalCraft 将你带入旧日支配者的神话：穿越腐化维度，施行禁忌仪式，并追寻势能。本书将指引你踏上深渊之路。'],
+    ['gui.abyssalcraft.necronomicon.ac.text', 'AbyssalCraft 将你带入旧日支配者的神话：穿越腐化维度，施行禁忌仪式，并追寻PE。本书将指引你踏上深渊之路。'],
     ['gui.abyssalcraft.necronomicon.content.active', '启用 %1$s | 负责人=%2$s | 引用=%3$s'],
     ['gui.abyssalcraft.necronomicon.content.blocked', '阻塞 %1$s | 负责人=%2$s | 引用=%3$s | %4$s'],
     ['gui.abyssalcraft.necronomicon.content.missing', '缺失 %1$s | 负责人=%2$s | 引用=%3$s | %4$s'],
@@ -97,11 +98,11 @@ const ZH_EXPLICIT = new Map([
     ['itemGroup.abyssalcraft.tools', 'AbyssalCraft：工具'],
     ['jei.abyssalcraft.anvil_forging', '铁砧锻造'],
     ['jei.abyssalcraft.anvil_price', '花费：%s'],
-    ['message.abyssalcraft.ritual.no_energy', '死灵之书没有足够的势能来完成此仪式。'],
+    ['message.abyssalcraft.ritual.no_energy', '死灵之书没有足够的PE来完成此仪式。'],
     ['message.abyssalcraft.ritual.no_ritual', '没有与这些祭品匹配的仪式。'],
     ['message.abyssalcraft.ritual.no_structure', '仪式需要在祭坛周围布置八座基座。'],
     ['message.abyssalcraft.ritual.success', '仪式已完成。'],
-    ['message.abyssalcraft.spell.fizzle', '法术消散了：范围内没有目标，或势能不足。'],
+    ['message.abyssalcraft.spell.fizzle', '法术消散了：范围内没有目标，或PE不足。'],
     ['message.abyssalcraft.spirit_altar.cleared', '已清除 %s 个已配置容器'],
     ['message.abyssalcraft.spirit_altar.disabled', '已禁用 %s 个已配置容器'],
     ['message.abyssalcraft.spirit_altar.enabled', '已启用 %s 个已配置容器'],
@@ -117,14 +118,14 @@ const ZH_EXPLICIT = new Map([
     ['message.abyssalcraft.spirit_tablet.path_added', '已将容器加入传输路径'],
     ['message.abyssalcraft.spirit_tablet.waypoint_added', '已将路径点加入传输路径'],
     ['necronomicon.information.ritualcharms', '仪式护符'],
-    ['necronomicon.information.upgradingpe', '升级势能方块'],
+    ['necronomicon.information.upgradingpe', '升级PE方块'],
     ['necronomicon.text.crafting.portalanchor.1', '拥有银之钥后，你无需再举行启门仪式来开启传送门。改为制作传送门锚，并将其放置在需要的位置。'],
     ['necronomicon.text.crafting.portalanchor.2', '你现在也能举行一种仪式来制造不受限制的传送门锚，打破迫使它们只能在相连维度间开启传送门的以太锁链。'],
     ['necronomicon.text.machines.3', '结晶器用于使元素结晶，从物质中分离出构成它们的基础元素或分子。任何恐惧材料、恐惧碎片以及任意结晶元素（完整晶体或晶体碎片）均可作为燃料。'],
-    ['necronomicon.text.peupgrading.1', '如果势能产出仍然太慢，可以在铁砧上使用维度之戒升级各种势能处理方块，以提升它们的属性。'],
+    ['necronomicon.text.peupgrading.1', '如果PE产出仍然太慢，可以在铁砧上使用维度之戒升级各种PE处理方块，以提升它们的属性。'],
     ['necronomicon.text.peupgrading.2', '基础戒指由金锭和烈焰粉制成，之后可通过仪式逐级升级。'],
     ['necronomicon.text.peupgrading.3', '每个升级后的方块都会显示代表其等级的戒指。'],
-    ['necronomicon.text.ritualcharms.1', '仪式护符能暂时增强势能操纵器的特定属性。基础护符可以清除已强化操纵器上的现有增幅效果，也可以直接破坏方块。添加任意类型的增幅器都会提高操纵器的基础势能产出，其中力量增幅器还会进一步提升产出。'],
+    ['necronomicon.text.ritualcharms.1', '仪式护符能暂时增强PE操纵器的特定属性。基础护符可以清除已强化操纵器上的现有增幅效果，也可以直接破坏方块。添加任意类型的增幅器都会提高操纵器的基础PE产出，其中力量增幅器还会进一步提升产出。'],
     ['necronomicon.text.ritualcharms.2', '雕像被增幅后，基座上会显示代表该增幅器的符号，与护符上的符号相同。'],
     ['tooltip.abyssalcraft.book_tier', '等级 %s'],
     ['tooltip.abyssalcraft.spell', '法术：%s'],
@@ -160,8 +161,8 @@ const CONTENT_TERM_ROWS = [
     ['Elysian Stone', 'Piedra elísea', 'Pierre élyséenne', 'エリシアン石', '엘리시안석', 'Элизийский камень', '樂土石'],
     ['Monolith Stone', 'Piedra monolítica', 'Pierre monolithique', 'モノリスストーン', '모놀리스 돌', 'Монолитный камень', '巨石'],
     ['Omothol Stone', 'Piedra de Omothol', 'Pierre d’Omothol', 'オモソール石', '오모솔석', 'Камень Омотола', '奧穆索石'],
-    ['Energy Container', 'Contenedor de energía', 'Conteneur d’énergie', 'エネルギーコンテナ', '에너지 보관함', 'Контейнер энергии', '勢能容器'],
-    ['Energy Depositioner', 'Depositador de energía', 'Dépositaire d’énergie', 'エネルギー蓄積器', '에너지 축적기', 'Накопитель энергии', '勢能沉積器'],
+    ['Energy Container', 'Contenedor de energía', 'Conteneur d’énergie', 'エネルギーコンテナ', '에너지 보관함', 'Контейнер энергии', 'PE容器'],
+    ['Energy Depositioner', 'Depositador de energía', 'Dépositaire d’énergie', 'エネルギー蓄積器', '에너지 축적기', 'Накопитель энергии', 'PE沉積器'],
     ['Idol of Fading', 'Ídolo del desvanecimiento', 'Idole de l’effacement', '消失の偶像', '소멸의 우상', 'Идол угасания', '消逝神像'],
     ['Mimic Fire', 'Fuego mímico', 'Feu mimétique', '擬態の炎', '모방 불꽃', 'Мимикрирующий огонь', '擬態火焰'],
     ['Portal Anchor', 'Ancla de portal', 'Ancre de portail', 'ポータルアンカー', '차원문 닻', 'Якорь портала', '傳送門錨'],
@@ -240,7 +241,7 @@ const CONTENT_TERM_ROWS = [
     ['Muck', 'Fango', 'Boue', '泥', '진흙', 'Грязь', '淤泥'],
     ['Silver', 'Plateada', 'Argentée', '銀', '은', 'Серебряный', '銀'],
     ['Sealing', 'Sellado', 'Scellement', '封印', '봉인', 'Запечатывающий', '封印'],
-    ['Energy', 'Energía', 'Énergie', 'エネルギー', '에너지', 'Энергия', '勢能'],
+    ['Energy', 'Energía', 'Énergie', 'エネルギー', '에너지', 'Энергия', 'PE'],
     ['Ghoul', 'Necrófago', 'Goule', 'グール', '구울', 'Гуль', '食屍鬼'],
     ['Flesh', 'Carne', 'Chair', '肉', '살점', 'Плоть', '肉'],
     ['Chicken', 'Pollo', 'Poule', 'ニワトリ', '닭', 'Курица', '雞'],
@@ -248,7 +249,7 @@ const CONTENT_TERM_ROWS = [
 ];
 const CONTENT_TYPE_ROWS = [
     ['Pressure Plate', 'Placa de presión de {base}', 'Plaque de pression en {base}', '{base}の感圧板', '{base} 감압판', 'Нажимная плита: {base}', '{base}壓力板'],
-    ['Energy Pedestal', 'Pedestal de energía de {base}', 'Piédestal d’énergie de {base}', '{base}のエネルギー台座', '{base} 에너지 받침대', 'Энергетический пьедестал: {base}', '{base}勢能基座'],
+    ['Energy Pedestal', 'Pedestal de energía de {base}', 'Piédestal d’énergie de {base}', '{base}のエネルギー台座', '{base} 에너지 받침대', 'Энергетический пьедестал: {base}', '{base}PE基座'],
     ['Crystal Cluster', 'Cúmulo de cristal de {base}', 'Amas cristallin de {base}', '{base}の結晶クラスター', '{base} 수정 군집', 'Скопление кристаллов: {base}', '{base}晶簇'],
     ['Gem Cluster', 'Cúmulo de gemas de {base}', 'Amas de gemmes de {base}', '{base}の宝石クラスター', '{base} 보석 군집', 'Скопление самоцветов: {base}', '{base}寶石簇'],
     ['Spawn Egg', 'Huevo generador de {base}', 'Œuf d’apparition de {base}', '{base}のスポーンエッグ', '{base} 생성 알', 'Яйцо призыва: {base}', '{base}生成蛋'],
@@ -598,6 +599,13 @@ function normalizeLocalizedNames() {
         const id = row[0];
         for (let index = 0; index < LANGUAGES.length; index++) {
             outputs.get(LANGUAGES[index]).translations[`entity.abyssalcraft.${id}`] = row[index + 1];
+        }
+    }
+
+    for (const row of UI_TEXT_ROWS) {
+        const key = row[0];
+        for (let index = 0; index < LANGUAGES.length; index++) {
+            outputs.get(LANGUAGES[index]).translations[key] = row[index + 1];
         }
     }
 

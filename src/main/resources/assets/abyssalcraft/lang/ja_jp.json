@@ -1363,5 +1363,6 @@
   "item.abyssalcraft.refined_coralium_boots": "製錬コラリウムのブーツ",
   "item.abyssalcraft.refined_coralium_chestplate": "製錬コラリウムのチェストプレート",
   "item.abyssalcraft.refined_coralium_helmet": "製錬コラリウムのヘルメット",
-  "item.abyssalcraft.refined_coralium_leggings": "製錬コラリウムのレギンス"
+  "item.abyssalcraft.refined_coralium_leggings": "製錬コラリウムのレギンス",
+  "gui.abyssalcraft.necronomicon.back": "戻る"
 }

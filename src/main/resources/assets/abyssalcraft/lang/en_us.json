@@ -1363,5 +1363,6 @@
   "item.abyssalcraft.refined_coralium_boots": "Refined Coralium Boots",
   "item.abyssalcraft.refined_coralium_chestplate": "Refined Coralium Chestplate",
   "item.abyssalcraft.refined_coralium_helmet": "Refined Coralium Helmet",
-  "item.abyssalcraft.refined_coralium_leggings": "Refined Coralium Leggings"
+  "item.abyssalcraft.refined_coralium_leggings": "Refined Coralium Leggings",
+  "gui.abyssalcraft.necronomicon.back": "Back"
 }

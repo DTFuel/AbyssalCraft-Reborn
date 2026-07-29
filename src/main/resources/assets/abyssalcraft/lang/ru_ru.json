@@ -1363,5 +1363,6 @@
   "item.abyssalcraft.refined_coralium_boots": "Рафинированный коралиевые ботинки",
   "item.abyssalcraft.refined_coralium_chestplate": "Рафинированный коралиевый нагрудник",
   "item.abyssalcraft.refined_coralium_helmet": "Рафинированный коралиевый шлем",
-  "item.abyssalcraft.refined_coralium_leggings": "Рафинированный коралиевые поножи"
+  "item.abyssalcraft.refined_coralium_leggings": "Рафинированный коралиевые поножи",
+  "gui.abyssalcraft.necronomicon.back": "Назад"
 }
