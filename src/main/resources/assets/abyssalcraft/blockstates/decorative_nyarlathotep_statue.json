@@ -1,22 +1,22 @@
 {
   "variants": {
     "facing=north": {
-      "model": "abyssalcraft:block/statue/nyarlathotep"
-    },
-    "facing=east": {
       "model": "abyssalcraft:block/statue/nyarlathotep",
       "y": 90,
       "uvlock": true
     },
-    "facing=south": {
+    "facing=east": {
       "model": "abyssalcraft:block/statue/nyarlathotep",
       "y": 180,
       "uvlock": true
     },
-    "facing=west": {
+    "facing=south": {
       "model": "abyssalcraft:block/statue/nyarlathotep",
       "y": 270,
       "uvlock": true
+    },
+    "facing=west": {
+      "model": "abyssalcraft:block/statue/nyarlathotep"
     }
   }
 }

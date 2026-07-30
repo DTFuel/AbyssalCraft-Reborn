@@ -1,6 +1,7 @@
 package com.shinoow.abyssalcraft.client;
 
 import com.shinoow.abyssalcraft.client.particle.ACFadeParticle;
+import com.shinoow.abyssalcraft.client.particle.PEStreamParticle;
 import com.shinoow.abyssalcraft.client.screen.energy.EnergyContainerScreen;
 import com.shinoow.abyssalcraft.client.screen.energy.EnergyDepositionerScreen;
 import com.shinoow.abyssalcraft.client.particle.BlueFlameParticle;
@@ -119,6 +120,7 @@ public final class ACClientSetup {
     public static void registerParticles(ParticleCompat.Providers providers) {
         providers.registerSpriteSet(ModParticles.ABYSSAL_FX.get(), ACFadeParticle.Provider::new);
         providers.registerSpriteSet(ModParticles.BLUE_FLAME.get(), BlueFlameParticle.Provider::new);
+        providers.registerSpriteSet(ModParticles.PE_STREAM.get(), PEStreamParticle.Provider::new);
     }
 
     public static void registerClientTicks() {

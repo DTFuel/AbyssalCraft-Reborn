@@ -38,12 +38,28 @@
       "sha256": "a610c11a0f3cde1cd768b759d5f55ea5665cb3e206b7e1db7a24621b764c07a6",
       "source": "ported-or-authored"
     },
+    "blockstates/chiseled_dark_ethaxium_brick.json": {
+      "sha256": "5000af6597d4ea4cad5a1677723ba47e8638a1d80eea6c82e71835d329933039",
+      "source": "ported-or-authored"
+    },
+    "blockstates/chiseled_ethaxium_brick.json": {
+      "sha256": "5153d636e8c58de4465ad9b5adb3583de4631e75243965e311e2ce9efafd05a8",
+      "source": "ported-or-authored"
+    },
     "blockstates/coralium_infused_stone.json": {
       "sha256": "fb4acab4de182a46e3bc9b5192a56def7bbfe1c208ae7862bf7aaee050ff8c4c",
       "source": "ported-or-authored"
     },
     "blockstates/coralium_ore.json": {
       "sha256": "a997062eb33d97937c0cbe2f1867661c2834e8aefbe8eb568801118eea999775",
+      "source": "ported-or-authored"
+    },
+    "blockstates/cracked_dark_ethaxium_brick.json": {
+      "sha256": "4ce96db58926bbad22fe6681bbe9ac6d984f4eb4395be22e9c1268e82bfee946",
+      "source": "ported-or-authored"
+    },
+    "blockstates/cracked_ethaxium_brick.json": {
+      "sha256": "7c922b2e2161e9f312114846a9b394dfe1c1495496cfe905511e62bd7702b182",
       "source": "ported-or-authored"
     },
     "blockstates/crate.json": {
@@ -56,6 +72,10 @@
     },
     "blockstates/cthulhu_statue.json": {
       "sha256": "dbed1e65e039f336d06040830fb2c46c15576fe6935ccff08d1bf0fe1c204342",
+      "source": "ported-or-authored"
+    },
+    "blockstates/dark_ethaxium_brick.json": {
+      "sha256": "ed4f80f72dbf62bdd127baa5dac2c76f108c2bed2e5946c3ab552678868279d4",
       "source": "ported-or-authored"
     },
     "blockstates/decorative_azathoth_statue.json": {
@@ -103,11 +123,15 @@
       "source": "ported-or-authored"
     },
     "blockstates/dreadlands_grass.json": {
-      "sha256": "8e45030c59c5f9dd8ac47dadc10c9fa222846144709d12a3348116b067f7d90e",
+      "sha256": "9448166e8cfd1a43c1f02fbae33a413c8d4feba2a9d3756e769123d0fadc22ec",
       "source": "ported-or-authored"
     },
     "blockstates/dreadlands_infused_powerstone.json": {
       "sha256": "c2c296f2c0155ca73a75e47818964340620093b00e69cd8597aa1aacc388819a",
+      "source": "ported-or-authored"
+    },
+    "blockstates/ethaxium_bricks.json": {
+      "sha256": "285d42737cf66ce09cb6bb8a96dd06268d37634780cf2287ccabe70a597b3eb2",
       "source": "ported-or-authored"
     },
     "blockstates/fused_abyssal_sand.json": {
@@ -195,7 +219,7 @@
       "source": "ported-or-authored"
     },
     "blockstates/sequential_brewing_stand.json": {
-      "sha256": "df543753617146094ee812b129b2cc25433c813a93c31228ab095d9103d5814c",
+      "sha256": "74003409b41525df80b8ca0d9a14141aae4dc6b5aff5d148939a2308a9b35361",
       "source": "ported-or-authored"
     },
     "blockstates/shoggoth_biomass.json": {
@@ -323,39 +347,39 @@
       "source": "ported-or-authored"
     },
     "item_asset_sha256.json": {
-      "sha256": "5f7a9eb95b3cf5d9e01cc69b1a18b097c0afac85af65e22fce20fe71d48dc607",
+      "sha256": "25ace411fd22e56b08f522d79594bd5554296f20a5588b90081035f6ed040bea",
       "source": "ported-or-authored"
     },
     "lang/en_us.json": {
-      "sha256": "6e7c121f6f884a47584014759f74e5fa55b51e2c77389b351f0c9d95c251a3f3",
+      "sha256": "5189f087d51d599d52af35c55e966620188e905d35f631b08a78edb9d8ba0dc7",
       "source": "ported-or-authored"
     },
     "lang/es_es.json": {
-      "sha256": "3dd6ea27741b2eeeafc5d694c8b9fb94661abd55be8472b18f39b5b762896f09",
+      "sha256": "095ea49d5530baaa78af06dd52bd8645c0434eb90182d18d0069073783ff99ce",
       "source": "ported-or-authored"
     },
     "lang/fr_fr.json": {
-      "sha256": "be70d338f4cdfa13e8362096cb3c95d511521d94cf27675bd7267bc6139c5304",
+      "sha256": "55d3cbbe0406b8b83f7cc5b43157cfdc5dc916aa4a8d3772d88658a71106b3f1",
       "source": "ported-or-authored"
     },
     "lang/ja_jp.json": {
-      "sha256": "1b05b4527f706f711dd963ee3b1eebdbc106e1954e6e0b80fcff677e80e0fc4e",
+      "sha256": "c49a0563429027f1207f53a2abb50ecd9b7fccdcd622c64bcc7e0bd6ec538d73",
       "source": "ported-or-authored"
     },
     "lang/ko_kr.json": {
-      "sha256": "8eb6fb0423e85679027b833554e50a605899a9074327bceecf5e1a657dc07244",
+      "sha256": "4c85d6f83036cabd3193927c2b660090f2c8ba56c151929bd3355188f67f2242",
       "source": "ported-or-authored"
     },
     "lang/ru_ru.json": {
-      "sha256": "3e3abbdae62dac91dd65bb062588a66b523fd6c11063d604971edaaf689827f9",
+      "sha256": "eb7e3f9d12d5e9b06930ef986430282379967613e19032ef8dc9de276fc2587b",
       "source": "ported-or-authored"
     },
     "lang/zh_cn.json": {
-      "sha256": "bbaf34f1a4b130b1cac0544d3371d76dc7d96ddd02877199003d65ad8b371180",
+      "sha256": "398ed01486714e8341a757acedf68e3162ce06f853cbf059ab02b809f8ad8b59",
       "source": "ported-or-authored"
     },
     "lang/zh_tw.json": {
-      "sha256": "2d97163d94a9e9cfd904a050507d955e010128936eaec08537eb74a4779b5602",
+      "sha256": "1e98c3dd6d5ec367dc4ba05a66eb3bcaedc4d165a4fe9a55b75939dfb20b5e56",
       "source": "ported-or-authored"
     },
     "models/block/abyssal_abyssalnite_ore.json": {
@@ -386,6 +410,42 @@
       "sha256": "ef11f572a9c318c51e37ffe375881bca9d6f4878172ab3a8cce634c17902d973",
       "source": "ported-or-authored"
     },
+    "models/block/brewing_stand_pipe.json": {
+      "sha256": "eb6f22697e175a4462201b5a290d99eb74df61927c05c771b8c2200fb689972c",
+      "source": "ported-or-authored"
+    },
+    "models/block/chiseled_dark_ethaxium_brick.json": {
+      "sha256": "a4155713ce812e157d17dbef9dc6400a69db08875debb6e17cb3f806d69aaa6d",
+      "source": "ported-or-authored"
+    },
+    "models/block/chiseled_dark_ethaxium_brick_1.json": {
+      "sha256": "a8670410155ae5863cf8a65f5bcf3cd8b15b6616762f7ae694bb52f30cccea4c",
+      "source": "ported-or-authored"
+    },
+    "models/block/chiseled_dark_ethaxium_brick_2.json": {
+      "sha256": "7bb780afea4fd7ef1600a95527546e2433ffa75a4080c3941a6bbf3ecd9e32ec",
+      "source": "ported-or-authored"
+    },
+    "models/block/chiseled_dark_ethaxium_brick_3.json": {
+      "sha256": "5878ce1889713b7779177a1a37d4ee171e8007d18e6ef648ddbb247692bffd76",
+      "source": "ported-or-authored"
+    },
+    "models/block/chiseled_ethaxium_brick.json": {
+      "sha256": "5cc4635f99f0cff7f3cf90f714d5f0535d7153b25ea61958dd9203c103e7e3f2",
+      "source": "ported-or-authored"
+    },
+    "models/block/chiseled_ethaxium_brick_1.json": {
+      "sha256": "070426513974f445dec5e2a1f8d5e27b6736f6ead8d26adc4c42d331ac5390e2",
+      "source": "ported-or-authored"
+    },
+    "models/block/chiseled_ethaxium_brick_2.json": {
+      "sha256": "bc2c41e7ab5070ac28d9c977b6d481f07eec2b08bb38dfe6f5915087acb93432",
+      "source": "ported-or-authored"
+    },
+    "models/block/chiseled_ethaxium_brick_3.json": {
+      "sha256": "c8b9af13d93a93342a1e3ff2c63aa2045bf866d00a7d606c40776a06eced38e0",
+      "source": "ported-or-authored"
+    },
     "models/block/coralium_infused_stone.json": {
       "sha256": "4b51ec36139dbefe7fc89848bffcc88d257a441fa96df61f8e49aeb846344dd3",
       "source": "ported-or-authored"
@@ -394,12 +454,44 @@
       "sha256": "364a597614286a8ba36aab4b071d260a8752fd25bfd1b03dd76ee48e14992483",
       "source": "ported-or-authored"
     },
+    "models/block/cracked_dark_ethaxium_brick.json": {
+      "sha256": "688bd72f46e9b2c3cd4986cde1569e9bab594084cbc4118a5dd668dcaf181d4f",
+      "source": "ported-or-authored"
+    },
+    "models/block/cracked_dark_ethaxium_brick_1.json": {
+      "sha256": "a159277f055b60857f9f0e05998709f894183d4395351f377da3137a3fe4530f",
+      "source": "ported-or-authored"
+    },
+    "models/block/cracked_dark_ethaxium_brick_2.json": {
+      "sha256": "e84af485ebdb8bbb409f7e681240b8429233d1b35fef7ed756bef7c943b44d2b",
+      "source": "ported-or-authored"
+    },
+    "models/block/cracked_dark_ethaxium_brick_3.json": {
+      "sha256": "d33d2d5b389305057f15c29142ed30d811a98a5d8aca573c5f82099ca5e1df20",
+      "source": "ported-or-authored"
+    },
+    "models/block/cracked_ethaxium_brick.json": {
+      "sha256": "45ea83f697692ce5b1ce10763a0a4dbbf72daac53af9de6b7284ce74e59689c1",
+      "source": "ported-or-authored"
+    },
+    "models/block/cracked_ethaxium_brick_1.json": {
+      "sha256": "be825d6996c35463447f57bb808a20bab3020e7c752b1e8b849afcfea9af19be",
+      "source": "ported-or-authored"
+    },
+    "models/block/cracked_ethaxium_brick_2.json": {
+      "sha256": "8614e54e7e13223554942e7abeba8e7c29c5ef8d07bb261cfa653a8dd3abf0b3",
+      "source": "ported-or-authored"
+    },
+    "models/block/cracked_ethaxium_brick_3.json": {
+      "sha256": "a2322ff0d1d5e8b4c7e38ec15b3030fe05a5fc585f66ff7f99f7599e9e7a5384",
+      "source": "ported-or-authored"
+    },
     "models/block/crate.json": {
-      "sha256": "d4434ee986d474694e349c31430406e0fa66e67536e8b0e5b62c896af341a32b",
+      "sha256": "a046343d3356d5ac0184f1992f70958178c066b8afa76fe934185cd8faa079cc",
       "source": "ported-or-authored"
     },
     "models/block/crystal_cluster.json": {
-      "sha256": "da86867d79f432c83961ae922cb89c8d3e8c126d6995c00fa9566e1501171bb4",
+      "sha256": "cdad64670eeeabdfd31529fe4b5671f9ee7e9b97dabf98f271d73d71aded9037",
       "source": "ported-or-authored"
     },
     "models/block/crystallizer.json": {
@@ -408,6 +500,26 @@
     },
     "models/block/crystallizer_active.json": {
       "sha256": "1f6fa8e8864c9bfeb8f106f908fd58d8a794bf8b6b9e5c9199c6f671e24468bd",
+      "source": "ported-or-authored"
+    },
+    "models/block/dark_ethaxium_brick.json": {
+      "sha256": "4e50629f9c18502928a7bcb019851ac4c5fefc325806a90359ec13ea0ecdff02",
+      "source": "ported-or-authored"
+    },
+    "models/block/dark_ethaxium_brick_1.json": {
+      "sha256": "b064610321d6f9b4ee57d7c26698955e7d79e5b3407999a4f0902560c940ae46",
+      "source": "ported-or-authored"
+    },
+    "models/block/dark_ethaxium_brick_2.json": {
+      "sha256": "0d43dd715fb0696a8e846c9b30764817ecbec4b8e8c6f9b7e574dd1aa6540d79",
+      "source": "ported-or-authored"
+    },
+    "models/block/dark_ethaxium_brick_3.json": {
+      "sha256": "ef0ffd3b369342fb2398d7ea66902f02ee80941a596bf64fc374583156f135dd",
+      "source": "ported-or-authored"
+    },
+    "models/block/darklands_oak_log_layered.json": {
+      "sha256": "8a132f44dfdd1aae2b4104cd9d9e41c45513081fd882e73862432dc787d664a4",
       "source": "ported-or-authored"
     },
     "models/block/deco_mural.json": {
@@ -426,6 +538,10 @@
       "sha256": "452961d08cbe7d84660f0022d6b37cf17cb67247e8ff7b2d0a14e038ff498b06",
       "source": "ported-or-authored"
     },
+    "models/block/double_layered_cube.json": {
+      "sha256": "0cd29286e3c6e566c3db8f733c7985a60c80e15c49749759878dae354b557c3b",
+      "source": "ported-or-authored"
+    },
     "models/block/dreaded_abyssalnite_ore.json": {
       "sha256": "18413bce38c78d7c3513533af757b526230f7ee74ae136992225a056e58ff4f2",
       "source": "ported-or-authored"
@@ -436,6 +552,10 @@
     },
     "models/block/dreadlands_grass.json": {
       "sha256": "28f535d9f78a4e8efdde42d4c5acb74d78fc8ab3e81ee64c4d26aef51ab74664",
+      "source": "ported-or-authored"
+    },
+    "models/block/dreadlands_grass_snowed.json": {
+      "sha256": "f8bf1cb2475b117550d8a78fec624c80721a9193611396e7cc4bba8c6baca328",
       "source": "ported-or-authored"
     },
     "models/block/dreadlands_infused_powerstone.json": {
@@ -454,8 +574,32 @@
       "sha256": "5d07d65402a45a7c26640ac31382beaa6bd6c8190441f5329c83d523ab32b487",
       "source": "ported-or-authored"
     },
+    "models/block/energy_pedestal.json": {
+      "sha256": "7e5036e2329be0752fbafb8b742e8a47fe0afa18d4030a559ad0f4201a3593b7",
+      "source": "ported-or-authored"
+    },
+    "models/block/energy_pedestal_tilted.json": {
+      "sha256": "40c463c9a93d649c89252771afbe02fab1e7922e9c9e316e48d2b3b0bf70a0c2",
+      "source": "ported-or-authored"
+    },
     "models/block/energy_relay.json": {
       "sha256": "65a5b852a63d0378e549086f2730d156a4ba9768e2def6b1d4f6b63f992ce0fd",
+      "source": "ported-or-authored"
+    },
+    "models/block/ethaxium_bricks.json": {
+      "sha256": "257d4afd7869f4290e1204bd27dad727eb9c5a4ddace65798c4a250b82b868fd",
+      "source": "ported-or-authored"
+    },
+    "models/block/ethaxium_bricks_1.json": {
+      "sha256": "f09ae54e3812a9b9a0538ad25e63afda96952f0ee92906db943b19ad76df4f52",
+      "source": "ported-or-authored"
+    },
+    "models/block/ethaxium_bricks_2.json": {
+      "sha256": "0b940fc4cd58aa049652c31e480df85fbab7bfad6fccd4aec3c47ccd31fb7103",
+      "source": "ported-or-authored"
+    },
+    "models/block/ethaxium_bricks_3.json": {
+      "sha256": "9062ca9798351206800ea21a9ec482e8f55436cc01818b397112a7ed58829830",
       "source": "ported-or-authored"
     },
     "models/block/fused_abyssal_sand.json": {
@@ -495,8 +639,16 @@
       "source": "ported-or-authored"
     },
     "models/block/oblivion_deathbomb.json": {
-      "sha256": "534029b2f117aad9c683f1b8d327ac6bcc4318d5d5ce710a3c60485a36e813cd",
+      "sha256": "51efda51e939d4cca27387178689ac03825097e60232a824fee9c94d4c52d8f8",
       "source": "ported-or-authored"
+    },
+    "models/block/odb.mtl": {
+      "sha256": "027dc2bf7528199568176404a7e8e2a4157bc55d5dbe27efca8e73fe9fdaeeeb",
+      "source": "ported-or-authored"
+    },
+    "models/block/odb.obj": {
+      "sha256": "cf8a1ea721d8e54930aa72b58f33473fcbd222d06a1c4a41ca58e964d448d586",
+      "source": "legacy:models/block/odb.obj"
     },
     "models/block/odb_core.json": {
       "sha256": "3c7252bf4185d641eacd1fe519cf7a1b05a28e19697ff1002a1d1c048d693f59",
@@ -515,11 +667,11 @@
       "source": "ported-or-authored"
     },
     "models/block/portal_anchor.json": {
-      "sha256": "958110dab44ac419b950d8d54eeb53880fdf3117b7788e1bd1ebe3f6f8aa9ce5",
+      "sha256": "a9341e81e380dcbbfed2fc6464e4fcea4651a12fdf59bb9b4c8066b7dcfe9fe9",
       "source": "ported-or-authored"
     },
     "models/block/portal_anchor_active.json": {
-      "sha256": "5328d225978ea07ca119f32a239ea0bcd7efbcc951c90f1a91465b067315b455",
+      "sha256": "fbc8dc6b232f2ad45c2d7e5c660c4108310fa046252e602795fdf2d67a811c90",
       "source": "ported-or-authored"
     },
     "models/block/rending_pedestal.json": {
@@ -535,19 +687,15 @@
       "source": "ported-or-authored"
     },
     "models/block/ritual_altar.json": {
-      "sha256": "9ac3d408f7d3ff06e0425eac5ef94e2e4186429af26bea3f445cab3fdd551f7f",
+      "sha256": "f05b694830e86a70a943dd62c35b81ddf809334e698a2a9d3814bcff0934ed02",
       "source": "ported-or-authored"
     },
     "models/block/ritual_pedestal.json": {
-      "sha256": "8f01d36dbfb3e3ecda6fab15bff299d15d410b8e98fe4f5740abcbe1904b5bbd",
+      "sha256": "94dfc2c4788779840ae4feb886d70108a7536d328273f9b4bb503f5969ada54a",
       "source": "ported-or-authored"
     },
     "models/block/sealing_lock.json": {
-      "sha256": "623cb8d9cedf0e2f7aacc7255f063b3e95c1b877669a80972ac2ba049a6ab3f3",
-      "source": "ported-or-authored"
-    },
-    "models/block/sequential_brewing_stand.json": {
-      "sha256": "12429d0432351d217c86d3d88b9d52225f41dc39cf23ed13d5bda50ce893bb19",
+      "sha256": "456b7b51c8f055281c1bd201b83c6bce2d5b84c669d5e7583a8e476e727e24fc",
       "source": "ported-or-authored"
     },
     "models/block/shoggoth_biomass.json": {
@@ -587,11 +735,11 @@
       "source": "ported-or-authored"
     },
     "models/block/spirit_altar.json": {
-      "sha256": "a7a864cbeb691bbc8716628371f84f9a54d168307e8d1859811ce7f6e1904960",
+      "sha256": "185cf816755daff018afc51c0e08e9c1536d096b05af549867f931a64859bf76",
       "source": "ported-or-authored"
     },
     "models/block/state_transformer.json": {
-      "sha256": "7262d403a291149d525db54fb77433cb04795fc65cc39fd3d49b615a34de64c4",
+      "sha256": "73c7895536949970c5060b2f75b065e297df41bb9589de86a4f4bd608356d44b",
       "source": "ported-or-authored"
     },
     "models/block/statue/azathoth.json": {
@@ -690,40 +838,48 @@
       "sha256": "c77d6c9ec583348e013f7435e09b9c390fc97b15afc49c8b61c6fa6ddb40965c",
       "source": "ported-or-authored"
     },
+    "models/block/tiered_energy_pedestal.json": {
+      "sha256": "4759f42e48f5dade9ee042bee7859d0792162180b7bf0fee66f2d9ed4e6fe4d3",
+      "source": "ported-or-authored"
+    },
+    "models/block/tiered_energy_pedestal_tilted.json": {
+      "sha256": "d32910c770cdd155abd91ee235a1d27ce87248e80ac7c5eb1ee6bf8ce9535cbe",
+      "source": "ported-or-authored"
+    },
     "models/block/tiered_energy_relay.json": {
       "sha256": "9c07a54f04025a65450aecc79e0f3d9757ade036a79aecd0e3c2349cd05f94c9",
       "source": "ported-or-authored"
     },
     "models/block/tombstone_abyssal_stone.json": {
-      "sha256": "782d81ca876bab73dead20d531d7cefd4403bef6f8c79463197c6ae0af5ece70",
+      "sha256": "161d3a1c499feb8a2fb51455034cdba34c69aded28ab9268bf55d8bc0cf22ec4",
       "source": "ported-or-authored"
     },
     "models/block/tombstone_coralium_stone.json": {
-      "sha256": "d3886acd8f44b0e5154bc2b6d23a3cbd9efa0fd274cd10d3f720dca99f6adc66",
+      "sha256": "295a2ef413cb4b3df306697220fc94d6c697dfb19695b3221eba4e0cb44d041b",
       "source": "ported-or-authored"
     },
     "models/block/tombstone_darkstone.json": {
-      "sha256": "175d58d895f2032b14014946173e88f4032040f4cda9c3599e1efcd0107cca75",
+      "sha256": "9dd4c9c55140fdb3d8432548726a2fc4057f7965f50a727c9b2541320a1f3458",
       "source": "ported-or-authored"
     },
     "models/block/tombstone_dreadstone.json": {
-      "sha256": "aad88ec16f2ae06f78ad3ab713f55c4fa4faea01659127a1df6704b6f1a568c5",
+      "sha256": "4b3ef070a1bd8810bc24fd751ab6e67bd5b90d0f47c4c3bd8aa320eec0b3102f",
       "source": "ported-or-authored"
     },
     "models/block/tombstone_elysian_stone.json": {
-      "sha256": "6fe1810c18c115bc9fa0742ccae13e54fb06a403d81fa12de91a9c89ef458ff0",
+      "sha256": "8e68133efd195b8332e235a3e0546a42f28f1279433466d68ff35e63b24770fe",
       "source": "ported-or-authored"
     },
     "models/block/tombstone_ethaxium.json": {
-      "sha256": "85dcaa2b03a90e5a0c208b6ce59847a87789f0c77eeedb038e028adc3bc9d353",
+      "sha256": "84636b1d3766aaf28555bb63951c3d91836b0ef53eb0e5c1a90fe1f0d6433ef9",
       "source": "ported-or-authored"
     },
     "models/block/tombstone_monolith_stone.json": {
-      "sha256": "94a352df5d54b37a96238798540150ede8b3607d29b768b94a1c51c0cc797e75",
+      "sha256": "66f6f8aefe7dd0592fa6333391ccd25d80138c1866d966fad38a224feb595a1c",
       "source": "ported-or-authored"
     },
     "models/block/tombstone_omothol_stone.json": {
-      "sha256": "d4e3d8723d5f483212083cc12f0d289d41c4725100c473ce52b6b5ecffe13be1",
+      "sha256": "a0407043bbb661a5795e7e4684670ceba4200a513415ad133ec719893ca85309",
       "source": "ported-or-authored"
     },
     "models/block/tombstone_stone.json": {
@@ -739,11 +895,11 @@
       "source": "ported-or-authored"
     },
     "models/block/unchained_portal_anchor.json": {
-      "sha256": "0337882ac3d0f403577c3106ef13db39f804bb0b8d847393023e6be6d1029cb4",
+      "sha256": "9b3bb7f03a6ceb858fbabf7eac122e05f05220522c19647d5ef9d061edcdc06c",
       "source": "ported-or-authored"
     },
     "models/block/unchained_portal_anchor_active.json": {
-      "sha256": "28e7f9e2a58b2d189da262af3002fc1c52abd6c4f90f3d9b6d27787356f80ef1",
+      "sha256": "03cbc328979efa032f04935a3a78cd2f1c9b5af6f8b4550591fccd877ae94fb3",
       "source": "ported-or-authored"
     },
     "models/block/whead.json": {
@@ -850,6 +1006,14 @@
       "sha256": "e91765c793e512832f48037fe2d05d740d585bc1e0ad25d92956c561ddca0eb9",
       "source": "ported-or-authored"
     },
+    "models/item/chiseled_dark_ethaxium_brick.json": {
+      "sha256": "bf19877685df064bb06a05e64672dad7a1bf92425202b99ede25850c00f2ea77",
+      "source": "ported-or-authored"
+    },
+    "models/item/chiseled_ethaxium_brick.json": {
+      "sha256": "94dba9308aa8de6caff132896cfba2c6df44136af2299f324aff0e9fcf18bf85",
+      "source": "ported-or-authored"
+    },
     "models/item/chunk_of_coralium.json": {
       "sha256": "545d92f07c29b0b3179be3de2b44cf4b4d68767881b048d81099183233a32fa6",
       "source": "ported-or-authored"
@@ -859,7 +1023,23 @@
       "source": "ported-or-authored"
     },
     "models/item/coralium_antidote.json": {
-      "sha256": "ef3005dc94d187b79be0515e96a2ea4d3df2ff15100834cd0a754bc7d6784adf",
+      "sha256": "3e19a9d98d80a74d96282b4770e00964baf810e1170c72f19bcdfbac9b6ae5b1",
+      "source": "ported-or-authored"
+    },
+    "models/item/coralium_antidote_1.json": {
+      "sha256": "7f5f502a464deab124f6bbf772d11491e28a0ab46c5dff640dca462890e14149",
+      "source": "ported-or-authored"
+    },
+    "models/item/coralium_antidote_2.json": {
+      "sha256": "cdfda3f68029a65ff90945771aee4eb47bf31cc9010d05185617adc376307881",
+      "source": "ported-or-authored"
+    },
+    "models/item/coralium_antidote_3.json": {
+      "sha256": "92508c3bc182d529a55769e00dd363195986ac9a7f79d5150892345a742f0e68",
+      "source": "ported-or-authored"
+    },
+    "models/item/coralium_antidote_4.json": {
+      "sha256": "482b6ed6e5cdbdec81e3802537d660b8b4e9c59d4e00a3b6bea93b5769eb8502",
       "source": "ported-or-authored"
     },
     "models/item/coralium_brick.json": {
@@ -932,6 +1112,14 @@
     },
     "models/item/coralium_plate.json": {
       "sha256": "5b4dca928379de6f42af13d5c20643a8e2f91fb4d12dc1d294fa8bf678f7b9cc",
+      "source": "ported-or-authored"
+    },
+    "models/item/cracked_dark_ethaxium_brick.json": {
+      "sha256": "0327e53dabc3ff260f6556c73dde9a918eb54d85b5d6483dd2c2e6e6b353fa2b",
+      "source": "ported-or-authored"
+    },
+    "models/item/cracked_ethaxium_brick.json": {
+      "sha256": "3936656795a37a4e32cb999ea9a595b1d100ada505c31796eb49f35114051891",
       "source": "ported-or-authored"
     },
     "models/item/crate.json": {
@@ -1267,19 +1455,19 @@
       "source": "ported-or-authored"
     },
     "models/item/crystalbag_huge.json": {
-      "sha256": "a86ddae51096839f6511742c8611342d9cbbd7b0457634e98086d0d81ff9639b",
+      "sha256": "5a6e245d7c1c3295186c25121cd90a9debceec1c96f169f9132aa67f9c917d70",
       "source": "ported-or-authored"
     },
     "models/item/crystalbag_large.json": {
-      "sha256": "a86ddae51096839f6511742c8611342d9cbbd7b0457634e98086d0d81ff9639b",
+      "sha256": "dae2a1984879fbe7f5779e19f88404396b5cb792eccdcb2f55a07a70aec8bfba",
       "source": "ported-or-authored"
     },
     "models/item/crystalbag_medium.json": {
-      "sha256": "a86ddae51096839f6511742c8611342d9cbbd7b0457634e98086d0d81ff9639b",
+      "sha256": "c661ec98b040bf7521ffa4a8405421ffe3f524add385c60827890d0d66521573",
       "source": "ported-or-authored"
     },
     "models/item/crystalbag_small.json": {
-      "sha256": "a86ddae51096839f6511742c8611342d9cbbd7b0457634e98086d0d81ff9639b",
+      "sha256": "7fcfb338cfab058e5ed8334e9f4b5fd1b83c38e1fcf5670138dd9090bb05c91e",
       "source": "ported-or-authored"
     },
     "models/item/crystallizer.json": {
@@ -1288,6 +1476,22 @@
     },
     "models/item/cthulhu_statue.json": {
       "sha256": "f0edf5d7a3296d88139f21ef8426957affb368df5235f3edceca634261ed4727",
+      "source": "ported-or-authored"
+    },
+    "models/item/cudgel.json": {
+      "sha256": "6b11cd629c33a2bdd21f2491231ff9e577a69db98077b5f9b036ed4978c362c7",
+      "source": "ported-or-authored"
+    },
+    "models/item/cudgel.mtl": {
+      "sha256": "b209b1786baca51cc49f32e872c4e38d9cd10bee0cda9ac0381efe69d76ca3d3",
+      "source": "ported-or-authored"
+    },
+    "models/item/cudgel.obj": {
+      "sha256": "cf102ed715f06ba9edeef8fc8488565ad99d24635bc557982bdf132b39d0981b",
+      "source": "legacy:models/item/cudgel.obj"
+    },
+    "models/item/dark_ethaxium_brick.json": {
+      "sha256": "9703020f920c0dade30e69ccf70dd1d2a90d5709b39fbf8ad5462f56f2d8f0b6",
       "source": "ported-or-authored"
     },
     "models/item/decorative_azathoth_statue.json": {
@@ -1347,7 +1551,23 @@
       "source": "ported-or-authored"
     },
     "models/item/dread_antidote.json": {
-      "sha256": "8e579742180f47aa8821067d90c03761c0eb5fb656112810603cc4b0112c67c2",
+      "sha256": "8831f4d28a21303a4b875e57f96fc0487efb5e5668130f7b1f00e7365d4ed88c",
+      "source": "ported-or-authored"
+    },
+    "models/item/dread_antidote_1.json": {
+      "sha256": "5a9702817721d47546a8c3167dc308eed1f886ab2e8b1ab076c11d9e8347cb56",
+      "source": "ported-or-authored"
+    },
+    "models/item/dread_antidote_2.json": {
+      "sha256": "0297e9bf3e9804f324a95e2ad27c4a2365c78700ab1e3bc89e434b3c98994528",
+      "source": "ported-or-authored"
+    },
+    "models/item/dread_antidote_3.json": {
+      "sha256": "95ca8b89486aa3581c28b0553884759ce510eca7a290f5f85d802df982c0eef1",
+      "source": "ported-or-authored"
+    },
+    "models/item/dread_antidote_4.json": {
+      "sha256": "e3d1f79b17e2e4cc3906437ff6d063997945a1cb0223495ba65a9f9b73592d8b",
       "source": "ported-or-authored"
     },
     "models/item/dread_cloth.json": {
@@ -1387,7 +1607,7 @@
       "source": "ported-or-authored"
     },
     "models/item/dreadium_katana.json": {
-      "sha256": "d17a092ac35284542a311b3dc5f91d7deab575e4798c6d679b0cedf9faaabb29",
+      "sha256": "6424f168960b3b73ee590de1a24a902f6f926e9e641dfb3fba760d84c5805aae",
       "source": "ported-or-authored"
     },
     "models/item/dreadium_katana_blade.json": {
@@ -1395,7 +1615,7 @@
       "source": "ported-or-authored"
     },
     "models/item/dreadium_katana_hilt.json": {
-      "sha256": "ca0149d471de9128067b5872a5fe8b21deac8c4d2fc8c629427ccd8e3bdf2c51",
+      "sha256": "c355da6e94193b730d31ad1a8461cbbe0a5abc12593dfb0d868146dc6fcf1a7c",
       "source": "ported-or-authored"
     },
     "models/item/dreadium_leggings.json": {
@@ -1426,6 +1646,18 @@
       "sha256": "8894ee77ad976e1ecd84116c0f93eb49d41776991f8552a107bf6db949964d5f",
       "source": "ported-or-authored"
     },
+    "models/item/dreadkatana.mtl": {
+      "sha256": "3dc6f1ffa1bd28961371149e8b78078a35448cede3a67ffcaf6d67df789e748f",
+      "source": "ported-or-authored"
+    },
+    "models/item/dreadkatana.obj": {
+      "sha256": "dbbde5a56c2909c814d430ae55a0e152db2ccff85d0050a14a32d81a1e005142",
+      "source": "legacy:models/item/dreadkatana.obj"
+    },
+    "models/item/dreadkey.json": {
+      "sha256": "50e59ae2a7780e8469acf0e4ea023757a71735dc9841a174715ab3fdcfa8b00e",
+      "source": "ported-or-authored"
+    },
     "models/item/dreadlands_abyssalnite_ore.json": {
       "sha256": "c07bc44c0cec82ead6df93fe7e3bc42e7aa93eb7fff2ca2f997602889bcd527f",
       "source": "ported-or-authored"
@@ -1435,7 +1667,7 @@
       "source": "ported-or-authored"
     },
     "models/item/dreadlands_grass.json": {
-      "sha256": "d69668522b715039b056d4c7952ab1357c876ce0c6d8f33d9a88868123d73f91",
+      "sha256": "79791b1c748038ae49e802b39fd88585a0ef416db20ee962ac20f6b671343b64",
       "source": "ported-or-authored"
     },
     "models/item/dreadlands_infused_powerstone.json": {
@@ -1460,6 +1692,10 @@
     },
     "models/item/ethaxium_brick.json": {
       "sha256": "939501ac7b63482dbefe845f3f91a7d1a786dc25f934fb3f45248d5cc7eb33b3",
+      "source": "ported-or-authored"
+    },
+    "models/item/ethaxium_bricks.json": {
+      "sha256": "c2ebf0fbb70881a70d38c60b54dae58697309ebe33bf5398376e6896a11063db",
       "source": "ported-or-authored"
     },
     "models/item/ethaxium_chestplate.json": {
@@ -1511,7 +1747,11 @@
       "source": "ported-or-authored"
     },
     "models/item/interdimensional_cage.json": {
-      "sha256": "6d05dd0d81d8ca1a93de131a9ee5996ae5f1fb6fe9e82a1b70d7abe9d9815561",
+      "sha256": "dd9d77696f01a89082337eba13bbe3440c05039dfb8bfadfce2a62b68ffadcec",
+      "source": "ported-or-authored"
+    },
+    "models/item/interdimensional_cage_captured.json": {
+      "sha256": "885cd4b7e5f819f7727d723bb0dded47817a44e1edeb4328654c6d04537c7417",
       "source": "ported-or-authored"
     },
     "models/item/jzahar_statue.json": {
@@ -1531,11 +1771,11 @@
       "source": "ported-or-authored"
     },
     "models/item/liquid_antimatter_bucket.json": {
-      "sha256": "74d34795105373299963cbb8961e890205b6eeaed7293bb4db26d026f6baa7d0",
+      "sha256": "25b527940b14bb1015c2d34db6b10c2887b802464f02863368d762a305646e52",
       "source": "ported-or-authored"
     },
     "models/item/liquid_coralium_bucket.json": {
-      "sha256": "46aa547d6744281a7df81578ab080d41373df7d4e3250484b36aa7a70e3b629f",
+      "sha256": "368b68b08038880be41750f0c48dcb81e0e97896bcee216ba7c27369afaf6b70",
       "source": "ported-or-authored"
     },
     "models/item/liquified_coralium_ore.json": {
@@ -1620,14 +1860,6 @@
     },
     "models/item/phead.json": {
       "sha256": "f5f4116e91ed9026c16c76dad3529c8e68c5ae11add15a6745b9662008e08e34",
-      "source": "ported-or-authored"
-    },
-    "models/item/pilot_crystal.json": {
-      "sha256": "6f68b0b38d4c8e0d2e5ecb6d68deabbc32bc09c5f2daddc1c600960dc03aeb43",
-      "source": "ported-or-authored"
-    },
-    "models/item/pilot_fuel.json": {
-      "sha256": "659ef85d0850cbdaab7fa9d19fa0ae6029ce2022dcb5367dcc6b975f32681a26",
       "source": "ported-or-authored"
     },
     "models/item/plated_coralium_boots.json": {
@@ -1727,7 +1959,7 @@
       "source": "ported-or-authored"
     },
     "models/item/sequential_brewing_stand.json": {
-      "sha256": "db135835a8890d7bae7ab5c6dcbb39e78aa6b4a4cdbcdbccbd5806f6a486c4dc",
+      "sha256": "ad4dc41d4c3652e5820b3acfcb6a17ffb24f0a14ffd11b80f89728adc4c067ce",
       "source": "ported-or-authored"
     },
     "models/item/shadow_fragment.json": {
@@ -1775,11 +2007,31 @@
       "source": "ported-or-authored"
     },
     "models/item/soulreaper.json": {
-      "sha256": "9ae4f0ef7ee9c636715652105e5e372adad5a6500d0a65d79029e9eb6c347701",
+      "sha256": "528e57dd556af377240d9b48b2ecfd6ef7ecd83a89fe959dfdc2bbdcc09f375a",
       "source": "ported-or-authored"
     },
-    "models/item/spell_staff.json": {
-      "sha256": "107b11b8aad96a829a6f1811d983cc95aaa957d87d0419c86f3411310f1b6a17",
+    "models/item/soulreaper_0.json": {
+      "sha256": "82dd3f1dc0911025442cfd0491127cedcfbbdd291fdf439791410401390ad13b",
+      "source": "ported-or-authored"
+    },
+    "models/item/soulreaper_1.json": {
+      "sha256": "0f0ef80d0f1673b652327f9066db74de74511bf826acb9cd65a7bb7738504af9",
+      "source": "ported-or-authored"
+    },
+    "models/item/soulreaper_2.json": {
+      "sha256": "83ca157f8c6fd276e32ccbaa9cce4ab2ac0cd82e290a18ef0e0a74411a24aa8d",
+      "source": "ported-or-authored"
+    },
+    "models/item/soulreaper_3.json": {
+      "sha256": "5f96886bfc7721104a20b8dd17af274139e7560ef539e19f371b2c3ae39ec784",
+      "source": "ported-or-authored"
+    },
+    "models/item/soulreaper_4.json": {
+      "sha256": "04e8f21b3c3d8c72f25803a9b810b0f6fc45543610d88fb5eb56568dec8b84d2",
+      "source": "ported-or-authored"
+    },
+    "models/item/soulreaper_5.json": {
+      "sha256": "1668a0a7b14877327b1f842fa4299840e731e257c07d6f00c83d5f09be1e61e2",
       "source": "ported-or-authored"
     },
     "models/item/spirit_altar.json": {
@@ -1787,11 +2039,23 @@
       "source": "ported-or-authored"
     },
     "models/item/spirit_tablet.json": {
-      "sha256": "fe69c0f8271bbbb5741e69d0620defeb9416b8d230bca9a872191646e0e5d4f1",
+      "sha256": "3d82c0e3a11f30b0d4aa0fdddf17a9b82baa17c8b51698e86d3660a5ac7bcce9",
+      "source": "ported-or-authored"
+    },
+    "models/item/spirit_tablet_0.json": {
+      "sha256": "8ada1f0d9313dd7384f36b8649e9bdffbb3fa3b46f2f00e3b0da31b30215f3ce",
+      "source": "ported-or-authored"
+    },
+    "models/item/spirit_tablet_1.json": {
+      "sha256": "a7233bc31f28f44d4f74cd4d3c08db18fc88b995b82cbf4af522570ba11fd7d0",
+      "source": "ported-or-authored"
+    },
+    "models/item/spirit_tablet_2.json": {
+      "sha256": "5fb1749c5896748c73319459d6bdb8b0ac17b7cab55570077b22fd9cc763c41a",
       "source": "ported-or-authored"
     },
     "models/item/spirit_tablet_shard_0.json": {
-      "sha256": "fe69c0f8271bbbb5741e69d0620defeb9416b8d230bca9a872191646e0e5d4f1",
+      "sha256": "b219b5b75f1c6c3752b68b8d822ad9d3de832ac9f90de39619d10946130a5057",
       "source": "ported-or-authored"
     },
     "models/item/spirit_tablet_shard_1.json": {
@@ -1806,12 +2070,20 @@
       "sha256": "dc58a73749bffa016a09a8cc28cff65c66855d78cb9e4be74cbc401ec9c149d6",
       "source": "ported-or-authored"
     },
+    "models/item/staff.mtl": {
+      "sha256": "afc9c4ec137ed2187fb29eebd4b6c950930934ea9e1dfb31171c6fe55003c694",
+      "source": "ported-or-authored"
+    },
+    "models/item/staff.obj": {
+      "sha256": "20da5c8386be669fe0a5fcef307a69544bd5cebe0a4ef0b1653fd9c67811cef4",
+      "source": "legacy:models/item/staff.obj"
+    },
     "models/item/staff_of_rending.json": {
       "sha256": "169a655c959c1741a839acd5599b88bd41665ceebd8d01733c373ed43bb0dd10",
       "source": "ported-or-authored"
     },
     "models/item/staff_of_the_gatekeeper.json": {
-      "sha256": "b6fefce4222bc25a2cab8c9baa4038d6e1d7f2c155b2161b26c1c90106896afe",
+      "sha256": "814baa3e0a915d3acd519809b5ef093a843c368d7a98275236be357c68f5623a",
       "source": "ported-or-authored"
     },
     "models/item/state_transformer.json": {
@@ -1896,6 +2168,10 @@
     },
     "particles/blue_flame.json": {
       "sha256": "cd269ef919777c55e13c0a3e7800b2b902121af93708da3bbba9d128aa2c8fa2",
+      "source": "ported-or-authored"
+    },
+    "particles/pe_stream.json": {
+      "sha256": "2b25dd669e0a4bbf1ee552b3672d59fd4204358cc9d4bdf5d590911829780e47",
       "source": "ported-or-authored"
     },
     "sounds.json": {
@@ -2454,10 +2730,6 @@
       "sha256": "87edcef08b4c5e4af49b2db17c60f4c170590f11b7b40df4e12c3d88007055f8",
       "source": "ported-or-authored"
     },
-    "textures/block/chiseled_dark_ethaxium_brick.png": {
-      "sha256": "e39ff31b7fb0a489ad6ca86f9a34e05fbd88594ee1e0a637d823b225648bfb19",
-      "source": "ported-or-authored"
-    },
     "textures/block/chiseled_darkstone_brick.png": {
       "sha256": "7896c72cc54b6d1c41f63fa223fee43b8f8b4903914d6a493718ed536a2960d2",
       "source": "legacy:textures/blocks/dsbc.png"
@@ -2469,10 +2741,6 @@
     "textures/block/chiseled_elysian_stone_brick.png": {
       "sha256": "2dff83676da9e9f18792754dd4c59b839660b53560954da8ee07e3ad5bdbbbad",
       "source": "legacy:textures/blocks/abydrsbc.png"
-    },
-    "textures/block/chiseled_ethaxium_brick.png": {
-      "sha256": "c9a9ed36e5b2549a2cb832a43b1d27c9ff2fa6c56465fcf7f6bf75985292629f",
-      "source": "ported-or-authored"
     },
     "textures/block/coralium_cobblestone.png": {
       "sha256": "14b2abd4f7e51d1852f1bb3fd7bfb0c10a89adf005b0940b366ca92461510577",
@@ -2498,10 +2766,6 @@
       "sha256": "935311e35ffbf2082a2e70cf8cf69de83a79099c112faa17a0b721bfec1a372f",
       "source": "ported-or-authored"
     },
-    "textures/block/cracked_dark_ethaxium_brick.png": {
-      "sha256": "6efa69fea23e9b004ee1e6fc996e8ff8a8e0ec86462044504d798be5ed54ca2b",
-      "source": "ported-or-authored"
-    },
     "textures/block/cracked_darkstone_brick.png": {
       "sha256": "726ae189ed3ff9dc34f232955a27d04a0e7d08c3d36b0f8dcf7d8563de880e61",
       "source": "legacy:textures/blocks/dsbcr.png"
@@ -2514,9 +2778,9 @@
       "sha256": "6eeb293e72c28b67caa9cbdcb4bad84f8a8542b8fff8fe68ec5b7322da22a345",
       "source": "legacy:textures/blocks/abydrsbcr.png"
     },
-    "textures/block/cracked_ethaxium_brick.png": {
-      "sha256": "91a7e2fdfa4d381db071c304462f485e955ab9112f3f7036348109d852efe9d6",
-      "source": "ported-or-authored"
+    "textures/block/crate.png": {
+      "sha256": "5d8ab11fef565e049c98868a40a3cbc2b8910db6a72387d4717fd845d91852c4",
+      "source": "legacy:textures/blocks/crate.png"
     },
     "textures/block/crystal_cluster.png": {
       "sha256": "e28295c4e4e3616ff47f6f1ff954a4735bb39f644b81ed95cc3bd9dd45dd8012",
@@ -2570,6 +2834,10 @@
       "sha256": "5edc5a8d7cd784e30aa34266e174a04b84cd1d8d45220e250a38f1e53e508beb",
       "source": "legacy:textures/blocks/dlttside.png"
     },
+    "textures/block/darklands_oak_log_overlay.png": {
+      "sha256": "dff0ec4e5b863531caf478ab13370d34a557914b22ce3193ab8531c3a449b976",
+      "source": "legacy:textures/blocks/dlttside_overlay.png"
+    },
     "textures/block/darklands_oak_log_top.png": {
       "sha256": "28d710f24eadd35b798e43b010dec2765578e0690b46360aa47e6902361d9af1",
       "source": "legacy:textures/blocks/dltttop.png"
@@ -2598,6 +2866,10 @@
       "sha256": "8926c03fa2eca7bb6db4a6107a1f61ed417cfc68236713225f3700930b5618d3",
       "source": "legacy:textures/blocks/dsstop.png"
     },
+    "textures/block/darkstone_slab_side.png": {
+      "sha256": "44ec0476e6d56240d969104ff85b696aa54d5d00fda1b49d8f25608c4183d28b",
+      "source": "legacy:textures/blocks/dsssides.png"
+    },
     "textures/block/dead_tree.png": {
       "sha256": "94389627697cd003713a17953dbe87a71ed9aaf8ae1eeb6caa7b6bafb0a57957",
       "source": "legacy:textures/blocks/dead_tree.png"
@@ -2617,6 +2889,14 @@
     "textures/block/dreadlands_grass_side.png": {
       "sha256": "84f823304588129d5919115464da7fcbcc07be698b878d138222a0e61fe03bbc",
       "source": "legacy:textures/blocks/drgsides.png"
+    },
+    "textures/block/dreadlands_grass_side_snowed.png": {
+      "sha256": "7c514011546040932e0caf02b8b78fd7b92eecf1188e81e49ee6932f14761bf4",
+      "source": "legacy:textures/blocks/drgsides_snowed.png"
+    },
+    "textures/block/dreadlands_grass_top.png": {
+      "sha256": "acbd851bcaf8d2d871727fb62612822d225757f908a065330277f00e6a2cc9dd",
+      "source": "legacy:textures/blocks/drgtop.png"
     },
     "textures/block/dreadlands_infused_powerstone.png": {
       "sha256": "a44b3824b453616abbf9f3a92e1c80fe8e1601b0a2185adb5c4e9514392dfb2a",
@@ -2682,6 +2962,10 @@
       "sha256": "99fe92935edbf7f919bdf86791a8de32d001fe2e2722549629261d927c0d500e",
       "source": "legacy:textures/blocks/pe/tinted_green.png"
     },
+    "textures/block/energy_pedestal/overlay.png": {
+      "sha256": "e986abe6570fbb8003915dc7b5d934ca569184539a7936103458791d2a058dc9",
+      "source": "legacy:textures/blocks/ritualpedestal/overlay2.png"
+    },
     "textures/block/energy_trim.png": {
       "sha256": "565f45297111f3dd18b022b463c158171654676cce4584cdd83a94231e40633c",
       "source": "legacy:textures/blocks/pe/extra.png"
@@ -2702,7 +2986,79 @@
       "sha256": "ca91a2800bfc7dc1563264ed5b4dfaba1f898bfaef96989a7def248096db9165",
       "source": "legacy:textures/blocks/eth.png"
     },
-    "textures/block/ethaxium_brick.png": {
+    "textures/block/ethaxium_bricks/bricks_base.png": {
+      "sha256": "0fa9d22156f050cebebf292a55e0acc5c3b2956eb21730a0e06f50934f9e67c9",
+      "source": "legacy:textures/blocks/ethaxium_bricks/bricks_base.png"
+    },
+    "textures/block/ethaxium_bricks/composite_1.png": {
+      "sha256": "77b4fe42c66c5cd4dbc9a4369e7969376c1ab5a92b014115a18a4f32cebdc96f",
+      "source": "ported-or-authored"
+    },
+    "textures/block/ethaxium_bricks/composite_2.png": {
+      "sha256": "7e7b1328154cb561c2030c8d44fdd3094d0ac78ca83e02e314c05d060982f4de",
+      "source": "ported-or-authored"
+    },
+    "textures/block/ethaxium_bricks/composite_3.png": {
+      "sha256": "d8a84546ad246acf57ee7c886f2802f45945db2d56c56dde76298259c5a84237",
+      "source": "ported-or-authored"
+    },
+    "textures/block/ethaxium_bricks/cracks.png": {
+      "sha256": "387cf367526f4e15968ca55443492e6a4ed63a9e0b8945bbe6ab357306bf38c7",
+      "source": "legacy:textures/blocks/ethaxium_bricks/cracks.png"
+    },
+    "textures/block/ethaxium_bricks/dark_bricks_base.png": {
+      "sha256": "03daa724b5d9d684f181681c7c6ce0967c03e9023b66c440feb0e7d9dc47b356",
+      "source": "legacy:textures/blocks/ethaxium_bricks/dark_bricks_base.png"
+    },
+    "textures/block/ethaxium_bricks/dark_composite_1.png": {
+      "sha256": "a207388b9fa7840de8ba12aca48d52957fdb83045b3a484b6f5fe1bf02d1f338",
+      "source": "ported-or-authored"
+    },
+    "textures/block/ethaxium_bricks/dark_composite_2.png": {
+      "sha256": "2aa383a983ead7210a4f33d427ae98b2218209a7fb3c3bd74348c7ea65666c9e",
+      "source": "ported-or-authored"
+    },
+    "textures/block/ethaxium_bricks/dark_composite_3.png": {
+      "sha256": "51c21d90d1113797a61150a909041d8c4491230d670087633fee726d92264264",
+      "source": "ported-or-authored"
+    },
+    "textures/block/ethaxium_bricks/dark_cracks.png": {
+      "sha256": "1aeb5638eaf38130e087f2e1dfb46934eb95d4e3d10d7c2706bd267b7a9a68c3",
+      "source": "legacy:textures/blocks/ethaxium_bricks/dark_cracks.png"
+    },
+    "textures/block/ethaxium_bricks/dark_faces_1.png": {
+      "sha256": "9188c36b979a278fdd4b116c16510dd2f50f3a853988bc86ac08968ad80aa852",
+      "source": "legacy:textures/blocks/ethaxium_bricks/dark_faces_1.png"
+    },
+    "textures/block/ethaxium_bricks/dark_faces_2.png": {
+      "sha256": "635b448088ae9caff3e7d04e86a947613b083f51d0877f205c27a3a9461c23c3",
+      "source": "legacy:textures/blocks/ethaxium_bricks/dark_faces_2.png"
+    },
+    "textures/block/ethaxium_bricks/dark_faces_3.png": {
+      "sha256": "9587192cc13977fbe3aa91550ef27eacb764729b73ac154e464501c84514c9c2",
+      "source": "legacy:textures/blocks/ethaxium_bricks/dark_faces_3.png"
+    },
+    "textures/block/ethaxium_bricks/dark_sigil.png": {
+      "sha256": "bbce1dd479b37b02fac213015c0d198fe07335330a989328eb96f9c216b83df3",
+      "source": "legacy:textures/blocks/ethaxium_bricks/dark_sigil.png"
+    },
+    "textures/block/ethaxium_bricks/faces_1.png": {
+      "sha256": "fdad69d4fb824922461999743c3a778cad473a6407d5170f4cb283655556c6fa",
+      "source": "legacy:textures/blocks/ethaxium_bricks/faces_1.png"
+    },
+    "textures/block/ethaxium_bricks/faces_2.png": {
+      "sha256": "06899db7b14c254d1bff12396741de69d07bea8e048d0fd63fb008a771d64895",
+      "source": "legacy:textures/blocks/ethaxium_bricks/faces_2.png"
+    },
+    "textures/block/ethaxium_bricks/faces_3.png": {
+      "sha256": "76e6372c21f84ac00e5b3044088eb72c304ac4c08bceb5761ad560cfa348753c",
+      "source": "legacy:textures/blocks/ethaxium_bricks/faces_3.png"
+    },
+    "textures/block/ethaxium_bricks/sigil.png": {
+      "sha256": "b7e8d4c69c84323bad25f8601a781a3e241eeb17714da1d7cda701b9a0b9d1ca",
+      "source": "legacy:textures/blocks/ethaxium_bricks/sigil.png"
+    },
+    "textures/block/ethaxium_legacy_brick.png": {
       "sha256": "f3ce2c7932cb378df06e75cbf4de0b76ecdd226a88f43c599ebae6c6116ae133",
       "source": "legacy:textures/blocks/eb.png"
     },
@@ -2741,6 +3097,22 @@
     "textures/block/glowing_darkstone_bricks.png": {
       "sha256": "aed6e1ced137a924006a86b4275aa0f34995a3b794f9bab985a17aee400aa96e",
       "source": "legacy:textures/blocks/dsglow.png"
+    },
+    "textures/block/legacy_obj/cudgel.png": {
+      "sha256": "0885f2793f41b7b45924349689a45d9619e3f193541c75ad195d07e631355518",
+      "source": "legacy:textures/model/cudgel.png"
+    },
+    "textures/block/legacy_obj/katana.png": {
+      "sha256": "26d6a96bc557b8e17e946382b43db021a31c4f5830bd88844cf4992f401647cb",
+      "source": "legacy:textures/model/katana.png"
+    },
+    "textures/block/legacy_obj/odb.png": {
+      "sha256": "c0b5e20f6c42c84dc18aa35213cae691bb20443fa8d29d7686a4b29807d6b603",
+      "source": "legacy:textures/model/blocks/odb.png"
+    },
+    "textures/block/legacy_obj/staff.png": {
+      "sha256": "4d012233af6c59efb438a25e49de5cdc0e5364b6909d07d4c2727c4c34c58376",
+      "source": "legacy:textures/model/staff.png"
     },
     "textures/block/liquid_antimatter_flow.png": {
       "sha256": "fe1dc59ccb36177a2753b9c03d1ef9f88b5f755cc9b646e661580cb80441dabd",
@@ -2797,6 +3169,10 @@
     "textures/block/monolith_stone.png": {
       "sha256": "144e1291ca31520e567133f631daa60ecc5d05bed4ef1ec678bb2dd42b79a846",
       "source": "legacy:textures/blocks/monolithstone.png"
+    },
+    "textures/block/multi_block.png": {
+      "sha256": "0e2f81744b3c8426955370d710bcd0b557c53b8d2749004d02328198b2403340",
+      "source": "legacy:textures/blocks/multiblock.png"
     },
     "textures/block/odb_core.png": {
       "sha256": "987b19cd5cd9c61d2009cd38eef4bd9fe822f2a2f6ef1e5c02b5e3060d857063",
@@ -2878,6 +3254,14 @@
       "sha256": "565f45297111f3dd18b022b463c158171654676cce4584cdd83a94231e40633c",
       "source": "legacy:textures/blocks/pe/extra.png"
     },
+    "textures/block/ritual_altar/cloth.png": {
+      "sha256": "257344ee2eb58abbd80936dd9eb472279c76b11fafad1a87a8278a49d073b36f",
+      "source": "legacy:textures/blocks/ritualaltar/cloth.png"
+    },
+    "textures/block/ritual_altar/parts.png": {
+      "sha256": "1674b4120d95e8be9d503e773bdd673e0f800559881faad8176401fa820a1335",
+      "source": "legacy:textures/blocks/ritualaltar/parts.png"
+    },
     "textures/block/ritual_altar_cloth.png": {
       "sha256": "257344ee2eb58abbd80936dd9eb472279c76b11fafad1a87a8278a49d073b36f",
       "source": "legacy:textures/blocks/ritualaltar/cloth.png"
@@ -2886,9 +3270,17 @@
       "sha256": "1674b4120d95e8be9d503e773bdd673e0f800559881faad8176401fa820a1335",
       "source": "legacy:textures/blocks/ritualaltar/parts.png"
     },
+    "textures/block/ritual_pedestal/glyphs.png": {
+      "sha256": "dbd5af27fb620e31e76a3fbe3dd6e1cd1517c10851cf5b868544d152a9a5f9ec",
+      "source": "legacy:textures/blocks/ritualpedestal/glyphs.png"
+    },
     "textures/block/ritual_pedestal/overlay3.png": {
       "sha256": "4dd8e5ae0c7d4bf4703e6e520a893e79043a4e3c459dbdaf906081925c1328bc",
       "source": "legacy:textures/blocks/ritualpedestal/overlay3.png"
+    },
+    "textures/block/ritual_pedestal/overlay_0.png": {
+      "sha256": "2764fd49a8dc7b6c8906a23a7a849f601e7026e5f32e33ecf8e54a37206078e9",
+      "source": "legacy:textures/blocks/ritualpedestal/overlay_0.png"
     },
     "textures/block/ritual_pedestal_glyphs.png": {
       "sha256": "dbd5af27fb620e31e76a3fbe3dd6e1cd1517c10851cf5b868544d152a9a5f9ec",
@@ -2897,6 +3289,10 @@
     "textures/block/ritual_pedestal_overlay.png": {
       "sha256": "2764fd49a8dc7b6c8906a23a7a849f601e7026e5f32e33ecf8e54a37206078e9",
       "source": "legacy:textures/blocks/ritualpedestal/overlay_0.png"
+    },
+    "textures/block/sealing_lock_misc.png": {
+      "sha256": "c99ed107f20df1fc446f51c302e8fcbe6ae90002ece783f7ddf02c0ed1a3d288",
+      "source": "legacy:textures/blocks/sealinglock_misc.png"
     },
     "textures/block/shoggoth_biomass.png": {
       "sha256": "a2c2b82e2c823a46ea42efb222cebef6de3ba2be701ed8f52c8ff033c53de259",
@@ -2982,6 +3378,22 @@
       "sha256": "410c002781b8d0a40d42b93333d03062cc6bb769d343e173ac455e45d8fedc7f",
       "source": "legacy:textures/font/aklo.png"
     },
+    "textures/gui/abyssalnomicon.png": {
+      "sha256": "7f22103b5c46a90ecac69d2b2b9d0422671115ddc37dd1db3ad5c37371f05c58",
+      "source": "legacy:textures/gui/abyssalnomicon.png"
+    },
+    "textures/gui/container/crystalbag.png": {
+      "sha256": "410c5f2905770acc0146cae60095fd5fbbb310e3bfcaeb9acbec217708191d07",
+      "source": "legacy:textures/gui/container/crystalbag.png"
+    },
+    "textures/gui/container/crystallizer.png": {
+      "sha256": "f2fc3bb69d9cff8c2f14e3edabedc98b5b15040bbc5c07ca0f843521949a0104",
+      "source": "legacy:textures/gui/container/crystallizer.png"
+    },
+    "textures/gui/container/crystallizer_nei.png": {
+      "sha256": "2dfd730e5ae77fd5545ac010cf66a94b2d95d9519403d12d7db6025749123c64",
+      "source": "legacy:textures/gui/container/crystallizer_nei.png"
+    },
     "textures/gui/container/energy_container.png": {
       "sha256": "eb8bf81048085b15f2e7227d44cfab148b0cd065a8814f1a6d0ddd60cda0c728",
       "source": "legacy:textures/gui/container/energycontainer.png"
@@ -2989,6 +3401,14 @@
     "textures/gui/container/energy_depositioner.png": {
       "sha256": "22baae185ed059fa13b5f326fa39a3140ad4fb4fae3f22c07f788da2c40fe3cf",
       "source": "legacy:textures/gui/container/energydepositioner.png"
+    },
+    "textures/gui/container/materializer.png": {
+      "sha256": "40f2bb903c136f120b8070c96d53ccdbae9cb92ac278b3a14e7c6b31aab3adca",
+      "source": "legacy:textures/gui/container/materializer.png"
+    },
+    "textures/gui/container/materializer_nei.png": {
+      "sha256": "eb98e5e40864d6274402cf0e9de23940ac294350ea0657aa8895fef733668f7a",
+      "source": "legacy:textures/gui/container/materializer_nei.png"
     },
     "textures/gui/container/rending_pedestal.png": {
       "sha256": "8de4b88173201c567985597902cf9d3ad94189f592eaad288953d8b066866a3a",
@@ -2998,17 +3418,49 @@
       "sha256": "096e5005f07ddeb0e42ee28154a331ad35dfd4eb1fcd9bafa25c9d85ea191910",
       "source": "legacy:textures/gui/container/research_table.png"
     },
+    "textures/gui/container/ritual_nei.png": {
+      "sha256": "7584c99f474ac9de6e932256b8d6d992d312e7df5f49fcd73a148b2f402a4730",
+      "source": "legacy:textures/gui/container/ritual_nei.png"
+    },
     "textures/gui/container/sequential_brewing_stand.png": {
       "sha256": "b5cffcfae6ba07015614cd31a5690ed1c2dd16db482582cf1757c100238bedb8",
       "source": "legacy:textures/gui/container/sequential_brewing_stand.png"
+    },
+    "textures/gui/container/spellcraft.png": {
+      "sha256": "1277b3726de08cf562accd4d25096c1a3dd8b1265272f5a910d4808df40714fa",
+      "source": "legacy:textures/gui/container/spellcraft.png"
+    },
+    "textures/gui/container/spellcraft_test.png": {
+      "sha256": "e6cb9cb57e3cb923b65c842854d782dddce5734e230f186f2cfb5c9638aec4c0",
+      "source": "legacy:textures/gui/container/spellcraft_test.png"
+    },
+    "textures/gui/container/spirit_tablet.png": {
+      "sha256": "1797ea830843e0d48aba7efe7d5d736df4ade72d3bfd88206c5d108d35a404ed",
+      "source": "legacy:textures/gui/container/spirit_tablet.png"
     },
     "textures/gui/container/state_transformer.png": {
       "sha256": "9f53738afa2706c32dbe6d225a83bd581017bbf417319eb11a7ab15fa7520f58",
       "source": "legacy:textures/gui/container/statetransformer.png"
     },
+    "textures/gui/container/transformation_ritual_jei.png": {
+      "sha256": "73b89b105436eaed5fcc1ca34697a52ea104f02046bd41e7a011ea87d20c7c5d",
+      "source": "legacy:textures/gui/container/transformation_ritual_jei.png"
+    },
+    "textures/gui/container/transmutator.png": {
+      "sha256": "54e7f7dd76053955a3c52aa5bad06d3fae0dd79989d96e4eeb444e49514c27f1",
+      "source": "legacy:textures/gui/container/transmutator.png"
+    },
+    "textures/gui/container/transmutator_nei.png": {
+      "sha256": "8bdc10792b4f4990e6b850c5a0a27e07518f4f734b913e4472a553262278f58c",
+      "source": "legacy:textures/gui/container/transmutator_nei.png"
+    },
     "textures/gui/face_book.png": {
       "sha256": "0d0efb481227ecb74c7b13372a3aa2b625ec529c43c819204518685e6053675c",
       "source": "legacy:textures/gui/face_book.png"
+    },
+    "textures/gui/necronomicon.png": {
+      "sha256": "b4bb1ab65a83fb4f8e3cbbb34ddcb9c7d3c687c5599f6304e599ec3daa63852c",
+      "source": "legacy:textures/gui/necronomicon.png"
     },
     "textures/gui/necronomicon/abyssal-zombie.png": {
       "sha256": "befba0c0474b8ed8b06ef09ecb73cf9337ab55acd7740db10ce59391c9869b39",
@@ -3310,6 +3762,18 @@
       "sha256": "fce763770c52d11a1392fba52ca3a1e86a0d019ac302274d13bd4828603f851d",
       "source": "legacy:textures/gui/necronomicon/yog-sothoth.png"
     },
+    "textures/gui/necronomicon_cor.png": {
+      "sha256": "88a3bc600d9350c0c8a3d53ba7f060f5451b19f50be7ee8ad22fc8b5d5642503",
+      "source": "legacy:textures/gui/necronomicon_cor.png"
+    },
+    "textures/gui/necronomicon_dre.png": {
+      "sha256": "b58fabfb38821a306d346dd743a728b54dae8ce46de603146cbf25264aa38943",
+      "source": "legacy:textures/gui/necronomicon_dre.png"
+    },
+    "textures/gui/necronomicon_omt.png": {
+      "sha256": "1eb2820c6b5c7aca1f03df4fa2efc5d9be6efa4d71dc7327b027b7bcde003cc1",
+      "source": "legacy:textures/gui/necronomicon_omt.png"
+    },
     "textures/item/abyssal_ghoul_flesh.png": {
       "sha256": "fdb9ecddf156fc7e689c34a82591421fbfa623bf28311c754831d9827fb863d3",
       "source": "legacy:textures/items/abyssal_ghoul_flesh.png"
@@ -3514,6 +3978,22 @@
       "sha256": "2a9df5d015d5743018a31e9392167af9918e24b3907a6cf96d55b36f032310fd",
       "source": "legacy:textures/items/coralium_antidote.png"
     },
+    "textures/item/coralium_antidote_1.png": {
+      "sha256": "de5fe1f55139bc868ab3bb3c4b3682510e4097ff3d1c6cb592ba071737b78fd9",
+      "source": "legacy:textures/items/coralium_antidote_1.png"
+    },
+    "textures/item/coralium_antidote_2.png": {
+      "sha256": "5cda39b51b9c457876c3ad7260073400192bde3487a73b77a33693e9da757893",
+      "source": "legacy:textures/items/coralium_antidote_2.png"
+    },
+    "textures/item/coralium_antidote_3.png": {
+      "sha256": "1bfcfd0e37a7cf469e7dcfb22d3ed020a92d317b589be6c9fb4d75faaacaa579",
+      "source": "legacy:textures/items/coralium_antidote_3.png"
+    },
+    "textures/item/coralium_antidote_4.png": {
+      "sha256": "e7b5ace693afae6302bc689cc7cf3c142465b55cdbbc13b95ea358ad1d93f58f",
+      "source": "legacy:textures/items/coralium_antidote_4.png"
+    },
     "textures/item/coralium_brick.png": {
       "sha256": "dd399d72d0b74e72c03b4492fca52bf371e3a2cb70d65cf09f942da407d5cbd0",
       "source": "legacy:textures/items/cbrick.png"
@@ -3579,8 +4059,8 @@
       "source": "legacy:textures/items/cf.png"
     },
     "textures/item/coralium_plate.png": {
-      "sha256": "5dd954df35148e50b38f268853b0e5042d602a905903ca24f08072f0a81db460",
-      "source": "legacy:textures/items/acc.png"
+      "sha256": "fd97b9dfd7a499772129bd6fd08f2052e89a276641b3a557725ef836cad6cea6",
+      "source": "legacy:textures/items/cpp.png"
     },
     "textures/item/crystal.png": {
       "sha256": "95da9c6977062b3946fab85c69e398aea95e3adcd2daad7fe62db8ab55430c16",
@@ -3622,6 +4102,22 @@
       "sha256": "792a1905a750e715653e981a2f2a69e155354b98a42a81ae59eec7318419d6e5",
       "source": "legacy:textures/items/crystalshard_1.png"
     },
+    "textures/item/crystalbag_huge.png": {
+      "sha256": "a77d508a8614e702bde056957ba3b65a1a0417a65791183c5ccba4fb0196338c",
+      "source": "legacy:textures/items/crystalbag_huge.png"
+    },
+    "textures/item/crystalbag_large.png": {
+      "sha256": "85bf12a5142abcd0d7d534cbbd922346edd0b831d2c57528f7d8a15eb6550a78",
+      "source": "legacy:textures/items/crystalbag_large.png"
+    },
+    "textures/item/crystalbag_medium.png": {
+      "sha256": "6ec06720564114f31ee61f7f29444a31a6735db5f7ac2c0883b46c24a44dddd7",
+      "source": "legacy:textures/items/crystalbag_medium.png"
+    },
+    "textures/item/crystalbag_small.png": {
+      "sha256": "cba4cccee855cf26ae44562504ddc9cbd9450ed8a3cbd698eb330d3f87a3a824",
+      "source": "legacy:textures/items/crystalbag_small.png"
+    },
     "textures/item/cudgel.png": {
       "sha256": "83c2f0aa16291f6d8d537c5d65a81323bec30058f913844f96e70c362e8897db",
       "source": "legacy:textures/items/cudgel.png"
@@ -3657,6 +4153,22 @@
     "textures/item/dread_antidote.png": {
       "sha256": "fa58f073fcc7dce9b6794eef100ccac70e5292ff5fd02342af498dcbb7bf1999",
       "source": "legacy:textures/items/dread_antidote.png"
+    },
+    "textures/item/dread_antidote_1.png": {
+      "sha256": "2cb95c37fc856bbb9c5d804d4feb50b8a08c0b07b83b6577b9760daea52720e5",
+      "source": "legacy:textures/items/dread_antidote_1.png"
+    },
+    "textures/item/dread_antidote_2.png": {
+      "sha256": "6eb361d4dd1c981b7d20bc1455123cf3dc58a8011d4466b39d9cd0f6c73944af",
+      "source": "legacy:textures/items/dread_antidote_2.png"
+    },
+    "textures/item/dread_antidote_3.png": {
+      "sha256": "50730510e3ca99bc27b2cdb1072fdad4b5d05fc37d31b3a154fa72a24817054c",
+      "source": "legacy:textures/items/dread_antidote_3.png"
+    },
+    "textures/item/dread_antidote_4.png": {
+      "sha256": "e15b2f84bcd08f78980ee4ca84f1b95d6d7f8b584a8e8d76bc8c9ef703183cb8",
+      "source": "legacy:textures/items/dread_antidote_4.png"
     },
     "textures/item/dread_cloth.png": {
       "sha256": "22505bed4ade0f7c63708c1e2f0ebc9b9c1354b220143132156011c1ae8a7aa5",
@@ -3706,6 +4218,10 @@
       "sha256": "f2f90ea7702e57400f4ad24994b880d672ee23b7c7eb97f25905836a74e79606",
       "source": "legacy:textures/items/db.png"
     },
+    "textures/item/dreadium_katana_hilt.png": {
+      "sha256": "4a9d9ef0d1a6a75fbf6ce3be9d53150f5ae1ca0550486153b299b1fc9cbe47e0",
+      "source": "legacy:textures/items/katana.png"
+    },
     "textures/item/dreadium_leggings.png": {
       "sha256": "3a2a1f047cedcbf679e8225553c97b265b34ff923e69d324fd9bc7f566ae2ec0",
       "source": "legacy:textures/items/addp.png"
@@ -3719,8 +4235,8 @@
       "source": "legacy:textures/items/ddp.png"
     },
     "textures/item/dreadium_plate.png": {
-      "sha256": "17db28ef69bdd5fc46bf873be78d7c9a64388584d9f450dce601fd4d28aabd5e",
-      "source": "legacy:textures/items/addc.png"
+      "sha256": "1f7b2e367956549b76c15c4ea66e95bf497fe4d4b963103b85ce8345b4b90bb9",
+      "source": "legacy:textures/items/dpp.png"
     },
     "textures/item/dreadium_samurai_boots.png": {
       "sha256": "7c437839a3d8abdad47bacb267ca24b1ed6b358909955e2e9b73d3955e9b9f58",
@@ -3745,6 +4261,10 @@
     "textures/item/dreadium_sword.png": {
       "sha256": "f3b5cacd3f1ce258e11bca28360aaddcf2be99705a042cf4afd65711ae047a72",
       "source": "legacy:textures/items/ddsw.png"
+    },
+    "textures/item/dreadkey.png": {
+      "sha256": "891a363a16c230c1efaefbba886ad04178f4668941f5d224860423e0022c40c5",
+      "source": "legacy:textures/items/dk.png"
     },
     "textures/item/dreadlands_essence.png": {
       "sha256": "e21a4875aa2b4ebd250ae97ed2295a152eef533a6581b24a9223f7c36dd2a75d",
@@ -3857,6 +4377,14 @@
     "textures/item/interdimensional_cage.png": {
       "sha256": "73a483a7994c4daed8c7c9517fead53298b84015408d97cbbc9e2869eee9beec",
       "source": "legacy:textures/items/interdimensionalcage.png"
+    },
+    "textures/item/interdimensional_cage_captured.png": {
+      "sha256": "b389040aa93d36ca673c7fdd53e09d792fc6626f199e18209e88a4896b7e8002",
+      "source": "legacy:textures/items/interdimensionalcage_captured.png"
+    },
+    "textures/item/interdimensional_cage_captured.png.mcmeta": {
+      "sha256": "9b92eb3ddda0c025bd76751217e53f2624339382c604026dadc0b84e53cefd44",
+      "source": "legacy:textures/items/oblivion_catalyst/circle.png.mcmeta"
     },
     "textures/item/lesser_scroll.png": {
       "sha256": "7e46e29aefefa4e06f9cee6ac00a31fde8705730b535e25c0b27098188c19b11",
@@ -4054,17 +4582,49 @@
       "sha256": "05cb2d61bd7c0dbea1b72fd4c39786a3760dd0120ad8439304e54a4b96d524a7",
       "source": "legacy:textures/items/soulreaper.png"
     },
+    "textures/item/soulreaper_1.png": {
+      "sha256": "6714518210087918c0aa8d51d137a8254d121566b392396e7df9d6e85c4c1ce5",
+      "source": "legacy:textures/items/soulreaper_1.png"
+    },
+    "textures/item/soulreaper_2.png": {
+      "sha256": "219a263dd88893f03776ee100d649ae70090f5a84b424d60b086b0865897cb16",
+      "source": "legacy:textures/items/soulreaper_2.png"
+    },
+    "textures/item/soulreaper_3.png": {
+      "sha256": "8367a036d7094465a8080c11ef1e43d74e5bf0c4474ec0879b1a169cdd8fe321",
+      "source": "legacy:textures/items/soulreaper_3.png"
+    },
+    "textures/item/soulreaper_4.png": {
+      "sha256": "63a9ea6b10ff9c07c2d7be0c72cd8ba5a02a1055b6cbc16c80844762f1c8aaf8",
+      "source": "legacy:textures/items/soulreaper_4.png"
+    },
+    "textures/item/soulreaper_5.png": {
+      "sha256": "b04e1c6bc632c9b157e0130277d28e3730648fb2cb8d65d8acf518e3ae4dfce7",
+      "source": "legacy:textures/items/soulreaper_5.png"
+    },
     "textures/item/spell_overlay.png": {
       "sha256": "a78bb456f727f4d7a0ee4b776fc0f00f64aef31a974220adecb008a7f940bbe2",
       "source": "legacy:textures/items/scrolls/spell_overlay.png"
     },
-    "textures/item/spell_staff.png": {
-      "sha256": "89ab344ee4cd2c98fbeae6d0933f0d480367722a26af245365d8e2a4473866c8",
-      "source": "legacy:textures/items/drainstaff.png"
-    },
     "textures/item/spirit_tablet.png": {
       "sha256": "69d359556f5157b717a0b9629805f3c2d0f71e1ef2615a23b7b3086094b27c8b",
       "source": "legacy:textures/items/spirit_tablet/spirit_tablet.png"
+    },
+    "textures/item/spirit_tablet/glyph_0.png": {
+      "sha256": "648b94073da46f984b04f3788d7c05bd9653a96d1eb47349346e94c61fa2e08d",
+      "source": "legacy:textures/items/spirit_tablet/glyph_0.png"
+    },
+    "textures/item/spirit_tablet/glyph_1.png": {
+      "sha256": "f57f7877504367689658a9d13fc67ece85c8a129585bff91257a4f15c0902e10",
+      "source": "legacy:textures/items/spirit_tablet/glyph_1.png"
+    },
+    "textures/item/spirit_tablet/glyph_2.png": {
+      "sha256": "10cbd970d78b5f1d653df032f4c0eccae276bc2b83a43efe749856ea7d3f5efb",
+      "source": "legacy:textures/items/spirit_tablet/glyph_2.png"
+    },
+    "textures/item/spirit_tablet/spirit_tablet_shard_0.png": {
+      "sha256": "1c964ab05ec5026662592e2a3f0e40f6c5b8e60395e1e30bc0324972a8a1b5e8",
+      "source": "legacy:textures/items/spirit_tablet/spirit_tablet_shard_0.png"
     },
     "textures/item/spirit_tablet/spirit_tablet_shard_1.png": {
       "sha256": "2c3fc7736c6588f8f446ad9ab5c8107ceb27a7ea1ffca89401b9cd4a8a8f399e",
@@ -4118,13 +4678,33 @@
       "sha256": "14972e242987e4be84336806bc1f08e61480110a1668718688def1be06787f1b",
       "source": "legacy:textures/misc/coraliumblur.png.mcmeta"
     },
+    "textures/mob_effect/antimatter.png": {
+      "sha256": "fcc67b5a0f246eac1086dcefddbc00c7a3ef0f4ccead5ca0fe45e5c2525d825e",
+      "source": "ported-or-authored"
+    },
+    "textures/mob_effect/coralium_antidote.png": {
+      "sha256": "eaeacd3e754ca9c824f11bdc8efc86591451e3f043fedcd43afec326f3587f18",
+      "source": "ported-or-authored"
+    },
+    "textures/mob_effect/coralium_plague.png": {
+      "sha256": "1de4e64a07da9fcba82e5053d9f98bd7945391c03af194c1f3744bb12aa25146",
+      "source": "ported-or-authored"
+    },
+    "textures/mob_effect/dread_antidote.png": {
+      "sha256": "eaeacd3e754ca9c824f11bdc8efc86591451e3f043fedcd43afec326f3587f18",
+      "source": "ported-or-authored"
+    },
+    "textures/mob_effect/dread_plague.png": {
+      "sha256": "5fcca4ec0977b706e8c05425d76247627809fa737d70ecd4ca408090c4485adc",
+      "source": "ported-or-authored"
+    },
     "textures/model/abyssal_zombie.png": {
       "sha256": "77bd1d9fa51ab015c66a9f0bdf9831794e35b2b1c5e5d92c93cbf26cfd68a68b",
       "source": "legacy:textures/model/abyssal_zombie.png"
     },
     "textures/model/abyssal_zombie_eyes.png": {
-      "sha256": "d535cdbc69fa7102ca597aa5977c7817686b0a5e2ed44d5c2409680ed52c012a",
-      "source": "ported-or-authored"
+      "sha256": "2f49b3785c88b3520542d33fc56d61eb4a8754f5c71c60dff166c980caab265c",
+      "source": "legacy:textures/model/abyssal_zombie_eyes.png"
     },
     "textures/model/anti/abyssal_zombie.png": {
       "sha256": "841fa09139ea8a0d628b3b7af2f260f8ffb7124a85e910594ff897806918cbfe",
@@ -4182,6 +4762,10 @@
       "sha256": "cd7cfde7afcdc107a5529a3712c34a3f5fd0b640b1790136a09df3e9e09ece5f",
       "source": "legacy:textures/model/black_hole.png"
     },
+    "textures/model/blocks/odb.png": {
+      "sha256": "c0b5e20f6c42c84dc18aa35213cae691bb20443fa8d29d7686a4b29807d6b603",
+      "source": "legacy:textures/model/blocks/odb.png"
+    },
     "textures/model/boss/chagaroth.png": {
       "sha256": "e09afee8c6b326cb6842683ce07a44ec4e8f501cffb28cef1eeb9c5a8b216cfc",
       "source": "legacy:textures/model/boss/chagaroth.png"
@@ -4195,8 +4779,8 @@
       "source": "legacy:textures/model/boss/dragonboss_exploding.png"
     },
     "textures/model/boss/dragonboss_eyes.png": {
-      "sha256": "f26969af7818a8140bc27a1e1b011f94690acffdb2f4057e80118e8f2b3a50c2",
-      "source": "ported-or-authored"
+      "sha256": "1e38f25f54252dbf5e6220a041e70b5e9ffbe0f21a8233202cc2b12ef26012ce",
+      "source": "legacy:textures/model/boss/dragonboss_eyes.png"
     },
     "textures/model/boss/jzahar.png": {
       "sha256": "b0c7b1b46d9a5a7fad02ab3fe7e07c75023b66f861449ffc53b51bea4c30c2db",
@@ -4231,12 +4815,16 @@
       "source": "legacy:textures/model/coraliumsquid.png"
     },
     "textures/model/coraliumsquid_eyes.png": {
-      "sha256": "0fc1961dd9d81d7597b4606af1095c044eb3598a3076b9caa047a23f9258fc4f",
-      "source": "ported-or-authored"
+      "sha256": "6632e30f1222817e1d18764f17266f68ee7e8496106dba2d04e89504dc56c3e8",
+      "source": "legacy:textures/model/coraliumsquid_eyes.png"
     },
     "textures/model/corarrow.png": {
       "sha256": "de60225bb3a34e29668f3bf1f329e2bf28e5a0f5818f5c300f4904bcbbc1c6e7",
       "source": "legacy:textures/model/corarrow.png"
+    },
+    "textures/model/cudgel.png": {
+      "sha256": "0885f2793f41b7b45924349689a45d9619e3f193541c75ad195d07e631355518",
+      "source": "legacy:textures/model/cudgel.png"
     },
     "textures/model/demon_chicken.png": {
       "sha256": "050988513f2c9327c243460c8df449e811aaf31e3b71d6d77cff0721e93824aa",
@@ -4279,8 +4867,8 @@
       "source": "legacy:textures/model/elite/dragonminion.png"
     },
     "textures/model/elite/dragonminion_eyes.png": {
-      "sha256": "2997c3c34a31742d0735b712f726d198e5a476f68c0189932e241328be33e42c",
-      "source": "ported-or-authored"
+      "sha256": "07bde214576041f646f62377269837d96519e50d21f1961162cc441b6ff42ff5",
+      "source": "legacy:textures/model/elite/dragonminion_eyes.png"
     },
     "textures/model/elite/dreadguard.png": {
       "sha256": "39c1132f08ee7e20e8562fcf24e8da0bee898c330ad32c20855f34fcc3049990",
@@ -4307,8 +4895,8 @@
       "source": "legacy:textures/model/elite/shadowbeast.png"
     },
     "textures/model/elite/shadowbeast_eyes.png": {
-      "sha256": "79b75575885627aab8d0432dbf137cf93644c7945cbabd6b63239f283429912c",
-      "source": "ported-or-authored"
+      "sha256": "7897dc859647f886ace97880d125fc7b8f3b4b8166e59cec2ebf0a8530b1c41a",
+      "source": "legacy:textures/model/elite/shadowbeast_eyes.png"
     },
     "textures/model/elite/skeletongoliath.png": {
       "sha256": "14ecbe81872a5752fe5e4884c1919516643182e59e9de879c58d3b11cff97b7f",
@@ -4319,8 +4907,8 @@
       "source": "legacy:textures/model/ghoul/depths_ghoul.png"
     },
     "textures/model/ghoul/depths_ghoul_eyes.png": {
-      "sha256": "eb13e44f2937ef60fa747b2cb874f9451e421b5437da12384580957c7405ca82",
-      "source": "ported-or-authored"
+      "sha256": "f575c38de6cf3f7c016f35ccba2532c1e3c130cfdee1525b2d0154df063a7928",
+      "source": "legacy:textures/model/ghoul/depths_ghoul_eyes.png"
     },
     "textures/model/ghoul/depths_ghoul_orange.png": {
       "sha256": "8705aeb1fd13dc6e46b623772c0c5f84a13d1adf4a85c70f35c37389a772f1ca",
@@ -4339,16 +4927,16 @@
       "source": "legacy:textures/model/ghoul/dreaded_ghoul.png"
     },
     "textures/model/ghoul/dreaded_ghoul_eyes.png": {
-      "sha256": "4f7f2dfc198d39e709dc0dcf77b86899ad522fd8677c07d1e3b93a3d73f223be",
-      "source": "ported-or-authored"
+      "sha256": "d30634bb6aae2a01b827f99e32475d15663a3e69570263ee36fac2e22b55ad87",
+      "source": "legacy:textures/model/ghoul/dreaded_ghoul_eyes.png"
     },
     "textures/model/ghoul/ghoul.png": {
       "sha256": "7038b2b7577c33b3f0e78858c916aa8d00e30d60672e58bce2a83e829a08cf7f",
       "source": "legacy:textures/model/ghoul/ghoul.png"
     },
     "textures/model/ghoul/ghoul_eyes.png": {
-      "sha256": "e0ad45fbc360324287f05f6d35e9455e2f701ccafd1950ff4f6ef7a942c7c1c6",
-      "source": "ported-or-authored"
+      "sha256": "51cda8101e9ec43440e4a5538b45f38ea2cb78043a2e2cdd54306179a6f6dbec",
+      "source": "legacy:textures/model/ghoul/ghoul_eyes.png"
     },
     "textures/model/ghoul/omothol_ghoul.png": {
       "sha256": "7ae333a0a9f40efbdc3f1dfd00d625dd2864ad57f2c8fbf9e87cf78893db665b",
@@ -4359,12 +4947,16 @@
       "source": "legacy:textures/model/ghoul/shadow_ghoul.png"
     },
     "textures/model/ghoul/shadow_ghoul_eyes.png": {
-      "sha256": "8d756af4993f701a0aa014e6ed98b56fb38fda0cd9f06168fa52455637402ae9",
-      "source": "ported-or-authored"
+      "sha256": "5176cf93e960e6b06f445991d13a02de591b902817d9d72e10b05b4023e8093e",
+      "source": "legacy:textures/model/ghoul/shadow_ghoul_eyes.png"
     },
     "textures/model/greater_dread_spawn.png": {
       "sha256": "727000b8c6e17b4bc3525c74290f1c4b3fa165c9f4bb2887c605b1a5a83aac73",
       "source": "legacy:textures/model/greater_dread_spawn.png"
+    },
+    "textures/model/katana.png": {
+      "sha256": "26d6a96bc557b8e17e946382b43db021a31c4f5830bd88844cf4992f401647cb",
+      "source": "legacy:textures/model/katana.png"
     },
     "textures/model/omothol_portal.png": {
       "sha256": "e2e8e083621ba0f4d6fb65da46a1b9514c2769ca2b9d5f22a6c0bc00fa605694",
@@ -4382,21 +4974,45 @@
       "sha256": "58e9232b2d240b184161f118b0228da39033e3e7f88e2768cc8440f859286474",
       "source": "legacy:textures/model/remnant/remnant.png"
     },
+    "textures/model/remnant/remnant_banker.png": {
+      "sha256": "936874b2c720c53ed6fe8a13e86b5cc0ca88adb4e2d6ca817bd11c44ec33d4b7",
+      "source": "legacy:textures/model/remnant/remnant_banker.png"
+    },
+    "textures/model/remnant/remnant_blacksmith.png": {
+      "sha256": "3ba8a922b1fc634d9119ca5d539777c1a81b693f0b5e25cc2b975af55451d1af",
+      "source": "legacy:textures/model/remnant/remnant_blacksmith.png"
+    },
+    "textures/model/remnant/remnant_butcher.png": {
+      "sha256": "fddfa8c54c904245a3b716c2c0e52f579806796ea4acbf4fafdf8f3f881c491b",
+      "source": "legacy:textures/model/remnant/remnant_butcher.png"
+    },
+    "textures/model/remnant/remnant_librarian.png": {
+      "sha256": "a3468c171c330adc5cf92d63ae894ace6d9f2f42c7ef770526412b29fd974872",
+      "source": "legacy:textures/model/remnant/remnant_librarian.png"
+    },
+    "textures/model/remnant/remnant_master_blacksmith.png": {
+      "sha256": "38dfa037efd2f773a8f134670948bfae650984a6e83a9ba0e829bbe01b8b66be",
+      "source": "legacy:textures/model/remnant/remnant_master_blacksmith.png"
+    },
+    "textures/model/remnant/remnant_priest.png": {
+      "sha256": "c00f56535556ab162f5772e18946212d2392f971ee85c1821ced14984dbac244",
+      "source": "legacy:textures/model/remnant/remnant_priest.png"
+    },
     "textures/model/shadowcreature.png": {
       "sha256": "29db9ccf50c87f4e848794f35a87cac6bb5740f7922a4a47874a477c96c8a006",
       "source": "legacy:textures/model/shadowcreature.png"
     },
     "textures/model/shadowcreature_eyes.png": {
-      "sha256": "8c94e44d10b66b89056df0208a47194f6317f99e38ec754ae5f15a46ac9fb13a",
-      "source": "ported-or-authored"
+      "sha256": "93da84222b80b6267da9b46a2d753c81f0a80f89a1ba9805212b29449b986599",
+      "source": "legacy:textures/model/shadowcreature_eyes.png"
     },
     "textures/model/shadowmonster.png": {
       "sha256": "76972c7a408c076cba397b476bd16989b4536948d44b8603c07bd2e3f3c46d84",
       "source": "legacy:textures/model/shadowmonster.png"
     },
     "textures/model/shadowmonster_eyes.png": {
-      "sha256": "653869553fd904f62982a2ddf750107bc10e646172972e301d8ab53e11f73274",
-      "source": "ported-or-authored"
+      "sha256": "7bd54c04d44be967e9712d2af83fc7b5714c478206ee11067440726d28f10093",
+      "source": "legacy:textures/model/shadowmonster_eyes.png"
     },
     "textures/model/shoggoth/abyssalshoggoth.png": {
       "sha256": "615679581fab7b906ef71b09e0123b46df8658eddd3988e00b52e478cfe2762e",
@@ -4450,6 +5066,10 @@
       "sha256": "f0a5df74804a1dba9bff8b6899bc21fb181733302bda4bd9830523cace5fd329",
       "source": "legacy:textures/model/spawn_of_chagaroth.png"
     },
+    "textures/model/staff.png": {
+      "sha256": "4d012233af6c59efb438a25e49de5cdc0e5364b6909d07d4c2727c4c34c58376",
+      "source": "legacy:textures/model/staff.png"
+    },
     "textures/model/tentacles.png": {
       "sha256": "1218ac148627b204dc5fc2610d144f6aff5275382c3bf6e0b53dfa763a2afb9a",
       "source": "legacy:textures/model/tentacles.png"
@@ -4463,8 +5083,8 @@
       "source": "legacy:textures/armor/abyssalnite_2.png"
     },
     "textures/models/armor/depths_layer_1.png": {
-      "sha256": "e7da4b773e8b0352601bf7dc1edb37a1699156f0c5abfb7a4b3e0133662d59b4",
-      "source": "ported-or-authored"
+      "sha256": "08d6e2720bca167c5a1876d1fefa4625244618d8ee771b2ba4c6f902d3cac15c",
+      "source": "legacy:textures/armor/depths_1_inner.png"
     },
     "textures/models/armor/depths_layer_1_outer.png": {
       "sha256": "66c18d2a3df6bc989e9c7a51dd81f9b7465c03c67be587159383ecde8845f49c",
@@ -4495,16 +5115,16 @@
       "source": "legacy:textures/armor/dreadiums_2.png"
     },
     "textures/models/armor/ethaxium_layer_1.png": {
-      "sha256": "a6d9428c709c8c246b60315efc3e2ae76e1d509cd813fe523ebd512ffb713617",
-      "source": "ported-or-authored"
+      "sha256": "286b45383196fb454f121b7508ddf76b7b397e2828fd8c7236939dea2986ae12",
+      "source": "legacy:textures/armor/ethaxium_1.png"
     },
     "textures/models/armor/ethaxium_layer_2.png": {
       "sha256": "bcaf9dd24aeb87e82f402a25fa33cb57af737b31dd742dd19c37a85becac736b",
       "source": "legacy:textures/armor/ethaxium_2.png"
     },
     "textures/models/armor/plated_coralium_layer_1.png": {
-      "sha256": "ce3527ae2b91831af79227aa3c368cb927b43618d3a96cdbb3bbef5aba33569f",
-      "source": "ported-or-authored"
+      "sha256": "b70f9d7db127a25e5683deac21a1948f80190565ca6e6091401f7e931cc42e8d",
+      "source": "legacy:textures/armor/coraliump_1.png"
     },
     "textures/models/armor/plated_coralium_layer_2.png": {
       "sha256": "a69fe06af74f719fde9fe88b92d18bdca35f288a643d36cce3c48e5ac3a02b11",
@@ -4587,7 +5207,7 @@
       "source": "datagen"
     },
     "blockstates/abyssal_wasteland_energy_pedestal.json": {
-      "sha256": "3e9bd2045ff1eaf8ab03f0363a9efdfc9beade0c2842e64247257d7d83d19616",
+      "sha256": "5c9031771b5923522ea6b9cbd86d32b768cdf2b4233f3ca09cf6fb1f4b5729a1",
       "source": "datagen"
     },
     "blockstates/abyssal_wasteland_energy_relay.json": {
@@ -4650,10 +5270,6 @@
       "sha256": "1e0348517b2d0d42d60cbca9f20b57025ff4f9b029e6d01a9aa0fab55dfe4856",
       "source": "datagen"
     },
-    "blockstates/chiseled_dark_ethaxium_brick.json": {
-      "sha256": "75687878e223fba442174e7be6f599b1f8e64048e6a8c16bab8c5c04d36188d2",
-      "source": "datagen"
-    },
     "blockstates/chiseled_darkstone_brick.json": {
       "sha256": "eea2ba9704a904dcb81eaa76b35d8ec712e591732e814fd7e8d14c48f88df0e1",
       "source": "datagen"
@@ -4664,10 +5280,6 @@
     },
     "blockstates/chiseled_elysian_stone_brick.json": {
       "sha256": "f14a37a74ea7f7b5bc7eeb1e6e3866594ff353b7cde6e3aaa7e6057e0f745113",
-      "source": "datagen"
-    },
-    "blockstates/chiseled_ethaxium_brick.json": {
-      "sha256": "be6e41c89349b8b0f9e30af18e5d9032a765c751df86dd029042cded8075de40",
       "source": "datagen"
     },
     "blockstates/copper_crystal_cluster.json": {
@@ -4730,10 +5342,6 @@
       "sha256": "72af0c4a8cf1b884e26f8607531afba0b37f16f66a8961315831a98cd326aa65",
       "source": "datagen"
     },
-    "blockstates/cracked_dark_ethaxium_brick.json": {
-      "sha256": "e5deee041924b442c09a90fd28c154ee7350c0a53c9bf2dfff3e02beac74f669",
-      "source": "datagen"
-    },
     "blockstates/cracked_darkstone_brick.json": {
       "sha256": "f0ce96d720f4a41571964ac36945bf08178c469c74016ad6676f6106f7e11727",
       "source": "datagen"
@@ -4746,24 +5354,16 @@
       "sha256": "068616c1cc7b75e524b83bad374ec2d4055fbeb0564024e43e3ab9067bb585bb",
       "source": "datagen"
     },
-    "blockstates/cracked_ethaxium_brick.json": {
-      "sha256": "12ea4b04081700d6f7d5354b518eed9145de0808d19b8f34df9862c86c8b8430",
-      "source": "datagen"
-    },
-    "blockstates/dark_ethaxium_brick.json": {
-      "sha256": "7e8c66f9bef1faaab14519a2efa6cff2594f134e3224cb48a2d2d60c8009447e",
-      "source": "datagen"
-    },
     "blockstates/dark_ethaxium_brick_fence.json": {
       "sha256": "d448440a09b88c594e30ea4fb71d6222e3ba7fe92769ae6a1a790bce14676caf",
       "source": "datagen"
     },
     "blockstates/dark_ethaxium_brick_slab.json": {
-      "sha256": "e814d7f29e37aa117ffeaa60f8af077ade9371498c2ba8bb70a6e8e543fdbb52",
+      "sha256": "4a0f47faa72c42c0b183a675824bbcb786cc568a5e55a7a06a7021a195649e56",
       "source": "datagen"
     },
     "blockstates/dark_ethaxium_brick_stairs.json": {
-      "sha256": "02ea10518816e5bcf0fd575aee69a3e17eaf476bb46ec007bff093e7adce0fe1",
+      "sha256": "a7b75796d51ccc00272f11657bc9700c925214735083dcfdbcc224e0bc91e14e",
       "source": "datagen"
     },
     "blockstates/dark_ethaxium_pillar.json": {
@@ -4883,7 +5483,7 @@
       "source": "datagen"
     },
     "blockstates/dreadlands_energy_pedestal.json": {
-      "sha256": "c8db9e4b7db2684a0b73e9773b43b841bdc0f1d8560bebf5fc1073f481547663",
+      "sha256": "39c9388555602749e9037f77b0ac95c9210d206379faca7b679080377538415d",
       "source": "datagen"
     },
     "blockstates/dreadlands_energy_relay.json": {
@@ -5023,7 +5623,7 @@
       "source": "datagen"
     },
     "blockstates/energypedestal.json": {
-      "sha256": "a034e8d165923eda913eca247777d4b406591457f715c0d194b5432cc06ab6f5",
+      "sha256": "a75bfc7670b9bffd7cc39aa1a1f3ea4a9a80bc0562e7e7bc30fb702e04934954",
       "source": "datagen"
     },
     "blockstates/energyrelay.json": {
@@ -5039,15 +5639,11 @@
       "source": "datagen"
     },
     "blockstates/ethaxium_brick_slab.json": {
-      "sha256": "e0547e68ff2fac1323de29429b8ecce34ba6eae6708912dcb50bcdf8255c0ca4",
+      "sha256": "59f15ffe7c4d082d4304b210923ff69b441e9778066f1af8ba7c7037ca5db762",
       "source": "datagen"
     },
     "blockstates/ethaxium_brick_stairs.json": {
-      "sha256": "99b178adefff8625faa116441f376d7e16b782a1a56ce796a25017544145e4ab",
-      "source": "datagen"
-    },
-    "blockstates/ethaxium_bricks.json": {
-      "sha256": "1fe01f120bec0410b38bd4d7646adb3ce03d81d4a1f9d14719b0e0049a356605",
+      "sha256": "1d4d1cfbf2f7fc4001773236dbe0912effbe168157af58ae6bea04611c1372c9",
       "source": "datagen"
     },
     "blockstates/ethaxium_pillar.json": {
@@ -5123,7 +5719,7 @@
       "source": "datagen"
     },
     "blockstates/omothol_energy_pedestal.json": {
-      "sha256": "ccfb811b77936d1471e105de10ddd72149ce4f2d6684eb89a9609c5296c2b57d",
+      "sha256": "c0fe978b3c28cd80fca6b6ce921a5b8b1f6d15ffb8264ece180197c62d64faba",
       "source": "datagen"
     },
     "blockstates/omothol_energy_relay.json": {
@@ -5143,7 +5739,7 @@
       "source": "datagen"
     },
     "blockstates/overworld_energy_pedestal.json": {
-      "sha256": "86cb5774d9ceeb375d3a19e3f9c02902da7b2e6e81099241d4fde40439f3aa9b",
+      "sha256": "1fab3cfaaef0ee5f46c35db57de8c1faace4b03e2617928f500626c642cb6a49",
       "source": "datagen"
     },
     "blockstates/overworld_energy_relay.json": {
@@ -5315,7 +5911,11 @@
       "source": "datagen"
     },
     "models/block/abyssal_wasteland_energy_pedestal.json": {
-      "sha256": "f520cbcc8a042b566e387e19bce2777b5751d2d2e2e1e979b4d95bcff9411b00",
+      "sha256": "7fb69552c376d3509a358e6c6f0d80031ca79c7b5cdb8574d3978e067131e731",
+      "source": "datagen"
+    },
+    "models/block/abyssal_wasteland_energy_pedestal_tilted.json": {
+      "sha256": "61e21d4d651976d16b98ebaf7f91e2562bfd487aa5b673c0dadf54284df00095",
       "source": "datagen"
     },
     "models/block/abyssal_wasteland_energy_relay.json": {
@@ -5346,10 +5946,6 @@
       "sha256": "7e03a32ff064f737e7f0461ce824ed1d56ae99cbc2e5edba5cf82fcd171e9162",
       "source": "datagen"
     },
-    "models/block/chiseled_dark_ethaxium_brick.json": {
-      "sha256": "aa95015a9dc3fffb53a9d3fc0b87824f702172bece2246632041210cf1230695",
-      "source": "datagen"
-    },
     "models/block/chiseled_darkstone_brick.json": {
       "sha256": "e3a68d4d96ab972ef0491df4d15441a1aec1e66566fd60cd821f60be55582c2b",
       "source": "datagen"
@@ -5360,10 +5956,6 @@
     },
     "models/block/chiseled_elysian_stone_brick.json": {
       "sha256": "a73d8ffa165e42d567f6c5ed4c81fbba614db118f86af65f11640e74a7551f0f",
-      "source": "datagen"
-    },
-    "models/block/chiseled_ethaxium_brick.json": {
-      "sha256": "55531d52decd3584b9fcbe00c6b310ecca5594d26376eff8a7838be4f749a47a",
       "source": "datagen"
     },
     "models/block/coralium_cobblestone.json": {
@@ -5482,10 +6074,6 @@
       "sha256": "39f4c9261597597a39bf0cd8d1b046bfd7105bfb766abc81ced1b5b69fde1a75",
       "source": "datagen"
     },
-    "models/block/cracked_dark_ethaxium_brick.json": {
-      "sha256": "dcb4bc1ee38c3f585b7b83c4181855d7db6122d613a32ac5f7438eb7b3f88bf7",
-      "source": "datagen"
-    },
     "models/block/cracked_darkstone_brick.json": {
       "sha256": "1d02cc29e9c382e2e3bf22f309240b67eb4c122dcc4593dc7cd31e5fe90d50b0",
       "source": "datagen"
@@ -5496,14 +6084,6 @@
     },
     "models/block/cracked_elysian_stone_brick.json": {
       "sha256": "6f3dd6b13c593471c36393a7bf80d0c1f7570848b0fefcf3562202c8f4c66be5",
-      "source": "datagen"
-    },
-    "models/block/cracked_ethaxium_brick.json": {
-      "sha256": "ab1c831f332fe532a44475fd3812011bdfb61def99b1c273348265c5c46d1e70",
-      "source": "datagen"
-    },
-    "models/block/dark_ethaxium_brick.json": {
-      "sha256": "958e9ab070d1c5d738ed223b3519d20ab2c54cb6cba5ecd9ee4482063b959b95",
       "source": "datagen"
     },
     "models/block/dark_ethaxium_brick_fence_inventory.json": {
@@ -5519,27 +6099,75 @@
       "source": "datagen"
     },
     "models/block/dark_ethaxium_brick_slab.json": {
-      "sha256": "850eea0e3b3c6c1da827d7fa84f16e113b6999709572c2bae80196d69b5b10aa",
+      "sha256": "9632e44537f5369e010faa55cdca83f66e3147e3f431e0cacf76f6a56da4c2e1",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_slab_2.json": {
+      "sha256": "5bc9ece4c59635242f72ef294160896fb0e75c37fb2c728ca63c3cf252a88f81",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_slab_3.json": {
+      "sha256": "2428e43420163c82e3c6dac3304cb98a04b1b375b860f908a1ab3410c62c490e",
       "source": "datagen"
     },
     "models/block/dark_ethaxium_brick_slab_double.json": {
-      "sha256": "958e9ab070d1c5d738ed223b3519d20ab2c54cb6cba5ecd9ee4482063b959b95",
+      "sha256": "d60a1941e6ec5e30c97e1ada74b98be831ec442d9ab8b24fa71756a55a126c89",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_slab_double_2.json": {
+      "sha256": "35b35a2f29a59936f9d08ac6f5a31681b8a3036380ec9af18bf46be2add16100",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_slab_double_3.json": {
+      "sha256": "0fb9eec7296c35009a220a0d3a20464268e95653f4d5249eb1c26d4c3867eefa",
       "source": "datagen"
     },
     "models/block/dark_ethaxium_brick_slab_top.json": {
-      "sha256": "595ca0e3b1bc189118904da6523b8e6dccf0ccd7fa55d97f33a3377f7a7b6606",
+      "sha256": "7d71c679b2215a166fd9207a79a9983fdb980c8e44916f861e650fb39b09c085",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_slab_top_2.json": {
+      "sha256": "f5efdcd909ba97e4fad1d27b57f0df3740742423e499303f298ef0413f060ff5",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_slab_top_3.json": {
+      "sha256": "edbe1abe83d5be0078732db1af6cb0c7ae38d695f76ff1a2f0e2eca2e365c6b2",
       "source": "datagen"
     },
     "models/block/dark_ethaxium_brick_stairs.json": {
-      "sha256": "bbe58ebd51972809ab2ebdbd798d146156a0c6cff7d48409a6c74147cabe41ad",
+      "sha256": "2c355bf823ae7b98c0f2f542b6abd249bfb21168d2381943d86455ab450c4e4b",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_stairs_2.json": {
+      "sha256": "4c592df4e4cb7af2642c13e995340a0564640435221b0d70b3e7591d137b1898",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_stairs_3.json": {
+      "sha256": "c3f9fbeb5b7af1bb24503963ea5b8f9188178b32daf0655cc6b3449d015f78e2",
       "source": "datagen"
     },
     "models/block/dark_ethaxium_brick_stairs_inner.json": {
-      "sha256": "cccce7b1d1ff4b4b0cfedd1efe7a35904b61c2dd471ef99cd9bd1a50f98f0bcd",
+      "sha256": "045a9873cd0339ea68781a89d87af7f330750037baf2b6f2fbc5c8ddd9dee7f8",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_stairs_inner_2.json": {
+      "sha256": "5da91f9220beb884d9dd195d0861bd41f7fa3cae3ffed2a75d9f385aa12fa40f",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_stairs_inner_3.json": {
+      "sha256": "929e3d79f54c57d189594f5036135eb410ad28df6c18a64c4aca630b13ac92bc",
       "source": "datagen"
     },
     "models/block/dark_ethaxium_brick_stairs_outer.json": {
-      "sha256": "ea0afce3ddc8fe784044aa78f02310b527df473033d308307b7058db815d98d8",
+      "sha256": "b4635e4105badecfb759445aa6fffb79dba5c3732bff49b3ff2ebfd6f022abc4",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_stairs_outer_2.json": {
+      "sha256": "2298a783c5bc62385e587d900d84d6940f27f0ca205b6e7693b9a6e073d87315",
+      "source": "datagen"
+    },
+    "models/block/dark_ethaxium_brick_stairs_outer_3.json": {
+      "sha256": "b694be4b550ba2d54e402027eb84cf965fe0c8b63b975661ca05f0062d739d3f",
       "source": "datagen"
     },
     "models/block/dark_ethaxium_pillar.json": {
@@ -5623,7 +6251,7 @@
       "source": "datagen"
     },
     "models/block/darklands_oak_log.json": {
-      "sha256": "f68f70f7c794f7d736d2be82e22b3a837e474006c1feced1829aaa8eed4253b3",
+      "sha256": "6a633f9446a7584c8b451293b63f852cbafdf49dc735e67b05a0a016bed7d7aa",
       "source": "datagen"
     },
     "models/block/darklands_oak_planks.json": {
@@ -5775,15 +6403,15 @@
       "source": "datagen"
     },
     "models/block/darkstone_slab.json": {
-      "sha256": "5ecdc05da3ceefe1770305bb6300eaaf77e9c3102129bca25c3235e5aa1665cf",
+      "sha256": "4e17efbf7a72d6a6565c7d7ec6a768c97a5acfd9fc67ec036b99eb4835e07060",
       "source": "datagen"
     },
     "models/block/darkstone_slab_double.json": {
-      "sha256": "05847e8fd7aae891967d033842f8cf3a393fd678fbcecbcf11593faf3926c10b",
+      "sha256": "116e58de6a812552f1cb4427676cf8e1068d2b7279268ba10d2e7ac12d92940a",
       "source": "datagen"
     },
     "models/block/darkstone_slab_top.json": {
-      "sha256": "785ea9cdee13c5bc7bf2dee4cbbd888274e8b0830b8ccde2732350cd04ab4d41",
+      "sha256": "d7ddd1028bedc163c128ffa9f00ba59ab5a3115119e883ebc71dea03602c1e1f",
       "source": "datagen"
     },
     "models/block/dead_tree_log.json": {
@@ -5803,7 +6431,11 @@
       "source": "datagen"
     },
     "models/block/dreadlands_energy_pedestal.json": {
-      "sha256": "f520cbcc8a042b566e387e19bce2777b5751d2d2e2e1e979b4d95bcff9411b00",
+      "sha256": "fa1eb4760f0b121879f98d63280b91687328937003769e7d21de4c31cc5f2796",
+      "source": "datagen"
+    },
+    "models/block/dreadlands_energy_pedestal_tilted.json": {
+      "sha256": "040407060830ccd5522cfa31c2686ba6c3745a1b38dd04b5af716f19f498b350",
       "source": "datagen"
     },
     "models/block/dreadlands_energy_relay.json": {
@@ -6122,10 +6754,6 @@
       "sha256": "d7f434545e451d08b88e3383f777579e5c4c3e709cfe8644acd896e68402107d",
       "source": "datagen"
     },
-    "models/block/energypedestal.json": {
-      "sha256": "f520cbcc8a042b566e387e19bce2777b5751d2d2e2e1e979b4d95bcff9411b00",
-      "source": "datagen"
-    },
     "models/block/energyrelay.json": {
       "sha256": "e066fc717fb84a1e08c30dcdb8e00d71d3e1c510a37e6eab0d9d45e4d286e2a0",
       "source": "datagen"
@@ -6135,43 +6763,87 @@
       "source": "datagen"
     },
     "models/block/ethaxium_brick_fence_inventory.json": {
-      "sha256": "737924ead5c82c04b08205fb5748336d3547bf296306857c984c6f40e4ff00bf",
+      "sha256": "575f289754c3ce1f510139df2899cca83d5c377ae9c4eb2d718212e7c4c24df8",
       "source": "datagen"
     },
     "models/block/ethaxium_brick_fence_post.json": {
-      "sha256": "0e195b03826640e9247f348ae8889f0fff8eeff08eb25ca35e9fb87a82b7e8b5",
+      "sha256": "03fa943ab215e26fe0fc3c8aff3abe2e1e7aac9a34cecea4f787b830e3f45a25",
       "source": "datagen"
     },
     "models/block/ethaxium_brick_fence_side.json": {
-      "sha256": "14a1ea07e559d5400a4def4da62a23b7714499547eb4b5707bf0766581883b54",
+      "sha256": "465fa7c86d85a8b1fb55e51ec50d4e93a9bbf9daa9c30c49139d35dc68e68816",
       "source": "datagen"
     },
     "models/block/ethaxium_brick_slab.json": {
-      "sha256": "df8cf6f76badc331c3a4b0e496a4991558ff808bcf91cbeeaefa4238f135331e",
+      "sha256": "c7fe8ac56be22f0831bf1f7d2905fec281d3c0842224a50740fb9981dd3ac894",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_slab_2.json": {
+      "sha256": "93c81750fc511e3e23d9e1a898f1f1cb8b31591cee8add56927852a6a8070277",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_slab_3.json": {
+      "sha256": "ca4e85589d24827fa7d769b4dbf8c4ec13751613d6c5c17414fbe5061fc9604d",
       "source": "datagen"
     },
     "models/block/ethaxium_brick_slab_double.json": {
-      "sha256": "eaacb7b1ec2076cc7c09633d82e15ddd170456d51e211cf9d2d6f7ae128fb7fb",
+      "sha256": "41c75a41b41c66520350acdf968550877daa8bde6ebcd663ec4deb110b00bfab",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_slab_double_2.json": {
+      "sha256": "25abf96a877ca08dc98db7435061dd81da870e700a655f0a5682440a089f5640",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_slab_double_3.json": {
+      "sha256": "5131ade2fa82b62df7be53da6775bc8b6c433499da4222ce651c805c8fc172f5",
       "source": "datagen"
     },
     "models/block/ethaxium_brick_slab_top.json": {
-      "sha256": "47323a79c251594c4a79bbdc27d4c294570d94d9d27586687828561dab8d4d66",
+      "sha256": "0bfb0e9668bd53fd9c00d436cbc3617331b7318d7c29906deed5d00bef578aa6",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_slab_top_2.json": {
+      "sha256": "c53696c1852498fdb5ca1acd0c01cfb62d75c4860b579dc3a021087f5627de2b",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_slab_top_3.json": {
+      "sha256": "4aded213f9c1fa392ba91916fd7199e0206cc63ace03202a11cfcf037cf9a68c",
       "source": "datagen"
     },
     "models/block/ethaxium_brick_stairs.json": {
-      "sha256": "22995b8424099265a1431e7ef3647a24d223c172407799804290cedb767ee567",
+      "sha256": "c9c56b21a126c6bef5b627c85f3ab869b864e5ba0b2102c834ecd2a2746ec36a",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_stairs_2.json": {
+      "sha256": "f2d8dce426ae7af05914034eea33a59971d6259dd43d31c9e86df7ea0a3e57de",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_stairs_3.json": {
+      "sha256": "a72621607207d568b13f6c182daf86d12705e41fd132b9d923c1407d59f5492f",
       "source": "datagen"
     },
     "models/block/ethaxium_brick_stairs_inner.json": {
-      "sha256": "477eb0fbcc795e30f00ce2b0870c03bfcaf9f6041e56ba03508b3a33d9da351b",
+      "sha256": "ffb3c7e2fbe98d4b8790ad165090c598918099c897edb54da3c5b2e36dacb430",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_stairs_inner_2.json": {
+      "sha256": "d20bc370bebd394379422af5c6448039cbfb4cc568332817981068af99a86176",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_stairs_inner_3.json": {
+      "sha256": "7208e63239cef6ed3e19b23676f93426d972aa9999cfcd524552f98b5b26ed0c",
       "source": "datagen"
     },
     "models/block/ethaxium_brick_stairs_outer.json": {
-      "sha256": "ea0c7901c8b9060af5d3a0ebb5aab8a3b38c1a793d7078c8167148d5ede13ebf",
+      "sha256": "12ec99cc3942a9e3b04ce94b8c29014d3dd09b51d43891776263252f6790ca06",
       "source": "datagen"
     },
-    "models/block/ethaxium_bricks.json": {
-      "sha256": "eaacb7b1ec2076cc7c09633d82e15ddd170456d51e211cf9d2d6f7ae128fb7fb",
+    "models/block/ethaxium_brick_stairs_outer_2.json": {
+      "sha256": "60bde7c7b643b7b65e2c83e3ad72d25352b1127fc557c482fb9848a3dcd3fcc3",
+      "source": "datagen"
+    },
+    "models/block/ethaxium_brick_stairs_outer_3.json": {
+      "sha256": "a5f5a06c2f55d251dc8cd88a890ba7d6a1481a4a892a5a05ca2868743de1252c",
       "source": "datagen"
     },
     "models/block/ethaxium_pillar.json": {
@@ -6199,7 +6871,7 @@
       "source": "datagen"
     },
     "models/block/multi_block.json": {
-      "sha256": "5b69093540ec64ef078b6f88631bebc72c1b3d0b328837798fafd2be34942827",
+      "sha256": "edadacbd6bb324ad1b2b521282e243937dffcd0091f2c720e0e1c57d6f997d3c",
       "source": "datagen"
     },
     "models/block/omothol_energy_collector.json": {
@@ -6211,7 +6883,11 @@
       "source": "datagen"
     },
     "models/block/omothol_energy_pedestal.json": {
-      "sha256": "f520cbcc8a042b566e387e19bce2777b5751d2d2e2e1e979b4d95bcff9411b00",
+      "sha256": "cd67a85cbee56155b3b1f40ef49ad3f843c8a2f15c839801266107c8be5db11a",
+      "source": "datagen"
+    },
+    "models/block/omothol_energy_pedestal_tilted.json": {
+      "sha256": "e74a1d0581f296b7cace6d607ed8b20602984a2bdf89407a0dab98265de6d8c6",
       "source": "datagen"
     },
     "models/block/omothol_energy_relay.json": {
@@ -6231,7 +6907,11 @@
       "source": "datagen"
     },
     "models/block/overworld_energy_pedestal.json": {
-      "sha256": "f520cbcc8a042b566e387e19bce2777b5751d2d2e2e1e979b4d95bcff9411b00",
+      "sha256": "a2de535722b74b8b9835960a8b313dbc669d1ce257504a790caee6f40a8583f6",
+      "source": "datagen"
+    },
+    "models/block/overworld_energy_pedestal_tilted.json": {
+      "sha256": "078e0f89b0a04d8a9b0a22ac869b56c3ee87aa959c414d8302e26a63921de85f",
       "source": "datagen"
     },
     "models/block/overworld_energy_relay.json": {
@@ -6510,10 +7190,6 @@
       "sha256": "a53dafa5833f0c74276f4dd211f032c7ed8dcdae0e212c7eb84ffa17d8dfe13d",
       "source": "datagen"
     },
-    "models/item/chiseled_dark_ethaxium_brick.json": {
-      "sha256": "34636407fb9983a008c250a1c8b6285818027260649909cc02e4f1a1912c9638",
-      "source": "datagen"
-    },
     "models/item/chiseled_darkstone_brick.json": {
       "sha256": "7a25e4c33d90062cff7a40a4f96577131397837e93540f573b87582ce93b75db",
       "source": "datagen"
@@ -6524,10 +7200,6 @@
     },
     "models/item/chiseled_elysian_stone_brick.json": {
       "sha256": "7a9b3c5bea1e97c6123dce77c6712f0fed08597b5a380c7955142d2f12cb4a69",
-      "source": "datagen"
-    },
-    "models/item/chiseled_ethaxium_brick.json": {
-      "sha256": "9baa039e5c6de532a452300440d78791572a01f4d9477aa97453711573a7085b",
       "source": "datagen"
     },
     "models/item/cooked_generic_meat.json": {
@@ -6602,10 +7274,6 @@
       "sha256": "f81a00329e486e7a3e3034b22f2d4837195fd5461abb413f0eda98320d9ad885",
       "source": "datagen"
     },
-    "models/item/cracked_dark_ethaxium_brick.json": {
-      "sha256": "ceddebca3db23c1552c6a42a3a64ecc1c8d80746e52addba445237e201e24b7b",
-      "source": "datagen"
-    },
     "models/item/cracked_darkstone_brick.json": {
       "sha256": "7abb1a1c33dda7176b937cc6ad96da1e97b26c50288d9e3a87e5e6f3d2b52706",
       "source": "datagen"
@@ -6616,10 +7284,6 @@
     },
     "models/item/cracked_elysian_stone_brick.json": {
       "sha256": "0b9ef178e8896d9f9f9ca316886fa462d972a452fd59d26645c0f27d429200fa",
-      "source": "datagen"
-    },
-    "models/item/cracked_ethaxium_brick.json": {
-      "sha256": "8153b6e0958b4911d25a0deb471c6e6581895b39cba1a892f14b50a3d13cd8ce",
       "source": "datagen"
     },
     "models/item/cthulhucharm.json": {
@@ -6636,14 +7300,6 @@
     },
     "models/item/cthulhucharm_range.json": {
       "sha256": "594484c5f66d532d9f5575c494e28d3985f9958c08eb1754cb83ffa38e8bc3b2",
-      "source": "datagen"
-    },
-    "models/item/cudgel.json": {
-      "sha256": "949ac2e442313c00af809c6219cc6950c5c9ac293420ed67ac55422c4ff1e566",
-      "source": "datagen"
-    },
-    "models/item/dark_ethaxium_brick.json": {
-      "sha256": "359da7da2555c53878fa1c6e8847e4120e05ce5c29b2607907599dfc3a8da080",
       "source": "datagen"
     },
     "models/item/dark_ethaxium_brick_fence.json": {
@@ -6983,7 +7639,7 @@
       "source": "datagen"
     },
     "models/item/energypedestal.json": {
-      "sha256": "9468623cd2b767be2944a42e1d489711dc5b75ce1e0655e4f71cbfee61c806b6",
+      "sha256": "6dc7df3e56b0be79b240ec06511ceacc206fd1211bb613afe5c17c482cb28bff",
       "source": "datagen"
     },
     "models/item/energyrelay.json": {
@@ -7012,10 +7668,6 @@
     },
     "models/item/ethaxium_brick_stairs.json": {
       "sha256": "adf8c4c13c972e0884ef58460811df586be2d253ba978195fa7fd324f2f4db10",
-      "source": "datagen"
-    },
-    "models/item/ethaxium_bricks.json": {
-      "sha256": "eac230021e277b0671155e085a0ab8f5e7b6e78bf5c78762f0e7155ce8877c94",
       "source": "datagen"
     },
     "models/item/ethaxium_hoe.json": {

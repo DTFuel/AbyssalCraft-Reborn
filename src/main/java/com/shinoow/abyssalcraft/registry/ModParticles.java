@@ -15,12 +15,8 @@ import com.shinoow.abyssalcraft.platform.ModRegistrar;
  * attached via {@code ModRegistries.ALL}. The client provider (which needs a {@code SpriteSet}) is wired
  * separately through {@link com.shinoow.abyssalcraft.platform.ParticleCompat} on the client only.
  *
- * <p>Scope note: the 1.12.2 mod had three custom particles -- {@code ACParticleFX} (soft white fade),
- * {@code BlueFlameParticle} (a tinted ritual flame) and {@code PEStreamParticleFX} / {@code ItemRitualParticle}
- * (coloured / item-icon particles carrying per-instance data). {@link #ABYSSAL_FX} and {@link #BLUE_FLAME} are
- * concrete no-payload {@link SimpleParticleType}s here; the coloured PE stream reuses vanilla {@code dust} and
- * the item-ritual particle reuses vanilla {@code item} (both carry data through the vanilla payload), so no
- * further custom particle types are needed (RR-CLIENT-FX).
+ * <p>The three no-payload types retain distinct legacy physics: white AC sparks, blue ritual flames and the
+ * coloured PE stream. Item ritual particles continue to use the vanilla item payload.
  */
 public final class ModParticles {
 
@@ -44,4 +40,8 @@ public final class ModParticles {
      */
     public static final Supplier<SimpleParticleType> BLUE_FLAME =
         PARTICLES.register("blue_flame", () -> new SimpleParticleType(false) {});
+
+    /** Coloured Potential Energy stream, faithful to 1.12.2 {@code PEStreamParticleFX}. */
+    public static final Supplier<SimpleParticleType> PE_STREAM =
+        PARTICLES.register("pe_stream", () -> new SimpleParticleType(false) {});
 }

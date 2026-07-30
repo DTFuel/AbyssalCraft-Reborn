@@ -7,7 +7,7 @@ import java.util.Set;
 /** Definition-to-production-consumer closure for every registered configuration key. */
 public final class ConfigClosureAudit {
 
-    public static final int DEFINED = 145;
+    public static final int DEFINED = 146;
 
     public record Consumer(String owner, String symbol) {}
 
@@ -62,6 +62,7 @@ public final class ConfigClosureAudit {
         put(entries, "RR-WORLD", "keepLoaded4", "DimensionLoadingCompat#sync(dark_realm)");
         put(entries, "RR-WORLD", "startDimension", "DimensionDataRegistry#configuredStartDimension");
         put(entries, "RR-WORLD", "darklandsRegionWeight", "DarklandsWorldgenCompat#registerRegions");
+        put(entries, "RR-WORLD", "worldgenConfigMigrationVersion", "WorldgenConfigMigration#migrate");
         put(entries, "RR-WORLD", "generateDarklandsStructures", "WorldgenConfigGate#allowsStructure");
         put(entries, "RR-WORLD", "generateShoggothLairs", "WorldgenConfigGate#allowsStructure");
         put(entries, "RR-WORLD", "generateAbyssalWastelandPillars", "WorldgenConfigGate#allowsPlacedFeature");
@@ -85,9 +86,9 @@ public final class ConfigClosureAudit {
         put(entries, "RR-WORLD", "generateAbyssalNitreOre", "WorldgenConfigGate#allowsPlacedFeature(ore_abyssal_nitre)");
         put(entries, "RR-WORLD", "generatePearlescentCoraliumOre", "WorldgenConfigGate#allowsPlacedFeature(ore_pearlescent_coralium)");
         put(entries, "RR-WORLD", "generateLiquifiedCoraliumOre", "WorldgenConfigGate#allowsPlacedFeature(ore_liquified_coralium)");
-        put(entries, "RR-WORLD", "shoggothLairSpawnRate", "WorldgenConfigGate#allowsStructure(SHOGGOTH_PIT)");
-        put(entries, "RR-WORLD", "shoggothLairSpawnRateRivers", "WorldgenConfigGate#allowsStructure(SHOGGOTH_PIT_RIVER)");
-        put(entries, "RR-WORLD", "shoggothLairGenerationDistance", "WorldgenConfigGate#allowsStructure(SHOGGOTH_PIT)");
+        put(entries, "RR-WORLD", "shoggothLairSpawnRate", "WorldgenConfigGate#passesLairPlacement(SHOGGOTH_PIT)");
+        put(entries, "RR-WORLD", "shoggothLairSpawnRateRivers", "WorldgenConfigGate#passesLairPlacement(SHOGGOTH_PIT_RIVER)");
+        put(entries, "RR-WORLD", "shoggothLairGenerationDistance", "WorldgenConfigGate#lairChunkInterval");
         put(entries, "RR-WORLD", "darkShrineSpawnRate", "WorldgenConfigGate#allowsStructure(DARK_SHRINE)");
         put(entries, "RR-WORLD", "darkRitualGroundsSpawnRate", "WorldgenConfigGate#allowsStructure(DARK_RITUAL_GROUNDS)");
         put(entries, "RR-WORLD", "graveyardGenerationDistance", "WorldgenConfigGate#allowsStructure(GRAVEYARD)");

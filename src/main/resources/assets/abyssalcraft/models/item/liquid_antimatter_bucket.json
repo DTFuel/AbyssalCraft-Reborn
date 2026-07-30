@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "abyssalcraft:block/liquid_antimatter_still"
-  }
+  "parent": "__LOADER__:item/bucket",
+  "loader": "__LOADER__:fluid_container",
+  "fluid": "abyssalcraft:liquid_antimatter"
 }

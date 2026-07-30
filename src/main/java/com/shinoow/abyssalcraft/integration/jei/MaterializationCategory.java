@@ -22,40 +22,36 @@ public final class MaterializationCategory implements IRecipeCategory<Materializ
     private final RecipeType<MaterializationRecipe> type;
     private final Component title;
     private final IDrawable icon;
+    private final IDrawable background;
     private final IDrawable slot;
-    private final IDrawableAnimated arrow;
 
     public MaterializationCategory(IGuiHelper gui, RecipeType<MaterializationRecipe> type,
                                    Component title, ItemStack iconStack) {
         this.type = type;
         this.title = title;
         this.icon = gui.createDrawableItemStack(iconStack);
+        this.background = LegacyJeiBackgrounds.materialization(gui);
         this.slot = gui.getSlotDrawable();
-        this.arrow = gui.createAnimatedRecipeArrow(200);
     }
 
     @Override public RecipeType<MaterializationRecipe> getRecipeType() { return type; }
     @Override public Component getTitle() { return title; }
+    @Override public IDrawable getBackground() { return background; }
     @Override public int getWidth() { return 118; }
-    @Override public int getHeight() { return 54; }
+    @Override public int getHeight() { return 72; }
     @Override public IDrawable getIcon() { return icon; }
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, MaterializationRecipe recipe, IFocusGroup focuses) {
         int index = 0;
         for (CountedIngredient input : recipe.inputs()) {
-            int x = 1 + (index % 3) * 18;
-            int y = 10 + (index / 3) * 18;
+            int x = 3 + index * 23 + (index > 1 ? 1 : 0);
+            int y = 3;
             builder.addSlot(RecipeIngredientRole.INPUT, x, y).setBackground(slot, -1, -1)
                 .addIngredients(input.ingredient());
             index++;
         }
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 97, 19).setBackground(slot, -1, -1).addItemStack(recipe.result());
-    }
-
-    @Override
-    public void draw(MaterializationRecipe recipe, IRecipeSlotsView slotsView, GuiGraphics graphics,
-                     double mouseX, double mouseY) {
-        arrow.draw(graphics, 62, 18);
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 50, 55).setBackground(slot, -1, -1)
+            .addItemStack(recipe.result());
     }
 }

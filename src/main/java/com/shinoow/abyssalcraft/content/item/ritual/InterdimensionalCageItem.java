@@ -35,11 +35,15 @@ public final class InterdimensionalCageItem extends RitualEnergyItem {
         super(1000);
     }
 
+    public static boolean hasCapturedEntity(ItemStack stack) {
+        return ItemDataCompat.copyData(stack).contains(ENTITY_KEY, CompoundTag.TAG_COMPOUND);
+    }
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         CompoundTag root = ItemDataCompat.copyData(stack);
-        if (root.contains(ENTITY_KEY, CompoundTag.TAG_COMPOUND)) {
+        if (hasCapturedEntity(stack)) {
             if (level instanceof ServerLevel server) release(server, player, stack, root);
         } else if (level.isClientSide) {
             LivingEntity target = SpellUtils.rayTraceTarget(player, 3.0F);

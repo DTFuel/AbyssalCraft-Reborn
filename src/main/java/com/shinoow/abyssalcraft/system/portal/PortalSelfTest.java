@@ -65,6 +65,12 @@ public final class PortalSelfTest {
             "Omothol must require the Omothol Necronomicon");
         require(registry.get(ACDimensions.DARK_REALM).orElseThrow().minimumBookType() == 4,
             "Dark Realm must require the Abyssalnomicon");
+        require(registry.get(Level.OVERWORLD).orElseThrow().ritualBookType() == 0
+            && registry.get(ACDimensions.ABYSSAL_WASTELAND).orElseThrow().ritualBookType() == 1
+            && registry.get(ACDimensions.DREADLANDS).orElseThrow().ritualBookType() == 2
+            && registry.get(ACDimensions.OMOTHOL).orElseThrow().ritualBookType() == 3
+            && registry.get(ACDimensions.DARK_REALM).orElseThrow().ritualBookType() == 0,
+            "ritual altar material tiers no longer match the legacy dimension mapping");
         require(DimensionPortal.TRANSIENT_LIFETIME_TICKS == 1200
             && DimensionPortal.initialLifetime(false) == 1200
             && DimensionPortal.initialLifetime(true) < 0,

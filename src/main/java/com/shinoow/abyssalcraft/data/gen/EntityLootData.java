@@ -167,7 +167,7 @@ public final class EntityLootData implements DataProvider {
             drop("abyssalcraft:dread_fragment", 20),
             drop("abyssalcraft:dreaded_shard_of_abyssalnite", 5),
             drop("abyssalcraft:dreadium_ingot", 5),
-            drop("abyssalcraft:gatewaykeydl", 1));
+            drop("abyssalcraft:dreadkey", 1));
         addFixedDrops(tables, "sacthoth", false,
             drop("abyssalcraft:shadow_fragment", 20),
             drop("abyssalcraft:shadow_shard", 10),

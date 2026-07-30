@@ -253,7 +253,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/azathoth.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -340,7 +340,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/cthulhu.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -370,7 +370,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/azathoth.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -400,7 +400,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/cthulhu.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -430,7 +430,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/hastur.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -460,7 +460,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/jzahar.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -490,7 +490,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/nyarlathotep.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=90/180/270/0, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -520,7 +520,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/shub_niggurath.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -550,7 +550,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/yog_sothoth.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -580,7 +580,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/cthulhu.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -721,7 +721,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/hastur.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -751,7 +751,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/jzahar.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -867,7 +867,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/nyarlathotep.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=90/180/270/0, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -928,7 +928,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/shub_niggurath.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     },
     {
@@ -1216,7 +1216,7 @@
       "textures": [
         "src/main/resources/assets/abyssalcraft/textures/block/statue/yog_sothoth.png"
       ],
-      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states",
+      "stateMapping": "facing=north/east/south/west -> y=0/90/180/270, preserving legacy model offset",
       "geometryRationale": "Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation."
     }
   ]

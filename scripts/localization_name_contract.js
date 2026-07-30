@@ -5,7 +5,6 @@ const LANGUAGES = [
 // Values are ordered by LANGUAGES. These keys must not be inferred from an equal legacy English value:
 // several legacy entity names collide with unrelated blocks such as Shoggoth Ooze.
 const ENTITY_NAME_ROWS = [
-    ['pilot_mob', 'Pilot Mob', 'Criatura piloto', 'Créature pilote', 'パイロットモブ', '파일럿 몹', 'Пилотный моб', '先导生物', '先導生物'],
     ['antizombie', 'Anti-Zombie', 'Zombi de antimateria', 'Zombie d’antimatière', '反物質ゾンビ', '반물질 좀비', 'Зомби из антиматерии', '反物质僵尸', '反物質僵屍'],
     ['antiabyssalzombie', 'Anti-Abyssal Zombie', 'Zombi abisal de antimateria', 'Zombie abyssal d’antimatière', '反物質アビサルゾンビ', '반물질 심연 좀비', 'Абиссальный зомби из антиматерии', '反物质深渊僵尸', '反物質深淵僵屍'],
     ['anticreeper', 'Anti-Creeper', 'Creeper de antimateria', 'Creeper d’antimatière', '反物質クリーパー', '반물질 크리퍼', 'Крипер из антиматерии', '反物质苦力怕', '反物質苦力怕'],

@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "all": "abyssalcraft:block/darkstone_slab"
+    "bottom": "abyssalcraft:block/darkstone_slab",
+    "side": "abyssalcraft:block/darkstone_slab_side",
+    "top": "abyssalcraft:block/darkstone_slab"
   }
 }

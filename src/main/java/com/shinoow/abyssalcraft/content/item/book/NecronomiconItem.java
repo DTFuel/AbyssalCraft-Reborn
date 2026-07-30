@@ -74,17 +74,18 @@ public class NecronomiconItem extends TooltipCompat implements IEnergyTransporte
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
+        Player player = context.getPlayer();
+        Level level = context.getLevel();
+        if (player != null && player.isShiftKeyDown()) {
+            InteractionResult action = NecronomiconActions.execute(player, level,
+                context.getClickedPos(), bookType, context.getHand());
+            if (action != InteractionResult.PASS) return action;
+        }
         InteractionResult energyInteraction = EnergyItemInteractions.placeInEnergyBlock(context);
         if (energyInteraction != InteractionResult.PASS) {
             return energyInteraction;
         }
-        Player player = context.getPlayer();
-        Level level = context.getLevel();
-        if (player == null || !player.isShiftKeyDown()) {
-            return InteractionResult.PASS;
-        }
-        BlockPos pos = context.getClickedPos();
-        return NecronomiconActions.execute(player, level, pos, bookType);
+        return InteractionResult.PASS;
     }
 
     @Override

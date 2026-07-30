@@ -26,17 +26,20 @@ public final class RitualCategory implements IRecipeCategory<RitualManifest> {
     private final RecipeType<RitualManifest> type;
     private final Component title;
     private final IDrawable icon;
+    private final IDrawable background;
     private final IDrawable slot;
 
     public RitualCategory(IGuiHelper gui, RecipeType<RitualManifest> type) {
         this.type = type;
         this.title = Component.translatable("jei.abyssalcraft.ritual");
         this.icon = gui.createDrawableItemStack(new ItemStack(RitualBlocks.RITUAL_ALTAR_ITEM.get()));
+        this.background = LegacyJeiBackgrounds.ritual(gui);
         this.slot = gui.getSlotDrawable();
     }
 
     @Override public RecipeType<RitualManifest> getRecipeType() { return type; }
     @Override public Component getTitle() { return title; }
+    @Override public IDrawable getBackground() { return background; }
     @Override public int getWidth() { return RitualJeiLayout.WIDTH; }
     @Override public int getHeight() { return RitualJeiLayout.HEIGHT; }
     @Override public IDrawable getIcon() { return icon; }
@@ -49,17 +52,18 @@ public final class RitualCategory implements IRecipeCategory<RitualManifest> {
                 .addItemStack(ritual.center().example());
         }
         RitualJeiLayout.addOfferings(builder, ritual.offeringLayout(), slot);
+        RitualJeiLayout.addBook(builder, ritual.bookType(), slot);
     }
 
     @Override
     public void draw(RitualManifest ritual, IRecipeSlotsView slotsView, GuiGraphics graphics,
                      double mouseX, double mouseY) {
         Component name = Component.translatable("ritual.abyssalcraft." + ritual.id());
-        graphics.drawString(Minecraft.getInstance().font, name, 2, 2, 0x404040, false);
+        graphics.drawString(Minecraft.getInstance().font, name, 2, RitualJeiLayout.FOOTER_Y, 0x404040, false);
         Component energy = Component.translatable("jei.abyssalcraft.ritual_energy", (int) ritual.requiredEnergy());
-        graphics.drawString(Minecraft.getInstance().font, energy, 2, 14, 0x808080, false);
+        graphics.drawString(Minecraft.getInstance().font, energy, 2, RitualJeiLayout.FOOTER_SECOND_Y, 0x808080, false);
         Component kind = Component.translatable("jei.abyssalcraft.ritual_kind." + ritual.kind().name().toLowerCase());
-        graphics.drawString(Minecraft.getInstance().font, kind, 2, RitualJeiLayout.FOOTER_Y, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, kind, 2, RitualJeiLayout.FOOTER_THIRD_Y, 0x606060, false);
     }
 
     public static List<RitualManifest> getRituals() {

@@ -1,5 +1,6 @@
 package com.shinoow.abyssalcraft.platform;
 
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -12,16 +13,22 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
+import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 
 //? if forge {
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 //?} else {
 /*import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 *///?}
 
 import com.shinoow.abyssalcraft.AbyssalCraft;
+import com.shinoow.abyssalcraft.content.block.energy.EnergyPedestalBlock;
 
 /**
  * Compat: block state + block-model + item-model datagen facade (loader axis).
@@ -72,6 +79,18 @@ public abstract class BlockModelGen extends BlockStateProvider {
         simpleBlockItem(block, model);
     }
 
+    /** Axis-aware log with the legacy transparent bark overlay on its four side faces. */
+    protected void layeredPillar(RotatedPillarBlock block, String side, String end, String overlay) {
+        ModelFile model = models().withExistingParent(path(block), modLoc("block/darklands_oak_log_layered"))
+            .texture("side", tex(side))
+            .texture("end", tex(end))
+            .texture("overlay", tex(overlay))
+            .texture("particle", tex(side))
+            .renderType("cutout");
+        axisBlock(block, model, model);
+        simpleBlockItem(block, model);
+    }
+
     /** Opaque full-cube base with a cutout overlay expanded by the shared layered model. */
     protected void layeredCube(Block block, String base, String overlay) {
         ModelFile model = models().withExistingParent(path(block), modLoc("block/layered_ore"))
@@ -82,14 +101,23 @@ public abstract class BlockModelGen extends BlockStateProvider {
         simpleBlockWithItem(block, model);
     }
 
-    /** Pedestal geometry with independent body and top-emblem textures. */
-    protected void energyPedestal(Block block, String body, String emblem) {
-        ModelFile model = models().withExistingParent(path(block), modLoc("block/rending_pedestal"))
-            .texture("0", tex(body))
-            .texture("1", tex(emblem))
-            .texture("particle", tex(body))
-            .renderType("cutout");
-        simpleBlockWithItem(block, model);
+    /** Legacy Energy Pedestal geometry, including placement-driven tilt and tier host-stone bands. */
+    protected void energyPedestal(Block block, ResourceLocation hostStone) {
+        boolean tiered = hostStone != null;
+        ModelFile upright = tiered
+            ? models().withExistingParent(path(block), modLoc("block/tiered_energy_pedestal"))
+                .texture("2", hostStone)
+            : new ModelFile.UncheckedModelFile(modLoc("block/energy_pedestal"));
+        ModelFile tilted = tiered
+            ? models().withExistingParent(path(block) + "_tilted",
+                modLoc("block/tiered_energy_pedestal_tilted")).texture("2", hostStone)
+            : new ModelFile.UncheckedModelFile(modLoc("block/energy_pedestal_tilted"));
+        var states = getVariantBuilder(block);
+        states.partialState().with(EnergyPedestalBlock.TILTED, false)
+            .modelForState().modelFile(upright).addModel();
+        states.partialState().with(EnergyPedestalBlock.TILTED, true)
+            .modelForState().modelFile(tilted).addModel();
+        simpleBlockItem(block, upright);
     }
 
     /** Legacy open-frame Energy Container geometry; tiered variants add host-stone bands. */
@@ -248,11 +276,90 @@ public abstract class BlockModelGen extends BlockStateProvider {
         simpleBlockItem(block, models().slab(path(block), t, t, t));
     }
 
+    /** Slab whose vertical sides differ from its upper and lower faces. */
+    protected void distinctSlab(SlabBlock block, String side, String bottom, String top) {
+        ResourceLocation sideTexture = tex(side);
+        ResourceLocation bottomTexture = tex(bottom);
+        ResourceLocation topTexture = tex(top);
+        ModelFile lower = models().slab(path(block), sideTexture, bottomTexture, topTexture);
+        ModelFile upper = models().slabTop(path(block) + "_top", sideTexture, bottomTexture, topTexture);
+        ModelFile doubled = models().cubeBottomTop(path(block) + "_double",
+            sideTexture, bottomTexture, topTexture);
+        var states = getVariantBuilder(block);
+        states.partialState().with(SlabBlock.TYPE, SlabType.BOTTOM)
+            .modelForState().modelFile(lower).addModel();
+        states.partialState().with(SlabBlock.TYPE, SlabType.TOP)
+            .modelForState().modelFile(upper).addModel();
+        states.partialState().with(SlabBlock.TYPE, SlabType.DOUBLE)
+            .modelForState().modelFile(doubled).addModel();
+        simpleBlockItem(block, lower);
+    }
+
+    /** Slab preserving the legacy 2:1:1 random face distribution. */
+    protected void weightedSlab(SlabBlock block, String texturePrefix) {
+        ModelFile[] lower = new ModelFile[3];
+        ModelFile[] upper = new ModelFile[3];
+        ModelFile[] doubled = new ModelFile[3];
+        for (int index = 0; index < 3; index++) {
+            int variant = index + 1;
+            ResourceLocation texture = tex(texturePrefix + "_" + variant);
+            String suffix = variant == 1 ? "" : "_" + variant;
+            lower[index] = models().slab(path(block) + suffix, texture, texture, texture);
+            upper[index] = models().slabTop(path(block) + "_top" + suffix, texture, texture, texture);
+            doubled[index] = models().cubeAll(path(block) + "_double" + suffix, texture);
+        }
+        var states = getVariantBuilder(block);
+        states.partialState().with(SlabBlock.TYPE, SlabType.BOTTOM).setModels(weighted(lower, 0, 0, false));
+        states.partialState().with(SlabBlock.TYPE, SlabType.TOP).setModels(weighted(upper, 0, 0, false));
+        states.partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).setModels(weighted(doubled, 0, 0, false));
+        simpleBlockItem(block, lower[0]);
+    }
+
     /** Stairs + item model. */
     protected void stairs(StairBlock block, String texture) {
         ResourceLocation t = tex(texture);
         stairsBlock(block, t);
         simpleBlockItem(block, models().stairs(path(block), t, t, t));
+    }
+
+    /** Stairs preserving the legacy 2:1:1 random face distribution for every shape and orientation. */
+    protected void weightedStairs(StairBlock block, String texturePrefix) {
+        ModelFile[] straight = new ModelFile[3];
+        ModelFile[] inner = new ModelFile[3];
+        ModelFile[] outer = new ModelFile[3];
+        for (int index = 0; index < 3; index++) {
+            int variant = index + 1;
+            ResourceLocation texture = tex(texturePrefix + "_" + variant);
+            String suffix = variant == 1 ? "" : "_" + variant;
+            straight[index] = models().stairs(path(block) + suffix, texture, texture, texture);
+            inner[index] = models().stairsInner(path(block) + "_inner" + suffix, texture, texture, texture);
+            outer[index] = models().stairsOuter(path(block) + "_outer" + suffix, texture, texture, texture);
+        }
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            Direction facing = state.getValue(StairBlock.FACING);
+            Half half = state.getValue(StairBlock.HALF);
+            StairsShape shape = state.getValue(StairBlock.SHAPE);
+            int rotationY = (int) facing.getClockWise().toYRot();
+            if (shape == StairsShape.INNER_LEFT || shape == StairsShape.OUTER_LEFT) rotationY += 270;
+            if (shape != StairsShape.STRAIGHT && half == Half.TOP) rotationY += 90;
+            rotationY %= 360;
+            ModelFile[] selected = switch (shape) {
+                case STRAIGHT -> straight;
+                case INNER_LEFT, INNER_RIGHT -> inner;
+                case OUTER_LEFT, OUTER_RIGHT -> outer;
+            };
+            int rotationX = half == Half.TOP ? 180 : 0;
+            return weighted(selected, rotationX, rotationY, rotationX != 0 || rotationY != 0);
+        }, StairBlock.WATERLOGGED);
+        simpleBlockItem(block, straight[0]);
+    }
+
+    private ConfiguredModel[] weighted(ModelFile[] models, int rotationX, int rotationY, boolean uvLock) {
+        return ConfiguredModel.builder()
+            .modelFile(models[0]).rotationX(rotationX).rotationY(rotationY).uvLock(uvLock).weight(2)
+            .nextModel().modelFile(models[1]).rotationX(rotationX).rotationY(rotationY).uvLock(uvLock)
+            .nextModel().modelFile(models[2]).rotationX(rotationX).rotationY(rotationY).uvLock(uvLock)
+            .build();
     }
 
     /** Wall (multipart) + inventory item model. */

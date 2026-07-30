@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.client.render.entity;
 import java.util.Set;
 
 import com.shinoow.abyssalcraft.content.entity.misc.MiscEntities;
+import com.shinoow.abyssalcraft.content.block.ritual.RitualBlocks;
 import com.shinoow.abyssalcraft.client.render.entity.effect.BillboardRenderer;
 import com.shinoow.abyssalcraft.client.render.entity.effect.CompassTentacleRenderer;
 import com.shinoow.abyssalcraft.client.render.entity.effect.ImplosionRenderer;
@@ -39,9 +40,9 @@ public final class MiscRenderers {
         dedicated(renderers, handled, MiscEntities.PORTAL.get(), PortalRenderer::new);
         dedicated(renderers, handled, MiscEntities.SINGLE_PORTAL.get(), PortalRenderer::new);
         dedicated(renderers, handled, MiscEntities.PRIMED_ODB.get(),
-            ctx -> new PrimedODBRenderer(ctx, ACRef.vanilla("textures/block/tnt_side.png")));
+            ctx -> new PrimedODBRenderer(ctx, RitualBlocks.OBLIVION_DEATHBOMB.get().defaultBlockState()));
         dedicated(renderers, handled, MiscEntities.PRIMED_ODB_CORE.get(),
-            ctx -> new PrimedODBRenderer(ctx, ACRef.id("textures/block/odb_core.png")));
+            ctx -> new PrimedODBRenderer(ctx, RitualBlocks.ODB_CORE.get().defaultBlockState()));
         billboard(renderers, handled, MiscEntities.POWERSTONE_TRACKER.get(),
             ACRef.id("textures/model/powerstone_tracker.png"), 0.5F, 1.0F, 0.0F, false);
         item(renderers, handled, MiscEntities.SPIRIT_ITEM.get());

@@ -2,5 +2,25 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "abyssalcraft:item/spirit_tablet"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "abyssalcraft:mode": 0
+      },
+      "model": "abyssalcraft:item/spirit_tablet_0"
+    },
+    {
+      "predicate": {
+        "abyssalcraft:mode": 0.5
+      },
+      "model": "abyssalcraft:item/spirit_tablet_1"
+    },
+    {
+      "predicate": {
+        "abyssalcraft:mode": 1
+      },
+      "model": "abyssalcraft:item/spirit_tablet_2"
+    }
+  ]
 }

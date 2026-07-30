@@ -95,7 +95,7 @@ public final class KnowledgeSystemSelfTest {
         require(!processors.getProcessor(6).processUnlock(
             new com.shinoow.abyssalcraft.system.knowledge.condition.EntityPredicateCondition(
                 KnowledgePredicate.DREAD_ENTITIES), stalePredicateData, null), "stale type 6 entity matched");
-        require(NecronomiconActions.actionIds().equals(List.of("ritual", "place_of_power")),
+        require(NecronomiconActions.actionIds().equals(List.of("create_altar", "ritual", "place_of_power")),
             "Necronomicon action registry changed");
 
         NecromancyData snapshots = new NecromancyData();
@@ -473,8 +473,10 @@ public final class KnowledgeSystemSelfTest {
         } catch (IOException exception) {
             throw new IllegalStateException("Unable to decode " + resource, exception);
         }
-        require(image.u() == 0 && image.v() == 0 && image.width() == 256 && image.height() == 256,
-            "legacy Necronomicon image UV changed " + page.id());
+        require(image.u() == 0 && image.v() == 0
+            && image.width() == Math.max(1, image.textureWidth() * 255 / 256)
+            && image.height() == Math.max(1, image.textureHeight() * 192 / 256),
+            "legacy Necronomicon fixed-UV image sampling changed " + page.id());
     }
 
     private static void validateAkloContent(List<NecronomiconPageManifest.PageEntry> pages, JsonObject english) {

@@ -16,6 +16,7 @@ public record DimensionData(
     int color,
     int minimumGatewayTier,
     int minimumBookType,
+    int ritualBookType,
     Set<ResourceKey<Level>> connectedDimensions,
     Optional<ResourceLocation> portalMob,
     Optional<ResourceLocation> overlay
@@ -32,6 +33,9 @@ public record DimensionData(
         }
         if (minimumBookType < 0 || minimumBookType > 4) {
             throw new IllegalArgumentException("minimumBookType must be between 0 and 4");
+        }
+        if (ritualBookType < 0 || ritualBookType > 4) {
+            throw new IllegalArgumentException("ritualBookType must be between 0 and 4");
         }
         connectedDimensions = Set.copyOf(new LinkedHashSet<>(connectedDimensions));
     }
@@ -52,6 +56,7 @@ public record DimensionData(
         private final Set<ResourceKey<Level>> connectedDimensions = new LinkedHashSet<>();
         private int minimumGatewayTier;
         private int minimumBookType;
+        private int ritualBookType = -1;
         private ResourceLocation portalMob;
         private ResourceLocation overlay;
 
@@ -68,6 +73,11 @@ public record DimensionData(
 
         public Builder minimumBookType(int bookType) {
             minimumBookType = bookType;
+            return this;
+        }
+
+        public Builder ritualBookType(int bookType) {
+            ritualBookType = bookType;
             return this;
         }
 
@@ -90,7 +100,9 @@ public record DimensionData(
         }
 
         public DimensionData build() {
+            int resolvedRitualBookType = ritualBookType < 0 ? minimumBookType : ritualBookType;
             return new DimensionData(dimension, displayKey, color, minimumGatewayTier, minimumBookType,
+                resolvedRitualBookType,
                 connectedDimensions, Optional.ofNullable(portalMob), Optional.ofNullable(overlay));
         }
     }

@@ -10,7 +10,7 @@ import com.shinoow.abyssalcraft.content.item.book.NecronomiconItem;
 import com.shinoow.abyssalcraft.net.ACNetwork;
 import com.shinoow.abyssalcraft.net.client.RitualMessage;
 import com.shinoow.abyssalcraft.net.client.RitualStartMessage;
-import com.shinoow.abyssalcraft.platform.BlockEntityCompat;
+import com.shinoow.abyssalcraft.content.blockentity.base.ACBlockEntity;
 import com.shinoow.abyssalcraft.platform.ContainerCompat;
 import com.shinoow.abyssalcraft.registry.ModSounds;
 import com.shinoow.abyssalcraft.system.cap.necrodata.NecroDataCapability;
@@ -62,7 +62,7 @@ import org.slf4j.Logger;
  * ritual duration, the living sacrifice, the research gate, and the disruption-on-failure -- the pilot
  * completes instantly once the offerings + PE are satisfied.
  */
-public class RitualAltarBlockEntity extends BlockEntityCompat implements RitualHost {
+public class RitualAltarBlockEntity extends ACBlockEntity implements RitualHost {
 
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final int MAX_RITUAL_TICKS = 200;
@@ -92,17 +92,17 @@ public class RitualAltarBlockEntity extends BlockEntityCompat implements RitualH
         super(RitualBlocks.RITUAL_ALTAR_BE.get(), pos, state);
     }
 
-    /** Attempt a ritual on a right click (server-side). {@code book} is the player's main-hand item. */
-    public void tryRitual(Level level, BlockPos pos, Player player) {
+    /** Attempt a ritual on a right click (server-side). */
+    public void tryRitual(Level level, BlockPos pos, Player player, net.minecraft.world.InteractionHand hand) {
         if (!(level instanceof ServerLevel server)) return;
         if (isPerformingRitual()) {
             feedback(player, "message.abyssalcraft.ritual.busy");
             return;
         }
-        if (!(player.getMainHandItem().getItem() instanceof NecronomiconItem book)) {
+        ItemStack bookStack = player.getItemInHand(hand);
+        if (!(bookStack.getItem() instanceof NecronomiconItem book)) {
             return;
         }
-        ItemStack bookStack = player.getMainHandItem();
         List<RitualPedestal> pedestals = collectPedestals(level, pos);
         if (pedestals.size() < PEDESTAL_OFFSETS.size()) {
             feedback(player, "message.abyssalcraft.ritual.no_structure");
@@ -318,9 +318,16 @@ public class RitualAltarBlockEntity extends BlockEntityCompat implements RitualH
 
     private static float availableEnergy(Player player) {
         float available = 0;
+        ItemStack main = player.getMainHandItem();
+        ItemStack offhand = player.getOffhandItem();
+        if (main.getItem() instanceof IEnergyContainerItem energy) available += energy.getContainedEnergy(main);
+        if (offhand != main && offhand.getItem() instanceof IEnergyContainerItem energy) {
+            available += energy.getContainedEnergy(offhand);
+        }
         int size = Math.min(36, player.getInventory().getContainerSize());
         for (int slot = 0; slot < size; slot++) {
             ItemStack stack = player.getInventory().getItem(slot);
+            if (stack == main || stack == offhand) continue;
             if (stack.getItem() instanceof IEnergyContainerItem energy) available += energy.getContainedEnergy(stack);
         }
         return available;
@@ -328,14 +335,19 @@ public class RitualAltarBlockEntity extends BlockEntityCompat implements RitualH
 
     private static float drainEnergy(Player player, float requested) {
         float drained = 0;
-        ItemStack held = player.getMainHandItem();
-        if (held.getItem() instanceof IEnergyContainerItem energy) {
-            drained += energy.consumeEnergy(held, requested);
+        ItemStack main = player.getMainHandItem();
+        ItemStack offhand = player.getOffhandItem();
+        if (main.getItem() instanceof IEnergyContainerItem energy) {
+            drained += energy.consumeEnergy(main, requested);
+        }
+        if (offhand != main && drained + 0.001F < requested
+            && offhand.getItem() instanceof IEnergyContainerItem energy) {
+            drained += energy.consumeEnergy(offhand, requested - drained);
         }
         int size = Math.min(36, player.getInventory().getContainerSize());
         for (int slot = 0; slot < size && drained + 0.001F < requested; slot++) {
             ItemStack stack = player.getInventory().getItem(slot);
-            if (stack == held) continue;
+            if (stack == main || stack == offhand) continue;
             if (stack.getItem() instanceof IEnergyContainerItem energy) {
                 drained += energy.consumeEnergy(stack, requested - drained);
             }
@@ -360,14 +372,14 @@ public class RitualAltarBlockEntity extends BlockEntityCompat implements RitualH
     public void setCenterItem(ItemStack stack) {
         if (isPerformingRitual()) return;
         center.set(0, stack.copyWithCount(1));
-        setChanged();
+        markUpdated();
     }
 
     public ItemStack takeCenterItem() {
         if (isPerformingRitual()) return ItemStack.EMPTY;
         ItemStack stack = center.get(0);
         center.set(0, ItemStack.EMPTY);
-        setChanged();
+        markUpdated();
         return stack;
     }
 
@@ -379,7 +391,7 @@ public class RitualAltarBlockEntity extends BlockEntityCompat implements RitualH
     @Override
     public void setRitualCenter(ItemStack stack) {
         center.set(0, stack.copy());
-        setChanged();
+        markUpdated();
     }
 
     @Override

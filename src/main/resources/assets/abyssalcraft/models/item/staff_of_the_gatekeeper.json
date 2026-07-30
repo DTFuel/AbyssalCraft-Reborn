@@ -1,4 +1,13 @@
 {
-  "parent": "minecraft:item/handheld",
-  "textures": { "layer0": "abyssalcraft:item/staff_of_the_gatekeeper" }
+  "credit": "Exact OBJ port of AbyssalCraft 1.12.2 staff",
+  "parent": "abyssalcraft:block/legacy_custom_model",
+  "loader": "__LOADER__:obj",
+  "model": "abyssalcraft:models/item/staff.obj",
+  "flip_v": true,
+  "automatic_culling": true,
+  "shade_quads": true,
+  "emissive_ambient": false,
+  "textures": {
+    "particle": "abyssalcraft:block/legacy_obj/staff"
+  }
 }

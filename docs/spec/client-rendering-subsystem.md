@@ -15,13 +15,13 @@
 **已交付**：
 - PH-4 音效 ☑：`registry/ModSounds`（45 `SoundEvent`）+ `assets/abyssalcraft/sounds.json` + 106 `.ogg` + `en_us.json` 41 条 subtitle。
 - PH-2 雾色 ☑ / 天空盒 ☑（RR-CLIENT-FX/CR-73）：`client/sky/ACDimensionEffects` extends `platform/DimensionSkyCompat`（renderSky 双端签名 fork + 即时六面天空盒）+ `client/sky/ACDimensionSkies`（4 维注册 tinted 天空盒，色取自 `ClientVars`）+ `platform/DimensionEffectsCompat`（事件 fork）；3 张天空贴图（Dark Realm 复用 omothol_sky）。四维双端目视 = T6.3c（人工，待）。
-- PH-3 框架 + 3 粒子 ☑：`registry/ModParticles`（`abyssal_fx` + `blue_flame` `SimpleParticleType`）+ `client/particle/{ACFadeParticle,BlueFlameParticle}` + `platform/ParticleCompat`（事件 fork）+ 描述符与贴图。BlueFlame + ItemRitual（vanilla `item` payload）由 `client/ritual/ClientRitualEffects` 8 基座发射；PEStream 由 RR-NET（`ClientNetworkEffects.peStream`）。
+- PH-3 框架 + 3 粒子 ☑：`registry/ModParticles` 注册 `abyssal_fx`、`blue_flame`、`pe_stream`；`client/particle/{ACFadeParticle,BlueFlameParticle,PEStreamParticle}` + `platform/ParticleCompat` 提供客户端实现。BlueFlame + ItemRitual（vanilla `item` payload）由仪式系统发射；PEStream 由 RR-NET 触发专用粒子。
 
 **RR-CLIENT-FX 收口（CR-73，2026-07-26）**：
 - 天空盒（原 PH-2b）☑：`platform/DimensionSkyCompat` 吸收 Forge `IForgeDimensionSpecialEffects.renderSky(PoseStack…)` ↔ Neo `IDimensionSpecialEffectsExtension.renderSky(Matrix4f…)` 签名 fork，以及 1.20 `Tesselator.getBuilder()/vertex().uv().endVertex()/end()` ↔ 1.21 `begin()/addVertex().setUv()/buildOrThrow()` 顶点 fork；`getPositionTexShader`+`setShaderColor` 绘 ±100、16×16 UV 六面天空盒，`SkyType.NONE` 屏蔽 vanilla 天体。四维贴图/色：AW `abyssal_wasteland_sky` 0/105/45、Dreadlands `dreadlands_sky` 100/14/14、Omothol `omothol_sky` 40/30/40、Dark Realm 复用 `omothol_sky` 30/20/30，色实时取自 `ClientVars`（reload 生效；完整 clientvars 仍 T6.6d）。
-- 粒子（原 PH-3b）☑：BlueFlame（`blue_flame` type + `BlueFlameParticle`，迁 blueflame.png）与 ItemRitual（vanilla `ItemParticleOption(ITEM, stack)`）由 `ClientRitualEffects` 在 8 基座每 tick 发 BlueFlame+smoke、每 3 tick 发 ItemRitual 向祭坛，供品由 `RitualManifestCatalog.offeringLayout()`+`RitualIngredient.example()` 重建（不扩 `RitualStartMessage`）。PEStream 归 RR-NET（`PEUtils` 发 `PEStreamMessage` → `ClientNetworkEffects.peStream`），未重复实现。
+- 粒子（原 PH-3b）☑：BlueFlame 与 ItemRitual 由仪式系统发射。PEStream 归 RR-NET 触发，但使用专用 `PEStreamParticle`：每格 15 个采样点，按客户端粒子设置以 1/2/3 步长降采样，寿命 20 tick、0.65 阻尼、随机延寿，三组旧紫/绿/蓝 RGB，并按 `generic_7..0` 换帧。玩家、掉落物、collector 成功接收以及 relay 成功输出 PE 都发送流。
 - 声音（原 PH-4b 收尾）☑：45/45 事件均有生产触发；`AbstractShoggoth.playStepSound` 补最后一个未接的 `shoggoth.step`（0.15/1.0），并修正 `sounds.json` 中 `jzahar.shout` 指向缺失键→现有 `.shouts` 译文键。
-- Gate：永久 `data/gen/ClientFxSelfTest`（+`ClientFxValidationData`）双端 runData 输出 `RR_CLIENT_FX_SELF_TEST_OK skies=3 particles=2 sounds=45 ogg=106 subtitles=41 rituals=62`；双端 compile/build/JAR 通过。
+- Gate：永久 `data/gen/ClientFxSelfTest`（+`ClientFxValidationData`）输出 `RR_CLIENT_FX_SELF_TEST_OK skies=3 particles=3 sounds=45 ogg=106 subtitles=41 rituals=62`，并锁定 8 帧顺序与 75/38/25 采样数。
 - **仍待（人工）**：T6.3c 四维天空/雾双端目视、T6.5c 声音/字幕双端听觉矩阵。
 
 **延后（诚实 · 见平行表）**：
@@ -51,7 +51,7 @@
 
 - `dimension_type` 的 `effects` 若不指向已注册的 effects id，vanilla 静默回退 overworld 效果（runClient 会打 fallback 警告）——须两侧对齐；本子系统 runClient 日志**无** fallback 警告 = 4 维 effects 均已绑定。
 - `SimpleParticleType` 构造是 `protected`：跨包用 `new SimpleParticleType(false){}` 匿名子类。
-- 注册粒子类型必须同时给 provider + 描述符 + sprite，否则 atlas 缺 sprite；本子系统只注册了 `abyssal_fx`（三者齐全，`/particle abyssalcraft:abyssal_fx` 可测）。
+- 注册粒子类型必须同时给 provider + 描述符 + sprite，否则 atlas 缺 sprite；三种 AC 粒子均具备完整注册链。
 - 忠实保留 1.12.2 音效 quirk：`sounds.json` 引用 `chant.yog_sothoth_1/_2`、`hastur_1/_2`、`jzahar.shout`，而 lang 键为 `yog_sothoth`/`hastur`/`shouts`（不匹配即无字幕，与旧版一致）。
 
 ## 7. 验证 / DoD
@@ -59,6 +59,10 @@
 - 两节点 `compileJava` EXIT=0（锁定上述所有 API + 3 事件 fork）。
 - **forge `runClient`** 进世界后干净退出 BUILD SUCCESSFUL：Sound engine started 且**无** `sounds.json` 解析错；`particles.png-atlas` 建成且**无** `abyssal_fx` sprite 错；4 个 AC 维度加载且**无** DimensionSpecialEffects fallback 警告。
 - **人工目视（未做）**：AC 维度内实际雾色/天空观感、`/particle abyssalcraft:abyssal_fx` 生成观感、音效播放——headless 不能开窗/入维/截图。
+
+## 修订日志
+
+- 2026-07-30：恢复 1.12.2 `PEStreamParticleFX` 专用三色粒子、20 tick/0.65 阻尼、8 帧动画与每格 15 点轨迹；补齐神像向玩家、掉落物和 collector 的成功传能通知。
 
 ## 8. Energy Pedestal BER (RR-BER-R4-HOSTS)
 

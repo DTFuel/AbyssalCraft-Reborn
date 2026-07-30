@@ -46,6 +46,14 @@ public class RitualPedestalBlockEntity extends ACBlockEntity implements RitualPe
         markUpdated();
     }
 
+    public ItemStack removeOffering() {
+        ItemStack offering = items.get(0);
+        if (offering.isEmpty()) return ItemStack.EMPTY;
+        items.set(0, ItemStack.EMPTY);
+        markUpdated();
+        return offering;
+    }
+
     @Override
     protected void saveData(CompoundTag tag, HolderLookup.Provider registries) {
         ContainerCompat.saveItems(tag, items, registries);

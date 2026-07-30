@@ -1,4 +1,4 @@
 {
   "structures": [{ "structure": "abyssalcraft:shoggoth_pit_river", "weight": 1 }],
-  "placement": { "type": "minecraft:random_spread", "spacing": 28, "separation": 10, "salt": 401241 }
+  "placement": { "type": "minecraft:random_spread", "spacing": 1, "separation": 0, "salt": 401241 }
 }

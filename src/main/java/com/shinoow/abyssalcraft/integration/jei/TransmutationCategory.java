@@ -7,6 +7,7 @@ import net.minecraft.world.item.ItemStack;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
+import mezz.jei.api.gui.drawable.IDrawableStatic;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
@@ -15,12 +16,14 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 
 import com.shinoow.abyssalcraft.content.recipe.transmutation.TransmutationRecipe;
+import com.shinoow.abyssalcraft.platform.ACRef;
 
 public final class TransmutationCategory implements IRecipeCategory<TransmutationRecipe> {
 
     private final RecipeType<TransmutationRecipe> type;
     private final Component title;
     private final IDrawable icon;
+    private final IDrawable background;
     private final IDrawable slot;
     private final IDrawableAnimated arrow;
 
@@ -29,19 +32,24 @@ public final class TransmutationCategory implements IRecipeCategory<Transmutatio
         this.type = type;
         this.title = title;
         this.icon = gui.createDrawableItemStack(iconStack);
+        this.background = LegacyJeiBackgrounds.transmutation(gui);
         this.slot = gui.getSlotDrawable();
-        this.arrow = gui.createAnimatedRecipeArrow(200);
+        IDrawableStatic arrowTexture = gui.createDrawable(
+            ACRef.id("textures/gui/container/transmutator_nei.png"), 176, 14, 24, 17);
+        this.arrow = gui.createAnimatedDrawable(
+            arrowTexture, 200, IDrawableAnimated.StartDirection.LEFT, false);
     }
 
     @Override public RecipeType<TransmutationRecipe> getRecipeType() { return type; }
     @Override public Component getTitle() { return title; }
+    @Override public IDrawable getBackground() { return background; }
     @Override public int getWidth() { return 82; }
     @Override public int getHeight() { return 54; }
     @Override public IDrawable getIcon() { return icon; }
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, TransmutationRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 1, 19).setBackground(slot, -1, -1).addIngredients(recipe.input());
+        builder.addSlot(RecipeIngredientRole.INPUT, 1, 1).setBackground(slot, -1, -1).addIngredients(recipe.input());
         builder.addSlot(RecipeIngredientRole.OUTPUT, 61, 19).setBackground(slot, -1, -1).addItemStack(recipe.result());
     }
 

@@ -1,0 +1,6 @@
+{
+  "parent": "abyssalcraft:block/tiered_energy_pedestal_tilted",
+  "textures": {
+    "2": "abyssalcraft:block/dreadstone"
+  }
+}

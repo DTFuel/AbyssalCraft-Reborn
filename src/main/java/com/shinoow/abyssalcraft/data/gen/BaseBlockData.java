@@ -29,7 +29,8 @@ public final class BaseBlockData extends BlockModelGen {
         cube(BaseBlocks.CHISELED_DARKSTONE_BRICK.get(), "chiseled_darkstone_brick");
         cube(BaseBlocks.CRACKED_DARKSTONE_BRICK.get(), "cracked_darkstone_brick");
         column(BaseBlocks.GLOWING_DARKSTONE_BRICKS.get(), "glowing_darkstone_bricks", "darkstone_brick");
-        slab(BaseBlocks.DARKSTONE_SLAB.get(), "darkstone_slab");
+        distinctSlab(BaseBlocks.DARKSTONE_SLAB.get(),
+            "darkstone_slab_side", "darkstone_slab", "darkstone_slab");
         slab(BaseBlocks.DARKSTONE_BRICK_SLAB.get(), "darkstone_brick");
         slab(BaseBlocks.DARKSTONE_COBBLESTONE_SLAB.get(), "darkstone_cobblestone");
         stairs(BaseBlocks.DARKSTONE_BRICK_STAIRS.get(), "darkstone_brick");
@@ -91,21 +92,15 @@ public final class BaseBlockData extends BlockModelGen {
 
         // ---- Ethaxium ----
         cube(BaseBlocks.ETHAXIUM.get(), "ethaxium");
-        cube(BaseBlocks.ETHAXIUM_BRICKS.get(), "ethaxium_brick");
-        cube(BaseBlocks.CHISELED_ETHAXIUM_BRICK.get(), "chiseled_ethaxium_brick");
-        cube(BaseBlocks.CRACKED_ETHAXIUM_BRICK.get(), "cracked_ethaxium_brick");
         pillar(BaseBlocks.ETHAXIUM_PILLAR.get(), "ethaxium_pillar", "ethaxium_pillar_top");
-        slab(BaseBlocks.ETHAXIUM_BRICK_SLAB.get(), "ethaxium_brick");
-        stairs(BaseBlocks.ETHAXIUM_BRICK_STAIRS.get(), "ethaxium_brick");
-        fence(BaseBlocks.ETHAXIUM_BRICK_FENCE.get(), "ethaxium_brick");
+        weightedSlab(BaseBlocks.ETHAXIUM_BRICK_SLAB.get(), "ethaxium_bricks/composite");
+        weightedStairs(BaseBlocks.ETHAXIUM_BRICK_STAIRS.get(), "ethaxium_bricks/composite");
+        fence(BaseBlocks.ETHAXIUM_BRICK_FENCE.get(), "ethaxium_legacy_brick");
 
         // ---- Dark ethaxium ----
-        cube(BaseBlocks.DARK_ETHAXIUM_BRICK.get(), "dark_ethaxium_brick");
-        cube(BaseBlocks.CHISELED_DARK_ETHAXIUM_BRICK.get(), "chiseled_dark_ethaxium_brick");
-        cube(BaseBlocks.CRACKED_DARK_ETHAXIUM_BRICK.get(), "cracked_dark_ethaxium_brick");
         pillar(BaseBlocks.DARK_ETHAXIUM_PILLAR.get(), "dark_ethaxium_pillar", "dark_ethaxium_pillar_top");
-        slab(BaseBlocks.DARK_ETHAXIUM_BRICK_SLAB.get(), "dark_ethaxium_brick");
-        stairs(BaseBlocks.DARK_ETHAXIUM_BRICK_STAIRS.get(), "dark_ethaxium_brick");
+        weightedSlab(BaseBlocks.DARK_ETHAXIUM_BRICK_SLAB.get(), "ethaxium_bricks/dark_composite");
+        weightedStairs(BaseBlocks.DARK_ETHAXIUM_BRICK_STAIRS.get(), "ethaxium_bricks/dark_composite");
         fence(BaseBlocks.DARK_ETHAXIUM_BRICK_FENCE.get(), "dark_ethaxium_brick");
 
         // ---- Omothol / Monolith stone ----
@@ -114,7 +109,8 @@ public final class BaseBlockData extends BlockModelGen {
 
         // ---- Darklands oak (wood) ----
         leaves(BaseBlocks.DARKLANDS_OAK_LEAVES.get(), "darklands_oak_leaves");
-        pillar(BaseBlocks.DARKLANDS_OAK_LOG.get(), "darklands_oak_log", "darklands_oak_log_top");
+        layeredPillar(BaseBlocks.DARKLANDS_OAK_LOG.get(), "darklands_oak_log",
+            "darklands_oak_log_top", "darklands_oak_log_overlay");
         cube(BaseBlocks.DARKLANDS_OAK_PLANKS.get(), "darklands_oak_planks");
         slab(BaseBlocks.DARKLANDS_OAK_SLAB.get(), "darklands_oak_planks");
         stairs(BaseBlocks.DARKLANDS_OAK_STAIRS.get(), "darklands_oak_planks");

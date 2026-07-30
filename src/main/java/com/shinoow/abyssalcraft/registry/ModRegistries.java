@@ -24,7 +24,6 @@ import com.shinoow.abyssalcraft.content.entity.shoggoth.ShoggothEntities;
 import com.shinoow.abyssalcraft.content.item.armor.ArmorItems;
 import com.shinoow.abyssalcraft.content.item.bag.CrystalBagItems;
 import com.shinoow.abyssalcraft.content.item.book.BookItems;
-import com.shinoow.abyssalcraft.content.item.crystal.CrystalItems;
 import com.shinoow.abyssalcraft.content.item.energy.EnergyItems;
 import com.shinoow.abyssalcraft.content.item.material.MaterialItems;
 import com.shinoow.abyssalcraft.content.item.material.MachineContentItems;
@@ -32,7 +31,6 @@ import com.shinoow.abyssalcraft.content.item.misc.MiscItems;
 import com.shinoow.abyssalcraft.content.item.portal.PortalItems;
 import com.shinoow.abyssalcraft.content.item.ritual.RitualItems;
 import com.shinoow.abyssalcraft.content.item.scroll.ScrollItems;
-import com.shinoow.abyssalcraft.content.item.staff.StaffItems;
 import com.shinoow.abyssalcraft.content.item.tablet.TabletItems;
 import com.shinoow.abyssalcraft.content.item.transfer.TransferContent;
 import com.shinoow.abyssalcraft.content.item.tool.ToolItems;
@@ -72,8 +70,7 @@ public final class ModRegistries {
     public static final List<ModRegistrar<?>> ALL = List.of(
         ModCreativeTabs.TABS,
         ContentLootCompat.MODIFIERS,
-        // Pilot machine framework (Gate P1): crystal items + BE/menu/recipe example types.
-        CrystalItems.ITEMS,
+        // Machine framework (Gate P1): BE/menu/recipe types.
         MachineBlockEntities.BLOCK_ENTITIES,
         MachineMenus.MENUS,
         ProcessingRecipes.RECIPE_TYPES,
@@ -152,8 +149,6 @@ public final class ModRegistries {
         RendingPedestals.ITEMS,
         RendingPedestals.BLOCK_ENTITIES,
         RendingPedestals.MENUS,
-        // Stage D1 entity framework (PD-1): ENTITY_TYPE registrar + example base mob (pilot_mob).
-        ModEntities.ENTITIES,
         LegacyEntities.ENTITIES,
         LegacyEntities.ITEMS,
         // Stage D2a demon/evil animals (PD-4): 4 demon + 4 evil hostile farm-animal EntityTypes.
@@ -218,9 +213,7 @@ public final class ModRegistries {
         TransferContent.BLOCKS,
         TransferContent.ITEMS,
         TransferContent.BLOCK_ENTITIES,
-        TransferContent.MENUS,
-        // Stage 6/7 unblock content: the spell-casting staff (first PE spell consumer; casts the pilot spell).
-        StaffItems.ITEMS
+        TransferContent.MENUS
         // ... appended here at each stage Gate.
     );
 }

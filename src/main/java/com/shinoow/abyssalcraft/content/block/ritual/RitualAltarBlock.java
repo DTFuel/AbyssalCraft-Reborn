@@ -6,6 +6,7 @@ import com.shinoow.abyssalcraft.platform.InteractiveBlockCompat;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -46,21 +47,32 @@ public class RitualAltarBlock extends InteractiveBlockCompat implements EntityBl
     @Override
     protected InteractionResult onUse(BlockState state, Level level, BlockPos pos, Player player) {
         if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualAltarBlockEntity altar) {
-            ItemStack held = player.getMainHandItem();
-            if (held.getItem() instanceof NecronomiconItem) {
-                altar.tryRitual(level, pos, player);
-            } else if (altar.isPerformingRitual()) {
+            if (altar.isPerformingRitual()) {
                 player.displayClientMessage(Component.translatable("message.abyssalcraft.ritual.busy"), true);
-            } else if (altar.getCenterItem().isEmpty() && !held.isEmpty()) {
-                altar.setCenterItem(held);
-                if (!player.getAbilities().instabuild) {
-                    held.shrink(1);
-                }
             } else if (!altar.getCenterItem().isEmpty()) {
                 ItemStack returned = altar.takeCenterItem();
                 if (!player.addItem(returned)) {
                     player.drop(returned, false);
                 }
+            }
+        }
+        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    @Override
+    protected InteractionResult onUseAcceptedItem(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                                  Player player, InteractionHand hand) {
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualAltarBlockEntity altar) {
+            if (stack.getItem() instanceof NecronomiconItem) {
+                altar.tryRitual(level, pos, player, hand);
+            } else if (altar.isPerformingRitual()) {
+                player.displayClientMessage(Component.translatable("message.abyssalcraft.ritual.busy"), true);
+            } else if (altar.getCenterItem().isEmpty()) {
+                altar.setCenterItem(stack);
+                if (!player.getAbilities().instabuild) stack.shrink(1);
+            } else {
+                ItemStack returned = altar.takeCenterItem();
+                if (!player.addItem(returned)) player.drop(returned, false);
             }
         }
         return InteractionResult.sidedSuccess(level.isClientSide);

@@ -27,6 +27,7 @@ public final class NecronomiconEntry {
     private final ItemStack icon;
     private Object[] textArgs = new Object[0];
     private Component literalTitle;
+    private Component navigationTitle;
     private NecronomiconPageManifest.ContentRef content;
     private NecronomiconPageManifest.ImageContent image;
     private ResourceLocation researchId; // null = always visible
@@ -89,6 +90,16 @@ public final class NecronomiconEntry {
         return this;
     }
 
+    public NecronomiconEntry setTitle(Component title) {
+        literalTitle = title;
+        return this;
+    }
+
+    public NecronomiconEntry setNavigationTitle(Component title) {
+        navigationTitle = title;
+        return this;
+    }
+
     public NecronomiconEntry setContent(NecronomiconPageManifest.ContentRef content) {
         this.content = content;
         return this;
@@ -113,6 +124,14 @@ public final class NecronomiconEntry {
 
     public Component title() {
         return literalTitle != null ? literalTitle : Component.translatable(titleKey);
+    }
+
+    public Component navigationTitle() {
+        return navigationTitle != null ? navigationTitle : title();
+    }
+
+    public boolean hasNavigationTitle() {
+        return navigationTitle != null;
     }
 
     public String textKey() {

@@ -92,9 +92,14 @@ public final class KnowledgeHooks {
 
     /** Complete the four book-tier research entries when a real book is opened. */
     public static void onBookOpened(ServerPlayer player, int bookType) {
-        onWhisper(player, "book/" + bookType);
+        String whisper = "book/" + bookType;
+        NecroData data = NecroDataCapability.get(player);
+        boolean unlockedWhisper = data.triggerWhisperUnlock(whisper);
         int completed = com.shinoow.abyssalcraft.system.knowledge.KnowledgeContent
             .completeAvailable(player, bookType);
+        if (unlockedWhisper) {
+            KnowledgeSync.unlock(player, 5, whisper);
+        }
         if (completed > 0) {
             KnowledgeSync.full(player);
         } else if (ACConfig.syncDataOnBookOpening.get()) {

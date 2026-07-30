@@ -152,10 +152,16 @@ const machines = [
 ];
 const rotations = { north: 0, east: 90, south: 180, west: 270 };
 
-function horizontalState(model, litModel) {
+function legacyStatueRotation(source) {
+    const state = readJson(legacy(`blockstates/${source}.json`));
+    return state.variants?.facing?.north?.y || 0;
+}
+
+function horizontalState(model, litModel, rotationOffset = 0) {
     const variants = {};
     for (const [facing, y] of Object.entries(rotations)) {
-        const rotation = y ? { y, uvlock: true } : {};
+        const modelRotation = (y + rotationOffset) % 360;
+        const rotation = modelRotation ? { y: modelRotation, uvlock: true } : {};
         if (litModel) {
             variants[`facing=${facing},lit=false`] = { model: `abyssalcraft:block/${model}`, ...rotation };
             variants[`facing=${facing},lit=true`] = { model: `abyssalcraft:block/${litModel}`, ...rotation };
@@ -224,7 +230,8 @@ function generate() {
         }));
     }
     for (const [block, deity] of statueBlocks) {
-        write(asset(`blockstates/${block}.json`), stableJson(horizontalState(`statue/${deity}`)));
+        const rotationOffset = legacyStatueRotation(statueSources[deity]);
+        write(asset(`blockstates/${block}.json`), stableJson(horizontalState(`statue/${deity}`, null, rotationOffset)));
         write(asset(`models/item/${block}.json`), stableJson({
             parent: `abyssalcraft:block/statue/${deity}`,
             display: legacyCustomDisplay,
@@ -334,9 +341,11 @@ function generate() {
     const entries = [];
     for (const [block, deity] of statueBlocks) {
         const source = statueSources[deity];
+        const rotationOffset = legacyStatueRotation(source);
+        const stateRotations = Object.values(rotations).map(rotation => (rotation + rotationOffset) % 360).join('/');
         entries.push(entry(block, 'statue', `models/block/${source}.obj`,
             [`models/block/statue/${deity}.json`], [`textures/block/statue/${deity}.png`],
-            'facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states',
+            `facing=north/east/south/west -> y=${stateRotations}, preserving legacy model offset`,
             'Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation.',
             [`models/block/${source}.mtl`, `textures/model/blocks/${source}.png`]));
     }
@@ -469,7 +478,9 @@ function audit() {
             }
             const objects = parseObj(source);
             if (objects.length < 5) failures.push(`${owner}: statue OBJ has only ${objects.length} objects`);
-            auditHorizontal(owner, state, false);
+            const deity = statueBlocks.find(([block]) => owner === `abyssalcraft:${block}`)?.[1];
+            const rotationOffset = deity ? legacyStatueRotation(statueSources[deity]) : 0;
+            auditHorizontal(owner, state, false, rotationOffset);
         } else if (item.kind === 'tombstone') {
             if ((models[0]?.elements || []).length !== 8) failures.push(`${owner}: tombstone geometry is not the legacy eight-element form`);
             auditHorizontal(owner, state, false);
@@ -511,16 +522,17 @@ function audit() {
         + ` coverage=${JSON.stringify(counts)}`);
 }
 
-function auditHorizontal(owner, state, lit) {
+function auditHorizontal(owner, state, lit, rotationOffset = 0) {
     const variants = state.variants || {};
     const expected = lit ? 8 : 4;
     if (Object.keys(variants).length !== expected) failures.push(`${owner}: horizontal states=${Object.keys(variants).length}, expected=${expected}`);
     for (const [facing, y] of Object.entries(rotations)) {
+        const modelRotation = (y + rotationOffset) % 360;
         const keys = lit ? [`facing=${facing},lit=false`, `facing=${facing},lit=true`] : [`facing=${facing}`];
         for (const key of keys) {
             const variant = variants[key];
             if (!variant) failures.push(`${owner}: missing ${key}`);
-            else if ((variant.y || 0) !== y || (y !== 0 && variant.uvlock !== true)) failures.push(`${owner}: invalid rotation ${key}`);
+            else if ((variant.y || 0) !== modelRotation || (modelRotation !== 0 && variant.uvlock !== true)) failures.push(`${owner}: invalid rotation ${key}`);
         }
         if (lit && variants[keys[0]]?.model === variants[keys[1]]?.model) failures.push(`${owner}: idle/active models are identical`);
     }

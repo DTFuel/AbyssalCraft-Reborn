@@ -24,9 +24,17 @@ public final class ACNecronomicon {
     private ACNecronomicon() {}
 
     private static final String K = "gui.abyssalcraft.necronomicon.";
+    private static final NecronomiconEntry[] ROOTS = new NecronomiconEntry[5];
 
     /** The Necronomicon content tree (always-visible information chapters). */
-    public static NecronomiconEntry root(int bookType, net.minecraft.core.HolderLookup.Provider registries) {
+    public static synchronized NecronomiconEntry root(int bookType,
+            net.minecraft.core.HolderLookup.Provider registries) {
+        if (bookType < 0 || bookType >= ROOTS.length) {
+            throw new IllegalArgumentException("invalid Necronomicon book type " + bookType);
+        }
+        if (ROOTS[bookType] != null) {
+            return ROOTS[bookType];
+        }
         NecronomiconEntry root = new NecronomiconEntry("root", K + "title", null, new ItemStack(Items.BOOK));
 
         // Introduction (always visible).
@@ -89,6 +97,13 @@ public final class ACNecronomicon {
                     .setImage(page.image())
                     .setPageAction(page.id())
                     .setRequiredBookType(page.requiredBookType());
+                if (page.legacyFields() != null) {
+                    entry.setTitle(Component.empty().append(Component.translatable(page.titleKey()))
+                        .append(" · ").append(Integer.toString(page.legacyFields().pageNumber())));
+                    if (page.textKey() != null) {
+                        entry.setNavigationTitle(Component.translatable(page.textKey()));
+                    }
+                }
                 if (page.researchId() != null) entry.setResearch(page.researchId());
                 category.addChild(entry);
             }
@@ -96,6 +111,7 @@ public final class ACNecronomicon {
         }
         root.addChild(catalog);
 
+        ROOTS[bookType] = root;
         return root;
     }
 

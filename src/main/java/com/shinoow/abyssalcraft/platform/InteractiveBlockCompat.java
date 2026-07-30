@@ -34,28 +34,38 @@ public abstract class InteractiveBlockCompat extends Block {
     //? if >=1.21 {
     /*@Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        if (skipsInteractionWhileSneaking() && player.isShiftKeyDown()) return InteractionResult.CONSUME;
         return onUse(state, level, pos, player);
     }
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
                                                Player player, InteractionHand hand, BlockHitResult hit) {
+        if (skipsInteractionWhileSneaking() && player.isShiftKeyDown()) {
+            return ItemInteractionResult.CONSUME;
+        }
         InteractionResult itemResult = onUseItem(stack, state, level, pos, player, hand);
         if (itemResult.consumesAction()) return ItemInteractionResult.sidedSuccess(level.isClientSide);
-        if (!acceptsHeldItem()) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-        return onUse(state, level, pos, player).consumesAction()
+        if (!invokesBlockForHeldItem(false, acceptsHeldItem())) {
+            return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
+        }
+        return onUseAcceptedItem(stack, state, level, pos, player, hand).consumesAction()
             ? ItemInteractionResult.sidedSuccess(level.isClientSide)
             : ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
     *///?} else {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (skipsInteractionWhileSneaking() && player.isShiftKeyDown()) return InteractionResult.CONSUME;
         InteractionResult itemResult = onUseItem(player.getItemInHand(hand), state, level, pos, player, hand);
         if (itemResult.consumesAction()) return itemResult;
-        if (!player.getItemInHand(hand).isEmpty() && !acceptsHeldItem()) {
+        if (!player.getItemInHand(hand).isEmpty()
+            && !invokesBlockForHeldItem(false, acceptsHeldItem())) {
             return InteractionResult.PASS;
         }
-        return onUse(state, level, pos, player);
+        return player.getItemInHand(hand).isEmpty()
+            ? onUse(state, level, pos, player)
+            : onUseAcceptedItem(player.getItemInHand(hand), state, level, pos, player, hand);
     }
     //?}
 
@@ -68,8 +78,42 @@ public abstract class InteractiveBlockCompat extends Block {
         return InteractionResult.PASS;
     }
 
+    /** Generic block interaction for a held stack accepted by this block. */
+    protected InteractionResult onUseAcceptedItem(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                                  Player player, InteractionHand hand) {
+        return onUse(state, level, pos, player);
+    }
+
     /** Whether this block's {@link #onUse} also handles a held stack. */
     protected boolean acceptsHeldItem() {
         return false;
+    }
+
+    /** Whether sneaking bypasses this block's interaction without running subclass logic. */
+    protected boolean skipsInteractionWhileSneaking() {
+        return false;
+    }
+
+    public final boolean bypassesInteractionWhileSneaking() {
+        return skipsInteractionWhileSneaking();
+    }
+
+    public static boolean invokesBlockForHeldItem(boolean itemCommandConsumed, boolean acceptsHeldItem) {
+        return !itemCommandConsumed && acceptsHeldItem;
+    }
+
+    public static boolean bypassesBlockInteraction(boolean sneaking, boolean skipsWhileSneaking) {
+        return sneaking && skipsWhileSneaking;
+    }
+
+    public static DisplayedItemAction displayedItemAction(boolean hasStoredItem, boolean hasHeldItem) {
+        if (hasStoredItem) return DisplayedItemAction.TAKE;
+        return hasHeldItem ? DisplayedItemAction.STORE : DisplayedItemAction.NONE;
+    }
+
+    public enum DisplayedItemAction {
+        TAKE,
+        STORE,
+        NONE
     }
 }

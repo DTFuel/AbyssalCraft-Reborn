@@ -96,7 +96,7 @@ public class DimensionPortal extends ACSimpleEntity {
         int[] rgb = ComplexConfig.portalColor();
         int color = 0xFF000000 | rgb[0] << 16 | rgb[1] << 8 | rgb[2];
         return new DimensionData(data.dimension(), data.displayKey(), color, data.minimumGatewayTier(),
-            data.minimumBookType(),
+            data.minimumBookType(), data.ritualBookType(),
             data.connectedDimensions(), data.portalMob(), data.overlay());
     }
 

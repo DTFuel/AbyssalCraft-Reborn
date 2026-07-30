@@ -35,7 +35,7 @@ public final class RitualBlocks {
         ModRegistrar.of(Registries.BLOCK_ENTITY_TYPE, AbyssalCraft.MODID);
 
     public static final Supplier<Block> RITUAL_ALTAR = BLOCKS.register("ritual_altar", () ->
-        new RitualAltarBlock(BlockBehaviour.Properties.of().strength(3.5F)));
+        new RitualAltarBlock(BlockBehaviour.Properties.of().strength(3.5F).noOcclusion()));
 
     public static final Supplier<BlockItem> RITUAL_ALTAR_ITEM = ITEMS.register("ritual_altar", () ->
         new BlockItem(RITUAL_ALTAR.get(), new Item.Properties()));
@@ -46,7 +46,7 @@ public final class RitualBlocks {
                 (pos, state) -> new RitualAltarBlockEntity(pos, state), RITUAL_ALTAR.get()).build(null));
 
     public static final Supplier<Block> RITUAL_PEDESTAL = BLOCKS.register("ritual_pedestal", () ->
-        new RitualPedestalBlock(BlockBehaviour.Properties.of().strength(3.5F)));
+        new RitualPedestalBlock(BlockBehaviour.Properties.of().strength(3.5F).noOcclusion()));
 
     public static final Supplier<BlockItem> RITUAL_PEDESTAL_ITEM = ITEMS.register("ritual_pedestal", () ->
         new BlockItem(RITUAL_PEDESTAL.get(), new Item.Properties()));

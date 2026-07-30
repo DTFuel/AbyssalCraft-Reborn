@@ -53,6 +53,15 @@ public final class DimensionDataRegistry {
         return data == null ? OptionalInt.empty() : OptionalInt.of(data.minimumBookType());
     }
 
+    /** Legacy material tier required when forming a ritual altar in this dimension. */
+    public synchronized OptionalInt ritualBookType(ResourceKey<Level> dimension) {
+        ComplexConfig.DimensionBookMapping configured =
+            ComplexConfig.dimensionBookTypeMappings().get(dimension.location());
+        if (configured != null) return OptionalInt.of(configured.bookType());
+        DimensionData data = dimensions.get(dimension);
+        return data == null ? OptionalInt.empty() : OptionalInt.of(data.ritualBookType());
+    }
+
     /** Stable legacy registration order used by Gateway Key target cycling. */
     public synchronized List<DimensionData> availableForGatewayTier(int gatewayTier,
                                                                      boolean includeVanillaDimensions) {
@@ -168,6 +177,7 @@ public final class DimensionDataRegistry {
                 "dimension.abyssalcraft.dark_realm", 0xFF000000)
             .minimumGatewayTier(2)
             .minimumBookType(4)
+            .ritualBookType(0)
             .connectedTo(ACDimensions.OMOTHOL)
             .portalMob(ACRef.id("shadowmonster"))
             .build());

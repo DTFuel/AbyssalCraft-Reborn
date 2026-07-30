@@ -1,8 +1,44 @@
 {
-  "variants": {
-    "facing=north": { "model": "abyssalcraft:block/sequential_brewing_stand" },
-    "facing=east": { "model": "abyssalcraft:block/sequential_brewing_stand", "y": 90 },
-    "facing=south": { "model": "abyssalcraft:block/sequential_brewing_stand", "y": 180 },
-    "facing=west": { "model": "abyssalcraft:block/sequential_brewing_stand", "y": 270 }
-  }
+  "multipart": [
+    {
+      "apply": {
+        "model": "minecraft:block/brewing_stand"
+      }
+    },
+    {
+      "when": {
+        "facing": "north"
+      },
+      "apply": {
+        "model": "abyssalcraft:block/brewing_stand_pipe"
+      }
+    },
+    {
+      "when": {
+        "facing": "east"
+      },
+      "apply": {
+        "model": "abyssalcraft:block/brewing_stand_pipe",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "facing": "south"
+      },
+      "apply": {
+        "model": "abyssalcraft:block/brewing_stand_pipe",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "facing": "west"
+      },
+      "apply": {
+        "model": "abyssalcraft:block/brewing_stand_pipe",
+        "y": 270
+      }
+    }
+  ]
 }

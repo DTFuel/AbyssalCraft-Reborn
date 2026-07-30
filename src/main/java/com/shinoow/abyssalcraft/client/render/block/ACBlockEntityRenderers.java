@@ -26,6 +26,7 @@ public final class ACBlockEntityRenderers {
     /** Register faithful BlockEntity renderers for existing modern hosts. */
     public static void register(EntityRendererCompat.Renderers renderers) {
         renderers.registerBlockEntity(ResearchTables.RESEARCH_TABLE_BE.get(), ResearchTableRenderer::new);
+        renderers.registerBlockEntity(RitualBlocks.RITUAL_ALTAR_BE.get(), RitualAltarRenderer::new);
         renderers.registerBlockEntity(RitualBlocks.RITUAL_PEDESTAL_BE.get(), RitualPedestalRenderer::new);
         renderers.registerBlockEntity(RendingPedestals.RENDING_PEDESTAL_BE.get(), RendingPedestalRenderer::new);
         renderers.registerBlockEntity(EnergyBlocks.ENERGY_PEDESTAL_BE.get(), EnergyPedestalRenderer::new);

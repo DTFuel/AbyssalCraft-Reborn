@@ -32,6 +32,7 @@ public final class CreationRitualCategory implements IRecipeCategory<RitualManif
     private final RecipeType<RitualManifest> type;
     private final Component title;
     private final IDrawable icon;
+    private final IDrawable background;
     private final IDrawable slot;
 
     public CreationRitualCategory(IGuiHelper gui, RecipeType<RitualManifest> type) {
@@ -39,6 +40,7 @@ public final class CreationRitualCategory implements IRecipeCategory<RitualManif
         this.title = Component.translatable("jei.abyssalcraft.creation_ritual");
         // Use ritual altar as icon
         this.icon = gui.createDrawable(ACRef.id("textures/block/ritual_altar.png"), 0, 0, 16, 16);
+        this.background = LegacyJeiBackgrounds.ritual(gui);
         this.slot = gui.getSlotDrawable();
     }
 
@@ -50,6 +52,11 @@ public final class CreationRitualCategory implements IRecipeCategory<RitualManif
     @Override
     public Component getTitle() {
         return title;
+    }
+
+    @Override
+    public IDrawable getBackground() {
+        return background;
     }
 
     @Override
@@ -76,6 +83,7 @@ public final class CreationRitualCategory implements IRecipeCategory<RitualManif
                 .addItemStack(ritual.center().example());
         }
         RitualJeiLayout.addOfferings(builder, ritual.offeringLayout(), slot);
+        RitualJeiLayout.addBook(builder, ritual.bookType(), slot);
 
         // Result item (right side)
         if (ritual.result() != null) {
@@ -93,13 +101,15 @@ public final class CreationRitualCategory implements IRecipeCategory<RitualManif
         if (ritual.requiredEnergy() > 0) {
             Component peText = Component.translatable("jei.abyssalcraft.ritual_energy",
                 (int)ritual.requiredEnergy());
-            graphics.drawString(Minecraft.getInstance().font, peText, 2, 2, 0x808080, false);
+            graphics.drawString(Minecraft.getInstance().font, peText,
+                2, RitualJeiLayout.FOOTER_Y, 0x808080, false);
         }
 
         // Display book type requirement
         Component bookText = Component.translatable("jei.abyssalcraft.ritual_book_type",
             ritual.bookType());
-        graphics.drawString(Minecraft.getInstance().font, bookText, 2, RitualJeiLayout.FOOTER_Y, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, bookText,
+            2, RitualJeiLayout.FOOTER_SECOND_Y, 0x606060, false);
     }
 
     /**

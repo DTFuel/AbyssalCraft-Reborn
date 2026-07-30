@@ -17,6 +17,7 @@ import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerSetSpawnEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
@@ -31,6 +32,7 @@ import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingKnockBackEvent;
 import net.neoforged.neoforge.event.entity.player.BonemealEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.entity.player.CanPlayerSleepEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerSetSpawnEvent;
@@ -87,6 +89,7 @@ public final class GameHooksCompat {
         EventBuses.game().addListener((EntityEvent.Size event) -> onEntitySize(event));
         EventBuses.game().addListener((AnimalTameEvent event) -> onAnimalTame(event));
         EventBuses.game().addListener((BonemealEvent event) -> onBonemeal(event));
+        EventBuses.game().addListener((PlayerInteractEvent.RightClickBlock event) -> onRightClickBlock(event));
         EventBuses.game().addListener((BlockEvent.BlockToolModificationEvent event) -> onToolModification(event));
         EventBuses.game().addListener((PlayerSetSpawnEvent event) -> onSetSpawn(event));
         EventBuses.game().addListener(GameHooksCompat::onSleep);
@@ -168,6 +171,14 @@ public final class GameHooksCompat {
             }
         }
         event.setCanceled(true);
+    }
+
+    private static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        if (!event.getEntity().isShiftKeyDown()) return;
+        if (event.getLevel().getBlockState(event.getPos()).getBlock() instanceof InteractiveBlockCompat block
+                && block.bypassesInteractionWhileSneaking()) {
+            event.setCanceled(true);
+        }
     }
 
     private static void onToolModification(BlockEvent.BlockToolModificationEvent event) {

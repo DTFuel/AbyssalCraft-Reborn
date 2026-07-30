@@ -98,6 +98,7 @@ public final class ACConfig {
 
     // ---- worldgen ----
         public static Supplier<Integer> darklandsRegionWeight;
+        public static Supplier<Integer> worldgenConfigMigrationVersion;
     public static Supplier<Boolean> generateDarklandsStructures;
     public static Supplier<Boolean> generateShoggothLairs;
     public static Supplier<Boolean> generateAbyssalWastelandPillars;
@@ -355,8 +356,10 @@ public final class ACConfig {
         b.pop();
 
         b.push("worldgen");
-        darklandsRegionWeight = b.comment("TerraBlender region weight for the five Darklands biomes in the Overworld. Higher values make Darklands regions more common.\n[range: 1 ~ 20, default: 2]")
-                .defineInt("darklands_region_weight", 2, 1, 20);
+        darklandsRegionWeight = b.comment("TerraBlender region weight for the Darklands and Coralium biomes in the Overworld. Higher values make these regions more common.\n[range: 1 ~ 20, default: 1]")
+                .defineInt("darklands_region_weight", 1, 1, 20);
+        worldgenConfigMigrationVersion = b.comment("Internal world generation configuration migration version.")
+                .defineInt("config_migration_version", 0, 0, 1);
         generateDarklandsStructures = b.comment("Toggles whether or not to generate random Darklands structures.")
                 .defineBool("generate_darklands_structures", true);
         generateShoggothLairs = b.comment("Toggles whether or not to generate Shoggoth Lairs (however, they will still generate in Omothol).")
@@ -403,9 +406,9 @@ public final class ACConfig {
                 .defineBool("generate_pearlescent_coralium_ore", true);
         generateLiquifiedCoraliumOre = b.comment("Toggles whether or not to generate Liquified Coralium Ore in the Abyssal Wasteland.")
                 .defineBool("generate_liquified_coralium_ore", true);
-        shoggothLairSpawnRate = b.comment("Generation chance of a Shoggoth Lair in swamp biomes. Higher numbers decrease the chance of a Lair generating, while lower numbers increase the chance.\n[range: 0 ~ 1000, default: 35]")
+        shoggothLairSpawnRate = b.comment("Target chunk density for Shoggoth Lairs in swamp biomes. Higher numbers increase spacing; 0 disables this branch. Combined with the minimum-distance setting.\n[range: 0 ~ 1000, default: 35]")
                 .defineInt("shoggoth_lair_spawn_rate", 35, 0, 1000);
-        shoggothLairSpawnRateRivers = b.comment("Generation chance of a Shoggoth Lair in river biomes. Higher numbers decrease the chance of a Lair generating, while lower numbers increase the chance.\n[range: 0 ~ 1000, default: 30]")
+        shoggothLairSpawnRateRivers = b.comment("Target chunk density for Shoggoth Lairs in river biomes. Higher numbers increase spacing; 0 disables this branch. Combined with the minimum-distance setting.\n[range: 0 ~ 1000, default: 30]")
                 .defineInt("shoggoth_lair_spawn_rate_rivers", 30, 0, 1000);
         shoggothLairGenerationDistance = b.comment("The minimum distance at which two Shoggoth Lairs will generate from each other.\n[range: 40 ~ 1000, default: 100]")
                 .defineInt("shoggoth_lair_generation_distance", 100, 40, 1000);

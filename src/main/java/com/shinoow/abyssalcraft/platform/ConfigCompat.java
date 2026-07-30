@@ -175,6 +175,14 @@ public final class ConfigCompat {
         BUILT_SPECS.forEach(Built::save);
     }
 
+    public static void save(Object spec) {
+        BUILT_SPECS.stream()
+            .filter(built -> built.matches(spec))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException("Unregistered config spec"))
+            .save();
+    }
+
     /** Thin wrapper over the loader's config-spec builder; exposes only non-forked types. */
     public static final class Builder {
         //? if forge {

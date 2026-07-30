@@ -4,6 +4,7 @@ import com.shinoow.abyssalcraft.platform.InteractiveBlockCompat;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -31,27 +32,46 @@ public class RitualPedestalBlock extends InteractiveBlockCompat implements Entit
 
     @Override
     protected InteractionResult onUse(BlockState state, Level level, BlockPos pos, Player player) {
-        if (!level.isClientSide && level.getBlockEntity(pos) instanceof RitualPedestalBlockEntity pedestal) {
-            ItemStack current = pedestal.getOffering();
-            ItemStack held = player.getMainHandItem();
-            if (current.isEmpty() && !held.isEmpty()) {
-                pedestal.setOffering(held.copyWithCount(1));
-                if (!player.getAbilities().instabuild) {
-                    held.shrink(1);
-                }
-            } else if (!current.isEmpty()) {
-                ItemStack removed = current.copy();
-                pedestal.consumeOffering();
-                if (!player.addItem(removed)) {
-                    player.drop(removed, false);
-                }
-            }
+        return exchangeOffering(ItemStack.EMPTY, level, pos, player);
+    }
+
+    @Override
+    protected InteractionResult onUseAcceptedItem(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                                  Player player, InteractionHand hand) {
+        return exchangeOffering(stack, level, pos, player);
+    }
+
+    private InteractionResult exchangeOffering(ItemStack held, Level level, BlockPos pos, Player player) {
+        if (!(level.getBlockEntity(pos) instanceof RitualPedestalBlockEntity pedestal)) {
+            return InteractionResult.PASS;
         }
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        ItemStack current = pedestal.getOffering();
+        return switch (displayedItemAction(!current.isEmpty(), !held.isEmpty())) {
+            case TAKE -> {
+                if (!level.isClientSide) {
+                    ItemStack removed = pedestal.removeOffering();
+                    if (!player.addItem(removed)) player.drop(removed, false);
+                }
+                yield InteractionResult.sidedSuccess(level.isClientSide);
+            }
+            case STORE -> {
+                if (!level.isClientSide) {
+                    pedestal.setOffering(held.copyWithCount(1));
+                    if (!player.getAbilities().instabuild) held.shrink(1);
+                }
+                yield InteractionResult.sidedSuccess(level.isClientSide);
+            }
+            case NONE -> InteractionResult.PASS;
+        };
     }
 
     @Override
     protected boolean acceptsHeldItem() {
+        return true;
+    }
+
+    @Override
+    protected boolean skipsInteractionWhileSneaking() {
         return true;
     }
 }

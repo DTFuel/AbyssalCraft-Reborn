@@ -137,7 +137,7 @@ final class LegacyMachineRecipeSource {
         String value = expression.trim();
         if (value.startsWith("ACItems.")) {
             return switch (value.substring(8)) {
-                case "dread_plagued_gateway_key" -> "abyssalcraft:gatewaykeydl";
+                case "dread_plagued_gateway_key" -> "abyssalcraft:dreadkey";
                 case "omothol_forged_gateway_key" -> "abyssalcraft:gatewaykeyjzh";
                 default -> "abyssalcraft:" + value.substring(8);
             };

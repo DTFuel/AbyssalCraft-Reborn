@@ -43,7 +43,7 @@ public final class ConfigContractSelfTest {
             require(entriesByIdentity.put(entry, entry) == null, "duplicate config Entry identity " + entry.path());
         }
         require(fields.size() == ConfigClosureAudit.DEFINED, "config field count changed: " + fields.size());
-        require(fields.size() == 145, "config contract must contain exactly 145 unique keys");
+        require(fields.size() == 146, "config contract must contain exactly 146 unique keys");
         require(paths.size() == fields.size(), "config field-to-entry mapping is incomplete");
         require(entriesByIdentity.keySet().equals(suppliers.keySet()),
             "ACConfig reflection fields and registered Entry identities differ");
@@ -70,7 +70,7 @@ public final class ConfigContractSelfTest {
 
         require(ConfigClosureAudit.blockedKeys().isEmpty(),
             "config closure BLOCKED by prohibited owner: " + ConfigClosureAudit.blockedByKey());
-        require(consumers.size() == 145, "config contract must contain exactly 145 production consumers");
+        require(consumers.size() == 146, "config contract must contain exactly 146 production consumers");
 
         require(ComplexConfig.parseDimensionMappings(java.util.List.of(
             "abyssalcraft:abyssal_wasteland;1;Wasteland")).get(
@@ -82,6 +82,10 @@ public final class ConfigContractSelfTest {
         require(ComplexConfig.parseDimensionMappings(java.util.List.of(
             "abyssalcraft:abyssal_wasteland;5")).isEmpty(),
             "invalid dimension book mapping did not fail closed");
+        require(WorldgenConfigMigration.migratedDarklandsRegionWeight(0, 2) == 1
+            && WorldgenConfigMigration.migratedDarklandsRegionWeight(1, 2) == 2
+            && WorldgenConfigMigration.migratedDarklandsRegionWeight(0, 7) == 7,
+            "Darklands region weight migration no longer preserves post-migration or custom values");
 
         ConfigEditorModel model = ConfigEditorModel.headless();
         require(model.validate("general.hardcore_mode").isEmpty(), "boolean parse failed");

@@ -74,18 +74,28 @@ public final class ClientColorCompat {
         modBus.addListener((RegisterColorHandlersEvent.Item event) -> {
             for (ItemEntry entry : ITEM_ENTRIES) {
                 ItemLike[] items = entry.items().stream().map(Supplier::get).toArray(ItemLike[]::new);
-                event.register((stack, tintIndex) -> tintIndex == 0 ? entry.rgb().getAsInt() : 0xFFFFFF, items);
+                event.register((stack, tintIndex) -> opaque(tintIndex == 0 ? entry.rgb().getAsInt() : 0xFFFFFF), items);
             }
         });
         modBus.addListener((RegisterColorHandlersEvent.Block event) -> {
             for (BlockEntry entry : BLOCK_ENTRIES) {
                 Block[] blocks = entry.blocks().stream().map(Supplier::get).toArray(Block[]::new);
-                event.register((state, level, pos, tintIndex) -> tintIndex == 0 ? entry.rgb().getAsInt() : 0xFFFFFF, blocks);
+                event.register((state, level, pos, tintIndex) -> opaque(
+                    tintIndex == 0 ? entry.rgb().getAsInt() : 0xFFFFFF), blocks);
             }
             for (DynamicBlockEntry entry : DYNAMIC_BLOCK_ENTRIES) {
                 Block[] blocks = entry.blocks().stream().map(Supplier::get).toArray(Block[]::new);
-                event.register(entry.tint()::color, blocks);
+                event.register((state, level, pos, tintIndex) -> opaque(
+                    entry.tint().color(state, level, pos, tintIndex)), blocks);
             }
         });
+    }
+
+    public static int opaque(int rgb) {
+        //? if >=1.21 {
+        /*return 0xFF000000 | rgb & 0x00FFFFFF;
+        *///?} else {
+        return rgb & 0x00FFFFFF;
+        //?}
     }
 }

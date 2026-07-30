@@ -5,12 +5,16 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 import com.shinoow.abyssalcraft.content.item.transfer.SpiritTabletMenu;
 import com.shinoow.abyssalcraft.platform.ClientScreenCompat;
+import com.shinoow.abyssalcraft.platform.ACRef;
 
 public final class SpiritTabletScreen extends AbstractContainerScreen<SpiritTabletMenu> {
+
+    private static final ResourceLocation TEXTURE = ACRef.id("textures/gui/container/spirit_tablet.png");
 
     private Button subtypeButton;
     private Button componentsButton;
@@ -52,26 +56,17 @@ public final class SpiritTabletScreen extends AbstractContainerScreen<SpiritTabl
 
     @Override
     protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
-        graphics.fill(leftPos, topPos, leftPos + imageWidth, topPos + imageHeight, 0xFF171B20);
-        graphics.fill(leftPos + 7, topPos + 7, leftPos + imageWidth - 7, topPos + 80, 0xFF303840);
-        graphics.fill(leftPos + 7, topPos + 82, leftPos + imageWidth - 7, topPos + imageHeight - 7, 0xFF303840);
-        for (int slot = 0; slot < 5; slot++) {
-            int x = leftPos + 43 + slot * 18;
-            int y = topPos + 16;
-            graphics.fill(x, y, x + 18, y + 18, 0xFF15191D);
-            graphics.fill(x + 1, y + 1, x + 17, y + 17, 0xFF4C5863);
-            graphics.fill(x + 2, y + 2, x + 16, y + 16, 0xFF252C33);
-        }
+        graphics.blit(TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight);
         graphics.drawString(font, Component.translatable("gui.abyssalcraft.spirit_tablet.subtypes"),
-            leftPos + 8, topPos + 42, 0xFFE0E0E0, false);
+            leftPos + 8, topPos + 42, 0xFF404040, false);
         graphics.drawString(font, Component.translatable("gui.abyssalcraft.spirit_tablet.components"),
-            leftPos + 8, topPos + 63, 0xFFE0E0E0, false);
+            leftPos + 8, topPos + 63, 0xFF404040, false);
     }
 
     @Override
     protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-        graphics.drawString(font, title, titleLabelX, titleLabelY, 0xFFE0E0E0, false);
-        graphics.drawString(font, playerInventoryTitle, inventoryLabelX, inventoryLabelY, 0xFFE0E0E0, false);
+        graphics.drawString(font, title, titleLabelX, titleLabelY, 0xFF404040, false);
+        graphics.drawString(font, playerInventoryTitle, inventoryLabelX, inventoryLabelY, 0xFF404040, false);
     }
 
     @Override

@@ -34,6 +34,7 @@ public final class TransmutatorFuelCategory implements IRecipeCategory<FuelRecip
     private final RecipeType<FuelRecipe> type;
     private final Component title;
     private final IDrawable icon;
+    private final IDrawable background;
     private final IDrawable slot;
     private final IDrawable flame;
 
@@ -41,8 +42,10 @@ public final class TransmutatorFuelCategory implements IRecipeCategory<FuelRecip
         this.type = type;
         this.title = Component.translatable("jei.abyssalcraft.transmutator_fuel");
         this.icon = gui.createDrawableItemStack(new ItemStack(Transmutators.TRANSMUTATOR.get()));
+        this.background = LegacyJeiBackgrounds.transmutatorFuel(gui);
         this.slot = gui.getSlotDrawable();
-        this.flame = gui.createDrawable(ACRef.id("textures/gui/container/machine.png"), 176, 0, 14, 14);
+        this.flame = gui.createDrawable(
+            ACRef.id("textures/gui/container/transmutator_nei.png"), 176, 0, 14, 14);
     }
 
     @Override
@@ -56,13 +59,18 @@ public final class TransmutatorFuelCategory implements IRecipeCategory<FuelRecip
     }
 
     @Override
+    public IDrawable getBackground() {
+        return background;
+    }
+
+    @Override
     public int getWidth() {
-        return 82;
+        return 98;
     }
 
     @Override
     public int getHeight() {
-        return 34;
+        return 32;
     }
 
     @Override
@@ -72,18 +80,18 @@ public final class TransmutatorFuelCategory implements IRecipeCategory<FuelRecip
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, FuelRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 1, 10).setBackground(slot, -1, -1)
+        builder.addSlot(RecipeIngredientRole.INPUT, 1, 15).setBackground(slot, -1, -1)
             .addItemStack(recipe.fuel());
     }
 
     @Override
     public void draw(FuelRecipe recipe, IRecipeSlotsView slotsView, GuiGraphics graphics,
                      double mouseX, double mouseY) {
-        flame.draw(graphics, 24, 10);
+        flame.draw(graphics, 2, 1);
         int burnTicks = recipe.burnTime();
         Component text = Component.translatable("jei.abyssalcraft.fuel_time",
             String.format("%.1f", burnTicks / 20.0));
-        graphics.drawString(Minecraft.getInstance().font, text, 44, 12,
+        graphics.drawString(Minecraft.getInstance().font, text, 24, 12,
             0x808080, false);
     }
 

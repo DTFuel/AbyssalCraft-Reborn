@@ -6,6 +6,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 
 import com.shinoow.abyssalcraft.content.entity.boss.EliteMob;
+import com.shinoow.abyssalcraft.content.entity.boss.RemnantMob;
 import com.shinoow.abyssalcraft.platform.ACRef;
 
 import software.bernie.geckolib.model.GeoModel;
@@ -37,6 +38,16 @@ public class EliteGeoModel extends GeoModel<EliteMob> {
         "chagarothspawn", ACRef.id("textures/model/spawn_of_chagaroth.png"),
         "dreadguard", ACRef.id("textures/model/elite/dreadguard.png"));
 
+    private static final ResourceLocation[] REMNANT_TEXTURES = {
+        ACRef.id("textures/model/remnant/remnant.png"),
+        ACRef.id("textures/model/remnant/remnant_librarian.png"),
+        ACRef.id("textures/model/remnant/remnant_priest.png"),
+        ACRef.id("textures/model/remnant/remnant_blacksmith.png"),
+        ACRef.id("textures/model/remnant/remnant_butcher.png"),
+        ACRef.id("textures/model/remnant/remnant_banker.png"),
+        ACRef.id("textures/model/remnant/remnant_master_blacksmith.png"),
+    };
+
     @Override
     public ResourceLocation getModelResource(EliteMob animatable) {
         return ACRef.id("geo/entity/" + id(animatable) + ".geo.json");
@@ -44,6 +55,9 @@ public class EliteGeoModel extends GeoModel<EliteMob> {
 
     @Override
     public ResourceLocation getTextureResource(EliteMob animatable) {
+        if (animatable instanceof RemnantMob remnant) {
+            return REMNANT_TEXTURES[remnant.getProfession()];
+        }
         return TEXTURES.getOrDefault(id(animatable), ACRef.id("textures/model/elite/skeletongoliath.png"));
     }
 

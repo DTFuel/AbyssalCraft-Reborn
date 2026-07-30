@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
-      "model": "abyssalcraft:block/energypedestal"
+    "tilted=false": {
+      "model": "abyssalcraft:block/energy_pedestal"
+    },
+    "tilted=true": {
+      "model": "abyssalcraft:block/energy_pedestal_tilted"
     }
   }
 }

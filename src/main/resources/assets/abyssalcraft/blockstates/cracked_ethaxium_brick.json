@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "abyssalcraft:block/cracked_ethaxium_brick_1",
+        "weight": 2
+      },
+      {
+        "model": "abyssalcraft:block/cracked_ethaxium_brick_2",
+        "weight": 1
+      },
+      {
+        "model": "abyssalcraft:block/cracked_ethaxium_brick_3",
+        "weight": 1
+      }
+    ]
+  }
+}

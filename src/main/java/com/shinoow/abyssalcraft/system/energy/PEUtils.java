@@ -127,9 +127,12 @@ public final class PEUtils {
     public static float transferInDirection(Level level, BlockPos pos, Direction direction,
                                             IEnergyTransporter transporter) {
         IEnergyContainer target = findContainer(level, pos, direction, transporter.getTransferRange());
-        return target == null || target == transporter
-            ? 0
-            : transfer(transporter, target, transporter.getTransferQuanta());
+        if (target == null || target == transporter) return 0;
+        float transferred = transfer(transporter, target, transporter.getTransferQuanta());
+        if (transferred > 0.0F && target instanceof BlockEntity blockEntity) {
+            broadcastPEStream(level, pos, blockEntity.getBlockPos());
+        }
+        return transferred;
     }
 
     /** Rescan the legacy horizontal collector ring, retaining at most twenty collectors. */
@@ -230,6 +233,7 @@ public final class PEUtils {
         for (ItemEntity itemEntity : level.getEntitiesOfClass(ItemEntity.class, new AABB(origin).inflate(range))) {
             if (level.random.nextInt(interval) == 0
                 && transferToItem(manipulator, itemEntity.getItem(), manipulator.isActive() ? 4 : 2) > 0) {
+                broadcastPEStream(level, origin, itemEntity.blockPosition());
                 charged++;
             }
         }
@@ -257,17 +261,22 @@ public final class PEUtils {
                 }
                 collector.addEnergy(quanta);
                 manipulator.addTolerance(manipulator.isActive() ? 2 : 1);
-                if (level instanceof net.minecraft.server.level.ServerLevel server
-                    && manipulator instanceof BlockEntity origin) {
-                    for (net.minecraft.server.level.ServerPlayer player : server.players()) {
-                        if (player.distanceToSqr(Vec3.atCenterOf(origin.getBlockPos())) <= 4096.0D) {
-                            ACNetwork.sendToPlayer(player, new PEStreamMessage(origin.getBlockPos(), pos));
-                        }
-                    }
+                if (manipulator instanceof BlockEntity origin) {
+                    broadcastPEStream(level, origin.getBlockPos(), pos);
                 }
                 fed++;
             }
         }
         return fed;
+    }
+
+    /** Broadcast the legacy PE stream to clients within thirty blocks of its source. */
+    public static void broadcastPEStream(Level level, BlockPos origin, BlockPos target) {
+        if (!(level instanceof net.minecraft.server.level.ServerLevel server)) return;
+        for (net.minecraft.server.level.ServerPlayer player : server.players()) {
+            if (player.distanceToSqr(Vec3.atCenterOf(origin)) <= 900.0D) {
+                ACNetwork.sendToPlayer(player, new PEStreamMessage(origin, target));
+            }
+        }
     }
 }

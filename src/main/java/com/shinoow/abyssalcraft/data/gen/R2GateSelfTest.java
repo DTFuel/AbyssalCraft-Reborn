@@ -13,6 +13,7 @@ import com.shinoow.abyssalcraft.content.machine.brewing.BrewingStands;
 import com.shinoow.abyssalcraft.content.machine.researchtable.ResearchTables;
 import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.platform.ItemTransferAttachmentCompat;
+import com.shinoow.abyssalcraft.platform.InteractiveBlockCompat;
 import com.shinoow.abyssalcraft.platform.MenuHostCapabilityCompat;
 import com.shinoow.abyssalcraft.platform.ModRegistrar;
 import com.shinoow.abyssalcraft.registry.ModRegistries;
@@ -60,6 +61,23 @@ public final class R2GateSelfTest {
         require(MenuHostCapabilityCompat.isAttached(), "MenuHostCapabilityCompat was not attached by mod init");
         require(ItemTransferAttachmentCompat.isAttached(),
             "ItemTransferAttachmentCompat was not attached by mod init");
+        require(!InteractiveBlockCompat.invokesBlockForHeldItem(true, true)
+            && !InteractiveBlockCompat.invokesBlockForHeldItem(false, false)
+            && InteractiveBlockCompat.invokesBlockForHeldItem(false, true),
+            "held-item block interaction routing differs between game versions");
+        require(InteractiveBlockCompat.bypassesBlockInteraction(true, true)
+            && !InteractiveBlockCompat.bypassesBlockInteraction(false, true)
+            && !InteractiveBlockCompat.bypassesBlockInteraction(true, false),
+            "sneaking pedestal interaction routing differs between game versions");
+        require(InteractiveBlockCompat.displayedItemAction(true, true)
+                == InteractiveBlockCompat.DisplayedItemAction.TAKE
+            && InteractiveBlockCompat.displayedItemAction(true, false)
+                == InteractiveBlockCompat.DisplayedItemAction.TAKE
+            && InteractiveBlockCompat.displayedItemAction(false, true)
+                == InteractiveBlockCompat.DisplayedItemAction.STORE
+            && InteractiveBlockCompat.displayedItemAction(false, false)
+                == InteractiveBlockCompat.DisplayedItemAction.NONE,
+            "pedestal displayed-item exchange no longer prioritizes take, then store, then no-op");
         System.out.printf("R2_GATE_SELF_TEST_OK registrars=%d r2Registrars=12 menuHosts=3%n",
             ModRegistries.ALL.size());
     }

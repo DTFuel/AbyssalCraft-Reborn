@@ -96,7 +96,7 @@ function registryId(expression, metadata) {
   const value = expression.trim();
   if (value.startsWith('ACItems.')) {
     const name = value.slice(8);
-    if (name === 'dread_plagued_gateway_key') return 'abyssalcraft:gatewaykeydl';
+    if (name === 'dread_plagued_gateway_key') return 'abyssalcraft:dreadkey';
     if (name === 'omothol_forged_gateway_key') return 'abyssalcraft:gatewaykeyjzh';
     return `abyssalcraft:${name}`;
   }

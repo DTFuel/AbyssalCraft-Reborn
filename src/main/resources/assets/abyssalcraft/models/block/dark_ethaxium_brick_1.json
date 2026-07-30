@@ -1,0 +1,9 @@
+{
+  "parent": "abyssalcraft:block/layered_ore",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "abyssalcraft:block/ethaxium_bricks/dark_bricks_base",
+    "overlay": "abyssalcraft:block/ethaxium_bricks/dark_faces_1",
+    "particle": "abyssalcraft:block/ethaxium_bricks/dark_bricks_base"
+  }
+}

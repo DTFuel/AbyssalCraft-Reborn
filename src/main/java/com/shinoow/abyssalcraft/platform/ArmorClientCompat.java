@@ -1,7 +1,10 @@
 package com.shinoow.abyssalcraft.platform;
 
 import com.shinoow.abyssalcraft.client.render.armor.ACArmorVisuals;
-import com.shinoow.abyssalcraft.content.item.armor.ArmorItems;
+
+//? if >=1.21 {
+/*import com.shinoow.abyssalcraft.content.item.armor.ArmorItems;
+*///?}
 
 //? if forge {
 import net.minecraftforge.eventbus.api.IEventBus;

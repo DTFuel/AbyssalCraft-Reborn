@@ -1,5 +1,6 @@
 {
   "parent": "abyssalcraft:block/legacy_custom_model",
+  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "abyssalcraft:block/crystal_cluster",
     "0": "abyssalcraft:block/crystal_cluster"

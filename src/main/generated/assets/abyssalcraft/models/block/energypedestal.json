@@ -1,9 +1,0 @@
-{
-  "parent": "abyssalcraft:block/rending_pedestal",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "0": "abyssalcraft:block/energy_glow",
-    "1": "abyssalcraft:block/energy_trim",
-    "particle": "abyssalcraft:block/energy_glow"
-  }
-}

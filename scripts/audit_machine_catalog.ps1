@@ -209,9 +209,9 @@ foreach ($item in $resolutionItems.Values) {
         throw "Output resolver target is not proven by the modern registry sources: $item"
     }
 }
-if ($sourceText -notmatch 'dread_plagued_gateway_key"\s*->\s*"abyssalcraft:gatewaykeydl"' -or
+if ($sourceText -notmatch 'dread_plagued_gateway_key"\s*->\s*"abyssalcraft:dreadkey"' -or
     $sourceText -notmatch 'omothol_forged_gateway_key"\s*->\s*"abyssalcraft:gatewaykeyjzh"') {
-    throw 'Gateway aliases are not mapped to the modern registry IDs'
+    throw 'Legacy gateway items are not mapped to the modern registry IDs'
 }
 
 $catalogSource = Get-Content -Raw $catalogJava

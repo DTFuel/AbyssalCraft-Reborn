@@ -18,7 +18,6 @@ public final class EntityBehaviorSelfTest {
     public static void run() {
         long content = BuiltInRegistries.ENTITY_TYPE.keySet().stream()
             .filter(id -> AbyssalCraft.MODID.equals(id.getNamespace()))
-            .filter(id -> !id.getPath().equals("pilot_mob"))
             .count();
         if (content != 63) throw new IllegalStateException("entity content count mismatch: " + content);
 

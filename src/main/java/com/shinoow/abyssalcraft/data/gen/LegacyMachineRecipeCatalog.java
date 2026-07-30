@@ -130,10 +130,10 @@ public final class LegacyMachineRecipeCatalog {
         }
         Entry gateway = entries.get(119);
         if (!gateway.inputs().equals(List.of(new LegacyMachineRecipeSource.StackRef(
-                "abyssalcraft:gatewaykeydl", 1, false)))
+            "abyssalcraft:dreadkey", 1, false)))
             || !gateway.outputs().equals(List.of(new LegacyMachineRecipeSource.StackRef(
                 "abyssalcraft:gatewaykeyjzh", 1, false)))) {
-            throw new IllegalStateException("Legacy gateway aliases no longer resolve to modern gateway keys");
+            throw new IllegalStateException("Legacy gateway aliases no longer resolve to their modern items");
         }
         LegacyMachineRecipeSource.Definition multipleMissing = new LegacyMachineRecipeSource.Definition(
             0, 0, Kind.MATERIALIZATION, "self-test",

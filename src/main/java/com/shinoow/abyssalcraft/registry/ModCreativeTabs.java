@@ -30,7 +30,6 @@ import com.shinoow.abyssalcraft.content.item.misc.MiscItems;
 import com.shinoow.abyssalcraft.content.item.portal.PortalItems;
 import com.shinoow.abyssalcraft.content.item.ritual.RitualItems;
 import com.shinoow.abyssalcraft.content.item.scroll.ScrollItems;
-import com.shinoow.abyssalcraft.content.item.staff.StaffItems;
 import com.shinoow.abyssalcraft.content.item.tablet.TabletItems;
 import com.shinoow.abyssalcraft.content.item.transfer.TransferContent;
 import com.shinoow.abyssalcraft.content.item.tool.ToolItems;
@@ -114,8 +113,8 @@ public final class ModCreativeTabs {
                 output.accept(LiquidAntimatterCompat.BUCKET.get());
                 acceptAll(output, MISC);
                 acceptAll(output, BookItems.ALL);
-                acceptAll(output, StaffItems.ALL);
                 acceptAll(output, PortalItems.ALL);
+                output.accept(PortalItems.DREAD_PLAGUED_GATEWAY_KEY.get());
                 acceptAll(output, RitualItems.ALL);
                 acceptAll(output, ScrollItems.ALL);
                 acceptAll(output, TabletItems.ALL);

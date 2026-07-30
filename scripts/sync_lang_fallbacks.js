@@ -67,7 +67,7 @@ const ZH_ENTITIES = new Map([
     ['ghoul', '食尸鬼'], ['greater_shoggoth', '大型修格斯'], ['gskeleton', '骷髅巨人'],
     ['implosion', '内爆'], ['inkprojectile', '墨汁弹'], ['jzahar', '扎哈尔'],
     ['jzaharminion', '守门人仆从'], ['lesser_shoggoth', '小型修格斯'],
-    ['omothol_ghoul', '奥穆索食尸鬼'], ['pilot_mob', '先导生物'], ['portal', '传送门'],
+    ['omothol_ghoul', '奥穆索食尸鬼'], ['portal', '传送门'],
     ['remnant', '残魂'], ['shadow_ghoul', '暗影食尸鬼'], ['shadowboss', '萨克托斯'],
     ['shoggoth', '修格斯'], ['shuboffspring', '莎布之嗣'], ['singleportal', '单向传送门'],
     ['spirititem', '灵魂物品'],
@@ -139,12 +139,9 @@ const ZH_EXPLICIT = new Map([
     ['item.abyssalcraft.dreaded_ghoul_flesh', '恐惧食尸鬼肉'],
     ['item.abyssalcraft.dreaded_shard_of_abyssalnite', '恐惧渊素碎片'],
     ['item.abyssalcraft.ghoul_flesh', '食尸鬼肉'],
-    ['item.abyssalcraft.pilot_crystal', '先导水晶'],
-    ['item.abyssalcraft.pilot_fuel', '先导燃料'],
     ['item.abyssalcraft.shadow_ghoul_flesh', '暗影食尸鬼肉'],
     ['item.abyssalcraft.shadow_shard', '暗影碎片'],
     ['item.abyssalcraft.shard_of_oblivion', '湮灭碎片'],
-    ['item.abyssalcraft.spell_staff', '法术权杖'],
     ['item.minecraft.potion.effect.antimatter', '反物质药水'],
 ]);
 const CONTENT_LANGUAGES = ['es_es', 'fr_fr', 'ja_jp', 'ko_kr', 'ru_ru', 'zh_tw'];

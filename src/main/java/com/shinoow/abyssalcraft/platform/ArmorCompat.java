@@ -121,7 +121,9 @@ public final class ArmorCompat {
             @Override public float getToughness() { return m.toughness; }
             @Override public float getKnockbackResistance() { return m.knockbackResistance; }
         };
-        return new VisualArmorItem(material, type, props, visual);
+        return visual == Visual.DREADIUM_SAMURAI
+            ? new SamuraiArmorItem(material, type, props)
+            : new VisualArmorItem(material, type, props, visual);
         //?}
     }
 
@@ -139,17 +141,24 @@ public final class ArmorCompat {
             super(material, type, properties);
             this.visual = visual;
         }
-
-        @Override
-        public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
-            if (visual == Visual.DREADIUM_SAMURAI) {
-                consumer.accept(ArmorClientCompat.samuraiExtension());
-            }
-        }
         //?}
 
         public Visual visual() {
             return visual;
         }
     }
+
+    //? if <1.21 {
+    public static final class SamuraiArmorItem extends ArmorItem {
+
+        SamuraiArmorItem(ArmorMaterial material, Type type, Item.Properties properties) {
+            super(material, type, properties);
+        }
+
+        @Override
+        public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
+            consumer.accept(ArmorClientCompat.samuraiExtension());
+        }
+    }
+    //?}
 }

@@ -1,6 +1,6 @@
 package com.shinoow.abyssalcraft.system.knowledge;
 
-import java.awt.image.BufferedImage;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -122,6 +122,12 @@ public final class NecronomiconPageManifest {
     }
 
     private static final List<PageEntry> PAGES = new ArrayList<>();
+    private static final int PNG_SIGNATURE_HIGH = 0x89504E47;
+    private static final int PNG_SIGNATURE_LOW = 0x0D0A1A0A;
+    private static final int PNG_IHDR = 0x49484452;
+    private static final int LEGACY_TEXTURE_SCALE = 256;
+    private static final int LEGACY_BOOK_WIDTH = 255;
+    private static final int LEGACY_BOOK_HEIGHT = 192;
     private static boolean bootstrapped = false;
 
     private NecronomiconPageManifest() {}
@@ -234,13 +240,20 @@ public final class NecronomiconPageManifest {
     private static ImageContent loadImage(String reference) {
         ResourceLocation texture = com.shinoow.abyssalcraft.platform.ACRef.parse(reference);
         String resource = "assets/" + texture.getNamespace() + "/" + texture.getPath();
-        try (InputStream stream = NecronomiconPageManifest.class.getClassLoader().getResourceAsStream(resource)) {
+        try (InputStream stream = NecronomiconPageManifest.class.getClassLoader().getResourceAsStream(resource);
+             DataInputStream input = stream == null ? null : new DataInputStream(stream)) {
             if (stream == null) throw new IllegalStateException("missing Necronomicon image " + reference);
-            BufferedImage image = ImageIO.read(stream);
-            if (image == null) throw new IllegalStateException("undecodable Necronomicon image " + reference);
-            return new ImageContent(texture, image.getWidth(), image.getHeight(), 0, 0, 256, 256);
+            if (input.readInt() != PNG_SIGNATURE_HIGH || input.readInt() != PNG_SIGNATURE_LOW
+                || input.readInt() != 13 || input.readInt() != PNG_IHDR) {
+                throw new IllegalStateException("invalid Necronomicon PNG header " + reference);
+            }
+            int width = input.readInt();
+            int height = input.readInt();
+            int sampledWidth = Math.max(1, width * LEGACY_BOOK_WIDTH / LEGACY_TEXTURE_SCALE);
+            int sampledHeight = Math.max(1, height * LEGACY_BOOK_HEIGHT / LEGACY_TEXTURE_SCALE);
+            return new ImageContent(texture, width, height, 0, 0, sampledWidth, sampledHeight);
         } catch (IOException exception) {
-            throw new IllegalStateException("unable to read Necronomicon image " + reference, exception);
+            throw new IllegalStateException("unable to read Necronomicon PNG header " + reference, exception);
         }
     }
 

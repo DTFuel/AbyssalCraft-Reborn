@@ -118,6 +118,11 @@ for (const node of NODES) {
   if (wrongStructures !== 0) failures.push(`${node.id}: wrong structure directory contains ${wrongStructures} NBT files`);
   const devOnly = zip.names.filter(name => DEV_ONLY.some(pattern => pattern.test(name)));
   if (devOnly.length) failures.push(`${node.id}: dev-only JAR entries ${devOnly.slice(0, 8).join(', ')}`);
+  const unresolvedModelLoaders = zip.names.filter(name => /^assets\/abyssalcraft\/models\/.+\.json$/.test(name))
+    .filter(name => zip.read(name)?.includes(Buffer.from('__LOADER__')));
+  if (unresolvedModelLoaders.length) {
+    failures.push(`${node.id}: unresolved model loader placeholders ${unresolvedModelLoaders.slice(0, 8).join(', ')}`);
+  }
   const sha256 = crypto.createHash('sha256').update(fs.readFileSync(jar)).digest('hex');
   results.push({ node: node.id, jar: path.relative(ROOT, jar).replaceAll('\\', '/'), sha256, entries: zip.names.length, structures });
 }

@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.data.gen;
 import java.util.concurrent.CompletableFuture;
 
 import com.shinoow.abyssalcraft.system.ritual.RitualManifestSelfTest;
+import com.shinoow.abyssalcraft.content.block.ritual.RitualAltarSyncSelfTest;
 import com.shinoow.abyssalcraft.content.block.ritual.RitualPedestalSyncSelfTest;
 import com.shinoow.abyssalcraft.system.spell.SpellManifestSelfTest;
 
@@ -14,6 +15,7 @@ public final class RitualSpellPortalValidationData implements DataProvider {
 
     @Override
     public CompletableFuture<?> run(CachedOutput output) {
+        RitualAltarSyncSelfTest.run();
         RitualPedestalSyncSelfTest.run();
         RitualManifestSelfTest.run();
         SpellManifestSelfTest.run();

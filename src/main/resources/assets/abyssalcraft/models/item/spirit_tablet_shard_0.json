@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "abyssalcraft:item/spirit_tablet"
+    "layer0": "abyssalcraft:item/spirit_tablet/spirit_tablet_shard_0"
   }
 }

@@ -1,1 +1,14 @@
-{"parent":"abyssalcraft:block/odb_core"}
+{
+  "credit": "Exact OBJ port of AbyssalCraft 1.12.2 odb",
+  "parent": "abyssalcraft:block/legacy_custom_model",
+  "loader": "__LOADER__:obj",
+  "model": "abyssalcraft:models/block/odb.obj",
+  "flip_v": true,
+  "automatic_culling": true,
+  "shade_quads": true,
+  "emissive_ambient": false,
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "abyssalcraft:block/legacy_obj/odb"
+  }
+}

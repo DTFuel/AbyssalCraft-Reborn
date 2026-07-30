@@ -4,7 +4,7 @@
 - 关联平行任务：PS-5（框架）+ RR-ENERGY（完整服务端内容）；下游 R4/R5 读取本层
 - 状态：RR-ENERGY 当前依赖闭包完成；21网络块、7功能神像、32 charm、Idol、PoP/扰动链已双端验证
 - 负责：GitHub Copilot
-- 最后更新：2026-07-25
+- 最后更新：2026-07-30
 
 ## 1. 概述 / 目标
 
@@ -17,7 +17,7 @@ AbyssalCraft 的 Potential Energy（PE，势能）系统。功能神像产生PE�
   - 7个功能神像；`deity_statue`保留为Cthulhu旧世界兼容入口。
   - 32个ritual charm（8家族×基础/RANGE/DURATION/POWER）与Idol of Fading。
   - 玩家/掉落物/collector路由、relay障碍与红石暂停、物品双向传能、PE方块掉落/放置持久化。
-- 明确延后：Energy Container/Depositioner GUI、PEStream/DisruptionMessage客户端FX归R5；Depositioner Stone Tablet处理归T2.9c，不使用Spirit Tablet替代。
+- 明确延后：Energy Container/Depositioner GUI、DisruptionMessage客户端FX归R5；Depositioner Stone Tablet处理归T2.9c，不使用Spirit Tablet替代。
 
 ## 3. 设计 / 架构
 
@@ -30,7 +30,7 @@ AbyssalCraft 的 Potential Energy（PE，势能）系统。功能神像产生PE�
 ## 4. 子系统内契约
 
 - 对外 API：`IEnergyContainer` 等接口供能量方块 BE 实现；`PEUtils` 供网络逻辑复用；`DeityType`/`AmplifierType` 供 statue/charm/PS-9 扰动引用。
-- PE stream 视觉 → PS-1 `net.client.PEStreamMessage`（posFrom→posTo）。
+- PE stream 视觉 → `PEUtils.broadcastPEStream` 在玩家、掉落物、collector 成功接收及 relay 成功输出后向源点 30 格内发送 `PEStreamMessage`；客户端恢复旧版专用彩色粒子、15 点/格密度和 20 tick 生命周期。
 
 ### 数值表
 

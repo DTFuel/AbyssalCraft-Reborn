@@ -1,13 +1,40 @@
 {
   "variants": {
-    "type=bottom": {
-      "model": "abyssalcraft:block/ethaxium_brick_slab"
-    },
-    "type=double": {
-      "model": "abyssalcraft:block/ethaxium_brick_slab_double"
-    },
-    "type=top": {
-      "model": "abyssalcraft:block/ethaxium_brick_slab_top"
-    }
+    "type=bottom": [
+      {
+        "model": "abyssalcraft:block/ethaxium_brick_slab",
+        "weight": 2
+      },
+      {
+        "model": "abyssalcraft:block/ethaxium_brick_slab_2"
+      },
+      {
+        "model": "abyssalcraft:block/ethaxium_brick_slab_3"
+      }
+    ],
+    "type=double": [
+      {
+        "model": "abyssalcraft:block/ethaxium_brick_slab_double",
+        "weight": 2
+      },
+      {
+        "model": "abyssalcraft:block/ethaxium_brick_slab_double_2"
+      },
+      {
+        "model": "abyssalcraft:block/ethaxium_brick_slab_double_3"
+      }
+    ],
+    "type=top": [
+      {
+        "model": "abyssalcraft:block/ethaxium_brick_slab_top",
+        "weight": 2
+      },
+      {
+        "model": "abyssalcraft:block/ethaxium_brick_slab_top_2"
+      },
+      {
+        "model": "abyssalcraft:block/ethaxium_brick_slab_top_3"
+      }
+    ]
   }
 }

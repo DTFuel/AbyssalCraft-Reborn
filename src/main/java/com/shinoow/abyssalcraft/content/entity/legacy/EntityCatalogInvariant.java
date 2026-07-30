@@ -63,17 +63,11 @@ public final class EntityCatalogInvariant {
 
     public static String validate() {
         Set<String> allEntities = entityIds();
-        Set<String> contentEntities = new TreeSet<>(allEntities);
-        contentEntities.remove("pilot_mob");
-        requireExact("content entities", CONTENT_ENTITIES, contentEntities);
-
-        Set<String> expectedAll = new TreeSet<>(CONTENT_ENTITIES);
-        expectedAll.add("pilot_mob");
-        requireExact("all AC entities", expectedAll, allEntities);
+        requireExact("all AC entities", CONTENT_ENTITIES, allEntities);
         requireExact("spawn eggs", SPAWN_EGGS, itemIds("_spawn_egg"));
         requireExact("placements", PLACEMENTS, SpawnPlacementCompat.registeredIds());
 
-        String result = "RR_ENTITY_CATALOG_OK content=63 all_ac=64 eggs=48 placements=44";
+        String result = "RR_ENTITY_CATALOG_OK content=63 all_ac=63 eggs=48 placements=44";
         System.out.println(result);
         return result;
     }

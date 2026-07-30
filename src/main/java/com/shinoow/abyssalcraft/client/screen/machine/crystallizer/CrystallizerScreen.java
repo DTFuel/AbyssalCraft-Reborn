@@ -13,14 +13,11 @@ import com.shinoow.abyssalcraft.platform.ClientScreenCompat;
 /**
  * Crystallizer screen (owned by PP-2).
  *
- * <p>Reuses the vanilla furnace GUI texture -- the PP-1 {@link MachineMenu} slot layout
- * (input 56,17 / fuel 56,53 / output 116,35 / arrow 79,34) matches the furnace, so no bespoke texture
- * is shipped for the pilot. {@code blit}/{@code renderBg}/{@code renderTooltip} are vanilla-shared;
- * only {@code renderBackground} forks and is routed through {@link ClientScreenCompat}.
+ * <p>Uses the legacy Crystallizer background and its original furnace-compatible progress UVs.
  */
 public class CrystallizerScreen extends AbstractContainerScreen<CrystallizerMenu> {
 
-    private static final ResourceLocation TEXTURE = ACRef.vanilla("textures/gui/container/furnace.png");
+    private static final ResourceLocation TEXTURE = ACRef.id("textures/gui/container/crystallizer.png");
 
     public CrystallizerScreen(CrystallizerMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -37,6 +34,13 @@ public class CrystallizerScreen extends AbstractContainerScreen<CrystallizerMenu
         if (flame > 0) {
             graphics.blit(TEXTURE, leftPos + 56, topPos + 36 + 12 - flame, 176, 12 - flame, 14, flame + 1);
         }
+    }
+
+
+    @Override
+    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
+        graphics.drawString(font, title, titleLabelX, titleLabelY, 0xFFFFFF, false);
+        graphics.drawString(font, playerInventoryTitle, inventoryLabelX, inventoryLabelY, 0xFFFFFF, false);
     }
 
     @Override

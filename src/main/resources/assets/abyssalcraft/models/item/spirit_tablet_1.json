@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "abyssalcraft:item/spirit_tablet",
+    "layer1": "abyssalcraft:item/spirit_tablet/glyph_1"
+  }
+}

@@ -64,8 +64,6 @@ public final class MachineRecipeData implements DataProvider {
             saveBoth(futures, output, base, entry.recipeId().substring(entry.recipeId().indexOf(':') + 1),
                 forgeJson, neoJson);
         }
-        saveBoth(futures, output, base, "anvil_forging_pilot",
-            anvilJson("item"), anvilJson("id"));
         rending(futures, output, base, "abyssal", "Abyssal", 100,
             "abyssalcraft:abyssal_wasteland_essence", "#abyssalcraft:coralium_plague_carriers", 50);
         rending(futures, output, base, "dread", "Dread", 100,
@@ -199,17 +197,6 @@ public final class MachineRecipeData implements DataProvider {
             array.add(json);
         }
         return array;
-    }
-
-    private static JsonObject anvilJson(String resultKey) {
-        JsonObject json = new JsonObject();
-        json.addProperty("type", AbyssalCraft.MODID + ":anvil_forging");
-        json.add("input1", itemIngredient("minecraft:iron_ingot"));
-        json.add("input2", itemIngredient("minecraft:diamond"));
-        json.add("result", result("minecraft:netherite_scrap", 1, resultKey));
-        json.addProperty("price", 5);
-        json.addProperty("forging_type", "default");
-        return json;
     }
 
     private static void rending(List<CompletableFuture<?>> futures, CachedOutput output, Path base,

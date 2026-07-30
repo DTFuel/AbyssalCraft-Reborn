@@ -28,8 +28,11 @@ public final class EnergyBlockData extends BlockModelGen {
         energyContainer(EnergyBlocks.ENERGY_CONTAINERS.get(2).get(), modLoc("block/abyssal_stone"));
         energyContainer(EnergyBlocks.ENERGY_CONTAINERS.get(3).get(), modLoc("block/dreadstone"));
         energyContainer(EnergyBlocks.ENERGY_CONTAINERS.get(4).get(), modLoc("block/omothol_stone"));
-        EnergyBlocks.ENERGY_PEDESTALS.forEach(block ->
-            energyPedestal(block.get(), "energy_glow", "energy_trim"));
+        energyPedestal(EnergyBlocks.ENERGY_PEDESTALS.get(0).get(), null);
+        energyPedestal(EnergyBlocks.ENERGY_PEDESTALS.get(1).get(), mcLoc("block/stone"));
+        energyPedestal(EnergyBlocks.ENERGY_PEDESTALS.get(2).get(), modLoc("block/abyssal_stone"));
+        energyPedestal(EnergyBlocks.ENERGY_PEDESTALS.get(3).get(), modLoc("block/dreadstone"));
+        energyPedestal(EnergyBlocks.ENERGY_PEDESTALS.get(4).get(), modLoc("block/omothol_stone"));
         energyRelay(EnergyBlocks.ENERGY_RELAYS.get(0).get(), null);
         energyRelay(EnergyBlocks.ENERGY_RELAYS.get(1).get(), mcLoc("block/stone"));
         energyRelay(EnergyBlocks.ENERGY_RELAYS.get(2).get(), modLoc("block/abyssal_stone"));
@@ -39,7 +42,7 @@ public final class EnergyBlockData extends BlockModelGen {
         energyDepositioner(EnergyBlocks.ENERGY_DEPOSITIONER.get());
         parentModel(EnergyBlocks.IDOL_OF_FADING.get(), "deco_statue", "monolith_stone");
         parentModel(EnergyBlocks.MONOLITH_PILLAR.get(), "deco_statue", "monolith_pillar");
-        cubeWithoutItem(EnergyBlocks.PLACE_OF_POWER_BASE.get(), "monolith_stone");
+        cubeWithoutItem(EnergyBlocks.PLACE_OF_POWER_BASE.get(), "multi_block");
 
     }
 }

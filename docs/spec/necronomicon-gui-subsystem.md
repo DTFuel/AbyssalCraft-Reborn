@@ -4,7 +4,7 @@
 - 关联平行任务：PH-5（本框架）；**读 PS-8**（研究解锁门控 entry 显示）+ **读 PS-2**（同步 necrodata）；被 PS-6（仪式）/PS-7（法术）/PS-10（PoP）的 entry 引用
 - 状态：五本书物品、常驻信息树与42项五分类研究目录/状态/hint已接入；Aklo knowledge 页正文、89 个图片页与 43 个可解析物品页已恢复为 ACTIVE。401 条 manifest 当前为 330 ACTIVE、71 BLOCKED、0 MISSING，其余 BLOCKED 不计完成。
 - 负责：PH-5
-- 最后更新：2026-07-25
+- 最后更新：2026-07-29
 
 ## 1. 概述 / 目标
 
@@ -14,7 +14,7 @@ AbyssalCraft 的 Necronomicon 书界面——一本自定义 GUI 书，按章节
 
 - 含：`client/necronomicon/{NecronomiconEntry,NecronomiconScreen,ACNecronomicon}`——递归书数据节点 + 书 Screen（导航 + PS-8 门控渲染）+ 可审计 manifest 内容树 + open 入口。
 - 不含（延后内容，依赖未移植 / 需人工）：
-  - **旧页专用渲染**：322 个旧页均保留旧变量名、源码顺序、页码、book tier、标题/正文引用、视觉类型/引用、research 引用和原始构造表达式。89 个 IMAGE 页从 1.12.2 仓内快照迁移 75 张真实 PNG，按旧版左上 256x256 UV 渲染标题、图片和正文；旧英文标题/正文键已原值迁入，页面不再用变量名生成标题。
+  - **旧页专用渲染**：322 个旧页均保留旧变量名、源码顺序、页码、book tier、标题/正文引用、视觉类型/引用、research 引用和原始构造表达式。89 个 IMAGE 页从 1.12.2 仓内快照迁移 75 张真实 PNG；精确复现旧 `drawTexturedModalRect` 的固定 1/256 UV，256 图采样 255x192、1024 图采样 1020x768，再缩放到 255x192 书页，而不是把 1024 图误裁成左上 256x256。扁平目录使用当前语言正文摘要区分同章节页面，页顶标题附源页码。
   - **忠实书贴图 / 页布局**：1.12.2 book 纹理 + 双页布局 + 按钮贴图（next/home/info/category）——资产迁移（PK）；本框架用 vanilla 背景 + 文字，fork-free。
   - **配方页渲染**：crystallizer/materializer/transmutator/anvil recipe 页（机器已移植，但页渲染 + 配方拉取 = 内容细节）。
   - **Aklo 字体正文**：`INFORMATION_KNOWLEDGE_PAGE_4` 使用稳定的 `necronomicon.text.knowledge.aklo` 正文；screen 仅对 `aklo-content` owner 的正文应用 `Style.withFont(abyssalcraft:aklo)`，标题与内容状态仍使用默认字体。
@@ -41,6 +41,7 @@ AbyssalCraft 的 Necronomicon 书界面——一本自定义 GUI 书，按章节
 - **`renderBackground` 签名分叉**（1.20.1 `(GuiGraphics)` ↔ 1.21 `(GuiGraphics,int,int,float)`）→ 走既有 `ClientScreenCompat.background`（PA-1/机器屏幕已建）。
 - **`Screen.render` 行为分叉坑**（关键）：1.20.1 `Screen.render` **不**自画背景（子类须先 `renderBackground`）；1.21 `super.render` 自画背景 → 若自定义文字在 `super.render` 前画会被 1.21 的背景覆盖 → **自定义标题/正文放 `super.render` 之后**（最上层），两端皆正确（1.21 背景被画两次无害）。
 - **client-only**：`NecronomiconScreen` 等仅客户端加载（书物品右键 = 客户端上下文 `setScreen`），dedicated server 不构造；编译入合并 jar 无碍。
+- **开书热路径**：manifest 图片探测只读取 24 字节 PNG 签名/IHDR，不再用 `ImageIO` 解压 89 次图片引用；五个 book tier 的不可变内容树各构建一次并复用。知识快照仍只重建当前页 widgets，不重建 401 页树。
 
 ## 6. 实现记忆 / 踩坑 (verified gotchas)
 
@@ -59,6 +60,7 @@ AbyssalCraft 的 Necronomicon 书界面——一本自定义 GUI 书，按章节
 
 ## 修订日志
 
+- 2026-07-29：修复 IMAGE 页 1024 纹理被错误裁为左上 256 区域、信息目录标题重复与首次/重复开书卡顿；恢复整页透明覆盖层坐标，加入本地化摘要、页码标题、PNG 头探测和五阶树缓存。
 - 2026-07-27：迁移 75 张 1.12.2 Necronomicon PNG，恢复 89 个 IMAGE 页的完整纹理/UV renderer 与资源解码 selftest，移除 `necronomicon-image-renderer=89` BLOCKED。
 - 2026-07-27：恢复 `INFORMATION_KNOWLEDGE_PAGE_4` 的稳定 Aklo 正文与 `abyssalcraft:aklo` renderer，加入资源/font/glyph/text 自动契约并移除 `aklo-content=1` BLOCKED。
 - 2026-07-25：RR-KNOWLEDGE（CR-70）接入42项五分类研究目录、状态/hint与协议v2同步；完整旧页面/actions和真人目视继续待办。

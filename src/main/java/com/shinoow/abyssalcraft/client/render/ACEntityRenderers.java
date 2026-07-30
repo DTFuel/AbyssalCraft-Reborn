@@ -8,7 +8,6 @@ import com.shinoow.abyssalcraft.client.model.entity.DreadiumSamuraiArmorModel;
 import net.minecraft.client.model.SheepModel;
 import net.minecraft.client.model.SheepFurModel;
 import com.shinoow.abyssalcraft.client.render.block.ACBlockEntityRenderers;
-import com.shinoow.abyssalcraft.client.render.entity.ACPlaceholderRenderer;
 import com.shinoow.abyssalcraft.client.render.entity.AntiDemonRenderers;
 import com.shinoow.abyssalcraft.client.render.entity.BossRenderers;
 import com.shinoow.abyssalcraft.client.render.entity.GhoulShoggothRenderers;
@@ -43,16 +42,15 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
  * <p>The single point where AbyssalCraft entity renderers and model layers are registered, wired to the
  * MOD bus by the main class through {@link EntityRendererCompat#attach} (inside {@code runWhenClient}).
  *
- * <p>Stage E1 registers the {@link ACPlaceholderRenderer} for <b>every</b> AbyssalCraft entity type
- * (discovered by namespace from the frozen registry -- auto-covering all D2a/D2b families incl. future
- * ones) so {@code runClient} no longer crashes on the 54 missing renderers. Stage E2 (PE-2..6) edits
- * this relay to register faithful per-family renderers + their {@code ModModelLayers} meshes.
+ * <p>Every registered AbyssalCraft entity must be covered by a faithful family renderer. The closure
+ * check deliberately fails client startup when a future entity has no renderer instead of drawing a
+ * placeholder model or borrowing an unrelated texture.
  */
 public final class ACEntityRenderers {
 
     private ACEntityRenderers() {}
 
-    /** Register faithful E2 family renderers, then the E1 placeholder for every other AC entity. */
+    /** Register every faithful family renderer and reject uncovered entity types. */
     public static void registerRenderers(EntityRendererCompat.Renderers renderers) {
         Set<EntityType<?>> registeredEntities = java.util.Collections.newSetFromMap(new java.util.IdentityHashMap<>());
         Set<BlockEntityType<?>> registeredBlockEntities =
@@ -78,20 +76,20 @@ public final class ACEntityRenderers {
             }
         };
         Set<EntityType<?>> handled = new HashSet<>();
-        // Stage E2 faithful family renderers override the E1 placeholder; each E2 task adds its call here.
         AntiDemonRenderers.register(audited, handled);
         GhoulShoggothRenderers.register(audited, handled);
         BossRenderers.register(audited, handled);
         MiscRenderers.register(audited, handled);
         ProjectileRenderers.register(audited, handled);
         LegacyRenderers.register(audited, handled);
-        // BlockEntity renderers ride the same RegisterRenderers event. The four modern hosts that
+        // BlockEntity renderers ride the same RegisterRenderers event. The five modern hosts that
         // need dynamic world rendering are kept exact by the gate below.
         ACBlockEntityRenderers.register(audited);
-        // E1 default: placeholder for every AC entity not yet handled by an E2 family renderer.
         for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
-            if (AbyssalCraft.MODID.equals(BuiltInRegistries.ENTITY_TYPE.getKey(type).getNamespace()) && !handled.contains(type)) {
-                audited.register(type, ACPlaceholderRenderer::new);
+            if (AbyssalCraft.MODID.equals(BuiltInRegistries.ENTITY_TYPE.getKey(type).getNamespace())
+                && !handled.contains(type)) {
+                throw new IllegalStateException("Missing faithful entity renderer: "
+                    + BuiltInRegistries.ENTITY_TYPE.getKey(type));
             }
         }
         long expectedEntities = BuiltInRegistries.ENTITY_TYPE.stream()
@@ -99,6 +97,7 @@ public final class ACEntityRenderers {
             .count();
         Set<BlockEntityType<?>> expectedBlockEntities = Set.of(
             ResearchTables.RESEARCH_TABLE_BE.get(),
+            RitualBlocks.RITUAL_ALTAR_BE.get(),
             RitualBlocks.RITUAL_PEDESTAL_BE.get(),
             RendingPedestals.RENDING_PEDESTAL_BE.get(),
             EnergyBlocks.ENERGY_PEDESTAL_BE.get());
@@ -109,15 +108,16 @@ public final class ACEntityRenderers {
                 + registeredBlockEntities.size() + "/" + expectedBlockEntities.size());
         }
         AbyssalCraft.LOGGER.info(
-            "RR_BER_HOST_CLOSURE_OK registered={} research={} ritual={} rending={} energy={}",
+            "RR_BER_HOST_CLOSURE_OK registered={} research={} ritualAltar={} ritualPedestal={} rending={} energy={}",
             registeredBlockEntities.size(),
             registeredBlockEntities.contains(ResearchTables.RESEARCH_TABLE_BE.get()) ? 1 : 0,
+            registeredBlockEntities.contains(RitualBlocks.RITUAL_ALTAR_BE.get()) ? 1 : 0,
             registeredBlockEntities.contains(RitualBlocks.RITUAL_PEDESTAL_BE.get()) ? 1 : 0,
             registeredBlockEntities.contains(RendingPedestals.RENDING_PEDESTAL_BE.get()) ? 1 : 0,
             registeredBlockEntities.contains(EnergyBlocks.ENERGY_PEDESTAL_BE.get()) ? 1 : 0);
     }
 
-    /** Register model-layer definitions (placeholder cube in E1; E2 appends faithful meshes). */
+    /** Register model-layer definitions used by faithful renderers. */
     public static void registerLayers(EntityRendererCompat.Layers layers) {
         Set<ModelLayerLocation> registered = new HashSet<>();
         EntityRendererCompat.Layers audited = (location, definition) -> {
@@ -126,7 +126,6 @@ public final class ACEntityRenderers {
             }
             layers.register(location, definition);
         };
-        audited.register(ModModelLayers.PLACEHOLDER, ModModelLayers::placeholder);
         audited.register(ModModelLayers.BILLBOARD, ModModelLayers::billboard);
         audited.register(ModModelLayers.ODB_CUBE, ModModelLayers::odbCube);
         audited.register(ModModelLayers.DREAD_TENTACLE, DreadTentacleModel::createBodyLayer);
@@ -147,8 +146,7 @@ public final class ACEntityRenderers {
         audited.register(ModModelLayers.DRAGON, DragonModel::createBodyLayer);
         GhoulShoggothRenderers.registerLayers(audited);
         LegacyRenderers.registerLayers(audited);
-        if (!registered.contains(ModModelLayers.PLACEHOLDER)
-            || !registered.contains(ModModelLayers.DRAGON)
+        if (!registered.contains(ModModelLayers.DRAGON)
             || !registered.contains(ModModelLayers.ABYSSAL_ZOMBIE)) {
             throw new IllegalStateException("R2 model layer relay is incomplete");
         }

@@ -57,10 +57,16 @@ public final class GhoulShoggothRenderers {
     private static void ghoul(EntityRendererCompat.Renderers renderers, Set<EntityType<?>> handled,
                               EntityType<?> type, String texture, String eyes, boolean brightnessAlpha,
                               boolean dreadCarrier) {
-        ResourceLocation t = ACRef.id("textures/model/ghoul/" + texture + ".png");
+        ghoul(renderers, handled, type, ACRef.id("textures/model/ghoul/" + texture + ".png"),
+            eyes, brightnessAlpha, dreadCarrier);
+        }
+
+        private static void ghoul(EntityRendererCompat.Renderers renderers, Set<EntityType<?>> handled,
+                                  EntityType<?> type, ResourceLocation texture, String eyes, boolean brightnessAlpha,
+                                  boolean dreadCarrier) {
         ResourceLocation e = eyes == null ? null : ACRef.id("textures/model/ghoul/" + eyes + ".png");
         EntityRendererProvider<AbstractGhoul> provider =
-            ctx -> new GhoulRenderer<>(ctx, t, e, brightnessAlpha, dreadCarrier);
+            ctx -> new GhoulRenderer<>(ctx, texture, e, brightnessAlpha, dreadCarrier);
         renderers.register(type, provider);
         handled.add(type);
     }

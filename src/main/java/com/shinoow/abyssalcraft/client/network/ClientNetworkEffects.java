@@ -77,9 +77,34 @@ public final class ClientNetworkEffects {
     }
 
     public static void peStream(BlockPos from, BlockPos to) {
-        ClientLevel level = Minecraft.getInstance().level;
+        Minecraft minecraft = Minecraft.getInstance();
+        ClientLevel level = minecraft.level;
         if (level == null || from.distManhattan(to) > 256) return;
-        spawnLine(level, Vec3.atCenterOf(from), Vec3.atCenterOf(to), false);
+        Vec3 delta = new Vec3(to.getX() - from.getX(), to.getY() - from.getY(), to.getZ() - from.getZ());
+        double distance = delta.length();
+        if (distance == 0.0D) return;
+        Vec3 direction = delta.scale(1.0D / distance);
+        int increment = switch (minecraft.options.particles().get()) {
+            case ALL -> 1;
+            case DECREASED -> 2;
+            case MINIMAL -> 3;
+        };
+        for (int index = 0; index < distance * 15.0D; index += increment) {
+            double offset = index / 15.0D;
+            level.addParticle(ModParticles.PE_STREAM.get(),
+                from.getX() + direction.x * offset + 0.5D,
+                from.getY() + direction.y * offset + 0.5D,
+                from.getZ() + direction.z * offset + 0.5D,
+                direction.x * 0.1D, 0.15D, direction.z * 0.1D);
+        }
+    }
+
+    public static int peStreamSampleCount(BlockPos from, BlockPos to, int increment) {
+        if (increment < 1) return 0;
+        double distance = Math.sqrt(to.distSqr(from));
+        int samples = 0;
+        for (int index = 0; index < distance * 15.0D; index += increment) samples++;
+        return samples;
     }
 
     public static void displayRoutes(CompoundTag root) {

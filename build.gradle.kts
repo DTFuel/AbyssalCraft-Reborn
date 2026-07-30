@@ -136,7 +136,11 @@ tasks {
         )
         inputs.properties(props)
         filesMatching(listOf("META-INF/mods.toml", "META-INF/neoforge.mods.toml")) { expand(props) }
-        filesMatching("assets/abyssalcraft/models/block/statue/*.json") {
+        filesMatching(listOf(
+            "assets/abyssalcraft/models/block/*.json",
+            "assets/abyssalcraft/models/block/statue/*.json",
+            "assets/abyssalcraft/models/item/*.json",
+        )) {
             filter { line -> line.replace("__LOADER__", loader) }
         }
         if (loader == "forge") exclude("META-INF/neoforge.mods.toml")

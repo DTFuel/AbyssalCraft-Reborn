@@ -1,0 +1,10 @@
+{
+  "parent": "abyssalcraft:block/double_layered_cube",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "abyssalcraft:block/ethaxium_bricks/dark_bricks_base",
+    "overlay": "abyssalcraft:block/ethaxium_bricks/dark_faces_3",
+    "particle": "abyssalcraft:block/ethaxium_bricks/dark_bricks_base",
+    "overlay2": "abyssalcraft:block/ethaxium_bricks/dark_cracks"
+  }
+}

@@ -63,7 +63,7 @@ public final class ModBootstrapCompat {
         com.shinoow.abyssalcraft.system.energy.disruption.Disruptions.bootstrap();
         com.shinoow.abyssalcraft.system.energy.structure.EnergyStructures.bootstrap();
         com.shinoow.abyssalcraft.content.block.ritual.Rituals.bootstrap();
-        com.shinoow.abyssalcraft.content.item.staff.StaffSpells.bootstrap();
+        com.shinoow.abyssalcraft.system.spell.Spells.bootstrap();
         CommandCompat.attach();
         DataGenCompat.register(modBus, ACDataGenerators::gather);
         SideExecutor.runWhenClient(() -> () -> {

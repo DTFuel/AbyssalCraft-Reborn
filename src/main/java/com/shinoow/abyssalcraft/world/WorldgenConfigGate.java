@@ -30,11 +30,11 @@ public final class WorldgenConfigGate {
             case DARK_RITUAL_GROUNDS -> ACConfig.generateDarklandsStructures.get()
                 && passesChance(ACConfig.darkRitualGroundsSpawnRate.get(), randomInt);
             case SHOGGOTH_PIT -> ACConfig.generateShoggothLairs.get()
-                && passesDistance(ACConfig.shoggothLairGenerationDistance.get(), chunkX, chunkZ)
-                && passesChance(ACConfig.shoggothLairSpawnRate.get(), randomInt);
+                && passesLairPlacement(ACConfig.shoggothLairSpawnRate.get(),
+                    ACConfig.shoggothLairGenerationDistance.get(), chunkX, chunkZ);
             case SHOGGOTH_PIT_RIVER -> ACConfig.generateShoggothLairs.get()
-                && passesDistance(ACConfig.shoggothLairGenerationDistance.get(), chunkX, chunkZ)
-                && passesChance(ACConfig.shoggothLairSpawnRateRivers.get(), randomInt);
+                && passesLairPlacement(ACConfig.shoggothLairSpawnRateRivers.get(),
+                    ACConfig.shoggothLairGenerationDistance.get(), chunkX, chunkZ);
             case OMOTHOL_CITY, OMOTHOL_TEMPLE, OMOTHOL_TOWER, OMOTHOL_STORAGE, ETHAXIUM_HOUSE ->
                 ACConfig.generateOmotholStructures.get();
             case CHAGAROTH_LAIR, JZAHAR_TEMPLE -> true;
@@ -77,5 +77,19 @@ public final class WorldgenConfigGate {
         int chunkInterval = Math.max(1, (blocks + 15) / 16);
         return Math.floorMod(chunkX, chunkInterval) == 0
             && Math.floorMod(chunkZ, chunkInterval) == 0;
+    }
+
+    static boolean passesLairPlacement(int targetChunks, int minimumDistanceBlocks,
+                                       int chunkX, int chunkZ) {
+        if (targetChunks <= 0) return false;
+        int chunkInterval = lairChunkInterval(targetChunks, minimumDistanceBlocks);
+        return Math.floorMod(chunkX, chunkInterval) == 0
+            && Math.floorMod(chunkZ, chunkInterval) == 0;
+    }
+
+    static int lairChunkInterval(int targetChunks, int minimumDistanceBlocks) {
+        int distanceInterval = Math.max(1, (minimumDistanceBlocks + 15) / 16);
+        int densityInterval = Math.max(1, (int) Math.ceil(Math.sqrt(Math.max(1, targetChunks))));
+        return Math.max(distanceInterval, densityInterval);
     }
 }

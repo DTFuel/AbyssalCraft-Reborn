@@ -56,8 +56,11 @@ public final class WorldgenResourceAudit {
         validateAbyssalWastelandSpawns();
         validateTerrainDensityGuards();
         validateStructure("dark_ritual_grounds");
+        validateStructure("shoggoth_pit");
         validateStructure("shoggoth_pit_river");
-        System.out.printf("RR_WORLD_RESOURCE_AUDIT_OK features=%d blocks=%d loaders=2 structures=2 biomeSpawns=5x10 terrainBounds=2%n",
+        validateShoggothPlacement("shoggoth_pit");
+        validateShoggothPlacement("shoggoth_pit_river");
+        System.out.printf("RR_WORLD_RESOURCE_AUDIT_OK features=%d blocks=%d loaders=2 structures=3 biomeSpawns=5x10 terrainBounds=2%n",
             FEATURE_IDS.size(), ORE_BLOCKS.size());
     }
 
@@ -76,6 +79,23 @@ public final class WorldgenResourceAudit {
         readJson("worldgen/structure/" + id + ".json");
         readJson("worldgen/structure_set/" + id + ".json");
         readJson("tags/worldgen/biome/has_structure/" + id + ".json");
+    }
+
+    private static void validateShoggothPlacement(String id) {
+        JsonObject placement = readJson("worldgen/structure_set/" + id + ".json")
+            .getAsJsonObject("placement");
+        JsonArray targets = readJson("tags/worldgen/structure/" + id + ".json")
+            .getAsJsonArray("values");
+        require(placement.get("spacing").getAsInt() == 1
+            && placement.get("separation").getAsInt() == 0,
+            id + " must expose every chunk to the bounded config placement grid");
+        require(targets.size() == 1 && ACRef.id(id).toString().equals(targets.get(0).getAsString()),
+            id + " locator tag does not resolve exactly one structure");
+        require(WorldgenConfigGate.lairChunkInterval(35, 100) == 7
+            && WorldgenConfigGate.passesLairPlacement(35, 100, 14, -7)
+            && !WorldgenConfigGate.passesLairPlacement(35, 100, 13, -7)
+            && !WorldgenConfigGate.passesLairPlacement(0, 100, 14, -7),
+            "Shoggoth Lair default placement grid changed");
     }
 
     private static void validateAbyssalWastelandSpawns() {

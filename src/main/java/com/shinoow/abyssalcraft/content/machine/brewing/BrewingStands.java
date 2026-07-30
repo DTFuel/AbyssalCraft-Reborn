@@ -29,7 +29,7 @@ public final class BrewingStands {
     public static final ModRegistrar<MenuType<?>> MENUS = ModRegistrar.of(Registries.MENU, AbyssalCraft.MODID);
 
     public static final Supplier<Block> BREWING_STAND = BLOCKS.register("sequential_brewing_stand", () ->
-        new BrewingStandBlock(BlockBehaviour.Properties.of().strength(0.5F)));
+        new BrewingStandBlock(BlockBehaviour.Properties.of().strength(0.5F).noOcclusion()));
 
     public static final Supplier<BlockItem> BREWING_STAND_ITEM = ITEMS.register("sequential_brewing_stand", () ->
         new BlockItem(BREWING_STAND.get(), new Item.Properties()));

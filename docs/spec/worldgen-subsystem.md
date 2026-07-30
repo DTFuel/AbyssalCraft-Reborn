@@ -4,7 +4,7 @@
 - 关联平行任务：PG-0（本文档，G0）..PG-7
 - 状态：**M5-WORLD-AUTO 已交付** —— 四维现代混合保真地形、真实材料/carver、六 Darklands、37 模板壳体与结构拓扑双端成立；旧噪声 oracle、动态 marker 真实玩法、人工视觉、自然刷怪统计和玩家 portal 仍未完成。
 - 负责：PG-0（框架+竖切+调研）；各维度/特征/结构 PG-1..7
-- 最后更新：2026-07-25
+- 最后更新：2026-07-29
 
 ## 1. 概述 / 目标
 
@@ -200,6 +200,12 @@ AbyssalCraft 的世界生成：4 个自定义维度（Abyssal Wasteland / Dreadl
 - **T5.4c**：固定 seed/算法/hash 已证，不等于与 1.12.2 旧噪声逐位相同；取得旧生成器 oracle 后再做逐位对照。
 - **T5.6c**：crate/spawner/pedestal/lock/biomass/ooze 等缺宿主内容仍是确定性 marker/稳定替代；须由对应内容任务接入真实玩法。模板旋转、拼缝以及 Mineshaft/Stronghold 旧 piece 图仍需 fixture/人工对账。
 - **T5.2c/T5.3c/T5.4c/T5.9b**：四维地形与结构的双端 spectator 视觉/性能矩阵未执行；自然刷怪统计和玩家正常 portal 链仍分别归 T5.8d/T5.7b。自动服务器证据不能替代这些验收。
+
+### 14.4 Shoggoth Lair 定位闭环（2026-07-29）
+
+- 原 `structure_set spacing=28` 与 `ACStructure` 内 `7x7` 距离网格、`1/35`/`1/30` 随机门同时生效，三个稀疏器相乘使 `/locate` 近似无界。
+- 两个 structure set 改为 `spacing=1,separation=0`，配置层把目标密度与 100-block 最小距离合并为单一网格；默认两分支均为 7-chunk interval，`0` 仍可单独禁用分支。
+- 永久 gate `ShoggothLairLocateFixture` 调用真实 `ServerLevel.findNearestMapStructure`。固定 seed、100-chunk 半径实测：Forge swamp/river=`1499/0ms`，NeoForge=`1513/9ms`，均低于 5 秒上限；一对一结构标签保证两分支独立定位。
 
 ## 15. 自动验证矩阵（RR-WORLD-FIDELITY-AUTO）
 

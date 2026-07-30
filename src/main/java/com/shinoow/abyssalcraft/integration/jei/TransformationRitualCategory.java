@@ -32,6 +32,7 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
     private final RecipeType<RitualManifest> type;
     private final Component title;
     private final IDrawable icon;
+    private final IDrawable background;
     private final IDrawable slot;
 
     public TransformationRitualCategory(IGuiHelper gui, RecipeType<RitualManifest> type) {
@@ -39,6 +40,7 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
         this.title = Component.translatable("jei.abyssalcraft.transformation_ritual");
         // Use ritual altar as icon
         this.icon = gui.createDrawable(ACRef.id("textures/block/ritual_altar.png"), 0, 0, 16, 16);
+        this.background = LegacyJeiBackgrounds.transformationRitual(gui);
         this.slot = gui.getSlotDrawable();
     }
 
@@ -50,6 +52,11 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
     @Override
     public Component getTitle() {
         return title;
+    }
+
+    @Override
+    public IDrawable getBackground() {
+        return background;
     }
 
     @Override
@@ -70,6 +77,12 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, RitualManifest ritual, IFocusGroup focuses) {
         RitualJeiLayout.addOfferings(builder, ritual.offeringLayout(), slot);
+        if (!ritual.center().isEmpty()) {
+            builder.addSlot(RecipeIngredientRole.INPUT,
+                RitualJeiLayout.TRANSFORMATION_INPUT_X, RitualJeiLayout.TRANSFORMATION_INPUT_Y)
+            .setBackground(slot, -1, -1).addItemStack(ritual.center().example());
+        }
+        RitualJeiLayout.addTransformationBook(builder, ritual.bookType(), slot);
 
         // Transformation result (right side)
         if (ritual.result() != null) {
@@ -85,13 +98,15 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
                      double mouseX, double mouseY) {
         // Display ritual name
         Component nameText = Component.translatable("ritual.abyssalcraft." + ritual.id());
-        graphics.drawString(Minecraft.getInstance().font, nameText, 2, 2, 0x404040, false);
+        graphics.drawString(Minecraft.getInstance().font, nameText,
+            2, RitualJeiLayout.FOOTER_Y, 0x404040, false);
 
         // Display PE requirement
         if (ritual.requiredEnergy() > 0) {
             Component peText = Component.translatable("jei.abyssalcraft.ritual_energy",
                 (int)ritual.requiredEnergy());
-            graphics.drawString(Minecraft.getInstance().font, peText, 2, 14, 0x808080, false);
+            graphics.drawString(Minecraft.getInstance().font, peText,
+                2, RitualJeiLayout.FOOTER_SECOND_Y, 0x808080, false);
         }
 
         // Display dimension requirement if present
@@ -99,13 +114,17 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
             var id = ritual.dimension().location();
             Component dimension = Component.translatable("dimension." + id.getNamespace() + "." + id.getPath());
             Component dimText = Component.translatable("jei.abyssalcraft.ritual_dimension", dimension);
-            graphics.drawString(Minecraft.getInstance().font, dimText, 2, 26, 0x606060, false);
+            graphics.drawString(Minecraft.getInstance().font, dimText,
+                2, RitualJeiLayout.FOOTER_THIRD_Y, 0x606060, false);
         }
 
         // Display book type requirement
         Component bookText = Component.translatable("jei.abyssalcraft.ritual_book_type",
             ritual.bookType());
-        graphics.drawString(Minecraft.getInstance().font, bookText, 2, RitualJeiLayout.FOOTER_Y, 0x606060, false);
+        if (ritual.dimension() == null) {
+            graphics.drawString(Minecraft.getInstance().font, bookText,
+                2, RitualJeiLayout.FOOTER_THIRD_Y, 0x606060, false);
+        }
     }
 
     /**

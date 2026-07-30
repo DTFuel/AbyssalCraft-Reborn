@@ -26,17 +26,20 @@ public final class InfusionRitualCategory implements IRecipeCategory<RitualManif
     private final RecipeType<RitualManifest> type;
     private final Component title;
     private final IDrawable icon;
+    private final IDrawable background;
     private final IDrawable slot;
 
     public InfusionRitualCategory(IGuiHelper gui, RecipeType<RitualManifest> type) {
         this.type = type;
         this.title = Component.translatable("jei.abyssalcraft.infusion_ritual");
         this.icon = gui.createDrawableItemStack(new ItemStack(RitualBlocks.RITUAL_ALTAR_ITEM.get()));
+        this.background = LegacyJeiBackgrounds.ritual(gui);
         this.slot = gui.getSlotDrawable();
     }
 
     @Override public RecipeType<RitualManifest> getRecipeType() { return type; }
     @Override public Component getTitle() { return title; }
+    @Override public IDrawable getBackground() { return background; }
     @Override public int getWidth() { return RitualJeiLayout.WIDTH; }
     @Override public int getHeight() { return RitualJeiLayout.HEIGHT; }
     @Override public IDrawable getIcon() { return icon; }
@@ -49,6 +52,7 @@ public final class InfusionRitualCategory implements IRecipeCategory<RitualManif
                 .addItemStack(ritual.center().example());
         }
         RitualJeiLayout.addOfferings(builder, ritual.offeringLayout(), slot);
+        RitualJeiLayout.addBook(builder, ritual.bookType(), slot);
         builder.addSlot(RecipeIngredientRole.OUTPUT, RitualJeiLayout.OUTPUT_X, RitualJeiLayout.OUTPUT_Y)
             .setBackground(slot, -1, -1)
             .addItemStack(new ItemStack(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ritual.result())));
@@ -58,9 +62,11 @@ public final class InfusionRitualCategory implements IRecipeCategory<RitualManif
     public void draw(RitualManifest ritual, IRecipeSlotsView slotsView, GuiGraphics graphics,
                      double mouseX, double mouseY) {
         Component energy = Component.translatable("jei.abyssalcraft.ritual_energy", (int) ritual.requiredEnergy());
-        graphics.drawString(Minecraft.getInstance().font, energy, 2, 2, 0x808080, false);
+        graphics.drawString(Minecraft.getInstance().font, energy,
+            2, RitualJeiLayout.FOOTER_Y, 0x808080, false);
         Component book = Component.translatable("jei.abyssalcraft.ritual_book_type", ritual.bookType());
-        graphics.drawString(Minecraft.getInstance().font, book, 2, RitualJeiLayout.FOOTER_Y, 0x606060, false);
+        graphics.drawString(Minecraft.getInstance().font, book,
+            2, RitualJeiLayout.FOOTER_SECOND_Y, 0x606060, false);
     }
 
     public static List<RitualManifest> getInfusionRituals() {

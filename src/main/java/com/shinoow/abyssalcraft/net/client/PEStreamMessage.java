@@ -8,8 +8,8 @@ import net.minecraft.network.FriendlyByteBuf;
 
 /**
  * Server &rarr; client: draw a Purified Essence particle stream from {@code posFrom} to {@code posTo}
- * (owned by PS-1). Serialization is faithful; the client particle stream is deferred until the
- * energy-pedestal system is ported (PS-5).
+ * (owned by PS-1). Serialization remains the faithful pair of block positions; the client restores the
+ * legacy fifteen-samples-per-block coloured stream.
  */
 public class PEStreamMessage implements NetworkChannel.ACPacket {
 

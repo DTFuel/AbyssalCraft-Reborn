@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const zlib = require('zlib');
+const { readPng, composite, crop } = require('./png_rgba');
 const {
     LANGUAGES: LOCALIZATION_LANGUAGES,
     ENTITY_NAME_ROWS,
@@ -26,13 +27,74 @@ const LEGACY_TEXTURE_LEDGER = path.join(ROOT, 'docs/validation/RR-LEGACY-TEXTURE
 const RETIRED_LEGACY_TEXTURES = new Set([
     'logo.png',
     'armor/default.png',
-    'gui/container/spellcraft_test.png',
+    'blocks/altar.png',
+    'blocks/altar/basebot.png',
+    'blocks/altar/basetop.png',
+    'blocks/altar/parts.png',
+    'blocks/calcifiedstone.png',
+    'blocks/dsbf.png',
+    'blocks/ritualaltar/cloth2.png',
+    'blocks/ritualaltar/cloth3.png',
+    'blocks/ritualaltar/cloth4.png',
+    'blocks/ritualaltar/parts2.png',
+    'blocks/ritualpedestal/overlay_1.png',
+    'blocks/ritualpedestal/overlay_2.png',
+    'blocks/ritualpedestal/overlay_3.png',
+    'blocks/ritualpedestal/overlay_4.png',
+    'blocks/ritualpedestal/overlay_5.png',
+    'blocks/ritualpedestal/overlay_6.png',
+    'blocks/ritualpedestal/overlay_7.png',
+    'blocks/summoning_statue/masonry.png',
+    'blocks/summoning_statue/misc.png',
+    'blocks/summoning_statue/robe_front.png',
+    'blocks/summoning_statue/robe_sides.png',
+    'blocks/summoning_statue/robe_top.png',
+    'gui/necronomicon/crafting.png',
+    'gui/necronomicon/crystallization.png',
+    'gui/necronomicon/item.png',
+    'gui/necronomicon/materialization.png',
+    'gui/necronomicon/missing.png',
+    'gui/necronomicon/missing_item.png',
+    'gui/necronomicon/missing_recipe.png',
+    'gui/necronomicon/placeofpower.png',
+    'gui/necronomicon/ritual.png',
+    'gui/necronomicon/ritual_creation.png',
+    'gui/necronomicon/ritual_infusion.png',
+    'gui/necronomicon/spell.png',
+    'gui/necronomicon/template.png',
+    'gui/necronomicon/template1024.png',
+    'gui/necronomicon/template512.png',
+    'gui/necronomicon/transmutation.png',
     'items/deprecated.png',
     'items/devsword.png',
+    'items/hilt.png',
     'items/necronahicon.png',
+    'items/scrolls/scroll_alt.png',
     'items/scriptures_omniscience.png',
     'model/abyssal_zombie_old.png',
     'model/abyssal_zombie_old_eyes.png',
+    'model/remnant/trader/villager.png',
+    'model/staff2.png',
+]);
+const AUTHORED_TEXTURES = new Set([
+    'block/chiseled_coralium_stone_brick.png',
+    'block/cracked_coralium_stone_brick.png',
+    'block/ethaxium_bricks/composite_1.png',
+    'block/ethaxium_bricks/composite_2.png',
+    'block/ethaxium_bricks/composite_3.png',
+    'block/ethaxium_bricks/dark_composite_1.png',
+    'block/ethaxium_bricks/dark_composite_2.png',
+    'block/ethaxium_bricks/dark_composite_3.png',
+    'block/ghoul_head/depths_ghoul.png',
+    'block/ghoul_head/depths_ghoul_orange.png',
+    'block/ghoul_head/depths_ghoul_pete.png',
+    'block/ghoul_head/depths_ghoul_wilson.png',
+    'mob_effect/antimatter.png',
+    'mob_effect/coralium_antidote.png',
+    'mob_effect/coralium_plague.png',
+    'mob_effect/dread_antidote.png',
+    'mob_effect/dread_plague.png',
+    'particle/abyssal_fx.png',
 ]);
 const missing = [];
 const mode = process.argv[2] || '--write';
@@ -116,79 +178,34 @@ function legacyTextureDisposition(source, modernByHash, sourceHash) {
         };
     }
 
-    if (source.startsWith('blocks/')) {
+    if (source === 'blocks/coralium_bricks/cracks.png') {
         return {
             status: 'REPLACED',
-            targets: ['src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json'],
-            reason: 'The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.',
+            targets: ['src/main/resources/assets/abyssalcraft/textures/block/cracked_coralium_stone_brick.png'],
+            reason: 'The legacy cracks overlay is deterministically source-over composited with bricks_base into the registered modern cracked Coralium brick texture.',
             owner: 'RR-ASSET/PK-2b',
         };
     }
-    if (source.startsWith('armor/')) {
+    if (source === 'blocks/coralium_bricks/sigil.png') {
         return {
             status: 'REPLACED',
-            targets: [
-                'src/main/java/com/shinoow/abyssalcraft/content/item/armor/ArmorItems.java',
-                'src/main/java/com/shinoow/abyssalcraft/client/render/armor/ACArmorVisuals.java',
-            ],
-            reason: 'Legacy armor layers are superseded by the registered modern armor set and its explicit client visual contract.',
-            owner: 'RR-ASSET/armor',
-        };
-    }
-    if (source.startsWith('gui/necronomicon/') || /^gui\/(?:abyssalnomicon|necronomicon)/.test(source)) {
-        return {
-            status: 'REPLACED',
-            targets: ['src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java'],
-            reason: 'The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.',
-            owner: 'RR-ASSET/necronomicon',
-        };
-    }
-    if (source.startsWith('gui/container/') && /(?:_nei|_jei)\.png$/.test(source)) {
-        return {
-            status: 'REPLACED',
-            targets: ['src/main/java/com/shinoow/abyssalcraft/integration/jei/ACJEIPlugin.java'],
-            reason: 'The legacy NEI/JEI bitmap is replaced by registered modern JEI categories and drawable layouts.',
-            owner: 'RR-ASSET/JEI',
-        };
-    }
-    if (source.startsWith('gui/container/')) {
-        return {
-            status: 'REPLACED',
-            targets: ['src/main/java/com/shinoow/abyssalcraft/client/ACClientSetup.java'],
-            reason: 'The legacy fixed container bitmap is replaced by a registered modern screen implementation with live slots and widgets.',
-            owner: 'RR-ASSET/GUI',
-        };
-    }
-    if (source.startsWith('items/')) {
-        const targets = source.startsWith('items/spirit_tablet/')
-            ? [
-                'src/main/resources/assets/abyssalcraft/models/item/spirit_tablet.json',
-                'src/main/java/com/shinoow/abyssalcraft/client/screen/item/SpiritTabletScreen.java',
-            ]
-            : source.startsWith('items/crystalbag_')
-                ? ['src/main/java/com/shinoow/abyssalcraft/client/screen/item/CrystalBagScreen.java']
-                : ['docs/spec/item-content.md'];
-        return {
-            status: 'REPLACED',
-            targets,
-            reason: 'The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.',
-            owner: 'RR-ASSET/item-content',
-        };
-    }
-    if (source.startsWith('model/')) {
-        return {
-            status: 'REPLACED',
-            targets: ['src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java'],
-            reason: 'The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.',
-            owner: 'RR-ASSET/entity-rendering',
+            targets: ['src/main/resources/assets/abyssalcraft/textures/block/chiseled_coralium_stone_brick.png'],
+            reason: 'The legacy sigil overlay is deterministically source-over composited with bricks_base into the registered modern chiseled Coralium brick texture.',
+            owner: 'RR-ASSET/PK-2b',
         };
     }
     if (source === 'misc/potionfx.png') {
         return {
             status: 'REPLACED',
-            targets: ['src/main/resources/assets/abyssalcraft/textures/particle/abyssal_fx.png'],
-            reason: 'The legacy potion atlas is replaced by the decodable modern AbyssalCraft particle texture and registered particle behavior.',
-            owner: 'RR-ASSET/client-fx',
+            targets: [
+                'src/main/resources/assets/abyssalcraft/textures/mob_effect/coralium_plague.png',
+                'src/main/resources/assets/abyssalcraft/textures/mob_effect/dread_plague.png',
+                'src/main/resources/assets/abyssalcraft/textures/mob_effect/antimatter.png',
+                'src/main/resources/assets/abyssalcraft/textures/mob_effect/coralium_antidote.png',
+                'src/main/resources/assets/abyssalcraft/textures/mob_effect/dread_antidote.png',
+            ],
+            reason: 'The four legacy 18x18 status-icon cells are deterministically cropped into the five registered modern MobEffect texture paths; both antidotes share legacy cell 3.',
+            owner: 'RR-ASSET/mob-effects',
         };
     }
     throw new Error(`No legacy texture disposition rule for ${source}`);
@@ -302,6 +319,18 @@ for (const file of itemModels) {
     }
 }
 
+for (const root of ASSET_ROOTS) {
+    for (const file of walk(path.join(root, 'models')).filter(candidate => candidate.endsWith('.json'))) {
+        const source = fs.readFileSync(file, 'utf8');
+        if (source.includes('#missing') || source.includes('#-1')) {
+            missing.push(`model contains placeholder texture face ${relative(file, ROOT)}`);
+        }
+        if (/minecraft:item\/(?:bundle|amethyst_shard|blaze_powder)/.test(source)) {
+            missing.push(`model borrows forbidden placeholder item texture ${relative(file, ROOT)}`);
+        }
+    }
+}
+
 function requireModelContract(name, parent, textures, renderType) {
     const file = requireAsset(`models/block/${name}.json`, `model contract ${name}`);
     if (!file) return;
@@ -365,10 +394,16 @@ for (const prefix of energyTiers) {
     requireModelContract(energyModelName(prefix, 'container'),
         `abyssalcraft:block/${prefix ? 'tiered_energy_container' : 'energy_container'}`,
         containerTextures, 'minecraft:cutout');
-    requireModelContract(energyModelName(prefix, 'pedestal'),
-        'abyssalcraft:block/rending_pedestal', {
-            '0': 'abyssalcraft:block/energy_glow', '1': 'abyssalcraft:block/energy_trim',
-        }, 'minecraft:cutout');
+    if (tiered) {
+        const pedestal = energyModelName(prefix, 'pedestal');
+        requireModelContract(pedestal, 'abyssalcraft:block/tiered_energy_pedestal', {
+            '2': energyContainerHosts[prefix],
+        });
+        requireModelContract(`${pedestal}_tilted`,
+            'abyssalcraft:block/tiered_energy_pedestal_tilted', {
+                '2': energyContainerHosts[prefix],
+            });
+    }
     const relayTextures = {
         '0': 'abyssalcraft:block/monolith_stone',
         '2': 'abyssalcraft:block/energy_glow',
@@ -446,6 +481,317 @@ const bladeModel = readJson(requireAsset('models/item/dreadium_katana_blade.json
 if (bladeModel.textures?.layer0 !== 'abyssalcraft:item/dreadium_katana_blade') {
     missing.push('Dreadium Katana blade does not use the legacy dreadblade texture');
 }
+const dreadKeyModel = readJson(requireAsset('models/item/dreadkey.json', 'Dread-plagued Gateway Key'));
+if (dreadKeyModel.parent !== 'minecraft:item/generated'
+    || dreadKeyModel.textures?.layer0 !== 'abyssalcraft:item/dreadkey') {
+    missing.push('Dread-plagued Gateway Key does not use its legacy dk texture');
+}
+for (const tier of ['small', 'medium', 'large', 'huge']) {
+    const id = `crystalbag_${tier}`;
+    const model = readJson(requireAsset(`models/item/${id}.json`, `${id} visual contract`));
+    if (model.parent !== 'minecraft:item/generated'
+        || model.textures?.layer0 !== `abyssalcraft:item/${id}`) {
+        missing.push(`${id} does not use its dedicated legacy texture`);
+    }
+}
+const crateModel = readJson(requireAsset('models/block/crate.json', 'Crate visual contract'));
+if (crateModel.parent !== 'minecraft:block/cube_all'
+    || crateModel.textures?.all !== 'abyssalcraft:block/crate') {
+    missing.push('Crate must use the dedicated legacy crate texture');
+}
+for (const [id, elements, textures] of [
+    ['ritual_altar', 18, {
+        '0': 'minecraft:block/cobblestone', '1': 'abyssalcraft:block/ritual_altar/parts',
+        '3': 'abyssalcraft:block/ritual_altar/cloth', '4': 'abyssalcraft:block/monolith_stone',
+    }],
+    ['ritual_pedestal', 19, {
+        '0': 'minecraft:block/cobblestone', '1': 'abyssalcraft:block/ritual_pedestal/overlay_0',
+        '2': 'abyssalcraft:block/ritual_pedestal/glyphs',
+    }],
+]) {
+    const model = readJson(requireAsset(`models/block/${id}.json`, `${id} legacy geometry`));
+    if (model.parent !== 'abyssalcraft:block/legacy_custom_model'
+        || model.render_type !== 'minecraft:cutout' || model.elements?.length !== elements) {
+        missing.push(`${id} legacy geometry contract changed`);
+    }
+    for (const [slot, texture] of Object.entries(textures)) {
+        if (model.textures?.[slot] !== texture) missing.push(`${id} texture ${slot} changed`);
+    }
+}
+const tombstoneMaterials = {
+    stone: 'minecraft:block/cobblestone',
+    abyssal_stone: 'abyssalcraft:block/abyssal_cobblestone',
+    coralium_stone: 'abyssalcraft:block/coralium_cobblestone',
+    darkstone: 'abyssalcraft:block/darkstone_cobblestone',
+    dreadstone: 'abyssalcraft:block/dreadstone_cobblestone',
+    elysian_stone: 'abyssalcraft:block/elysian_cobblestone',
+    ethaxium: 'abyssalcraft:block/ethaxium_legacy_brick',
+    monolith_stone: 'abyssalcraft:block/shoggoth_ooze',
+    omothol_stone: 'abyssalcraft:block/dark_ethaxium_brick',
+};
+for (const [id, texture] of Object.entries(tombstoneMaterials)) {
+    const model = readJson(requireAsset(`models/block/tombstone_${id}.json`, `${id} tombstone material`));
+    if (model.textures?.['1'] !== texture) missing.push(`tombstone_${id} secondary material changed`);
+}
+const spiritAltarModel = readJson(requireAsset('models/block/spirit_altar.json', 'Spirit Altar fidelity'));
+if (spiritAltarModel.elements?.length !== 7
+    || spiritAltarModel.textures?.['2'] !== 'abyssalcraft:block/chiseled_darkstone_brick'
+    || spiritAltarModel.textures?.['3'] !== 'abyssalcraft:block/darkstone_cobblestone'
+    || spiritAltarModel.textures?.['4'] !== 'minecraft:block/gold_block') {
+    missing.push('Spirit Altar legacy material/geometry contract changed');
+}
+for (const [id, elements, tiered] of [
+    ['energy_pedestal', 10, false],
+    ['energy_pedestal_tilted', 10, false],
+    ['tiered_energy_pedestal', 16, true],
+    ['tiered_energy_pedestal_tilted', 16, true],
+]) {
+    const model = readJson(requireAsset(`models/block/${id}.json`, `${id} legacy geometry`));
+    if (model.parent !== 'abyssalcraft:block/legacy_custom_model'
+        || model.elements?.length !== elements
+        || model.textures?.['0'] !== 'abyssalcraft:block/monolith_stone'
+        || model.textures?.['1'] !== 'abyssalcraft:block/energy_pedestal/overlay'
+        || (tiered
+            ? model.textures?.['3'] !== 'abyssalcraft:block/energy_trim'
+                || model.textures?.['4'] !== 'abyssalcraft:block/energy_glow'
+            : model.textures?.['2'] !== 'abyssalcraft:block/energy_glow')) {
+        missing.push(`${id} legacy geometry/material contract changed`);
+    }
+}
+for (const id of [
+    'energypedestal', 'overworld_energy_pedestal', 'abyssal_wasteland_energy_pedestal',
+    'dreadlands_energy_pedestal', 'omothol_energy_pedestal',
+]) {
+    const state = readJson(requireAsset(`blockstates/${id}.json`, `${id} tilt states`));
+    if (!state.variants?.['tilted=false'] || !state.variants?.['tilted=true']) {
+        missing.push(`${id} lost its legacy tilted visual state`);
+    }
+}
+const dreadlandsGrassItem = readJson(requireAsset(
+    'models/item/dreadlands_grass.json', 'Dreadlands Grass inventory texture'));
+if (dreadlandsGrassItem.textures?.top !== 'abyssalcraft:block/dreadlands_grass_top'
+    || dreadlandsGrassItem.textures?.overlay !== 'abyssalcraft:block/dreadlands_grass_side') {
+    missing.push('Dreadlands Grass item does not use the legacy inventory top/side textures');
+}
+const dreadlandsGrassState = readJson(requireAsset(
+    'blockstates/dreadlands_grass.json', 'Dreadlands Grass snowy variants'));
+const dreadlandsGrassNormal = dreadlandsGrassState.variants?.['snowy=false'];
+const dreadlandsGrassSnowy = dreadlandsGrassState.variants?.['snowy=true'];
+if (!Array.isArray(dreadlandsGrassNormal) || dreadlandsGrassNormal.length !== 4
+    || JSON.stringify(dreadlandsGrassNormal.map(variant => variant.y || 0))
+        !== JSON.stringify([0, 90, 180, 270])
+    || dreadlandsGrassSnowy?.model !== 'abyssalcraft:block/dreadlands_grass_snowed') {
+    missing.push('Dreadlands Grass legacy normal/snowy state variants are missing');
+}
+const dreadlandsGrassSnowedModel = readJson(requireAsset(
+    'models/block/dreadlands_grass_snowed.json', 'snow-covered Dreadlands Grass'));
+if (dreadlandsGrassSnowedModel.parent !== 'minecraft:block/cube_bottom_top'
+    || dreadlandsGrassSnowedModel.textures?.side
+        !== 'abyssalcraft:block/dreadlands_grass_side_snowed'
+    || dreadlandsGrassSnowedModel.textures?.top !== 'abyssalcraft:block/dreadlands_grass_top') {
+    missing.push('Dreadlands Grass snow-covered model does not use the legacy textures');
+}
+const darklandsLogModel = readJson(requireAsset(
+    'models/block/darklands_oak_log.json', 'Darklands Oak Log overlay'));
+if (darklandsLogModel.parent !== 'abyssalcraft:block/darklands_oak_log_layered'
+    || darklandsLogModel.textures?.overlay !== 'abyssalcraft:block/darklands_oak_log_overlay') {
+    missing.push('Darklands Oak Log lost its legacy bark overlay');
+}
+for (const id of [
+    'ethaxium_bricks', 'chiseled_ethaxium_brick', 'cracked_ethaxium_brick',
+    'dark_ethaxium_brick', 'chiseled_dark_ethaxium_brick', 'cracked_dark_ethaxium_brick',
+]) {
+    const state = readJson(requireAsset(`blockstates/${id}.json`, `${id} weighted variants`));
+    const variants = state.variants?.[''];
+    if (!Array.isArray(variants) || variants.length !== 3
+        || JSON.stringify(variants.map(variant => variant.weight)) !== JSON.stringify([2, 1, 1])) {
+        missing.push(`${id} legacy 2:1:1 face variants are missing`);
+    }
+    for (let variant = 1; variant <= 3; variant++) {
+        const model = readJson(requireAsset(`models/block/${id}_${variant}.json`, `${id} face ${variant}`));
+        if (!model.textures?.overlay?.endsWith(`faces_${variant}`)) {
+            missing.push(`${id} face variant ${variant} uses the wrong overlay`);
+        }
+    }
+}
+const normalizedVariantTransforms = variants => variants.map(variant => ({
+    x: variant.x || 0,
+    y: variant.y || 0,
+    uvlock: variant.uvlock || false,
+    weight: variant.weight || 1,
+}));
+for (const [modernId, legacyId] of [
+    ['ethaxium_brick', 'ethaxiumbrick'],
+    ['dark_ethaxium_brick', 'darkethaxiumbrick'],
+]) {
+    const slab = readJson(requireAsset(
+        `blockstates/${modernId}_slab.json`, `${modernId} slab weighted variants`));
+    if (Object.keys(slab.variants || {}).length !== 3
+        || Object.values(slab.variants || {}).some(variants =>
+            !Array.isArray(variants) || JSON.stringify(variants.map(variant => variant.weight || 1))
+                !== JSON.stringify([2, 1, 1]))) {
+        missing.push(`${modernId} slab lost its legacy 2:1:1 face variants`);
+    }
+    const stairs = readJson(requireAsset(
+        `blockstates/${modernId}_stairs.json`, `${modernId} stairs weighted variants`));
+    const legacyStairs = readJson(path.join(
+        LEGACY_ROOT, 'blockstates', `${legacyId}stairs.json`));
+    const modernKeys = Object.keys(stairs.variants || {}).sort();
+    const legacyKeys = Object.keys(legacyStairs.variants || {}).sort();
+    if (modernKeys.length !== 40 || JSON.stringify(modernKeys) !== JSON.stringify(legacyKeys)) {
+        missing.push(`${modernId} stairs state set differs from the legacy 40-state set`);
+    } else {
+        for (const key of modernKeys) {
+            if (JSON.stringify(normalizedVariantTransforms(stairs.variants[key]))
+                !== JSON.stringify(normalizedVariantTransforms(legacyStairs.variants[key]))) {
+                missing.push(`${modernId} stairs legacy transform/weight changed for ${key}`);
+            }
+        }
+    }
+}
+const darkstoneSlab = readJson(requireAsset(
+    'models/block/darkstone_slab.json', 'Darkstone Slab dedicated side texture'));
+if (darkstoneSlab.textures?.side !== 'abyssalcraft:block/darkstone_slab_side') {
+    missing.push('Darkstone Slab no longer uses its legacy side texture');
+}
+const ethaxiumFence = readJson(requireAsset(
+    'models/block/ethaxium_brick_fence_post.json', 'Ethaxium Fence dedicated texture'));
+if (ethaxiumFence.textures?.texture !== 'abyssalcraft:block/ethaxium_legacy_brick') {
+    missing.push('Ethaxium Fence no longer uses the legacy eb texture');
+}
+const brewingState = readJson(requireAsset('blockstates/sequential_brewing_stand.json', 'brewing multipart'));
+const brewingPipe = readJson(requireAsset('models/block/brewing_stand_pipe.json', 'brewing pipe'));
+if (brewingState.multipart?.length !== 5 || brewingPipe.elements?.length !== 2
+    || brewingPipe.textures?.['0'] !== 'minecraft:block/brewing_stand'
+    || find('models/block/sequential_brewing_stand.json')) {
+    missing.push('Sequential Brewing Stand reverted to a placeholder cube');
+}
+for (const antidote of ['coralium_antidote', 'dread_antidote']) {
+    const model = readJson(requireAsset(`models/item/${antidote}.json`, `${antidote} fill states`));
+    const predicates = model.overrides?.map(override => override.predicate?.['abyssalcraft:content']);
+    if (JSON.stringify(predicates) !== JSON.stringify([0.2, 0.4, 0.6, 0.8])) {
+        missing.push(`${antidote} legacy fill-state models changed`);
+    }
+}
+const cageModel = readJson(requireAsset('models/item/interdimensional_cage.json', 'captured cage state'));
+if (cageModel.overrides?.[0]?.predicate?.['abyssalcraft:captured'] !== 1) {
+    missing.push('Interdimensional Cage captured-state model is missing');
+}
+const soulReaperModel = readJson(requireAsset('models/item/soulreaper.json', 'Soul Reaper levels'));
+if (soulReaperModel.overrides?.length !== 6) missing.push('Soul Reaper six visual levels are missing');
+const spiritTabletModel = readJson(requireAsset('models/item/spirit_tablet.json', 'Spirit Tablet modes'));
+const spiritTabletModes = spiritTabletModel.overrides?.map(override => override.predicate?.['abyssalcraft:mode']);
+if (JSON.stringify(spiritTabletModes) !== JSON.stringify([0, 0.5, 1])) {
+    missing.push('Spirit Tablet three mode glyphs are missing');
+}
+for (let mode = 0; mode <= 2; mode++) {
+    const model = readJson(requireAsset(`models/item/spirit_tablet_${mode}.json`, `Spirit Tablet mode ${mode}`));
+    if (model.textures?.layer1 !== `abyssalcraft:item/spirit_tablet/glyph_${mode}`) {
+        missing.push(`Spirit Tablet mode ${mode} uses the wrong glyph`);
+    }
+}
+const spiritShardZero = readJson(requireAsset(
+    'models/item/spirit_tablet_shard_0.json', 'Spirit Tablet shard zero'));
+if (spiritShardZero.textures?.layer0
+    !== 'abyssalcraft:item/spirit_tablet/spirit_tablet_shard_0') {
+    missing.push('Spirit Tablet shard zero reuses the complete tablet texture');
+}
+const katanaModel = readJson(requireAsset('models/item/dreadium_katana.json', 'Dreadium Katana OBJ'));
+const katanaHilt = readJson(requireAsset('models/item/dreadium_katana_hilt.json', 'Dreadium Katana hilt'));
+if (katanaModel.loader !== '__LOADER__:obj'
+    || katanaModel.model !== 'abyssalcraft:models/item/dreadkatana.obj'
+    || katanaHilt.elements?.length !== 2) {
+    missing.push('Dreadium Katana legacy OBJ/hilt geometry is missing');
+}
+const sealingLockModel = readJson(requireAsset('models/block/sealing_lock.json', 'Sealing Lock geometry'));
+if (sealingLockModel.elements?.length !== 3
+    || sealingLockModel.textures?.['0'] !== 'abyssalcraft:block/elysian_stone_brick'
+    || sealingLockModel.textures?.['1'] !== 'abyssalcraft:block/chiseled_elysian_stone_brick'
+    || sealingLockModel.textures?.['3'] !== 'abyssalcraft:block/sealing_lock_misc') {
+    missing.push('Sealing Lock reverted from its legacy three-element model');
+}
+const multiBlockModel = readJson(requireAsset('models/block/multi_block.json', 'Place of Power Core texture'));
+if (multiBlockModel.textures?.all !== 'abyssalcraft:block/multi_block') {
+    missing.push('Place of Power Core does not use the legacy multiblock texture');
+}
+const oblivionDeathbomb = readJson(requireAsset(
+    'models/block/oblivion_deathbomb.json', 'Oblivion Deathbomb OBJ'));
+if (oblivionDeathbomb.loader !== '__LOADER__:obj'
+    || oblivionDeathbomb.model !== 'abyssalcraft:models/block/odb.obj') {
+    missing.push('Oblivion Deathbomb legacy OBJ model is missing');
+}
+const primedOdbRenderer = fs.readFileSync(path.join(ROOT,
+    'src/main/java/com/shinoow/abyssalcraft/client/render/entity/effect/PrimedODBRenderer.java'), 'utf8');
+const miscRenderers = fs.readFileSync(path.join(ROOT,
+    'src/main/java/com/shinoow/abyssalcraft/client/render/entity/MiscRenderers.java'), 'utf8');
+if (!primedOdbRenderer.includes('TntMinecartRenderer.renderWhiteSolidBlock')
+    || !miscRenderers.includes('RitualBlocks.OBLIVION_DEATHBOMB.get().defaultBlockState()')
+    || !miscRenderers.includes('RitualBlocks.ODB_CORE.get().defaultBlockState()')) {
+    missing.push('Primed ODB entities do not render their faithful block models');
+}
+for (const [id, modelPath] of [
+    ['cudgel', 'abyssalcraft:models/item/cudgel.obj'],
+    ['staff_of_the_gatekeeper', 'abyssalcraft:models/item/staff.obj'],
+]) {
+    const model = readJson(requireAsset(`models/item/${id}.json`, `${id} OBJ`));
+    if (model.loader !== '__LOADER__:obj' || model.model !== modelPath) {
+        missing.push(`${id} legacy OBJ model is missing`);
+    }
+}
+const eliteGeoModel = fs.readFileSync(path.join(ROOT,
+    'src/main/java/com/shinoow/abyssalcraft/client/render/entity/boss/EliteGeoModel.java'), 'utf8');
+for (const profession of [
+    'remnant_librarian', 'remnant_priest', 'remnant_blacksmith',
+    'remnant_butcher', 'remnant_banker', 'remnant_master_blacksmith',
+]) {
+    if (!eliteGeoModel.includes(`textures/model/remnant/${profession}.png`)) {
+        missing.push(`Remnant profession texture is not routed ${profession}`);
+    }
+}
+if (!eliteGeoModel.includes('REMNANT_TEXTURES[remnant.getProfession()]')) {
+    missing.push('Remnant renderer ignores its synchronized profession');
+}
+const eyeRoutes = new Map([
+    ['client/render/entity/legacy/AbyssalZombieRenderer.java', ['abyssal_zombie_eyes.png']],
+    ['client/render/entity/legacy/CoraliumSquidRenderer.java', ['coraliumsquid_eyes.png']],
+    ['client/render/entity/BossRenderers.java', ['boss/dragonboss_eyes.png', 'elite/dragonminion_eyes.png']],
+    ['client/render/entity/GhoulShoggothRenderers.java', [
+        'depths_ghoul_eyes', 'dreaded_ghoul_eyes', 'ghoul_eyes', 'shadow_ghoul_eyes',
+    ]],
+    ['client/render/entity/legacy/LegacyRenderers.java', [
+        'elite/shadowbeast_eyes.png', 'shadowcreature_eyes.png', 'shadowmonster_eyes.png',
+    ]],
+]);
+for (const [source, routes] of eyeRoutes) {
+    const renderer = fs.readFileSync(path.join(
+        ROOT, 'src/main/java/com/shinoow/abyssalcraft', source), 'utf8');
+    for (const route of routes) {
+        if (!renderer.includes(route)) missing.push(`legacy eye texture is not routed ${route}`);
+    }
+}
+const necronomiconScreenSource = fs.readFileSync(path.join(ROOT,
+    'src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java'), 'utf8');
+for (const book of [
+    'necronomicon.png', 'necronomicon_cor.png', 'necronomicon_dre.png',
+    'necronomicon_omt.png', 'abyssalnomicon.png',
+]) {
+    if (!necronomiconScreenSource.includes(`textures/gui/${book}`)) {
+        missing.push(`Necronomicon book background is not routed ${book}`);
+    }
+}
+if (!necronomiconScreenSource.includes('BOOK_TEXTURES.length - 1, bookType')) {
+    missing.push('Necronomicon screen does not select its background from the synchronized book type');
+}
+const legacyJeiBackgrounds = fs.readFileSync(path.join(ROOT,
+    'src/main/java/com/shinoow/abyssalcraft/integration/jei/LegacyJeiBackgrounds.java'), 'utf8');
+for (const texture of [
+    'crystallizer_nei.png', 'materializer_nei.png', 'ritual_nei.png',
+    'transformation_ritual_jei.png', 'transmutator_nei.png',
+]) {
+    if (!legacyJeiBackgrounds.includes(`textures/gui/container/${texture}`)) {
+        missing.push(`legacy JEI background is not routed ${texture}`);
+    }
+}
 const necronomiconModel = readJson(requireAsset('models/item/necronomicon_book.json', 'Necronomicon geometry'));
 if (necronomiconModel.ambientocclusion !== false) {
     missing.push('Necronomicon thin geometry must disable ambient occlusion');
@@ -488,12 +834,17 @@ if (screens !== 13 || !clientSetup.includes('ClientScreenCompat.queuedCount() !=
 const entityCatalog = fs.readFileSync(path.join(ROOT,
     'src/main/java/com/shinoow/abyssalcraft/content/entity/legacy/EntityCatalogInvariant.java'), 'utf8');
 const entityMatch = entityCatalog.match(/CONTENT_ENTITIES = Set\.of\(([\s\S]*?)\n    \);/);
-const entities = entityMatch ? [...entityMatch[1].matchAll(/"[a-z0-9_]+"/g)].length + 1 : 0;
+const entities = entityMatch ? [...entityMatch[1].matchAll(/"[a-z0-9_]+"/g)].length : 0;
 const rendererRelay = fs.readFileSync(path.join(ROOT,
     'src/main/java/com/shinoow/abyssalcraft/client/render/ACEntityRenderers.java'), 'utf8');
-if (entities !== 64 || !rendererRelay.includes('ACPlaceholderRenderer::new')
+if (entities !== 63 || rendererRelay.includes('ACPlaceholderRenderer')
+    || !rendererRelay.includes('Missing faithful entity renderer')
     || !rendererRelay.includes('registeredEntities.size() != expectedEntities')) {
-    missing.push(`entity renderer coverage expected=64 catalog=${entities}`);
+    missing.push(`faithful entity renderer coverage expected=63 catalog=${entities}`);
+}
+if (fs.existsSync(path.join(ROOT,
+    'src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACPlaceholderRenderer.java'))) {
+    missing.push('placeholder entity renderer remains in production');
 }
 const modelLayers = [...fs.readFileSync(path.join(ROOT,
     'src/main/java/com/shinoow/abyssalcraft/registry/ModModelLayers.java'), 'utf8')
@@ -548,9 +899,78 @@ if (clusterMetadata) {
         missing.push('crystal cluster animation metadata has no positive integer frametime');
     }
 }
+const clusterModel = readJson(requireAsset('models/block/crystal_cluster.json', 'crystal cluster cutout model'));
+if (clusterModel.render_type !== 'minecraft:cutout') {
+    missing.push('crystal cluster model must use the cross-version cutout render type');
+}
+for (const [bucket, fluid] of [
+    ['liquid_coralium_bucket', 'liquid_coralium_still'],
+    ['liquid_antimatter_bucket', 'liquid_antimatter_still'],
+]) {
+    const model = readJson(requireAsset(`models/item/${bucket}.json`, `${bucket} layered model`));
+    if (model.parent !== 'minecraft:item/generated'
+        || model.textures?.layer0 !== `abyssalcraft:block/${fluid}`
+        || model.textures?.layer1 !== 'minecraft:item/bucket') {
+        missing.push(`${bucket} must render the fluid behind the vanilla empty-bucket shell`);
+    }
+}
+
+const legacyPotionAtlas = readPng(path.join(LEGACY_ROOT, 'textures/misc/potionfx.png'));
+for (const [effect, icon] of [
+    ['coralium_plague', 0],
+    ['dread_plague', 1],
+    ['antimatter', 2],
+    ['coralium_antidote', 3],
+    ['dread_antidote', 3],
+]) {
+    const expected = crop(legacyPotionAtlas, icon * 18, 198, 18, 18);
+    const actualFile = requireAsset(`textures/mob_effect/${effect}.png`, `${effect} legacy effect icon`);
+    if (!actualFile) continue;
+    const actual = readPng(actualFile);
+    if (actual.width !== 18 || actual.height !== 18 || !actual.pixels.equals(expected.pixels)) {
+        missing.push(`${effect} does not match legacy potionfx status icon ${icon}`);
+    }
+}
 
 const legacyTextureRoot = path.join(LEGACY_ROOT, 'textures');
 const legacyTextureFiles = walk(legacyTextureRoot).filter(file => file.endsWith('.png')).sort();
+const legacyTextureHashes = new Set(legacyTextureFiles.map(sha256));
+let authoredTextureCount = 0;
+for (const file of pngFiles) {
+    if (legacyTextureHashes.has(sha256(file))) continue;
+    const root = ASSET_ROOTS.find(candidate => file.startsWith(path.join(candidate, 'textures')));
+    const name = root ? relative(file, path.join(root, 'textures')) : relative(file, ROOT);
+    if (!AUTHORED_TEXTURES.has(name)) missing.push(`unapproved non-legacy texture ${name}`);
+    else authoredTextureCount++;
+}
+for (const name of AUTHORED_TEXTURES) {
+    if (!find(`textures/${name}`)) missing.push(`stale authored texture allowlist ${name}`);
+}
+if (authoredTextureCount !== AUTHORED_TEXTURES.size) {
+    missing.push(`authored texture coverage expected=${AUTHORED_TEXTURES.size} actual=${authoredTextureCount}`);
+}
+for (const [target, sources] of [
+    ['chiseled_coralium_stone_brick.png', [
+        'coralium_bricks/bricks_base.png', 'coralium_bricks/sigil.png']],
+    ['cracked_coralium_stone_brick.png', [
+        'coralium_bricks/bricks_base.png', 'coralium_bricks/cracks.png']],
+    ['dark_ethaxium_brick.png', [
+        'ethaxium_bricks/dark_bricks_base.png', 'ethaxium_bricks/dark_faces_1.png']],
+    ...[1, 2, 3].flatMap(variant => [
+        [`ethaxium_bricks/composite_${variant}.png`, [
+            'ethaxium_bricks/bricks_base.png', `ethaxium_bricks/faces_${variant}.png`]],
+        [`ethaxium_bricks/dark_composite_${variant}.png`, [
+            'ethaxium_bricks/dark_bricks_base.png', `ethaxium_bricks/dark_faces_${variant}.png`]],
+    ]),
+]) {
+    const expected = composite(sources.map(source =>
+        readPng(path.join(legacyTextureRoot, 'blocks', source))));
+    const actual = readPng(path.join(ASSET_ROOTS[0], 'textures/block', target));
+    if (expected.width !== actual.width || expected.height !== actual.height
+        || !expected.pixels.equals(actual.pixels)) {
+        missing.push(`legacy layered-brick composition mismatch ${target}`);
+    }
+}
 const modernTextureByHash = new Map();
 for (const file of pngFiles) {
     const hash = sha256(file);
@@ -856,3 +1276,5 @@ console.log(`RR_ASSET_JEI_LANG_OK languages=${languageFiles.length} keys=${requi
 console.log(`RR_ASSET_LANG_NAMES_OK languages=${languageFiles.length}`
     + ` entities=${ENTITY_NAME_ROWS.length} spawnEggs=${localizedSpawnEggKeys.length}`
     + ` mirrored=${MIRRORED_NAME_PAIRS.length} ui=${UI_TEXT_ROWS.length}`);
+console.log(`RR_ASSET_VISUAL_FIDELITY_OK legacyExact=${pngFiles.length - authoredTextureCount}`
+    + ` authored=${authoredTextureCount} placeholderFaces=0 placeholderRenderers=0`);

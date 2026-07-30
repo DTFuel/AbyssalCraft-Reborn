@@ -16,16 +16,11 @@ import com.shinoow.abyssalcraft.platform.ACRef;
  * Model-layer location registry (owned by PE-1, Stage E1). <b>Client-only</b> (references client model
  * classes; only reached through the client render relay, never on a dedicated server).
  *
- * <p>Holds the {@link ModelLayerLocation}s the mod bakes, plus their {@link LayerDefinition}s. Stage E1
- * ships a single {@link #PLACEHOLDER} cube proving the layer-definition pipeline; Stage E2 (PE-2..6)
- * appends faithful per-entity / armor / BE layers here and registers them via {@code ACEntityRenderers}.
+ * <p>Holds the {@link ModelLayerLocation}s the mod bakes, plus their {@link LayerDefinition}s.
  */
 public final class ModModelLayers {
 
     private ModModelLayers() {}
-
-    /** Placeholder layer baked by the E1 default renderer until E2 supplies real per-entity meshes. */
-    public static final ModelLayerLocation PLACEHOLDER = new ModelLayerLocation(ACRef.id("placeholder"), "main");
 
     /** Ghoul family mesh (PE-3, Stage E2) -- shared by all five ghoul entities. */
     public static final ModelLayerLocation GHOUL = new ModelLayerLocation(ACRef.id("ghoul"), "main");
@@ -70,15 +65,6 @@ public final class ModModelLayers {
 
     private static ModelLayerLocation legacy(String id) {
         return new ModelLayerLocation(ACRef.id("legacy/" + id), "main");
-    }
-
-    /** A single 8x8x8 cube -- exercises the layer-definition pipeline; E2 replaces with faithful meshes. */
-    public static LayerDefinition placeholder() {
-        MeshDefinition mesh = new MeshDefinition();
-        PartDefinition root = mesh.getRoot();
-        root.addOrReplaceChild("cube",
-            CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F), PartPose.ZERO);
-        return LayerDefinition.create(mesh, 64, 64);
     }
 
     public static LayerDefinition billboard() {

@@ -20,6 +20,8 @@ public final class PortalItems {
     public static final Supplier<GatewayKeyItem> DREADLANDS_GATEWAY_KEY = key("gatewaykeydl", 1);
     public static final Supplier<GatewayKeyItem> OMOTHOL_GATEWAY_KEY = key("gatewaykeyjzh", 2);
     public static final Supplier<GatewayKeyItem> SILVER_KEY = key("silver_key", 3);
+    public static final Supplier<Item> DREAD_PLAGUED_GATEWAY_KEY = ITEMS.register("dreadkey", () ->
+        new Item(new Item.Properties()));
 
     public static final List<Supplier<GatewayKeyItem>> ALL = List.of(
         GATEWAY_KEY, DREADLANDS_GATEWAY_KEY, OMOTHOL_GATEWAY_KEY, SILVER_KEY);

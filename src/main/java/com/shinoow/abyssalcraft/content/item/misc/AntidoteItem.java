@@ -34,6 +34,15 @@ public final class AntidoteItem extends TooltipCompat {
         this.antidote = antidote;
     }
 
+    public static float visualContent(ItemStack stack) {
+        int content = ItemDataCompat.getInt(stack, CONTENT, 10);
+        if (content < 9 && content > 6) return 0.2F;
+        if (content < 7 && content > 4) return 0.4F;
+        if (content < 5 && content > 2) return 0.6F;
+        if (content < 3 && content > 0) return 0.8F;
+        return 0.0F;
+    }
+
     @Override
     public UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.DRINK;

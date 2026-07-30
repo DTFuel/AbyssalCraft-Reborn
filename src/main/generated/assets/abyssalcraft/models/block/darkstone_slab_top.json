@@ -2,7 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "abyssalcraft:block/darkstone_slab",
-    "side": "abyssalcraft:block/darkstone_slab",
+    "side": "abyssalcraft:block/darkstone_slab_side",
     "top": "abyssalcraft:block/darkstone_slab"
   }
 }

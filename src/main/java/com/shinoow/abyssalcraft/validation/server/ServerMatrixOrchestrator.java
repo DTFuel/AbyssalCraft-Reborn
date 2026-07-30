@@ -10,6 +10,7 @@ import com.shinoow.abyssalcraft.system.ritual.ResurrectionLiveFixture;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifestSelfTest;
 import com.shinoow.abyssalcraft.system.spell.SpellManifestSelfTest;
 import com.shinoow.abyssalcraft.validation.world.StructureFixtureValidator;
+import com.shinoow.abyssalcraft.validation.world.ShoggothLairLocateFixture;
 import com.shinoow.abyssalcraft.validation.world.WorldgenFinalMatrix;
 import com.shinoow.abyssalcraft.world.ACDimensions;
 
@@ -20,10 +21,17 @@ import net.minecraft.server.level.ServerLevel;
 public final class ServerMatrixOrchestrator {
 
     public static final String ENABLE_PROPERTY = "abyssalcraft.rrServerMatrix";
+    public static final String RITUAL_ALTAR_FIXTURE_PROPERTY = "abyssalcraft.ritualAltarFixture";
 
     private ServerMatrixOrchestrator() {}
 
     public static void run(MinecraftServer server) {
+        if (Boolean.getBoolean(RITUAL_ALTAR_FIXTURE_PROPERTY)) {
+            runRitualAltarFixtures(server);
+            System.out.println("RR_RITUAL_ALTAR_MATRIX_OK dimensions=5 materials=5 pedestals=40");
+            server.halt(false);
+            return;
+        }
         if (!Boolean.getBoolean(ENABLE_PROPERTY)) return;
 
         ServerLevel overworld = requireLevel(server.overworld(), "minecraft:overworld");
@@ -60,6 +68,9 @@ public final class ServerMatrixOrchestrator {
             "abyssalcraft:dreadlands");
         require(WorldgenFinalMatrix.executeServerMatrix(wasteland, dreadlands)
             .startsWith("RR_WORLD_SERVER_MATRIX_PASS"), "world fixture failed");
+        ShoggothLairLocateFixture.run(server.overworld());
+        DeityStatuePEFixture.run(server.overworld());
+        runRitualAltarFixtures(server);
         require(StructureFixtureValidator.legacyTemplateCount() == 37
             && StructureFixtureValidator.totalStructureCoverage() >= 37,
             "structure coverage is below the 37-structure contract");
@@ -76,6 +87,18 @@ public final class ServerMatrixOrchestrator {
         KnowledgeSystemSelfTest.run(server.registryAccess());
         require(KnowledgeSystemSelfTest.manifestPageCount() == 401,
             "knowledge manifest is not 401 pages");
+    }
+
+    private static void runRitualAltarFixtures(MinecraftServer server) {
+        RitualAltarFormationFixture.run(server.overworld());
+        RitualAltarFormationFixture.runAbyssalWasteland(requireLevel(
+            server.getLevel(ACDimensions.ABYSSAL_WASTELAND), "abyssalcraft:abyssal_wasteland"));
+        RitualAltarFormationFixture.runDreadlands(requireLevel(
+            server.getLevel(ACDimensions.DREADLANDS), "abyssalcraft:dreadlands"));
+        RitualAltarFormationFixture.runOmothol(requireLevel(
+            server.getLevel(ACDimensions.OMOTHOL), "abyssalcraft:omothol"));
+        RitualAltarFormationFixture.runDarkRealm(requireLevel(
+            server.getLevel(ACDimensions.DARK_REALM), "abyssalcraft:dark_realm"));
     }
 
     private static ServerLevel requireLevel(ServerLevel level, String id) {

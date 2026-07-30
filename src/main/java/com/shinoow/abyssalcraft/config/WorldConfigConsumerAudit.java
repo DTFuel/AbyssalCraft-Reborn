@@ -22,6 +22,7 @@ public final class WorldConfigConsumerAudit {
         active(entries, "keepLoaded4", "DimensionLoadingCompat ticket for abyssalcraft:dark_realm");
         active(entries, "startDimension", "DimensionDataRegistry#areDimensionsConnected legacy id map");
         active(entries, "darklandsRegionWeight", "DarklandsWorldgenCompat#registerRegions");
+        active(entries, "worldgenConfigMigrationVersion", "WorldgenConfigMigration one-time legacy default migration");
         active(entries, "generateDarklandsStructures", "structures abyssalcraft:dark_shrine/dark_ritual_grounds via ACStructure");
         active(entries, "generateShoggothLairs", "structures abyssalcraft:shoggoth_pit/shoggoth_pit_river via ACStructure");
         active(entries, "generateAbyssalWastelandPillars", "placed feature abyssalcraft:abyssal_wasteland_pillars via PlacedFeatureMixin");
@@ -45,9 +46,9 @@ public final class WorldConfigConsumerAudit {
         activeOre(entries, "generateAbyssalNitreOre", "ore_abyssal_nitre");
         activeOre(entries, "generatePearlescentCoraliumOre", "ore_pearlescent_coralium");
         activeOre(entries, "generateLiquifiedCoraliumOre", "ore_liquified_coralium");
-        active(entries, "shoggothLairSpawnRate", "WorldgenConfigGate SHOGGOTH_PIT swamp/non-river candidate gate");
-        active(entries, "shoggothLairSpawnRateRivers", "WorldgenConfigGate SHOGGOTH_PIT_RIVER candidate gate");
-        active(entries, "shoggothLairGenerationDistance", "ACStructure shoggoth_pit deterministic chunk-distance gate");
+        active(entries, "shoggothLairSpawnRate", "WorldgenConfigGate SHOGGOTH_PIT combined density grid");
+        active(entries, "shoggothLairSpawnRateRivers", "WorldgenConfigGate SHOGGOTH_PIT_RIVER combined density grid");
+        active(entries, "shoggothLairGenerationDistance", "WorldgenConfigGate shared Shoggoth Lair spacing grid");
         active(entries, "darkShrineSpawnRate", "ACStructure dark_shrine candidate gate");
         active(entries, "darkRitualGroundsSpawnRate", "WorldgenConfigGate DARK_RITUAL_GROUNDS candidate gate");
         active(entries, "graveyardGenerationDistance", "ACStructure graveyard deterministic chunk-distance gate");
@@ -59,13 +60,13 @@ public final class WorldConfigConsumerAudit {
 
     public static void run() {
         Map<String, Entry> entries = entries();
-        require(entries.size() == 40, "RR-WORLD key count changed: " + entries.size());
+        require(entries.size() == 41, "RR-WORLD key count changed: " + entries.size());
         require(entries.values().stream().allMatch(entry -> !entry.owner().isBlank()), "RR-WORLD owner is blank");
         long active = count(entries, Status.ACTIVE);
         long partial = count(entries, Status.PARTIAL);
         long blocked = count(entries, Status.BLOCKED);
         require(active + partial + blocked == entries.size(), "RR-WORLD status closure is incomplete");
-        require(active == 40 && partial == 0 && blocked == 0,
+        require(active == 41 && partial == 0 && blocked == 0,
             "RR-WORLD config closure regressed: active=" + active + " partial=" + partial + " blocked=" + blocked);
         System.out.printf("RR_WORLD_CONFIG_AUDIT_OK total=%d active=%d partial=%d blocked=%d%n",
             entries.size(), active, partial, blocked);

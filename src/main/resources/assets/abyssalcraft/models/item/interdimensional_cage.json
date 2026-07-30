@@ -1,4 +1,14 @@
 {
   "parent": "minecraft:item/generated",
-  "textures": { "layer0": "abyssalcraft:item/interdimensional_cage" }
+  "textures": {
+    "layer0": "abyssalcraft:item/interdimensional_cage"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "abyssalcraft:captured": 1
+      },
+      "model": "abyssalcraft:item/interdimensional_cage_captured"
+    }
+  ]
 }

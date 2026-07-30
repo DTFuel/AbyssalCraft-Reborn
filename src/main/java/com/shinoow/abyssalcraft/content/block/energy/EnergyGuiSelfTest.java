@@ -21,6 +21,12 @@ public final class EnergyGuiSelfTest {
     private EnergyGuiSelfTest() {}
 
     public static void run(HolderLookup.Provider registries) {
+        require(DeityStatueBlockEntity.canOperate(true, true, false)
+            && !DeityStatueBlockEntity.canOperate(false, true, false)
+            && !DeityStatueBlockEntity.canOperate(true, false, false)
+            && DeityStatueBlockEntity.canOperate(false, false, true),
+            "Deity Statue sky, adjacency or multiblock operation gate changed");
+
         TestEnergyContainer container = new TestEnergyContainer();
         ItemStack input = new ItemStack(BookItems.NECRONOMICON.get());
         ItemStack output = new ItemStack(BookItems.NECRONOMICON.get());

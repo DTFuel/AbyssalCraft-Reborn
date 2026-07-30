@@ -5,20 +5,21 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 import com.shinoow.abyssalcraft.content.machine.materializer.MaterializerMenu;
 import com.shinoow.abyssalcraft.platform.ClientScreenCompat;
+import com.shinoow.abyssalcraft.platform.ACRef;
 
 /**
  * Materializer screen (owned by PP-3).
  *
- * <p>Reuses the vanilla furnace GUI texture -- the PP-1 {@link MachineMenu} slot layout
- * (input 56,17 / fuel 56,53 / output 116,35 / arrow 79,34) matches the furnace, so no bespoke texture
- * is shipped for the pilot. {@code blit}/{@code renderBg}/{@code renderTooltip} are vanilla-shared;
- * only {@code renderBackground} forks and is routed through {@link ClientScreenCompat}.
+ * <p>Uses the legacy Materializer background; modern page buttons remain live above it.
  */
 public class MaterializerScreen extends AbstractContainerScreen<MaterializerMenu> {
+
+    private static final ResourceLocation TEXTURE = ACRef.id("textures/gui/container/materializer.png");
 
     public MaterializerScreen(MaterializerMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
@@ -41,10 +42,9 @@ public class MaterializerScreen extends AbstractContainerScreen<MaterializerMenu
 
     @Override
     protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
-        graphics.fill(leftPos, topPos, leftPos + imageWidth, topPos + imageHeight, 0xFF20252B);
-        graphics.fill(leftPos + 7, topPos + 7, leftPos + imageWidth - 7, topPos + 76, 0xFF303840);
-        graphics.fill(leftPos + 7, topPos + 82, leftPos + imageWidth - 7, topPos + imageHeight - 7, 0xFF303840);
-        graphics.drawString(font, (menu.page() + 1) + "/" + (menu.maxPage() + 1), leftPos + 104, topPos + 61, 0xFFE0E0E0, false);
+        graphics.blit(TEXTURE, leftPos, topPos, 0, 0, imageWidth, imageHeight);
+        graphics.drawString(font, (menu.page() + 1) + "/" + (menu.maxPage() + 1),
+            leftPos + 104, topPos + 61, 0xFF404040, false);
     }
 
     @Override

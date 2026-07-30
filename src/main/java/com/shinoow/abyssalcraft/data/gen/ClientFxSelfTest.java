@@ -11,24 +11,31 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.shinoow.abyssalcraft.client.network.ClientNetworkEffects;
 import com.shinoow.abyssalcraft.client.necronomicon.ACNecronomicon;
 import com.shinoow.abyssalcraft.client.necronomicon.NecronomiconEntry;
 import com.shinoow.abyssalcraft.client.ClientFxConfig;
+import com.shinoow.abyssalcraft.platform.ACRef;
+import com.shinoow.abyssalcraft.platform.ClientColorCompat;
 import com.shinoow.abyssalcraft.platform.ConfigCompat;
+import com.shinoow.abyssalcraft.registry.ModParticles;
 import com.shinoow.abyssalcraft.registry.ModSounds;
 import com.shinoow.abyssalcraft.system.knowledge.NecronomiconPageManifest;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifest;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifestCatalog;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+
 /**
  * Permanent classpath-resource invariants for RR-CLIENT-FX (sky / particle / sound).
  *
- * <p>Asserts the three dimension skybox textures + twelve {@code clientvars.json} tint channels, the two
- * custom particle descriptors ({@code abyssal_fx}, {@code blue_flame}) with their sprites, every registered
+ * <p>Asserts the three dimension skybox textures + twelve {@code clientvars.json} tint channels, the three
+ * custom particle descriptors with their sprites, every registered
  * sound event's {@code sounds.json} entry + referenced {@code .ogg} + AbyssalCraft subtitle key, and that
  * each ritual manifest still exposes an eight-slot offering layout (the ItemRitual particle display source).
- * PEStream is delivered by RR-NET ({@code net/**} + {@code ClientNetworkEffects.peStream}) and validated
- * there, so it is intentionally out of this gate.
+ * PEStream delivery remains owned by RR-NET; its dedicated particle resource and legacy line density are
+ * validated here.
  */
 public final class ClientFxSelfTest {
 
@@ -43,8 +50,8 @@ public final class ClientFxSelfTest {
         "omotholR", "omotholG", "omotholB",
         "darkRealmR", "darkRealmG", "darkRealmB");
 
-    /** The two custom particle types (each needs a descriptor + sprite texture). */
-    private static final List<String> PARTICLES = List.of("abyssal_fx", "blue_flame");
+    /** The three custom particle types (each needs a descriptor and resolvable sprites). */
+    private static final List<String> PARTICLES = List.of("abyssal_fx", "blue_flame", "pe_stream");
 
     private ClientFxSelfTest() {}
 
@@ -61,6 +68,13 @@ public final class ClientFxSelfTest {
             consumerStats.defined(), consumerStats.consumed(), consumerStats.blocked().size());
         validateClientFxConfigContract();
         validateClientVarsContract();
+        //? if >=1.21 {
+        /*require(ClientColorCompat.opaque(0x123456) == 0xFF123456,
+            "1.21 item/block tint colors must carry an opaque alpha channel");
+        *///?} else {
+        require(ClientColorCompat.opaque(0x123456) == 0x123456,
+            "1.20 tint colors must remain RGB values");
+        //?}
         requireResource("assets/abyssalcraft/textures/misc/coraliumblur.png");
         requireResource("assets/abyssalcraft/textures/misc/coraliumblur.png.mcmeta");
         for (String texture : SKY_TEXTURES) {
@@ -77,11 +91,30 @@ public final class ClientFxSelfTest {
             require(textures != null && !textures.isEmpty(), "particle " + particle + " declares no textures");
             for (JsonElement element : textures) {
                 String sprite = element.getAsString();
-                require(sprite.startsWith("abyssalcraft:"), "particle sprite must be namespaced: " + sprite);
-                requireResource("assets/abyssalcraft/textures/particle/"
-                    + sprite.substring("abyssalcraft:".length()) + ".png");
+                require(sprite.contains(":"), "particle sprite must be namespaced: " + sprite);
+                if (sprite.startsWith("abyssalcraft:")) {
+                    requireResource("assets/abyssalcraft/textures/particle/"
+                        + sprite.substring("abyssalcraft:".length()) + ".png");
+                } else {
+                    require(sprite.matches("minecraft:generic_[0-7]"),
+                        "PE stream references an unexpected vanilla sprite " + sprite);
+                }
+            }
+            if (particle.equals("pe_stream")) {
+                require(textures.size() == 8, "PE stream must retain eight generic animation frames");
+                for (int frame = 0; frame < 8; frame++) {
+                    require(("minecraft:generic_" + (7 - frame)).equals(textures.get(frame).getAsString()),
+                        "PE stream frame order changed at " + frame);
+                }
             }
         }
+        require(ACRef.id("pe_stream").equals(BuiltInRegistries.PARTICLE_TYPE.getKey(ModParticles.PE_STREAM.get())),
+            "PE stream particle registry id changed");
+        BlockPos streamEnd = new BlockPos(3, 0, 4);
+        require(ClientNetworkEffects.peStreamSampleCount(BlockPos.ZERO, streamEnd, 1) == 75
+            && ClientNetworkEffects.peStreamSampleCount(BlockPos.ZERO, streamEnd, 2) == 38
+            && ClientNetworkEffects.peStreamSampleCount(BlockPos.ZERO, streamEnd, 3) == 25,
+            "PE stream no longer follows the legacy 15-samples-per-block density");
 
         require(ModSounds.EVENTS.size() == 45, "expected 45 sound events, found " + ModSounds.EVENTS.size());
         require(ModSounds.EVENTS.containsKey("shoggoth.step"), "shoggoth.step sound event is missing");
@@ -118,7 +151,14 @@ public final class ClientFxSelfTest {
         }
 
         Set<String> uiEntries = new LinkedHashSet<>();
-        collectEntryIds(ACNecronomicon.root(4, registries), uiEntries);
+        for (int bookType = 0; bookType < 5; bookType++) {
+            require(ACNecronomicon.root(bookType, registries) == ACNecronomicon.root(bookType, registries),
+                "Necronomicon tree is rebuilt every time book tier " + bookType + " opens");
+        }
+        NecronomiconEntry root = ACNecronomicon.root(4, registries);
+        collectEntryIds(root, uiEntries);
+        require(uiEntries.stream().filter(id -> id.startsWith("legacy/")).count() == 322,
+            "Necronomicon legacy navigation entry count changed");
         for (NecronomiconPageManifest.PageEntry page : NecronomiconPageManifest.pages()) {
             require(uiEntries.contains(page.id().getPath()), "Necronomicon UI is missing manifest page " + page.id());
         }
@@ -178,6 +218,11 @@ public final class ClientFxSelfTest {
 
     private static void collectEntryIds(NecronomiconEntry entry, Set<String> ids) {
         require(ids.add(entry.id()), "duplicate Necronomicon UI entry " + entry.id());
+        if (entry.id().startsWith("legacy/")) {
+            require(entry.hasNavigationTitle(), "legacy Necronomicon entry lacks a content summary " + entry.id());
+            require(entry.title().getString().contains("·"),
+                "legacy Necronomicon entry lacks its source page number " + entry.id());
+        }
         entry.children().forEach(child -> collectEntryIds(child, ids));
     }
 

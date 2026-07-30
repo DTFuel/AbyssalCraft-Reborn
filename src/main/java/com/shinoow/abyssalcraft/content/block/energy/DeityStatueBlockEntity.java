@@ -5,7 +5,6 @@ import java.util.Set;
 
 import com.shinoow.abyssalcraft.content.blockentity.base.ACBlockEntity;
 import com.shinoow.abyssalcraft.content.blockentity.base.TickingBlockEntity;
-import com.shinoow.abyssalcraft.content.item.book.BookItems;
 import com.shinoow.abyssalcraft.system.energy.AmplifierType;
 import com.shinoow.abyssalcraft.system.energy.DeityType;
 import com.shinoow.abyssalcraft.system.energy.IEnergyManipulator;
@@ -51,8 +50,8 @@ public class DeityStatueBlockEntity extends ACBlockEntity
         }
         float structureRange = PEUtils.getStructureAmplifier(level, this, AmplifierType.RANGE);
         int blockRange = PEUtils.getBlockAmplifiers(level, worldPosition, AmplifierType.RANGE);
-        boolean canOperate = (level.canSeeSky(worldPosition) || inMultiblock)
-            && (PEUtils.hasNoAdjacentManipulators(level, worldPosition) || inMultiblock);
+        boolean canOperate = canOperate(level.canSeeSky(worldPosition.above()),
+            PEUtils.hasNoAdjacentManipulators(level, worldPosition), inMultiblock);
         if (canOperate) {
             int range = (int) (7 + (structureRange + blockRange) * 4 + getAmplifier(AmplifierType.RANGE));
             if (level.getGameTime() % COLLECTOR_SCAN_INTERVAL == 0) {
@@ -67,30 +66,30 @@ public class DeityStatueBlockEntity extends ACBlockEntity
         }
     }
 
+    static boolean canOperate(boolean skyVisible, boolean noAdjacentManipulators, boolean inMultiblock) {
+        return inMultiblock || skyVisible && noAdjacentManipulators;
+    }
+
     private void chargeNearestPlayer(int range) {
         Player player = level.getNearestPlayer(worldPosition.getX() + 0.5, worldPosition.getY() + 0.5,
             worldPosition.getZ() + 0.5, range,
-            entity -> entity instanceof Player candidate && hasNecronomicon(candidate));
-        if (player == null || (!isTransporter(player.getMainHandItem()) && !isTransporter(player.getOffhandItem()))) {
+            entity -> entity instanceof Player candidate
+                && (isTransporter(candidate.getMainHandItem()) || isTransporter(candidate.getOffhandItem())));
+        if (player == null) {
             return;
         }
         float duration = Math.max(getAmplifier(AmplifierType.DURATION), 1.0F)
             + PEUtils.getStructureAmplifier(level, this, AmplifierType.DURATION);
         if (++timer >= Math.max(1, (int) (PLAYER_INTERVAL / duration))) {
             timer = level.random.nextInt(10);
-            PEUtils.transferToItem(this, player.getItemInHand(InteractionHand.MAIN_HAND), isActive() ? 4 : 2);
-            PEUtils.transferToItem(this, player.getItemInHand(InteractionHand.OFF_HAND), isActive() ? 4 : 2);
-        }
-    }
-
-    private static boolean hasNecronomicon(Player player) {
-        for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
-            ItemStack stack = player.getInventory().getItem(slot);
-            if (BookItems.ALL.stream().anyMatch(book -> stack.is(book.get()))) {
-                return true;
+            float transferred = PEUtils.transferToItem(this,
+                player.getItemInHand(InteractionHand.MAIN_HAND), isActive() ? 4 : 2);
+            transferred += PEUtils.transferToItem(this,
+                player.getItemInHand(InteractionHand.OFF_HAND), isActive() ? 4 : 2);
+            if (transferred > 0.0F) {
+                PEUtils.broadcastPEStream(level, worldPosition, player.blockPosition());
             }
         }
-        return false;
     }
 
     private static boolean isTransporter(ItemStack stack) {

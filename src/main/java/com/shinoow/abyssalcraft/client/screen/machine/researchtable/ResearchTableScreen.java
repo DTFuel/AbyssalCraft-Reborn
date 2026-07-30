@@ -11,12 +11,10 @@ import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.platform.ClientScreenCompat;
 
 /**
- * Research Table screen (owned by PC-8, Stage C2a).
+ * Research Table screen matching the legacy 176x238 inventory-only interface.
  *
- * <p>Placeholder inventory screen so the block's GUI opens (the DoD's "interface opens"). The real
- * knowledge-browser UI is deferred to Stage S-B; for now it reuses a vanilla 176x166 background and
- * shows only the player inventory. {@code renderBackground} forks and is routed through
- * {@link ClientScreenCompat}.
+ * <p>The 1.12.2 table had no machine slots or knowledge widgets; it drew this dedicated background
+ * and the player inventory. {@code renderBackground} forks and is routed through {@link ClientScreenCompat}.
  */
 public class ResearchTableScreen extends AbstractContainerScreen<ResearchTableMenu> {
 

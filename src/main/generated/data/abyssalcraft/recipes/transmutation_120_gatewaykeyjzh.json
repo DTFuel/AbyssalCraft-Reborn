@@ -2,7 +2,7 @@
   "type": "abyssalcraft:transmutation",
   "experience": 1.0,
   "input": {
-    "item": "abyssalcraft:gatewaykeydl"
+    "item": "abyssalcraft:dreadkey"
   },
   "result": {
     "count": 1,

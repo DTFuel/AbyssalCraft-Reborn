@@ -5,15 +5,13 @@ import java.util.List;
 import com.shinoow.abyssalcraft.content.block.energy.EnergyDropBlock;
 import com.shinoow.abyssalcraft.content.blockentity.base.TickingBlockEntity;
 import com.shinoow.abyssalcraft.platform.ItemDataCompat;
-import com.shinoow.abyssalcraft.platform.MenuCompat;
 import com.shinoow.abyssalcraft.system.rending.RendingEnergyType;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -73,15 +71,47 @@ public final class RendingPedestalBlock extends EnergyDropBlock implements Entit
 
     @Override
     protected InteractionResult onUse(BlockState state, Level level, BlockPos pos, Player player) {
-        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer
-            && level.getBlockEntity(pos) instanceof MenuProvider provider) {
-            MenuCompat.open(serverPlayer, provider, pos);
+        return exchangeDisplayedStaff(ItemStack.EMPTY, level, pos, player);
+    }
+
+    @Override
+    protected InteractionResult onUseAcceptedItem(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                                  Player player, InteractionHand hand) {
+        return exchangeDisplayedStaff(stack, level, pos, player);
+    }
+
+    private InteractionResult exchangeDisplayedStaff(ItemStack held, Level level, BlockPos pos, Player player) {
+        if (!(level.getBlockEntity(pos) instanceof RendingPedestalBlockEntity pedestal)) {
+            return InteractionResult.PASS;
         }
-        return InteractionResult.sidedSuccess(level.isClientSide);
+        ItemStack stored = pedestal.getItem(RendingPedestalBlockEntity.SLOT_STAFF);
+        return switch (displayedItemAction(!stored.isEmpty(), !held.isEmpty())) {
+            case TAKE -> {
+                if (!level.isClientSide) {
+                    ItemStack removed = pedestal.removeItem(RendingPedestalBlockEntity.SLOT_STAFF,
+                        stored.getCount());
+                    if (!player.addItem(removed)) player.drop(removed, false);
+                }
+                yield InteractionResult.sidedSuccess(level.isClientSide);
+            }
+            case STORE -> {
+                if (!level.isClientSide) {
+                    pedestal.setItem(RendingPedestalBlockEntity.SLOT_STAFF, held.copyWithCount(1));
+                    if (!player.getAbilities().instabuild) held.shrink(1);
+                }
+                yield InteractionResult.sidedSuccess(level.isClientSide);
+            }
+            case NONE -> InteractionResult.PASS;
+        };
     }
 
     @Override
     protected boolean acceptsHeldItem() {
+        return true;
+    }
+
+    @Override
+    protected boolean skipsInteractionWhileSneaking() {
         return true;
     }
 

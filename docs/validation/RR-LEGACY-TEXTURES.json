@@ -47,13 +47,12 @@
     {
       "source": "armor/coraliump_1.png",
       "sha256": "b70f9d7db127a25e5683deac21a1948f80190565ca6e6091401f7e931cc42e8d",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/content/item/armor/ArmorItems.java",
-        "src/main/java/com/shinoow/abyssalcraft/client/render/armor/ACArmorVisuals.java"
+        "src/main/resources/assets/abyssalcraft/textures/models/armor/plated_coralium_layer_1.png"
       ],
-      "reason": "Legacy armor layers are superseded by the registered modern armor set and its explicit client visual contract.",
-      "owner": "RR-ASSET/armor"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "armor/coraliump_2.png",
@@ -78,13 +77,12 @@
     {
       "source": "armor/depths_1_inner.png",
       "sha256": "08d6e2720bca167c5a1876d1fefa4625244618d8ee771b2ba4c6f902d3cac15c",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/content/item/armor/ArmorItems.java",
-        "src/main/java/com/shinoow/abyssalcraft/client/render/armor/ACArmorVisuals.java"
+        "src/main/resources/assets/abyssalcraft/textures/models/armor/depths_layer_1.png"
       ],
-      "reason": "Legacy armor layers are superseded by the registered modern armor set and its explicit client visual contract.",
-      "owner": "RR-ASSET/armor"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "armor/depths_1_outer.png",
@@ -159,13 +157,12 @@
     {
       "source": "armor/ethaxium_1.png",
       "sha256": "286b45383196fb454f121b7508ddf76b7b397e2828fd8c7236939dea2986ae12",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/content/item/armor/ArmorItems.java",
-        "src/main/java/com/shinoow/abyssalcraft/client/render/armor/ACArmorVisuals.java"
+        "src/main/resources/assets/abyssalcraft/textures/models/armor/ethaxium_layer_1.png"
       ],
-      "reason": "Legacy armor layers are superseded by the registered modern armor set and its explicit client visual contract.",
-      "owner": "RR-ASSET/armor"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "armor/ethaxium_2.png",
@@ -460,42 +457,42 @@
     {
       "source": "blocks/altar.png",
       "sha256": "6ce5fcfef47364e4abe9d74be871967137b4f2ad089cab973bd5f80a752f120d",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/altar/basebot.png",
       "sha256": "e7fa6285d84dd82aa62793464bb46cff25e56d7210992db895d2348de4a706db",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/altar/basetop.png",
       "sha256": "d841583cc0bb24fe73bcdc465486b14afccbcc9a44c1fe5ab7967a3b09644d76",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/altar/parts.png",
       "sha256": "8a3ccfb37c24dc795057f68d4a880ca4f2022ca76bd85bf32655344a65046338",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/anti_flow.png",
@@ -611,12 +608,12 @@
     {
       "source": "blocks/calcifiedstone.png",
       "sha256": "70147ae085d44038978a56634c05aec37bf4cc64e5e23b04c62ff215b5f4ff52",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/coralium_bricks/bricks_base.png",
@@ -633,9 +630,9 @@
       "sha256": "c0f954d4cb5efd5d7b12b3de1e36ec58024844bbb63e7061286545c1d2d0a1bd",
       "status": "REPLACED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/cracked_coralium_stone_brick.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
+      "reason": "The legacy cracks overlay is deterministically source-over composited with bricks_base into the registered modern cracked Coralium brick texture.",
       "owner": "RR-ASSET/PK-2b"
     },
     {
@@ -643,9 +640,9 @@
       "sha256": "4cb0df16c3f425d36c1e342d842f0cd7d035a1567f1d453ccd0caec1acfceae2",
       "status": "REPLACED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/chiseled_coralium_stone_brick.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
+      "reason": "The legacy sigil overlay is deterministically source-over composited with bricks_base into the registered modern chiseled Coralium brick texture.",
       "owner": "RR-ASSET/PK-2b"
     },
     {
@@ -661,12 +658,12 @@
     {
       "source": "blocks/crate.png",
       "sha256": "5d8ab11fef565e049c98868a40a3cbc2b8910db6a72387d4717fd845d91852c4",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/crate.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/crystalcluster.png",
@@ -853,12 +850,12 @@
     {
       "source": "blocks/dlttside_overlay.png",
       "sha256": "dff0ec4e5b863531caf478ab13370d34a557914b22ce3193ab8531c3a449b976",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/darklands_oak_log_overlay.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/dltttop.png",
@@ -953,22 +950,22 @@
     {
       "source": "blocks/drgsides_snowed.png",
       "sha256": "7c514011546040932e0caf02b8b78fd7b92eecf1188e81e49ee6932f14761bf4",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/dreadlands_grass_side_snowed.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/drgtop.png",
       "sha256": "acbd851bcaf8d2d871727fb62612822d225757f908a065330277f00e6a2cc9dd",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/dreadlands_grass_top.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/drs.png",
@@ -1103,12 +1100,12 @@
     {
       "source": "blocks/dsbf.png",
       "sha256": "6b4f416b5c6c2e233decc4213812bf8be8dc4c1c64d1312c0c598dbfb5b7ab97",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/dsc.png",
@@ -1133,12 +1130,12 @@
     {
       "source": "blocks/dsssides.png",
       "sha256": "44ec0476e6d56240d969104ff85b696aa54d5d00fda1b49d8f25608c4183d28b",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/darkstone_slab_side.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/dsstop.png",
@@ -1155,7 +1152,7 @@
       "sha256": "f3ce2c7932cb378df06e75cbf4de0b76ecdd226a88f43c599ebae6c6116ae133",
       "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_brick.png"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_legacy_brick.png"
       ],
       "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
       "owner": "RR-ASSET/PK-1b"
@@ -1213,122 +1210,122 @@
     {
       "source": "blocks/ethaxium_bricks/bricks_base.png",
       "sha256": "0fa9d22156f050cebebf292a55e0acc5c3b2956eb21730a0e06f50934f9e67c9",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/bricks_base.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/cracks.png",
       "sha256": "387cf367526f4e15968ca55443492e6a4ed63a9e0b8945bbe6ab357306bf38c7",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/cracks.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/dark_bricks_base.png",
       "sha256": "03daa724b5d9d684f181681c7c6ce0967c03e9023b66c440feb0e7d9dc47b356",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/dark_bricks_base.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/dark_cracks.png",
       "sha256": "1aeb5638eaf38130e087f2e1dfb46934eb95d4e3d10d7c2706bd267b7a9a68c3",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/dark_cracks.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/dark_faces_1.png",
       "sha256": "9188c36b979a278fdd4b116c16510dd2f50f3a853988bc86ac08968ad80aa852",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/dark_faces_1.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/dark_faces_2.png",
       "sha256": "635b448088ae9caff3e7d04e86a947613b083f51d0877f205c27a3a9461c23c3",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/dark_faces_2.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/dark_faces_3.png",
       "sha256": "9587192cc13977fbe3aa91550ef27eacb764729b73ac154e464501c84514c9c2",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/dark_faces_3.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/dark_sigil.png",
       "sha256": "bbce1dd479b37b02fac213015c0d198fe07335330a989328eb96f9c216b83df3",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/dark_sigil.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/faces_1.png",
       "sha256": "fdad69d4fb824922461999743c3a778cad473a6407d5170f4cb283655556c6fa",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/faces_1.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/faces_2.png",
       "sha256": "06899db7b14c254d1bff12396741de69d07bea8e048d0fd63fb008a771d64895",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/faces_2.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/faces_3.png",
       "sha256": "76e6372c21f84ac00e5b3044088eb72c304ac4c08bceb5761ad560cfa348753c",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/faces_3.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ethaxium_bricks/sigil.png",
       "sha256": "b7e8d4c69c84323bad25f8601a781a3e241eeb17714da1d7cda701b9a0b9d1ca",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/ethaxium_bricks/sigil.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/fusedabyssalsand.png",
@@ -1413,12 +1410,12 @@
     {
       "source": "blocks/multiblock.png",
       "sha256": "0e2f81744b3c8426955370d710bcd0b557c53b8d2749004d02328198b2403340",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/multi_block.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/odbcsides.png",
@@ -1646,6 +1643,7 @@
       "sha256": "257344ee2eb58abbd80936dd9eb472279c76b11fafad1a87a8278a49d073b36f",
       "status": "MIGRATED",
       "targets": [
+        "src/main/resources/assets/abyssalcraft/textures/block/ritual_altar/cloth.png",
         "src/main/resources/assets/abyssalcraft/textures/block/ritual_altar_cloth.png"
       ],
       "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
@@ -1654,38 +1652,39 @@
     {
       "source": "blocks/ritualaltar/cloth2.png",
       "sha256": "fd0ce70e8e0027f3a397680262948010c9415deba4a17a164981a6aa4e083146",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualaltar/cloth3.png",
       "sha256": "f8a4ed3f9aefb060ec8cd26c3438ae6c1f6e6173622ad294fc8d79804783fde2",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualaltar/cloth4.png",
       "sha256": "ffe85d26a356e0c3f9c6a0c69377d1d12569c5c2fc4fe68ba3f88c7fe44b5cc3",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualaltar/parts.png",
       "sha256": "1674b4120d95e8be9d503e773bdd673e0f800559881faad8176401fa820a1335",
       "status": "MIGRATED",
       "targets": [
+        "src/main/resources/assets/abyssalcraft/textures/block/ritual_altar/parts.png",
         "src/main/resources/assets/abyssalcraft/textures/block/ritual_altar_parts.png"
       ],
       "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
@@ -1694,18 +1693,19 @@
     {
       "source": "blocks/ritualaltar/parts2.png",
       "sha256": "1466d10d8689d4d51b5c85c29055127f98d980453de71db6634f4d57a90b64db",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualpedestal/glyphs.png",
       "sha256": "dbd5af27fb620e31e76a3fbe3dd6e1cd1517c10851cf5b868544d152a9a5f9ec",
       "status": "MIGRATED",
       "targets": [
+        "src/main/resources/assets/abyssalcraft/textures/block/ritual_pedestal/glyphs.png",
         "src/main/resources/assets/abyssalcraft/textures/block/ritual_pedestal_glyphs.png"
       ],
       "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
@@ -1714,12 +1714,12 @@
     {
       "source": "blocks/ritualpedestal/overlay2.png",
       "sha256": "e986abe6570fbb8003915dc7b5d934ca569184539a7936103458791d2a058dc9",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/energy_pedestal/overlay.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualpedestal/overlay3.png",
@@ -1736,6 +1736,7 @@
       "sha256": "2764fd49a8dc7b6c8906a23a7a849f601e7026e5f32e33ecf8e54a37206078e9",
       "status": "MIGRATED",
       "targets": [
+        "src/main/resources/assets/abyssalcraft/textures/block/ritual_pedestal/overlay_0.png",
         "src/main/resources/assets/abyssalcraft/textures/block/ritual_pedestal_overlay.png"
       ],
       "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
@@ -1744,82 +1745,82 @@
     {
       "source": "blocks/ritualpedestal/overlay_1.png",
       "sha256": "042a1a00b41c146c5e8b4da903727ebe820e5a29b3deaf5122ec65314001d1b6",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualpedestal/overlay_2.png",
       "sha256": "15cf15142c30dd6189c19c53b1286980eb862e5ff694c71421ae1885440b8daf",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualpedestal/overlay_3.png",
       "sha256": "2ad08e93be292bc147fca19f8903cc612a9fdcdc570d3ded921678a7aa0fbe47",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualpedestal/overlay_4.png",
       "sha256": "15cf15142c30dd6189c19c53b1286980eb862e5ff694c71421ae1885440b8daf",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualpedestal/overlay_5.png",
       "sha256": "627f9e133ccc4555ab22227f5f1466992afea44881d8009d9f36c51e7510eece",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualpedestal/overlay_6.png",
       "sha256": "db7f90ce6111bf5469d16beaa3e87da0b057f7faafa5393113d295407d629ce9",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/ritualpedestal/overlay_7.png",
       "sha256": "bcf7ad86a3f5cbd098cc9952a22258b45fbbcb2d0c7fe05ac7d00d94f3bcc23e",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/sealinglock_misc.png",
       "sha256": "c99ed107f20df1fc446f51c302e8fcbe6ae90002ece783f7ddf02c0ed1a3d288",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "src/main/resources/assets/abyssalcraft/textures/block/sealing_lock_misc.png"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/shoggothbiomass.png",
@@ -1864,52 +1865,52 @@
     {
       "source": "blocks/summoning_statue/masonry.png",
       "sha256": "7045aeb4e02ac0f6981f0602628f81ac1c7b687fb506c4fa19249017a52187e8",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/summoning_statue/misc.png",
       "sha256": "f246570d8e4decc47cfbf9dbc4c4fdb432035b1cfbddbd364932e191e43141c3",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/summoning_statue/robe_front.png",
       "sha256": "20de487dac93662b4075e641b93ccc89d6915c892fb18a0f665774bf8526ec6d",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/summoning_statue/robe_sides.png",
       "sha256": "50472f8943ea4c553aaaf86f3b5c23e7d7eb6504bfdcc187612a600360bb4a53",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/summoning_statue/robe_top.png",
       "sha256": "d5409abebe654f821a11e1684afc9753f0714135196d340619bb3b94043da660",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/complex_block_model_fidelity.json"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The registered block is represented by the audited modern complex-model catalog; legacy layers are merged, renamed, or superseded by its listed model textures.",
-      "owner": "RR-ASSET/PK-2b"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "blocks/transmutator_front_off.png",
@@ -2015,42 +2016,42 @@
     {
       "source": "gui/abyssalnomicon.png",
       "sha256": "7f22103b5c46a90ecac69d2b2b9d0422671115ddc37dd1db3ad5c37371f05c58",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/abyssalnomicon.png"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/crystalbag.png",
       "sha256": "410c5f2905770acc0146cae60095fd5fbbb310e3bfcaeb9acbec217708191d07",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/ACClientSetup.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/crystalbag.png"
       ],
-      "reason": "The legacy fixed container bitmap is replaced by a registered modern screen implementation with live slots and widgets.",
-      "owner": "RR-ASSET/GUI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/crystallizer.png",
       "sha256": "f2fc3bb69d9cff8c2f14e3edabedc98b5b15040bbc5c07ca0f843521949a0104",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/ACClientSetup.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/crystallizer.png"
       ],
-      "reason": "The legacy fixed container bitmap is replaced by a registered modern screen implementation with live slots and widgets.",
-      "owner": "RR-ASSET/GUI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/crystallizer_nei.png",
       "sha256": "2dfd730e5ae77fd5545ac010cf66a94b2d95d9519403d12d7db6025749123c64",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/integration/jei/ACJEIPlugin.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/crystallizer_nei.png"
       ],
-      "reason": "The legacy NEI/JEI bitmap is replaced by registered modern JEI categories and drawable layouts.",
-      "owner": "RR-ASSET/JEI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/energycontainer.png",
@@ -2075,22 +2076,22 @@
     {
       "source": "gui/container/materializer.png",
       "sha256": "40f2bb903c136f120b8070c96d53ccdbae9cb92ac278b3a14e7c6b31aab3adca",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/ACClientSetup.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/materializer.png"
       ],
-      "reason": "The legacy fixed container bitmap is replaced by a registered modern screen implementation with live slots and widgets.",
-      "owner": "RR-ASSET/GUI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/materializer_nei.png",
       "sha256": "eb98e5e40864d6274402cf0e9de23940ac294350ea0657aa8895fef733668f7a",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/integration/jei/ACJEIPlugin.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/materializer_nei.png"
       ],
-      "reason": "The legacy NEI/JEI bitmap is replaced by registered modern JEI categories and drawable layouts.",
-      "owner": "RR-ASSET/JEI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/rendingpedestal.png",
@@ -2115,12 +2116,12 @@
     {
       "source": "gui/container/ritual_nei.png",
       "sha256": "7584c99f474ac9de6e932256b8d6d992d312e7df5f49fcd73a148b2f402a4730",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/integration/jei/ACJEIPlugin.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/ritual_nei.png"
       ],
-      "reason": "The legacy NEI/JEI bitmap is replaced by registered modern JEI categories and drawable layouts.",
-      "owner": "RR-ASSET/JEI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/sequential_brewing_stand.png",
@@ -2135,32 +2136,32 @@
     {
       "source": "gui/container/spellcraft.png",
       "sha256": "1277b3726de08cf562accd4d25096c1a3dd8b1265272f5a910d4808df40714fa",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/ACClientSetup.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/spellcraft.png"
       ],
-      "reason": "The legacy fixed container bitmap is replaced by a registered modern screen implementation with live slots and widgets.",
-      "owner": "RR-ASSET/GUI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/spellcraft_test.png",
       "sha256": "e6cb9cb57e3cb923b65c842854d782dddce5734e230f186f2cfb5c9638aec4c0",
-      "status": "RETIRED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/legacy-texture-audit.md"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/spellcraft_test.png"
       ],
-      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
       "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/spirit_tablet.png",
       "sha256": "1797ea830843e0d48aba7efe7d5d736df4ade72d3bfd88206c5d108d35a404ed",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/ACClientSetup.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/spirit_tablet.png"
       ],
-      "reason": "The legacy fixed container bitmap is replaced by a registered modern screen implementation with live slots and widgets.",
-      "owner": "RR-ASSET/GUI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/statetransformer.png",
@@ -2175,32 +2176,32 @@
     {
       "source": "gui/container/transformation_ritual_jei.png",
       "sha256": "73b89b105436eaed5fcc1ca34697a52ea104f02046bd41e7a011ea87d20c7c5d",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/integration/jei/ACJEIPlugin.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/transformation_ritual_jei.png"
       ],
-      "reason": "The legacy NEI/JEI bitmap is replaced by registered modern JEI categories and drawable layouts.",
-      "owner": "RR-ASSET/JEI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/transmutator.png",
       "sha256": "54e7f7dd76053955a3c52aa5bad06d3fae0dd79989d96e4eeb444e49514c27f1",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/ACClientSetup.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/transmutator.png"
       ],
-      "reason": "The legacy fixed container bitmap is replaced by a registered modern screen implementation with live slots and widgets.",
-      "owner": "RR-ASSET/GUI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/container/transmutator_nei.png",
       "sha256": "8bdc10792b4f4990e6b850c5a0a27e07518f4f734b913e4472a553262278f58c",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/integration/jei/ACJEIPlugin.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/container/transmutator_nei.png"
       ],
-      "reason": "The legacy NEI/JEI bitmap is replaced by registered modern JEI categories and drawable layouts.",
-      "owner": "RR-ASSET/JEI"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/face_book.png",
@@ -2215,12 +2216,12 @@
     {
       "source": "gui/necronomicon.png",
       "sha256": "b4bb1ab65a83fb4f8e3cbbb34ddcb9c7d3c687c5599f6304e599ec3daa63852c",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/necronomicon.png"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/abyssal-zombie.png",
@@ -2435,22 +2436,22 @@
     {
       "source": "gui/necronomicon/crafting.png",
       "sha256": "90c90ca51518c3bd16b08a0dc1773e8fabd4930d693a70c43d763b499857cd99",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/crystallization.png",
       "sha256": "ffa9f22e4ba8b7bd1b9e253be311ae3aa5766d0bf00ee34fe1a57a00a4a35948",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/cthulhu.png",
@@ -2545,12 +2546,12 @@
     {
       "source": "gui/necronomicon/item.png",
       "sha256": "62e45d66e4b8f271745ce11ee516fbe753836b983f7bc4f44575c9566f747463",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/j-zahar.png",
@@ -2585,12 +2586,12 @@
     {
       "source": "gui/necronomicon/materialization.png",
       "sha256": "402ac662a39eb568b1804deb3ac8d21a1221d0b13384b960fe6986777ceed298",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/minion-of-the-gatekeeper.png",
@@ -2605,32 +2606,32 @@
     {
       "source": "gui/necronomicon/missing.png",
       "sha256": "e6cebdf8b6c9e6f2a4706bfc2f2cc3e24e46e7a0e995cb7ff2c78db12ebe5033",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/missing_item.png",
       "sha256": "7e67ea5cb17b0d91714144a77e2aa814b3929e52827066540e3a82c201a61022",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/missing_recipe.png",
       "sha256": "5330f0af207b662f81c4e0307cd34935926451b3bd6ad0deafb5340eab9574f3",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/nyarlathotep.png",
@@ -2815,12 +2816,12 @@
     {
       "source": "gui/necronomicon/placeofpower.png",
       "sha256": "5120866a1d53cea3c3a8ce74ccb4cfafd62f4c3513d02ce1f4542a0ed8e1b1cf",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/remnant.png",
@@ -2835,12 +2836,12 @@
     {
       "source": "gui/necronomicon/ritual.png",
       "sha256": "0070aee01738a45c6a035ba0d011299187b7cad8b9089944b061f0cd230b1b20",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/ritual_1.png",
@@ -2875,22 +2876,22 @@
     {
       "source": "gui/necronomicon/ritual_creation.png",
       "sha256": "bb679688ca052d16295a5147131ef58555eabe4a7e2aaf205767da4a37599488",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/ritual_infusion.png",
       "sha256": "c1fcf6edbed1d81f5e4d4385a445bead7a34b01fceaf8165b34b6b18def3c5ea",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/sacthoth.png",
@@ -2985,12 +2986,12 @@
     {
       "source": "gui/necronomicon/spell.png",
       "sha256": "99ca47b0832cc457b5e71962f6651370969a89c3dee5ba81ecca8f2f2f655ab7",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/structures/chains.png",
@@ -3055,42 +3056,42 @@
     {
       "source": "gui/necronomicon/template.png",
       "sha256": "6dd0f69f66a355aa98cf794be541ed2832601be9c54fe8aa706a23b37818d17f",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/template1024.png",
       "sha256": "39691c8504dbc68d23dc414dad22554a49b1a6f443fe4d3c9b4f4d031b8ed4da",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/template512.png",
       "sha256": "2a6a4706052f3504e43612e08c6dd873eeafb89b6981b974c1cdb3737f9929ba",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/transmutation.png",
       "sha256": "cd959e80ddaa9f83bb408c6a53c667ed7c39dfd0a929fc248cf6b466e4baa8b1",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon/transport/transport_1.png",
@@ -3135,32 +3136,32 @@
     {
       "source": "gui/necronomicon_cor.png",
       "sha256": "88a3bc600d9350c0c8a3d53ba7f060f5451b19f50be7ee8ad22fc8b5d5642503",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/necronomicon_cor.png"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon_dre.png",
       "sha256": "b58fabfb38821a306d346dd743a728b54dae8ce46de603146cbf25264aa38943",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/necronomicon_dre.png"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "gui/necronomicon_omt.png",
       "sha256": "1eb2820c6b5c7aca1f03df4fa2efc5d9be6efa4d71dc7327b027b7bcde003cc1",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/gui/necronomicon_omt.png"
       ],
-      "reason": "The fixed legacy book sheet/page chrome is replaced by the modern navigable Necronomicon screen and its live page renderers.",
-      "owner": "RR-ASSET/necronomicon"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/aa.png",
@@ -3267,7 +3268,6 @@
       "sha256": "5dd954df35148e50b38f268853b0e5042d602a905903ca24f08072f0a81db460",
       "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/textures/item/coralium_plate.png",
         "src/main/resources/assets/abyssalcraft/textures/item/refined_coralium_chestplate.png"
       ],
       "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
@@ -3358,8 +3358,7 @@
       "sha256": "17db28ef69bdd5fc46bf873be78d7c9a64388584d9f450dce601fd4d28aabd5e",
       "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/textures/item/dreadium_chestplate.png",
-        "src/main/resources/assets/abyssalcraft/textures/item/dreadium_plate.png"
+        "src/main/resources/assets/abyssalcraft/textures/item/dreadium_chestplate.png"
       ],
       "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
       "owner": "RR-ASSET/PK-1b"
@@ -3937,42 +3936,42 @@
     {
       "source": "items/coralium_antidote_1.png",
       "sha256": "de5fe1f55139bc868ab3bb3c4b3682510e4097ff3d1c6cb592ba071737b78fd9",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/coralium_antidote_1.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/coralium_antidote_2.png",
       "sha256": "5cda39b51b9c457876c3ad7260073400192bde3487a73b77a33693e9da757893",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/coralium_antidote_2.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/coralium_antidote_3.png",
       "sha256": "1bfcfd0e37a7cf469e7dcfb22d3ed020a92d317b589be6c9fb4d75faaacaa579",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/coralium_antidote_3.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/coralium_antidote_4.png",
       "sha256": "e7b5ace693afae6302bc689cc7cf3c142465b55cdbbc13b95ea358ad1d93f58f",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/coralium_antidote_4.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/corbow.png",
@@ -4027,12 +4026,12 @@
     {
       "source": "items/cpp.png",
       "sha256": "fd97b9dfd7a499772129bd6fd08f2052e89a276641b3a557725ef836cad6cea6",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/coralium_plate.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/crystal.png",
@@ -4077,42 +4076,42 @@
     {
       "source": "items/crystalbag_huge.png",
       "sha256": "a77d508a8614e702bde056957ba3b65a1a0417a65791183c5ccba4fb0196338c",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/screen/item/CrystalBagScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/item/crystalbag_huge.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/crystalbag_large.png",
       "sha256": "85bf12a5142abcd0d7d534cbbd922346edd0b831d2c57528f7d8a15eb6550a78",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/screen/item/CrystalBagScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/item/crystalbag_large.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/crystalbag_medium.png",
       "sha256": "6ec06720564114f31ee61f7f29444a31a6735db5f7ac2c0883b46c24a44dddd7",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/screen/item/CrystalBagScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/item/crystalbag_medium.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/crystalbag_small.png",
       "sha256": "cba4cccee855cf26ae44562504ddc9cbd9450ed8a3cbd698eb330d3f87a3a824",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/screen/item/CrystalBagScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/item/crystalbag_small.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/crystalfragment.png",
@@ -4307,12 +4306,12 @@
     {
       "source": "items/dk.png",
       "sha256": "891a363a16c230c1efaefbba886ad04178f4668941f5d224860423e0022c40c5",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/dreadkey.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/door_dlt.png",
@@ -4337,19 +4336,18 @@
     {
       "source": "items/dpp.png",
       "sha256": "1f7b2e367956549b76c15c4ea66e95bf497fe4d4b963103b85ce8345b4b90bb9",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/dreadium_plate.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/drainstaff.png",
       "sha256": "89ab344ee4cd2c98fbeae6d0933f0d480367722a26af245365d8e2a4473866c8",
       "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/textures/item/spell_staff.png",
         "src/main/resources/assets/abyssalcraft/textures/item/staff_of_rending.png"
       ],
       "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
@@ -4398,42 +4396,42 @@
     {
       "source": "items/dread_antidote_1.png",
       "sha256": "2cb95c37fc856bbb9c5d804d4feb50b8a08c0b07b83b6577b9760daea52720e5",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/dread_antidote_1.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/dread_antidote_2.png",
       "sha256": "6eb361d4dd1c981b7d20bc1455123cf3dc58a8011d4466b39d9cd0f6c73944af",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/dread_antidote_2.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/dread_antidote_3.png",
       "sha256": "50730510e3ca99bc27b2cdb1072fdad4b5d05fc37d31b3a154fa72a24817054c",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/dread_antidote_3.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/dread_antidote_4.png",
       "sha256": "e15b2f84bcd08f78980ee4ca84f1b95d6d7f8b584a8e8d76bc8c9ef703183cb8",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/dread_antidote_4.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/dreaded_ghoul_flesh.png",
@@ -4648,12 +4646,12 @@
     {
       "source": "items/hilt.png",
       "sha256": "92d098384c76d4b3373ca99b45f4d31bedb5b3618f604c0df5f1982606fff8aa",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "docs/spec/item-content.md"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/interdimensionalcage.png",
@@ -4668,12 +4666,12 @@
     {
       "source": "items/interdimensionalcage_captured.png",
       "sha256": "b389040aa93d36ca673c7fdd53e09d792fc6626f199e18209e88a4896b7e8002",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/interdimensional_cage_captured.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/jzaharcoin.png",
@@ -4690,7 +4688,8 @@
       "sha256": "4a9d9ef0d1a6a75fbf6ce3be9d53150f5ae1ca0550486153b299b1fc9cbe47e0",
       "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/textures/item/crystal_dreadium.png"
+        "src/main/resources/assets/abyssalcraft/textures/item/crystal_dreadium.png",
+        "src/main/resources/assets/abyssalcraft/textures/item/dreadium_katana_hilt.png"
       ],
       "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
       "owner": "RR-ASSET/PK-1b"
@@ -4989,12 +4988,12 @@
     {
       "source": "items/scrolls/scroll_alt.png",
       "sha256": "c66109cacca1f2d14383e79d9e154e59dc577f2e482da3880546c605ddda18f2",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "docs/spec/item-content.md"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/scrolls/scroll_basic.png",
@@ -5209,85 +5208,82 @@
     {
       "source": "items/soulreaper_1.png",
       "sha256": "6714518210087918c0aa8d51d137a8254d121566b392396e7df9d6e85c4c1ce5",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/soulreaper_1.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/soulreaper_2.png",
       "sha256": "219a263dd88893f03776ee100d649ae70090f5a84b424d60b086b0865897cb16",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/soulreaper_2.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/soulreaper_3.png",
       "sha256": "8367a036d7094465a8080c11ef1e43d74e5bf0c4474ec0879b1a169cdd8fe321",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/soulreaper_3.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/soulreaper_4.png",
       "sha256": "63a9ea6b10ff9c07c2d7be0c72cd8ba5a02a1055b6cbc16c80844762f1c8aaf8",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/soulreaper_4.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/soulreaper_5.png",
       "sha256": "b04e1c6bc632c9b157e0130277d28e3730648fb2cb8d65d8acf518e3ae4dfce7",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "docs/spec/item-content.md"
+        "src/main/resources/assets/abyssalcraft/textures/item/soulreaper_5.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/spirit_tablet/glyph_0.png",
       "sha256": "648b94073da46f984b04f3788d7c05bd9653a96d1eb47349346e94c61fa2e08d",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/models/item/spirit_tablet.json",
-        "src/main/java/com/shinoow/abyssalcraft/client/screen/item/SpiritTabletScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/item/spirit_tablet/glyph_0.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/spirit_tablet/glyph_1.png",
       "sha256": "f57f7877504367689658a9d13fc67ece85c8a129585bff91257a4f15c0902e10",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/models/item/spirit_tablet.json",
-        "src/main/java/com/shinoow/abyssalcraft/client/screen/item/SpiritTabletScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/item/spirit_tablet/glyph_1.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/spirit_tablet/glyph_2.png",
       "sha256": "10cbd970d78b5f1d653df032f4c0eccae276bc2b83a43efe749856ea7d3f5efb",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/models/item/spirit_tablet.json",
-        "src/main/java/com/shinoow/abyssalcraft/client/screen/item/SpiritTabletScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/item/spirit_tablet/glyph_2.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/spirit_tablet/spirit_tablet.png",
@@ -5302,13 +5298,12 @@
     {
       "source": "items/spirit_tablet/spirit_tablet_shard_0.png",
       "sha256": "1c964ab05ec5026662592e2a3f0e40f6c5b8e60395e1e30bc0324972a8a1b5e8",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/models/item/spirit_tablet.json",
-        "src/main/java/com/shinoow/abyssalcraft/client/screen/item/SpiritTabletScreen.java"
+        "src/main/resources/assets/abyssalcraft/textures/item/spirit_tablet/spirit_tablet_shard_0.png"
       ],
-      "reason": "The legacy metadata frame or abbreviated icon is superseded by the registered modern item, semantic model, unified texture, or component-driven screen behavior.",
-      "owner": "RR-ASSET/item-content"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "items/spirit_tablet/spirit_tablet_shard_1.png",
@@ -5415,10 +5410,14 @@
       "sha256": "4fb84a3540592c3efab33c12386e22a587e185b2dc72b0703d6c07450bd8e99d",
       "status": "REPLACED",
       "targets": [
-        "src/main/resources/assets/abyssalcraft/textures/particle/abyssal_fx.png"
+        "src/main/resources/assets/abyssalcraft/textures/mob_effect/coralium_plague.png",
+        "src/main/resources/assets/abyssalcraft/textures/mob_effect/dread_plague.png",
+        "src/main/resources/assets/abyssalcraft/textures/mob_effect/antimatter.png",
+        "src/main/resources/assets/abyssalcraft/textures/mob_effect/coralium_antidote.png",
+        "src/main/resources/assets/abyssalcraft/textures/mob_effect/dread_antidote.png"
       ],
-      "reason": "The legacy potion atlas is replaced by the decodable modern AbyssalCraft particle texture and registered particle behavior.",
-      "owner": "RR-ASSET/client-fx"
+      "reason": "The four legacy 18x18 status-icon cells are deterministically cropped into the five registered modern MobEffect texture paths; both antidotes share legacy cell 3.",
+      "owner": "RR-ASSET/mob-effects"
     },
     {
       "source": "model/abyssal_zombie.png",
@@ -5433,12 +5432,12 @@
     {
       "source": "model/abyssal_zombie_eyes.png",
       "sha256": "2f49b3785c88b3520542d33fc56d61eb4a8754f5c71c60dff166c980caab265c",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/abyssal_zombie_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/abyssal_zombie_old.png",
@@ -5654,12 +5653,13 @@
     {
       "source": "model/blocks/odb.png",
       "sha256": "c0b5e20f6c42c84dc18aa35213cae691bb20443fa8d29d7686a4b29807d6b603",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/block/legacy_obj/odb.png",
+        "src/main/resources/assets/abyssalcraft/textures/model/blocks/odb.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/blocks/shubniggurathstatue.png",
@@ -5714,12 +5714,12 @@
     {
       "source": "model/boss/dragonboss_eyes.png",
       "sha256": "1e38f25f54252dbf5e6220a041e70b5e9ffbe0f21a8233202cc2b12ef26012ce",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/boss/dragonboss_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/boss/j'zahar.png",
@@ -5804,12 +5804,12 @@
     {
       "source": "model/coraliumsquid_eyes.png",
       "sha256": "6632e30f1222817e1d18764f17266f68ee7e8496106dba2d04e89504dc56c3e8",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/coraliumsquid_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/corarrow.png",
@@ -5824,12 +5824,13 @@
     {
       "source": "model/cudgel.png",
       "sha256": "0885f2793f41b7b45924349689a45d9619e3f193541c75ad195d07e631355518",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/block/legacy_obj/cudgel.png",
+        "src/main/resources/assets/abyssalcraft/textures/model/cudgel.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/demon_chicken.png",
@@ -5935,12 +5936,12 @@
     {
       "source": "model/elite/dragonminion_eyes.png",
       "sha256": "07bde214576041f646f62377269837d96519e50d21f1961162cc441b6ff42ff5",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/elite/dragonminion_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/elite/dreadguard.png",
@@ -6006,12 +6007,12 @@
     {
       "source": "model/elite/shadowbeast_eyes.png",
       "sha256": "7897dc859647f886ace97880d125fc7b8f3b4b8166e59cec2ebf0a8530b1c41a",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/elite/shadowbeast_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/elite/skeletongoliath.png",
@@ -6036,12 +6037,12 @@
     {
       "source": "model/ghoul/depths_ghoul_eyes.png",
       "sha256": "f575c38de6cf3f7c016f35ccba2532c1e3c130cfdee1525b2d0154df063a7928",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/ghoul/depths_ghoul_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/ghoul/depths_ghoul_orange.png",
@@ -6086,12 +6087,12 @@
     {
       "source": "model/ghoul/dreaded_ghoul_eyes.png",
       "sha256": "d30634bb6aae2a01b827f99e32475d15663a3e69570263ee36fac2e22b55ad87",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/ghoul/dreaded_ghoul_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/ghoul/ghoul.png",
@@ -6106,12 +6107,12 @@
     {
       "source": "model/ghoul/ghoul_eyes.png",
       "sha256": "51cda8101e9ec43440e4a5538b45f38ea2cb78043a2e2cdd54306179a6f6dbec",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/ghoul/ghoul_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/ghoul/omothol_ghoul.png",
@@ -6136,12 +6137,12 @@
     {
       "source": "model/ghoul/shadow_ghoul_eyes.png",
       "sha256": "5176cf93e960e6b06f445991d13a02de591b902817d9d72e10b05b4023e8093e",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/ghoul/shadow_ghoul_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/greater_dread_spawn.png",
@@ -6157,12 +6158,13 @@
     {
       "source": "model/katana.png",
       "sha256": "26d6a96bc557b8e17e946382b43db021a31c4f5830bd88844cf4992f401647cb",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/block/legacy_obj/katana.png",
+        "src/main/resources/assets/abyssalcraft/textures/model/katana.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/omothol_portal.png",
@@ -6187,72 +6189,72 @@
     {
       "source": "model/remnant/remnant_banker.png",
       "sha256": "936874b2c720c53ed6fe8a13e86b5cc0ca88adb4e2d6ca817bd11c44ec33d4b7",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/remnant/remnant_banker.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/remnant/remnant_blacksmith.png",
       "sha256": "3ba8a922b1fc634d9119ca5d539777c1a81b693f0b5e25cc2b975af55451d1af",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/remnant/remnant_blacksmith.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/remnant/remnant_butcher.png",
       "sha256": "fddfa8c54c904245a3b716c2c0e52f579806796ea4acbf4fafdf8f3f881c491b",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/remnant/remnant_butcher.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/remnant/remnant_librarian.png",
       "sha256": "a3468c171c330adc5cf92d63ae894ace6d9f2f42c7ef770526412b29fd974872",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/remnant/remnant_librarian.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/remnant/remnant_master_blacksmith.png",
       "sha256": "38dfa037efd2f773a8f134670948bfae650984a6e83a9ba0e829bbe01b8b66be",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/remnant/remnant_master_blacksmith.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/remnant/remnant_priest.png",
       "sha256": "c00f56535556ab162f5772e18946212d2392f971ee85c1821ced14984dbac244",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/remnant/remnant_priest.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/remnant/trader/villager.png",
       "sha256": "04bd7e4527bb60eb4af3592ce6fa2a65a9dd0d07e36bc37ca8444b5b783a8735",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/shadowcreature.png",
@@ -6267,12 +6269,12 @@
     {
       "source": "model/shadowcreature_eyes.png",
       "sha256": "93da84222b80b6267da9b46a2d753c81f0a80f89a1ba9805212b29449b986599",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/shadowcreature_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/shadowmonster.png",
@@ -6287,12 +6289,12 @@
     {
       "source": "model/shadowmonster_eyes.png",
       "sha256": "7bd54c04d44be967e9712d2af83fc7b5714c478206ee11067440726d28f10093",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/model/shadowmonster_eyes.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/shoggoth/abyssalshoggoth.png",
@@ -6428,22 +6430,23 @@
     {
       "source": "model/staff.png",
       "sha256": "4d012233af6c59efb438a25e49de5cdc0e5364b6909d07d4c2727c4c34c58376",
-      "status": "REPLACED",
+      "status": "MIGRATED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "src/main/resources/assets/abyssalcraft/textures/block/legacy_obj/staff.png",
+        "src/main/resources/assets/abyssalcraft/textures/model/staff.png"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/staff2.png",
       "sha256": "d96b2e63038ac6f11bcd05b84e5640748fd93bfdc55912a78ac7908656cd4ae8",
-      "status": "REPLACED",
+      "status": "RETIRED",
       "targets": [
-        "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ACTexturedRenderer.java"
+        "docs/spec/legacy-texture-audit.md"
       ],
-      "reason": "The legacy entity/tool layer is superseded by the modern entity renderer, eyes layer, Geo layer, or held-item model contract.",
-      "owner": "RR-ASSET/entity-rendering"
+      "reason": "The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.",
+      "owner": "RR-ASSET/PK-1b"
     },
     {
       "source": "model/tentacles.png",
