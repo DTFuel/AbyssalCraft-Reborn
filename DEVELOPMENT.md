@@ -101,7 +101,9 @@ src/main/resources/
 >
 > Agent 自动实现与 Gate 已完成至 `M10`：R4/R5 代码 Gate、世界保真矩阵、27/27 disruption、NET/GUI/FX/JEI/SYSTEM/ADV-API、全资产/datagen、compat/rename、双节点 build/server/restart 与隔离客户端 TitleScreen smoke 均☑。标题屏 smoke 只证明客户端初始化和资源烘焙，不替代真人视觉、音频、交互或玩法验收。
 >
-> 当前仅剩独立真人车道 `U-*`/`U-GATE`，以及明确依赖 `U-GATE` 的 T11.3/T11.4/R8-Gate/M11。自动报告、构建产物和发布预检不能代替这些真人证据，也不得提前关闭最终发布 Gate。
+> 2026-07-31 原版行为复审发现并补齐特殊武器、Remnant/Hardcore/Boss 死亡、世界生态、结构 marker 与 Shadow Shoggoth 渲染等隐藏生产差异；这些差异未被旧资源计数 Gate 捕获。当前生产实现重新闭合后，剩余车道为独立真人 `U-*`/`U-GATE`，以及明确依赖 `U-GATE` 的 T11.3/T11.4/R8-Gate/M11。自动报告、构建产物和发布预检不能代替这些真人证据，也不得提前关闭最终发布 Gate。
+
+- [x] 2026-07-31 **原版行为真实性复审收口（多个 GPT-5.6 子代理 + GitHub Copilot 集成）**：恢复 Coralium Longbow 专属箭、Dreadium Katana/hilt 与 Soul Reaper 灵魂成长；Remnant 恢复初始单交易、最后配方触发 40 tick、售罄交易最大次数扩增与逐次新增交易；旧 `EntityMobBase` 普通/Elite/Boss 穿甲 chip 及 Dread Spawn/Shoggoth 独立第二段伤害覆盖全部有旧继承证据的现代实体；四 Boss 死亡 tick/XP 与 Sacthoth 11+6+1 Shadow 生成恢复。五 Darklands 补回被动动物，AW 补两植物，Dreadlands 补 `7 × size 24` Elysian Stone；结构 marker 恢复满 PE Idol、三树种固定 Graveyard 树、四级 pedestal、Remnant profession、crate/crystal/statue/biomass 语义；Shadow Shoggoth 恢复五态动态本体/眼睛纹理与 type 4 亮度半透明。双端 `runData` 输出 `RR_ENTITY_BEHAVIOR_SELF_TEST_OK`、`RR_WORLD_STRUCTURE_CONTENT_OK ... treeSpecies=3`、`RR_DATAGEN_AUDIT_OK missing=0 json=2773 logical=1706`，双端正式 build 通过；实际视觉、长时生态、Boss 战斗和交易 UX 仍由对应 `U-*` 验收。
 
 - [x] 2026-07-31 **刷怪蛋语义与 Anvil Forging 收口（GitHub Copilot）**：旧 `spawn_egg.json` 不是任意实体蛋机制，而是 `ODB → EntityTag shadowboss` 的 Sacthoth NBT 蛋；现代已有专用 `shadowboss_spawn_egg`，故该旧配方正式 RETIRED，crafting 四态更新为 `339/61/0/1`。恢复 1.12.2 全部 74 条 Anvil Forging（24 charm + 40 PE 网络块 + 10 Sacrificial Altar 升级）、双目录数据与 `AnvilUpdateEvent` 执行链；补回五级独立献祭祭坛的生命力采集、PE持久化/物品输出、模型/BER/语言。Forge/Neo live RecipeManager 均输出 `RR_ANVIL_FORGING_RUNTIME_OK recipes=74 ... altarUpgrade=ok`，Forge `runData` 输出 `migrated=74 retired=0 blocked=0` 与全资源闭包，双端完整 build 通过。
 

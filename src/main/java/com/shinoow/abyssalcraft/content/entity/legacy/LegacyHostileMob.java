@@ -40,6 +40,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 
 import com.shinoow.abyssalcraft.config.ACConfig;
+import com.shinoow.abyssalcraft.content.entity.base.HardcoreMeleeDamage;
 import com.shinoow.abyssalcraft.content.entity.pathfinding.ACWallClimberNavigation;
 import com.shinoow.abyssalcraft.content.entity.projectile.DreadSlug;
 import com.shinoow.abyssalcraft.content.entity.projectile.ProjectileEntities;
@@ -108,6 +109,7 @@ public final class LegacyHostileMob extends Monster implements RangedAttackMob {
 
     @Override
     public boolean doHurtTarget(Entity target) {
+        HardcoreMeleeDamage.applyChip(this, target, hardcoreChipBaseDamage());
         if (kind == LegacyMobKind.SHADOW_BEAST) {
             swing(InteractionHand.MAIN_HAND);
             swing(InteractionHand.OFF_HAND);
@@ -116,6 +118,9 @@ public final class LegacyHostileMob extends Monster implements RangedAttackMob {
         if (hurt && isDread() && target instanceof LivingEntity living
             && !com.shinoow.abyssalcraft.common.handlers.EffectHooks.isDreadImmune(living)) {
             living.addEffect(MobEffectCompat.effectInstance(ACEffects.DREAD_PLAGUE, 100, 0));
+        }
+        if (kind == LegacyMobKind.DREAD_SPAWN) {
+            HardcoreMeleeDamage.applyChip(this, target, 1.5F);
         }
         return hurt;
     }
@@ -269,6 +274,11 @@ public final class LegacyHostileMob extends Monster implements RangedAttackMob {
     private boolean isShadow() {
         return kind == LegacyMobKind.SHADOW_CREATURE || kind == LegacyMobKind.SHADOW_MONSTER
             || kind == LegacyMobKind.SHADOW_BEAST;
+    }
+
+    private float hardcoreChipBaseDamage() {
+        return kind == LegacyMobKind.LESSER_DREADBEAST || kind == LegacyMobKind.SHADOW_BEAST
+            ? 3.0F : 1.5F;
     }
 
     private void updateDreadCombatGoal() {

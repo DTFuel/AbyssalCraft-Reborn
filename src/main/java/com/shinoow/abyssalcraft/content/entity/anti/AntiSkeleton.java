@@ -8,6 +8,8 @@ import net.minecraft.world.entity.monster.AbstractSkeleton;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.level.Level;
 
+import com.shinoow.abyssalcraft.content.entity.base.HardcoreMeleeDamage;
+
 /**
  * Anti-matter Skeleton (owned by PD-3, Stage D2a).
  *
@@ -18,6 +20,12 @@ public class AntiSkeleton extends Skeleton implements AntiEntity {
 
     public AntiSkeleton(EntityType<? extends Skeleton> type, Level level) {
         super(type, level);
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity target) {
+        HardcoreMeleeDamage.applyChip(this, target, 1.5F);
+        return super.doHurtTarget(target);
     }
 
     @Override

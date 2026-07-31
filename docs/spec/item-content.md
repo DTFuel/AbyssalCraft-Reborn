@@ -13,6 +13,7 @@
 | PB-1 / PB-3 | 材料 117 / 建材 86 | ✅ 由并发 agent 交付（PB-1 详见 `materials-subsystem.md`；PB-3 见平行表 CR-12） |
 | PB-7 | 护甲 28（7 材料 × {helmet,chestplate,leggings,boots}） | ✅ 由并发 agent 交付（见平行表 CR-16） |
 | PB-8 | 分叉方块变体 16（button×5 + plate×5 + sapling×2 + door×2 + gate×2） | ✅ 双端 `compileJava`+`runData`(贴图严格校验)+`runServer` 验证（BLOCK+ITEM 冻结零错） |
+| RR-SPECIAL-WEAPONS | Coralium Longbow、Dreadium Katana/hilt、Soul Reaper | ✅ 2026-07-31 对照旧类恢复行为；双端 `compileJava`/`runData`/正式 build 通过 |
 | PB-4 / RR-DATA | 矿石 13（注册 + 忠实掉落 + 完整采集级别） | ✅ 13 矿 Silk Touch、6 材料矿 Fortune、9 镐级别矩阵及双端数据加载由 RR-DATA 收口 |
 
 ## 2. 共享约定（供全部 PB-* 物品任务复用）
@@ -78,7 +79,7 @@
 **20 工具** = 4 tier × {pickaxe,axe,shovel,hoe,sword}。tier（level, uses, speed, attack, enchant；取自 1.12.2 `AbyssalCraftAPI`）：
 - `abyssalnite`(4,1261,10,4,12) 修 abyssalnite_ingot · `refined_coralium`(5,1800,12,5,13) 修 refined_coralium_ingot · `dreadium`(6,2300,14,6,14) 修 dreadium_ingot · `ethaxium`(8,2800,16,8,20) 修 ethaxium_ingot。
 - 工具-type modifier（vanilla 约定）：pickaxe(1,-2.8) · axe(6,-3) · shovel(1.5,-3) · hoe(-3,0) · sword(3,-2.4)。id = `<tier>_{pickaxe,axe,shovel,hoe,sword}`。
-- **延后**：特殊工具（coralium_longbow/cudgel/dreadium_katana/soul reaper/staff of rending）→ M7；贴图/模型 → PK。
+- **后续收口**：Coralium Longbow 已以 637 耐久和双版本弓扩展点发射 `CoraliumArrow`；Dreadium Katana/hilt 已恢复 1000/200 耐久、旧攻击属性与 Dreadium Crystal 修理；Soul Reaper 已恢复最多 1000 灵魂的击杀累计、五档效果、tooltip、模型 predicate 与 Shadow Gem 修理。Cudgel 与 Staff of Rending 由其各自后续系统任务持有，不属于本三件武器复审。
 
 文件：`content/item/tool/ToolItems.java`（registrar + `ALL`，20 工具）+ `platform/ToolCompat.java`（新，CR-15）+ `lang/en_us.json`（20 键）+ `registry/ModRegistries.ALL` 接 `ToolItems.ITEMS`（Gate B 集成）。
 

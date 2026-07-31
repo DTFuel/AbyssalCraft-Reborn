@@ -42,6 +42,12 @@ public final class StructureFixtureValidator {
      * Actual resource paths converted from 1.12.2, plus the compiled Ethaxium House template.
      */
     private static final List<String> LEGACY_TEMPLATES = List.of(
+        "abyss/abyruin",
+        "darklands/house_1", "darklands/house_2",
+        "darklands/ritual_grounds", "darklands/ritual_grounds_columns",
+        "darklands/circular_shrine", "darklands/circular_shrine_columns",
+        "darklands/elevated_shrine", "darklands/elevated_shrine_large",
+        "darklands/scion_1", "darklands/scion_2",
         "graveyard/graveyard_small", "graveyard/graveyard_medium", "graveyard/graveyard_large",
         "chagarothlair/chagarothlair_back", "chagarothlair/chagarothlair_entrance",
         "chagarothlair/chagarothlair_front", "chagarothlair/chagarothlair_middle",
@@ -97,8 +103,8 @@ public final class StructureFixtureValidator {
         int legacyCount = LEGACY_TEMPLATES.size();
         int proceduralCount = PROCEDURAL_STRUCTURES.length;
 
-        if (legacyCount != 37) {
-            return String.format("RR_WORLD_FIXTURE_FAIL expectedLegacy=37 actual=%d", legacyCount);
+        if (legacyCount != 48) {
+            return String.format("RR_WORLD_FIXTURE_FAIL expectedLegacy=48 actual=%d", legacyCount);
         }
         if (totalStructureCoverage() < 37) {
             return String.format("RR_WORLD_FIXTURE_FAIL expectedTotalAtLeast=37 actual=%d",
@@ -232,7 +238,8 @@ public final class StructureFixtureValidator {
             || metadata.startsWith("spawn:") || metadata.startsWith("sealing_lock:")
             || metadata.equals("shoggoth_biomass") || metadata.equals("shoggoth_ooze")
             || metadata.startsWith("statue") || metadata.startsWith("bm")
-            || metadata.startsWith("crystal") || metadata.startsWith("replacement:");
+            || metadata.startsWith("crystal") || metadata.startsWith("replacement:")
+            || metadata.startsWith("legacy_");
     }
 
     private static final class AuditCounts {

@@ -82,7 +82,7 @@ public final class ACEntityRenderers {
         MiscRenderers.register(audited, handled);
         ProjectileRenderers.register(audited, handled);
         LegacyRenderers.register(audited, handled);
-        // BlockEntity renderers ride the same RegisterRenderers event. The five modern hosts that
+        // BlockEntity renderers ride the same RegisterRenderers event. The six modern hosts that
         // need dynamic world rendering are kept exact by the gate below.
         ACBlockEntityRenderers.register(audited);
         for (EntityType<?> type : BuiltInRegistries.ENTITY_TYPE) {
@@ -100,7 +100,8 @@ public final class ACEntityRenderers {
             RitualBlocks.RITUAL_ALTAR_BE.get(),
             RitualBlocks.RITUAL_PEDESTAL_BE.get(),
             RendingPedestals.RENDING_PEDESTAL_BE.get(),
-            EnergyBlocks.ENERGY_PEDESTAL_BE.get());
+            EnergyBlocks.ENERGY_PEDESTAL_BE.get(),
+            EnergyBlocks.SACRIFICIAL_ALTAR_BE.get());
         if (registeredEntities.size() != expectedEntities
             || !registeredBlockEntities.equals(expectedBlockEntities)) {
             throw new IllegalStateException("R4 renderer relay coverage changed: entities="
@@ -108,13 +109,14 @@ public final class ACEntityRenderers {
                 + registeredBlockEntities.size() + "/" + expectedBlockEntities.size());
         }
         AbyssalCraft.LOGGER.info(
-            "RR_BER_HOST_CLOSURE_OK registered={} research={} ritualAltar={} ritualPedestal={} rending={} energy={}",
+            "RR_BER_HOST_CLOSURE_OK registered={} research={} ritualAltar={} ritualPedestal={} rending={} energy={} sacrificialAltar={}",
             registeredBlockEntities.size(),
             registeredBlockEntities.contains(ResearchTables.RESEARCH_TABLE_BE.get()) ? 1 : 0,
             registeredBlockEntities.contains(RitualBlocks.RITUAL_ALTAR_BE.get()) ? 1 : 0,
             registeredBlockEntities.contains(RitualBlocks.RITUAL_PEDESTAL_BE.get()) ? 1 : 0,
             registeredBlockEntities.contains(RendingPedestals.RENDING_PEDESTAL_BE.get()) ? 1 : 0,
-            registeredBlockEntities.contains(EnergyBlocks.ENERGY_PEDESTAL_BE.get()) ? 1 : 0);
+            registeredBlockEntities.contains(EnergyBlocks.ENERGY_PEDESTAL_BE.get()) ? 1 : 0,
+            registeredBlockEntities.contains(EnergyBlocks.SACRIFICIAL_ALTAR_BE.get()) ? 1 : 0);
     }
 
     /** Register model-layer definitions used by faithful renderers. */

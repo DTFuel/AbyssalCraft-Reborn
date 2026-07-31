@@ -1,9 +1,19 @@
 {
   "values": [
-    { "id": "abyssalcraft:darklands", "required": false },
-    { "id": "abyssalcraft:darklands_forest", "required": false },
-    { "id": "abyssalcraft:darklands_plains", "required": false },
-    { "id": "abyssalcraft:darklands_hills", "required": false },
-    { "id": "abyssalcraft:darklands_mountains", "required": false }
+    "abyssalcraft:darklands",
+    "abyssalcraft:darklands_forest",
+    "abyssalcraft:darklands_plains",
+    "abyssalcraft:darklands_hills",
+    "abyssalcraft:darklands_mountains",
+    "abyssalcraft:dark_realm",
+    "minecraft:plains",
+    "minecraft:forest",
+    "minecraft:swamp",
+    "minecraft:desert",
+    "minecraft:snowy_slopes",
+    "minecraft:snowy_plains",
+    "minecraft:dark_forest",
+    "minecraft:birch_forest",
+    "minecraft:taiga"
   ]
 }

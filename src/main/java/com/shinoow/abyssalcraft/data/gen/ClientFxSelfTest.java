@@ -62,7 +62,7 @@ public final class ClientFxSelfTest {
         require(consumerStats.defined() == 94 && consumerStats.consumed() == 94
             && consumerStats.blocked().isEmpty(), "clientvars consumer closure is incomplete: " + consumerStats);
         com.shinoow.abyssalcraft.AbyssalCraft.LOGGER.info(
-            "RR_CLIENT_HUD_GATE_OK overlays=3 keybinds=5 tabletAuthority=server dimension=live");
+            "RR_CLIENT_HUD_GATE_OK overlays=2 keybinds=5 tabletAuthority=server");
         com.shinoow.abyssalcraft.AbyssalCraft.LOGGER.info(
             "RR_CLIENTVARS_CONSUMER_GATE_OK defined={} consumed={} blocked={}",
             consumerStats.defined(), consumerStats.consumed(), consumerStats.blocked().size());

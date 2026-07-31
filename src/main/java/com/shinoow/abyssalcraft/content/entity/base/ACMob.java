@@ -11,14 +11,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
-import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.content.entity.boss.ACBossMob;
 import com.shinoow.abyssalcraft.content.entity.boss.EliteMob;
 import com.shinoow.abyssalcraft.platform.ACRef;
-import com.shinoow.abyssalcraft.system.effect.ACDamageTypes;
 
 /**
  * Base class for AbyssalCraft hostile mobs (owned by PD-1, Stage D1).
@@ -44,21 +41,12 @@ public class ACMob extends Monster {
 
     @Override
     public boolean doHurtTarget(Entity target) {
-        if (shouldApplyHardcoreChip(target)) {
-            target.hurt(ACDamageTypes.attributedSource(this, ACDamageTypes.DREAD),
-                hardcoreChipDamage());
-        }
+        HardcoreMeleeDamage.applyChip(this, target, hardcoreChipBaseDamage());
         return super.doHurtTarget(target);
     }
 
-    private boolean shouldApplyHardcoreChip(Entity target) {
-        return !level().isClientSide && ACConfig.hardcoreMode.get() && target instanceof Player
-            && target.isAlive();
-    }
-
-    private float hardcoreChipDamage() {
-        float base = this instanceof ACBossMob ? 4.5F : this instanceof EliteMob ? 3.0F : 1.5F;
-        return (float) (base * Math.max(ACConfig.damageAmpl.get(), 1.0D));
+    protected float hardcoreChipBaseDamage() {
+        return this instanceof ACBossMob ? 4.5F : this instanceof EliteMob ? 3.0F : 1.5F;
     }
 
     /** Optional legacy table basename used by stateful entities with collapsed modern EntityTypes. */

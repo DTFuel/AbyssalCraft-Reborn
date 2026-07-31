@@ -1,4 +1,11 @@
 {
   "replace": false,
-  "values": ["#minecraft:is_overworld"]
+  "values": [
+    "abyssalcraft:darklands",
+    "abyssalcraft:darklands_forest",
+    "abyssalcraft:darklands_plains",
+    "abyssalcraft:darklands_hills",
+    "abyssalcraft:darklands_mountains",
+    "abyssalcraft:dark_realm"
+  ]
 }

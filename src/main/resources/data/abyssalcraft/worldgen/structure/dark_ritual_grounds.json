@@ -3,5 +3,6 @@
   "kind": "dark_ritual_grounds",
   "biomes": "#abyssalcraft:has_structure/dark_ritual_grounds",
   "step": "surface_structures",
-  "spawn_overrides": {}
+  "spawn_overrides": {},
+  "terrain_adaptation": "none"
 }

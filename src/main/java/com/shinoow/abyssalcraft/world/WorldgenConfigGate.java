@@ -1,5 +1,6 @@
 package com.shinoow.abyssalcraft.world;
 
+import java.util.function.DoubleSupplier;
 import java.util.function.IntSupplier;
 
 import net.minecraft.resources.ResourceLocation;
@@ -12,6 +13,7 @@ import com.shinoow.abyssalcraft.world.structure.StructureKind;
 /** Runtime configuration gates for data-defined worldgen objects. */
 public final class WorldgenConfigGate {
 
+    private static final double LEGACY_STRUCTURE_CHANCE = 0.03D;
     private static final ResourceLocation CORALIUM_LAKE = ACRef.id("lake_liquid_coralium");
     private static final ResourceLocation ANTIMATTER_LAKE = ACRef.id("lake_liquid_antimatter");
     private static final ResourceLocation ABYSSAL_WASTELAND_PILLARS = ACRef.id("abyssal_wasteland_pillars");
@@ -24,11 +26,9 @@ public final class WorldgenConfigGate {
             case GRAVEYARD -> ACConfig.generateGraveyards.get()
                 && passesDistance(ACConfig.graveyardGenerationDistance.get(), chunkX, chunkZ)
                 && passesChance(ACConfig.graveyardGenerationChance.get(), randomInt);
-            case ABYRUIN -> ACConfig.generateAbyssalWastelandRuins.get();
-            case DARK_SHRINE -> ACConfig.generateDarklandsStructures.get()
-                && passesChance(ACConfig.darkShrineSpawnRate.get(), randomInt);
-            case DARK_RITUAL_GROUNDS -> ACConfig.generateDarklandsStructures.get()
-                && passesChance(ACConfig.darkRitualGroundsSpawnRate.get(), randomInt);
+            case ABYRUIN -> ACConfig.generateAbyssalWastelandRuins.get()
+                && passesChance(200, randomInt);
+            case DARK_SHRINE, DARK_RITUAL_GROUNDS -> ACConfig.generateDarklandsStructures.get();
             case SHOGGOTH_PIT -> ACConfig.generateShoggothLairs.get()
                 && passesLairPlacement(ACConfig.shoggothLairSpawnRate.get(),
                     ACConfig.shoggothLairGenerationDistance.get(), chunkX, chunkZ);
@@ -39,6 +39,28 @@ public final class WorldgenConfigGate {
                 ACConfig.generateOmotholStructures.get();
             case CHAGAROTH_LAIR, JZAHAR_TEMPLE -> true;
         };
+    }
+
+    public static boolean allowsDarklandsStructures() {
+        return ACConfig.generateDarklandsStructures.get();
+    }
+
+    public static boolean allowsDarkShrineAttempt(IntSupplier randomInt) {
+        return allowsDarklandsStructures()
+            && passesDarklandsRate(ACConfig.darkShrineSpawnRate.get(), randomInt);
+    }
+
+    public static boolean allowsDarkRitualGroundsAttempt(IntSupplier randomInt) {
+        return allowsDarklandsStructures()
+            && passesDarklandsRate(ACConfig.darkRitualGroundsSpawnRate.get(), randomInt);
+    }
+
+    public static boolean passesLegacyStructureChance(DoubleSupplier randomDouble) {
+        return randomDouble.getAsDouble() < LEGACY_STRUCTURE_CHANCE;
+    }
+
+    static boolean passesDarklandsRate(int rate, IntSupplier randomInt) {
+        return passesChance(rate, randomInt);
     }
 
     public static boolean allowsPlacedFeature(ResourceLocation id) {

@@ -7,6 +7,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.level.Level;
 
+import com.shinoow.abyssalcraft.content.entity.base.HardcoreMeleeDamage;
+
 /**
  * Anti-matter Spider (owned by PD-3, Stage D2a).
  *
@@ -17,6 +19,12 @@ public class AntiSpider extends Spider implements AntiEntity {
 
     public AntiSpider(EntityType<? extends Spider> type, Level level) {
         super(type, level);
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity target) {
+        HardcoreMeleeDamage.applyChip(this, target, 1.5F);
+        return super.doHurtTarget(target);
     }
 
     @Override

@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -38,6 +40,13 @@ public final class WorldgenResourceAudit {
         "minecraft:zombie", "minecraft:skeleton", "abyssalcraft:depths_ghoul",
         "abyssalcraft:abyssalzombie", "abyssalcraft:gskeleton", "abyssalcraft:dragonminion",
         "abyssalcraft:lesser_shoggoth", "abyssalcraft:shoggoth", "abyssalcraft:greater_shoggoth");
+    private static final Set<String> DARK_SHRINE_BIOMES = Set.of(
+        "abyssalcraft:darklands", "abyssalcraft:darklands_forest",
+        "abyssalcraft:darklands_plains", "abyssalcraft:darklands_hills",
+        "abyssalcraft:darklands_mountains",
+        "abyssalcraft:dark_realm", "minecraft:plains", "minecraft:forest", "minecraft:swamp",
+        "minecraft:desert", "minecraft:snowy_slopes", "minecraft:snowy_plains",
+        "minecraft:dark_forest", "minecraft:birch_forest", "minecraft:taiga");
 
     private WorldgenResourceAudit() {}
 
@@ -57,12 +66,15 @@ public final class WorldgenResourceAudit {
         validateAbyssalWastelandSpawns();
         validateLegacyEcology();
         validateTerrainDensityGuards();
+        validateStructure("dark_shrine");
         validateStructure("dark_ritual_grounds");
         validateStructure("shoggoth_pit");
         validateStructure("shoggoth_pit_river");
+        validateDarkShrinePlacement();
+        validateDarklandsCompanionPlacement();
         validateShoggothPlacement("shoggoth_pit");
         validateShoggothPlacement("shoggoth_pit_river");
-        System.out.printf("RR_WORLD_RESOURCE_AUDIT_OK features=%d blocks=%d loaders=2 structures=3 biomeSpawns=5x10 legacyEcology=3 terrainBounds=2%n",
+        System.out.printf("RR_WORLD_RESOURCE_AUDIT_OK features=%d blocks=%d loaders=2 structures=4 biomeSpawns=5x10 legacyEcology=3 terrainBounds=2%n",
             FEATURE_IDS.size(), ORE_BLOCKS.size());
     }
 
@@ -81,6 +93,52 @@ public final class WorldgenResourceAudit {
         readJson("worldgen/structure/" + id + ".json");
         readJson("worldgen/structure_set/" + id + ".json");
         readJson("tags/worldgen/biome/has_structure/" + id + ".json");
+    }
+
+    private static void validateDarkShrinePlacement() {
+        JsonObject structure = readJson("worldgen/structure/dark_shrine.json");
+        JsonObject placement = readJson("worldgen/structure_set/dark_shrine.json")
+            .getAsJsonObject("placement");
+        require("none".equals(structure.get("terrain_adaptation").getAsString()),
+            "Dark Shrine must preserve the template terrain without beard adaptation");
+        require(placement.get("spacing").getAsInt() == 1
+            && placement.get("separation").getAsInt() == 0,
+            "Dark Shrine must expose every chunk to its legacy probability gate");
+
+        Set<String> actualBiomes = new HashSet<>();
+        for (JsonElement value : readJson("tags/worldgen/biome/has_structure/dark_shrine.json")
+            .getAsJsonArray("values")) {
+            actualBiomes.add(value.isJsonPrimitive() ? value.getAsString()
+                : value.getAsJsonObject().get("id").getAsString());
+        }
+        require(actualBiomes.equals(DARK_SHRINE_BIOMES),
+            "Dark Shrine legacy biome mapping changed: " + actualBiomes);
+
+        require(WorldgenConfigGate.passesDarklandsRate(10, () -> 0)
+            && WorldgenConfigGate.passesDarklandsRate(10, () -> 10)
+            && !WorldgenConfigGate.passesDarklandsRate(10, () -> 9)
+            && !WorldgenConfigGate.passesDarklandsRate(0, () -> 0),
+            "Darklands configured-rate gate changed");
+        require(WorldgenConfigGate.passesLegacyStructureChance(() -> 0.0D)
+            && WorldgenConfigGate.passesLegacyStructureChance(() -> 0.029999D)
+            && !WorldgenConfigGate.passesLegacyStructureChance(() -> 0.03D),
+            "Darklands structure chance must remain the legacy strict 3 percent gate");
+    }
+
+    private static void validateDarklandsCompanionPlacement() {
+        JsonObject structure = readJson("worldgen/structure/dark_ritual_grounds.json");
+        JsonObject placement = readJson("worldgen/structure_set/dark_ritual_grounds.json")
+            .getAsJsonObject("placement");
+        require("none".equals(structure.get("terrain_adaptation").getAsString())
+            && placement.get("spacing").getAsInt() == 1
+            && placement.get("separation").getAsInt() == 0,
+            "Darklands companion structures must use per-chunk legacy placement without terrain adaptation");
+        require(com.shinoow.abyssalcraft.world.structure.LegacyStructureLayout.ALL_DARKLANDS_STRUCTURES.size() == 11
+            && com.shinoow.abyssalcraft.world.structure.LegacyStructureLayout.DARKLANDS_SHRINES.size() == 5
+            && com.shinoow.abyssalcraft.world.structure.LegacyStructureLayout.DARKLANDS_RITUAL_GROUNDS.size() == 2
+            && com.shinoow.abyssalcraft.world.structure.LegacyStructureLayout.DARKLANDS_HOUSES.size() == 2
+            && com.shinoow.abyssalcraft.world.structure.LegacyStructureLayout.DARKLANDS_MISC.size() == 2,
+            "Darklands legacy structure pools no longer match the 1.12.2 generator");
     }
 
     private static void validateShoggothPlacement(String id) {

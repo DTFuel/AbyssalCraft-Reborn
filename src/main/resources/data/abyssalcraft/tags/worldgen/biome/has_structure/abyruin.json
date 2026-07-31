@@ -1,7 +1,9 @@
 {
   "values": [
     { "id": "abyssalcraft:abyssal_wastelands", "required": false },
+    { "id": "abyssalcraft:abyssal_swamp", "required": false },
     { "id": "abyssalcraft:abyssal_desert", "required": false },
-    { "id": "abyssalcraft:abyssal_plateau", "required": false }
+    { "id": "abyssalcraft:abyssal_plateau", "required": false },
+    { "id": "abyssalcraft:coralium_lake", "required": false }
   ]
 }

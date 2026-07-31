@@ -21,6 +21,7 @@ import net.minecraft.world.level.Level;
 import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.config.ComplexConfig;
 import com.shinoow.abyssalcraft.common.handlers.EffectHooks;
+import com.shinoow.abyssalcraft.content.entity.base.HardcoreMeleeDamage;
 import com.shinoow.abyssalcraft.platform.MobEffectCompat;
 import com.shinoow.abyssalcraft.registry.ModSounds;
 import com.shinoow.abyssalcraft.system.effect.ACEffects;
@@ -49,6 +50,7 @@ public final class AbyssalZombie extends Zombie {
 
     @Override
     public boolean doHurtTarget(Entity target) {
+        HardcoreMeleeDamage.applyChip(this, target, 1.5F);
         boolean hurt = super.doHurtTarget(target);
         if (hurt && target instanceof LivingEntity living && !EffectHooks.isCoraliumImmune(living)
             && (ACConfig.shouldInfect.get() || isInAbyssalWasteland())) {

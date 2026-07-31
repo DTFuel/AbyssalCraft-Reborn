@@ -296,6 +296,49 @@ function blockState(name, properties = {}) {
   return new Map(entries);
 }
 
+function markerPlacement(metadata) {
+  return {
+    state: blockState('minecraft:structure_block', { mode: 'data' }),
+    nbt: markerNbt(metadata)
+  };
+}
+
+function compilePlacements(placements) {
+  const minX = Math.min(...placements.map(entry => entry.x));
+  const minY = Math.min(...placements.map(entry => entry.y));
+  const minZ = Math.min(...placements.map(entry => entry.z));
+  const maxX = Math.max(...placements.map(entry => entry.x));
+  const maxY = Math.max(...placements.map(entry => entry.y));
+  const maxZ = Math.max(...placements.map(entry => entry.z));
+  const palette = [];
+  const paletteIndex = new Map();
+  const blocks = placements.map(entry => {
+    const summary = stateSummary(entry.state);
+    const key = `${summary.name}|${JSON.stringify(summary.properties)}`;
+    if (!paletteIndex.has(key)) {
+      paletteIndex.set(key, palette.length);
+      palette.push(entry.state);
+    }
+    const block = new Map([
+      ['pos', listTag(TAG.INT, [entry.x - minX, entry.y - minY, entry.z - minZ])],
+      ['state', intTag(paletteIndex.get(key))]
+    ]);
+    if (entry.nbt) block.set('nbt', entry.nbt);
+    return block;
+  });
+  return {
+    type: TAG.COMPOUND,
+    name: '',
+    value: new Map([
+      ['DataVersion', intTag(3465)],
+      ['size', listTag(TAG.INT, [maxX - minX + 1, maxY - minY + 1, maxZ - minZ + 1])],
+      ['palette', listTag(TAG.COMPOUND, palette)],
+      ['blocks', listTag(TAG.COMPOUND, blocks)],
+      ['entities', listTag(TAG.COMPOUND, [])]
+    ])
+  };
+}
+
 function parseOffset(expression, variable) {
   const compact = expression.replace(/\s+/g, '');
   if (compact === variable) return 0;
@@ -330,6 +373,483 @@ function houseState(expression) {
   throw new Error(`Unsupported StructureHouse blockstate: ${normalized}`);
 }
 
+function legacyProgrammaticState(expression, sourceName, coordinates) {
+  const normalized = expression.trim().replace(/,\s*2$/, '');
+  const direct = new Map([
+    ['ACBlocks.darkstone.getDefaultState()', blockState('abyssalcraft:darkstone')],
+    ['ACBlocks.glowing_darkstone_bricks.getDefaultState()', blockState('abyssalcraft:glowing_darkstone_bricks')],
+    ['ACBlocks.abyssal_stone.getDefaultState()', blockState('abyssalcraft:abyssal_stone')],
+    ['ACBlocks.abyssal_stone_brick.getDefaultState()', blockState('abyssalcraft:abyssal_stone_brick')],
+    ['ACBlocks.abyssal_stone_brick_fence.getDefaultState()', blockState('abyssalcraft:abyssal_stone_brick_fence')],
+    ['ACBlocks.coralium_stone.getDefaultState()', blockState('abyssalcraft:coralium_stone')],
+    ['Blocks.AIR.getDefaultState()', blockState('minecraft:air')],
+    ['Blocks.WOOL.getStateFromMeta(14)', blockState('minecraft:red_wool')],
+    ['Blocks.LADDER.getStateFromMeta(2)', blockState('minecraft:ladder', { facing: 'north' })],
+    ['Blocks.TORCH.getStateFromMeta(5)', blockState('minecraft:torch')],
+    ['ACBlocks.darkstone_brick_slab.getStateFromMeta(5)', blockState('abyssalcraft:darkstone_brick_slab', { type: 'bottom' })],
+    ['ACBlocks.darkstone_brick_slab.getStateFromMeta(13)', blockState('abyssalcraft:darkstone_brick_slab', { type: 'top' })]
+  ]);
+  if (direct.has(normalized)) return { state: direct.get(normalized) };
+  if (normalized === 'getBrick(random)') return markerPlacement('legacy_random_darkstone_brick');
+  if (normalized === 'random.nextBoolean() ? Blocks.PLANKS.getDefaultState() : Blocks.BOOKSHELF.getDefaultState()') {
+    return markerPlacement('legacy_random_planks_bookshelf');
+  }
+  if (normalized === 'random.nextBoolean() ? Blocks.OBSIDIAN.getDefaultState() : Blocks.ENCHANTING_TABLE.getDefaultState()') {
+    return markerPlacement('legacy_random_obsidian_enchanting_table');
+  }
+
+  const stairs = normalized.match(/^ACBlocks\.darkstone_brick_stairs\.getStateFromMeta\(([0-3])\)$/);
+  if (stairs) {
+    const facing = { '0': 'east', '1': 'west', '2': 'south', '3': 'north' }[stairs[1]];
+    return { state: blockState('abyssalcraft:darkstone_brick_stairs',
+      { facing, half: 'bottom', shape: 'straight' }) };
+  }
+  const redstoneTorch = normalized.match(/^Blocks\.REDSTONE_TORCH\.getStateFromMeta\(([1-5])\)$/);
+  if (redstoneTorch) {
+    if (redstoneTorch[1] === '5') return { state: blockState('minecraft:redstone_torch', { lit: 'true' }) };
+    const facing = { '1': 'east', '2': 'west', '3': 'south', '4': 'north' }[redstoneTorch[1]];
+    return { state: blockState('minecraft:redstone_wall_torch', { facing, lit: 'true' }) };
+  }
+  const chest = normalized.match(/^Blocks\.CHEST\.getStateFromMeta\(([23])\)$/);
+  if (chest && sourceName === 'Abyruin.java') {
+    const metadata = coordinates.y === -7
+      ? `legacy_loot_chest:abyssalcraft:chests/stronghold_corridor:${chest[1] === '2' ? 'north' : 'south'}`
+      : `legacy_loot_chest:minecraft:chests/simple_dungeon:${chest[1] === '2' ? 'north' : 'south'}`;
+    return markerPlacement(metadata);
+  }
+  throw new Error(`Unsupported ${sourceName} blockstate: ${normalized}`);
+}
+
+function compileExplicitLegacyStructure(root, directory, sourceName, baseOffset, expectedPlacements) {
+  const source = fs.readFileSync(path.join(root, 'docs', 'AbyssalCraft-1.12.2', 'src', 'main', 'java',
+    'com', 'shinoow', 'abyssalcraft', 'common', 'structures', directory, sourceName), 'utf8');
+  const pattern = /world\.setBlockState\(new BlockPos\(([^)]*)\),\s*([^;]+)\);/g;
+  const placements = [];
+  let match;
+  while ((match = pattern.exec(source)) !== null) {
+    const tuple = match[1].split(',').map(value => value.trim());
+    if (tuple.length !== 3) throw new Error(`Bad ${sourceName} coordinate tuple: ${match[1]}`);
+    const coordinates = {
+      x: parseOffset(tuple[0], 'i'), y: parseOffset(tuple[1], 'j'), z: parseOffset(tuple[2], 'k')
+    };
+    const resolved = legacyProgrammaticState(match[2], sourceName, coordinates);
+    placements.push({
+      x: coordinates.x + baseOffset.x,
+      y: coordinates.y + baseOffset.y,
+      z: coordinates.z + baseOffset.z,
+      ...resolved
+    });
+  }
+  if (placements.length !== expectedPlacements) {
+    throw new Error(`Expected ${expectedPlacements} ${sourceName} placements, got ${placements.length}`);
+  }
+  return compilePlacements(placements);
+}
+
+function legacyTemplateBuilder() {
+  const placements = [];
+  return {
+    set(x, y, z, value) {
+      placements.push({ x, y, z, ...(value instanceof Map ? { state: value } : value) });
+    },
+    marker(x, y, z, metadata) {
+      placements.push({ x, y, z, ...markerPlacement(metadata) });
+    },
+    finish() { return compilePlacements(placements); }
+  };
+}
+
+function legacyDarklandsStates() {
+  const stair = (name, facing, half = 'bottom') => blockState(name,
+    { facing, half, shape: 'straight' });
+  return {
+    air: blockState('minecraft:air'),
+    brick: blockState('abyssalcraft:darkstone_brick'),
+    randomBrick: markerPlacement('legacy_random_darkstone_brick'),
+    chiseled: blockState('abyssalcraft:chiseled_darkstone_brick'),
+    glowing: blockState('abyssalcraft:glowing_darkstone_bricks'),
+    brickSlab: blockState('abyssalcraft:darkstone_brick_slab', { type: 'bottom' }),
+    brickSlabTop: blockState('abyssalcraft:darkstone_brick_slab', { type: 'top' }),
+    cobble: blockState('abyssalcraft:darkstone_cobblestone'),
+    cobbleSlab: blockState('abyssalcraft:darkstone_cobblestone_slab', { type: 'bottom' }),
+    cobbleWall: blockState('abyssalcraft:darkstone_cobblestone_wall'),
+    monolith: blockState('abyssalcraft:monolith_stone'),
+    ooze: blockState('abyssalcraft:shoggoth_ooze', { layers: '8' }),
+    brickStair: (facing, half = 'bottom') => stair('abyssalcraft:darkstone_brick_stairs', facing, half),
+    cobbleStair: facing => stair('abyssalcraft:darkstone_cobblestone_stairs', facing)
+  };
+}
+
+function compileRitualGrounds() {
+  const builder = legacyTemplateBuilder();
+  const state = legacyDarklandsStates();
+  for (let i = -4; i < 5; i++) {
+    for (let j = -6; j < 7; j++) {
+      const flag = i > -2 && i < 2;
+      const flag1 = i > -4 && i < 4;
+      for (let k = 0; k < 2; k++) {
+        if ((j === -6 || j === 6) && flag) {
+          builder.set(i, k + 2, j, state.air); builder.set(j, k + 2, i, state.air);
+        }
+        if ((j === -5 || j === 5) && flag1) {
+          builder.set(i, k + 2, j, state.air); builder.set(j, k + 2, i, state.air);
+        }
+        if (j > -5 && j < 5) {
+          builder.set(i, k + 2, j, state.air); builder.set(j, k + 2, i, state.air);
+        }
+      }
+      if ((j === -6 || j === 6) && flag) {
+        builder.set(j, 1, i, state.brickSlab); builder.set(i, 1, j, state.brickSlab);
+      }
+      if ((j === -5 || j === 5) && flag1) {
+        builder.set(j, 1, i, flag ? state.randomBrick : state.brickSlab);
+        builder.set(i, 1, j, flag ? state.randomBrick : state.brickSlab);
+      }
+      if (j === -4 || j === 4) {
+        const edge = i === -4 || i === 4 ? state.brickSlab : flag ? state.cobble : state.randomBrick;
+        builder.set(j, 1, i, edge); builder.set(i, 1, j, edge);
+      }
+      if (j > -4 && j < 4 && flag1) {
+        builder.set(j, 1, i, state.cobble); builder.set(i, 1, j, state.cobble);
+      }
+    }
+  }
+  for (const [x, z] of [[0, 0], [3, 0], [-3, 0], [0, 3], [0, -3], [2, 2], [2, -2], [-2, 2], [-2, -2]]) {
+    builder.set(x, 2, z, state.cobble);
+  }
+  for (let i = 0; i < 2; i++) {
+    const block = i === 0 ? state.randomBrick : state.glowing;
+    for (const [x, z] of [[4, 2], [4, -2], [-4, 2], [-4, -2], [2, 4], [-2, 4], [2, -4], [-2, -4]]) {
+      builder.set(x, 2 + i, z, block);
+    }
+  }
+  return builder.finish();
+}
+
+function compileRitualGroundsColumns() {
+  const builder = legacyTemplateBuilder();
+  const state = legacyDarklandsStates();
+  for (let i = -3; i < 4; i++) {
+    for (let j = -5; j < 6; j++) {
+      const flag = i > -2 && i < 2;
+      const flag1 = i > -4 && i < 4;
+      for (let k = 0; k < 4; k++) {
+        if ((j === -5 || j === 5) && flag) {
+          builder.set(i, k + 1, j, state.air); builder.set(j, k + 1, i, state.air);
+        }
+        if (j > -5 && j < 5) {
+          builder.set(i, k + 1, j, state.air); builder.set(j, k + 1, i, state.air);
+        }
+      }
+      if ((j === -5 || j === 5) && flag) {
+        builder.set(j, 0, i, state.randomBrick); builder.set(i, 0, j, state.randomBrick);
+        builder.set(j, 4, i, state.brickSlab); builder.set(i, 4, j, state.brickSlab);
+      }
+      if ((j === -4 || j === 4) && flag1) {
+        builder.set(j, 0, i, state.randomBrick); builder.set(i, 0, j, state.randomBrick);
+        if (i !== 0) {
+          builder.set(j, 4, i, state.brickSlab); builder.set(i, 4, j, state.brickSlab);
+        }
+      }
+      if (j > -4 && j < 4 && flag1) {
+        builder.set(j, 0, i, state.randomBrick); builder.set(i, 0, j, state.randomBrick);
+        if ((j === -3 || j === 3) && (i === -3 || i === 3)) {
+          builder.set(j, 4, i, state.brickSlab); builder.set(i, 4, j, state.brickSlab);
+        }
+      }
+    }
+  }
+  for (const [x, z] of [[0, 0], [3, 0], [-3, 0], [0, 3], [0, -3], [2, 2], [2, -2], [-2, 2], [-2, -2]]) {
+    builder.set(x, 1, z, state.cobble);
+  }
+  for (let i = 0; i < 3; i++) {
+    const block = i === 1 ? state.chiseled : state.randomBrick;
+    for (const [x, z] of [[4, 2], [4, -2], [-4, 2], [-4, -2], [2, 4], [-2, 4], [2, -4], [-2, -4]]) {
+      builder.set(x, 1 + i, z, block);
+    }
+  }
+  return builder.finish();
+}
+
+function compileCircularShrine() {
+  const builder = legacyTemplateBuilder();
+  const state = legacyDarklandsStates();
+  for (let i = -4; i < 5; i++) {
+    for (let j = -6; j < 7; j++) {
+      const flag = i > -2 && i < 2;
+      const flag1 = i > -4 && i < 4;
+      if ((j === -6 || j === 6) && flag) {
+        builder.set(i, 1, j, state.air); builder.set(j, 1, i, state.air);
+      }
+      if ((j === -5 || j === 5) && flag1) {
+        builder.set(i, 1, j, state.air); builder.set(j, 1, i, state.air);
+      }
+      if ((j > -5 && j < -2) || (j > 2 && j < 5)) {
+        builder.set(i, 1, j, state.air); builder.set(j, 1, i, state.air);
+      }
+      if ((j === -6 || j === 6) && flag) {
+        builder.set(j, 0, i, state.brick); builder.set(i, 0, j, state.brick);
+      }
+      if ((j === -5 || j === 5) && flag1) {
+        builder.set(j, 0, i, flag ? state.cobbleSlab : state.brick);
+        builder.set(i, 0, j, flag ? state.cobbleSlab : state.brick);
+      }
+      if (j === -4 || j === 4) {
+        if (flag) {
+          builder.set(j, -1, i, state.cobble); builder.set(i, -1, j, state.cobble);
+        }
+        const block = i === -4 || i === 4 ? state.brick : flag ? state.air : state.cobbleSlab;
+        builder.set(j, 0, i, block); builder.set(i, 0, j, block);
+      }
+      if ((j === -3 || j === 3) && flag1) {
+        builder.set(j, -1, i, flag ? state.brick : state.cobble);
+        builder.set(i, -1, j, flag ? state.brick : state.cobble);
+        builder.set(j, 0, i, flag ? state.brickSlab : state.air);
+        builder.set(i, 0, j, flag ? state.brickSlab : state.air);
+        if (i === 0) {
+          for (let k = 0; k < 2; k++) {
+            builder.set(i, k, j, k === 1 ? state.chiseled : state.brick);
+            builder.set(j, k, i, k === 1 ? state.chiseled : state.brick);
+          }
+        }
+      }
+      if ((j === -2 || j === 2) && i > -3 && i < 3) {
+        builder.set(j, -1, i, flag ? state.ooze : state.brick);
+        builder.set(i, -1, j, flag ? state.ooze : state.brick);
+        builder.set(j, 0, i, flag ? state.air : state.brick);
+        builder.set(i, 0, j, flag ? state.air : state.brick);
+        for (let k = 0; k < 2; k++) {
+          builder.set(i, k, j, flag ? state.air : k === 1 ? state.chiseled : state.brick);
+          builder.set(j, k, i, flag ? state.air : k === 1 ? state.chiseled : state.brick);
+        }
+      }
+      if (j > -2 && j < 2 && flag) {
+        for (let k = -1; k < 2; k++) builder.set(i, k, j, k === -1 ? state.ooze : state.air);
+      }
+    }
+  }
+  builder.marker(0, 0, 0, 'legacy_darklands_statue');
+  return builder.finish();
+}
+
+function compileCircularShrineColumns() {
+  const builder = legacyTemplateBuilder();
+  const state = legacyDarklandsStates();
+  for (let i = -3; i < 4; i++) {
+    for (let j = -5; j < 6; j++) {
+      const flag = i > -3 && i < 3;
+      const flag1 = i > -4 && i < 4;
+      for (let k = 0; k < 4; k++) {
+        if ((j === -5 || j === 5) && flag) {
+          builder.set(i, k + 2, j, state.air); builder.set(j, k + 2, i, state.air);
+        }
+        if ((j === -4 || j === 4) && flag1) {
+          builder.set(i, k + 2, j, state.air); builder.set(j, k + 2, i, state.air);
+        }
+        if (j > -3 && j < 3 && flag) {
+          builder.set(i, k + 2, j, state.air); builder.set(j, k + 2, i, state.air);
+        }
+      }
+      if ((j === -5 || j === 5) && flag) {
+        builder.set(i, 1, j, state.brickSlab); builder.set(j, 1, i, state.brickSlab);
+      }
+      if (j === -4 || j === 4) {
+        builder.set(i, 1, j, flag ? state.randomBrick : state.brickSlab);
+        builder.set(j, 1, i, flag ? state.randomBrick : state.brickSlab);
+        if (flag) {
+          builder.set(i, 5, j, state.brickSlab); builder.set(j, 5, i, state.brickSlab);
+        }
+        if (i === 0) {
+          for (let k = 0; k < 3; k++) {
+            builder.set(i, k + 2, j, k === 1 ? state.chiseled : state.randomBrick);
+            builder.set(j, k + 2, i, k === 1 ? state.chiseled : state.randomBrick);
+          }
+        }
+      }
+      if (j === -3 || j === 3) {
+        if (flag1) {
+          for (let k = 1; k < 6; k++) {
+            const block = k === 1 ? state.randomBrick : (i < -1 || i > 1) && k === 5 ? state.brickSlab : state.air;
+            builder.set(i, k, j, block); builder.set(j, k, i, block);
+          }
+        }
+        if (i === -3 || i === 3) {
+          for (let k = 0; k < 3; k++) {
+            builder.set(i, k + 2, j, k === 1 ? state.chiseled : state.randomBrick);
+            builder.set(j, k + 2, i, k === 1 ? state.chiseled : state.randomBrick);
+          }
+        }
+      }
+      if (j === -2 || j === 2) {
+        builder.set(i, 1, j, i > -2 && i < 2 ? state.monolith : state.randomBrick);
+        builder.set(j, 1, i, i > -2 && i < 2 ? state.monolith : state.randomBrick);
+      }
+      if (j > -2 && j < 2 && i > -2 && i < 2) builder.set(i, 1, j, state.ooze);
+    }
+  }
+  builder.marker(0, 2, 0, 'legacy_darklands_statue');
+  return builder.finish();
+}
+
+function compileElevatedShrine(large) {
+  const builder = legacyTemplateBuilder();
+  const state = legacyDarklandsStates();
+  const radius = large ? 3 : 2;
+  const extent = large ? 5 : 4;
+  for (let i = -radius; i <= radius; i++) {
+    for (let j = -extent; j <= extent; j++) {
+      const flag = i > -2 && i < 2;
+      if (!large) {
+        if (j > -3 && j < 3 && flag) {
+          for (let k = 1; k < 7; k++) if (k !== 2) {
+            builder.set(i, k, j, state.air); builder.set(j, k, i, state.air);
+          }
+        }
+        if ((j === -4 || j === 4) && flag) {
+          builder.set(j, 1, i, state.cobbleStair(j > 0 ? 'west' : 'east'));
+          builder.set(i, 1, j, state.cobbleStair(j > 0 ? 'north' : 'south'));
+        }
+        if ((j === -3 || j === 3) && flag) {
+          builder.set(j, 1, i, state.cobble); builder.set(i, 1, j, state.cobble);
+          builder.set(j, 2, i, state.cobbleStair(j > 0 ? 'west' : 'east'));
+          builder.set(i, 2, j, state.cobbleStair(j > 0 ? 'north' : 'south'));
+        }
+        if (j === -2 || j === 2) {
+          for (let k = 1; k < 7; k++) {
+            if (i === -2 || i === 2) {
+              builder.set(j, k, i, state.cobbleWall); builder.set(i, k, j, state.cobbleWall);
+            }
+            if (k === 2 && flag) {
+              builder.set(i, k, j, state.monolith); builder.set(j, k, i, state.monolith);
+            }
+            if (k === 6) {
+              builder.set(i, k, j, state.brickSlab); builder.set(j, k, i, state.brickSlab);
+            }
+          }
+        }
+        if (j > -2 && j < 2 && flag) builder.set(i, 2, j, state.ooze);
+        continue;
+      }
+
+      const flag1 = i > -3 && i < 3;
+      if (j === -4 || (j === 4 && flag)) {
+        for (let k = 1; k < 4; k++) {
+          builder.set(i, k + 2, j, state.air); builder.set(j, k + 2, i, state.air);
+        }
+      }
+      if (j > -4 && j < 4 && flag1) {
+        for (let k = 1; k < 10; k++) {
+          if (k > 6) {
+            if (flag) { builder.set(i, k, j, state.air); builder.set(j, k, i, state.air); }
+          } else if (k !== 2) {
+            builder.set(i, k, j, state.air); builder.set(j, k, i, state.air);
+          }
+        }
+      }
+      if ((j === -5 || j === 5) && flag) {
+        builder.set(j, 1, i, state.cobbleStair(j > 0 ? 'west' : 'east'));
+        builder.set(i, 1, j, state.cobbleStair(j > 0 ? 'north' : 'south'));
+      }
+      if ((j === -4 || j === 4) && flag) {
+        builder.set(j, 1, i, state.cobble); builder.set(i, 1, j, state.cobble);
+        builder.set(j, 2, i, state.cobbleStair(j > 0 ? 'west' : 'east'));
+        builder.set(i, 2, j, state.cobbleStair(j > 0 ? 'north' : 'south'));
+        builder.set(j, 6, i, state.brickSlab); builder.set(i, 6, j, state.brickSlab);
+      }
+      if (j === -3 || j === 3) {
+        if (flag1) {
+          builder.set(j, 2, i, state.cobble); builder.set(i, 2, j, state.cobble);
+          if (flag) { builder.set(j, 9, i, state.brickSlab); builder.set(i, 9, j, state.brickSlab); }
+          if (i === 0) for (let k = 1; k < 3; k++) {
+            builder.set(j, k + 6, i, state.cobbleWall); builder.set(i, k + 6, j, state.cobbleWall);
+          }
+        } else {
+          for (let k = 1; k < 6; k++) {
+            builder.set(j, k, i, state.cobbleWall); builder.set(i, k, j, state.cobbleWall);
+          }
+        }
+        builder.set(j, 6, i, i === 0 ? state.cobble : state.brickSlab);
+        builder.set(i, 6, j, i === 0 ? state.cobble : state.brickSlab);
+      }
+      if ((j === -2 || j === 2) && flag1) {
+        builder.set(i, 2, j, flag ? state.monolith : state.cobble);
+        builder.set(j, 2, i, flag ? state.monolith : state.cobble);
+        for (let k = 0; k < 4; k++) {
+          if (k < 3) {
+            if (!flag) {
+              builder.set(i, k + 6, j, k === 0 ? state.cobble : state.cobbleWall);
+              builder.set(j, k + 6, i, k === 0 ? state.cobble : state.cobbleWall);
+            }
+          } else if (i !== 0) {
+            builder.set(j, k + 6, i, state.brickSlab); builder.set(i, k + 6, j, state.brickSlab);
+          }
+        }
+      }
+      if (j > -2 && j < 2 && flag) builder.set(i, 2, j, state.ooze);
+    }
+  }
+  builder.marker(0, 3, 0, 'legacy_darklands_statue');
+  return builder.finish();
+}
+
+function compileScionOne() {
+  const builder = legacyTemplateBuilder();
+  const state = legacyDarklandsStates();
+  for (let i = -3; i < 4; i++) {
+    for (let j = -4; j < 5; j++) {
+      const flag = i > -3 && i < 3;
+      const flag1 = i === -3 || i === 3;
+      const flag2 = i > -2 && i < 2;
+      if (j === -3 || (j === 3 && flag)) for (let k = 0; k < 4; k++) {
+        builder.set(j, k + 2, i, state.air); builder.set(i, k + 2, j, state.air);
+      }
+      if (j === -2 || (j === 2 && !flag2)) for (let k = 0; k < 4; k++) {
+        builder.set(j, k + 2, i, state.air); builder.set(i, k + 2, j, state.air);
+      }
+      if ((j === -4 || j === 4) && flag) {
+        builder.marker(j, 1, i, 'legacy_scion_grass'); builder.marker(i, 1, j, 'legacy_scion_grass');
+      }
+      if (j === -3 || j === 3) {
+        if (flag1) {
+          builder.marker(j, 1, i, 'legacy_scion_grass'); builder.marker(i, 1, j, 'legacy_scion_grass');
+        } else {
+          builder.set(j, 1, i, state.randomBrick); builder.set(i, 1, j, state.randomBrick);
+        }
+      }
+      if (j > -3 && j < 3) {
+        builder.set(j, 1, i, state.randomBrick);
+        if ((j === -2 || j === 2) && flag2) {
+          for (let k = 0; k < 4; k++) {
+            if (k === 0) {
+              builder.set(j, 2, i, i === 0 ? state.brickStair(j > 0 ? 'west' : 'east') : state.glowing);
+              builder.set(i, 2, j, i === 0 ? state.brickStair(j > 0 ? 'north' : 'south') : state.glowing);
+            } else if (k === 1) {
+              builder.set(j, 3, i, i === 0 ? state.air : state.brickSlab);
+              builder.set(i, 3, j, i === 0 ? state.air : state.brickSlab);
+            } else if (k === 2) {
+              builder.set(j, 4, i, i === 0 ? state.brickSlabTop
+                : state.brickStair(j > 0 ? 'west' : 'east', 'top'));
+              builder.set(i, 4, j, i === 0 ? state.brickSlabTop
+                : state.brickStair(j > 0 ? 'north' : 'south', 'top'));
+            } else {
+              builder.set(j, 5, i, state.brickSlab); builder.set(i, 5, j, state.brickSlab);
+            }
+          }
+        }
+        if (j > -2 && j < 2 && flag2) {
+          for (let k = 0; k < 4; k++) {
+            const block = ((j === 0 && i !== 0) || (j !== 0 && i === 0)) && k === 1
+              ? state.chiseled : k === 3 ? state.brickSlab : state.randomBrick;
+            builder.set(j, k + 2, i, block);
+          }
+        }
+      }
+    }
+  }
+  builder.marker(0, 4, 0, 'legacy_scion_tree');
+  return builder.finish();
+}
+
 function compileEthaxiumHouse(root) {
   const source = fs.readFileSync(path.join(root, 'docs', 'AbyssalCraft-1.12.2', 'src', 'main', 'java',
     'com', 'shinoow', 'abyssalcraft', 'common', 'structures', 'StructureHouse.java'), 'utf8');
@@ -345,37 +865,7 @@ function compileEthaxiumHouse(root) {
     });
   }
   if (placements.length !== 3060) throw new Error(`Expected 3060 StructureHouse placements, got ${placements.length}`);
-  const minX = Math.min(...placements.map(entry => entry.x));
-  const minY = Math.min(...placements.map(entry => entry.y));
-  const minZ = Math.min(...placements.map(entry => entry.z));
-  const maxX = Math.max(...placements.map(entry => entry.x));
-  const maxY = Math.max(...placements.map(entry => entry.y));
-  const maxZ = Math.max(...placements.map(entry => entry.z));
-  const palette = [];
-  const paletteIndex = new Map();
-  const blocks = placements.map(entry => {
-    const summary = stateSummary(entry.state);
-    const key = `${summary.name}|${JSON.stringify(summary.properties)}`;
-    if (!paletteIndex.has(key)) {
-      paletteIndex.set(key, palette.length);
-      palette.push(entry.state);
-    }
-    return new Map([
-      ['pos', listTag(TAG.INT, [entry.x - minX, entry.y - minY, entry.z - minZ])],
-      ['state', intTag(paletteIndex.get(key))]
-    ]);
-  });
-  return {
-    type: TAG.COMPOUND,
-    name: '',
-    value: new Map([
-      ['DataVersion', intTag(3465)],
-      ['size', listTag(TAG.INT, [maxX - minX + 1, maxY - minY + 1, maxZ - minZ + 1])],
-      ['palette', listTag(TAG.COMPOUND, palette)],
-      ['blocks', listTag(TAG.COMPOUND, blocks)],
-      ['entities', listTag(TAG.COMPOUND, [])]
-    ])
-  };
+  return compilePlacements(placements);
 }
 
 function transformStructure(root, mappings, relativePath) {
@@ -519,10 +1009,30 @@ function main() {
   }
   const house = compileEthaxiumHouse(root);
   for (const output of outputs) writeNbt(path.join(output, 'omothol', 'ethaxium_house.nbt'), house);
+  const compiled = new Map([
+    ['abyss/abyruin.nbt', compileExplicitLegacyStructure(root, 'abyss', 'Abyruin.java',
+      { x: 0, y: 0, z: 0 }, 563)],
+    ['darklands/house_1.nbt', compileExplicitLegacyStructure(root, 'overworld', 'AChouse1.java',
+      { x: -3, y: 1, z: -4 }, 322)],
+    ['darklands/house_2.nbt', compileExplicitLegacyStructure(root, 'overworld', 'AChouse2.java',
+      { x: -6, y: 1, z: -6 }, 661)],
+    ['darklands/ritual_grounds.nbt', compileRitualGrounds()],
+    ['darklands/ritual_grounds_columns.nbt', compileRitualGroundsColumns()],
+    ['darklands/circular_shrine.nbt', compileCircularShrine()],
+    ['darklands/circular_shrine_columns.nbt', compileCircularShrineColumns()],
+    ['darklands/elevated_shrine.nbt', compileElevatedShrine(false)],
+    ['darklands/elevated_shrine_large.nbt', compileElevatedShrine(true)],
+    ['darklands/scion_1.nbt', compileScionOne()],
+    ['darklands/scion_2.nbt', compileExplicitLegacyStructure(root, 'overworld', 'ACscion2.java',
+      { x: -3, y: 1, z: -3 }, 135)]
+  ]);
+  for (const [relativePath, template] of compiled) {
+    for (const output of outputs) writeNbt(path.join(output, relativePath), template);
+  }
   const pluralFiles = listFiles(outputs[0]);
   const singularFiles = listFiles(outputs[1]);
-  if (pluralFiles.length !== 37 || singularFiles.length !== 37) {
-    throw new Error(`Expected 37 files per output, got ${pluralFiles.length}/${singularFiles.length}`);
+  if (pluralFiles.length !== 48 || singularFiles.length !== 48) {
+    throw new Error(`Expected 48 files per output, got ${pluralFiles.length}/${singularFiles.length}`);
   }
   for (let i = 0; i < pluralFiles.length; i++) {
     if (path.relative(outputs[0], pluralFiles[i]) !== path.relative(outputs[1], singularFiles[i])) {
@@ -544,7 +1054,7 @@ function main() {
   if (houseAudit.blocks !== 3060 || houseAudit.size.join(',') !== '19,7,24') {
     throw new Error(`Ethaxium house invariant failed: blocks=${houseAudit.blocks} size=${houseAudit.size}`);
   }
-  console.log(`RR_WORLD_STRUCTURE_CONVERT_OK files=${pluralFiles.length}x2 originalMarkers=${conversion.originalMarkers} replacementMarkers=${conversion.replacementMarkers} preservedBE=${conversion.preservedBlockEntities} markerizedBE=${conversion.markerizedBlockEntities} house=${houseAudit.blocks}@${houseAudit.size.join('x')}`);
+  console.log(`RR_WORLD_STRUCTURE_CONVERT_OK files=${pluralFiles.length}x2 originalMarkers=${conversion.originalMarkers} replacementMarkers=${conversion.replacementMarkers} preservedBE=${conversion.preservedBlockEntities} markerizedBE=${conversion.markerizedBlockEntities} house=${houseAudit.blocks}@${houseAudit.size.join('x')} compiled=${compiled.size}`);
 }
 
 main();

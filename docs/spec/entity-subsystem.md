@@ -2,9 +2,9 @@
 
 - 里程碑 / Stage：M3 / Stage D1（框架）→ D2a/D2b（具体实体族/BOSS）→ Stage E1（渲染注册框架，Gate E1 ✅）
 - 关联平行任务：PD-1（EntityType/属性/基类框架，本文档主体）、PD-2（AI goals + pathfinding，Agent 13）；PD-3..PD-7（anti/demon/ghoul+shoggoth/misc+projectile/BOSS）；PE-1（渲染注册框架，§12）
-- 状态：**RR-ENTITY-BEHAVIOR 已交付（Gate M3-CONTENT ✅）** —— 旧 63 个内容 EntityType、48 刷怪蛋、44 placement、全族专属行为、69 份旧实体 loot 与双加载器自然生成矩阵均已收口。现代 loot 由单一 datagen owner 生成 97 张逻辑表/194 张双路径物理表；双端行为、69 死亡路径、11 场真实 `NaturalSpawner`、持久化重启、无属性专服 `/reload`、production build/JAR 审计全部通过。
+- 状态：**RR-ENTITY-BEHAVIOR 已交付并完成 2026-07-31 原版复审（Gate M3-CONTENT ✅）** —— 旧 63 个内容 EntityType、48 刷怪蛋、44 placement、全族专属行为、69 份旧实体 loot 与双加载器自然生成矩阵均已收口；复审另补回 `EntityMobBase` Hardcore 三档 chip、Remnant 40 tick 逐步补货、四 Boss 死亡状态机/XP 与 Shadow Shoggoth 五态透明渲染。现代 loot 由单一 datagen owner 生成 97 张逻辑表/194 张双路径物理表；双端行为、69 死亡路径、11 场真实 `NaturalSpawner`、持久化重启、`runData` 与 production build 全部通过。
 - 负责：PD-1 框架 · PD-3 anti 家族 · RR-ENTITY-CATALOG · RR-ENTITY-BEHAVIOR（GitHub Copilot）
-- 最后更新：2026-07-26
+- 最后更新：2026-07-31
 
 ## 0A. RR-ENTITY-BEHAVIOR 实现边界（2026-07-25）
 
@@ -77,7 +77,7 @@ platform/EntityAttributeCompat.java   —— 属性创建事件兼容层（PD-1�
 - **无属性 = summon 崩**：`Mob`/`LivingEntity` 无注册 `AttributeSupplier` 时 `/summon` 抛错。→ 成功 summon（"Summoned new entity"）本身即证 EntityType 注册 + 属性事件发布 + 构造不崩三合一。
 - **敌对 Monster 无玩家即刻消失**：空服务器（仅 console，无玩家）里 hostile mob 无 128 格内玩家会**下一 tick 即 despawn**（非 fall/框架 bug）。验「成活」须加 `{PersistenceRequired:1b}`（禁 despawn）；`{NoGravity:1b}` 免落地摔伤混淆。证据：裸 summon 后 `data get` = "No entity was found"；加 Persistence 后 Health 稳定 20.0f。
 - **无渲染器 → `runClient` 启动崩**：现代 Forge/Neo 客户端启动 `EntityRenderers.validateRegistrations` 对无渲染器的 EntityType 抛 `IllegalStateException`。→ Stage E 前实体框架**只能 `runServer` 验**（专用服不碰渲染器）；`runClient` 崩属预期、延 E。
-- **延后自 `EntityMobBase` 的两件（非删、随属主任务回补）**：①自定义地面导航（`PatchedPathNavigateGround`）→ PD-2 `content/entity/pathfinding`，子类覆写 `createNavigation` 接入；②硬核穿甲 chip 伤害 + elite/boss 伤害放大 → 依赖尚未移植的 `ACConfig.hardcoreMode`/`damageAmpl`（config 轴）+ `IEliteEntity` API marker。当前 `ACMob` 保持干净 `Monster` 基类，不引用未移植 config。
+- **2026-07-31 已回补旧 `EntityMobBase` 契约**：自定义 ground/wall-climber 导航已由 `content/entity/pathfinding` 接入；`HardcoreMeleeDamage` 恢复普通/旧 Elite/Boss 的 `1.5/3.0/4.5 × max(damageAmpl,1)` 穿甲绝对伤害。现代为复用 vanilla AI 而未继承 `ACMob` 的 Anti/Abyssal Zombie/legacy 聚合实体按旧继承链显式接入；Dread Spawn 与 Shoggoth 保留旧类额外第二段 chip，避免被统一基类吞掉。
 
 ## 7. 验证 / DoD
 
@@ -104,7 +104,7 @@ platform/EntityAttributeCompat.java   —— 属性创建事件兼容层（PD-1�
 - **刷怪放置**：新 `platform/SpawnPlacementCompat`（见 §5）——8 实体经 `registerGroundMonster` 登记 ON_GROUND + `Monster::checkMonsterSpawnRules`（地面 + 黑暗）。
 - **战利品**：16 表 `loot_table(s)/entities/*.json` 双目录同容（各掉对应 flesh `set_count` 0-2、避 `looting_enchant`、默认表 id 自动派生）。**跨主 gap-fill**：PB-2 `MiscItems` +5 shoggoth flesh plain item（1.12.2 非食用 `ItemACBasic`、PB-2 漏移；ghoul flesh 已在 PB-2）。
 - **自然刷怪（forge biome_modifier）**：`spawn_ghoul` ghoul→[plains,desert,taiga,savanna]（1.12.2 EntityHandler `EntityGhoul` addSpawn 忠实）；`spawn_shoggoth` lesser_shoggoth→`#minecraft:is_overworld` **占位**（shoggoth 忠实群系 = AC 维度 abyssal_wastelands/dreadlands/omothol/dark_realm，待 G 建群系后重定向）。neo 忽略 `forge/biome_modifier/` 目录 → neo 自然刷怪双份延 PL-4；depths 水生 + dreaded/omothol/shadow ghoul 维度刷怪待 G。
-- **延后**：水下呼吸（`canBreatheUnderwater` 1.21 为 `final` 标签驱动、1.20.1 可覆写 → 需版本分叉兼容层）、coralium/dread plague on-hit（药水 `MobEffect` 未移植）、shoggoth 招牌 AI（酸击 `EntityAIShoggothAttackMelee`/喷酸 `EntityAcidProjectile`/建巨石 `EntityAIShoggothBuildMonolith`+`WorldGenShoggothMonolith`→G/ooze 块/进食变体/`IEntityMultiPart`/`EntityAIWorship`——依赖未移植；PD-2 框架预留待依赖落地）、5 shoggoth TYPE 变体、depths 彩蛋名/baby、自定义音效（`ACSounds`）/shadow 粒子、硬核 chip/精英浮动（config）、depths `dghead` 稀有掉落（物品未移植）、渲染 E。
+- **当前状态覆盖**：本段是 PD-5 初交付快照；水下呼吸、plague、Shoggoth 酸击/喷酸/建碑/ooze/进食/多部件/膜拜、5 TYPE、音效/粒子、Hardcore chip、头颅掉落和忠实渲染均已由后续 RR 任务收口。2026-07-31 进一步恢复五态动态本体/眼睛纹理，type 4 两层共同使用亮度 alpha。
 - **验证**：两节点 `compileJava --rerun-tasks`+`runServer`：8 实体各 `/summon` 成活（无属性即崩→成活即证属性链）+ ghoul `attribute ... max_health base get`=30.0（值精确）+ `/loot spawn abyssalcraft:entities/{ghoul,greater_shoggoth,shoggoth}` 双端掉 Ghoul Flesh/Shoggoth Flesh（loot 运行期解析 + 1.20 复数/1.21 单数目录路径两端通）+ 干净 stop（forge Done 3.280s / neo 1.028s）。
 
 ## 10. 已交付家族 · misc + projectile（PD-6）

@@ -49,7 +49,7 @@ public final class WorldConfigConsumerAudit {
         active(entries, "shoggothLairSpawnRate", "WorldgenConfigGate SHOGGOTH_PIT combined density grid");
         active(entries, "shoggothLairSpawnRateRivers", "WorldgenConfigGate SHOGGOTH_PIT_RIVER combined density grid");
         active(entries, "shoggothLairGenerationDistance", "WorldgenConfigGate shared Shoggoth Lair spacing grid");
-        active(entries, "darkShrineSpawnRate", "ACStructure dark_shrine candidate gate");
+        active(entries, "darkShrineSpawnRate", "ACStructure dark_shrine legacy probability gate");
         active(entries, "darkRitualGroundsSpawnRate", "WorldgenConfigGate DARK_RITUAL_GROUNDS candidate gate");
         active(entries, "graveyardGenerationDistance", "ACStructure graveyard deterministic chunk-distance gate");
         active(entries, "graveyardGenerationChance", "ACStructure graveyard candidate gate");

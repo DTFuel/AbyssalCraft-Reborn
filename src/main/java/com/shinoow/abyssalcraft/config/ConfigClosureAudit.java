@@ -89,7 +89,7 @@ public final class ConfigClosureAudit {
         put(entries, "RR-WORLD", "shoggothLairSpawnRate", "WorldgenConfigGate#passesLairPlacement(SHOGGOTH_PIT)");
         put(entries, "RR-WORLD", "shoggothLairSpawnRateRivers", "WorldgenConfigGate#passesLairPlacement(SHOGGOTH_PIT_RIVER)");
         put(entries, "RR-WORLD", "shoggothLairGenerationDistance", "WorldgenConfigGate#lairChunkInterval");
-        put(entries, "RR-WORLD", "darkShrineSpawnRate", "WorldgenConfigGate#allowsStructure(DARK_SHRINE)");
+        put(entries, "RR-WORLD", "darkShrineSpawnRate", "WorldgenConfigGate#allowsDarkShrine");
         put(entries, "RR-WORLD", "darkRitualGroundsSpawnRate", "WorldgenConfigGate#allowsStructure(DARK_RITUAL_GROUNDS)");
         put(entries, "RR-WORLD", "graveyardGenerationDistance", "WorldgenConfigGate#allowsStructure(GRAVEYARD)");
         put(entries, "RR-WORLD", "graveyardGenerationChance", "WorldgenConfigGate#allowsStructure(GRAVEYARD)");

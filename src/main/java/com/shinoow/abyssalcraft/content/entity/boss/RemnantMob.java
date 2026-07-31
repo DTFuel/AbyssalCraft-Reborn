@@ -154,11 +154,13 @@ public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
         if (tradingPlayer != null || restockTime <= 0) return;
         if (--restockTime > 0) return;
         if (restockOffers && offers != null) {
-            for (int index = 0; index < offers.size(); index++) {
-                MerchantOffer candidate = offers.get(index);
-                if (candidate.isOutOfStock() && !isSpiritTabletShard(candidate.getResult())) {
-                    int additionalUses = getRandom().nextInt(6) + getRandom().nextInt(6) + 2;
-                    offers.set(index, MerchantOfferCompat.increaseMaxUses(candidate, additionalUses));
+            if (offers.size() > 1) {
+                for (int index = 0; index < offers.size(); index++) {
+                    MerchantOffer candidate = offers.get(index);
+                    if (candidate.isOutOfStock() && !isSpiritTabletShard(candidate.getResult())) {
+                        int additionalUses = getRandom().nextInt(6) + getRandom().nextInt(6) + 2;
+                        offers.set(index, MerchantOfferCompat.increaseMaxUses(candidate, additionalUses));
+                    }
                 }
             }
             restockOffers = false;

@@ -14,8 +14,8 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 
+import com.shinoow.abyssalcraft.content.item.ritual.RitualItems;
 import com.shinoow.abyssalcraft.content.recipe.rending.RendingRecipe;
-import com.shinoow.abyssalcraft.platform.ACRef;
 
 /**
  * JEI category for Rending recipes (RR-JEI-AUTO / TP.5b / T8.1b).
@@ -37,8 +37,7 @@ public final class RendingCategory implements IRecipeCategory<RendingRecipe> {
     public RendingCategory(IGuiHelper gui, RecipeType<RendingRecipe> type) {
         this.type = type;
         this.title = Component.translatable("jei.abyssalcraft.rending");
-        // Use staff of rending as icon (base tier)
-        this.icon = gui.createDrawable(ACRef.id("textures/item/staff_of_rending.png"), 0, 0, 16, 16);
+        this.icon = gui.createDrawableItemStack(new ItemStack(RitualItems.STAFF_OF_RENDING.get()));
         this.slot = gui.getSlotDrawable();
     }
 

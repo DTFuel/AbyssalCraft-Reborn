@@ -27,7 +27,6 @@ public final class ACHud {
         ClientHooksCompat.queueReloadListener(ClientVarsManager.instance());
         ClientHooksCompat.queueOverlay("pe_meter", ACHud::renderPeMeter);
         ClientHooksCompat.queueOverlay("spirit_tablet", ACHud::renderSpiritTablet);
-        ClientHooksCompat.queueOverlay("dimension_info", ACHud::renderDimensionInfo);
     }
 
     /** Draw the Potential Energy bar for the held energy item (Necronomicon/charm); nothing if none held. */
@@ -93,18 +92,6 @@ public final class ACHud {
         graphics.drawString(minecraft.font, "Path " + route, x, y + 20,
             SpiritTabletStorage.isRouteDimension(tablet, player.level().dimension().location())
                 ? 0xFF59C6B4 : 0xFFFF7777);
-    }
-
-    private static void renderDimensionInfo(GuiGraphics graphics, int width, int height) {
-        Minecraft minecraft = Minecraft.getInstance();
-        Player player = minecraft.player;
-        if (player == null) return;
-        String dimension = player.level().dimension().location().toString();
-        String biome = player.level().getBiome(player.blockPosition()).unwrapKey()
-            .map(key -> key.location().toString()).orElse("unknown");
-        int x = width - Math.max(minecraft.font.width(dimension), minecraft.font.width(biome)) - 6;
-        graphics.drawString(minecraft.font, dimension, x, 6, 0xFFD7D8D9);
-        graphics.drawString(minecraft.font, biome, x, 16, 0xFF999999);
     }
 
     private static ItemStack heldTablet(Player player) {

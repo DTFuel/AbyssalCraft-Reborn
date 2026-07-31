@@ -52,6 +52,7 @@ import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothBlocks;
 import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothOozeBlock;
 import com.shinoow.abyssalcraft.content.entity.base.ACMob;
+import com.shinoow.abyssalcraft.content.entity.base.HardcoreMeleeDamage;
 import com.shinoow.abyssalcraft.content.entity.demon.DemonAnimal;
 import com.shinoow.abyssalcraft.content.entity.demon.EvilAnimal;
 import com.shinoow.abyssalcraft.content.entity.pathfinding.ACWallClimberNavigation;
@@ -191,6 +192,7 @@ public abstract class AbstractShoggoth extends ACMob implements EntityPartCompat
     @Override
     public boolean doHurtTarget(Entity target) {
         boolean hurt = super.doHurtTarget(target);
+        HardcoreMeleeDamage.applyChip(this, target, 3.0F);
         if (!hurt || !(target instanceof LivingEntity living)) return hurt;
         switch (getShoggothType()) {
             case 1 -> {
@@ -208,6 +210,11 @@ public abstract class AbstractShoggoth extends ACMob implements EntityPartCompat
             default -> { }
         }
         return true;
+    }
+
+    @Override
+    protected float hardcoreChipBaseDamage() {
+        return 3.0F;
     }
 
     @Override

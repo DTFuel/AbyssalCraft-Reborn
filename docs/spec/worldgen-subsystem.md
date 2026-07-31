@@ -2,9 +2,9 @@
 
 - 里程碑 / Stage：M5 / Stage G（G0 契约+竖切+调研 → G1 逐维度/特征/结构 → G2 传送门/群系/验证）
 - 关联平行任务：PG-0（本文档，G0）..PG-7
-- 状态：**M5-WORLD-AUTO 已交付** —— 四维现代混合保真地形、真实材料/carver、六 Darklands、37 模板壳体与结构拓扑双端成立；旧噪声 oracle、动态 marker 真实玩法、人工视觉、自然刷怪统计和玩家 portal 仍未完成。
+- 状态：**M5-WORLD-AUTO 与 FIDELITY-AUTO 已交付** —— 四维现代混合保真地形、真实材料/carver、六 Darklands、37 模板及结构拓扑双端成立；2026-07-31 复审补回五 Darklands 被动动物、AW 两植物、Dreadlands Elysian Stone 以及 legacy marker 专用语义。自动闭包已通过，人工视觉、长时生态和玩家 portal 仍归 `U-WORLD/U-R4`。
 - 负责：PG-0（框架+竖切+调研）；各维度/特征/结构 PG-1..7
-- 最后更新：2026-07-29
+- 最后更新：2026-07-31
 
 ## 1. 概述 / 目标
 
@@ -184,7 +184,7 @@ AbyssalCraft 的世界生成：4 个自定义维度（Abyssal Wasteland / Dreadl
 - **材料与装饰**：Liquid Antimatter 完整 source/flowing/block/bucket 双加载器注册并恢复接触语义；两湖改真实流体；dead tree 改专属 `dead_tree_log` 和旧式枝根轮廓；三 configured carver 已按目标群系挂接。
 - **第六群系**：`coralium_infested_swamp` 经 TerraBlender 注入主世界，含 antimatter 湖、两类 Coralium ore 与旧式植被；不加入 `is_darklands` tag，避免共享逻辑泄漏。
 - **模板转换**：36 个 DataVersion 1343 模板无需人工结构方块重存。`scripts/convert_legacy_structures.js` 以 manifest + 54 个旧 AC palette ID 显式映射确定性转换，未知 ID 硬失败；另将 Ethaxium House 编译为第 37 模板。Forge 打包 `structures/legacy/*.nbt`，Neo 打包 `structure/legacy/*.nbt`。
-- **结构运行时**：`LegacyTemplatePiece`/`LegacyStructureLayout` 放置 Graveyard、Shoggoth Pit、Omothol、Chagaroth、Jzahar 等模板布局并清理 DATA marker；House 与 Chains 已实现。Dreadlands Mineshaft/Abyssal Stronghold 采用现代 vanilla 拓扑基线，并通过只在对应 AC structure ID 活跃时生效的 Mixin 映射 Dreadwood/Abyssal palette 与 `chests/{mineshaft,stronghold_corridor,stronghold_crossing}`；原版结构不受影响。
+- **结构运行时**：`LegacyTemplatePiece`/`LegacyStructureLayout` 放置 Graveyard、Shoggoth Pit、Omothol、Chagaroth、Jzahar 等模板布局并处理 DATA marker；满 PE Idol、Graveyard 固定三树种、Omothol 四级 pedestal/职业 Remnant/crate、statue 朝向、crystal 概率、biomass cooldown、ooze 与 lock 均恢复专用语义。House 与 Chains 已实现。Dreadlands Mineshaft/Abyssal Stronghold 采用现代 vanilla 拓扑基线，并通过只在对应 AC structure ID 活跃时生效的 Mixin 映射 Dreadwood/Abyssal palette 与 `chests/{mineshaft,stronghold_corridor,stronghold_crossing}`；原版结构不受影响。
 
 ### 14.2 自动验证证据
 
@@ -195,11 +195,10 @@ AbyssalCraft 的世界生成：4 个自定义维度（Abyssal Wasteland / Dreadl
 - Forge 新 Mixin 抽查：Mineshaft 实测 **46 Dreadwood** 且最近矿车箱为 AC mineshaft loot；Stronghold 实测 **1958 Abyssal Stone Brick**。两服均干净 stop 并保存所有维度。
 - `/place` vanilla Mineshaft/Stronghold 会输出 `Unprimed heightmap`/`mark a block for PostProcessing` 诊断，但命令最终成功；自然 `/locate` 与新区块生成路径不依赖该调试命令的未完成 chunk 状态。
 
-### 14.3 显式未完成
+### 14.3 自动闭包后的人工边界
 
-- **T5.4c**：固定 seed/算法/hash 已证，不等于与 1.12.2 旧噪声逐位相同；取得旧生成器 oracle 后再做逐位对照。
-- **T5.6c**：crate/spawner/pedestal/lock/biomass/ooze 等缺宿主内容仍是确定性 marker/稳定替代；须由对应内容任务接入真实玩法。模板旋转、拼缝以及 Mineshaft/Stronghold 旧 piece 图仍需 fixture/人工对账。
-- **T5.2c/T5.3c/T5.4c/T5.9b**：四维地形与结构的双端 spectator 视觉/性能矩阵未执行；自然刷怪统计和玩家正常 portal 链仍分别归 T5.8d/T5.7b。自动服务器证据不能替代这些验收。
+- **T5.4c/T5.6c/T5.8d/T5.9b 自动部分已闭合**：旧噪声 oracle、结构 host/marker、官方刷怪候选与固定性能路线已进入双端永久 Gate；2026-07-31 资源审计为 `features=14 blocks=12 loaders=2 biomeSpawns=5x10 legacyEcology=3`，结构自测为 `markerHosts=5 treeSpecies=3`。
+- **仍需真人证据**：四维地形和结构的双端 spectator 观感、模板旋转/拼缝、植物/矿脉/被动动物的实际长时密度，以及玩家正常 portal 链分别归 `U-WORLD/U-R4`。自动服务器证据不能替代这些验收。
 
 ### 14.4 Shoggoth Lair 定位闭环（2026-07-29）
 
@@ -260,6 +259,7 @@ RR_WORLD_FIXTURE_OK templates=37 procedural=2 paletteEntries=<n> blocks=<n> mark
 
 ## 修订日志
 
+- 2026-07-31：原版复审补回五 Darklands 的 sheep/pig/chicken/cow、AW thistle/thorn、Dreadlands `7 × size 24` Elysian Stone；动态 marker 恢复 Idol、三树种固定 Graveyard tree、pedestal、Remnant profession、crate/crystal/statue/biomass 等专用语义。双端 `runData` 与正式 build 通过。
 - 2026-07-25：RR-WORLD 自动切片收口（§14）：真实世界材料/carver、四维现代混合地形、第六群系、36+House 模板转换与布局、Chains、Mineshaft/Stronghold AC palette+loot 通过双端 compile/runData/production JAR/runServer 与 Neo 重启矩阵。将旧噪声 oracle、动态 marker 真实玩法和人工视觉拆为独立未完成任务。
 - 2026-07-24：Agent C 补齐五 Darklands（§13）：required TerraBlender 双版本依赖、Overworld Region、surface rules、五 biome、三档树特征与 Dreadlands 基础 Darklands；双端五 `/locate`、AW 负测、Dreadlands 正测和完整 build 通过。`coralium_infested_swamp`、自然刷怪统计与地形观感仍显式待办。
 - 2026-07-22：PG-6 交付传送门 teleport 框架（§12，◐）：`platform/TeleportCompat`（跨维 `changeDimension` fork 1.20.1 `ITeleporter`/`PortalInfo` ↔ 1.21 `DimensionTransition`）+ `world/portal/DimensionTeleport`（coordinateScale 缩放 + border clamp + 地表落点）+ 接线 PD-6 `DimensionPortal`（destination server 字段+NBT、tick 传送、singleUse discard；避 synched-data fork）。两节点 `compileJava` + `runServer`：`summon portal{Destination:AW}`+cow → cow 跨维 overworld→abyssal_wasteland 双端（FORGE/NEO_TELEPORT_OK）。portal_anchor 方块+激活 ritual（PS-6）/gateway key/目标 mob 刷怪/portal-frame/home·dark-realm teleporter/渲染延后。见平行表 CR-51。

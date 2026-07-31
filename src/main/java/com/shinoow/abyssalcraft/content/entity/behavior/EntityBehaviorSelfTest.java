@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.content.entity.behavior;
 import net.minecraft.core.registries.BuiltInRegistries;
 
 import com.shinoow.abyssalcraft.AbyssalCraft;
+import com.shinoow.abyssalcraft.content.entity.base.HardcoreMeleeDamage;
 import com.shinoow.abyssalcraft.content.entity.boss.JzaharBoss;
 import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.platform.ConfigCompat;
@@ -39,6 +40,10 @@ public final class EntityBehaviorSelfTest {
         require(SpawnCandidateCompat.candidateSnapshot(
             ACDimensions.DARK_REALM, DarklandsBiomes.DARKLANDS, 5).isEmpty(),
             "candidate override leaked outside AW/Dreadlands");
+        require(HardcoreMeleeDamage.scaledDamage(1.5F, 0.5D) == 1.5F
+                && HardcoreMeleeDamage.scaledDamage(3.0F, 2.0D) == 6.0F
+                && HardcoreMeleeDamage.scaledDamage(4.5F, 2.0D) == 9.0F,
+            "hardcore melee ordinary/elite/boss damage tiers changed");
         validateConfiguredSpawns();
         System.out.printf(
             "RR_ENTITY_BEHAVIOR_SELF_TEST_OK content=63 audit=69 direct=%d conditional=%d replaced=%d retired=%d baselineLoot=34 logicalLoot=97 emptyLoot=8 spawnPairs=9 snapshots=18 configKeys=6 configSpawnMappings=11 reload=live%n",

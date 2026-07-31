@@ -94,7 +94,7 @@ public final class SpellCategory implements IRecipeCategory<SpellManifest> {
         };
         if (scrollItemId != null) {
             ItemStack scrollStack = new ItemStack(
-                net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ACRef.id(scrollItemId)));
+                net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ACRef.parse(scrollItemId)));
             builder.addSlot(RecipeIngredientRole.OUTPUT, 100, 40).setBackground(slot, -1, -1)
                 .addItemStack(scrollStack);
         }

@@ -7,6 +7,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.Level;
 
+import com.shinoow.abyssalcraft.content.entity.base.HardcoreMeleeDamage;
+
 /**
  * Anti-matter Zombie (owned by PD-3, Stage D2a).
  *
@@ -20,6 +22,12 @@ public class AntiZombie extends Zombie implements AntiEntity {
 
     public AntiZombie(EntityType<? extends Zombie> type, Level level) {
         super(type, level);
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity target) {
+        HardcoreMeleeDamage.applyChip(this, target, 1.5F);
+        return super.doHurtTarget(target);
     }
 
     @Override

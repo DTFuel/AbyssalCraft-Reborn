@@ -85,7 +85,10 @@ public final class LegacyTemplatePiece extends TemplateStructurePiece {
             ? Rotation.getRandom(random) : Rotation.NONE;
         ResourceLocation template;
         BlockPos position = origin;
-        if (kind == StructureKind.GRAVEYARD) {
+        if (kind == StructureKind.ABYRUIN) {
+            template = ACRef.id("legacy/abyss/abyruin");
+            position = position.offset(-4, -8, -6);
+        } else if (kind == StructureKind.GRAVEYARD) {
             String size = switch (random.nextInt(3)) { case 0 -> "small"; case 1 -> "medium"; default -> "large"; };
             template = ACRef.id("legacy/graveyard/graveyard_" + size);
             position = position.below();
@@ -195,6 +198,39 @@ public final class LegacyTemplatePiece extends TemplateStructurePiece {
             } else {
                 throw new IllegalStateException("Idol marker did not create its energy host at " + pos);
             }
+        } else if (metadata.equals("legacy_random_darkstone_brick")) {
+            level.setBlock(pos, (random.nextFloat() < 0.2F
+                ? BaseBlocks.CRACKED_DARKSTONE_BRICK : BaseBlocks.DARKSTONE_BRICK)
+                .get().defaultBlockState(), 2);
+        } else if (metadata.equals("legacy_random_planks_bookshelf")) {
+            level.setBlock(pos, (random.nextBoolean() ? Blocks.OAK_PLANKS : Blocks.BOOKSHELF)
+                .defaultBlockState(), 2);
+        } else if (metadata.equals("legacy_random_obsidian_enchanting_table")) {
+            level.setBlock(pos, (random.nextBoolean() ? Blocks.OBSIDIAN : Blocks.ENCHANTING_TABLE)
+                .defaultBlockState(), 2);
+        } else if (metadata.equals("legacy_darklands_statue")) {
+            placeDarklandsStatue(level, pos, random);
+        } else if (metadata.equals("legacy_scion_grass")) {
+            BlockState ground = level.getBlockState(pos.below());
+            if (ground.is(Blocks.GRASS_BLOCK) || ground.is(DecoBlocks.DREADLANDS_GRASS.get())) {
+                level.setBlock(pos, ground, 2);
+            }
+        } else if (metadata.equals("legacy_scion_tree")) {
+            if (random.nextFloat() < 0.1F) {
+                level.setBlock(pos, Blocks.DIRT.defaultBlockState(), 2);
+                placeLegacyBranchedTree(level, pos.above(), random, false, false);
+            }
+        } else if (metadata.startsWith("legacy_loot_chest:")) {
+            String payload = metadata.substring("legacy_loot_chest:".length());
+            int facingSeparator = payload.lastIndexOf(':');
+            if (facingSeparator <= 0) {
+                throw new IllegalArgumentException("Invalid legacy loot chest marker " + metadata);
+            }
+            ResourceLocation loot = ACRef.parse(payload.substring(0, facingSeparator));
+            Direction direction = Direction.byName(payload.substring(facingSeparator + 1));
+            level.setBlock(pos, facing(Blocks.CHEST.defaultBlockState(),
+                direction == null ? Direction.NORTH : direction), 2);
+            StructureCompat.setChestLoot(level.getLevel(), pos, loot, random.nextLong());
         } else if (metadata.startsWith("sealing_lock:") || metadata.startsWith("replacement:sealing_lock")) {
             level.setBlock(pos, StructureContent.SEALING_LOCK.get().defaultBlockState(), 2);
             if (level.getBlockEntity(pos) instanceof com.shinoow.abyssalcraft.content.block.structure.SealingLockBlockEntity lock) {
@@ -293,16 +329,20 @@ public final class LegacyTemplatePiece extends TemplateStructurePiece {
         }
         boolean dreadwood = level.getLevel().dimension() == ACDimensions.DREADLANDS
             && level.getBiome(pos).unwrapKey().map(DREADLANDS_BIOMES::contains).orElse(false);
-        placeFixedBranchedTree(level, pos, random, dreadwood);
+        placeLegacyBranchedTree(level, pos, random, dreadwood, true);
     }
 
-    private static boolean placeFixedBranchedTree(ServerLevelAccessor level, BlockPos origin,
-                                                  RandomSource random, boolean dreadwood) {
+    private static boolean placeLegacyBranchedTree(ServerLevelAccessor level, BlockPos origin,
+                                                   RandomSource random, boolean dreadwood,
+                                                   boolean fixed) {
+        int height = fixed ? 6 : random.nextInt(3) + 9;
+        int crownVariance = random.nextInt(3);
+        int branches = fixed ? 6 : random.nextInt(8) + 4;
         BlockState soil = level.getBlockState(origin.below());
         boolean validSoil = soil.is(Blocks.DIRT) || soil.is(Blocks.GRASS_BLOCK)
             || soil.is(DecoBlocks.DREADLANDS_DIRT.get()) || soil.is(DecoBlocks.DREADLANDS_GRASS.get())
             || dreadwood && soil.is(BaseBlocks.DREADSTONE.get());
-        if (!validSoil || origin.getY() >= level.getMaxBuildHeight() - 7) return false;
+        if (!validSoil || origin.getY() >= level.getMaxBuildHeight() - height - 1) return false;
 
         BlockState log = (dreadwood ? BaseBlocks.DREADWOOD_LOG : BaseBlocks.DARKLANDS_OAK_LOG)
             .get().defaultBlockState();
@@ -312,18 +352,31 @@ public final class LegacyTemplatePiece extends TemplateStructurePiece {
             ? DecoBlocks.DREADLANDS_DIRT.get().defaultBlockState() : Blocks.DIRT.defaultBlockState();
         level.setBlock(origin.below(), dirt, 2);
 
-        for (int y = 0; y < 6; y++) level.setBlock(origin.above(y), withAxis(log, Direction.Axis.Y), 2);
-        level.setBlock(origin.above(6), leaves, 2);
-        for (Direction direction : Direction.Plane.HORIZONTAL) {
-            level.setBlock(origin.relative(direction), withAxis(log, direction.getAxis()), 2);
+        for (int y = 0; y < height; y++) {
+            level.setBlock(origin.above(y), legacyLog(log, Direction.Axis.Y, random), 2);
+        }
+        level.setBlock(origin.above(height), leaves, 2);
+
+        if (fixed) {
+            level.setBlock(origin, legacyLog(log, Direction.Axis.Y, random), 2);
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                level.setBlock(origin.relative(direction), legacyLog(log, direction.getAxis(), random), 2);
+            }
+        } else {
+            for (Direction direction : Direction.Plane.HORIZONTAL) {
+                int sideHeight = random.nextInt(3);
+                for (int y = 0; y <= sideHeight; y++) {
+                    Direction.Axis axis = y == sideHeight ? direction.getAxis() : Direction.Axis.Y;
+                    level.setBlock(origin.relative(direction).above(y), legacyLog(log, axis, random), 2);
+                }
+            }
         }
 
-        int crownVariance = random.nextInt(3);
-        int angle = random.nextInt(60);
-        for (int branch = 0; branch < 6; branch++) {
+        int angle = random.nextInt(Math.max(1, 360 / branches));
+        for (int branch = 0; branch < branches; branch++) {
             double distance = 0.0D;
-            double branchHeight = 4.0D - random.nextFloat() * crownVariance;
-            angle += 60;
+            double branchHeight = height - random.nextFloat() * crownVariance - 2.0D;
+            angle += 360 / branches;
             double xDirection = Math.cos(Math.toRadians(angle));
             double zDirection = Math.sin(Math.toRadians(angle));
             Direction.Axis axis = Math.abs(xDirection) >= Math.abs(zDirection)
@@ -333,15 +386,33 @@ public final class LegacyTemplatePiece extends TemplateStructurePiece {
                 branchHeight += 0.5D;
                 BlockPos branchPos = origin.offset((int) (distance * xDirection), (int) branchHeight,
                     (int) (distance * zDirection));
-                level.setBlock(branchPos, withAxis(log, axis), 2);
+                level.setBlock(branchPos, legacyLog(log, axis, random), 2);
                 if (level.isEmptyBlock(branchPos.above())) level.setBlock(branchPos.above(), leaves, 2);
             }
         }
         return true;
     }
 
+    private static void placeDarklandsStatue(ServerLevelAccessor level, BlockPos pos,
+                                              RandomSource random) {
+        if (random.nextFloat() < 0.3F) {
+            level.setBlock(pos, BaseBlocks.MONOLITH_STONE.get().defaultBlockState(), 2);
+            BlockState statue = STATUES.get(random.nextInt(STATUES.size())).get().defaultBlockState();
+            level.setBlock(pos.above(), facing(statue, Direction.from2DDataValue(random.nextInt(3))), 2);
+        } else if (random.nextBoolean()) {
+            level.setBlock(pos, BaseBlocks.MONOLITH_STONE.get().defaultBlockState(), 2);
+            level.setBlock(pos.above(), EnergyBlocks.IDOL_OF_FADING.get().defaultBlockState(), 2);
+        }
+    }
+
+    private static BlockState legacyLog(BlockState log, Direction.Axis axis, RandomSource random) {
+        random.nextInt(10);
+        return withAxis(log, axis);
+    }
+
     private static ResourceLocation fallbackTemplate(StructureKind kind) {
         return switch (kind) {
+            case ABYRUIN -> ACRef.id("legacy/abyss/abyruin");
             case GRAVEYARD -> ACRef.id("legacy/graveyard/graveyard_small");
             case SHOGGOTH_PIT, SHOGGOTH_PIT_RIVER -> ACRef.id("legacy/shoggothlair/shoggothlair_1");
             default -> ACRef.id("legacy/shrine/dark_shrine");

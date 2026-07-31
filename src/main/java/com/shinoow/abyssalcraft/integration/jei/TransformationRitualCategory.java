@@ -16,7 +16,7 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 
-import com.shinoow.abyssalcraft.platform.ACRef;
+import com.shinoow.abyssalcraft.content.block.ritual.RitualBlocks;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifest;
 import com.shinoow.abyssalcraft.system.ritual.RitualManifestCatalog;
 
@@ -38,8 +38,7 @@ public final class TransformationRitualCategory implements IRecipeCategory<Ritua
     public TransformationRitualCategory(IGuiHelper gui, RecipeType<RitualManifest> type) {
         this.type = type;
         this.title = Component.translatable("jei.abyssalcraft.transformation_ritual");
-        // Use ritual altar as icon
-        this.icon = gui.createDrawable(ACRef.id("textures/block/ritual_altar.png"), 0, 0, 16, 16);
+        this.icon = gui.createDrawableItemStack(new ItemStack(RitualBlocks.RITUAL_ALTAR_ITEM.get()));
         this.background = LegacyJeiBackgrounds.transformationRitual(gui);
         this.slot = gui.getSlotDrawable();
     }

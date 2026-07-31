@@ -101,7 +101,8 @@ public final class ModWorldgen {
     /** The block-placing piece type for {@link ACStructure}. */
     public static final Supplier<StructurePieceType> AC_PIECE =
         STRUCTURE_PIECES.register("piece", () -> (StructurePieceType) (context, tag) ->
-            tag.contains("Kind") && StructureKindUsesTemplate.uses(tag.getString("Kind"))
+            tag.contains("LegacyTemplate")
+                || tag.contains("Kind") && StructureKindUsesTemplate.uses(tag.getString("Kind"))
                 ? new LegacyTemplatePiece(context, tag) : new ACStructurePiece(context, tag));
 
     private static final class StructureKindUsesTemplate {
