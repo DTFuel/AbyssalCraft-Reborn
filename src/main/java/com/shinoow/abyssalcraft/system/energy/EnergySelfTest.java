@@ -38,11 +38,23 @@ public final class EnergySelfTest {
         require(EnergyBlocks.ENERGY_CONTAINERS.size() == 5, "container catalog size changed");
         require(EnergyBlocks.ENERGY_PEDESTALS.size() == 5, "pedestal catalog size changed");
         require(EnergyBlocks.ENERGY_RELAYS.size() == 5, "relay catalog size changed");
+        require(EnergyBlocks.SACRIFICIAL_ALTARS.size() == 5, "sacrificial altar catalog size changed");
 
         checkIds(EnergyBlocks.ENERGY_COLLECTORS, EnergyBlockKind.COLLECTOR);
         checkIds(EnergyBlocks.ENERGY_CONTAINERS, EnergyBlockKind.CONTAINER);
         checkIds(EnergyBlocks.ENERGY_PEDESTALS, EnergyBlockKind.PEDESTAL);
         checkIds(EnergyBlocks.ENERGY_RELAYS, EnergyBlockKind.RELAY);
+        checkIds(EnergyBlocks.SACRIFICIAL_ALTARS, EnergyBlockKind.SACRIFICIAL_ALTAR);
+        int[] altarCapacity = {5000, 7500, 10000, 12500, 15000};
+        int[] altarCooldown = {1200, 1000, 800, 600, 400};
+        for (EnergyTier tier : EnergyTier.values()) {
+            require(com.shinoow.abyssalcraft.content.block.energy.SacrificialAltarBlockEntity.capacity(tier)
+                == altarCapacity[tier.ordinal()], "sacrificial altar capacity changed for " + tier);
+            require(com.shinoow.abyssalcraft.content.block.energy.SacrificialAltarBlockEntity.maxTargets(tier)
+                == tier.ordinal() + 1, "sacrificial altar target count changed for " + tier);
+            require(com.shinoow.abyssalcraft.content.block.energy.SacrificialAltarBlockEntity.cooldownTicks(tier)
+                == altarCooldown[tier.ordinal()], "sacrificial altar cooldown changed for " + tier);
+        }
         require(ACRef.id("energydepositioner").equals(
             BuiltInRegistries.BLOCK.getKey(EnergyBlocks.ENERGY_DEPOSITIONER.get())),
             "energy depositioner registry id changed");
@@ -178,7 +190,7 @@ public final class EnergySelfTest {
             && restored.collectors().equals(state.collectors()),
             "manipulator legacy-state round-trip changed");
 
-        System.out.println("RR_ENERGY_SELF_TEST_OK blocks=21 statues=7 charms=32 idol=1 pop=3 disruptions=27 blocked=0");
+        System.out.println("RR_ENERGY_SELF_TEST_OK blocks=26 statues=7 charms=32 idol=1 pop=3 disruptions=27 blocked=0");
     }
 
     private static void checkIds(List<Supplier<Block>> blocks, EnergyBlockKind kind) {

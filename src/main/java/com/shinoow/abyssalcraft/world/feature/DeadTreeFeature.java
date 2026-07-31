@@ -28,27 +28,37 @@ public class DeadTreeFeature extends Feature<BlockStateConfiguration> {
 
     @Override
     public boolean place(FeaturePlaceContext<BlockStateConfiguration> context) {
-        WorldGenLevel level = context.level();
-        BlockPos origin = context.origin();
-        RandomSource random = context.random();
-        BlockState log = context.config().state;
-        if (origin.getY() <= 54 || origin.getY() >= level.getMaxBuildHeight() - 10) return false;
+        return place(context.level(), context.origin(), context.random(), context.config().state, false);
+    }
+
+    /** Reuses the configured dead-tree geometry for legacy structure data markers. */
+    public boolean place(WorldGenLevel level, BlockPos origin, RandomSource random, BlockState log) {
+        return place(level, origin, random, log, false);
+    }
+
+    public boolean placeFixed(WorldGenLevel level, BlockPos origin, RandomSource random, BlockState log) {
+        return place(level, origin, random, log, true);
+    }
+
+    private boolean place(WorldGenLevel level, BlockPos origin, RandomSource random, BlockState log,
+                          boolean fixed) {
+        if (!fixed && origin.getY() <= 54 || origin.getY() >= level.getMaxBuildHeight() - 10) return false;
         BlockState soil = level.getBlockState(origin.below());
         if (!soil.is(com.shinoow.abyssalcraft.content.block.deco.DecoBlocks.ABYSSAL_SAND.get())
                 && !soil.is(com.shinoow.abyssalcraft.content.block.deco.DecoBlocks.FUSED_ABYSSAL_SAND.get())) {
             return false;
         }
 
-        int height = 7 + random.nextInt(3);
+        int height = fixed ? 6 : 7 + random.nextInt(3);
         int crownVariance = random.nextInt(3);
-        int branches = 4 + random.nextInt(4);
+        int branches = fixed ? 6 : 4 + random.nextInt(4);
         BlockState vertical = withAxis(log, Direction.Axis.Y);
         for (int y = 0; y < height; y++) {
             level.setBlock(origin.above(y), vertical, 2);
         }
         level.setBlock(origin.below(), com.shinoow.abyssalcraft.content.block.deco.DecoBlocks.ABYSSAL_SAND.get().defaultBlockState(), 2);
         for (Direction direction : Direction.Plane.HORIZONTAL) {
-            int rootHeight = random.nextInt(3);
+            int rootHeight = fixed ? 0 : random.nextInt(3);
             for (int y = 0; y <= rootHeight; y++) {
                 BlockPos root = origin.relative(direction).above(y);
                 level.setBlock(root, withAxis(log, direction.getAxis()), 2);

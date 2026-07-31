@@ -343,9 +343,12 @@ function generate() {
         const source = statueSources[deity];
         const rotationOffset = legacyStatueRotation(source);
         const stateRotations = Object.values(rotations).map(rotation => (rotation + rotationOffset) % 360).join('/');
+        const stateMapping = rotationOffset === 0
+            ? 'facing=north/east/south/west -> y=0/90/180/270, uvlock on rotated states'
+            : `facing=north/east/south/west -> y=${stateRotations}, preserving legacy model offset`;
         entries.push(entry(block, 'statue', `models/block/${source}.obj`,
             [`models/block/statue/${deity}.json`], [`textures/block/statue/${deity}.png`],
-            `facing=north/east/south/west -> y=${stateRotations}, preserving legacy model offset`,
+            stateMapping,
             'Original OBJ vertices, faces, and UVs are preserved byte-for-byte and baked by the active loader OBJ implementation.',
             [`models/block/${source}.mtl`, `textures/model/blocks/${source}.png`]));
     }

@@ -16,7 +16,11 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          "abyssalcraft:dreadlands_abyssalnite_ore"
+          {
+            "items": [
+              "abyssalcraft:dreadlands_abyssalnite_ore"
+            ]
+          }
         ]
       }
     },
@@ -24,7 +28,11 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          "abyssalcraft:dreaded_abyssalnite_ore"
+          {
+            "items": [
+              "abyssalcraft:dreaded_abyssalnite_ore"
+            ]
+          }
         ]
       }
     }

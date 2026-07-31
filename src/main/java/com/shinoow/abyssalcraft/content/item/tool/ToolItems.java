@@ -6,7 +6,6 @@ import java.util.function.Supplier;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -45,6 +44,8 @@ public final class ToolItems {
     private static final Tier CORALIUM = ToolCompat.tier("refined_coralium", 5, 1800, 12.0F, 5.0F, 13, repair("refined_coralium_ingot"));
     private static final Tier DREADIUM = ToolCompat.tier("dreadium", 6, 2300, 14.0F, 6.0F, 14, repair("dreadium_ingot"));
     private static final Tier ETHAXIUM = ToolCompat.tier("ethaxium", 8, 2800, 16.0F, 8.0F, 20, repair("ethaxium_ingot"));
+    private static final Tier DREADIUM_KATANA_HILT_TIER = ToolCompat.weaponTier(200, 1.0F, 0, repair("crystal_dreadium"));
+    private static final Tier DREADIUM_KATANA_TIER = ToolCompat.weaponTier(1000, 11.0F, 14, repair("crystal_dreadium"));
 
     static {
         registerTier("abyssalnite", ABYSSALNITE);
@@ -56,13 +57,13 @@ public final class ToolItems {
     public static final Supplier<Item> CUDGEL = special("cudgel", () ->
         ToolCompat.cudgel(new Item.Properties().durability(1500)));
     public static final Supplier<Item> CORALIUM_LONGBOW = special("coralium_longbow", () ->
-        new BowItem(new Item.Properties().durability(1800)));
+        new CoraliumLongbowItem(new Item.Properties().durability(637)));
     public static final Supplier<Item> DREADIUM_KATANA_HILT = special("dreadium_katana_hilt", () ->
-        new Item(new Item.Properties().stacksTo(1)));
+        ToolCompat.sword(DREADIUM_KATANA_HILT_TIER, 3, -2.4F, new Item.Properties()));
     public static final Supplier<Item> DREADIUM_KATANA_BLADE = special("dreadium_katana_blade", () ->
-        new Item(new Item.Properties().stacksTo(1)));
+        new Item(new Item.Properties()));
     public static final Supplier<Item> DREADIUM_KATANA = special("dreadium_katana", () ->
-        ToolCompat.sword(DREADIUM, 8, -2.0F, new Item.Properties()));
+        ToolCompat.sword(DREADIUM_KATANA_TIER, 3, -2.4F, new Item.Properties()));
 
     /** Register the five standard tools for one tier (vanilla-convention attack/speed modifiers). */
     private static void registerTier(String prefix, Tier tier) {

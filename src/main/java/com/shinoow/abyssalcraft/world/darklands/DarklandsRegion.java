@@ -22,6 +22,8 @@ import terrablender.api.RegionType;
 
 public final class DarklandsRegion extends Region {
 
+    private static final float FREQUENCY_PENALTY = 0.05F;
+
     public DarklandsRegion(ResourceLocation id, int weight) {
         super(id, RegionType.OVERWORLD, weight);
     }
@@ -51,9 +53,16 @@ public final class DarklandsRegion extends Region {
             .humidity(humidity)
             .continentalness(continentalness)
             .erosion(erosion)
-            .depth(Depth.SURFACE, Depth.FLOOR)
-            .weirdness(weirdness)
+            .depth(Depth.SURFACE)
+            .weirdness(halfWidth(weirdness.parameter()))
+            .offset(FREQUENCY_PENALTY)
             .build()
             .forEach(point -> mapper.accept(Pair.of(point, biome)));
+    }
+
+    private static Climate.Parameter halfWidth(Climate.Parameter parameter) {
+        long midpoint = (parameter.min() + parameter.max()) / 2L;
+        long halfWidth = (parameter.max() - parameter.min()) / 4L;
+        return new Climate.Parameter(midpoint - halfWidth, midpoint + halfWidth);
     }
 }

@@ -396,7 +396,7 @@ legacy_file,status,modern_recipe,reason
 "skin_0",MIGRATED,"abyssalcraft:skin_0",""
 "skin_1",MIGRATED,"abyssalcraft:skin_1",""
 "skin_2",MIGRATED,"abyssalcraft:skin_2",""
-"spawn_egg",BLOCKED,"","missing vanilla item minecraft:spawn_egg"
+"spawn_egg",RETIRED,"abyssalcraft:shadowboss_spawn_egg","legacy ODB recipe created an NBT-tagged Sacthoth egg; modern content has a dedicated egg"
 "statetransformer",MIGRATED,"abyssalcraft:statetransformer",""
 "stonetablet",MIGRATED,"abyssalcraft:stonetablet",""
 "torch",MIGRATED,"abyssalcraft:torch",""

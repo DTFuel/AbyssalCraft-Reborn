@@ -2,7 +2,7 @@
 
 - 里程碑 / Stage：M7 / Stage S-B
 - 关联平行任务：PS-5（框架）+ RR-ENERGY（完整服务端内容）；下游 R4/R5 读取本层
-- 状态：RR-ENERGY 当前依赖闭包完成；21网络块、7功能神像、32 charm、Idol、PoP/扰动链已双端验证
+- 状态：RR-ENERGY 当前依赖闭包完成；21网络块 + 5级献祭祭坛、7功能神像、32 charm、Idol、PoP/扰动链已双端验证
 - 负责：GitHub Copilot
 - 最后更新：2026-07-30
 
@@ -13,7 +13,7 @@ AbyssalCraft 的 Potential Energy（PE，势能）系统。功能神像产生PE�
 ## 2. 范围
 
 - 含：
-  - collector/container/pedestal/relay各5档 + depositioner，共21个网络块；同族共享实现与BE type。
+  - collector/container/pedestal/relay各5档 + depositioner，共21个传输网络块；另有5档 Sacrificial Altar，将附近成年非亡灵/非暗影生物的生命力转化为 PE，并向槽内能量物品输出。
   - 7个功能神像；`deity_statue`保留为Cthulhu旧世界兼容入口。
   - 32个ritual charm（8家族×基础/RANGE/DURATION/POWER）与Idol of Fading。
   - 玩家/掉落物/collector路由、relay障碍与红石暂停、物品双向传能、PE方块掉落/放置持久化。
@@ -42,7 +42,7 @@ AbyssalCraft 的 Potential Energy（PE，势能）系统。功能神像产生PE�
 | Dreadlands | 2500 | 240000 | 12500 | 800 / 10 / 40 / 50 |
 | Omothol | 3000 | 1200000 | 15000 | 900 / 12 / 50 / 60 |
 
-Depositioner容量10000，未激活量子15，POWER激活量子`20*max(amplifier,1)`，容差阈值200。神像基础量子5、容差阈值100，PoP成员不累加容差。
+Sacrificial Altar 容量依次为5000/7500/10000/12500/15000，目标数1–5，累计收集达到容量1/5后冷却1200/1000/800/600/400 tick。Depositioner容量10000，未激活量子15，POWER激活量子`20*max(amplifier,1)`，容差阈值200。神像基础量子5、容差阈值100，PoP成员不累加容差。
 
 ## 5. 跨版本 / 加载器要点
 
@@ -57,12 +57,14 @@ Depositioner容量10000，未激活量子15，POWER激活量子`20*max(amplifier
 
 ## 7. 验证 / DoD
 
-- 永久标记：`RR_ENERGY_SELF_TEST_OK blocks=21 statues=7 charms=32 idol=1 pop=3 disruptions=27 blocked=0`。本轮环境因 Gradle 缓存空 Zip 在配置期失败，未重写既有历史验证结论。
+- 永久标记：`RR_ENERGY_SELF_TEST_OK blocks=26 statues=7 charms=32 idol=1 pop=3 disruptions=27 blocked=0`。
 - 双端真实ServerLevel：collector→relay→container实移10 PE；实心障碍阻断；红石暂停；pedestal→Necronomicon实移20 PE；Basic/Totem/Archway成型、加成与断裂解绑通过。
 - 双端停服重启逐字段恢复：collector 321、container 654、pedestal 777+满能书、relay 111、depositioner 888+tolerance/charm、statue tolerance/charm/PoP、idol 99、PoP `basic` identifier。
-- 资源审计：32相关方块、20网络块、8含兼容入口神像、32 charm模型、loot与pickaxe双目录零缺失；8语言文件各620键且集合一致。
+- 资源审计：237注册方块/563注册物品、五档 Sacrificial Altar blockstate/model/item model/loot、27 BE（5 BER+22 no-BER）均闭包；8语言文件各1368键且集合一致。
 
 ## 修订日志
+
+- 2026-07-31：恢复五级 Sacrificial Altar 的生命力采集、PE持久化/物品输出、模型/BER与铁砧升级链；PE方块总数更新为26。
 
 - 2026-07-25：RR-ENERGY完整服务端闭环落地；21网络块、7神像、32 charm、Idol、PE掉落/放置持久化及双端真实Level/重启矩阵通过。GUI/网络FX与Stone Tablet保持后续边界。
 

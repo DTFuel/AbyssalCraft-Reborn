@@ -4,6 +4,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.level.Level;
+
+import java.util.Optional;
 
 import com.shinoow.abyssalcraft.platform.DataRecipeCompat;
 import com.shinoow.abyssalcraft.registry.ModRecipes;
@@ -33,6 +36,15 @@ public class AnvilForgingRecipe extends DataRecipeCompat {
     public Ingredient input2() { return input2; }
     public int price() { return price; }
     public String forgingType() { return forgingType; }
+
+    public boolean matches(ItemStack left, ItemStack right) {
+        return input1.test(left) && input2.test(right);
+    }
+
+    public static Optional<AnvilForgingRecipe> find(Level level, ItemStack left, ItemStack right) {
+        return DataRecipeCompat.findEntry(level, ModRecipes.ANVIL_FORGING.get(),
+            recipe -> recipe.matches(left, right)).map(DataRecipeCompat.Entry::value);
+    }
 
     @Override
     public RecipeType<?> getType() {

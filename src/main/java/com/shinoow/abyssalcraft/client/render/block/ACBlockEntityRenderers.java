@@ -30,5 +30,6 @@ public final class ACBlockEntityRenderers {
         renderers.registerBlockEntity(RitualBlocks.RITUAL_PEDESTAL_BE.get(), RitualPedestalRenderer::new);
         renderers.registerBlockEntity(RendingPedestals.RENDING_PEDESTAL_BE.get(), RendingPedestalRenderer::new);
         renderers.registerBlockEntity(EnergyBlocks.ENERGY_PEDESTAL_BE.get(), EnergyPedestalRenderer::new);
+        renderers.registerBlockEntity(EnergyBlocks.SACRIFICIAL_ALTAR_BE.get(), SacrificialAltarRenderer::new);
     }
 }

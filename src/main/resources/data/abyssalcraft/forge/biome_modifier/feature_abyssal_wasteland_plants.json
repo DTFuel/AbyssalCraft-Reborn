@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": ["abyssalcraft:abyssal_wastelands", "abyssalcraft:abyssal_swamp"],
+  "features": ["abyssalcraft:abyssal_wasteland_plants"],
+  "step": "vegetal_decoration"
+}

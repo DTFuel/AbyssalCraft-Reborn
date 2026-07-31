@@ -11,9 +11,9 @@ import com.shinoow.abyssalcraft.content.item.tablet.TabletItems;
 import com.shinoow.abyssalcraft.content.item.transfer.SpiritTabletStorage;
 import com.shinoow.abyssalcraft.content.item.transfer.TransferContent;
 import com.shinoow.abyssalcraft.content.item.tool.ToolItems;
+import com.shinoow.abyssalcraft.content.item.weapon.SoulReaperItem;
 import com.shinoow.abyssalcraft.content.item.weapon.SoulReaperItems;
 import com.shinoow.abyssalcraft.platform.ACRef;
-import com.shinoow.abyssalcraft.platform.ItemDataCompat;
 
 import net.minecraft.client.renderer.item.ItemProperties;
 
@@ -42,7 +42,7 @@ public final class ClientItemProperties {
         ItemProperties.register(RitualItems.INTERDIMENSIONAL_CAGE.get(), ACRef.id("captured"),
             (stack, level, entity, seed) -> InterdimensionalCageItem.hasCapturedEntity(stack) ? 1.0F : 0.0F);
         ItemProperties.register(SoulReaperItems.SOUL_REAPER_BLADE.get(), ACRef.id("level"),
-            (stack, level, entity, seed) -> soulReaperLevel(ItemDataCompat.getInt(stack, "souls", 0)));
+            (stack, level, entity, seed) -> soulReaperLevel(SoulReaperItem.souls(stack)));
         ItemProperties.register(TransferContent.SPIRIT_TABLET.get(), ACRef.id("mode"),
             (stack, level, entity, seed) -> SpiritTabletStorage.mode(stack) / 2.0F);
         ItemProperties.register(ToolItems.CORALIUM_LONGBOW.get(), ACRef.vanilla("pull"),

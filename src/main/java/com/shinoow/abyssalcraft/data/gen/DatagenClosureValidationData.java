@@ -42,7 +42,7 @@ public final class DatagenClosureValidationData implements DataProvider {
         "abyssalcraft:anvil_forging", "abyssalcraft:crystallization", "abyssalcraft:materialization",
         "abyssalcraft:rending", "abyssalcraft:transmutation");
     private static final Set<String> WORLDGEN_TYPES = Set.of(
-        "abyssalcraft:chains", "abyssalcraft:configurable_amplified_offset",
+        "abyssalcraft:abyssal_wasteland_plants", "abyssalcraft:chains", "abyssalcraft:configurable_amplified_offset",
         "abyssalcraft:coralium_swamp_ores", "abyssalcraft:dark_realm_cavity_mask",
         "abyssalcraft:dead_tree", "abyssalcraft:mini_pillar", "abyssalcraft:monolith",
         "abyssalcraft:stalagmite", "abyssalcraft:structure");

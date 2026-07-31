@@ -53,6 +53,9 @@ import com.shinoow.abyssalcraft.registry.ModSounds;
 /** Seven-profession Remnant merchant with persistent offers, anger and one-time shearing. */
 public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
 
+    private static final int RESTOCK_DELAY = 40;
+    private static final int RESTOCK_REGEN_DURATION = 200;
+
     private static final EntityDataAccessor<Integer> PROFESSION =
         SynchedEntityData.defineId(RemnantMob.class, EntityDataSerializers.INT);
 
@@ -64,6 +67,8 @@ public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
     private MerchantOffers offers;
     private int wealth;
     private int villagerXp;
+    private int restockTime;
+    private boolean restockOffers;
     private boolean sheared;
 
     public RemnantMob(EntityType<? extends Monster> type, Level level) {
@@ -134,6 +139,7 @@ public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
     @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
+        tickRestock();
         if (angerTime > 0) angerTime--;
         if (angerTime == 0) {
             angerTarget = null;
@@ -141,6 +147,38 @@ public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
         } else if (getTarget() == null && angerTarget != null && level() instanceof ServerLevel server
                 && server.getEntity(angerTarget) instanceof LivingEntity living && living.isAlive()) {
             setTarget(living);
+        }
+    }
+
+    private void tickRestock() {
+        if (tradingPlayer != null || restockTime <= 0) return;
+        if (--restockTime > 0) return;
+        if (restockOffers && offers != null) {
+            for (int index = 0; index < offers.size(); index++) {
+                MerchantOffer candidate = offers.get(index);
+                if (candidate.isOutOfStock() && !isSpiritTabletShard(candidate.getResult())) {
+                    int additionalUses = getRandom().nextInt(6) + getRandom().nextInt(6) + 2;
+                    offers.set(index, MerchantOfferCompat.increaseMaxUses(candidate, additionalUses));
+                }
+            }
+            restockOffers = false;
+            addDefaultRestockOffer();
+            addEffect(new MobEffectInstance(MobEffects.REGENERATION, RESTOCK_REGEN_DURATION));
+        }
+    }
+
+    private void addDefaultRestockOffer() {
+        MerchantOffers generated = createOffers();
+        if (offers == null) offers = new MerchantOffers();
+        if (generated.isEmpty()) return;
+        int start = getRandom().nextInt(generated.size());
+        for (int offset = 0; offset < generated.size(); offset++) {
+            MerchantOffer candidate = generated.get((start + offset) % generated.size());
+            boolean duplicate = offers.stream().anyMatch(existing -> hasSameTradeIds(existing, candidate));
+            if (!duplicate) {
+                offers.add(candidate);
+                return;
+            }
         }
     }
 
@@ -195,6 +233,8 @@ public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
         tag.putInt("Profession", getProfession());
         tag.putInt("Money", wealth);
         tag.putInt("VillagerXp", villagerXp);
+        tag.putInt("RestockTime", restockTime);
+        tag.putBoolean("RestockOffers", restockOffers);
         tag.putBoolean("Sheared", sheared);
         if (offers != null) tag.put("Offers", MerchantOfferCompat.save(offers));
     }
@@ -207,6 +247,8 @@ public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
         entityData.set(PROFESSION, Math.max(0, Math.min(6, tag.getInt("Profession"))));
         wealth = Math.max(0, tag.getInt("Money"));
         villagerXp = Math.max(0, tag.getInt("VillagerXp"));
+        restockTime = Math.max(0, tag.getInt("RestockTime"));
+        restockOffers = tag.getBoolean("RestockOffers");
         sheared = tag.getBoolean("Sheared");
         offers = tag.contains("Offers") ? MerchantOfferCompat.load(tag.getCompound("Offers")) : null;
     }
@@ -224,7 +266,8 @@ public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
 
     @Override
     public MerchantOffers getOffers() {
-        if (offers == null || offers.isEmpty()) offers = createOffers();
+        if (offers == null) offers = new MerchantOffers();
+        if (offers.isEmpty()) addDefaultRestockOffer();
         return offers;
     }
 
@@ -244,6 +287,11 @@ public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
         }
         if (isSpiritTabletShard(result)) offer.increaseUses();
         if (offer.getBaseCostA().is(item("coin"))) wealth += offer.getBaseCostA().getCount();
+        if (offers != null && !offers.isEmpty()
+            && hasSameTradeIds(offer, offers.get(offers.size() - 1))) {
+            restockTime = RESTOCK_DELAY;
+            restockOffers = true;
+        }
         playSound(ModSounds.event("remnant.yes"), 1.0F, getVoicePitch());
     }
 
@@ -279,7 +327,7 @@ public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
 
     @Override
     public boolean canRestock() {
-        return false;
+        return true;
     }
 
     @Override
@@ -445,6 +493,16 @@ public class RemnantMob extends EliteMob implements Merchant, ShearableCompat {
             || stack.is(MiscItems.SPIRIT_TABLET_SHARD_1.get())
             || stack.is(MiscItems.SPIRIT_TABLET_SHARD_2.get())
             || stack.is(MiscItems.SPIRIT_TABLET_SHARD_3.get());
+    }
+
+    private static boolean hasSameTradeIds(MerchantOffer first, MerchantOffer second) {
+        ItemStack firstSecondCost = first.getCostB();
+        ItemStack secondSecondCost = second.getCostB();
+        return first.getBaseCostA().is(second.getBaseCostA().getItem())
+            && first.getResult().is(second.getResult().getItem())
+            && (firstSecondCost.isEmpty() && secondSecondCost.isEmpty()
+                || !firstSecondCost.isEmpty() && !secondSecondCost.isEmpty()
+                    && firstSecondCost.is(secondSecondCost.getItem()));
     }
 
     private static boolean hasNecronomicon(Player player) {

@@ -16,6 +16,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -24,6 +25,7 @@ import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.event.level.BlockEvent;
 //?} else {
 /*import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.event.AnvilUpdateEvent;
 import net.neoforged.neoforge.event.entity.player.AdvancementEvent;
 import net.neoforged.neoforge.event.entity.EntityEvent;
 import net.neoforged.neoforge.event.entity.living.AnimalTameEvent;
@@ -62,6 +64,7 @@ public final class GameHooksCompat {
     public static void attach() {
         EventBuses.game().addListener((LivingDeathEvent event) -> onLivingDeath(event));
         EventBuses.game().addListener((AdvancementEvent.AdvancementEarnEvent event) -> onAdvancementEarned(event));
+        EventBuses.game().addListener((AnvilUpdateEvent event) -> onAnvilUpdate(event));
         //? if forge {
         EventBuses.game().addListener((LivingHurtEvent event) -> {
             com.shinoow.abyssalcraft.common.handlers.EffectHooks.onLivingHurt(event.getEntity(), event.getSource());
@@ -119,6 +122,16 @@ public final class GameHooksCompat {
         //?} else {
         /*KnowledgeHooks.onAdvancementEarned(player, event.getAdvancement().id());
         *///?}
+    }
+
+    private static void onAnvilUpdate(AnvilUpdateEvent event) {
+        com.shinoow.abyssalcraft.content.recipe.anvil.AnvilForgingRecipe
+            .find(event.getPlayer().level(), event.getLeft(), event.getRight())
+            .ifPresent(recipe -> {
+                event.setOutput(recipe.result().copy());
+                event.setMaterialCost(1);
+                event.setCost(recipe.price());
+            });
     }
 
     private static void onLivingDeath(LivingDeathEvent event) {

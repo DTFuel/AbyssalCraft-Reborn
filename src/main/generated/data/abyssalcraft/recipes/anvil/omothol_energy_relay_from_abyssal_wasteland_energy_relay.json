@@ -1,0 +1,15 @@
+{
+  "type": "abyssalcraft:anvil_forging",
+  "forging_type": "default",
+  "input1": {
+    "item": "abyssalcraft:abyssal_wasteland_energy_relay"
+  },
+  "input2": {
+    "item": "abyssalcraft:ring_omothol"
+  },
+  "price": 1,
+  "result": {
+    "count": 1,
+    "item": "abyssalcraft:omothol_energy_relay"
+  }
+}

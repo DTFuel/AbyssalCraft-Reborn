@@ -41,6 +41,7 @@ public final class ACDataGenerators {
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.CrystalClusterRecipeData(gen));
         // PC-9 (Stage C2b) machine recipes: crystallizer/transmutator/materializer example ProcessingRecipes.
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.MachineRecipeData(gen));
+        gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.AnvilForgingRecipeData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.MenuHostValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.StateTransformerValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.RendingPedestalValidationData(gen));

@@ -178,6 +178,13 @@
 - 配方序列化 `fromJson`/`toNetwork`(1.20) 与 `MapCodec`/`StreamCodec`(1.21)：`RecipeSerializerCompat`。
 - 屏幕注册 `FMLClientSetupEvent`+`MenuScreens.register`(forge) 与 `RegisterMenuScreensEvent`(neo)：`ClientScreenCompat`；`renderBackground` 1.21 加 mouse/pt → `ClientScreenCompat.background`。
 - **同签名无需分叉**：`EntityBlock.newBlockEntity`/`getTicker`、`blit`、`AbstractContainerScreen`(renderBg/render/init/renderLabels)、`MenuScreens.register`、`InteractionResult.sidedSuccess`、vanilla `AbstractFurnaceBlockEntity.getFuel`/`isFuel` → 机器块/BE/屏幕业务代码零 `//?`。
+
+### 铁砧锻造闭包（2026-07-31）
+
+- 1.12.2 `AbyssalCrafting#addForgings` 冻结为 **74 项**：8 个 charm family × range/power/duration = 24，五类 PE 方块的 10 条跨级升级 = 50。
+- `LegacyAnvilForgingCatalog` 与 `AnvilForgingRecipeData` 将 74 项全部生成到 `recipes/anvil/` 与 `recipe/anvil/`，审计为 `migrated=74 retired=0 blocked=0 files=148`。
+- 恢复五级独立 Sacrificial Altar（不是 Ritual Altar）：生命力收集、1–5 目标、5000–15000 PE、1200–400 tick 冷却、单槽 PE 输出与持久化；旧普通合成重新产出 `sacrificialaltar`。
+- `GameHooksCompat` 恢复双加载器 `AnvilUpdateEvent`：左右 Ingredient 精确匹配，输出配方结果，材料消耗 1，等级价格取 recipe `price`。双端 live RecipeManager 输出 `RR_ANVIL_FORGING_RUNTIME_OK recipes=74 charm=ok peUpgrade=ok altarUpgrade=ok reversedRejected=true`。
 - **JEI API 双版本同签名（javap 双 jar 核）**：JEI 15(forge 1.20.1) 与 19(neo 1.21.1) 我所用的 `IModPlugin` / `IRecipeCategory`(getRecipeType/getTitle/getWidth/getHeight/getIcon/setRecipe/draw) / `RecipeType.create` / `IGuiHelper` / `IRecipeLayoutBuilder` / `IRecipeSlotBuilder`(addSlot/setBackground/addIngredients/addItemStack) / `IRecipeCatalystRegistration.addRecipeCatalyst` / `RecipeIngredientRole` 逐一同签名（19 仅多我不覆写的 default 方法）→ `integration/jei` 业务零 `//?`。唯一版本分叉 = 配方枚举 `RecipeManager.getAllRecipesFor`（1.20 `List<T>` / 1.21 `List<RecipeHolder<T>>`），落 `RecipeCompat.allOfType`。
 
 ## 6. 实现记忆 / 踩坑 (verified gotchas)

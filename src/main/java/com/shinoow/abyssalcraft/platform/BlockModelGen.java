@@ -120,6 +120,15 @@ public abstract class BlockModelGen extends BlockStateProvider {
         simpleBlockItem(block, upright);
     }
 
+    /** Legacy Sacrificial Altar geometry with tier host-stone bands. */
+    protected void sacrificialAltar(Block block, ResourceLocation hostStone) {
+        ModelFile model = hostStone == null
+            ? new ModelFile.UncheckedModelFile(modLoc("block/sacrificial_altar"))
+            : models().withExistingParent(path(block), modLoc("block/tiered_sacrificial_altar"))
+                .texture("host", hostStone);
+        simpleBlockWithItem(block, model);
+    }
+
     /** Legacy open-frame Energy Container geometry; tiered variants add host-stone bands. */
     protected void energyContainer(Block block, ResourceLocation hostStone) {
         boolean tiered = hostStone != null;

@@ -85,4 +85,12 @@ public final class DragonBoss extends BossMob implements EntityPartCompat.Parent
         return SoundEvents.ENDER_DRAGON_HURT;
     }
 
+    @Override
+    protected void tickACDeath(int deathTick) {
+        if (deathTick == 1) level().levelEvent(null, 1018, blockPosition(), 0);
+        setPos(getX(), getY() + 0.1D, getZ());
+        setYRot(getYRot() + 20.0F);
+        yBodyRot = getYRot();
+    }
+
 }

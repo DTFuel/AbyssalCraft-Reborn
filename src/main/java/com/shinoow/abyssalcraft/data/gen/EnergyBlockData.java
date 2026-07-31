@@ -38,6 +38,11 @@ public final class EnergyBlockData extends BlockModelGen {
         energyRelay(EnergyBlocks.ENERGY_RELAYS.get(2).get(), modLoc("block/abyssal_stone"));
         energyRelay(EnergyBlocks.ENERGY_RELAYS.get(3).get(), modLoc("block/dreadstone"));
         energyRelay(EnergyBlocks.ENERGY_RELAYS.get(4).get(), modLoc("block/omothol_stone"));
+        sacrificialAltar(EnergyBlocks.SACRIFICIAL_ALTARS.get(0).get(), null);
+        sacrificialAltar(EnergyBlocks.SACRIFICIAL_ALTARS.get(1).get(), mcLoc("block/stone"));
+        sacrificialAltar(EnergyBlocks.SACRIFICIAL_ALTARS.get(2).get(), modLoc("block/abyssal_stone"));
+        sacrificialAltar(EnergyBlocks.SACRIFICIAL_ALTARS.get(3).get(), modLoc("block/dreadstone"));
+        sacrificialAltar(EnergyBlocks.SACRIFICIAL_ALTARS.get(4).get(), modLoc("block/omothol_stone"));
 
         energyDepositioner(EnergyBlocks.ENERGY_DEPOSITIONER.get());
         parentModel(EnergyBlocks.IDOL_OF_FADING.get(), "deco_statue", "monolith_stone");

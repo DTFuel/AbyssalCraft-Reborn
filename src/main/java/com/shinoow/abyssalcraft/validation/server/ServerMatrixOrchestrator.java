@@ -22,10 +22,17 @@ public final class ServerMatrixOrchestrator {
 
     public static final String ENABLE_PROPERTY = "abyssalcraft.rrServerMatrix";
     public static final String RITUAL_ALTAR_FIXTURE_PROPERTY = "abyssalcraft.ritualAltarFixture";
+    public static final String DEITY_STATUE_FIXTURE_PROPERTY = "abyssalcraft.deityStatueFixture";
 
     private ServerMatrixOrchestrator() {}
 
     public static void run(MinecraftServer server) {
+        if (Boolean.getBoolean(DEITY_STATUE_FIXTURE_PROPERTY)) {
+            DeityStatuePEFixture.run(server.overworld());
+            System.out.println("RR_DEITY_STATUE_MATRIX_OK statues=7 deityMappings=7 amplifiers=14");
+            server.halt(false);
+            return;
+        }
         if (Boolean.getBoolean(RITUAL_ALTAR_FIXTURE_PROPERTY)) {
             runRitualAltarFixtures(server);
             System.out.println("RR_RITUAL_ALTAR_MATRIX_OK dimensions=5 materials=5 pedestals=40");

@@ -16,7 +16,11 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          "abyssalcraft:ethaxium_ingot"
+          {
+            "items": [
+              "abyssalcraft:ethaxium_ingot"
+            ]
+          }
         ]
       }
     }

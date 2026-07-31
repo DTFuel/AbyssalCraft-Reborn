@@ -13,6 +13,8 @@ import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
+import com.shinoow.abyssalcraft.content.item.weapon.SoulReaperItem;
+
 /**
  * Compat: tool tiers + tool items (vanilla axis).
  *
@@ -79,12 +81,17 @@ public final class ToolCompat {
     }
 
     public static Item soulReaper(Item.Properties props) {
-        Tier tier = new Tier() {
-            @Override public int getUses() { return 2000; }
+        return new SoulReaperItem(weaponTier(2000, 26.0F, 0,
+            () -> Ingredient.of(net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ACRef.id("shadow_gem")))), props);
+    }
+
+    public static Tier weaponTier(int uses, float attackBonus, int enchantValue, Supplier<Ingredient> repair) {
+        return new Tier() {
+            @Override public int getUses() { return uses; }
             @Override public float getSpeed() { return 1.0F; }
-            @Override public float getAttackDamageBonus() { return 26.0F; }
-            @Override public int getEnchantmentValue() { return 0; }
-            @Override public Ingredient getRepairIngredient() { return Ingredient.EMPTY; }
+            @Override public float getAttackDamageBonus() { return attackBonus; }
+            @Override public int getEnchantmentValue() { return enchantValue; }
+            @Override public Ingredient getRepairIngredient() { return repair.get(); }
             //? if >=1.21 {
             /*@Override public net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> getIncorrectBlocksForDrops() {
                 return net.minecraft.tags.BlockTags.INCORRECT_FOR_WOODEN_TOOL;
@@ -94,15 +101,6 @@ public final class ToolCompat {
             @Override public net.minecraft.tags.TagKey<net.minecraft.world.level.block.Block> getTag() { return null; }
             //?}
         };
-        //? if >=1.21 {
-        /*return new SwordItem(tier, props.attributes(SwordItem.createAttributes(tier, 3, -2.4F))) {
-            @Override public boolean isEnchantable(ItemStack stack) { return false; }
-        };
-        *///?} else {
-        return new SwordItem(tier, 3, -2.4F, props) {
-            @Override public boolean isEnchantable(ItemStack stack) { return false; }
-        };
-        //?}
     }
 
     /** The legacy Cudgel: 1500 durability, +19 attack, -2.4 speed, bone repair and no enchanting. */

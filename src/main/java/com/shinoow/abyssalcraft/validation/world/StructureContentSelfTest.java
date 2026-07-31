@@ -8,6 +8,10 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import com.shinoow.abyssalcraft.content.block.structure.CrateBlockEntity;
 import com.shinoow.abyssalcraft.content.block.structure.SealingLockBlockEntity;
 import com.shinoow.abyssalcraft.content.block.structure.StructureContent;
+import com.shinoow.abyssalcraft.content.block.energy.EnergyBlocks;
+import com.shinoow.abyssalcraft.content.block.energy.IdolOfFadingBlockEntity;
+import com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothBiomassBlockEntity;
+import com.shinoow.abyssalcraft.registry.BaseBlocks;
 
 /** Permanent contract checks for converted structure marker hosts. */
 public final class StructureContentSelfTest {
@@ -37,7 +41,21 @@ public final class StructureContentSelfTest {
         restored.configureMarker("sealing_lock:unlocked");
         require(restored.isUnlocked(), "unlocked structure marker remained locked");
 
-        System.out.println("RR_WORLD_STRUCTURE_CONTENT_OK crateSlots=27 markerHosts=2 lockTarget=locked");
+        IdolOfFadingBlockEntity idol = new IdolOfFadingBlockEntity(BlockPos.ZERO,
+            EnergyBlocks.IDOL_OF_FADING.get().defaultBlockState());
+        idol.setEnergy(idol.getMaxEnergy());
+        require(idol.getContainedEnergy() == idol.getMaxEnergy(), "idol marker did not fill PE");
+        require(EnergyBlocks.ENERGY_PEDESTALS.size() >= 4,
+            "Omothol marker cannot select its four legacy pedestal tiers");
+        ShoggothBiomassBlockEntity biomass = new ShoggothBiomassBlockEntity(BlockPos.ZERO,
+            com.shinoow.abyssalcraft.content.block.shoggoth.ShoggothBlocks.SHOGGOTH_BIOMASS.get().defaultBlockState());
+        biomass.setInitialCooldown(99);
+        require(!BaseBlocks.DEAD_TREE_LOG.get().defaultBlockState().isAir()
+                && !BaseBlocks.DARKLANDS_OAK_LOG.get().defaultBlockState().isAir()
+                && !BaseBlocks.DREADWOOD_LOG.get().defaultBlockState().isAir(),
+            "graveyard tree marker lost one of its legacy tree species");
+
+        System.out.println("RR_WORLD_STRUCTURE_CONTENT_OK crateSlots=27 markerHosts=5 lockTarget=locked treeSpecies=3");
     }
 
     private static void require(boolean condition, String reason) {

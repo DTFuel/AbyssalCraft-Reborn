@@ -16,6 +16,7 @@ import com.shinoow.abyssalcraft.platform.DensityFunctionCompat;
 import com.shinoow.abyssalcraft.platform.StructureCompat;
 import com.shinoow.abyssalcraft.world.density.DarkRealmCavityMask;
 import com.shinoow.abyssalcraft.world.density.ConfigurableAmplifiedOffset;
+import com.shinoow.abyssalcraft.world.feature.AbyssalWastelandPlantsFeature;
 import com.shinoow.abyssalcraft.world.feature.DeadTreeFeature;
 import com.shinoow.abyssalcraft.world.feature.CoraliumSwampOreFeature;
 import com.shinoow.abyssalcraft.world.feature.ChainsFeature;
@@ -77,6 +78,8 @@ public final class ModWorldgen {
     /** Coralium Infested Swamp's two legacy ore passes, executed once per generated chunk. */
     public static final Supplier<CoraliumSwampOreFeature> CORALIUM_SWAMP_ORES =
         FEATURES.register("coralium_swamp_ores", () -> new CoraliumSwampOreFeature(NoneFeatureConfiguration.CODEC));
+    public static final Supplier<AbyssalWastelandPlantsFeature> ABYSSAL_WASTELAND_PLANTS =
+        FEATURES.register("abyssal_wasteland_plants", () -> new AbyssalWastelandPlantsFeature(NoneFeatureConfiguration.CODEC));
     public static final Supplier<ChainsFeature> CHAINS =
         FEATURES.register("chains", () -> new ChainsFeature(NoneFeatureConfiguration.CODEC));
 

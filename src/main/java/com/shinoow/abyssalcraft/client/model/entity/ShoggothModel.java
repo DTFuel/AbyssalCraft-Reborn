@@ -16,7 +16,7 @@ import com.shinoow.abyssalcraft.content.entity.shoggoth.AbstractShoggoth;
  * hierarchy and the setRotationAngles animation are transcribed verbatim by
  * scripts/convert_modelbase_to_entitymodel.js --full (do not hand-edit; regenerate instead).
  */
-public class ShoggothModel extends HierarchicalModel<AbstractShoggoth> {
+public class ShoggothModel extends BrightnessAlphaModel<AbstractShoggoth> {
 
     private final ModelPart root;
     private final ModelPart headJoint;

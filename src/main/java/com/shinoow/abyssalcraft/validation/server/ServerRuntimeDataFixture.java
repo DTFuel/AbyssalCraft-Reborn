@@ -7,6 +7,7 @@ import com.shinoow.abyssalcraft.content.entity.misc.DimensionPortal;
 import com.shinoow.abyssalcraft.content.entity.misc.MiscEntities;
 import com.shinoow.abyssalcraft.content.entity.behavior.EntityLootAudit;
 import com.shinoow.abyssalcraft.data.gen.LegacyMachineRecipeCatalog;
+import com.shinoow.abyssalcraft.data.gen.LegacyAnvilForgingCatalog;
 import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.platform.DataRecipeCompat;
 import com.shinoow.abyssalcraft.platform.ServerDataCompat;
@@ -18,6 +19,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 /** Runtime closure over the live RecipeManager, loot data and dynamic registries. */
 public final class ServerRuntimeDataFixture {
@@ -40,6 +43,7 @@ public final class ServerRuntimeDataFixture {
             .collect(java.util.stream.Collectors.toUnmodifiableSet());
         require(recipes.equals(expectedRecipes), "live RecipeManager machine recipe closure=" + recipes.size()
             + " expected=" + expectedRecipes.size());
+        runAnvilForging(level);
 
         int legacyLoot = EntityLootAudit.entries().size();
         int logicalLoot = EntityLootAudit.logicalTables().size();
@@ -52,7 +56,51 @@ public final class ServerRuntimeDataFixture {
         require(level.registryAccess() == server.registryAccess(), "ServerLevel registry access is not server-owned");
         validatePortalLifetime(level);
         System.out.println("RR_SERVER_RUNTIME_DATA_OK recipes=" + recipes.size()
-            + " legacyLoot=69 resolvedLoot=97 registries=live portalLifetime=ok");
+            + " anvil=74 legacyLoot=69 resolvedLoot=97 registries=live portalLifetime=ok");
+    }
+
+    public static void runAnvilForging(ServerLevel level) {
+        var entries = DataRecipeCompat.entriesOfType(level, ModRecipes.ANVIL_FORGING.get());
+        Set<String> ids = entries.stream().map(entry -> entry.id().toString())
+            .collect(java.util.stream.Collectors.toUnmodifiableSet());
+        require(ids.equals(LegacyAnvilForgingCatalog.executableRecipeIds()),
+            "live RecipeManager anvil closure=" + ids.size()
+                + " expected=" + LegacyAnvilForgingCatalog.executableRecipeIds().size());
+
+        var charm = com.shinoow.abyssalcraft.content.recipe.anvil.AnvilForgingRecipe.find(level,
+            stack("abyssalcraft:charm"), new ItemStack(Items.ARROW)).orElseThrow(() ->
+                new IllegalStateException("RR_SERVER_MATRIX_FAIL base charm range forging missing"));
+        require(charm.result().is(item("abyssalcraft:charm_range")) && charm.price() == 1
+                && charm.forgingType().equals("ritual_charm"),
+            "base charm range forging changed");
+
+        var pedestal = com.shinoow.abyssalcraft.content.recipe.anvil.AnvilForgingRecipe.find(level,
+            stack("abyssalcraft:energypedestal"), stack("abyssalcraft:ring_omothol")).orElseThrow(() ->
+                new IllegalStateException("RR_SERVER_MATRIX_FAIL Omothol pedestal forging missing"));
+        require(pedestal.result().is(item("abyssalcraft:omothol_energy_pedestal"))
+                && pedestal.price() == 1 && pedestal.forgingType().equals("default"),
+            "Omothol pedestal forging changed");
+        var altar = com.shinoow.abyssalcraft.content.recipe.anvil.AnvilForgingRecipe.find(level,
+            stack("abyssalcraft:sacrificialaltar"), stack("abyssalcraft:ring_dreadlands")).orElseThrow(() ->
+                new IllegalStateException("RR_SERVER_MATRIX_FAIL Dreadlands Sacrificial Altar forging missing"));
+        require(altar.result().is(item("abyssalcraft:dreadlands_sacrificial_altar"))
+                && altar.price() == 1 && altar.forgingType().equals("default"),
+            "Dreadlands Sacrificial Altar forging changed");
+        require(com.shinoow.abyssalcraft.content.recipe.anvil.AnvilForgingRecipe.find(level,
+            new ItemStack(Items.ARROW), stack("abyssalcraft:charm")).isEmpty(),
+            "anvil forging accepted reversed inputs");
+        require(com.shinoow.abyssalcraft.content.recipe.anvil.AnvilForgingRecipe.find(level,
+            stack("abyssalcraft:charm"), new ItemStack(Items.DIRT)).isEmpty(),
+            "anvil forging accepted an unrelated material");
+        System.out.println("RR_ANVIL_FORGING_RUNTIME_OK recipes=74 charm=ok peUpgrade=ok altarUpgrade=ok reversedRejected=true");
+    }
+
+    private static ItemStack stack(String id) {
+        return new ItemStack(item(id));
+    }
+
+    private static net.minecraft.world.item.Item item(String id) {
+        return net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ACRef.parse(id));
     }
 
     private static void validatePortalLifetime(ServerLevel level) {

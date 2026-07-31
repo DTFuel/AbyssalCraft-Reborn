@@ -5,7 +5,8 @@ public enum EnergyBlockKind {
     COLLECTOR("energycollector", "energy_collector"),
     CONTAINER("energycontainer", "energy_container"),
     PEDESTAL("energypedestal", "energy_pedestal"),
-    RELAY("energyrelay", "energy_relay");
+    RELAY("energyrelay", "energy_relay"),
+    SACRIFICIAL_ALTAR("sacrificialaltar", "sacrificial_altar");
 
     private final String basicId;
     private final String tieredSuffix;

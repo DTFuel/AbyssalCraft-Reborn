@@ -167,6 +167,7 @@ public final class ModRegistries {
         ShoggothEntities.ITEMS,
         ShoggothBlocks.BLOCKS,
         ShoggothBlocks.ITEMS,
+        ShoggothBlocks.BLOCK_ENTITIES,
         StructureContent.BLOCKS,
         StructureContent.ITEMS,
         StructureContent.BLOCK_ENTITIES,

@@ -46,7 +46,7 @@ public final class LegacyCraftingRecipeData implements DataProvider {
         Map.entry("darklands_oak_wood", "darklands_oak_log"),
         Map.entry("darklands_oak_wood_2", "darklands_oak_log"),
         Map.entry("dreadlands_door", "dreadwood_door"),
-        Map.entry("sacrificial_altar", "ritual_altar"),
+        Map.entry("sacrificial_altar", "sacrificialaltar"),
         Map.entry("wooden_crate", "crate")
     );
 
@@ -115,6 +115,14 @@ public final class LegacyCraftingRecipeData implements DataProvider {
             for (Path file : files) {
                 String legacyName = stripJson(file.getFileName().toString());
                 try {
+                    if (legacyName.equals("spawn_egg")) {
+                        require(itemExists("abyssalcraft:shadowboss_spawn_egg"),
+                            "modern Sacthoth spawn egg is not registered");
+                        audits.add(new Audit(legacyName, Status.RETIRED,
+                            "abyssalcraft:shadowboss_spawn_egg",
+                            "legacy ODB recipe created an NBT-tagged Sacthoth egg; modern content has a dedicated egg"));
+                        continue;
+                    }
                     if (legacyName.equals("dltplank_alt")) {
                         audits.add(new Audit(legacyName, Status.REPLACED, "abyssalcraft:dltplank",
                             "legacy second Darklands log is the same modern darklands_oak_log"));
@@ -205,7 +213,6 @@ public final class LegacyCraftingRecipeData implements DataProvider {
 
     private static void applyRecipeReplacement(String legacyName, JsonObject recipe) {
         String output = switch (legacyName) {
-            case "sacrificialaltar" -> "abyssalcraft:ritual_altar";
             case "crate" -> "abyssalcraft:crate";
             default -> null;
         };

@@ -35,6 +35,14 @@ public final class MerchantOfferCompat {
         //?}
     }
 
+    public static MerchantOffer increaseMaxUses(MerchantOffer source, int additionalUses) {
+        int maxUses = source.getMaxUses() + Math.max(0, additionalUses);
+        MerchantOffer replacement = offer(source.getBaseCostA(), source.getCostB(), source.getResult(),
+            maxUses, source.getXp(), source.getPriceMultiplier());
+        for (int use = 0; use < source.getUses(); use++) replacement.increaseUses();
+        return replacement;
+    }
+
     public static CompoundTag save(MerchantOffers offers) {
         CompoundTag root = new CompoundTag();
         ListTag entries = new ListTag();

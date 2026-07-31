@@ -26,6 +26,11 @@ public final class EnergyGuiSelfTest {
             && !DeityStatueBlockEntity.canOperate(true, false, false)
             && DeityStatueBlockEntity.canOperate(false, false, true),
             "Deity Statue sky, adjacency or multiblock operation gate changed");
+        require(DeityStatueBlockEntity.canDisrupt(false, false, false)
+            && !DeityStatueBlockEntity.canDisrupt(true, false, false)
+            && !DeityStatueBlockEntity.canDisrupt(false, true, false)
+            && !DeityStatueBlockEntity.canDisrupt(false, false, true),
+            "Deity Statue disruption config, multiblock or Omothol gate changed");
 
         TestEnergyContainer container = new TestEnergyContainer();
         ItemStack input = new ItemStack(BookItems.NECRONOMICON.get());

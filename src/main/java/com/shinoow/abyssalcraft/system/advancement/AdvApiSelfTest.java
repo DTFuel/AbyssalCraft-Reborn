@@ -82,15 +82,11 @@ public final class AdvApiSelfTest {
             JsonArray predicates = criterionElement.getAsJsonObject()
                 .getAsJsonObject("conditions").getAsJsonArray("items");
             for (JsonElement predicate : predicates) {
-                if (modern) {
-                    require(predicate.isJsonPrimitive(), "Neo item predicate is not a string in " + path);
-                    items.add(ACRef.parse(predicate.getAsString()));
-                } else {
-                    require(predicate.isJsonObject(), "Forge item predicate is not an object in " + path);
-                    JsonArray predicateItems = predicate.getAsJsonObject().getAsJsonArray("items");
-                    require(predicateItems.size() == 1, "Forge predicate must contain one item in " + path);
-                    items.add(ACRef.parse(predicateItems.get(0).getAsString()));
-                }
+                require(predicate.isJsonObject(), "item predicate is not an object in " + path);
+                JsonArray predicateItems = predicate.getAsJsonObject().getAsJsonArray("items");
+                require(predicateItems != null && predicateItems.size() == 1,
+                    "item predicate must contain one item in " + path);
+                items.add(ACRef.parse(predicateItems.get(0).getAsString()));
             }
         }
         require(items.equals(new LinkedHashSet<>(entry.criterionItems())), "criterion items changed in " + path);

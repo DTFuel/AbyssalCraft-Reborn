@@ -8,11 +8,17 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.LootTable;
 *///?}
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
+import com.shinoow.abyssalcraft.config.ACConfig;
+import com.shinoow.abyssalcraft.content.entity.boss.ACBossMob;
+import com.shinoow.abyssalcraft.content.entity.boss.EliteMob;
 import com.shinoow.abyssalcraft.platform.ACRef;
+import com.shinoow.abyssalcraft.system.effect.ACDamageTypes;
 
 /**
  * Base class for AbyssalCraft hostile mobs (owned by PD-1, Stage D1).
@@ -27,20 +33,32 @@ import com.shinoow.abyssalcraft.platform.ACRef;
  * it directly as the {@code pilot_mob} example so the framework is provable with {@code /summon} before
  * any concrete entity exists (same smoke-test idiom as the PC-1 block-entity bases).
  *
- * <p><b>Deliberately deferred from the 1.12.2 base</b> (kept out to avoid depending on not-yet-ported
- * subsystems; each lands with its owning task):
- * <ul>
- *   <li>Custom ground navigator ({@code PatchedPathNavigateGround}) &rarr; PD-2 owns
- *       {@code content/entity/pathfinding/**}; subclasses gain it by overriding {@code createNavigation}.
- *   <li>Hardcore armor-piercing chip damage + elite/boss damage amplifier &rarr; needs the ported
- *       {@code ACConfig.hardcoreMode}/{@code damageAmpl} (config axis, not yet available) and the
- *       {@code IEliteEntity} API marker; re-added when those land.
- * </ul>
+ * <p>The legacy hardcore armor-piercing player chip is applied here so concrete mobs share the old
+ * {@code EntityMobBase} path, including its ordinary, elite and boss damage tiers.
  */
 public class ACMob extends Monster {
 
     public ACMob(EntityType<? extends Monster> type, Level level) {
         super(type, level);
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity target) {
+        if (shouldApplyHardcoreChip(target)) {
+            target.hurt(ACDamageTypes.attributedSource(this, ACDamageTypes.DREAD),
+                hardcoreChipDamage());
+        }
+        return super.doHurtTarget(target);
+    }
+
+    private boolean shouldApplyHardcoreChip(Entity target) {
+        return !level().isClientSide && ACConfig.hardcoreMode.get() && target instanceof Player
+            && target.isAlive();
+    }
+
+    private float hardcoreChipDamage() {
+        float base = this instanceof ACBossMob ? 4.5F : this instanceof EliteMob ? 3.0F : 1.5F;
+        return (float) (base * Math.max(ACConfig.damageAmpl.get(), 1.0D));
     }
 
     /** Optional legacy table basename used by stateful entities with collapsed modern EntityTypes. */

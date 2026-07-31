@@ -163,7 +163,8 @@ public final class ConfigClosureAudit {
         put(entries, "RR-RITUAL", "curingRitualRange", "RitualBehaviors#biomeTaskRange");
         put(entries, "RR-RITUAL", "infestingRitualRange", "RitualBehaviors#biomeTaskRange");
         put(entries, "RR-RITUAL", "enchantMergedBooks", "MassEnchantBehavior#apply");
-        put(entries, "RR-RITUAL", "no_disruptions", "RitualAltarBlockEntity#completeRitual");
+        put(entries, "RR-RITUAL", "no_disruptions",
+            "RitualAltarBlockEntity#completeRitual; DeityStatueBlockEntity#triggerDisruption");
 
         put(entries, "RR-SPELL", "entropy_spell", "SpellAvailability#isEnabled(entropy)");
         put(entries, "RR-SPELL", "life_drain_spell", "SpellAvailability#isEnabled(lifedrain)");

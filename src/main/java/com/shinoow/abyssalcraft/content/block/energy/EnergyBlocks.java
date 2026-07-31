@@ -101,6 +101,18 @@ public final class EnergyBlocks {
                 EnergyRelayBlockEntity::new,
                 ENERGY_RELAYS.stream().map(Supplier::get).toArray(Block[]::new)).build(null));
 
+    public static final List<Supplier<Block>> SACRIFICIAL_ALTARS = Stream.of(EnergyTier.values())
+        .map(tier -> registerEnergyBlock(EnergyBlockKind.SACRIFICIAL_ALTAR.id(tier),
+            () -> new SacrificialAltarBlock(BlockBehaviour.Properties.of()
+                .strength(6.0F, 12.0F).noOcclusion(), tier)))
+        .toList();
+
+    public static final Supplier<BlockEntityType<SacrificialAltarBlockEntity>> SACRIFICIAL_ALTAR_BE =
+        BLOCK_ENTITIES.register("sacrificial_altar", () ->
+            BlockEntityType.Builder.<SacrificialAltarBlockEntity>of(
+                SacrificialAltarBlockEntity::new,
+                SACRIFICIAL_ALTARS.stream().map(Supplier::get).toArray(Block[]::new)).build(null));
+
     public static final Supplier<Block> ENERGY_DEPOSITIONER = registerEnergyBlock("energydepositioner", () ->
         new EnergyDepositionerBlock(BlockBehaviour.Properties.of().strength(6.0F, 12.0F).noOcclusion()));
 

@@ -16,7 +16,8 @@ public final class BlockEntityRendererHostAudit {
         "energy_pedestal",
         "research_table",
         "rending_pedestal",
-        "ritual_pedestal");
+        "ritual_pedestal",
+        "sacrificial_altar");
 
     private static final Set<String> NO_BER_REQUIRED = Set.of(
         "crate",
@@ -36,6 +37,7 @@ public final class BlockEntityRendererHostAudit {
         "ritual_altar",
         "sealing_lock",
         "sequential_brewing_stand",
+        "shoggoth_biomass",
         "spirit_altar",
         "state_transformer",
         "tombstone",

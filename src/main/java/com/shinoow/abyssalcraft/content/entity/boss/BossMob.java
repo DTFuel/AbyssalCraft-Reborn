@@ -15,10 +15,14 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.network.chat.Component;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.level.Level;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ExperienceOrb;
 
 import com.shinoow.abyssalcraft.content.entity.base.ACMob;
 import com.shinoow.abyssalcraft.registry.ModSounds;
@@ -106,6 +110,7 @@ public class BossMob extends ACBossMob implements GeoEntity {
         setSyncedDeathTime(acDeathTime);
         deathTime = acDeathTime;
         setDeltaMovement(0.0D, 0.0D, 0.0D);
+        tickLegacyDeathEffects((ServerLevel) level(), acDeathTime);
         tickACDeath(acDeathTime);
         if (acDeathTime >= duration && !isRemoved()) {
             if (ContentConfigMatrix.showBossDialogs()) broadcastDialog("defeated");
@@ -115,6 +120,61 @@ public class BossMob extends ACBossMob implements GeoEntity {
     }
 
     protected void tickACDeath(int deathTick) {}
+
+    private void tickLegacyDeathEffects(ServerLevel server, int deathTick) {
+        if (awardsLegacyExperience(deathTick)) {
+            ExperienceOrb.award(server, position(), 500);
+        }
+        if (!ACConfig.particleEntity.get()) return;
+        switch (kind) {
+            case CHAGAROTH -> sendDeathParticles(server, deathTick, ParticleTypes.FLAME, ParticleTypes.LAVA,
+                ParticleTypes.LARGE_SMOKE);
+            case SACTHOTH -> sendDeathParticles(server, deathTick, ParticleTypes.SMOKE, ParticleTypes.LARGE_SMOKE,
+                ParticleTypes.EXPLOSION);
+            case DRAGON_BOSS -> {
+                if (deathTick >= 180) sendDeathParticles(server, deathTick, ParticleTypes.EXPLOSION_EMITTER);
+            }
+            case JZAHAR -> tickJzaharDeathParticles(server, deathTick);
+        }
+    }
+
+    private boolean awardsLegacyExperience(int deathTick) {
+        return (kind == BossKind.JZAHAR ? deathTick > 750 : deathTick > 150)
+            && deathTick % 5 == 0;
+    }
+
+    private void sendDeathParticles(ServerLevel server, int deathTick, ParticleOptions... particles) {
+        if (deathTick > 200) return;
+        double x = getX() + (getRandom().nextDouble() - 0.5D) * 8.0D;
+        double y = getY() + 2.0D + (getRandom().nextDouble() - 0.5D) * 4.0D;
+        double z = getZ() + (getRandom().nextDouble() - 0.5D) * 8.0D;
+        for (ParticleOptions particle : particles) server.sendParticles(particle, x, y, z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
+        if (deathTick >= 190) server.sendParticles(ParticleTypes.EXPLOSION_EMITTER,
+            x, y, z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
+    }
+
+    private void sendDeathParticles(ServerLevel server, int deathTick, ParticleOptions particle) {
+        double x = getX() + (getRandom().nextDouble() - 0.5D) * 8.0D;
+        double y = getY() + 2.0D + (getRandom().nextDouble() - 0.5D) * 4.0D;
+        double z = getZ() + (getRandom().nextDouble() - 0.5D) * 8.0D;
+        server.sendParticles(particle, x, y, z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
+    }
+
+    private void tickJzaharDeathParticles(ServerLevel server, int deathTick) {
+        if (deathTick < 800) server.sendParticles(ParticleTypes.LARGE_SMOKE,
+            getX(), getY() + 1.5D, getZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
+        if (deathTick < 400) server.sendParticles(ParticleTypes.LARGE_SMOKE,
+            getX(), getY() + 2.5D, getZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
+        if (deathTick >= 100 && deathTick < 400) {
+            server.sendParticles(ParticleTypes.SMOKE, getX(), getY(), getZ(), 1, 1.5D, 1.0D, 1.5D, 0.0D);
+        }
+        if (deathTick >= 200 && deathTick < 400) {
+            server.sendParticles(ParticleTypes.LARGE_SMOKE, getX(), getY(), getZ(), 1, 1.5D, 1.0D, 1.5D, 0.0D);
+            server.sendParticles(ParticleTypes.LAVA, getX(), getY() + 2.5D, getZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
+        }
+        if (deathTick >= 790) server.sendParticles(ParticleTypes.EXPLOSION_EMITTER,
+            getX(), getY() + 1.5D, getZ(), 1, 0.0D, 0.0D, 0.0D, 0.0D);
+    }
 
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {

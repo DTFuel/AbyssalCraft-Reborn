@@ -23,14 +23,15 @@ public final class WorldgenResourceAudit {
         "abyssal_wasteland_pillars", "ore_nitre", "ore_abyssalnite", "ore_abyssal_coralium",
         "ore_dreadlands_abyssalnite", "ore_dreaded_abyssalnite", "ore_abyssal_iron",
         "ore_abyssal_gold", "ore_abyssal_diamond", "ore_abyssal_nitre",
-        "ore_pearlescent_coralium", "ore_liquified_coralium");
+        "ore_pearlescent_coralium", "ore_liquified_coralium", "ore_elysian_stone",
+        "abyssal_wasteland_plants");
     private static final List<String> ORE_BLOCKS = List.of(
         "nitre_ore", "abyssalnite_ore", "abyssal_coralium_ore", "dreadlands_abyssalnite_ore",
         "dreaded_abyssalnite_ore", "abyssal_iron_ore", "abyssal_gold_ore", "abyssal_diamond_ore",
-        "abyssal_nitre_ore", "pearlescent_coralium_ore", "liquified_coralium_ore");
+        "abyssal_nitre_ore", "pearlescent_coralium_ore", "liquified_coralium_ore", "elysian_stone");
     private static final List<String> MODIFIERS = List.of(
         "feature_world_ores", "feature_abyssal_ores", "feature_dreadlands_ores",
-        "feature_abyssal_wasteland_pillars");
+        "feature_abyssal_wasteland_pillars", "feature_abyssal_wasteland_plants");
     private static final List<String> ABYSSAL_WASTELAND_BIOMES = List.of(
         "abyssal_wastelands", "abyssal_swamp", "abyssal_desert", "abyssal_plateau", "coralium_lake");
     private static final List<String> ABYSSAL_WASTELAND_MONSTERS = List.of(
@@ -54,13 +55,14 @@ public final class WorldgenResourceAudit {
         validateLoaderPlacement("forge");
         validateLoaderPlacement("neoforge");
         validateAbyssalWastelandSpawns();
+        validateLegacyEcology();
         validateTerrainDensityGuards();
         validateStructure("dark_ritual_grounds");
         validateStructure("shoggoth_pit");
         validateStructure("shoggoth_pit_river");
         validateShoggothPlacement("shoggoth_pit");
         validateShoggothPlacement("shoggoth_pit_river");
-        System.out.printf("RR_WORLD_RESOURCE_AUDIT_OK features=%d blocks=%d loaders=2 structures=3 biomeSpawns=5x10 terrainBounds=2%n",
+        System.out.printf("RR_WORLD_RESOURCE_AUDIT_OK features=%d blocks=%d loaders=2 structures=3 biomeSpawns=5x10 legacyEcology=3 terrainBounds=2%n",
             FEATURE_IDS.size(), ORE_BLOCKS.size());
     }
 
@@ -133,6 +135,47 @@ public final class WorldgenResourceAudit {
             if (entity.equals(element.getAsJsonObject().get("type").getAsString())) return true;
         }
         return false;
+    }
+
+    private static void validateLegacyEcology() {
+        for (String biome : List.of("darklands", "darklands_forest", "darklands_hills",
+                "darklands_mountains", "darklands_plains")) {
+            JsonArray creatures = readJson("worldgen/biome/" + biome + ".json")
+                .getAsJsonObject("spawners").getAsJsonArray("creature");
+            requireSpawner(creatures, "minecraft:sheep", 12, 4, 4, biome);
+            requireSpawner(creatures, "minecraft:pig", 10, 4, 4, biome);
+            requireSpawner(creatures, "minecraft:chicken", 10, 4, 4, biome);
+            requireSpawner(creatures, "minecraft:cow", 8, 4, 4, biome);
+        }
+        JsonObject elysian = readJson("worldgen/configured_feature/ore_elysian_stone.json")
+            .getAsJsonObject("config");
+        require(elysian.get("size").getAsInt() == 24, "Elysian Stone vein size changed");
+        JsonObject elysianPlacement = readJson("worldgen/placed_feature/ore_elysian_stone.json");
+        require(elysianPlacement.getAsJsonArray("placement").get(0).getAsJsonObject()
+            .get("count").getAsInt() == 7, "Elysian Stone attempts per chunk changed");
+        for (String loader : List.of("forge", "neoforge")) {
+            String plants = readResource(loader + "/biome_modifier/feature_abyssal_wasteland_plants.json");
+            require(plants.contains("abyssalcraft:abyssal_wastelands")
+                && plants.contains("abyssalcraft:abyssal_swamp")
+                && !plants.contains("abyssalcraft:abyssal_desert")
+                && !plants.contains("abyssalcraft:abyssal_plateau"),
+                loader + " Wasteland plants do not match legacy barren biome rules");
+        }
+    }
+
+    private static void requireSpawner(JsonArray spawners, String entity, int weight,
+                                       int minimum, int maximum, String biome) {
+        for (JsonElement element : spawners) {
+            JsonObject spawner = element.getAsJsonObject();
+            if (entity.equals(spawner.get("type").getAsString())) {
+                require(spawner.get("weight").getAsInt() == weight
+                    && spawner.get("minCount").getAsInt() == minimum
+                    && spawner.get("maxCount").getAsInt() == maximum,
+                    biome + " has incorrect inherited creature parameters for " + entity);
+                return;
+            }
+        }
+        throw new IllegalStateException(biome + " is missing inherited creature " + entity);
     }
 
     private static void validateTerrainDensityGuards() {

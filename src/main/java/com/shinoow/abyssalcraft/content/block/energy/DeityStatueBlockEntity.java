@@ -3,6 +3,7 @@ package com.shinoow.abyssalcraft.content.block.energy;
 import java.util.List;
 import java.util.Set;
 
+import com.shinoow.abyssalcraft.config.ACConfig;
 import com.shinoow.abyssalcraft.content.blockentity.base.ACBlockEntity;
 import com.shinoow.abyssalcraft.content.blockentity.base.TickingBlockEntity;
 import com.shinoow.abyssalcraft.system.energy.AmplifierType;
@@ -57,7 +58,7 @@ public class DeityStatueBlockEntity extends ACBlockEntity
             if (level.getGameTime() % COLLECTOR_SCAN_INTERVAL == 0) {
                 PEUtils.locateCollectors(level, worldPosition, this);
             }
-            chargeNearestPlayer(range);
+            chargeNearbyPlayers(range);
             PEUtils.transferToDroppedItems(level, worldPosition, this, range);
             PEUtils.transferToCollectors(level, this);
         }
@@ -70,30 +71,34 @@ public class DeityStatueBlockEntity extends ACBlockEntity
         return inMultiblock || skyVisible && noAdjacentManipulators;
     }
 
-    private void chargeNearestPlayer(int range) {
-        Player player = level.getNearestPlayer(worldPosition.getX() + 0.5, worldPosition.getY() + 0.5,
-            worldPosition.getZ() + 0.5, range,
-            entity -> entity instanceof Player candidate
-                && (isTransporter(candidate.getMainHandItem()) || isTransporter(candidate.getOffhandItem())));
-        if (player == null) {
+    static boolean canDisrupt(boolean disruptionsDisabled, boolean inMultiblock, boolean inOmothol) {
+        return !disruptionsDisabled && !inMultiblock && !inOmothol;
+    }
+
+    private void chargeNearbyPlayers(int range) {
+        List<Player> players = level.getEntitiesOfClass(Player.class, new AABB(worldPosition).inflate(range),
+            player -> canAcceptPE(player.getMainHandItem()) || canAcceptPE(player.getOffhandItem()));
+        if (players.isEmpty()) {
             return;
         }
         float duration = Math.max(getAmplifier(AmplifierType.DURATION), 1.0F)
             + PEUtils.getStructureAmplifier(level, this, AmplifierType.DURATION);
         if (++timer >= Math.max(1, (int) (PLAYER_INTERVAL / duration))) {
             timer = level.random.nextInt(10);
-            float transferred = PEUtils.transferToItem(this,
-                player.getItemInHand(InteractionHand.MAIN_HAND), isActive() ? 4 : 2);
-            transferred += PEUtils.transferToItem(this,
-                player.getItemInHand(InteractionHand.OFF_HAND), isActive() ? 4 : 2);
-            if (transferred > 0.0F) {
-                PEUtils.broadcastPEStream(level, worldPosition, player.blockPosition());
+            for (Player player : players) {
+                float transferred = PEUtils.transferToItem(this,
+                    player.getItemInHand(InteractionHand.MAIN_HAND), isActive() ? 4 : 2);
+                transferred += PEUtils.transferToItem(this,
+                    player.getItemInHand(InteractionHand.OFF_HAND), isActive() ? 4 : 2);
+                if (transferred > 0.0F) {
+                    PEUtils.broadcastPEStream(level, worldPosition, player.blockPosition());
+                }
             }
         }
     }
 
-    private static boolean isTransporter(ItemStack stack) {
-        return stack.getItem() instanceof IEnergyTransporterItem;
+    private static boolean canAcceptPE(ItemStack stack) {
+        return stack.getItem() instanceof IEnergyTransporterItem item && item.canAcceptPE(stack);
     }
 
     @Override
@@ -220,7 +225,8 @@ public class DeityStatueBlockEntity extends ACBlockEntity
 
     private void triggerDisruption() {
         resetTolerance();
-        if (inMultiblock || level.dimension().equals(ACDimensions.OMOTHOL)) {
+        if (!canDisrupt(ACConfig.no_disruptions.get(), inMultiblock,
+            level.dimension().equals(ACDimensions.OMOTHOL))) {
             return;
         }
         LightningBolt lightning = EntityType.LIGHTNING_BOLT.create(level);

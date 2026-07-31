@@ -124,9 +124,9 @@
 ### Crafting（401 个有效配方）
 
 - 旧资源目录有 402 个 JSON，其中 `_constants.json` 是 13 项转换常量，不是 recipe；有效基线为 401 = 350 shaped + 28 shapeless + 22 ore shaped + 1 ore shapeless。
-- 四态闭包：**339 MIGRATED + 61 REPLACED + 1 BLOCKED + 0 RETIRED = 401**。逐条事实源是 [`rr-data-crafting-audit.csv`](rr-data-crafting-audit.csv)，`LegacyCraftingRecipeData` 每次生成时强校验无漏项、重复或现代 ID 碰撞。
+- 四态闭包：**339 MIGRATED + 61 REPLACED + 0 BLOCKED + 1 RETIRED = 401**。逐条事实源是 [`rr-data-crafting-audit.csv`](rr-data-crafting-audit.csv)，`LegacyCraftingRecipeData` 每次生成时强校验无漏项、重复或现代 ID 碰撞。
 - 61 个 REPLACED 中，60 个已有等价现代配方；另 1 个是旧第二 Darklands log 在扁平化后与 `darklands_oak_log` 合并。`dltplank_alt` 因此不再生成，避免语义重复。
-- 唯一 BLOCKED 是旧通用 `spawn_egg` 配方；现代版本不存在可忠实产出任意实体蛋的 `minecraft:spawn_egg` 物品，需明确 component/实体选择设计后才能迁移，不以某个具体蛋伪造等价语义。
+- 唯一 RETIRED 是旧 `spawn_egg` 配方：它并非任意实体蛋机制，而是用一个 ODB 产出带 `EntityTag:{id:"abyssalcraft:shadowboss"}` 的 Sacthoth 蛋。现代注册表已有专用 `abyssalcraft:shadowboss_spawn_egg`，因此旧 NBT 通用蛋配方被该专用物品原生替代，不再生成重复配方。
 - ID 映射以旧 `BlockHandler`/`ItemHandler` 注册链为权威，显示名仅辅助；显式 override 解决 Ethaxium brick 方块与材料 item 同字段冲突。OreDict 输入改为可验证 tag，metadata先扁平化，未知引用直接 BLOCKED。
 
 ### Smelting（53 项展开源）
@@ -143,7 +143,7 @@
 
 ### 验证证据（2026-07-27）
 
-- 双端 `compileJava`/`runData`：`RR_DATA_CRAFTING_AUDIT_OK source=401 migrated=339 replaced=61 blocked=1 retired=0`、`RR_DATA_SMELTING_AUDIT_OK source=53 migrated=52 replaced=1 blocked=0 retired=0`、`RR_DATA_TAGS_OK logical=181 physical=351`、`RR_DATA_ORE_LOOT_OK ores=13 material=6 self=7 physical=26`。
+- 双端 `compileJava`/`runData`：`RR_DATA_CRAFTING_AUDIT_OK source=401 migrated=339 replaced=61 blocked=0 retired=1`、`RR_DATA_SMELTING_AUDIT_OK source=53 migrated=52 replaced=1 blocked=0 retired=0`、`RR_DATA_TAGS_OK logical=181 physical=351`、`RR_DATA_ORE_LOOT_OK ores=13 material=6 self=7 physical=26`。
 - Forge 1.20.1 与 NeoForge 1.21.1 真实服务器及 `/reload` 后均通过代表性 tag storage往返、旧 shaped `aaxe`、多产物 smelting、护甲回收、13矿普通/Silk/Fortune矩阵。临时运行探针在验证后删除。
 - 双端 production build成功；最终 JAR中两套 recipe各448、两套 block loot各181，关键文件齐全，JSON解析错误、`dltplank_alt`、临时探针残留均为0。
 

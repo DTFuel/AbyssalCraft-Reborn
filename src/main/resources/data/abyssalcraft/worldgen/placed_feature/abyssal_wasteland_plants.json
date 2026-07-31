@@ -1,0 +1,6 @@
+{
+  "feature": "abyssalcraft:abyssal_wasteland_plants",
+  "placement": [
+    { "type": "minecraft:biome" }
+  ]
+}

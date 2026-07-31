@@ -1,0 +1,15 @@
+{
+  "type": "abyssalcraft:anvil_forging",
+  "forging_type": "ritual_charm",
+  "input1": {
+    "item": "abyssalcraft:azathothcharm"
+  },
+  "input2": {
+    "item": "minecraft:gunpowder"
+  },
+  "price": 1,
+  "result": {
+    "count": 1,
+    "item": "abyssalcraft:azathothcharm_power"
+  }
+}

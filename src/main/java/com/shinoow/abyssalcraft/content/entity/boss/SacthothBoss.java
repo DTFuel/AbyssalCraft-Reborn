@@ -112,8 +112,8 @@ public final class SacthothBoss extends BossMob {
     @Override
     protected void tickACDeath(int deathTick) {
         if (!(level() instanceof net.minecraft.server.level.ServerLevel server)) return;
-        if (deathTick == 100) spawnShadow(server, LegacyEntities.SHADOW_CREATURE.get());
-        if (deathTick == 160) spawnShadow(server, LegacyEntities.SHADOW_MONSTER.get());
+        if (deathTick >= 100 && deathTick <= 110) spawnShadow(server, LegacyEntities.SHADOW_CREATURE.get());
+        if (deathTick >= 160 && deathTick <= 165) spawnShadow(server, LegacyEntities.SHADOW_MONSTER.get());
         if (deathTick == 200) spawnShadow(server, LegacyEntities.SHADOW_BEAST.get());
     }
 

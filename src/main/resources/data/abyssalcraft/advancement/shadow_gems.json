@@ -16,7 +16,11 @@
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
-          "abyssalcraft:shadow_gem"
+          {
+            "items": [
+              "abyssalcraft:shadow_gem"
+            ]
+          }
         ]
       }
     }

@@ -1,0 +1,6 @@
+{
+  "parent": "abyssalcraft:block/tiered_sacrificial_altar",
+  "textures": {
+    "host": "abyssalcraft:block/abyssal_stone"
+  }
+}

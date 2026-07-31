@@ -103,7 +103,7 @@
 | ☑ T1.8b | `ItemBlockColorName` 现代内容等价颜色命名 | S | T1.8 | 旧版清单中现代已注册的 25 个对象由 `ColoredBlockItem` 保留 BLUE/AQUA/DARK_AQUA/DARK_RED 语义；双端精确 self-test 通过 | content/block/item/*, lang |
 | ☑ T1.8c | `odb_core` 颜色命名 | S | T1.8b,T7.5b | 真实 `OblivionDeathbombCoreBlock` 与 primed 实体已注册，BlockItem 使用 `DARK_RED`，并由 `ContentSelfTest` 精确核对名称颜色 | content/block/item/*, system/disruption/* |
 | ☑ T1.9 | 4 材料存储块往返配方（8 条） | S | T1.1,T1.3 | 8 条 shaped/shapeless 配方双目录存在，两端 JSON 格式可加载 | data/abyssalcraft/{recipe,recipes}/* |
-| ☑ T1.9b | 旧版 crafting JSON 对账与迁移 | L | T1.1-T1.8 | 401 个有效配方四态闭包：339 迁移/61 替代/1 阻塞/0 淘汰；唯一阻塞为需明确现代实体选择语义的通用 spawn egg；第 402 个 JSON 为 constants 输入；所有可迁移项双端真实 RecipeManager 通过 | data/gen/LegacyCraftingRecipeData, docs/spec/rr-data-crafting-audit.csv |
+| ☑ T1.9b | 旧版 crafting JSON 对账与迁移 | L | T1.1-T1.8 | 401 个有效配方四态闭包：339 迁移/61 替代/0 阻塞/1 淘汰；淘汰项为已由专用 `shadowboss_spawn_egg` 替代的旧 ODB→Sacthoth NBT 通用蛋；第 402 个 JSON 为 constants 输入；所有可执行项双端真实 RecipeManager 通过 | data/gen/LegacyCraftingRecipeData, docs/spec/rr-data-crafting-audit.csv |
 | ☑ T1.9c | 代码注册的 smelting/回收配方迁移 | M | T1.9b | 53 项四态闭包：52 迁移/1 替代/0 阻塞；多产物与护甲回收在双端真实 RecipeManager 通过 | data/gen/CookingRecipeData, docs/spec/rr-data-smelting-audit.csv |
 | ☑ T1.10 | 13 矿基础采集标签 | S | T1.4 | pickaxe + needs_iron/diamond 标签双目录资源存在 | data tags/block/* |
 | ☑ T1.10b | 完整 M1 方块/物品标签 | M | T1.3-T1.5 | 181 个逻辑 tag生成351文件；公共tag双写、11个loader专属tag仅写对应目录；完整覆盖并经注册表/配方消费校验 | data/gen/ACTagData, data tags/* |
@@ -284,7 +284,7 @@
 | ☑ T7.2b | necrodata mutation、持久与同步实现 | M | T7.1b,T7.2 | Forge capability/Neo attachment、死亡复制配置、全部 mutation 变化检测、协议 v2 增量/全量 handler、登录/重生/换维延迟同步与开书配置已接线；双端 compile/runData/server/build 通过 | system/cap/necrodata/*, net/*, platform/PlayerDataCompat |
 | ☐ T7.2c | 活玩家死亡/重连/实网同步矩阵别名 | M | T7.2b | 由 U-NET 统一执行；本行不作为任何 Agent Gate 前置 | 用户验证车道 U-NET |
 | ☑ T7.3 | PE 接口/算术 + 能量物品 store + 单 statue pilot | L | M2 | PEUtils、ItemStack NBT store、Necronomicon 容量与 1 个充能 statue 存在 | system/energy/*, content/block/energy/* |
-| ☑ T7.3b | 完整 PE 方块/BE/四级网络 | L | T7.3,T2.9b | 21网络块（四族各基础+四tier、depositioner）、7 statue、32 charm、idol与采集→传输→存储→消费/持久化闭环完成；Stone Tablet处理仍由T2.9c负责 | system/energy/*, content/block/energy/* |
+| ☑ T7.3b | 完整 PE 方块/BE/四级网络 | L | T7.3,T2.9b | 21传输网络块（四族各基础+四tier、depositioner）+5级献祭祭坛、7 statue、32 charm、idol与采集→传输→存储→消费/持久化闭环完成；Stone Tablet处理仍由T2.9c负责 | system/energy/*, content/block/energy/* |
 | ☑ T7.4 | Places of Power 接口与注册表 | M | T7.3 | PoP/component/base 接口、StructureHandler 与 bookType 门控逻辑存在 | system/energy/structure/* |
 | ☑ T7.4b | Basic/Totem Pole/Archway 多方块 | L | T7.3b,T7.4 | 三 PoP 的成员/主 BE、形状、书本成型、拆除解绑、RANGE加成、renderData 与周期validate完成 | system/energy/structure/*, content/block/energy/* |
 | ☑ T7.5 | Disruption 框架 + 10 个 vanilla-only 扰动 | L | T7.3 | handler/deity 过滤与 lightning、5 potion、4 player 扰动已注册 | system/energy/disruption/* |
