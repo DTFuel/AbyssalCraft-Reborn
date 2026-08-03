@@ -23,9 +23,10 @@ node scripts/generate_docs_index.js --write
 node scripts/generate_docs_index.js --check
 ```
 
-`audit_assets.js` keeps its historical no-argument write behavior. Release automation always invokes
-`node scripts/audit_assets.js --check`, which computes the expected SHA ledger in memory and fails if
-the tracked ledger differs.
+Release automation invokes `node scripts/replace_restricted_assets.js --check`. The audit freezes the
+license-safe replacement scope, original PNG dimensions, required GeckoLib bone names, empty sound
+event catalog, removed production OGG files, and placeholder Java model boundary. Run the script with
+`--write` only when intentionally replacing newly introduced restricted assets.
 
 ## Fail-closed criteria
 
@@ -38,6 +39,8 @@ the tracked ledger differs.
 - The artifact filename identifies the declared mod and Minecraft versions.
 - Only the node-correct `structure(s)` directory contains NBT templates.
 - Development files such as source, scripts, build/cache content, and editor metadata are absent.
+- Restricted legacy textures, models, and sounds remain replaced according to
+  `RR-RESTRICTED-ASSET-PLACEHOLDERS.json` before artifacts are built.
 - Each inspected artifact reports a SHA-256 digest, including when another criterion fails.
 - `mod.license` must exist and match metadata. A repository `LICENSE`, `LICENCE`, or `COPYING` file is
   also mandatory; a declaration without license text fails explicitly. The audit never invents terms.

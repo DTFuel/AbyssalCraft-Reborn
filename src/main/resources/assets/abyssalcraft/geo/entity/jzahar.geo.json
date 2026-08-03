@@ -3,1684 +3,573 @@
   "minecraft:geometry": [
     {
       "description": {
-        "identifier": "geometry.jzahar",
+        "identifier": "geometry.abyssalcraft.placeholder",
         "texture_width": 128,
-        "texture_height": 64
+        "texture_height": 64,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          1,
+          0
+        ]
       },
       "bones": [
         {
-          "name": "fT2",
-          "parent": "head",
+          "name": "placeholder_root",
           "pivot": [
             0,
-            54,
-            -5
+            8,
+            0
           ],
           "cubes": [
             {
               "origin": [
-                -1,
-                52,
-                -6
+                -4,
+                4,
+                -4
               ],
               "size": [
-                2,
-                2,
-                2
+                8,
+                8,
+                8
               ],
               "uv": [
-                116,
+                0,
                 0
               ]
             }
+          ]
+        },
+        {
+          "name": "fT2",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle7",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            4.5,
-            30,
-            3
-          ],
-          "rotation": [
-            5,
-            -20,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3,
-                21,
-                1.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
           ]
         },
         {
           "name": "robeRightOuter",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            -9,
-            52,
-            -2
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -9,
-                26,
-                -2
-              ],
-              "size": [
-                4,
-                26,
-                1
-              ],
-              "uv": [
-                46,
-                0
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "fT33",
-          "parent": "fT32",
+          "parent": "placeholder_root",
           "pivot": [
-            3,
-            50,
-            -4.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2,
-                48,
-                -5.5
-              ],
-              "size": [
-                2,
-                2,
-                2
-              ],
-              "uv": [
-                116,
-                4
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "foot8",
-          "parent": "tentacle83",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.47,
-            6,
-            2.97
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.97,
-                3,
-                1.47
-              ],
-              "size": [
-                3,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                42
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "fT12",
-          "parent": "fT1",
+          "parent": "placeholder_root",
           "pivot": [
-            -3,
-            52,
-            -4.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4,
-                50,
-                -5.5
-              ],
-              "size": [
-                2,
-                2,
-                2
-              ],
-              "uv": [
-                116,
-                2
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "fT13",
-          "parent": "fT12",
+          "parent": "placeholder_root",
           "pivot": [
-            -3,
-            50,
-            -4.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4,
-                48,
-                -5.5
-              ],
-              "size": [
-                2,
-                2,
-                2
-              ],
-              "uv": [
-                116,
-                4
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "staff6",
-          "parent": "staff1",
+          "parent": "placeholder_root",
           "pivot": [
-            -11,
-            18,
-            4
-          ],
-          "rotation": [
-            -51.12,
-            -34.08,
-            12.78
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -14.9,
-                16,
-                -0.1
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                66,
-                35
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle4",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            4.5,
-            30,
-            2
-          ],
-          "rotation": [
-            -5,
-            20,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3,
-                21,
-                0.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
           ]
         },
         {
           "name": "maskRight",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
             0,
-            52,
-            1
-          ],
-          "rotation": [
             0,
-            -20,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                54,
-                -6
-              ],
-              "size": [
-                6,
-                8,
-                1
-              ],
-              "uv": [
-                102,
-                0
-              ]
-            }
           ]
         },
         {
           "name": "cube",
-          "parent": "staff1",
+          "parent": "placeholder_root",
           "pivot": [
-            -11,
-            18,
-            4
-          ],
-          "rotation": [
             0,
-            -27.69,
-            29.82
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -25,
-                36,
-                -4.5
-              ],
-              "size": [
-                2,
-                2,
-                2
-              ],
-              "uv": [
-                62,
-                42
-              ]
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tentacle43",
-          "parent": "tentacle42",
+          "parent": "placeholder_root",
           "pivot": [
-            4.52,
-            14,
-            1.98
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.02,
-                5,
-                0.48
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle52",
-          "parent": "tentacle5",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.49,
-            22,
-            2.99
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.99,
-                13,
-                1.49
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle83",
-          "parent": "tentacle82",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.48,
-            14,
-            2.98
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.98,
-                5,
-                1.48
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle23",
-          "parent": "tentacle22",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.48,
-            14,
-            1.98
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.98,
-                5,
-                0.48
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle53",
-          "parent": "tentacle52",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.48,
-            14,
-            2.98
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.98,
-                5,
-                1.48
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "fT1",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -3,
-            54,
-            -4.5
-          ],
-          "rotation": [
             0,
-            -20,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4,
-                52,
-                -5.5
-              ],
-              "size": [
-                2,
-                2,
-                2
-              ],
-              "uv": [
-                116,
-                0
-              ]
-            }
           ]
         },
         {
           "name": "tentacle2",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.5,
-            30,
-            2
-          ],
-          "rotation": [
-            -5,
-            -7.5,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3,
-                21,
-                0.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
           ]
         },
         {
           "name": "abyssalnomicon",
+          "parent": "placeholder_root",
           "pivot": [
-            15,
-            29.43,
-            3
-          ],
-          "cubes": [
-            {
-              "origin": [
-                10,
-                29.43,
-                1.5
-              ],
-              "size": [
-                10,
-                12,
-                3
-              ],
-              "uv": [
-                28,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "eye1",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            -2.5,
-            45,
-            -1
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                40,
-                -1
-              ],
-              "size": [
-                5,
-                5,
-                1
-              ],
-              "uv": [
-                70,
-                0
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "foot3",
-          "parent": "tentacle33",
+          "parent": "placeholder_root",
           "pivot": [
-            1.53,
-            6,
-            1.97
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.03,
-                3,
-                0.47
-              ],
-              "size": [
-                3,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                42
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "staff3",
-          "parent": "staff1",
+          "parent": "placeholder_root",
           "pivot": [
-            -11,
-            18,
-            4
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -17.7,
-                41.6,
-                2.6
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                66,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "staff1",
+          "parent": "placeholder_root",
           "pivot": [
-            -11,
-            18,
-            4
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -15.8,
-                20.7,
-                2.6
-              ],
-              "size": [
-                1,
-                18,
-                1
-              ],
-              "uv": [
-                54,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "fT3",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            3,
-            54,
-            -4.5
-          ],
-          "rotation": [
             0,
-            20,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2,
-                52,
-                -5.5
-              ],
-              "size": [
-                2,
-                2,
-                2
-              ],
-              "uv": [
-                116,
-                0
-              ]
-            }
           ]
         },
         {
           "name": "tentacle22",
-          "parent": "tentacle2",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.49,
-            22,
-            1.99
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.99,
-                13,
-                0.49
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "foot6",
-          "parent": "tentacle63",
+          "parent": "placeholder_root",
           "pivot": [
-            1.53,
-            6,
-            2.97
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.03,
-                3,
-                1.47
-              ],
-              "size": [
-                3,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                42
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "robeLeftInner",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            4,
-            52,
-            -1
-          ],
-          "cubes": [
-            {
-              "origin": [
-                4,
-                26,
-                -1
-              ],
-              "size": [
-                5,
-                26,
-                1
-              ],
-              "uv": [
-                58,
-                0
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle62",
-          "parent": "tentacle6",
+          "parent": "placeholder_root",
           "pivot": [
-            1.51,
-            22,
-            2.99
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.01,
-                13,
-                1.49
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle8",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.5,
-            30,
-            3
-          ],
-          "rotation": [
-            5,
-            7.5,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3,
-                21,
-                1.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
           ]
         },
         {
           "name": "tentacle3",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            30,
-            2
-          ],
-          "rotation": [
-            -5,
-            7.5,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0,
-                21,
-                0.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
           ]
         },
         {
           "name": "tentacle73",
-          "parent": "tentacle72",
+          "parent": "placeholder_root",
           "pivot": [
-            4.52,
-            14,
-            2.98
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.02,
-                5,
-                1.48
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "staff2",
-          "parent": "staff1",
+          "parent": "placeholder_root",
           "pivot": [
-            -11,
-            18,
-            4
-          ],
-          "rotation": [
             0,
             0,
-            -30
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5,
-                37.8,
-                2.6
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                62,
-                27
-              ]
-            }
+            0
           ]
         },
         {
           "name": "fT22",
-          "parent": "fT2",
+          "parent": "placeholder_root",
           "pivot": [
             0,
-            52,
-            -5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1,
-                50,
-                -6
-              ],
-              "size": [
-                2,
-                2,
-                2
-              ],
-              "uv": [
-                116,
-                2
-              ]
-            }
+            0,
+            0
           ]
         },
         {
           "name": "robeRightInner",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            -9,
-            52,
-            -1
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -9,
-                26,
-                -1
-              ],
-              "size": [
-                5,
-                26,
-                1
-              ],
-              "uv": [
-                46,
-                0
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            -9,
-            52,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -9,
-                30,
-                0
-              ],
-              "size": [
-                18,
-                22,
-                5
-              ],
-              "uv": [
-                0,
-                0
-              ]
-            }
           ]
         },
         {
           "name": "tentacle33",
-          "parent": "tentacle32",
+          "parent": "placeholder_root",
           "pivot": [
-            1.52,
-            14,
-            1.98
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.02,
-                5,
-                0.48
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "staff4",
-          "parent": "staff1",
+          "parent": "placeholder_root",
           "pivot": [
-            -11,
-            18,
-            4
-          ],
-          "rotation": [
             0,
             0,
-            40
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -32.6,
-                33.3,
-                2.6
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                66,
-                30
-              ]
-            }
+            0
           ]
         },
         {
           "name": "staff5",
-          "parent": "staff1",
+          "parent": "placeholder_root",
           "pivot": [
-            -11,
-            18,
-            4
-          ],
-          "rotation": [
             0,
             0,
-            -50
-          ],
-          "cubes": [
-            {
-              "origin": [
-                7.3,
-                35.5,
-                2.6
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                62,
-                32
-              ]
-            }
+            0
           ]
         },
         {
           "name": "tentacle6",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            30,
-            3
-          ],
-          "rotation": [
-            5,
-            -7.5,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0,
-                21,
-                1.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
           ]
         },
         {
           "name": "robeLeftOuter",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            5,
-            52,
-            -2
-          ],
-          "cubes": [
-            {
-              "origin": [
-                5,
-                26,
-                -2
-              ],
-              "size": [
-                4,
-                26,
-                1
-              ],
-              "uv": [
-                59,
-                0
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "maskLeft",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
             0,
-            52,
-            1
-          ],
-          "rotation": [
             0,
-            20,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                54,
-                -6
-              ],
-              "size": [
-                6,
-                8,
-                1
-              ],
-              "uv": [
-                102,
-                0
-              ]
-            }
           ]
         },
         {
           "name": "tentacle42",
-          "parent": "tentacle4",
+          "parent": "placeholder_root",
           "pivot": [
-            4.51,
-            22,
-            1.99
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.01,
-                13,
-                0.49
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "head",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
             0,
-            52,
-            1
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5,
-                52,
-                -4
-              ],
-              "size": [
-                10,
-                10,
-                10
-              ],
-              "uv": [
-                72,
-                0
-              ]
-            }
+            0,
+            0
           ]
         },
         {
           "name": "foot1",
-          "parent": "tentacle13",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.47,
-            6,
-            1.97
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.97,
-                3,
-                0.47
-              ],
-              "size": [
-                3,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                42
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "fT23",
-          "parent": "fT22",
+          "parent": "placeholder_root",
           "pivot": [
             0,
-            50,
-            -5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1,
-                48,
-                -6
-              ],
-              "size": [
-                2,
-                2,
-                2
-              ],
-              "uv": [
-                116,
-                4
-              ]
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tentacle12",
-          "parent": "tentacle1",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.49,
-            22,
-            1.99
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.99,
-                13,
-                0.49
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle63",
-          "parent": "tentacle62",
+          "parent": "placeholder_root",
           "pivot": [
-            1.52,
-            14,
-            2.98
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.02,
-                5,
-                1.48
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle82",
-          "parent": "tentacle8",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.49,
-            22,
-            2.99
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.99,
-                13,
-                1.49
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "eye2",
-          "parent": "eye1",
+          "parent": "placeholder_root",
           "pivot": [
-            -1,
-            43.5,
-            -2
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1,
-                41.5,
-                -2
-              ],
-              "size": [
-                2,
-                2,
-                1
-              ],
-              "uv": [
-                70,
-                6
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "foot7",
-          "parent": "tentacle73",
+          "parent": "placeholder_root",
           "pivot": [
-            4.53,
-            6,
-            2.97
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.03,
-                3,
-                1.47
-              ],
-              "size": [
-                3,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                42
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle13",
-          "parent": "tentacle12",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.48,
-            14,
-            1.98
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.98,
-                5,
-                0.48
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle5",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.5,
-            30,
-            3
-          ],
-          "rotation": [
-            5,
-            20,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -6,
-                21,
-                1.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
           ]
         },
         {
           "name": "foot5",
-          "parent": "tentacle53",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.47,
-            6,
-            2.97
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.97,
-                3,
-                1.47
-              ],
-              "size": [
-                3,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                42
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "fT32",
-          "parent": "fT3",
+          "parent": "placeholder_root",
           "pivot": [
-            3,
-            52,
-            -4.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2,
-                50,
-                -5.5
-              ],
-              "size": [
-                2,
-                2,
-                2
-              ],
-              "uv": [
-                116,
-                2
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle1",
-          "parent": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.5,
-            30,
-            2
-          ],
-          "rotation": [
-            -5,
-            -20,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -6,
-                21,
-                0.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
           ]
         },
         {
           "name": "foot2",
-          "parent": "tentacle23",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.47,
-            6,
-            1.97
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.97,
-                3,
-                0.47
-              ],
-              "size": [
-                3,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                42
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle72",
-          "parent": "tentacle7",
+          "parent": "placeholder_root",
           "pivot": [
-            4.51,
-            22,
-            2.99
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.01,
-                13,
-                1.49
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle32",
-          "parent": "tentacle3",
+          "parent": "placeholder_root",
           "pivot": [
-            1.51,
-            22,
-            1.99
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.01,
-                13,
-                0.49
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                27
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "foot4",
-          "parent": "tentacle43",
+          "parent": "placeholder_root",
           "pivot": [
-            4.53,
-            6,
-            1.97
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.03,
-                3,
-                0.47
-              ],
-              "size": [
-                3,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                42
-              ]
-            }
+            0,
+            0,
+            0
           ]
         }
       ]

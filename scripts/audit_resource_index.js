@@ -146,6 +146,12 @@ function normalizeModel(json) {
   if (json.loader === 'forge:obj' || json.loader === 'neoforge:obj') {
     json.loader = '__LOADER__:obj';
   }
+  if (json.loader === 'forge:fluid_container' || json.loader === 'neoforge:fluid_container') {
+    json.loader = '__LOADER__:fluid_container';
+  }
+  if (json.parent === 'forge:item/bucket' || json.parent === 'neoforge:item/bucket') {
+    json.parent = '__LOADER__:item/bucket';
+  }
 }
 
 function contentHash(name, bytes) {

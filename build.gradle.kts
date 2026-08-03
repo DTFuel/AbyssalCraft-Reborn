@@ -96,11 +96,11 @@ tasks {
         commandLine("node", "scripts/audit_compat.js")
     }
 
-    val rrComplexBlockModelAudit by registering(Exec::class) {
+    val rrRestrictedAssetPlaceholderAudit by registering(Exec::class) {
         group = "verification"
-        description = "Audits T9.2b complex block model fidelity, state coverage, textures, and legacy hashes."
+        description = "Audits license-safe placeholders for restricted legacy textures, models, and sounds."
         workingDir(rootProject.projectDir)
-        commandLine("node", "scripts/audit_complex_block_models.js", "--check")
+        commandLine("node", "scripts/replace_restricted_assets.js", "--check")
     }
 
     register<Exec>("releaseAudit") {
@@ -112,7 +112,7 @@ tasks {
 
     named("check") {
         dependsOn(rrCompatAudit)
-        dependsOn(rrComplexBlockModelAudit)
+        dependsOn(rrRestrictedAssetPlaceholderAudit)
     }
 
     // CRITICAL: build from Stonecutter-preprocessed sources, not raw sources.

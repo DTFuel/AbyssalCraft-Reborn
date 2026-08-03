@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "models": [
+    {
+      "id": "shoggoth",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/entity/ModelLesserShoggoth.java",
+      "source_sha256": "aac059d0b98e1084a1ec84944ba6ee491ecb1e727e29d6e8bdb8f9715519253b",
+      "identifier": "shoggoth",
+      "texture": "src/main/resources/assets/abyssalcraft/textures/model/shoggoth/lessershoggoth.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/entity/shoggoth.geo.json",
+      "bones": 150,
+      "cubes": 150,
+      "animation_source": "src/main/java/com/shinoow/abyssalcraft/client/render/entity/ShoggothAnimations.java",
+      "animation_bones": 84
+    },
+    {
+      "id": "dreadling",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/entity/ModelDreadling.java",
+      "source_sha256": "0c0f9cc83a1ff49afd7f033d304cfd3d4460b1bc6b2a1d9027f8240f859f8764",
+      "identifier": "dreadling",
+      "texture": "src/main/resources/assets/abyssalcraft/textures/model/dreadling.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/entity/dreadling.geo.json",
+      "bones": 6,
+      "cubes": 6
+    },
+    {
+      "id": "lesser_dreadbeast",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/entity/ModelChagarothSpawn.java",
+      "source_sha256": "25f6c8c46f3c4025db11ddb7646cb9de2ff93e9cd9af240fdb7c29549dc0423b",
+      "identifier": "lesser_dreadbeast",
+      "texture": "src/main/resources/assets/abyssalcraft/textures/model/elite/lesser_dreadbeast.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/entity/lesser_dreadbeast.geo.json",
+      "bones": 21,
+      "cubes": 21
+    },
+    {
+      "id": "shadow_creature",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/entity/ModelShadowCreature.java",
+      "source_sha256": "f5bbc085a9e10cc82f3bf85b87a5e6726cdca530a2a2ea386323e042f28b0842",
+      "identifier": "shadow_creature",
+      "texture": "src/main/resources/assets/abyssalcraft/textures/model/shadowcreature.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/entity/shadow_creature.geo.json",
+      "bones": 13,
+      "cubes": 13
+    },
+    {
+      "id": "shadow_monster",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/entity/ModelShadowMonster.java",
+      "source_sha256": "d39d6b65013721335d7d4509feadc8ff7d83bef9d23e5e20402a99c2da5b077a",
+      "identifier": "shadow_monster",
+      "texture": "src/main/resources/assets/abyssalcraft/textures/model/shadowmonster.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/entity/shadow_monster.geo.json",
+      "bones": 21,
+      "cubes": 21
+    },
+    {
+      "id": "shadow_beast",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/entity/ModelShadowBeast.java",
+      "source_sha256": "5ad880378e2ed29e0fd02d877fbe1857562241123f68c8872a7ef436f63e4ff3",
+      "identifier": "shadow_beast",
+      "texture": "src/main/resources/assets/abyssalcraft/textures/model/elite/shadowbeast.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/entity/shadow_beast.geo.json",
+      "bones": 35,
+      "cubes": 35
+    },
+    {
+      "id": "dread_tentacle",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/entity/ModelDreadTentacles.java",
+      "source_sha256": "a524298c03fcfe671cfc82ee456854cb9b935ee1c275da2928281bf960c4d6a9",
+      "identifier": "dread_tentacle",
+      "texture": "src/main/resources/assets/abyssalcraft/textures/model/dread_tentacle.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/effect/dread_tentacle.geo.json",
+      "bones": 7,
+      "cubes": 7
+    },
+    {
+      "id": "dread_spawn",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/entity/ModelDreadSpawn.java",
+      "source_sha256": "967f6fe231aca91d62f0f5e89af1fc643b367c498e0a856db6da0e6bd08362d0",
+      "identifier": "dread_spawn",
+      "texture": "src/main/resources/assets/abyssalcraft/textures/model/dread_spawn.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/entity/dread_spawn.geo.json",
+      "bones": 20,
+      "cubes": 20
+    },
+    {
+      "id": "star_spawn_tentacles",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/player/ModelStarSpawnPlayer.java",
+      "source_sha256": "c7999b8d91e85708f9423e2120b6bad22cb8e2fc5a70c67273c104b57c01b7f8",
+      "identifier": "star_spawn_tentacles",
+      "parameters": {
+        "par1": 0,
+        "par2": 0,
+        "par3": 64,
+        "par4": 32
+      },
+      "texture": "src/main/resources/assets/abyssalcraft/textures/model/tentacles.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/player/star_spawn_tentacles.geo.json",
+      "bones": 20,
+      "cubes": 20
+    },
+    {
+      "id": "dreadium_samurai_inner",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/item/ModelDreadiumSamuraiArmor.java",
+      "source_sha256": "f20d6952ec10fc22ca36445bc39d5254fe152f94328ba4b66ba86c5097e1b43f",
+      "identifier": "dreadium_samurai_inner",
+      "parameters": {
+        "modelBipedInflate": 0.5
+      },
+      "texture": "src/main/resources/assets/abyssalcraft/textures/models/armor/dreadium_samurai_layer_2.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/armor/dreadium_samurai_inner.geo.json",
+      "bones": 29,
+      "cubes": 28
+    },
+    {
+      "id": "dreadium_samurai_outer",
+      "source": "docs/AbyssalCraft-1.12.2/src/main/java/com/shinoow/abyssalcraft/client/model/item/ModelDreadiumSamuraiArmor.java",
+      "source_sha256": "f20d6952ec10fc22ca36445bc39d5254fe152f94328ba4b66ba86c5097e1b43f",
+      "identifier": "dreadium_samurai_outer",
+      "parameters": {
+        "modelBipedInflate": 1
+      },
+      "texture": "src/main/resources/assets/abyssalcraft/textures/models/armor/dreadium_samurai_layer_1.png",
+      "target": "src/main/resources/assets/abyssalcraft/geo/armor/dreadium_samurai_outer.geo.json",
+      "bones": 29,
+      "cubes": 28
+    }
+  ]
+}

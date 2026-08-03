@@ -27,21 +27,13 @@ public final class ModModelLayers {
     public static final ModelLayerLocation GHOUL_ARMOR_INNER = new ModelLayerLocation(ACRef.id("ghoul"), "armor_inner");
     public static final ModelLayerLocation GHOUL_ARMOR_OUTER = new ModelLayerLocation(ACRef.id("ghoul"), "armor_outer");
 
-    /** Shoggoth family mesh (PE-3, Stage E2) -- shared by the three shoggoth entities. */
-    public static final ModelLayerLocation SHOGGOTH = new ModelLayerLocation(ACRef.id("shoggoth"), "main");
-
     /** Abyssal Dragon / Dragon Minion mesh (PE-4b) -- a Java-model port of the procedural ender-dragon. */
     public static final ModelLayerLocation DRAGON = new ModelLayerLocation(ACRef.id("dragon"), "main");
 
     public static final ModelLayerLocation BILLBOARD = new ModelLayerLocation(ACRef.id("effect/billboard"), "main");
     public static final ModelLayerLocation ODB_CUBE = new ModelLayerLocation(ACRef.id("effect/primed_odb"), "main");
-    public static final ModelLayerLocation DREAD_TENTACLE = new ModelLayerLocation(ACRef.id("effect/dread_tentacle"), "main");
-    public static final ModelLayerLocation STAR_SPAWN_TENTACLES =
-        new ModelLayerLocation(ACRef.id("player/star_spawn_tentacles"), "main");
     public static final ModelLayerLocation DEMON_SHEEP = new ModelLayerLocation(ACRef.id("demon_sheep"), "main");
     public static final ModelLayerLocation DEMON_SHEEP_FUR = new ModelLayerLocation(ACRef.id("demon_sheep"), "fur");
-    public static final ModelLayerLocation SAMURAI_INNER = new ModelLayerLocation(ACRef.id("armor/dreadium_samurai"), "inner");
-    public static final ModelLayerLocation SAMURAI_OUTER = new ModelLayerLocation(ACRef.id("armor/dreadium_samurai"), "outer");
     public static final ModelLayerLocation DEPTHS_INNER = new ModelLayerLocation(ACRef.id("armor/depths"), "inner");
     public static final ModelLayerLocation DEPTHS_OUTER = new ModelLayerLocation(ACRef.id("armor/depths"), "outer");
     public static final ModelLayerLocation DEPTHS_SKELETON_INNER =
@@ -55,17 +47,6 @@ public final class ModModelLayers {
     public static final ModelLayerLocation ABYSSAL_ZOMBIE = new ModelLayerLocation(ACRef.id("abyssal_zombie"), "main");
     public static final ModelLayerLocation ABYSSAL_ZOMBIE_INNER = new ModelLayerLocation(ACRef.id("abyssal_zombie"), "inner_armor");
     public static final ModelLayerLocation ABYSSAL_ZOMBIE_OUTER = new ModelLayerLocation(ACRef.id("abyssal_zombie"), "outer_armor");
-
-    public static final ModelLayerLocation LEGACY_DREADLING = legacy("dreadling");
-    public static final ModelLayerLocation LEGACY_DREAD_SPAWN = legacy("dread_spawn");
-    public static final ModelLayerLocation LEGACY_DREADBEAST = legacy("lesser_dreadbeast");
-    public static final ModelLayerLocation LEGACY_SHADOW_CREATURE = legacy("shadow_creature");
-    public static final ModelLayerLocation LEGACY_SHADOW_MONSTER = legacy("shadow_monster");
-    public static final ModelLayerLocation LEGACY_SHADOW_BEAST = legacy("shadow_beast");
-
-    private static ModelLayerLocation legacy(String id) {
-        return new ModelLayerLocation(ACRef.id("legacy/" + id), "main");
-    }
 
     public static LayerDefinition billboard() {
         MeshDefinition mesh = new MeshDefinition();

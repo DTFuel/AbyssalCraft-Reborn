@@ -3,1728 +3,591 @@
   "minecraft:geometry": [
     {
       "description": {
-        "identifier": "geometry.shadowboss",
+        "identifier": "geometry.abyssalcraft.placeholder",
         "texture_width": 128,
-        "texture_height": 64
+        "texture_height": 64,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          1,
+          0
+        ]
       },
       "bones": [
         {
-          "name": "head",
+          "name": "placeholder_root",
           "pivot": [
             0,
-            46,
+            8,
             0
           ],
           "cubes": [
             {
               "origin": [
-                -4.5,
-                46,
-                -4.5
+                -4,
+                4,
+                -4
               ],
               "size": [
-                9,
-                10,
-                9
+                8,
+                8,
+                8
               ],
               "uv": [
                 0,
                 0
-              ],
-              "mirror": true
+              ]
             }
+          ]
+        },
+        {
+          "name": "head",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "leftshoulder",
+          "parent": "placeholder_root",
           "pivot": [
-            5.5,
-            46,
-            -3.5
-          ],
-          "rotation": [
             0,
             0,
-            10.651
-          ],
-          "cubes": [
-            {
-              "origin": [
-                5.5,
-                41,
-                -3.5
-              ],
-              "size": [
-                8,
-                5,
-                7
-              ],
-              "uv": [
-                72,
-                0
-              ],
-              "mirror": true
-            }
+            0
           ]
         },
         {
           "name": "leftarm1",
+          "parent": "placeholder_root",
           "pivot": [
-            -6.5,
-            43,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -11.5,
-                32,
-                -2.5
-              ],
-              "size": [
-                5,
-                12,
-                5
-              ],
-              "uv": [
-                72,
-                12
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "leftarm2",
-          "parent": "leftarm1",
+          "parent": "placeholder_root",
           "pivot": [
-            -6.5,
-            43,
-            0
-          ],
-          "rotation": [
-            -31.9527,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -11.5,
-                23,
-                3
-              ],
-              "size": [
-                5,
-                12,
-                5
-              ],
-              "uv": [
-                72,
-                12
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "rightshoulder",
+          "parent": "placeholder_root",
           "pivot": [
-            -5.5,
-            46,
-            -3.5
-          ],
-          "rotation": [
             0,
             0,
-            -10.6509
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -13.5,
-                41,
-                -3.5
-              ],
-              "size": [
-                8,
-                5,
-                7
-              ],
-              "uv": [
-                72,
-                0
-              ],
-              "mirror": true
-            }
+            0
           ]
         },
         {
           "name": "rightarm1",
+          "parent": "placeholder_root",
           "pivot": [
-            7,
-            43,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                6.5,
-                32,
-                -2.5
-              ],
-              "size": [
-                5,
-                12,
-                5
-              ],
-              "uv": [
-                72,
-                12
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "rightarm2",
-          "parent": "rightarm1",
+          "parent": "placeholder_root",
           "pivot": [
-            7,
-            43,
-            0
-          ],
-          "rotation": [
-            -31.953,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                6.5,
-                23,
-                3
-              ],
-              "size": [
-                5,
-                12,
-                5
-              ],
-              "uv": [
-                72,
-                12
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            -5.5,
-            46,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.5,
-                22,
-                -3.5
-              ],
-              "size": [
-                11,
-                24,
-                7
-              ],
-              "uv": [
-                36,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "core",
+          "parent": "placeholder_root",
           "pivot": [
-            -2.5,
-            39,
-            -4.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                34,
-                -4.5
-              ],
-              "size": [
-                5,
-                5,
-                1
-              ],
-              "uv": [
-                0,
-                20
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "leftleg",
+          "parent": "placeholder_root",
           "pivot": [
-            -3,
-            22,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.5,
-                0,
-                -3.5
-              ],
-              "size": [
-                5,
-                22,
-                7
-              ],
-              "uv": [
-                102,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "rightleg",
+          "parent": "placeholder_root",
           "pivot": [
-            3,
-            22,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.5,
-                0,
-                -3.5
-              ],
-              "size": [
-                5,
-                22,
-                7
-              ],
-              "uv": [
-                102,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "spikerow11",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.5,
-            58,
-            -4.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.5,
-                56,
-                -4.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow12",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -2.5,
-            58,
-            -4.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                56,
-                -4.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow13",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -0.5,
-            58,
-            -4.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.5,
-                56,
-                -4.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow14",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            58,
-            -4.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.5,
-                56,
-                -4.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow15",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            3.5,
-            58,
-            -4.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.5,
-                56,
-                -4.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow16",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            3.5,
-            58,
-            -2.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.5,
-                56,
-                -2.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow17",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            3.5,
-            58,
-            -0.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.5,
-                56,
-                -0.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow18",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            3.5,
-            58,
-            1.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.5,
-                56,
-                1.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow19",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            3.5,
-            58,
-            3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.5,
-                56,
-                3.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow110",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            58,
-            3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.5,
-                56,
-                3.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow111",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -0.5,
-            58,
-            3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.5,
-                56,
-                3.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow112",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -2.5,
-            58,
-            3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                56,
-                3.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow113",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.5,
-            58,
-            3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.5,
-                56,
-                3.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow114",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.5,
-            58,
-            1.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.5,
-                56,
-                1.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow115",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.5,
-            58,
-            -0.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.5,
-                56,
-                -0.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow116",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.5,
-            58,
-            -2.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.5,
-                56,
-                -2.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow21",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -3.5,
-            59,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                56,
-                -3.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow22",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.5,
-            59,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.5,
-                56,
-                -3.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow23",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            0.5,
-            59,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.5,
-                56,
-                -3.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow24",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            2.5,
-            59,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.5,
-                56,
-                -3.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow25",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            2.5,
-            59,
-            -1.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.5,
-                56,
-                -1.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow26",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            2.5,
-            59,
-            0.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.5,
-                56,
-                0.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow27",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            2.5,
-            59,
-            2.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.5,
-                56,
-                2.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow28",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            0.5,
-            59,
-            2.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.5,
-                56,
-                2.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow29",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.5,
-            59,
-            2.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.5,
-                56,
-                2.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow210",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -3.5,
-            59,
-            2.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                56,
-                2.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow211",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -3.5,
-            59,
-            0.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                56,
-                0.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow212",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -3.5,
-            59,
-            -1.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                56,
-                -1.5
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow31",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -2.5,
-            60,
-            -2.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                56,
-                -2.5
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow32",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -0.5,
-            60,
-            -2.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.5,
-                56,
-                -2.5
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow33",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            60,
-            -2.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.5,
-                56,
-                -2.5
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow34",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            60,
-            -0.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.5,
-                56,
-                -0.5
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow35",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            60,
-            1.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.5,
-                56,
-                1.5
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow36",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -0.5,
-            60,
-            1.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.5,
-                56,
-                1.5
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow37",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -2.5,
-            60,
-            1.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                56,
-                1.5
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow38",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -2.5,
-            60,
-            -0.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                56,
-                -0.5
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow41",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.5,
-            61,
-            -1.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.5,
-                56,
-                -1.5
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow42",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            0.5,
-            61,
-            -1.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.5,
-                56,
-                -1.5
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow43",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.5,
-            61,
-            0.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.5,
-                57,
-                0.5
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "spikerow44",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            0.5,
-            61,
-            0.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.5,
-                57,
-                0.5
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tbase1",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.5,
-            47,
-            -5.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.5,
-                46,
-                -5.5
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                30,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tbase2",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -2.5,
-            47,
-            -5.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                46,
-                -5.5
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                30,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tbase3",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            -0.5,
-            47,
-            -5.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.5,
-                46,
-                -5.5
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                30,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tbase4",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            47,
-            -5.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.5,
-                46,
-                -5.5
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                30,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tbase5",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            3.5,
-            47,
-            -5.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.5,
-                46,
-                -5.5
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                30,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle1",
-          "parent": "tbase1",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.5,
-            47,
-            -6.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.5,
-                42,
-                -6.5
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                30,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle2",
-          "parent": "tbase2",
+          "parent": "placeholder_root",
           "pivot": [
-            -2.5,
-            47,
-            -6.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                42,
-                -6.5
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                30,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle3",
-          "parent": "tbase3",
+          "parent": "placeholder_root",
           "pivot": [
-            -0.5,
-            47,
-            -6.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.5,
-                42,
-                -6.5
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                30,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle4",
-          "parent": "tbase4",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            47,
-            -6.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.5,
-                42,
-                -6.5
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                30,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle5",
-          "parent": "tbase5",
+          "parent": "placeholder_root",
           "pivot": [
-            3.5,
-            47,
-            -6.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.5,
-                42,
-                -6.5
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                30,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         }
       ]

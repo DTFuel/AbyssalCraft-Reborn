@@ -7,7 +7,7 @@
 //   cube origin  = (absRotX+ox, 24-(absRotY+oy+h), absRotZ+oz), size (w,h,d), uv [texU,texV], inflate=scale
 // Parent/child bones are preserved (GeckoLib composes parent->child transforms, matching 1.12 addChild render).
 //
-// Usage: node convert_modelbase_to_geo.js <ModelBase.java> <out.geo.json> <identifier>
+// Usage: node convert_modelbase_to_geo.js <ModelBase.java> <out.geo.json> <identifier> [texture.png]
 
 const fs = require('fs');
 const path = require('path');
@@ -25,19 +25,56 @@ function pngSize(p) {
     return [b.readUInt32BE(16), b.readUInt32BE(20)];
 }
 
-function parse(javaPath) {
+function parse(javaPath, parameters = {}) {
     const text = fs.readFileSync(javaPath, 'utf8');
     let texW = 64, texH = 64;
     let mw = text.match(/textureWidth\s*=\s*(\d+)/); if (mw) texW = parseInt(mw[1]);
     let mh = text.match(/textureHeight\s*=\s*(\d+)/); if (mh) texH = parseInt(mh[1]);
 
+    const bipedParents = {
+        bipedHead: 'armorHead',
+        bipedBody: 'armorBody',
+        bipedRightArm: 'armorRightArm',
+        bipedLeftArm: 'armorLeftArm',
+        bipedRightLeg: 'armorRightLeg',
+        bipedLeftLeg: 'armorLeftLeg'
+    };
     const renderers = {}; // name -> { texU, texV, rot:[rx,ry,rz], boxes:[{ox,oy,oz,w,h,d,inflate}], parent, relRot:[x,y,z] }
     const ensure = (n) => (renderers[n] = renderers[n] || { texU: 0, texV: 0, rot: [0, 0, 0], boxes: [], parent: null, relRot: [0, 0, 0] });
-    const clean = (n) => n.replace(/^this\./, '');
+    const clean = (n) => {
+        const name = n.replace(/^this\./, '');
+        return Object.hasOwn(parameters, 'modelBipedInflate') ? bipedParents[name] || name : name;
+    };
 
     // EnderDragon-style support (ModelDragon*): local float vars for coordinate expressions (`float f1 = -16.0F;`),
     // a `setTextureOffset("bone.sub", u, v)` map, and a small arithmetic evaluator for args like `-8.0F + f1`.
-    const vars = {};
+    const vars = { ...parameters };
+    for (const [name, value] of Object.entries(vars)) {
+        if (!/^[A-Za-z_]\w*$/.test(name) || !Number.isFinite(value)) {
+            throw new Error(`Invalid conversion parameter ${name}=${value}`);
+        }
+    }
+    if (Object.hasOwn(parameters, 'modelBipedInflate')) {
+        const inflate = parameters.modelBipedInflate;
+        const addBipedPart = (name, texU, texV, relRot, box, mirror = false) => {
+            const renderer = ensure(name);
+            renderer.texU = texU;
+            renderer.texV = texV;
+            renderer.relRot = relRot;
+            renderer.boxes.push({ ...box, inflate });
+            renderer.mirror = mirror;
+        };
+        addBipedPart('armorHead', 0, 0, [0, 0, 0], { ox: -4, oy: -8, oz: -4, w: 8, h: 8, d: 8 });
+        ensure('armorHead').boxes.push({ ox: -4, oy: -8, oz: -4, w: 8, h: 8, d: 8,
+            inflate: inflate + 0.5, texU: 32, texV: 0 });
+        addBipedPart('armorBody', 16, 16, [0, 0, 0], { ox: -4, oy: 0, oz: -2, w: 8, h: 12, d: 4 });
+        addBipedPart('armorRightArm', 40, 16, [-5, 2, 0], { ox: -3, oy: -2, oz: -2, w: 4, h: 12, d: 4 });
+        addBipedPart('armorLeftArm', 40, 16, [5, 2, 0], { ox: -1, oy: -2, oz: -2, w: 4, h: 12, d: 4 }, true);
+        addBipedPart('armorRightLeg', 0, 16, [-2, 12, 0], { ox: -2, oy: 0, oz: -2, w: 4, h: 12, d: 4 });
+        addBipedPart('armorLeftLeg', 0, 16, [2, 12, 0], { ox: -2, oy: 0, oz: -2, w: 4, h: 12, d: 4 }, true);
+        ensure('armorRightBoot').relRot = [-2, 12, 0];
+        ensure('armorLeftBoot').relRot = [2, 12, 0];
+    }
     for (const m of text.matchAll(/\bfloat\s+(\w+)\s*=\s*(-?[\d.]+)[fFdD]?\s*;/g)) vars[m[1]] = parseFloat(m[2]);
     const texOffs = {};
     for (const m of text.matchAll(/setTextureOffset\(\s*"([^"]+)"\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/g)) texOffs[m[1]] = [parseInt(m[2]), parseInt(m[3])];
@@ -60,6 +97,7 @@ function parse(javaPath) {
 
     // setRotationPoint(x,y,z)  (args may be expressions, e.g. `8.0F + f1`)
     for (const m of text.matchAll(/(?:this\.)?(\w+)\.setRotationPoint\(([^)]*)\)/g)) {
+        if (Object.hasOwn(parameters, 'modelBipedInflate') && bipedParents[m[1]]) continue;
         const a = m[2].split(',').map(evalNum); const r = ensure(clean(m[1])); r.relRot = [a[0], a[1], a[2]];
     }
     // addBox(ox,oy,oz,w,h,d[,scale])  OR  addBox("sub", x,y,z,w,h,d)  (EnderDragon-style named box;
@@ -93,7 +131,8 @@ function parse(javaPath) {
     }
     // parent.addChild(child)
     for (const m of text.matchAll(/(?:this\.)?(\w+)\.addChild\(\s*(?:this\.)?(\w+)\s*\)/g)) {
-        const child = ensure(clean(m[2])); child.parent = clean(m[1]); ensure(clean(m[1]));
+        const parent = clean(m[1]);
+        const child = ensure(clean(m[2])); child.parent = parent; ensure(parent);
     }
     return { texW, texH, renderers };
 }
@@ -114,11 +153,13 @@ const degY = (rad) => +(-rad * 180 / Math.PI).toFixed(4);
 const degZ = (rad) => +(rad * 180 / Math.PI).toFixed(4);
 const r4 = (x) => +x.toFixed(4);
 
-function build(javaPath, identifier) {
-    const { texW, texH, renderers } = parse(javaPath);
+function build(javaPath, identifier, texturePath, parameters) {
+    const { texW, texH, renderers } = parse(javaPath, parameters);
     // Prefer the ACTUAL destination texture size over the model's declared textureWidth/Height (see pngSize note).
-    // Check both block/ and item/ texture folders (shields/tools live under textures/item/).
-    const actual = pngSize(path.join('src/main/resources/assets/thebetweenlands/textures/block', identifier + '.png'))
+    // The explicit path keeps this converter namespace-agnostic. The legacy Betweenlands fallback preserves the
+    // original CLI behavior for callers that do not pass one.
+    const actual = (texturePath ? pngSize(texturePath) : null)
+        || pngSize(path.join('src/main/resources/assets/thebetweenlands/textures/block', identifier + '.png'))
         || pngSize(path.join('src/main/resources/assets/thebetweenlands/textures/item', identifier + '.png'));
     const finalW = actual ? actual[0] : texW;
     const finalH = actual ? actual[1] : texH;
@@ -143,6 +184,10 @@ function build(javaPath, identifier) {
                 return cube;
             });
         }
+        const numbers = JSON.stringify(bone).match(/-?\d+(?:\.\d+)?(?:e[+-]?\d+)?/gi) || [];
+        if (numbers.some(value => !Number.isFinite(Number(value)))) {
+            throw new Error(`Non-finite value in bone ${name} from ${javaPath}`);
+        }
         bones.push(bone);
     }
     return {
@@ -154,8 +199,16 @@ function build(javaPath, identifier) {
     };
 }
 
-const [, , javaPath, outPath, identifier] = process.argv;
-const geo = build(javaPath, identifier || 'model');
-fs.mkdirSync(require('path').dirname(outPath), { recursive: true });
-fs.writeFileSync(outPath, JSON.stringify(geo, null, 2));
-console.log('wrote ' + outPath + ' (' + geo['minecraft:geometry'][0].bones.length + ' bones)');
+if (require.main === module) {
+    const [, , javaPath, outPath, identifier, texturePath] = process.argv;
+    if (!javaPath || !outPath) {
+        console.error('Usage: node convert_modelbase_to_geo.js <ModelBase.java> <out.geo.json> <identifier> [texture.png]');
+        process.exit(2);
+    }
+    const geo = build(javaPath, identifier || 'model', texturePath);
+    fs.mkdirSync(path.dirname(outPath), { recursive: true });
+    fs.writeFileSync(outPath, `${JSON.stringify(geo, null, 2)}\n`);
+    console.log('wrote ' + outPath + ' (' + geo['minecraft:geometry'][0].bones.length + ' bones)');
+}
+
+module.exports = { build, parse, pngSize };

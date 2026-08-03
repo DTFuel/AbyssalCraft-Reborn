@@ -7,6 +7,8 @@ const { openZip } = require('./lib/zip');
 
 const ROOT = path.resolve(__dirname, '..');
 const PROPERTIES = parseProperties(path.join(ROOT, 'gradle.properties'));
+const PLACEHOLDER_MANIFEST = JSON.parse(fs.readFileSync(path.join(ROOT,
+  'docs/validation/RR-RESTRICTED-ASSET-PLACEHOLDERS.json'), 'utf8'));
 const NODES = [
   {
     id: '1.20.1-forge', loader: 'forge', minecraft: '1.20.1', metadata: 'META-INF/mods.toml',
@@ -26,6 +28,18 @@ const DEV_ONLY = [
   /\.(?:java|kt|kts|gradle|ps1)$/i,
 ];
 const failures = [];
+
+const packagedPlaceholders = new Map();
+for (const target of PLACEHOLDER_MANIFEST.targets || []) {
+  const match = target.path.match(/^src\/main\/(?:resources|generated)\/assets\/abyssalcraft\/(.+)$/);
+  if (!match) continue;
+  const jarPath = `assets/abyssalcraft/${match[1]}`;
+  const previous = packagedPlaceholders.get(jarPath);
+  if (previous && previous.path !== target.path) {
+    failures.push(`placeholder: duplicate packaged target ${jarPath}`);
+  }
+  packagedPlaceholders.set(jarPath, target);
+}
 
 function parseProperties(file) {
   return Object.fromEntries(fs.readFileSync(file, 'utf8').split(/\r?\n/)
@@ -122,6 +136,27 @@ for (const node of NODES) {
     .filter(name => zip.read(name)?.includes(Buffer.from('__LOADER__')));
   if (unresolvedModelLoaders.length) {
     failures.push(`${node.id}: unresolved model loader placeholders ${unresolvedModelLoaders.slice(0, 8).join(', ')}`);
+  }
+  for (const [name, target] of packagedPlaceholders) {
+    const removed = target.kind === 'sound-ogg-removed' || target.kind === 'asset-archive-removed';
+    if (removed) {
+      if (zip.entries.has(name)) failures.push(`${node.id}: removed restricted asset packaged ${name}`);
+      continue;
+    }
+    const packaged = zip.read(name);
+    if (!packaged) {
+      failures.push(`${node.id}: packaged placeholder missing ${name}`);
+      continue;
+    }
+    const source = path.join(ROOT, target.path);
+    const sourceBytes = fs.readFileSync(source);
+    const textAsset = /\.(?:json|obj|mtl)$/.test(name);
+    const equal = textAsset
+      ? packaged.toString('utf8').replace(/\r\n/g, '\n') === sourceBytes.toString('utf8').replace(/\r\n/g, '\n')
+      : packaged.equals(sourceBytes);
+    if (!equal) {
+      failures.push(`${node.id}: packaged placeholder differs from source ${name}`);
+    }
   }
   const sha256 = crypto.createHash('sha256').update(fs.readFileSync(jar)).digest('hex');
   results.push({ node: node.id, jar: path.relative(ROOT, jar).replaceAll('\\', '/'), sha256, entries: zip.names.length, structures });

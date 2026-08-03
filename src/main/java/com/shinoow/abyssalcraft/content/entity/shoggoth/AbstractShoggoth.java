@@ -68,6 +68,16 @@ import com.shinoow.abyssalcraft.system.effect.ACEffects;
 import com.shinoow.abyssalcraft.world.ACDimensions;
 import com.shinoow.abyssalcraft.content.entity.behavior.ShadowEntityEffects;
 
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.util.GeckoLibUtil;
+//? if <1.21 {
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+//?} else {
+/*import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.AnimatableManager;
+*///?}
+
 /**
  * Shared base for the AbyssalCraft shoggoth family (owned by PD-5, Stage D2a).
  *
@@ -88,7 +98,7 @@ import com.shinoow.abyssalcraft.content.entity.behavior.ShadowEntityEffects;
  * </ul>
  * Rendering lands in Stage E, so these are verified on a dedicated server with {@code /summon}.
  */
-public abstract class AbstractShoggoth extends ACMob implements EntityPartCompat.Parent {
+public abstract class AbstractShoggoth extends ACMob implements EntityPartCompat.Parent, GeoEntity {
 
     private static final EntityDataAccessor<Integer> TYPE =
         SynchedEntityData.defineId(AbstractShoggoth.class, EntityDataSerializers.INT);
@@ -102,6 +112,7 @@ public abstract class AbstractShoggoth extends ACMob implements EntityPartCompat
     private int monolithTimer;
     private int acidSpitCooldown;
     private int buildAttemptTicks;
+    private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
     @Nullable
     private BlockPos monolithTarget;
     @Nullable
@@ -116,6 +127,14 @@ public abstract class AbstractShoggoth extends ACMob implements EntityPartCompat
         headPart = new EntityPartCompat.Part<>(this, "head", profile.headWidth(), profile.headHeight());
         bodyPart = new EntityPartCompat.Part<>(this, "body", profile.bodyWidth(), profile.bodyHeight());
         parts = new EntityPartCompat.Part<?>[] { headPart, bodyPart };
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {}
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return geoCache;
     }
 
     //? if <1.21 {

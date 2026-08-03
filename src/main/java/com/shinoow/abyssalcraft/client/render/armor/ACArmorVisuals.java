@@ -1,10 +1,7 @@
 package com.shinoow.abyssalcraft.client.render.armor;
 
-import com.shinoow.abyssalcraft.client.model.entity.DreadiumSamuraiArmorModel;
 import com.shinoow.abyssalcraft.platform.ArmorCompat;
-import com.shinoow.abyssalcraft.registry.ModModelLayers;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,34 +9,26 @@ import net.minecraft.world.item.ItemStack;
 
 public final class ACArmorVisuals {
 
-    private static HumanoidModel<LivingEntity> inner;
-    private static HumanoidModel<LivingEntity> outer;
+    private static DreadiumSamuraiArmorRenderer renderer;
 
     private ACArmorVisuals() {}
 
-    public static HumanoidModel<?> samuraiModel(EquipmentSlot slot, HumanoidModel<?> defaultModel) {
-        HumanoidModel<LivingEntity> model = slot == EquipmentSlot.LEGS ? inner() : outer();
-        @SuppressWarnings("unchecked")
-        HumanoidModel<LivingEntity> source = (HumanoidModel<LivingEntity>) defaultModel;
-        source.copyPropertiesTo(model);
-        setVisible(model, slot);
-        return model;
+    public static HumanoidModel<?> samuraiRenderer() {
+        return renderer();
     }
 
-    private static HumanoidModel<LivingEntity> inner() {
-        if (inner == null) {
-            inner = new DreadiumSamuraiArmorModel<>(Minecraft.getInstance().getEntityModels()
-                .bakeLayer(ModModelLayers.SAMURAI_INNER));
-        }
-        return inner;
+    public static HumanoidModel<?> samuraiModel(LivingEntity entity, ItemStack stack,
+                                                EquipmentSlot slot, HumanoidModel<?> defaultModel) {
+        DreadiumSamuraiArmorRenderer renderer = renderer();
+        renderer.prepForRender(entity, stack, slot, defaultModel);
+        return renderer;
     }
 
-    private static HumanoidModel<LivingEntity> outer() {
-        if (outer == null) {
-            outer = new DreadiumSamuraiArmorModel<>(Minecraft.getInstance().getEntityModels()
-                .bakeLayer(ModModelLayers.SAMURAI_OUTER));
+    private static DreadiumSamuraiArmorRenderer renderer() {
+        if (renderer == null) {
+            renderer = new DreadiumSamuraiArmorRenderer();
         }
-        return outer;
+        return renderer;
     }
 
     public static void setVisible(HumanoidModel<?> model, EquipmentSlot slot) {

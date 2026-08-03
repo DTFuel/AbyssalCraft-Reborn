@@ -49,8 +49,19 @@ import com.shinoow.abyssalcraft.registry.ModSounds;
 import com.shinoow.abyssalcraft.system.effect.ACEffects;
 import com.shinoow.abyssalcraft.content.entity.behavior.ShadowEntityEffects;
 
-public final class LegacyHostileMob extends Monster implements RangedAttackMob {
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.util.GeckoLibUtil;
+//? if <1.21 {
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+//?} else {
+/*import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animation.AnimatableManager;
+*///?}
 
+public final class LegacyHostileMob extends Monster implements RangedAttackMob, GeoEntity {
+
+    private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
     private final LegacyMobKind kind;
     private boolean splitOnDeath = true;
     private int breathTimer = -300;
@@ -68,6 +79,14 @@ public final class LegacyHostileMob extends Monster implements RangedAttackMob {
             rangedGoal = new RangedAttackGoal(this, 0.4D, 20,
                 kind == LegacyMobKind.LESSER_DREADBEAST ? 15.0F : 8.0F);
         }
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {}
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return geoCache;
     }
 
     @Override

@@ -3,3139 +3,1005 @@
   "minecraft:geometry": [
     {
       "description": {
-        "identifier": "geometry.chagaroth",
+        "identifier": "geometry.abyssalcraft.placeholder",
         "texture_width": 128,
-        "texture_height": 64
+        "texture_height": 64,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          1,
+          0
+        ]
       },
       "bones": [
         {
-          "name": "frontspike1",
+          "name": "placeholder_root",
           "pivot": [
-            -10,
-            14,
-            -9
-          ],
-          "rotation": [
-            36.213,
             0,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -10,
-                13,
-                -9
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                30,
-                50
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "frontspike2",
-          "pivot": [
-            -4,
-            14,
-            -9
-          ],
-          "rotation": [
-            36.213,
-            0,
+            8,
             0
           ],
           "cubes": [
             {
               "origin": [
                 -4,
-                13,
-                -9
+                4,
+                -4
               ],
               "size": [
-                1,
-                5,
-                1
+                8,
+                8,
+                8
               ],
               "uv": [
-                30,
-                50
-              ],
-              "mirror": true
+                0,
+                0
+              ]
             }
+          ]
+        },
+        {
+          "name": "frontspike1",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "frontspike2",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "frontspike3",
+          "parent": "placeholder_root",
           "pivot": [
-            2,
-            14,
-            -9
-          ],
-          "rotation": [
-            36.213,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2,
-                13,
-                -9
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                30,
-                50
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "frontspike4",
+          "parent": "placeholder_root",
           "pivot": [
-            8,
-            14,
-            -9
-          ],
-          "rotation": [
-            36.213,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                8,
-                13,
-                -9
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                30,
-                50
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "frontspike5",
+          "parent": "placeholder_root",
           "pivot": [
-            14,
-            14,
-            -9
-          ],
-          "rotation": [
-            36.213,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                14,
-                13,
-                -9
-              ],
-              "size": [
-                1,
-                5,
-                1
-              ],
-              "uv": [
-                30,
-                50
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "leftneck",
+          "parent": "placeholder_root",
           "pivot": [
-            -7,
-            14,
-            -1
-          ],
-          "rotation": [
-            27.6923,
-            -12.7811,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -8,
-                14,
-                -3
-              ],
-              "size": [
-                3,
-                16,
-                3
-              ],
-              "uv": [
-                34,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "middleneck",
+          "parent": "placeholder_root",
           "pivot": [
-            2,
-            14,
-            -1
-          ],
-          "rotation": [
-            27.6923,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1,
-                14,
-                -3
-              ],
-              "size": [
-                3,
-                16,
-                3
-              ],
-              "uv": [
-                34,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "rightneck",
+          "parent": "placeholder_root",
           "pivot": [
-            10,
-            14,
-            -1
-          ],
-          "rotation": [
-            27.6923,
-            12.781,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                9,
-                14,
-                -3
-              ],
-              "size": [
-                3,
-                16,
-                3
-              ],
-              "uv": [
-                34,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "body",
+          "parent": "placeholder_root",
           "pivot": [
-            -10,
-            14,
-            -9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -10,
-                0,
-                -9
-              ],
-              "size": [
-                25,
-                14,
-                20
-              ],
-              "uv": [
-                38,
-                30
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle2base",
+          "parent": "placeholder_root",
           "pivot": [
-            15,
-            12,
-            -8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                15,
-                9,
-                -8
-              ],
-              "size": [
-                9,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle1",
+          "parent": "placeholder_root",
           "pivot": [
-            -2,
-            14,
-            9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                14,
-                7.5
-              ],
-              "size": [
-                3,
-                10,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle2",
+          "parent": "placeholder_root",
           "pivot": [
-            -2,
-            23,
-            9
-          ],
-          "rotation": [
-            27.6923,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                23,
-                7.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "tentacle3",
+          "parent": "placeholder_root",
           "pivot": [
-            -2,
-            30,
-            5
-          ],
-          "rotation": [
-            -25.5621,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                30,
-                3.5
-              ],
-              "size": [
-                3,
-                8,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "tentacle4",
+          "parent": "placeholder_root",
           "pivot": [
-            -1,
-            23,
-            9
-          ],
-          "rotation": [
             0,
             0,
-            -29.8225
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1,
-                21.5,
-                7.5
-              ],
-              "size": [
-                9,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0
           ]
         },
         {
           "name": "tentacle5",
+          "parent": "placeholder_root",
           "pivot": [
-            -2,
-            36,
-            7
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                34.5,
-                7
-              ],
-              "size": [
-                3,
-                3,
-                10
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle6",
+          "parent": "placeholder_root",
           "pivot": [
-            -17.5,
-            8,
-            -4
-          ],
-          "rotation": [
             0,
             0,
-            -19.1716
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -19,
-                7.5,
-                -5.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0
           ]
         },
         {
           "name": "tentacle7",
+          "parent": "placeholder_root",
           "pivot": [
-            27,
-            19,
-            3
-          ],
-          "rotation": [
             0,
-            31.9527,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                27,
-                17.5,
-                1.5
-              ],
-              "size": [
-                10,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "tentacle8",
+          "parent": "placeholder_root",
           "pivot": [
-            17,
-            18,
-            4
-          ],
-          "rotation": [
             0,
-            -14.9112,
-            -8.5207
-          ],
-          "cubes": [
-            {
-              "origin": [
-                17,
-                15.5,
-                1.5
-              ],
-              "size": [
-                13,
-                5,
-                5
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tentacle9",
+          "parent": "placeholder_root",
           "pivot": [
-            8,
-            1,
-            -4
-          ],
-          "rotation": [
-            -27.6923,
             0,
-            -34.0828
-          ],
-          "cubes": [
-            {
-              "origin": [
-                8,
-                -11,
-                -4
-              ],
-              "size": [
-                3,
-                12,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tentacle10",
+          "parent": "placeholder_root",
           "pivot": [
-            -10,
-            7,
-            -4
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -19,
-                5.5,
-                -5.5
-              ],
-              "size": [
-                9,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle11",
+          "parent": "placeholder_root",
           "pivot": [
-            -6,
-            5,
-            -7
-          ],
-          "rotation": [
-            8.5207,
-            23.432,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7.5,
-                3.5,
-                -18
-              ],
-              "size": [
-                3,
-                3,
-                11
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "tentacle12",
+          "parent": "placeholder_root",
           "pivot": [
-            16,
-            16,
-            4
-          ],
-          "cubes": [
-            {
-              "origin": [
-                13.5,
-                16,
-                1.5
-              ],
-              "size": [
-                5,
-                10,
-                5
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tentacle13",
+          "parent": "placeholder_root",
           "pivot": [
-            10,
-            6,
-            5
-          ],
-          "rotation": [
-            2.1302,
             0,
-            29.8225
-          ],
-          "cubes": [
-            {
-              "origin": [
-                7.5,
-                11,
-                2.5
-              ],
-              "size": [
-                5,
-                8,
-                5
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tentacle14",
+          "parent": "placeholder_root",
           "pivot": [
-            17,
-            24,
-            5
-          ],
-          "rotation": [
-            -14.9112,
             0,
-            61.7752
-          ],
-          "cubes": [
-            {
-              "origin": [
-                15.5,
-                24,
-                3.5
-              ],
-              "size": [
-                3,
-                11,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tentacle15",
+          "parent": "placeholder_root",
           "pivot": [
-            25,
-            29,
-            7
-          ],
-          "rotation": [
             0,
-            17.0414,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                23.5,
-                27.5,
-                -1
-              ],
-              "size": [
-                3,
-                3,
-                8
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "tentacle16",
+          "parent": "placeholder_root",
           "pivot": [
             0,
-            2,
-            -6
-          ],
-          "rotation": [
-            -6.3905,
             0,
-            29.8225
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0,
-                -8,
-                -6
-              ],
-              "size": [
-                3,
-                10,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0
           ]
         },
         {
           "name": "tentacle17",
+          "parent": "placeholder_root",
           "pivot": [
-            5,
             0,
-            4
-          ],
-          "rotation": [
-            25.5621,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                5,
-                -10,
-                4
-              ],
-              "size": [
-                3,
-                10,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "tentacle18",
+          "parent": "placeholder_root",
           "pivot": [
-            -8,
-            3,
-            1
-          ],
-          "rotation": [
-            -21.302,
             0,
-            21.302
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -8,
-                -12,
-                1
-              ],
-              "size": [
-                5,
-                15,
-                5
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tentacle19",
+          "parent": "placeholder_root",
           "pivot": [
-            -20,
-            7,
-            3
-          ],
-          "rotation": [
             0,
-            -46.8639,
-            21.3018
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -32,
-                5.5,
-                1.5
-              ],
-              "size": [
-                12,
-                3,
-                3
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tentacle20",
+          "parent": "placeholder_root",
           "pivot": [
-            -15,
-            9,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -23,
-                4,
-                0
-              ],
-              "size": [
-                13,
-                5,
-                5
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "tlib12",
+          "parent": "placeholder_root",
           "pivot": [
-            22,
-            11,
-            -8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                21,
-                9,
-                -16
-              ],
-              "size": [
-                3,
-                3,
-                8
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tlib22",
+          "parent": "placeholder_root",
           "pivot": [
-            22,
-            10,
-            -15.5
-          ],
-          "rotation": [
-            51.1243,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                21,
-                10,
-                -16.5
-              ],
-              "size": [
-                3,
-                5,
-                3
-              ],
-              "uv": [
-                30,
-                20
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "tspike12",
+          "parent": "placeholder_root",
           "pivot": [
-            23,
-            14,
-            -19
-          ],
-          "rotation": [
-            2.1302,
             0,
-            34.0828
-          ],
-          "cubes": [
-            {
-              "origin": [
-                23,
-                14,
-                -19
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                25,
-                25
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tspike22",
+          "parent": "placeholder_root",
           "pivot": [
-            22,
-            14,
-            -19
-          ],
-          "rotation": [
-            2.1302,
             0,
-            -34.083
-          ],
-          "cubes": [
-            {
-              "origin": [
-                21,
-                14,
-                -19
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                25,
-                25
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tspike32",
+          "parent": "placeholder_root",
           "pivot": [
-            23,
-            12.5,
-            -19
-          ],
-          "rotation": [
-            63.9051,
             0,
-            34.0828
-          ],
-          "cubes": [
-            {
-              "origin": [
-                23,
-                12.5,
-                -19
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                25,
-                25
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tspike42",
+          "parent": "placeholder_root",
           "pivot": [
-            22,
-            12.5,
-            -19
-          ],
-          "rotation": [
-            63.905,
             0,
-            -34.083
-          ],
-          "cubes": [
-            {
-              "origin": [
-                21,
-                12.5,
-                -19
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                25,
-                25
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tlib1",
+          "parent": "placeholder_root",
           "pivot": [
-            -2,
-            4,
-            -16
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3,
-                2,
-                -24
-              ],
-              "size": [
-                3,
-                3,
-                8
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "tlib2",
+          "parent": "placeholder_root",
           "pivot": [
-            -2,
-            3,
-            -23.5
-          ],
-          "rotation": [
-            51.1243,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3,
-                3,
-                -24.5
-              ],
-              "size": [
-                3,
-                5,
-                3
-              ],
-              "uv": [
-                30,
-                20
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "tspike1",
+          "parent": "placeholder_root",
           "pivot": [
-            -1,
-            7,
-            -27
-          ],
-          "rotation": [
-            2.1302,
             0,
-            34.0828
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1,
-                7,
-                -27
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                25,
-                25
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tspike2",
+          "parent": "placeholder_root",
           "pivot": [
-            -2,
-            7,
-            -27
-          ],
-          "rotation": [
-            2.1302,
             0,
-            -34.083
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3,
-                7,
-                -27
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                25,
-                25
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tspike3",
+          "parent": "placeholder_root",
           "pivot": [
-            -1,
-            5.5,
-            -27
-          ],
-          "rotation": [
-            63.9051,
             0,
-            34.0828
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1,
-                5.5,
-                -27
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                25,
-                25
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "tspike4",
+          "parent": "placeholder_root",
           "pivot": [
-            -2,
-            5.5,
-            -27.5
-          ],
-          "rotation": [
-            63.905,
             0,
-            -34.083
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3,
-                5.5,
-                -27.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                25,
-                25
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "lefthead",
+          "parent": "placeholder_root",
           "pivot": [
-            -8,
-            27,
-            -7
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -12.5,
-                27,
-                -11.5
-              ],
-              "size": [
-                9,
-                9,
-                8
-              ],
-              "uv": [
-                0,
-                30
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "leftjaw",
-          "parent": "lefthead",
+          "parent": "placeholder_root",
           "pivot": [
-            -8,
-            27,
-            -7
-          ],
-          "rotation": [
-            19.1716,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -12.5,
-                25,
-                -13
-              ],
-              "size": [
-                9,
-                1,
-                9
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "leftupperjaw",
-          "parent": "lefthead",
+          "parent": "placeholder_root",
           "pivot": [
-            -12.5,
-            28,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -12.5,
-                27,
-                -12.5
-              ],
-              "size": [
-                9,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                28
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lstooth1",
-          "parent": "leftjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -11.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -11.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lstooth2",
-          "parent": "leftjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -9.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -9.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lstooth3",
-          "parent": "leftjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -7.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lstooth4",
-          "parent": "leftjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -5.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lbtooth1",
-          "parent": "leftupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -12.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -12.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lbtooth2",
-          "parent": "leftupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -10.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -10.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lbtooth3",
-          "parent": "leftupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -8.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -8.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lbtooth4",
-          "parent": "leftupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -6.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -6.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lbtooth5",
-          "parent": "leftupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -4.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lbackspike1",
-          "parent": "lefthead",
+          "parent": "placeholder_root",
           "pivot": [
-            -8.5,
-            29,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -8.5,
-                28,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lbackspike2",
-          "parent": "lefthead",
+          "parent": "placeholder_root",
           "pivot": [
-            -8.5,
-            31,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -8.5,
-                30,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lbackspike3",
-          "parent": "lefthead",
+          "parent": "placeholder_root",
           "pivot": [
-            -8.5,
-            33,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -8.5,
-                32,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lackspike4",
-          "parent": "lefthead",
+          "parent": "placeholder_root",
           "pivot": [
-            -8.5,
-            35,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -8.5,
-                34,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lefteye1",
-          "parent": "lefthead",
+          "parent": "placeholder_root",
           "pivot": [
-            -7.5,
-            33,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7.5,
-                30,
-                -12.5
-              ],
-              "size": [
-                3,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lefteye2",
-          "parent": "lefthead",
+          "parent": "placeholder_root",
           "pivot": [
-            -11.5,
-            33,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -11.5,
-                30,
-                -12.5
-              ],
-              "size": [
-                3,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "middlehead",
+          "parent": "placeholder_root",
           "pivot": [
-            3,
-            27,
-            -7
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.5,
-                27,
-                -11.5
-              ],
-              "size": [
-                9,
-                9,
-                8
-              ],
-              "uv": [
-                0,
-                30
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "middlejaw",
-          "parent": "middlehead",
+          "parent": "placeholder_root",
           "pivot": [
-            3,
-            27,
-            -7
-          ],
-          "rotation": [
-            19.1716,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.5,
-                25,
-                -13
-              ],
-              "size": [
-                9,
-                1,
-                9
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "middleupperjaw",
-          "parent": "middlehead",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.5,
-            28,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.5,
-                27,
-                -12.5
-              ],
-              "size": [
-                9,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                28
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mstooth1",
-          "parent": "middlejaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -0.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mstooth2",
-          "parent": "middlejaw",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mstooth3",
-          "parent": "middlejaw",
+          "parent": "placeholder_root",
           "pivot": [
-            3.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mstooth4",
-          "parent": "middlejaw",
+          "parent": "placeholder_root",
           "pivot": [
-            5.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                5.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mbtooth1",
-          "parent": "middleupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mbtooth2",
-          "parent": "middleupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            0.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mbtooth3",
-          "parent": "middleupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            2.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mbtooth4",
-          "parent": "middleupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            4.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                4.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mbtooth5",
-          "parent": "middleupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            6.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                6.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mbackspike1",
-          "parent": "middlehead",
+          "parent": "placeholder_root",
           "pivot": [
-            2.5,
-            29,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.5,
-                28,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mbackspike2",
-          "parent": "middlehead",
+          "parent": "placeholder_root",
           "pivot": [
-            2.5,
-            31,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.5,
-                30,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mbackspike3",
-          "parent": "middlehead",
+          "parent": "placeholder_root",
           "pivot": [
-            2.5,
-            33,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.5,
-                32,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "mbackspike4",
-          "parent": "middlehead",
+          "parent": "placeholder_root",
           "pivot": [
-            2.5,
-            35,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.5,
-                34,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "middleeye1",
-          "parent": "middlehead",
+          "parent": "placeholder_root",
           "pivot": [
-            3.5,
-            33,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.5,
-                30,
-                -12.5
-              ],
-              "size": [
-                3,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "middleeye2",
-          "parent": "middlehead",
+          "parent": "placeholder_root",
           "pivot": [
-            -0.5,
-            33,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.5,
-                30,
-                -12.5
-              ],
-              "size": [
-                3,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "righthead",
+          "parent": "placeholder_root",
           "pivot": [
-            13,
-            27,
-            -7
-          ],
-          "cubes": [
-            {
-              "origin": [
-                8.5,
-                27,
-                -11.5
-              ],
-              "size": [
-                9,
-                9,
-                8
-              ],
-              "uv": [
-                0,
-                30
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rightjaw",
-          "parent": "righthead",
+          "parent": "placeholder_root",
           "pivot": [
-            13,
-            27,
-            -7
-          ],
-          "rotation": [
-            19.1716,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                8.5,
-                25,
-                -13
-              ],
-              "size": [
-                9,
-                1,
-                9
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "rightupperjaw",
-          "parent": "righthead",
+          "parent": "placeholder_root",
           "pivot": [
-            8.5,
-            28,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                8.5,
-                27,
-                -12.5
-              ],
-              "size": [
-                9,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                28
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rstooth1",
-          "parent": "rightjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            9.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                9.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rstooth2",
-          "parent": "rightjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            11.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                11.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rstooth3",
-          "parent": "rightjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            13.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                13.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rstooth4",
-          "parent": "rightjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            15.5,
-            27,
-            -13
-          ],
-          "cubes": [
-            {
-              "origin": [
-                15.5,
-                26,
-                -13
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rbtooth1",
-          "parent": "rightupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            8.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                8.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rbtooth2",
-          "parent": "rightupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            10.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                10.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rbtooth3",
-          "parent": "rightupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            12.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                12.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rbtooth4",
-          "parent": "rightupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            14.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                14.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rbtooth5",
-          "parent": "rightupperjaw",
+          "parent": "placeholder_root",
           "pivot": [
-            16.5,
-            27,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                16.5,
-                25,
-                -12.5
-              ],
-              "size": [
-                1,
-                2,
-                1
-              ],
-              "uv": [
-                0,
-                50
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rbackspike1",
-          "parent": "righthead",
+          "parent": "placeholder_root",
           "pivot": [
-            12.5,
-            29,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                12.5,
-                28,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rbackspike2",
-          "parent": "righthead",
+          "parent": "placeholder_root",
           "pivot": [
-            12.5,
-            31,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                12.5,
-                30,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rbackspike3",
-          "parent": "righthead",
+          "parent": "placeholder_root",
           "pivot": [
-            12.5,
-            33,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                12.5,
-                32,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rbackspike4",
-          "parent": "righthead",
+          "parent": "placeholder_root",
           "pivot": [
-            12.5,
-            35,
-            -3.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                12.5,
-                34,
-                -3.5
-              ],
-              "size": [
-                1,
-                1,
-                3
-              ],
-              "uv": [
-                10,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "righteye1",
-          "parent": "righthead",
+          "parent": "placeholder_root",
           "pivot": [
-            13.5,
-            33,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                13.5,
-                30,
-                -12.5
-              ],
-              "size": [
-                3,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "righteye2",
-          "parent": "righthead",
+          "parent": "placeholder_root",
           "pivot": [
-            9.5,
-            33,
-            -12.5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                9.5,
-                30,
-                -12.5
-              ],
-              "size": [
-                3,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                24
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "middlewall",
+          "parent": "placeholder_root",
           "pivot": [
-            -18,
-            39,
-            17
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -18,
-                -1,
-                17
-              ],
-              "size": [
-                40,
-                40,
-                1
-              ],
-              "uv": [
-                46,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rightwall",
+          "parent": "placeholder_root",
           "pivot": [
-            22,
-            39,
-            17
-          ],
-          "rotation": [
             0,
-            38.3432,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                22,
-                -1,
-                17
-              ],
-              "size": [
-                40,
-                40,
-                1
-              ],
-              "uv": [
-                46,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "leftwall",
+          "parent": "placeholder_root",
           "pivot": [
-            -18,
-            39,
-            17
-          ],
-          "rotation": [
             0,
-            -38.343,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -58,
-                -1,
-                17
-              ],
-              "size": [
-                40,
-                40,
-                1
-              ],
-              "uv": [
-                46,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "walltentacle1",
+          "parent": "placeholder_root",
           "pivot": [
-            -30,
-            27,
-            9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -31.5,
-                25.5,
-                -3
-              ],
-              "size": [
-                3,
-                3,
-                12
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "walltentacle2",
+          "parent": "placeholder_root",
           "pivot": [
-            -33,
-            15,
-            7
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -34.5,
-                13.5,
-                -5
-              ],
-              "size": [
-                3,
-                3,
-                12
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "walltentacle3",
+          "parent": "placeholder_root",
           "pivot": [
-            -42,
-            24,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -43.5,
-                22.5,
-                -12
-              ],
-              "size": [
-                3,
-                3,
-                12
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "walltentacle4",
+          "parent": "placeholder_root",
           "pivot": [
-            -23,
-            18,
-            15
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -24.5,
-                16.5,
-                3
-              ],
-              "size": [
-                3,
-                3,
-                12
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "walltentacle5",
+          "parent": "placeholder_root",
           "pivot": [
-            42,
-            24,
-            3
-          ],
-          "cubes": [
-            {
-              "origin": [
-                40.5,
-                22.5,
-                -9
-              ],
-              "size": [
-                3,
-                3,
-                12
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "walltentacle6",
+          "parent": "placeholder_root",
           "pivot": [
-            33,
-            30,
-            9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                31.5,
-                28.5,
-                -3
-              ],
-              "size": [
-                3,
-                3,
-                12
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "walltentacle7",
+          "parent": "placeholder_root",
           "pivot": [
-            36,
-            13,
-            7
-          ],
-          "cubes": [
-            {
-              "origin": [
-                34.5,
-                11.5,
-                -5
-              ],
-              "size": [
-                3,
-                3,
-                12
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "walltentacle8",
+          "parent": "placeholder_root",
           "pivot": [
-            46.1333,
-            7,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                44.6333,
-                5.5,
-                -12
-              ],
-              "size": [
-                3,
-                3,
-                12
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
           ]
         }
       ]

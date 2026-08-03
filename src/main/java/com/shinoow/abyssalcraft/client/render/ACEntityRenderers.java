@@ -2,9 +2,6 @@ package com.shinoow.abyssalcraft.client.render;
 
 import com.shinoow.abyssalcraft.AbyssalCraft;
 import com.shinoow.abyssalcraft.client.model.entity.DragonModel;
-import com.shinoow.abyssalcraft.client.model.entity.DreadTentacleModel;
-import com.shinoow.abyssalcraft.client.model.entity.StarSpawnTentacleModel;
-import com.shinoow.abyssalcraft.client.model.entity.DreadiumSamuraiArmorModel;
 import net.minecraft.client.model.SheepModel;
 import net.minecraft.client.model.SheepFurModel;
 import com.shinoow.abyssalcraft.client.render.block.ACBlockEntityRenderers;
@@ -130,12 +127,8 @@ public final class ACEntityRenderers {
         };
         audited.register(ModModelLayers.BILLBOARD, ModModelLayers::billboard);
         audited.register(ModModelLayers.ODB_CUBE, ModModelLayers::odbCube);
-        audited.register(ModModelLayers.DREAD_TENTACLE, DreadTentacleModel::createBodyLayer);
-        audited.register(ModModelLayers.STAR_SPAWN_TENTACLES, StarSpawnTentacleModel::createBodyLayer);
         audited.register(ModModelLayers.DEMON_SHEEP, SheepModel::createBodyLayer);
         audited.register(ModModelLayers.DEMON_SHEEP_FUR, SheepFurModel::createFurLayer);
-        audited.register(ModModelLayers.SAMURAI_INNER, () -> DreadiumSamuraiArmorModel.createBodyLayer(0.5F));
-        audited.register(ModModelLayers.SAMURAI_OUTER, () -> DreadiumSamuraiArmorModel.createBodyLayer(1.0F));
         audited.register(ModModelLayers.DEPTHS_INNER, () -> ModModelLayers.humanoidArmor(0.75F));
         audited.register(ModModelLayers.DEPTHS_OUTER, () -> ModModelLayers.humanoidArmor(1.25F));
         audited.register(ModModelLayers.DEPTHS_SKELETON_INNER, () -> ModModelLayers.skeletonArmor(0.75F));
@@ -147,7 +140,6 @@ public final class ACEntityRenderers {
         audited.register(ModModelLayers.ABYSSAL_ZOMBIE_OUTER, () -> ModModelLayers.classicHumanoid(1.0F));
         audited.register(ModModelLayers.DRAGON, DragonModel::createBodyLayer);
         GhoulShoggothRenderers.registerLayers(audited);
-        LegacyRenderers.registerLayers(audited);
         if (!registered.contains(ModModelLayers.DRAGON)
             || !registered.contains(ModModelLayers.ABYSSAL_ZOMBIE)) {
             throw new IllegalStateException("R2 model layer relay is incomplete");

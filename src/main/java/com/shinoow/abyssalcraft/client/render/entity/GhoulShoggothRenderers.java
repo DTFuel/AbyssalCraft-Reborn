@@ -4,7 +4,6 @@ import java.util.Set;
 
 import com.shinoow.abyssalcraft.client.model.entity.GhoulModel;
 import com.shinoow.abyssalcraft.client.model.entity.GhoulArmorModel;
-import com.shinoow.abyssalcraft.client.model.entity.ShoggothModel;
 import com.shinoow.abyssalcraft.content.entity.ghoul.AbstractGhoul;
 import com.shinoow.abyssalcraft.content.entity.ghoul.GhoulEntities;
 import com.shinoow.abyssalcraft.content.entity.shoggoth.AbstractShoggoth;
@@ -21,15 +20,10 @@ import net.minecraft.world.entity.EntityType;
  * Faithful renderers for the ghoul (PD-5) + shoggoth (PD-5) families (owned by PE-3, Stage E2).
  *
  * <p>Unlike the anti/demon families (PE-2, which reuse vanilla models), the ghoul and shoggoth textures
- * are UV-mapped to their bespoke 1.12.2 meshes, so this ships dedicated {@link GhoulModel} /
- * {@link ShoggothModel} (simplified-faithful ports -- see those classes) with the copied faithful
- * textures + a glowing-eyes layer. All eight register through the fork-free
+ * are UV-mapped to their bespoke 1.12.2 meshes. Ghouls use {@link GhoulModel}, while shoggoths use an
+ * audited Gecko geometry resource with exact procedural animation. All eight register through the fork-free
  * {@link EntityRendererCompat.Renderers} sink and are added to {@code handled} so {@code ACEntityRenderers}
- * skips them in the E1 placeholder pass; the two custom meshes are registered via {@link #registerLayers}.
- *
- * <p>Deferred (noted): fine model detail (ghoul teeth/fingers/ribs, the full shoggoth tentacle/mouth/eye
- * set), armor / held-item / custom-head layers (armor &rarr; PE-5), the ghoul TYPE-variant easter-egg
- * textures, and the shadow-shoggoth translucency -- faithful visual polish for human review.
+ * skips them in the E1 placeholder pass; the ghoul meshes are registered via {@link #registerLayers}.
  */
 public final class GhoulShoggothRenderers {
 
@@ -41,9 +35,9 @@ public final class GhoulShoggothRenderers {
         ghoul(renderers, handled, GhoulEntities.DREADED_GHOUL.get(), "dreaded_ghoul", "dreaded_ghoul_eyes", false, true);
         ghoul(renderers, handled, GhoulEntities.OMOTHOL_GHOUL.get(), "omothol_ghoul", null, false, false);
         ghoul(renderers, handled, GhoulEntities.SHADOW_GHOUL.get(), "shadow_ghoul", "shadow_ghoul_eyes", true, false);
-        shoggoth(renderers, handled, ShoggothEntities.LESSER_SHOGGOTH.get(), "lessershoggoth", "lessershoggoth_eyes");
-        shoggoth(renderers, handled, ShoggothEntities.SHOGGOTH.get(), "abyssalshoggoth", "abyssalshoggoth_eyes");
-        shoggoth(renderers, handled, ShoggothEntities.GREATER_SHOGGOTH.get(), "omotholshoggoth", "omotholshoggoth_eyes");
+        shoggoth(renderers, handled, ShoggothEntities.LESSER_SHOGGOTH.get(), 0.75F);
+        shoggoth(renderers, handled, ShoggothEntities.SHOGGOTH.get(), 1.0F);
+        shoggoth(renderers, handled, ShoggothEntities.GREATER_SHOGGOTH.get(), 1.5F);
     }
 
     /** The two custom family meshes (vanilla-model families need no layer registration). */
@@ -51,7 +45,6 @@ public final class GhoulShoggothRenderers {
         layers.register(ModModelLayers.GHOUL, GhoulModel::createBodyLayer);
         layers.register(ModModelLayers.GHOUL_ARMOR_INNER, () -> GhoulArmorModel.createBodyLayer(0.5F));
         layers.register(ModModelLayers.GHOUL_ARMOR_OUTER, () -> GhoulArmorModel.createBodyLayer(1.0F));
-        layers.register(ModModelLayers.SHOGGOTH, ShoggothModel::createBodyLayer);
     }
 
     private static void ghoul(EntityRendererCompat.Renderers renderers, Set<EntityType<?>> handled,
@@ -72,10 +65,8 @@ public final class GhoulShoggothRenderers {
     }
 
     private static void shoggoth(EntityRendererCompat.Renderers renderers, Set<EntityType<?>> handled,
-                                 EntityType<?> type, String texture, String eyes) {
-        ResourceLocation t = ACRef.id("textures/model/shoggoth/" + texture + ".png");
-        ResourceLocation e = eyes == null ? null : ACRef.id("textures/model/shoggoth/" + eyes + ".png");
-        EntityRendererProvider<AbstractShoggoth> provider = ctx -> new ShoggothRenderer(ctx, t, e);
+                                 EntityType<?> type, float modelScale) {
+        EntityRendererProvider<AbstractShoggoth> provider = ctx -> new ShoggothGeoRenderer(ctx, modelScale);
         renderers.register(type, provider);
         handled.add(type);
     }

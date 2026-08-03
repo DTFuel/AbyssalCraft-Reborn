@@ -15,6 +15,16 @@ import net.minecraft.core.Holder;
 *///?}
 
 import com.shinoow.abyssalcraft.AbyssalCraft;
+import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.util.GeckoLibUtil;
+//? if <1.21 {
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+//?} else {
+/*import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.animatable.client.GeoRenderProvider;
+import software.bernie.geckolib.animation.AnimatableManager;
+*///?}
 
 /**
  * Compat: armor materials + armor items (vanilla axis).
@@ -108,8 +118,11 @@ public final class ArmorCompat {
                    ArmorItem.Type.LEGGINGS, m.legs, ArmorItem.Type.BOOTS, m.boots),
             m.enchantValue, SoundEvents.ARMOR_EQUIP_IRON, m.repair,
             List.of(new ArmorMaterial.Layer(ACRef.id(m.name))), m.toughness, m.knockbackResistance);
-        return new VisualArmorItem(Holder.direct(material), type,
-            props.durability(type.getDurability(m.durabilityMultiplier)), visual);
+        return visual == Visual.DREADIUM_SAMURAI
+            ? new SamuraiArmorItem(Holder.direct(material), type,
+                props.durability(type.getDurability(m.durabilityMultiplier)))
+            : new VisualArmorItem(Holder.direct(material), type,
+                props.durability(type.getDurability(m.durabilityMultiplier)), visual);
         *///?} else {
         ArmorMaterial material = new ArmorMaterial() {
             @Override public int getDurabilityForType(ArmorItem.Type t) { return baseDurability(t) * m.durabilityMultiplier; }
@@ -148,17 +161,39 @@ public final class ArmorCompat {
         }
     }
 
-    //? if <1.21 {
-    public static final class SamuraiArmorItem extends ArmorItem {
+    public static final class SamuraiArmorItem extends ArmorItem implements GeoItem {
 
+        private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
+
+        //? if >=1.21 {
+        /*SamuraiArmorItem(Holder<ArmorMaterial> material, Type type, Item.Properties properties) {
+            super(material, type, properties);
+        }
+        *///?} else {
         SamuraiArmorItem(ArmorMaterial material, Type type, Item.Properties properties) {
             super(material, type, properties);
         }
+        //?}
 
+        //? if <1.21 {
         @Override
         public void initializeClient(java.util.function.Consumer<net.minecraftforge.client.extensions.common.IClientItemExtensions> consumer) {
             consumer.accept(ArmorClientCompat.samuraiExtension());
         }
+        //?} else {
+        /*@Override
+        public void createGeoRenderer(java.util.function.Consumer<GeoRenderProvider> consumer) {
+            consumer.accept(ArmorClientCompat.samuraiGeoProvider());
+        }
+        *///?}
+
+        @Override
+        public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        }
+
+        @Override
+        public AnimatableInstanceCache getAnimatableInstanceCache() {
+            return geoCache;
+        }
     }
-    //?}
 }

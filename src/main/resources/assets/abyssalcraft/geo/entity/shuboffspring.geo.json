@@ -3,3976 +3,1176 @@
   "minecraft:geometry": [
     {
       "description": {
-        "identifier": "geometry.shuboffspring",
+        "identifier": "geometry.abyssalcraft.placeholder",
         "texture_width": 128,
-        "texture_height": 64
+        "texture_height": 64,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2,
+        "visible_bounds_offset": [
+          0,
+          1,
+          0
+        ]
       },
       "bones": [
         {
-          "name": "lTentacle02b04",
-          "parent": "lTentacle02b01",
+          "name": "placeholder_root",
           "pivot": [
-            0.7,
-            33.2,
-            -17.1
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.1,
-                29.1,
-                -17.3
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rLeg01HoofClaw02",
-          "parent": "rLeg01Hoof",
-          "pivot": [
-            -22.2,
-            14,
-            -2
-          ],
-          "rotation": [
-            12,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -23.4,
-                11,
-                -3.5
-              ],
-              "size": [
-                2,
-                3,
-                2
-              ],
-              "uv": [
-                81,
-                39
-              ]
-            }
-          ]
-        },
-        {
-          "name": "body02",
-          "parent": "body01",
-          "pivot": [
-            0,
-            30.5,
-            -3
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -6,
-                30.5,
-                -9
-              ],
-              "size": [
-                12,
-                8,
-                12
-              ],
-              "uv": [
-                0,
-                26
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rTentacle02b02",
-          "parent": "rTentacle02b01",
-          "pivot": [
-            -0.7,
-            33.2,
-            -17.1
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.5,
-                29.1,
-                -17.9
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lLeg02HoofClaw02",
-          "parent": "lLeg02Hoof",
-          "pivot": [
-            -18.7,
-            13.6,
-            2.6
-          ],
-          "rotation": [
-            12,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -19.9,
-                10.6,
-                1.1
-              ],
-              "size": [
-                2,
-                3,
-                2
-              ],
-              "uv": [
-                81,
-                39
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lLeg01Fur",
-          "parent": "lLeg01c",
-          "pivot": [
-            -11.5,
-            15.8,
-            -3.5
-          ],
-          "rotation": [
-            0,
-            0,
-            10
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -16,
-                14.7,
-                -3.5
-              ],
-              "size": [
-                9,
-                4,
-                0
-              ],
-              "uv": [
-                86,
-                49
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rLeg01Fur",
-          "parent": "rLeg01c",
-          "pivot": [
-            -17.7,
-            15.8,
-            -3.5
-          ],
-          "rotation": [
-            0,
-            0,
-            10
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -22.2,
-                14.7,
-                -3.5
-              ],
-              "size": [
-                9,
-                4,
-                0
-              ],
-              "uv": [
-                86,
-                49
-              ]
-            }
-          ]
-        },
-        {
-          "name": "fur04",
-          "parent": "body01",
-          "pivot": [
-            -3.9,
-            19.1,
-            -0.3
-          ],
-          "rotation": [
-            0,
-            -24,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.9,
-                13.1,
-                -4.8
-              ],
-              "size": [
-                2,
-                6,
-                9
-              ],
-              "uv": [
-                99,
-                47
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lHorn03d",
-          "parent": "lHorn03a",
-          "pivot": [
-            2.2,
-            44,
-            -10.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2,
-                43.8,
-                -11.1
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                6
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rTentacle02b03",
-          "parent": "rTentacle02b01",
-          "pivot": [
-            -0.7,
-            33.2,
-            -17.1
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.9,
-                29.1,
-                -17.3
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike01c",
-          "parent": "rspike01b",
-          "pivot": [
-            -5.4,
-            47,
-            -7.4
-          ],
-          "rotation": [
-            0,
-            0,
-            8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -6.4,
-                47,
-                -8.4
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rTentacle01a",
-          "parent": "head",
-          "pivot": [
-            -1.5,
-            32.7,
-            -14.9
-          ],
-          "rotation": [
-            -33,
-            -16,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.5,
-                29.7,
-                -15.9
-              ],
-              "size": [
-                2,
-                3,
-                2
-              ],
-              "uv": [
-                45,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lLeg02HoofClaw03",
-          "parent": "lLeg02HoofClaw01",
-          "pivot": [
-            -18.5,
-            10.2,
-            0.9
-          ],
-          "rotation": [
-            45,
-            0,
-            -30
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -20.8,
-                9.7,
-                0.4
-              ],
-              "size": [
-                3,
-                1,
-                1
-              ],
-              "uv": [
-                81,
-                45
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rTentacle01b02",
-          "parent": "rTentacle01b01",
-          "pivot": [
-            -1.5,
-            30.2,
-            -14.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.3,
-                26.1,
-                -15.7
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lspike02c",
-          "parent": "lspike02b",
-          "pivot": [
-            5.4,
-            47,
-            -3
-          ],
-          "rotation": [
-            0,
-            0,
-            -4
-          ],
-          "cubes": [
-            {
-              "origin": [
-                4.4,
-                47,
-                -4
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "head",
-          "parent": "headJoint",
-          "pivot": [
-            0,
-            35.4,
-            -10.6
-          ],
-          "rotation": [
-            35.74,
-            0,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                31.9,
-                -15.6
-              ],
-              "size": [
-                7,
-                7,
-                6
-              ],
-              "uv": [
-                24,
-                46
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rTentacle01b04",
-          "parent": "rTentacle01b01",
-          "pivot": [
-            -1.5,
-            30.2,
-            -14.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.3,
-                26.1,
-                -15.1
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lLeg0Fur",
-          "parent": "lLeg02c",
-          "pivot": [
-            -14.6,
-            15.2,
-            1.4
-          ],
-          "rotation": [
-            0,
-            0,
-            10
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -19.1,
-                14.1,
-                1.4
-              ],
-              "size": [
-                9,
-                4,
-                0
-              ],
-              "uv": [
-                86,
-                49
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lEar",
-          "parent": "head",
-          "pivot": [
-            2.6,
-            37.6,
-            -12.2
-          ],
-          "rotation": [
-            -40,
-            0,
-            -5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.6,
-                37.1,
-                -13.7
-              ],
-              "size": [
-                5,
-                1,
-                3
-              ],
-              "uv": [
-                40,
-                26
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lLeg02b",
-          "parent": "lLeg02a",
-          "pivot": [
-            -2.7,
-            13.5,
-            1.4
-          ],
-          "rotation": [
-            0,
-            0,
-            -10
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -10.7,
-                11,
-                -0.6
-              ],
-              "size": [
-                8,
-                5,
-                4
-              ],
-              "uv": [
-                69,
-                21
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike02a",
-          "parent": "body01",
-          "pivot": [
-            -5.4,
-            29.8,
-            -3
-          ],
-          "rotation": [
-            0,
-            0,
-            -30
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7.4,
-                29.8,
-                -5
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike03a",
-          "parent": "body01",
-          "pivot": [
-            -5.4,
-            29.8,
-            1.9
-          ],
-          "rotation": [
-            -15,
-            -25,
-            -24
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7.4,
-                29.8,
-                -0.1
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lspike05d",
-          "parent": "lspike05c",
-          "pivot": [
-            3.8,
-            60.1,
-            -4.9
-          ],
-          "rotation": [
-            0,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.3,
-                60.1,
-                -5.4
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike02d",
-          "parent": "lspike02c",
-          "pivot": [
-            5.4,
-            55.6,
-            -3
-          ],
-          "rotation": [
-            0,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                4.9,
-                55.6,
-                -3.5
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rEar",
-          "parent": "head",
-          "pivot": [
-            -2.6,
-            37.6,
-            -12.2
-          ],
-          "rotation": [
-            -40,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7.6,
-                37.1,
-                -13.7
-              ],
-              "size": [
-                5,
-                1,
-                3
-              ],
-              "uv": [
-                40,
-                26
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lspike03d",
-          "parent": "lspike03c",
-          "pivot": [
-            5.4,
-            55.6,
-            1.9
-          ],
-          "rotation": [
-            0,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                4.9,
-                55.6,
-                1.4
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rspike04b",
-          "parent": "rspike04a",
-          "pivot": [
-            -1.8,
-            38.4,
-            2.7
-          ],
-          "rotation": [
-            0,
-            0,
-            12
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.4,
-                38.4,
-                1.2
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lLeg01HoofClaw03",
-          "parent": "lLeg01HoofClaw01",
-          "pivot": [
-            -15.4,
-            10.8,
-            -4.3
-          ],
-          "rotation": [
-            45,
-            0,
-            -30
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -17.7,
-                10.3,
-                -4.8
-              ],
-              "size": [
-                3,
-                1,
-                1
-              ],
-              "uv": [
-                81,
-                45
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lLeg02HoofClaw01",
-          "parent": "lLeg02Hoof",
-          "pivot": [
-            -18.7,
-            13.2,
-            1.4
-          ],
-          "rotation": [
-            -12,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -19.9,
-                10.2,
-                -0.1
-              ],
-              "size": [
-                2,
-                3,
-                2
-              ],
-              "uv": [
-                81,
-                39
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lLeg02c",
-          "parent": "lLeg02b",
-          "pivot": [
-            -9.9,
-            14,
-            1.4
-          ],
-          "rotation": [
-            0,
-            0,
-            -24
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -18.9,
-                12.5,
-                -0.1
-              ],
-              "size": [
-                9,
-                3,
-                3
-              ],
-              "uv": [
-                69,
-                32
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rHorn03c",
-          "parent": "rHorn03a",
-          "pivot": [
-            -2.2,
-            44,
-            -10.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3,
-                43.8,
-                -11.1
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                6
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike04c",
-          "parent": "rspike04b",
-          "pivot": [
-            -1.8,
-            47,
-            2.7
-          ],
-          "rotation": [
-            0,
-            0,
-            8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.8,
-                47,
-                1.7
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike05d",
-          "parent": "rspike05c",
-          "pivot": [
-            -3.8,
-            60.1,
-            -4.9
-          ],
-          "rotation": [
-            0,
-            0,
-            -5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.3,
-                60.1,
-                -5.4
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rHorn04",
-          "parent": "rHorn03a",
-          "pivot": [
-            -2.2,
-            46.7,
-            -10.9
-          ],
-          "rotation": [
-            0,
-            0,
-            10
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.7,
-                46.7,
-                -11.4
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                5,
-                6
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike06d",
-          "parent": "rspike06c",
-          "pivot": [
-            -3.8,
-            60.1,
-            -0.1
-          ],
-          "rotation": [
-            0,
-            0,
-            -5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.3,
-                60.1,
-                -0.6
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lspike03b",
-          "parent": "lspike03a",
-          "pivot": [
-            5.4,
-            38.4,
-            1.9
-          ],
-          "rotation": [
-            0,
-            0,
-            -12
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.8,
-                38.4,
-                0.4
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rHorn02",
-          "parent": "rHorn01",
-          "pivot": [
-            -2.2,
-            41.3,
-            -10.9
-          ],
-          "rotation": [
-            -8,
-            0,
-            -8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.2,
-                41.3,
-                -11.9
-              ],
-              "size": [
-                2,
-                3,
-                2
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike06a",
-          "parent": "body02",
-          "pivot": [
-            -3.8,
-            34.3,
-            -0.1
-          ],
-          "rotation": [
-            -5,
-            -16,
-            -16
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.8,
-                34.3,
-                -2.1
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lTentacle02c",
-          "parent": "lTentacle02b01",
-          "pivot": [
-            0.7,
-            29.3,
-            -17.1
-          ],
-          "rotation": [
-            -12,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.2,
-                25.3,
-                -17.6
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                51,
-                6
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rHorn03a",
-          "parent": "rHorn02",
-          "pivot": [
-            -2.2,
-            44,
-            -10.9
-          ],
-          "rotation": [
-            -18,
-            0,
-            8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3,
-                43.8,
-                -11.7
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                6
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lspike03c",
-          "parent": "lspike03b",
-          "pivot": [
-            5.4,
-            47,
-            1.9
-          ],
-          "rotation": [
-            0,
-            0,
-            -8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                4.4,
-                47,
-                0.9
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike01b",
-          "parent": "lspike01a",
-          "pivot": [
-            5.4,
-            38.4,
-            -7.4
-          ],
-          "rotation": [
-            0,
-            0,
-            -12
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.8,
-                38.4,
-                -8.9
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike01c",
-          "parent": "lspike01b",
-          "pivot": [
-            5.4,
-            47,
-            -7.4
-          ],
-          "rotation": [
-            0,
-            0,
-            -8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                4.4,
-                47,
-                -8.4
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rHorn01",
-          "parent": "head",
-          "pivot": [
-            -2.2,
-            38,
-            -10.9
-          ],
-          "rotation": [
-            -42,
-            0,
-            -23
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.2,
-                37.9,
-                -11.9
-              ],
-              "size": [
-                2,
-                4,
-                2
-              ],
-              "uv": [
-                0,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lspike02a",
-          "parent": "body01",
-          "pivot": [
-            5.4,
-            29.8,
-            -3
-          ],
-          "rotation": [
-            0,
-            0,
-            30
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.4,
-                29.8,
-                -5
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rspike02b",
-          "parent": "rspike02a",
-          "pivot": [
-            -5.4,
-            38.4,
-            -3
-          ],
-          "rotation": [
-            0,
-            0,
-            15
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7,
-                38.4,
-                -4.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lspike04b",
-          "parent": "lspike04a",
-          "pivot": [
-            1.8,
-            38.4,
-            2.7
-          ],
-          "rotation": [
-            0,
-            0,
-            -12
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.2,
-                38.4,
-                1.2
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lTentacle01b01",
-          "parent": "lTentacle01a",
-          "pivot": [
-            1.5,
-            30.2,
-            -14.9
-          ],
-          "rotation": [
-            -10,
-            0,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.3,
-                26.1,
-                -15.7
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rspike05b",
-          "parent": "rspike05a",
-          "pivot": [
-            -3.8,
-            42.9,
-            -4.9
-          ],
-          "rotation": [
-            0,
-            0,
-            12
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.4,
-                42.9,
-                -6.4
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rHorn03d",
-          "parent": "rHorn03a",
-          "pivot": [
-            -2.2,
-            44,
-            -10.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.4,
-                43.8,
-                -11.1
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                6
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike04d",
-          "parent": "rspike04c",
-          "pivot": [
-            -1.8,
-            55.6,
-            2.7
-          ],
-          "rotation": [
-            0,
-            0,
-            -5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.3,
-                55.6,
-                2.2
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "jawUpper02",
-          "parent": "jawUpper01",
-          "pivot": [
-            0,
-            34.5,
-            -15
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.3,
-                33.5,
-                -20
-              ],
-              "size": [
-                1,
-                2,
-                5
-              ],
-              "uv": [
-                71,
-                49
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike02b",
-          "parent": "lspike02a",
-          "pivot": [
-            5.4,
-            38.4,
-            -3
-          ],
-          "rotation": [
-            0,
-            0,
-            -15
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.8,
-                38.4,
-                -4.5
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike06d",
-          "parent": "lspike06c",
-          "pivot": [
-            3.8,
-            60.1,
-            -0.1
-          ],
-          "rotation": [
-            0,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.3,
-                60.1,
-                -0.6
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lLeg01Hoof",
-          "parent": "lLeg01c",
-          "pivot": [
-            -15.6,
-            14,
-            -3.8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -16.8,
-                12.4,
-                -5.3
-              ],
-              "size": [
-                2,
-                3,
-                3
-              ],
-              "uv": [
-                69,
-                39
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike05a",
-          "parent": "body02",
-          "pivot": [
-            -3.8,
-            34.3,
-            -4.9
-          ],
-          "rotation": [
-            5,
-            16,
-            -16
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.8,
-                34.3,
-                -6.9
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rLeg01c",
-          "parent": "rLeg01b",
-          "pivot": [
-            -13,
-            14.6,
-            -3.5
-          ],
-          "rotation": [
-            0,
-            0,
-            -24
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -22,
-                13.1,
-                -5
-              ],
-              "size": [
-                9,
-                3,
-                3
-              ],
-              "uv": [
-                69,
-                32
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lHorn03b",
-          "parent": "lHorn03a",
-          "pivot": [
-            2.2,
-            44,
-            -10.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2,
-                43.8,
-                -11.7
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                6
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lLeg01HoofClaw03_1",
-          "parent": "rLeg01HoofClaw01",
-          "pivot": [
-            -22,
-            10.6,
-            -3.7
-          ],
-          "rotation": [
-            45,
-            0,
-            -30
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -24.3,
-                10.1,
-                -4.2
-              ],
-              "size": [
-                3,
-                1,
-                1
-              ],
-              "uv": [
-                81,
-                45
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lHorn03c",
-          "parent": "lHorn03a",
-          "pivot": [
-            2.2,
-            44,
-            -10.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.4,
-                43.8,
-                -11.1
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                6
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rspike05c",
-          "parent": "rspike05b",
-          "pivot": [
-            -3.8,
-            51.5,
-            -4.9
-          ],
-          "rotation": [
-            0,
-            0,
-            8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.8,
-                51.5,
-                -5.9
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike06b",
-          "parent": "rspike06a",
-          "pivot": [
-            -3.8,
-            42.9,
-            -0.1
-          ],
-          "rotation": [
-            0,
-            0,
-            12
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.4,
-                42.9,
-                -1.6
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rLeg01a",
-          "parent": "body01",
-          "pivot": [
-            -3.1,
-            24.1,
-            -3.5
-          ],
-          "rotation": [
-            26,
-            -164,
-            60
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -6.6,
-                11.2,
-                -6
-              ],
-              "size": [
-                7,
-                13,
-                5
-              ],
-              "uv": [
-                69,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lLeg02Hoof",
-          "parent": "lLeg02c",
-          "pivot": [
-            -18.7,
-            13.4,
-            1.4
-          ],
-          "rotation": [
-            0,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -19.9,
-                11.8,
-                -0.1
-              ],
-              "size": [
-                2,
-                3,
-                3
-              ],
-              "uv": [
-                69,
-                39
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "jawUpper01",
-          "parent": "head",
-          "pivot": [
-            0,
-            34.5,
-            -15
-          ],
-          "rotation": [
-            4,
-            0,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.6,
-                33.5,
-                -20
-              ],
-              "size": [
-                4,
-                2,
-                5
-              ],
-              "uv": [
-                0,
-                55
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lTentacle01b03",
-          "parent": "lTentacle01b01",
-          "pivot": [
-            1.5,
-            30.2,
-            -14.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.3,
-                26.1,
-                -15.1
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike06c",
-          "parent": "lspike06b",
-          "pivot": [
-            3.8,
-            51.5,
-            -0.1
-          ],
-          "rotation": [
-            0,
-            0,
-            -8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.8,
-                51.5,
-                -1.1
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lLeg01b",
-          "parent": "lLeg01a",
-          "pivot": [
-            0.4,
-            14.1,
-            -3.5
-          ],
-          "rotation": [
-            0,
-            0,
-            -10
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7.6,
-                11.6,
-                -5.5
-              ],
-              "size": [
-                8,
-                5,
-                4
-              ],
-              "uv": [
-                69,
-                21
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rTentacle02b01",
-          "parent": "jawLower",
-          "pivot": [
-            -0.7,
-            33.2,
-            -17.1
-          ],
-          "rotation": [
-            -22,
-            -10,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.9,
-                29.1,
-                -17.9
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rLeg01HoofClaw01",
-          "parent": "rLeg01Hoof",
-          "pivot": [
-            -22.2,
-            13.6,
-            -3.2
-          ],
-          "rotation": [
-            -12,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -23.4,
-                10.6,
-                -4.7
-              ],
-              "size": [
-                2,
-                3,
-                2
-              ],
-              "uv": [
-                81,
-                39
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike05b",
-          "parent": "lspike05a",
-          "pivot": [
-            3.8,
-            42.9,
-            -4.9
-          ],
-          "rotation": [
-            0,
-            0,
-            -12
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.2,
-                42.9,
-                -6.4
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rspike02d",
-          "parent": "rspike02c",
-          "pivot": [
-            -5.4,
-            55.6,
-            -3
-          ],
-          "rotation": [
-            0,
-            0,
-            -5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.9,
-                55.6,
-                -3.5
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "snout",
-          "parent": "head",
-          "pivot": [
-            0,
-            36.7,
-            -14.4
-          ],
-          "rotation": [
-            25,
-            0,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2,
-                35.6,
-                -20.4
-              ],
-              "size": [
-                4,
-                3,
-                6
-              ],
-              "uv": [
-                0,
-                46
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lTentacle01b02",
-          "parent": "lTentacle01b01",
-          "pivot": [
-            1.5,
-            30.2,
-            -14.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.7,
-                26.1,
-                -15.7
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike01a",
-          "parent": "body01",
-          "pivot": [
-            5.4,
-            29.8,
-            -7.4
-          ],
-          "rotation": [
-            10,
-            -16,
-            24
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.4,
-                29.8,
-                -9.4
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike01d",
-          "parent": "lspike01c",
-          "pivot": [
-            5.4,
-            55.6,
-            -7.4
-          ],
-          "rotation": [
-            0,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                4.9,
-                55.6,
-                -7.9
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lLeg01HoofClaw02",
-          "parent": "lLeg01Hoof",
-          "pivot": [
-            -15.6,
-            14.2,
-            -2.6
-          ],
-          "rotation": [
-            12,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -16.8,
-                11.2,
-                -4.1
-              ],
-              "size": [
-                2,
-                3,
-                2
-              ],
-              "uv": [
-                81,
-                39
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike03a",
-          "parent": "body01",
-          "pivot": [
-            5.4,
-            29.8,
-            1.9
-          ],
-          "rotation": [
-            -15,
-            25,
-            24
-          ],
-          "cubes": [
-            {
-              "origin": [
-                3.4,
-                29.8,
-                -0.1
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lTentacle02b01",
-          "parent": "jawLower",
-          "pivot": [
-            0.7,
-            33.2,
-            -17.1
-          ],
-          "rotation": [
-            -22,
-            10,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.5,
-                29.1,
-                -17.9
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ]
-            }
-          ]
-        },
-        {
-          "name": "headJoint",
-          "parent": "body02",
-          "pivot": [
-            0,
-            33.8,
-            -8.8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0,
-                32.8,
-                -8.8
-              ],
-              "size": [
-                1,
-                1,
-                1
-              ],
-              "uv": [
-                0,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rspike01b",
-          "parent": "rspike01a",
-          "pivot": [
-            -5.4,
-            38.4,
-            -7.4
-          ],
-          "rotation": [
-            0,
-            0,
-            12
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7,
-                38.4,
-                -8.9
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike02c",
-          "parent": "rspike02b",
-          "pivot": [
-            -5.4,
-            47,
-            -3
-          ],
-          "rotation": [
-            0,
-            0,
-            4
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -6.4,
-                47,
-                -4
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lLeg01HoofClaw01",
-          "parent": "lLeg01Hoof",
-          "pivot": [
-            -15.6,
-            13.8,
-            -3.8
-          ],
-          "rotation": [
-            -12,
-            0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -16.8,
-                10.8,
-                -5.3
-              ],
-              "size": [
-                2,
-                3,
-                2
-              ],
-              "uv": [
-                81,
-                39
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rTentacle01b03",
-          "parent": "rTentacle01b01",
-          "pivot": [
-            -1.5,
-            30.2,
-            -14.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.7,
-                26.1,
-                -15.1
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike03b",
-          "parent": "rspike03a",
-          "pivot": [
-            -5.4,
-            38.4,
-            1.9
-          ],
-          "rotation": [
-            0,
-            0,
-            12
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7,
-                38.4,
-                0.4
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lLeg01c",
-          "parent": "lLeg01b",
-          "pivot": [
-            -6.8,
-            14.6,
-            -3.5
-          ],
-          "rotation": [
-            0,
-            0,
-            -24
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -15.8,
-                13.1,
-                -5
-              ],
-              "size": [
-                9,
-                3,
-                3
-              ],
-              "uv": [
-                69,
-                32
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "lLeg02a",
-          "parent": "body01",
-          "pivot": [
-            0,
-            23.5,
-            1.4
-          ],
-          "rotation": [
-            90,
-            28,
-            -90
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.5,
-                10.6,
-                -1.1
-              ],
-              "size": [
-                7,
-                13,
-                5
-              ],
-              "uv": [
-                69,
-                0
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "jawLower",
-          "parent": "head",
-          "pivot": [
-            0,
-            33.1,
-            -15.6
-          ],
-          "rotation": [
-            4,
-            0,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2,
-                32.6,
-                -19.6
-              ],
-              "size": [
-                4,
-                1,
-                4
-              ],
-              "uv": [
-                53,
-                57
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike05c",
-          "parent": "lspike05b",
-          "pivot": [
-            3.8,
-            51.5,
-            -4.9
-          ],
-          "rotation": [
-            0,
-            0,
-            -8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.8,
-                51.5,
-                -5.9
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike04a",
-          "parent": "body01",
-          "pivot": [
-            1.8,
-            29.8,
-            2.7
-          ],
-          "rotation": [
-            -41,
-            41,
-            40
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.2,
-                29.8,
-                0.7
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lTentacle01b04",
-          "parent": "lTentacle01b01",
-          "pivot": [
-            1.5,
-            30.2,
-            -14.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.7,
-                26.1,
-                -15.1
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ]
-            }
-          ]
-        },
-        {
-          "name": "lspike05a",
-          "parent": "body02",
-          "pivot": [
-            3.8,
-            34.3,
-            -4.9
-          ],
-          "rotation": [
-            5,
-            -16,
-            16
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.8,
-                34.3,
-                -6.9
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ]
-            }
-          ]
-        },
-        {
-          "name": "rLeg01b",
-          "parent": "rLeg01a",
-          "pivot": [
-            -5.8,
-            14.1,
-            -3.5
-          ],
-          "rotation": [
-            0,
-            0,
-            -10
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -13.8,
-                11.6,
-                -5.5
-              ],
-              "size": [
-                8,
-                5,
-                4
-              ],
-              "uv": [
-                69,
-                21
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rTentacle01b01",
-          "parent": "rTentacle01a",
-          "pivot": [
-            -1.5,
-            30.2,
-            -14.9
-          ],
-          "rotation": [
-            -10,
-            0,
-            0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.7,
-                26.1,
-                -15.7
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "rspike01d",
-          "parent": "rspike01c",
-          "pivot": [
-            -5.4,
-            55.6,
-            -7.4
-          ],
-          "rotation": [
-            0,
-            0,
-            -5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.9,
-                55.6,
-                -7.9
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ],
-              "mirror": true
-            }
-          ]
-        },
-        {
-          "name": "fur01",
-          "parent": "body01",
-          "pivot": [
-            0,
-            26,
-            -9.4
-          ],
-          "rotation": [
-            -11,
             0,
+            8,
             0
           ],
           "cubes": [
             {
               "origin": [
                 -4,
-                19,
-                -10.3
+                4,
+                -4
               ],
               "size": [
                 8,
-                7,
-                2
+                8,
+                8
               ],
               "uv": [
-                99,
-                28
+                0,
+                0
               ]
             }
+          ]
+        },
+        {
+          "name": "lTentacle02b04",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rLeg01HoofClaw02",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "body02",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rTentacle02b02",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg02HoofClaw02",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg01Fur",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rLeg01Fur",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "fur04",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lHorn03d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rTentacle02b03",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike01c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rTentacle01a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg02HoofClaw03",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rTentacle01b02",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike02c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "head",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rTentacle01b04",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg0Fur",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lEar",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg02b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike02a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike03a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike05d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike02d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rEar",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike03d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike04b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg01HoofClaw03",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg02HoofClaw01",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg02c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rHorn03c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike04c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike05d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rHorn04",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike06d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike03b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rHorn02",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike06a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lTentacle02c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rHorn03a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike03c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike01b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike01c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rHorn01",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike02a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike02b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike04b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lTentacle01b01",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike05b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rHorn03d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike04d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "jawUpper02",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike02b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike06d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg01Hoof",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike05a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rLeg01c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lHorn03b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg01HoofClaw03_1",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lHorn03c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike05c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike06b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rLeg01a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg02Hoof",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "jawUpper01",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lTentacle01b03",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike06c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg01b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rTentacle02b01",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rLeg01HoofClaw01",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike05b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike02d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "snout",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lTentacle01b02",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike01a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike01d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg01HoofClaw02",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike03a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lTentacle02b01",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "headJoint",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike01b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike02c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg01HoofClaw01",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rTentacle01b03",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike03b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg01c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lLeg02a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "jawLower",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike05c",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike04a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lTentacle01b04",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lspike05a",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rLeg01b",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rTentacle01b01",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "rspike01d",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "fur01",
+          "parent": "placeholder_root",
+          "pivot": [
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rspike03d",
-          "parent": "rspike03c",
+          "parent": "placeholder_root",
           "pivot": [
-            -5.4,
-            55.6,
-            1.9
-          ],
-          "rotation": [
             0,
             0,
-            -5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -5.9,
-                55.6,
-                1.4
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ],
-              "mirror": true
-            }
+            0
           ]
         },
         {
           "name": "lspike06b",
-          "parent": "lspike06a",
+          "parent": "placeholder_root",
           "pivot": [
-            3.8,
-            42.9,
-            -0.1
-          ],
-          "rotation": [
             0,
             0,
-            -12
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.2,
-                42.9,
-                -1.6
-              ],
-              "size": [
-                3,
-                9,
-                3
-              ],
-              "uv": [
-                96,
-                14
-              ]
-            }
+            0
           ]
         },
         {
           "name": "lspike04c",
-          "parent": "lspike04b",
+          "parent": "placeholder_root",
           "pivot": [
-            1.8,
-            47,
-            2.7
-          ],
-          "rotation": [
             0,
             0,
-            -8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.8,
-                47,
-                1.7
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ]
-            }
+            0
           ]
         },
         {
           "name": "rspike04a",
-          "parent": "body01",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.8,
-            29.8,
-            2.7
-          ],
-          "rotation": [
-            -41,
-            -41,
-            -40
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3.8,
-                29.8,
-                0.7
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rTentacle01c",
-          "parent": "rTentacle01b01",
+          "parent": "placeholder_root",
           "pivot": [
-            -1.5,
-            26.3,
-            -14.9
-          ],
-          "rotation": [
-            18,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2,
-                22.3,
-                -15.4
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                51,
-                6
-              ],
-              "mirror": true
-            }
           ]
         },
         {
           "name": "rspike01a",
-          "parent": "body01",
+          "parent": "placeholder_root",
           "pivot": [
-            -5.4,
-            29.8,
-            -7.4
-          ],
-          "rotation": [
-            10,
-            16,
-            -24
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7.4,
-                29.8,
-                -9.4
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lTentacle01c",
-          "parent": "lTentacle01b01",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            26.3,
-            -14.9
-          ],
-          "rotation": [
-            18,
+            0,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1,
-                22.3,
-                -15.4
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                51,
-                6
-              ]
-            }
           ]
         },
         {
           "name": "lspike06a",
-          "parent": "body02",
+          "parent": "placeholder_root",
           "pivot": [
-            3.8,
-            34.3,
-            -0.1
-          ],
-          "rotation": [
-            -5,
-            16,
-            16
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.8,
-                34.3,
-                -2.1
-              ],
-              "size": [
-                4,
-                9,
-                4
-              ],
-              "uv": [
-                96,
-                0
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lLeg02HoofClaw04",
-          "parent": "lLeg02HoofClaw02",
+          "parent": "placeholder_root",
           "pivot": [
-            -18.5,
-            10.6,
-            2.1
-          ],
-          "rotation": [
-            45,
             0,
-            -30
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -20.8,
-                10.1,
-                1.6
-              ],
-              "size": [
-                3,
-                1,
-                1
-              ],
-              "uv": [
-                81,
-                45
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "lspike04d",
-          "parent": "lspike04c",
+          "parent": "placeholder_root",
           "pivot": [
-            1.8,
-            55.6,
-            2.7
-          ],
-          "rotation": [
             0,
             0,
-            5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.3,
-                55.6,
-                2.2
-              ],
-              "size": [
-                1,
-                6,
-                1
-              ],
-              "uv": [
-                113,
-                13
-              ]
-            }
+            0
           ]
         },
         {
           "name": "lTentacle02b02",
-          "parent": "lTentacle02b01",
+          "parent": "placeholder_root",
           "pivot": [
-            0.7,
-            33.2,
-            -17.1
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.1,
-                29.1,
-                -17.9
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rLeg01Hoof",
-          "parent": "rLeg01c",
+          "parent": "placeholder_root",
           "pivot": [
-            -22.2,
-            13.8,
-            -3.2
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -23.4,
-                12.2,
-                -4.7
-              ],
-              "size": [
-                2,
-                3,
-                3
-              ],
-              "uv": [
-                69,
-                39
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rTentacle02b04",
-          "parent": "rTentacle02b01",
+          "parent": "placeholder_root",
           "pivot": [
-            -0.7,
-            33.2,
-            -17.1
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.5,
-                29.1,
-                -17.3
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lLeg01a",
-          "parent": "body01",
+          "parent": "placeholder_root",
           "pivot": [
-            3.1,
-            24.1,
-            -3.5
-          ],
-          "rotation": [
-            -26,
-            -16,
-            -60
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -0.4,
-                11.2,
-                -6
-              ],
-              "size": [
-                7,
-                13,
-                5
-              ],
-              "uv": [
-                69,
-                0
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "rTentacle02c",
-          "parent": "rTentacle02b01",
+          "parent": "placeholder_root",
           "pivot": [
-            -0.7,
-            29.3,
-            -17.1
-          ],
-          "rotation": [
-            -12,
             0,
-            -5
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -1.2,
-                25.3,
-                -17.6
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                51,
-                6
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "fur03",
-          "parent": "body01",
+          "parent": "placeholder_root",
           "pivot": [
-            3.9,
-            19.1,
-            -0.3
-          ],
-          "rotation": [
             0,
-            24,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                2.9,
-                13.1,
-                -4.8
-              ],
-              "size": [
-                2,
-                6,
-                9
-              ],
-              "uv": [
-                99,
-                47
-              ]
-            }
           ]
         },
         {
           "name": "rLeg01HoofClaw04",
-          "parent": "rLeg01HoofClaw02",
+          "parent": "placeholder_root",
           "pivot": [
-            -22,
-            11,
-            -2.5
-          ],
-          "rotation": [
-            45,
             0,
-            -30
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -24.3,
-                10.5,
-                -3
-              ],
-              "size": [
-                3,
-                1,
-                1
-              ],
-              "uv": [
-                81,
-                45
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "lHorn03a",
-          "parent": "lHorn02",
+          "parent": "placeholder_root",
           "pivot": [
-            2.2,
-            44,
-            -10.9
-          ],
-          "rotation": [
-            -18,
             0,
-            -8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.4,
-                43.8,
-                -11.7
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                6
-              ]
-            }
+            0,
+            0
           ]
         },
         {
           "name": "lHorn01",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            2.2,
-            38,
-            -10.9
-          ],
-          "rotation": [
-            -42,
             0,
-            23
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.2,
-                37.9,
-                -11.9
-              ],
-              "size": [
-                2,
-                4,
-                2
-              ],
-              "uv": [
-                0,
-                0
-              ]
-            }
+            0,
+            0
           ]
         },
         {
           "name": "lHorn02",
-          "parent": "lHorn01",
+          "parent": "placeholder_root",
           "pivot": [
-            2.2,
-            41.3,
-            -10.9
-          ],
-          "rotation": [
-            -8,
             0,
-            8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.2,
-                41.3,
-                -11.9
-              ],
-              "size": [
-                2,
-                3,
-                2
-              ],
-              "uv": [
-                0,
-                0
-              ]
-            }
+            0,
+            0
           ]
         },
         {
           "name": "body01",
+          "parent": "placeholder_root",
           "pivot": [
             0,
-            30.5,
-            -3
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -7,
-                18.5,
-                -10
-              ],
-              "size": [
-                14,
-                12,
-                14
-              ],
-              "uv": [
-                0,
-                0
-              ]
-            }
+            0,
+            0
           ]
         },
         {
           "name": "rspike06c",
-          "parent": "rspike06b",
+          "parent": "placeholder_root",
           "pivot": [
-            -3.8,
-            51.5,
-            -0.1
-          ],
-          "rotation": [
             0,
             0,
-            8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.8,
-                51.5,
-                -1.1
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ],
-              "mirror": true
-            }
+            0
           ]
         },
         {
           "name": "lTentacle02b03",
-          "parent": "lTentacle02b01",
+          "parent": "placeholder_root",
           "pivot": [
-            0.7,
-            33.2,
-            -17.1
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.5,
-                29.1,
-                -17.3
-              ],
-              "size": [
-                1,
-                4,
-                1
-              ],
-              "uv": [
-                45,
-                7
-              ]
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "fur02",
-          "parent": "body01",
+          "parent": "placeholder_root",
           "pivot": [
             0,
-            19.1,
-            -7.3
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -4.5,
-                13.1,
-                -8.2
-              ],
-              "size": [
-                9,
-                6,
-                2
-              ],
-              "uv": [
-                99,
-                39
-              ]
-            }
+            0,
+            0
           ]
         },
         {
           "name": "neck",
-          "parent": "body02",
+          "parent": "placeholder_root",
           "pivot": [
             0,
-            32.8,
-            -8.4
-          ],
-          "rotation": [
-            -18.26,
             0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -3,
-                29.8,
-                -11.7
-              ],
-              "size": [
-                6,
-                6,
-                3
-              ],
-              "uv": [
-                50,
-                30
-              ]
-            }
           ]
         },
         {
           "name": "lHorn04",
-          "parent": "lHorn03a",
+          "parent": "placeholder_root",
           "pivot": [
-            2.2,
-            46.7,
-            -10.9
-          ],
-          "rotation": [
             0,
             0,
-            -10
-          ],
-          "cubes": [
-            {
-              "origin": [
-                1.7,
-                46.7,
-                -11.4
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                5,
-                6
-              ]
-            }
+            0
           ]
         },
         {
           "name": "rHorn03b",
-          "parent": "rHorn03a",
+          "parent": "placeholder_root",
           "pivot": [
-            -2.2,
-            44,
-            -10.9
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -2.4,
-                43.8,
-                -11.7
-              ],
-              "size": [
-                1,
-                3,
-                1
-              ],
-              "uv": [
-                0,
-                6
-              ],
-              "mirror": true
-            }
+            0,
+            0,
+            0
           ]
         },
         {
           "name": "lTentacle01a",
-          "parent": "head",
+          "parent": "placeholder_root",
           "pivot": [
-            1.5,
-            32.7,
-            -14.9
-          ],
-          "rotation": [
-            -33,
-            16,
+            0,
+            0,
             0
-          ],
-          "cubes": [
-            {
-              "origin": [
-                0.5,
-                29.7,
-                -15.9
-              ],
-              "size": [
-                2,
-                3,
-                2
-              ],
-              "uv": [
-                45,
-                0
-              ]
-            }
           ]
         },
         {
           "name": "lLeg01HoofClaw04",
-          "parent": "lLeg01HoofClaw02",
+          "parent": "placeholder_root",
           "pivot": [
-            -15.4,
-            11.2,
-            -3.1
-          ],
-          "rotation": [
-            45,
             0,
-            -30
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -17.7,
-                10.7,
-                -3.6
-              ],
-              "size": [
-                3,
-                1,
-                1
-              ],
-              "uv": [
-                81,
-                45
-              ],
-              "mirror": true
-            }
+            0,
+            0
           ]
         },
         {
           "name": "rspike03c",
-          "parent": "rspike03b",
+          "parent": "placeholder_root",
           "pivot": [
-            -5.4,
-            47,
-            1.9
-          ],
-          "rotation": [
             0,
             0,
-            8
-          ],
-          "cubes": [
-            {
-              "origin": [
-                -6.4,
-                47,
-                0.9
-              ],
-              "size": [
-                2,
-                9,
-                2
-              ],
-              "uv": [
-                113,
-                0
-              ],
-              "mirror": true
-            }
+            0
           ]
         }
       ]

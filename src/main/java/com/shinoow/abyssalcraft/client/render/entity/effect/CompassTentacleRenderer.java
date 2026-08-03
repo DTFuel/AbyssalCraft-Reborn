@@ -1,48 +1,53 @@
 package com.shinoow.abyssalcraft.client.render.entity.effect;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 
-import com.shinoow.abyssalcraft.client.model.entity.DreadTentacleModel;
 import com.shinoow.abyssalcraft.content.entity.misc.CompassTentacle;
-import com.shinoow.abyssalcraft.platform.ACRef;
-import com.shinoow.abyssalcraft.registry.ModModelLayers;
 
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
 
-public final class CompassTentacleRenderer extends EntityRenderer<CompassTentacle> {
+import software.bernie.geckolib.cache.object.BakedGeoModel;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-    private static final ResourceLocation TEXTURE = ACRef.id("textures/model/compass_tentacle.png");
-    private final DreadTentacleModel<CompassTentacle> model;
+public final class CompassTentacleRenderer extends GeoEntityRenderer<CompassTentacle> {
 
     public CompassTentacleRenderer(EntityRendererProvider.Context context) {
-        super(context);
-        this.model = new DreadTentacleModel<>(context.bakeLayer(ModModelLayers.DREAD_TENTACLE));
+        super(context, new CompassTentacleGeoModel());
+        this.shadowRadius = 0.25F;
     }
 
     @Override
-    public void render(CompassTentacle entity, float entityYaw, float partialTicks, PoseStack poseStack,
-                       MultiBufferSource buffer, int packedLight) {
-        model.setupAnim(entity, 0.0F, 0.0F, entity.tickCount + partialTicks, 0.0F, 0.0F);
-        poseStack.pushPose();
+    protected void applyRotations(CompassTentacle entity, PoseStack poseStack,
+                                  float ageInTicks, float rotationYaw, float partialTick) {}
+
+    //? if >=1.21 {
+    /*@Override
+    public void preRender(PoseStack poseStack, CompassTentacle entity, BakedGeoModel model,
+                          MultiBufferSource bufferSource, com.mojang.blaze3d.vertex.VertexConsumer buffer,
+                          boolean isReRender, float partialTick, int packedLight, int packedOverlay,
+                          int renderColor) {
+        applyLegacyTransform(poseStack, entity);
+        super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick,
+            packedLight, packedOverlay, renderColor);
+    }
+    *///?} else {
+    @Override
+    public void preRender(PoseStack poseStack, CompassTentacle entity, BakedGeoModel model,
+                          MultiBufferSource bufferSource, com.mojang.blaze3d.vertex.VertexConsumer buffer,
+                          boolean isReRender, float partialTick, int packedLight, int packedOverlay,
+                          float red, float green, float blue, float alpha) {
+        applyLegacyTransform(poseStack, entity);
+        super.preRender(poseStack, entity, model, bufferSource, buffer, isReRender, partialTick,
+            packedLight, packedOverlay, red, green, blue, alpha);
+    }
+    //?}
+
+    private static void applyLegacyTransform(PoseStack poseStack, CompassTentacle entity) {
         poseStack.translate(0.1F, 1.3F, -0.1F);
         poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
         poseStack.mulPose(Axis.YP.rotationDegrees(entity.getYRot()));
         poseStack.scale(2.4F, 2.4F, 2.4F);
-        VertexConsumer consumer = buffer.getBuffer(RenderType.entityCutoutNoCull(TEXTURE));
-        model.root().render(poseStack, consumer, packedLight, OverlayTexture.NO_OVERLAY);
-        poseStack.popPose();
-        super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
-    }
-
-    @Override
-    public ResourceLocation getTextureLocation(CompassTentacle entity) {
-        return TEXTURE;
     }
 }
