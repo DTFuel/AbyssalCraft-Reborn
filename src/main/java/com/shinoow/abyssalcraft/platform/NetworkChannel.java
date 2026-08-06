@@ -54,7 +54,7 @@ public final class NetworkChannel {
         void enqueue(Runnable task);
     }
 
-    private static final int PROTOCOL = 2;
+    private static final int PROTOCOL = 3;
     private static final int MAX_BODY_BYTES = 1 << 20;
 
     private final ResourceLocation channelId;

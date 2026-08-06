@@ -2,17 +2,17 @@
 
 - 里程碑 / Stage：M7 / Stage S-A
 - 关联平行任务：PS-1（本层）；下游 handler 消费者 PS-5/6/7/8/9
-- 状态：**冻结23条legacy消息 + 1条modern extension；19条MIGRATED、5条REPLACED、0条BLOCKED；双向接收门禁与永久datagen审计已就位**
+- 状态：**冻结23条legacy消息 + 2条modern extension；20条MIGRATED、5条REPLACED、0条BLOCKED；双向接收门禁与永久datagen审计已就位**
 - 负责：PS-1
-- 最后更新：2026-07-27
+- 最后更新：2026-08-06
 
 ## 1. 概述 / 目标
 
-AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetworkWrapper` 通道 + `PacketDispatcher` 注册 23 条消息；移植后冻结这 23 条 legacy 目录，并追加 `NecronomiconPageActionMessage` 作为第 1 条 modern extension。全部消息收敛为**一个多路复用通道** `net/ACNetwork`，其底层加载器分叉（Forge `SimpleChannel` / NeoForge 1.20.5+ Payload）全部封在 `platform/NetworkChannel`（PA-1）里。
+AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetworkWrapper` 通道 + `PacketDispatcher` 注册 23 条消息；移植后冻结这 23 条 legacy 目录，并追加 `NecronomiconPageActionMessage` 与 `LineEffectMessage` 两条 modern extension。全部消息收敛为**一个多路复用通道** `net/ACNetwork`，其底层加载器分叉（Forge `SimpleChannel` / NeoForge 1.20.5+ Payload）全部封在 `platform/NetworkChannel`（PA-1）里。
 
 ## 2. 范围
 
-- 含：`net/ACNetwork`（通道单例 + 24 消息注册 + 方向元数据 + `bootstrap`/发送便捷方法）、`net/server/**`（12 条 C→S，含 1 条 modern extension）、`net/client/**`（12 条 S→C）、每条消息的忠实 `FriendlyByteBuf` 序列化与完整 handler、主类 `init` 里一行 `ACNetwork.bootstrap(modBus)`、`net/{NetworkMessageAudit,NetworkSelfTest}.java` 永久审计、`data/gen/NetworkValidationData.java` datagen 入口。
+- 含：`net/ACNetwork`（通道单例 + 25 消息注册 + 方向元数据 + `bootstrap`/发送便捷方法）、`net/server/**`（12 条 C→S，含 1 条 modern extension）、`net/client/**`（13 条 S→C，含 1 条 modern extension）、每条消息的忠实 `FriendlyByteBuf` 序列化与完整 handler、主类 `init` 里一行 `ACNetwork.bootstrap(modBus)`、`net/{NetworkMessageAudit,NetworkSelfTest}.java` 永久审计、`data/gen/NetworkValidationData.java` datagen 入口。
 - 不含：
   - `platform/NetworkChannel` 本身（PA-1 冻结面；本层是其**首个运行期消费者**）。
   - 各消息 handler 实现随所属系统任务交付（Fire/Rending/Cage/Tablet/Ritual/Knowledge/Necrodata/PE/Disruption/EvilSheep 分属PS-5/6/7/8/9等）；本层只保证消息能被忠实序列化、注册、收发、在正确线程执行。
@@ -21,7 +21,7 @@ AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetwork
 
 - 包结构：`net/ACNetwork` · `net/server/*`（C→S）· `net/client/*`（S→C）。
 - 关键类与职责：
-  - `net/ACNetwork`：`public static final NetworkChannel CHANNEL = NetworkChannel.create("main")`；`static{}` 块按数字 id 注册全 23 消息；`bootstrap(Object modBus)` 触发静态注册再挂 mod-bus；`sendToServer/sendToPlayer/sendToAll` 便捷委托。
+  - `net/ACNetwork`：`public static final NetworkChannel CHANNEL = NetworkChannel.create("main")`；`static{}` 块按数字 id 注册全 25 消息；`bootstrap(Object modBus)` 触发静态注册再挂 mod-bus；`sendToServer/sendToPlayer/sendToAll` 便捷委托。
   - 每条消息 `implements NetworkChannel.ACPacket`，四要素：①全字段规范构造器（发送侧用）；②`(FriendlyByteBuf)` 解码构造器；③`write(FriendlyByteBuf)`；④`handle(Context)`（按所属任务逐步实现）。
 - 数据流：发送侧 `ACNetwork.sendToX(msg)` → `NetworkChannel` 用 `idOf(msg)` + `encodeBody`（`msg.write`）打包进多路复用 `Envelope(id, body)` → 网络 → 接收侧先从 Forge reception side / Neo payload context flow 得到实际方向并与注册元数据比较 → 方向正确才取 decoder、重建消息并排队 handler。反向消息在 decode 和 handler 之前拒绝。
 
@@ -53,11 +53,13 @@ AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetwork
 | 21 | SyncNecromancyDataMessage | S→C | MIGRATED | 客户端necrodata完整同步 |
 | 22 | DisplayRoutesMessage | S→C | MIGRATED | 客户端transfer路径粒子流 |
 | 23 | NecronomiconPageActionMessage | C→S | MIGRATED | modern extension；服务端权威页面动作 |
+| 24 | LineEffectMessage | S→C | MIGRATED | modern extension；客户端世界空间分级渐变光束 |
 
 ## 4. 子系统内契约
 
 - 通道名：`ACRef.id("main")` = `abyssalcraft:main`（多路复用信封另有 `abyssalcraft:net_envelope`，全在 compat 内）。
-- 消息 id：legacy 目录固定为 0–22；0–10 为 C→S，11–22 为 S→C。id 23 是 Necronomicon page action modern extension（C→S）。全目录**稳定不可重排**（wire 传数字 id）。通道协议保持 v2：本次仅增加本地注册方向元数据和接收门禁，Envelope 仍是同一 `id + body` wire bytes；若未来改变 Envelope 编码才升级协议。
+- 消息 id：legacy 目录固定为 0–22；0–10 为 C→S，11–22 为 S→C。id 23 是 Necronomicon page action（C→S），id 24 是 world-space line effect（S→C）。全目录**稳定不可重排**（wire 传数字 id）。通道协议为 v3：`LineEffectMessage` 的 wire body 由单色扩为 `startColor + endColor` 时同步升级，使旧端点在握手阶段被拒绝，而不是错位解码；Envelope 仍为同一 `id + body` 结构。
+- `LineEffectMessage` wire 顺序：起点 3×double、终点 3×double、起点 ARGB int、终点 ARGB int、持续 tick varint。颜色由服务端按 Staff of Rending 等级选择，客户端只负责插值和绘制。
 - 方向门禁：注册必须声明 `NetworkChannel.Direction`。Forge 从 `NetworkEvent.Context#getDirection().getReceptionSide()` 判定接收端；Neo 从 payload context `flow()` 判定 packet flow。方向不符时不得调用 decoder、不得 enqueue、不得执行 handler。
 - `ACPacket` 契约：`write(FriendlyByteBuf)` + `handle(Context)`；解码经 `(FriendlyByteBuf)` 构造器（注册为 `Function<FriendlyByteBuf,M>`）。
 - **`NetworkChannel.Context.player()` = 发送方玩家**（服务端侧）：C→S handler 拿到的是发送者，正确；**S→C（client-bound）handler 若需接收方（客户端）玩家，`Context.player()` 在 Forge 侧返回 `getSender()`（客户端接收时为 null）→ 须用 `SideExecutor` 客户端侧取 `Minecraft.getInstance().player`**（Neo 侧 `Context.player()` 返回接收方玩家，但为跨加载器一致，client-bound handler 一律走 SideExecutor）。
@@ -78,17 +80,17 @@ AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetwork
 - **`Context.player()` 语义**：发送方（服务端）。client-bound handler 需客户端玩家 → SideExecutor（见 §4）。这是 23 条消息 handler 现全延后的部分原因（另一原因是目标系统未移植）。
 - **客户端字段不是权限**：`MobSpellMessage` 为兼容 wire 保留旧 spell ID/scroll type，但 handler 明确不读取它们来决定效果；权威数据来自发送者正在使用的 `ScrollItem`。`OpenSpellbookMessage` 同样无 hand/book tier 字段，服务端自行选择真实持书手。
 - **增量编译陈旧**：新增/移动源文件后 `:1.21.1-neoforge:compileJava` 可能 `UP-TO-DATE` 不真编译 → 用 `--rerun-tasks` 强制（本层实测 neo 首次 UP-TO-DATE，rerun 后才真编）。
-- **round-trip 自测判据**：write→decode 构造器→再 write，比较两次字节数组相等（对称即字节稳定），无需 `equals()`。28 项（24 消息，KnowledgeUnlock 覆盖多个分支）。
-- **方向门禁自测判据**：24 个目录类型各做正确方向与反向方向两次 dispatch；正确方向必须完成 decode 并 enqueue，反向方向必须在 decode 前返回且不 enqueue。输出计数从 audit 实际方向逐项累计，不在测试中硬编码 12/12。
+- **round-trip 自测判据**：write→decode 构造器→再 write，比较两次字节数组相等（对称即字节稳定），无需 `equals()`。29 项（25 消息，KnowledgeUnlock 覆盖多个分支）。
+- **方向门禁自测判据**：25 个目录类型各做正确方向与反向方向两次 dispatch；正确方向必须完成 decode 并 enqueue，反向方向必须在 decode 前返回且不 enqueue。输出计数从 audit 实际方向逐项累计。
 
 ## 7. 验证 / DoD
 
 - **两节点 `compileJava --rerun-tasks`**：BUILD SUCCESSFUL；neo `.class` 字节码核 ItemStack fork-free（24 个 net `.class`）。
 - **永久 datagen 审计**（`data/gen/NetworkValidationData.java` → `NetworkSelfTest.run()`）：
-  - `NetworkMessageAudit.validate(ACNetwork.CHANNEL)`：23 legacy + 1 modern extension 完整、id闭区间0–23、wire id与注册方向稳定、19/5/0审计结果。
-  - 28轮round-trip测试：write→decode→write字节稳定。
-  - 24×2方向矩阵输出 `RR_NET_DIRECTION_GATE_OK serverBound=12 clientBound=12 rejected=24`。
-  - 双端 `runData` 输出 `RR_NET_SELF_TEST_OK messages=24 migrated=19 replaced=5 blocked=0 roundTrips=28`。
+  - `NetworkMessageAudit.validate(ACNetwork.CHANNEL)`：23 legacy + 2 modern extension 完整、id闭区间0–24、wire id与注册方向稳定、20/5/0审计结果。
+  - 29轮round-trip测试：write→decode→write字节稳定。
+  - 25×2方向矩阵输出 `RR_NET_DIRECTION_GATE_OK serverBound=12 clientBound=13 rejected=25`。
+  - 双端 `runData` 输出 `RR_NET_SELF_TEST_OK messages=25 migrated=20 replaced=5 blocked=0 roundTrips=29`。
 - **handler 实现审计**（`docs/spec/rr-net-message-audit.csv`）：
   - 18条MIGRATED：服务端权威、权限/方向/线程正确、客户端反馈经SideExecutor。
   - 5条REPLACED：UpdateMode/TransferStack菜单现代化、WindowProperty自动同步、CleansingRitual服务端resend、Disruption服务端执行。
@@ -97,6 +99,7 @@ AbyssalCraft 的客户端↔服务端通信层。1.12.2 用一个 `SimpleNetwork
 
 ## 修订日志
 
+- 2026-08-06：新增 `LineEffectMessage`（id 24，S→C），用于服务端成功命中后驱动客户端世界空间线条 Shader；随后将 payload 扩为起点色+终点色并把协议升至 v3，以表达四阶法杖各自的纯色渐变。目录变为 23 legacy + 2 modern extension（20/5/0，12 C→S + 13 S→C）。
 - 2026-07-27：R5 NET 方向契约——注册表增加方向元数据；Forge reception side / Neo payload context 在 decode 前拒绝反向 Envelope；永久自测增加 24×2 正负矩阵。协议保持 v2，目录冻结为 23 legacy + 1 modern extension（19/5/0，12 C→S + 12 S→C）。
 - 2026-07-27：RR-NET-AUTO / T7.1c 完成——全23条 legacy 消息handler已实现（18/5/0），删除临时实网验证fixture（RRNetValidation/RRNetClientValidation），建立永久datagen审计（NetworkValidationData→NetworkSelfTest→NetworkMessageAudit），清理ACClientSetup临时hook。
 - 2026-07-26：R4 接通 OpenSpellbook、MobSpell、StaffMode、RitualStart、Ritual handler；MobSpell 包内 spell/quality 降为不受信目标提示，客户端仪式状态经 SideExecutor 分发。

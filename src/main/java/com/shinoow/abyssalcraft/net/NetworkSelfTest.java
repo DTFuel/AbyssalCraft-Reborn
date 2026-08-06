@@ -13,6 +13,7 @@ import com.shinoow.abyssalcraft.net.client.DisplayRoutesMessage;
 import com.shinoow.abyssalcraft.net.client.DisruptionMessage;
 import com.shinoow.abyssalcraft.net.client.EvilSheepMessage;
 import com.shinoow.abyssalcraft.net.client.KnowledgeUnlockMessage;
+import com.shinoow.abyssalcraft.net.client.LineEffectMessage;
 import com.shinoow.abyssalcraft.net.client.NecroDataCapMessage;
 import com.shinoow.abyssalcraft.net.client.PEStreamMessage;
 import com.shinoow.abyssalcraft.net.client.RitualMessage;
@@ -60,6 +61,12 @@ public final class NetworkSelfTest {
             && RitualItems.DREADLANDS_STAFF_OF_RENDING.get() instanceof StaffOfRendingItem
             && RitualItems.OMOTHOL_STAFF_OF_RENDING.get() instanceof StaffOfRendingItem,
             "Staff of Rending tiers lost their network behavior");
+        require(java.util.Set.of(
+            lineGradient((StaffOfRendingItem) RitualItems.STAFF_OF_RENDING.get()),
+            lineGradient((StaffOfRendingItem) RitualItems.ABYSSAL_WASTELAND_STAFF_OF_RENDING.get()),
+            lineGradient((StaffOfRendingItem) RitualItems.DREADLANDS_STAFF_OF_RENDING.get()),
+            lineGradient((StaffOfRendingItem) RitualItems.OMOTHOL_STAFF_OF_RENDING.get())).size() == 4,
+            "Staff of Rending line gradients are no longer tier-specific");
         require(InterdimensionalCageItem.energyCost(1.0F, 2.0F) == 200.0F,
             "interdimensional cage size cost changed");
         require(NetworkSelfTest.class.getClassLoader().getResource(
@@ -104,6 +111,9 @@ public final class NetworkSelfTest {
             new KnowledgeUnlockMessage(7, "abyssalcraft:root"),
             new NecroDataCapMessage(data.copy()),
             new PEStreamMessage(from, to),
+            new LineEffectMessage(new net.minecraft.world.phys.Vec3(1.25D, 64.5D, -3.75D),
+                new net.minecraft.world.phys.Vec3(9.0D, 70.25D, 12.5D),
+                0xE6D6F8FF, 0xE629A8E0, 8),
             new ShouldSyncMessage(123456789L),
             new SyncNecromancyDataMessage(data.copy()),
             new DisplayRoutesMessage(routes));
@@ -138,7 +148,7 @@ public final class NetworkSelfTest {
         }
         System.out.println("RR_NET_DIRECTION_GATE_OK serverBound=" + serverBound
             + " clientBound=" + clientBound + " rejected=" + rejected);
-        System.out.println("RR_NET_SELF_TEST_OK messages=24 migrated=19 replaced=5 blocked=0 roundTrips=28");
+        System.out.println("RR_NET_SELF_TEST_OK messages=25 migrated=20 replaced=5 blocked=0 roundTrips=29");
     }
 
     private static byte[] encode(NetworkChannel.ACPacket packet) {
@@ -147,6 +157,10 @@ public final class NetworkSelfTest {
         byte[] bytes = new byte[buffer.readableBytes()];
         buffer.readBytes(bytes);
         return bytes;
+    }
+
+    private static long lineGradient(StaffOfRendingItem staff) {
+        return (long) staff.lineStartColor() << 32 | staff.lineEndColor() & 0xFFFFFFFFL;
     }
 
     private static void require(boolean condition, String message) {

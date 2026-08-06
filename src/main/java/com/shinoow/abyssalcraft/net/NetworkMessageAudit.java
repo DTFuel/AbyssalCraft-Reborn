@@ -9,6 +9,7 @@ import com.shinoow.abyssalcraft.net.client.DisplayRoutesMessage;
 import com.shinoow.abyssalcraft.net.client.DisruptionMessage;
 import com.shinoow.abyssalcraft.net.client.EvilSheepMessage;
 import com.shinoow.abyssalcraft.net.client.KnowledgeUnlockMessage;
+import com.shinoow.abyssalcraft.net.client.LineEffectMessage;
 import com.shinoow.abyssalcraft.net.client.NecroDataCapMessage;
 import com.shinoow.abyssalcraft.net.client.PEStreamMessage;
 import com.shinoow.abyssalcraft.net.client.RitualMessage;
@@ -30,7 +31,7 @@ import com.shinoow.abyssalcraft.net.server.TransferStackMessage;
 import com.shinoow.abyssalcraft.net.server.UpdateModeMessage;
 import com.shinoow.abyssalcraft.platform.NetworkChannel;
 
-/** Frozen migration state for 23 legacy messages plus one modern extension. */
+/** Frozen migration state for 23 legacy messages plus modern extensions. */
 public final class NetworkMessageAudit {
 
     public enum Direction { SERVER_BOUND, CLIENT_BOUND }
@@ -63,12 +64,13 @@ public final class NetworkMessageAudit {
         migrated(20, ShouldSyncMessage.class, Direction.CLIENT_BOUND),
         migrated(21, SyncNecromancyDataMessage.class, Direction.CLIENT_BOUND),
         migrated(22, DisplayRoutesMessage.class, Direction.CLIENT_BOUND),
-        migrated(23, NecronomiconPageActionMessage.class, Direction.SERVER_BOUND));
+        migrated(23, NecronomiconPageActionMessage.class, Direction.SERVER_BOUND),
+        migrated(24, LineEffectMessage.class, Direction.CLIENT_BOUND));
 
     private NetworkMessageAudit() {}
 
     public static void validate(NetworkChannel channel) {
-        require(ALL.size() == 24, "network audit size changed");
+        require(ALL.size() == 25, "network audit size changed");
         Set<Integer> ids = new HashSet<>();
         Set<Class<?>> types = new HashSet<>();
         for (Entry entry : ALL) {
@@ -79,15 +81,15 @@ public final class NetworkMessageAudit {
             require(channel.registeredDirection(entry.type()) == platformDirection(entry.direction()),
                 "registered direction changed for " + entry.type().getSimpleName());
         }
-        require(ids.equals(java.util.stream.IntStream.range(0, 24).boxed()
-            .collect(java.util.stream.Collectors.toSet())), "wire ids are not the closed range 0..23");
-        require(channel.registeredCount() == 24 && channel.registeredIds().equals(ids),
+        require(ids.equals(java.util.stream.IntStream.range(0, 25).boxed()
+            .collect(java.util.stream.Collectors.toSet())), "wire ids are not the closed range 0..24");
+        require(channel.registeredCount() == 25 && channel.registeredIds().equals(ids),
             "registered network catalog differs from audit");
-        require(count(Status.MIGRATED) == 19, "migrated packet count changed");
+        require(count(Status.MIGRATED) == 20, "migrated packet count changed");
         require(count(Status.REPLACED) == 5, "replaced packet count changed");
         require(count(Status.BLOCKED) == 0, "blocked packet count changed");
         require(count(Direction.SERVER_BOUND) == 12, "server-bound packet count changed");
-        require(count(Direction.CLIENT_BOUND) == 12, "client-bound packet count changed");
+        require(count(Direction.CLIENT_BOUND) == 13, "client-bound packet count changed");
     }
 
     public static long count(Status status) {

@@ -5,6 +5,7 @@ import com.shinoow.abyssalcraft.net.client.DisplayRoutesMessage;
 import com.shinoow.abyssalcraft.net.client.DisruptionMessage;
 import com.shinoow.abyssalcraft.net.client.EvilSheepMessage;
 import com.shinoow.abyssalcraft.net.client.KnowledgeUnlockMessage;
+import com.shinoow.abyssalcraft.net.client.LineEffectMessage;
 import com.shinoow.abyssalcraft.net.client.NecroDataCapMessage;
 import com.shinoow.abyssalcraft.net.client.PEStreamMessage;
 import com.shinoow.abyssalcraft.net.client.RitualMessage;
@@ -33,7 +34,7 @@ import net.minecraft.server.level.ServerPlayer;
  *
  * <p>The single {@link NetworkChannel} (multiplexed envelope over Forge {@code SimpleChannel} /
  * NeoForge payloads, hidden in {@code platform/NetworkChannel}) plus the frozen registration of 23
- * legacy messages and one modern extension. This proves its send/receive path on both
+ * legacy messages and modern extensions. This proves its send/receive path on both
  * loaders. {@link #bootstrap(Object)} is called once from the main class with the MOD event bus.
  *
  * <p>Ids 0-10 and 23 are server-bound (client&rarr;server), 11-22 client-bound (server&rarr;client); ids
@@ -85,6 +86,8 @@ public final class ACNetwork {
         // --- modern extension (not part of the frozen 23-message legacy catalog) ---
         CHANNEL.register(23, NecronomiconPageActionMessage.class, NetworkChannel.Direction.SERVER_BOUND,
             NecronomiconPageActionMessage::new);
+        CHANNEL.register(24, LineEffectMessage.class, NetworkChannel.Direction.CLIENT_BOUND,
+            LineEffectMessage::new);
     }
 
     /** Wire the channel to the MOD bus. Triggers the static registration first. */

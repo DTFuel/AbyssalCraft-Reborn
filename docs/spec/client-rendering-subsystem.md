@@ -16,6 +16,7 @@
 - PH-4 音效 ☑：`registry/ModSounds`（45 `SoundEvent`）+ `assets/abyssalcraft/sounds.json` + 106 `.ogg` + `en_us.json` 41 条 subtitle。
 - PH-2 雾色 ☑ / 天空盒 ☑（RR-CLIENT-FX/CR-73）：`client/sky/ACDimensionEffects` extends `platform/DimensionSkyCompat`（renderSky 双端签名 fork + 即时六面天空盒）+ `client/sky/ACDimensionSkies`（4 维注册 tinted 天空盒，色取自 `ClientVars`）+ `platform/DimensionEffectsCompat`（事件 fork）；3 张天空贴图（Dark Realm 复用 omothol_sky）。四维双端目视 = T6.3c（人工，待）。
 - PH-3 框架 + 3 粒子 ☑：`registry/ModParticles` 注册 `abyssal_fx`、`blue_flame`、`pe_stream`；`client/particle/{ACFadeParticle,BlueFlameParticle,PEStreamParticle}` + `platform/ParticleCompat` 提供客户端实现。BlueFlame + ItemRitual（vanilla `item` payload）由仪式系统发射；PEStream 由 RR-NET 触发专用粒子。
+- 世界空间线条 Shader ☑：`LineEffectRenderer` 将线段扩成带双端盖的八面世界空间棱柱，按侧面方向明暗显示体积；`rendertype_line` 核心 Shader 在起止顶点颜色之间做纯色插值，仅由效果寿命统一淡出；`LineRenderCompat` 负责 Shader 注册、透明世界阶段和双版本顶点 API；首个消费者为成功命中的 Staff of Rending，四个等级分别使用独立同色系渐变。
 
 **RR-CLIENT-FX 收口（CR-73，2026-07-26）**：
 - 天空盒（原 PH-2b）☑：`platform/DimensionSkyCompat` 吸收 Forge `IForgeDimensionSpecialEffects.renderSky(PoseStack…)` ↔ Neo `IDimensionSpecialEffectsExtension.renderSky(Matrix4f…)` 签名 fork，以及 1.20 `Tesselator.getBuilder()/vertex().uv().endVertex()/end()` ↔ 1.21 `begin()/addVertex().setUv()/buildOrThrow()` 顶点 fork；`getPositionTexShader`+`setShaderColor` 绘 ±100、16×16 UV 六面天空盒，`SkyType.NONE` 屏蔽 vanilla 天体。四维贴图/色：AW `abyssal_wasteland_sky` 0/105/45、Dreadlands `dreadlands_sky` 100/14/14、Omothol `omothol_sky` 40/30/40、Dark Realm 复用 `omothol_sky` 30/20/30，色实时取自 `ClientVars`（reload 生效；完整 clientvars 仍 T6.6d）。
@@ -35,6 +36,8 @@
 
 **粒子**：`ModParticles` 注册 `SimpleParticleType`（`new SimpleParticleType(false){}` 匿名子类绕 protected 构造）；`ACFadeParticle extends TextureSheetParticle`（把 1.12.2 `BufferBuilder` 即时绘制重写为 sprite 驱动：0.1x 初速、0.75 基准尺寸、`age/lifetime*32` 渐入、摩擦、`ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT`）+ 内嵌 `Provider(SpriteSet)`；`ParticleCompat` 在 `attach` 内 import 分叉 `RegisterParticleProvidersEvent`，中性 sink `registerSpriteSet`。需 `assets/.../particles/<name>.json` 描述符 + `textures/particle/<name>.png` sprite。
 
+**线条 Shader**：服务端仅在 Staff of Rending 确认撕裂成功后发送 `LineEffectMessage(start,end,startArgb,endArgb,durationTicks)`；客户端将效果加入最多 128 条的短寿命队列，在 `AFTER_TRANSLUCENT_BLOCKS` 批量绘制。CPU 为每条直线生成八个侧面和两个端盖，固定方向明暗与背面剔除让截面保持可读的三维体积。起止 RGB 由顶点插值形成纯色渐变，Shader 不再按长度或边缘修改 alpha；整体 alpha 仅按寿命平方衰减。后续折线/曲线可把单段替换为采样点链，网络方向、双颜色和 RenderType 契约无需改变。
+
 ## 4. 子系统内契约
 
 - 三块全为纯客户端：经主类 `SideExecutor.runWhenClient` 内 `DimensionEffectsCompat.attach` / `ParticleCompat.attach` 挂 MOD 总线；`ModSounds`/`ModParticles` 的注册器经 `ModRegistries.ALL`（两侧都注册，音效/粒子类型是通用注册项）。
@@ -45,6 +48,7 @@
 
 - **fork-free**：`SoundEvent.createVariableRangeEvent` / `Registries.SOUND_EVENT` / `DimensionSpecialEffects` / `Vec3` / `SkyType` / `TextureSheetParticle` / `ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT`（1.21.1 仍存）/ `SimpleParticleType` 匿名子类——1.20.1 与 1.21.1 同签名，均以两节点 `compileJava` 实证。
 - **仅 import 分叉**（3 个 client 事件，Forge `net.minecraftforge.client.event.*` ↔ NeoForge `net.neoforged.neoforge.client.event.*`，方法签名同）：`RegisterDimensionSpecialEffectsEvent.register(ResourceLocation, DimensionSpecialEffects)`、`RegisterParticleProvidersEvent.registerSpriteSet(ParticleType, SpriteParticleRegistration)`。
+- **线条渲染分叉**：`RegisterShadersEvent` / `RenderLevelStageEvent` 仅包名分叉；顶点提交为 1.20 `vertex/uv/color/endVertex` ↔ 1.21 `addVertex/setColor/setUv`，统一格式使用两端共有的 `POSITION_TEX_COLOR`。
 - **深分叉（延后）**：即时模式天空盒绘制（`Tessellator`/`BufferBuilder` → 1.21 新管线），故天空盒渲染未移植。
 
 ## 6. 实现记忆 / 踩坑 (verified gotchas)
@@ -52,16 +56,19 @@
 - `dimension_type` 的 `effects` 若不指向已注册的 effects id，vanilla 静默回退 overworld 效果（runClient 会打 fallback 警告）——须两侧对齐；本子系统 runClient 日志**无** fallback 警告 = 4 维 effects 均已绑定。
 - `SimpleParticleType` 构造是 `protected`：跨包用 `new SimpleParticleType(false){}` 匿名子类。
 - 注册粒子类型必须同时给 provider + 描述符 + sprite，否则 atlas 缺 sprite；三种 AC 粒子均具备完整注册链。
+- Forge 1.20 的 `BufferBuilder` 要求属性严格按 `POSITION_TEX_COLOR` 的字段顺序提交；写成 `vertex/color/uv/endVertex` 虽能编译，但第一次真实绘制会抛 `Not filled all elements of the vertex`。必须保持 `vertex/uv/color/endVertex`，NeoForge 1.21 则使用具名 setter。
 - 忠实保留 1.12.2 音效 quirk：`sounds.json` 引用 `chant.yog_sothoth_1/_2`、`hastur_1/_2`、`jzahar.shout`，而 lang 键为 `yog_sothoth`/`hastur`/`shouts`（不匹配即无字幕，与旧版一致）。
 
 ## 7. 验证 / DoD
 
 - 两节点 `compileJava` EXIT=0（锁定上述所有 API + 3 事件 fork）。
 - **forge `runClient`** 进世界后干净退出 BUILD SUCCESSFUL：Sound engine started 且**无** `sounds.json` 解析错；`particles.png-atlas` 建成且**无** `abyssal_fx` sprite 错；4 个 AC 维度加载且**无** DimensionSpecialEffects fallback 警告。
+- **线条运行期 smoke**：Forge 进入实际世界并连续提交测试光束，日志无 `BufferBuilder`、Shader 或 FATAL 异常；临时测试入口在验证后删除。
 - **人工目视（未做）**：AC 维度内实际雾色/天空观感、`/particle abyssalcraft:abyssal_fx` 生成观感、音效播放——headless 不能开窗/入维/截图。
 
 ## 修订日志
 
+- 2026-08-06：新增世界空间线条核心 Shader、短寿命批处理与 `LineEffectMessage` 数据流；首接 Staff of Rending。线条随后升级为带端盖八面棱柱、四阶双颜色纯色渐变和侧面明暗，并完成 Forge 世界内顶点提交回归。
 - 2026-07-30：恢复 1.12.2 `PEStreamParticleFX` 专用三色粒子、20 tick/0.65 阻尼、8 帧动画与每格 15 点轨迹；补齐神像向玩家、掉落物和 collector 的成功传能通知。
 
 ## 8. Energy Pedestal BER (RR-BER-R4-HOSTS)

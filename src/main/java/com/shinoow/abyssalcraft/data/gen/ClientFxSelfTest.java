@@ -52,6 +52,7 @@ public final class ClientFxSelfTest {
 
     /** The three custom particle types (each needs a descriptor and resolvable sprites). */
     private static final List<String> PARTICLES = List.of("abyssal_fx", "blue_flame", "pe_stream");
+    private static final List<String> LINE_SHADER_ATTRIBUTES = List.of("Position", "UV0", "Color");
 
     private ClientFxSelfTest() {}
 
@@ -77,6 +78,7 @@ public final class ClientFxSelfTest {
         //?}
         requireResource("assets/abyssalcraft/textures/misc/coraliumblur.png");
         requireResource("assets/abyssalcraft/textures/misc/coraliumblur.png.mcmeta");
+        validateLineShader();
         for (String texture : SKY_TEXTURES) {
             requireResource("assets/abyssalcraft/textures/environment/" + texture + ".png");
         }
@@ -167,6 +169,27 @@ public final class ClientFxSelfTest {
             "RR_CLIENT_FX_SELF_TEST_OK skies=%d particles=%d sounds=45 ogg=%d subtitles=%d rituals=%d%n",
             SKY_TEXTURES.size(), PARTICLES.size(), oggPaths.size(), subtitleKeys,
             RitualManifestCatalog.entries().size());
+    }
+
+    private static void validateLineShader() {
+        String root = "assets/abyssalcraft/shaders/core/rendertype_line";
+        JsonObject descriptor = requireJson(root + ".json");
+        require("abyssalcraft:rendertype_line".equals(descriptor.get("vertex").getAsString())
+            && "abyssalcraft:rendertype_line".equals(descriptor.get("fragment").getAsString()),
+            "line shader programs are not namespaced correctly");
+        JsonArray attributes = descriptor.getAsJsonArray("attributes");
+        require(attributes.size() == LINE_SHADER_ATTRIBUTES.size(), "line shader vertex format changed");
+        for (int index = 0; index < LINE_SHADER_ATTRIBUTES.size(); index++) {
+            require(LINE_SHADER_ATTRIBUTES.get(index).equals(attributes.get(index).getAsString()),
+                "line shader attribute order changed at " + index);
+        }
+        String vertex = read(root + ".vsh");
+        String fragment = read(root + ".fsh");
+        require(vertex.contains("ProjMat * ModelViewMat")
+            && fragment.contains("vertexColor * ColorModulator")
+            && !fragment.contains("lengthFade") && !fragment.contains("edgeFade"),
+            "line shader lost its transform or solid color-gradient contract");
+        System.out.println("RR_LINE_SHADER_SELF_TEST_OK attributes=3 solidGradient=1");
     }
 
     private static void validateClientFxConfigContract() {

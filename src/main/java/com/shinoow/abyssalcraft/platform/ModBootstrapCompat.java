@@ -80,6 +80,7 @@ public final class ModBootstrapCompat {
             ParticleCompat.attach(modBus, ACClientSetup::registerParticles);
             ACHud.register();
             ACClientSetup.registerClientTicks();
+            LineRenderCompat.attach(modBus);
             ClientHooksCompat.attach(modBus);
         });
     }

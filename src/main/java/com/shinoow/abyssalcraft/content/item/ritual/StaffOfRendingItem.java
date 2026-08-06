@@ -29,6 +29,13 @@ import net.minecraft.world.level.Level;
 /** Tiered Staff of Rending with per-recipe energy ledgers. */
 public final class StaffOfRendingItem extends RitualEnergyItem {
 
+    private static final int[] LINE_START_COLORS = {
+        0xE6D6F8FF, 0xE6D9FFD0, 0xE6FFD2D2, 0xE6FFF3B8
+    };
+    private static final int[] LINE_END_COLORS = {
+        0xE629A8E0, 0xE643D45B, 0xE6E63E45, 0xE6F0A91B
+    };
+
     private final int tier;
 
     public StaffOfRendingItem(int tier) {
@@ -73,6 +80,14 @@ public final class StaffOfRendingItem extends RitualEnergyItem {
     public int drainAmount(ItemStack stack) {
         int sapping = EnchantmentDataCompat.read(stack).getOrDefault(ACRef.id("sapping"), 0);
         return EnchantmentEffects.sappingDrainAmount(tier, sapping);
+    }
+
+    public int lineStartColor() {
+        return LINE_START_COLORS[Math.min(tier, LINE_START_COLORS.length - 1)];
+    }
+
+    public int lineEndColor() {
+        return LINE_END_COLORS[Math.min(tier, LINE_END_COLORS.length - 1)];
     }
 
     public int getEnergy(ItemStack stack, RendingEnergyType type) {
