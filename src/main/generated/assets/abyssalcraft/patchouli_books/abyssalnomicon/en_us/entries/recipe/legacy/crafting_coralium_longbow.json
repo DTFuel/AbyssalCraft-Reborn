@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:coralium_longbow": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_longbow.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_coralium_longbow",
+      "text": "necronomicon.text.crafting.corbow",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_longbow.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:corbow",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_longbow.title"
+    }
+  ],
+  "sortnum": 102
+}

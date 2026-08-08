@@ -1,0 +1,28 @@
+{
+  "parent": "abyssalcraft:research/category/entity",
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "gui.abyssalcraft.necronomicon.patchouli.research.condition.defeat_any_entity",
+      "with": [
+        {
+          "text": "abyssalcraft:antiabyssalzombie, abyssalcraft:antibat, abyssalcraft:antichicken, abyssalcraft:anticow, abyssalcraft:anticreeper, abyssalcraft:antighoul, abyssalcraft:antipig, abyssalcraft:antiplayer, abyssalcraft:antiskeleton, abyssalcraft:antispider, abyssalcraft:antizombie"
+        }
+      ]
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ac.research.anti_mob"
+    }
+  }
+}

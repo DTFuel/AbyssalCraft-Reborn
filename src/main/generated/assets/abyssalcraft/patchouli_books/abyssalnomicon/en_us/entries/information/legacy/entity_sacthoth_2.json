@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_sacthoth_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_sacthoth_2",
+      "text": "necronomicon.text.entity.sacthoth.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_sacthoth_2.title"
+    }
+  ],
+  "sortnum": 215
+}

@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:idol_of_fading",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_idol_of_fading.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_idol_of_fading",
+      "text": "necronomicon.text.materials.idoloffading",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_idol_of_fading.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:idol_of_fading",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_idol_of_fading.title"
+    }
+  ],
+  "sortnum": 271
+}

@@ -34,3 +34,10 @@ mandatory = true
 versionRange = "[3.0.1.10,4)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.${id}]]
+modId = "patchouli"
+mandatory = true
+versionRange = "[1.20.1-85-FORGE,)"
+ordering = "AFTER"
+side = "BOTH"

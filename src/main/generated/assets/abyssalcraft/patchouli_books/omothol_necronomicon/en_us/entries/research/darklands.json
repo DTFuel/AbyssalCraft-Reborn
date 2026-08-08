@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/biome",
+  "icon": "minecraft:grass_block",
+  "name": "ac.research.darklands",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.darklands",
+      "trigger": "abyssalcraft:research/darklands"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "darklands",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

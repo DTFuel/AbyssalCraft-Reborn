@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "item.abyssalcraft.depths_helmet",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "depths_helmet",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/depths_helmet"
+    }
+  ],
+  "sortnum": 293014688
+}

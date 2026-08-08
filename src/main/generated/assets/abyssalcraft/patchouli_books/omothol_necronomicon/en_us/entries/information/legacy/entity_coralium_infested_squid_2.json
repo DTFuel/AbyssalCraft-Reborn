@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/coralium_infested_squid",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_coralium_infested_squid_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_coralium_infested_squid_2",
+      "text": "necronomicon.text.entity.coraliumsquid.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_coralium_infested_squid_2.title"
+    }
+  ],
+  "sortnum": 88
+}

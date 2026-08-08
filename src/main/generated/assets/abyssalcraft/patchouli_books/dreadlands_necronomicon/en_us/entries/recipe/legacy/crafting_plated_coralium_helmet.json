@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:plated_coralium_helmet": 1
+  },
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_plated_coralium_helmet.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_plated_coralium_helmet",
+      "text": "necronomicon.text.crafting.corhelmetp",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_plated_coralium_helmet.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:corhelmetp",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_plated_coralium_helmet.title"
+    }
+  ],
+  "sortnum": 98
+}

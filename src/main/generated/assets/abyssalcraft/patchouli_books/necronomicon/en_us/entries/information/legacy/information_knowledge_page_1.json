@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_knowledge_page_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_knowledge_page_1",
+      "text": "necronomicon.text.knowledge.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_knowledge_page_1.title"
+    }
+  ],
+  "sortnum": 310
+}

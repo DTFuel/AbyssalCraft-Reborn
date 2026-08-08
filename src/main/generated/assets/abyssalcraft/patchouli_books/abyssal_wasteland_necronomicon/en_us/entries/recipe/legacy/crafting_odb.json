@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:oblivion_deathbomb": 1
+  },
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_odb.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_odb",
+      "text": "necronomicon.text.crafting.odb",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_odb.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:odb",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_odb.title"
+    }
+  ],
+  "sortnum": 273
+}

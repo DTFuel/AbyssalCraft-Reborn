@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:charm": 1
+  },
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_ritual_charm.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_ritual_charm",
+      "text": "necronomicon.text.crafting.ritualcharm.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_ritual_charm.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:charm_0",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_ritual_charm.title"
+    }
+  ],
+  "sortnum": 238
+}

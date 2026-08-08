@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:progression",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.progression_omothol_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/progression_omothol_1",
+      "text": "necronomicon.text.omothol.progression.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.progression_omothol_1.title"
+    }
+  ],
+  "sortnum": 167
+}

@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:monolith_stone",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_monolith_stone_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_monolith_stone_2",
+      "text": "necronomicon.text.materials.monolithstone.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_monolith_stone_2.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:monolith_stone",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_monolith_stone_2.title"
+    }
+  ],
+  "sortnum": 234
+}

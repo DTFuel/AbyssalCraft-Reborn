@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.cthulhucharm",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "cthulhu_charm",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/cthulhu_charm"
+    }
+  ],
+  "sortnum": 976530999
+}

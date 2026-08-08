@@ -1,0 +1,23 @@
+{
+  "parent": "abyssalcraft:research/root",
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "gui.abyssalcraft.necronomicon.patchouli.research.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "id": "minecraft:experience_bottle"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "gui.abyssalcraft.necronomicon.research.category.misc"
+    }
+  }
+}

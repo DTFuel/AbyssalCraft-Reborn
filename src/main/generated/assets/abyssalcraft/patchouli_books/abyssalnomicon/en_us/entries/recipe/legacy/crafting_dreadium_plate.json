@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:dreadium_plate": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_plate.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_dreadium_plate",
+      "text": "necronomicon.text.crafting.dreadplate",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_plate.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:dreadplate",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_plate.title"
+    }
+  ],
+  "sortnum": 145
+}

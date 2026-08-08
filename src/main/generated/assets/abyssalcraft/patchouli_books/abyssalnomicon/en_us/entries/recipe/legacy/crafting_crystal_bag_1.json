@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:crystalbag_small": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_crystal_bag_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_crystal_bag_1",
+      "text": "necronomicon.text.crafting.crystalbag.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_crystal_bag_1.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:crystalbag_small",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_crystal_bag_1.title"
+    }
+  ],
+  "sortnum": 186
+}

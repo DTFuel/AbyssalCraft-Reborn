@@ -1,0 +1,23 @@
+{
+  "parent": "abyssalcraft:research/root",
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "translate": "gui.abyssalcraft.necronomicon.patchouli.locked.description"
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "item": "minecraft:barrier"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "gui.abyssalcraft.necronomicon.patchouli.locked.title"
+    }
+  }
+}

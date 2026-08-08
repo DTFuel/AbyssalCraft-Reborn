@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.spell_tut_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/spell_tut_1",
+      "text": "necronomicon.text.spells.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.spell_tut_1.title"
+    }
+  ],
+  "sortnum": 289
+}

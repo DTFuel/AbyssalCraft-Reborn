@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.biome_omothol.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/biome_omothol",
+      "text": "necronomicon.text.wip",
+      "title": "gui.abyssalcraft.necronomicon.entry.biome_omothol.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/biomes/omothol.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.biome_omothol.title"
+    }
+  ],
+  "sortnum": 203
+}

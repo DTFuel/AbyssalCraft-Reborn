@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:decorative_yog_sothoth_statue": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_decorative_yog_sothoth_statue.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_decorative_yog_sothoth_statue",
+      "text": "necronomicon.text.crafting.decorativeyogsothothstatue",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_decorative_yog_sothoth_statue.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:decorativestatue_5",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_decorative_yog_sothoth_statue.title"
+    }
+  ],
+  "sortnum": 287
+}

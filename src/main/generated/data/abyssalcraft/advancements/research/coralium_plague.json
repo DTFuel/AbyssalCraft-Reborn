@@ -1,0 +1,28 @@
+{
+  "parent": "abyssalcraft:research/category/misc",
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "gui.abyssalcraft.necronomicon.patchouli.research.condition.experience",
+      "with": [
+        {
+          "text": "coralium_plague"
+        }
+      ]
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:experience_bottle"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ac.research.coralium_plague"
+    }
+  }
+}

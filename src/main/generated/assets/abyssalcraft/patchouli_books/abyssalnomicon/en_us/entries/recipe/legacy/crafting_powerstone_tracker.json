@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:powerstone_tracker": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_powerstone_tracker.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_powerstone_tracker",
+      "text": "necronomicon.text.crafting.psdltracker",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_powerstone_tracker.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:powerstonetracker",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_powerstone_tracker.title"
+    }
+  ],
+  "sortnum": 91
+}

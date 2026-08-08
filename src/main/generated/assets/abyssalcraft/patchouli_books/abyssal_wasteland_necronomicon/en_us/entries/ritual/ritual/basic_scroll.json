@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "item.abyssalcraft.basic_scroll",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "basic_scroll",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/basic_scroll"
+    }
+  ],
+  "sortnum": 2067632250
+}

@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.ritual_tut_5.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/ritual_tut_5",
+      "text": "necronomicon.text.rituals.5",
+      "title": "gui.abyssalcraft.necronomicon.entry.ritual_tut_5.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/ritual_3.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.ritual_tut_5.title"
+    }
+  ],
+  "sortnum": 228
+}

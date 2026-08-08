@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_3.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/item_transport_tut_3",
+      "text": "necronomicon.text.itemtransportsystem.3",
+      "title": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_3.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/transport/transport_1.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_3.title"
+    }
+  ],
+  "sortnum": 194
+}

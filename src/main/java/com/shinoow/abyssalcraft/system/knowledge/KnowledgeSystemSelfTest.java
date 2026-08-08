@@ -225,7 +225,8 @@ public final class KnowledgeSystemSelfTest {
                     "catalog content is not active for " + page.id());
             }
             if (page.researchId() != null) {
-                require(researchIds.contains(page.researchId().toString()),
+                require(page.researchId().equals(NecronomiconPageManifest.PERMANENTLY_LOCKED)
+                    || researchIds.contains(page.researchId().toString()),
                     "missing page research " + page.researchId() + " for " + page.id());
             }
             for (var related : page.relatedPages()) {

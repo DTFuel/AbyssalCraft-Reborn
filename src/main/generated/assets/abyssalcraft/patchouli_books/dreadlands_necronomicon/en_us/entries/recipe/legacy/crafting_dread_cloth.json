@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:dread_cloth": 1
+  },
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_dread_cloth.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_dread_cloth",
+      "text": "necronomicon.text.crafting.dreadcloth",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dread_cloth.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:dreadcloth",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dread_cloth.title"
+    }
+  ],
+  "sortnum": 144
+}

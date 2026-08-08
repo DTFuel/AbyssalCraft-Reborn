@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:dreadium_katana": 1
+  },
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_katana.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_dreadium_katana",
+      "text": "necronomicon.text.crafting.dreadiumkatana",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_katana.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:dreadkatana",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_katana.title"
+    }
+  ],
+  "sortnum": 154
+}

@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:dense_carbon_cluster": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_dense_carbon_cluster.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_dense_carbon_cluster",
+      "text": "necronomicon.text.crafting.densecarboncluster",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dense_carbon_cluster.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:densecarboncluster",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dense_carbon_cluster.title"
+    }
+  ],
+  "sortnum": 275
+}

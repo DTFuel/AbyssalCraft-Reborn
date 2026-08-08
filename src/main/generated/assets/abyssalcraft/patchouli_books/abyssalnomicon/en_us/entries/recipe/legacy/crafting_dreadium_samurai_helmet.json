@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:dreadium_samurai_helmet": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_samurai_helmet.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_dreadium_samurai_helmet",
+      "text": "necronomicon.text.crafting.dreadiumshelmet",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_samurai_helmet.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:dreadiumsamuraihelmet",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_samurai_helmet.title"
+    }
+  ],
+  "sortnum": 150
+}

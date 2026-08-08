@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.biome_abyssal_desert.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/biome_abyssal_desert",
+      "text": "necronomicon.text.wip",
+      "title": "gui.abyssalcraft.necronomicon.entry.biome_abyssal_desert.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/biomes/abyssal_desert.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.biome_abyssal_desert.title"
+    }
+  ],
+  "sortnum": 108
+}

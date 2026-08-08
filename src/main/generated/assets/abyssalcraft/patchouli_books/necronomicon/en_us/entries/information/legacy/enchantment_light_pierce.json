@@ -1,0 +1,21 @@
+{
+  "advancement": "abyssalcraft:research/shadow_mobs",
+  "category": "abyssalcraft:information",
+  "icon": "minecraft:enchanted_book",
+  "name": "gui.abyssalcraft.necronomicon.entry.enchantment_light_pierce.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/enchantment_light_pierce",
+      "text": "necronomicon.text.enchantment.lightpierce",
+      "title": "gui.abyssalcraft.necronomicon.entry.enchantment_light_pierce.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:enchanted_book",
+      "title": "gui.abyssalcraft.necronomicon.entry.enchantment_light_pierce.title"
+    }
+  ],
+  "sortnum": 277
+}

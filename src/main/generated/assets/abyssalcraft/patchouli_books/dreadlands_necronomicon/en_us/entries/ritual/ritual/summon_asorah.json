@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.summon_asorah.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "summon_asorah",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/summon_asorah"
+    }
+  ],
+  "sortnum": 349997246
+}

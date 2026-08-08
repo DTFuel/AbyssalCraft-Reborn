@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "block.abyssalcraft.spirit_altar",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "spirit_altar",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/spirit_altar"
+    }
+  ],
+  "sortnum": 115582536
+}

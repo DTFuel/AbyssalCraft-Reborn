@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_10.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/item_transport_tut_10",
+      "text": "necronomicon.text.itemtransportsystem.10",
+      "title": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_10.title"
+    }
+  ],
+  "sortnum": 201
+}

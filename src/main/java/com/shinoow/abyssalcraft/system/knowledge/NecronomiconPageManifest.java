@@ -21,10 +21,12 @@ import net.minecraft.world.item.ItemStack;
  * in the modern ritual, spell and Place of Power catalogs, including explicit non-active owner states.
  *
  * <p>This replaces the manual 1.12.2 {@code Chapters}/{@code Pages} registration with a data-driven
- * approach: page manifests → automatic {@link com.shinoow.abyssalcraft.client.necronomicon.NecronomiconEntry}
- * tree → GUI display with research gates.
+ * approach: page manifests → generated Patchouli entries → advancement-gated book display.
  */
 public final class NecronomiconPageManifest {
+
+    public static final ResourceLocation PERMANENTLY_LOCKED =
+        com.shinoow.abyssalcraft.platform.ACRef.id("always_locked");
 
     /** Page type categories (matching 1.12.2 chapter structure). */
     public enum PageType {
@@ -159,7 +161,7 @@ public final class NecronomiconPageManifest {
                     legacy.visualReference(), legacy.status(), legacy.reason());
             ImageContent image = resolvedImage ? loadImage(legacy.visualReference()) : null;
             PAGES.add(new PageEntry(resId("legacy/" + id), legacy.titleKey(), legacyType(legacy.legacyId()),
-                null, icon, List.of(), content,
+                legacyResearch(legacy.researchReference()), icon, List.of(), content,
                 legacy.textKey(), new LegacyFields(legacy.legacyId(), legacy.sourceOrder(), legacy.pageNumber(),
                     legacy.bookType(), legacy.titleReference(), legacy.textReference(), legacy.visualKind(),
                     legacy.visualReference(), legacy.researchReference(), legacy.constructor()), image,
@@ -167,7 +169,7 @@ public final class NecronomiconPageManifest {
         }
 
         RitualManifestCatalog.entries().forEach(ritual ->
-            registerPage(catalogId("ritual", ritual.id()), "ac.ritual." + ritual.id(), PageType.RITUAL,
+            registerPage(catalogId("ritual", ritual.id()), ritualTitleKey(ritual), PageType.RITUAL,
                 ritual.research(), active("ritual", "RitualManifestCatalog",
                     "id=" + ritual.id() + "; legacyId=" + ritual.legacyId() + "; order=" + ritual.order()
                         + "; kind=" + ritual.kind() + "; bookType=" + ritual.bookType()
@@ -185,7 +187,7 @@ public final class NecronomiconPageManifest {
                         + "; charging=" + spell.requiresCharging() + "; reagents=" + spell.reagentLayout()
                         + "; parent=" + spell.parentId() + "; glyph=" + spell.glyph()), spell.bookType()));
         EnergyStructures.ALL.forEach(structure ->
-            registerPage(catalogId("place_of_power", structure.getIdentifier()), structure.getDescriptionKey(),
+            registerPage(catalogId("place_of_power", structure.getIdentifier()), placeOfPowerTitleKey(structure),
                 PageType.PLACE_OF_POWER, structure.getResearchId(),
                 active("place_of_power", "EnergyStructures",
                     "id=" + structure.getIdentifier() + "; bookType=" + structure.getBookType()
@@ -193,6 +195,28 @@ public final class NecronomiconPageManifest {
                         + "; activation=" + structure.getActivationPointForRender()), structure.getBookType()));
 
         bootstrapped = true;
+    }
+
+    public static String ritualTitleKey(com.shinoow.abyssalcraft.system.ritual.RitualManifest ritual) {
+        if (ritual.result() == null) {
+            return "gui.abyssalcraft.necronomicon.ritual." + ritual.id() + ".title";
+        }
+        if (ritual.result() != null && net.minecraft.core.registries.BuiltInRegistries.ITEM
+                .containsKey(ritual.result())) {
+            return net.minecraft.core.registries.BuiltInRegistries.ITEM.get(ritual.result()).getDescriptionId();
+        }
+        if (ritual.actionTargets().size() == 1 && net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
+                .containsKey(ritual.actionTargets().get(0))) {
+            return net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE
+                .get(ritual.actionTargets().get(0)).getDescriptionId();
+        }
+        return "jei.abyssalcraft.ritual_kind." + ritual.kind().name().toLowerCase(java.util.Locale.ROOT);
+    }
+
+    public static String placeOfPowerTitleKey(
+            com.shinoow.abyssalcraft.system.energy.structure.IPlaceOfPower structure) {
+        return "gui.abyssalcraft.necronomicon.place_of_power."
+            + structure.getIdentifier() + ".title";
     }
 
     private static ContentRef recipeContent(LegacyNecronomiconPageManifest.LegacyPage legacy) {
@@ -271,6 +295,23 @@ public final class NecronomiconPageManifest {
         if (id.equals("SHOGGOTH_LAIR") || id.equals("GRAVEYARD") || id.equals("DARK_SHRINE")
             || id.equals("DARK_STRUCTURE") || id.equals("LAIR_OF_CHAGAROTH_1")) return PageType.STRUCTURE;
         return PageType.INFORMATION;
+    }
+
+    private static ResourceLocation legacyResearch(String reference) {
+        return switch (reference) {
+            case "ResearchItems.DEFAULT" -> null;
+            case "ResearchItems.ALWAYS_LOCKED" -> PERMANENTLY_LOCKED;
+            case "ResearchItems.getBookResearch(1)" -> resId("abyssal_wasteland_necro");
+            case "ResearchItems.getBookResearch(2)" -> resId("dreadlands_necro");
+            case "ResearchItems.getBookResearch(3)" -> resId("omothol_necro");
+            default -> {
+                String prefix = "ResearchItems.";
+                if (!reference.startsWith(prefix)) {
+                    throw new IllegalStateException("Unknown legacy Necronomicon research " + reference);
+                }
+                yield resId(reference.substring(prefix.length()).toLowerCase(java.util.Locale.ROOT));
+            }
+        };
     }
 
     private static ResourceLocation resId(String path) {

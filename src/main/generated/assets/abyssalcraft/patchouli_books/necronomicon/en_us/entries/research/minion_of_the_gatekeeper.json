@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.minion_of_the_gatekeeper",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.minion_of_the_gatekeeper",
+      "trigger": "abyssalcraft:research/minion_of_the_gatekeeper"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "minion_of_the_gatekeeper",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

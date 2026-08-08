@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.dread_spawn.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "dread_spawn",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/dread_spawn"
+    }
+  ],
+  "sortnum": 601946906
+}

@@ -7,10 +7,12 @@ import com.shinoow.abyssalcraft.config.WorldgenConfigMigration;
 
 //? if forge {
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.event.server.ServerStartedEvent;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 //?} else {
 /*import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 *///?}
@@ -24,6 +26,9 @@ public final class KnowledgeSetupCompat {
         modBus.addListener(KnowledgeSetupCompat::setup);
         modBus.addListener(KnowledgeSetupCompat::onConfigLoaded);
         modBus.addListener(KnowledgeSetupCompat::onConfigReloaded);
+        EventBuses.game().addListener((ServerStartedEvent event) ->
+            com.shinoow.abyssalcraft.system.knowledge.NecronomiconPageManifest
+                .bootstrap(event.getServer().registryAccess()));
     }
 
     private static void setup(FMLCommonSetupEvent event) {

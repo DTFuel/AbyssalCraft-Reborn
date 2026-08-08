@@ -1,0 +1,23 @@
+{
+  "advancement": "abyssalcraft:research/demon_animal",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_demon_animals_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_demon_animals_1",
+      "text": "necronomicon.text.entity.demonanimals.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_demon_animals_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/demon-animals.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_demon_animals_1.title"
+    }
+  ],
+  "sortnum": 126
+}

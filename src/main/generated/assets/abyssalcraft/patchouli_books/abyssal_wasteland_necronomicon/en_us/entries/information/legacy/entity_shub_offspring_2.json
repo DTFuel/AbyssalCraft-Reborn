@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/shub_offspring",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_shub_offspring_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_shub_offspring_2",
+      "text": "necronomicon.text.entity.shuboffspring.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_shub_offspring_2.title"
+    }
+  ],
+  "sortnum": 45
+}

@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "ac.spell.stealvigor",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "stealvigor",
+      "kind": "spell",
+      "page": "abyssalcraft:spell/stealvigor"
+    }
+  ],
+  "sortnum": 659158879
+}

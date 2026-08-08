@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:dreadium_katana_hilt": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_hilt.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_dreadium_hilt",
+      "text": "necronomicon.text.crafting.dreadiumhilt",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_hilt.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:dreadhilt",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_hilt.title"
+    }
+  ],
+  "sortnum": 146
+}

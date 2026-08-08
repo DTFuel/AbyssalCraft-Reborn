@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/evil_animal",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_evil_animals_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_evil_animals_2",
+      "text": "necronomicon.text.entity.evilanimals.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_evil_animals_2.title"
+    }
+  ],
+  "sortnum": 43
+}

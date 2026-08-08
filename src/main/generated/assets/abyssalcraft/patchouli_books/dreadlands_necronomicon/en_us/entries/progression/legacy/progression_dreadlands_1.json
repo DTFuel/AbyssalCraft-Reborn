@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:progression",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.progression_dreadlands_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/progression_dreadlands_1",
+      "text": "necronomicon.text.dreadlands.progression.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.progression_dreadlands_1.title"
+    }
+  ],
+  "sortnum": 119
+}

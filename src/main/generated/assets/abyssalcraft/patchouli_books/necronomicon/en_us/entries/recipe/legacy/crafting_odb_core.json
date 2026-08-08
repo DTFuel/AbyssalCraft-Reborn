@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:odb_core": 1
+  },
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_odb_core.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_odb_core",
+      "text": "necronomicon.text.crafting.odbcore",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_odb_core.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:odbcore",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_odb_core.title"
+    }
+  ],
+  "sortnum": 272
+}

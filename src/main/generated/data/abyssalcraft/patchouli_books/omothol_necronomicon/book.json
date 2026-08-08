@@ -1,0 +1,14 @@
+{
+  "advancements_tab": "abyssalcraft:root",
+  "book_texture": "patchouli:textures/gui/book_purple.png",
+  "custom_book_item": "abyssalcraft:omothol_necronomicon",
+  "dont_generate_book": true,
+  "i18n": true,
+  "landing_text": "gui.abyssalcraft.necronomicon.intro.text",
+  "name": "item.abyssalcraft.omothol_necronomicon",
+  "show_progress": true,
+  "show_toasts": true,
+  "text_overflow_mode": "resize",
+  "use_resource_pack": true,
+  "version": 1
+}

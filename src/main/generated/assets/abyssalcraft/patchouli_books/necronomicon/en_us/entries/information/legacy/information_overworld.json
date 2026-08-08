@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_overworld.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_overworld",
+      "text": "necronomicon.text.overworld",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_overworld.title"
+    }
+  ],
+  "sortnum": 62
+}

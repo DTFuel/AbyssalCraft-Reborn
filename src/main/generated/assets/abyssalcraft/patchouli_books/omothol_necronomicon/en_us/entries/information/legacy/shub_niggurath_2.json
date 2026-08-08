@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.shub_niggurath_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/shub_niggurath_2",
+      "text": "necronomicon.text.shub-niggurath.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.shub_niggurath_2.title"
+    }
+  ],
+  "sortnum": 8
+}

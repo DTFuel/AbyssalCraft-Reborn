@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:progression",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.progression_overworld_3.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/progression_overworld_3",
+      "text": "necronomicon.text.overworld.progression.3",
+      "title": "gui.abyssalcraft.necronomicon.entry.progression_overworld_3.title"
+    }
+  ],
+  "sortnum": 26
+}

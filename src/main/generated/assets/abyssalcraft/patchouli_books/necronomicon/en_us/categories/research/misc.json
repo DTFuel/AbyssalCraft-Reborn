@@ -1,0 +1,7 @@
+{
+  "parent": "abyssalcraft:research",
+  "description": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+  "icon": "minecraft:experience_bottle",
+  "name": "gui.abyssalcraft.necronomicon.research.category.misc",
+  "sortnum": 3
+}

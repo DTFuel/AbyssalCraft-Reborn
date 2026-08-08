@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:coralium_plate": 1
+  },
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_plate.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_coralium_plate",
+      "text": "necronomicon.text.crafting.coraliumplate",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_plate.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:platec",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_plate.title"
+    }
+  ],
+  "sortnum": 95
+}

@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:ethaxium_ingot": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_ethaxium_ingot_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_ethaxium_ingot_1",
+      "text": "necronomicon.text.crafting.ethaxiumingot.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_ethaxium_ingot_1.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:ethaxiumingot",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_ethaxium_ingot_1.title"
+    }
+  ],
+  "sortnum": 181
+}

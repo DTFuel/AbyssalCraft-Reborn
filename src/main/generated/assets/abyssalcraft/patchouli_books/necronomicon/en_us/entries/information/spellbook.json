@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "minecraft:paper",
+  "name": "container.abyssalcraft.spellbook",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "spellbook",
+      "page": "",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.spellbook",
+      "title": "container.abyssalcraft.spellbook"
+    }
+  ],
+  "sortnum": -100
+}

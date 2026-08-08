@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_2",
+      "text": "necronomicon.text.pe.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_2.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/pe/shoggoth_lair.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_2.title"
+    }
+  ],
+  "sortnum": 250
+}

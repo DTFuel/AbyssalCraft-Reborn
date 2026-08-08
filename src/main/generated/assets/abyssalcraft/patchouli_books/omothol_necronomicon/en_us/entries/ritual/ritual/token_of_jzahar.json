@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "item.abyssalcraft.token_of_jzahar",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "token_of_jzahar",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/token_of_jzahar"
+    }
+  ],
+  "sortnum": 2143729326
+}

@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.purging.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "purging",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/purging"
+    }
+  ],
+  "sortnum": 325581004
+}

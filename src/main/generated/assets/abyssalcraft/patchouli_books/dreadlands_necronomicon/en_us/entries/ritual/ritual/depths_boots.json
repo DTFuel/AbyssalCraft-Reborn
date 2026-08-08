@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "item.abyssalcraft.depths_boots",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "depths_boots",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/depths_boots"
+    }
+  ],
+  "sortnum": 1736063310
+}

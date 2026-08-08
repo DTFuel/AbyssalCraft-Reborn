@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:darklands_oak_sapling",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_darklands_oak_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_darklands_oak_1",
+      "text": "necronomicon.text.materials.darklandsoak.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_darklands_oak_1.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:darklands_oak_sapling",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_darklands_oak_1.title"
+    }
+  ],
+  "sortnum": 20
+}

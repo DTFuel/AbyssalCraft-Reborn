@@ -159,21 +159,21 @@ function pngDimensions(file) {
 }
 
 function legacyTextureDisposition(source, modernByHash, sourceHash) {
+    if (RETIRED_LEGACY_TEXTURES.has(source)) {
+        return {
+            status: 'RETIRED',
+            targets: ['docs/spec/legacy-texture-audit.md'],
+            reason: 'The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.',
+            owner: 'RR-ASSET/PK-1b',
+        };
+    }
+
     const exactTargets = modernByHash.get(sourceHash);
     if (exactTargets) {
         return {
             status: 'MIGRATED',
             targets: exactTargets,
             reason: 'Legacy pixels are preserved byte-for-byte in the listed modern texture target(s).',
-            owner: 'RR-ASSET/PK-1b',
-        };
-    }
-
-    if (RETIRED_LEGACY_TEXTURES.has(source)) {
-        return {
-            status: 'RETIRED',
-            targets: ['docs/spec/legacy-texture-audit.md'],
-            reason: 'The legacy-only, test, deprecated, old-variant, or removed content owner is absent from the frozen modern production contract.',
             owner: 'RR-ASSET/PK-1b',
         };
     }
@@ -769,18 +769,32 @@ for (const [source, routes] of eyeRoutes) {
         if (!renderer.includes(route)) missing.push(`legacy eye texture is not routed ${route}`);
     }
 }
-const necronomiconScreenSource = fs.readFileSync(path.join(ROOT,
-    'src/main/java/com/shinoow/abyssalcraft/client/necronomicon/NecronomiconScreen.java'), 'utf8');
+const necronomiconItemSource = fs.readFileSync(path.join(ROOT,
+    'src/main/java/com/shinoow/abyssalcraft/content/item/book/NecronomiconItem.java'), 'utf8');
+const patchouliBookSource = fs.readFileSync(path.join(ROOT,
+    'src/main/java/com/shinoow/abyssalcraft/data/gen/PatchouliBookData.java'), 'utf8');
+const patchouliActionSource = fs.readFileSync(path.join(ROOT,
+    'src/main/java/com/shinoow/abyssalcraft/client/necronomicon/PatchouliActionComponent.java'), 'utf8');
+if (!necronomiconItemSource.includes('PatchouliNecronomicon.open(bookType)')) {
+    missing.push('Necronomicon items do not route normal use through Patchouli');
+}
 for (const book of [
-    'necronomicon.png', 'necronomicon_cor.png', 'necronomicon_dre.png',
-    'necronomicon_omt.png', 'abyssalnomicon.png',
+    '"necronomicon"', '"abyssal_wasteland_necronomicon"', '"dreadlands_necronomicon"',
+    '"omothol_necronomicon"', '"abyssalnomicon"',
 ]) {
-    if (!necronomiconScreenSource.includes(`textures/gui/${book}`)) {
-        missing.push(`Necronomicon book background is not routed ${book}`);
+    if (!patchouliBookSource.includes(book)) {
+        missing.push(`Patchouli Necronomicon edition is not generated ${book}`);
     }
 }
-if (!necronomiconScreenSource.includes('BOOK_TEXTURES.length - 1, bookType')) {
-    missing.push('Necronomicon screen does not select its background from the synchronized book type');
+if (!patchouliBookSource.includes('dont_generate_book')
+    || !patchouliBookSource.includes('custom_book_item')
+    || !patchouliBookSource.includes('NecronomiconPageManifest.isAvailableForBook(page, tier)')) {
+    missing.push('Patchouli Necronomicons lost their custom-item or cumulative tier contract');
+}
+if (!patchouliActionSource.includes('lookup.apply(IVariable.wrap(action')
+    || !patchouliActionSource.includes('new NecronomiconPageActionMessage')
+    || !patchouliActionSource.includes('new OpenSpellbookMessage')) {
+    missing.push('Patchouli Necronomicon action component is incomplete');
 }
 const legacyJeiBackgrounds = fs.readFileSync(path.join(ROOT,
     'src/main/java/com/shinoow/abyssalcraft/integration/jei/LegacyJeiBackgrounds.java'), 'utf8');

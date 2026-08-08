@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_dark_realm.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_dark_realm",
+      "text": "necronomicon.text.darkrealm",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_dark_realm.title"
+    }
+  ],
+  "sortnum": 220
+}

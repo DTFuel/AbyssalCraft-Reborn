@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "minecraft:enchanted_book",
+  "name": "gui.abyssalcraft.necronomicon.entry.enchantment_blinding_light.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/enchantment_blinding_light",
+      "text": "necronomicon.text.enchantment.blindinglight",
+      "title": "gui.abyssalcraft.necronomicon.entry.enchantment_blinding_light.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:enchanted_book",
+      "title": "gui.abyssalcraft.necronomicon.entry.enchantment_blinding_light.title"
+    }
+  ],
+  "sortnum": 281
+}

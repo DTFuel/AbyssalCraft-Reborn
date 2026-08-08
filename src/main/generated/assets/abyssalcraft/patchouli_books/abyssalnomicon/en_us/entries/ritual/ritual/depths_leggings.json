@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.depths_leggings",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "depths_leggings",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/depths_leggings"
+    }
+  ],
+  "sortnum": 637377501
+}

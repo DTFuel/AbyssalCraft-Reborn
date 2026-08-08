@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_4.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_4",
+      "text": "necronomicon.text.pe.4",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_4.title"
+    }
+  ],
+  "sortnum": 252
+}

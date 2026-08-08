@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_liquid_antimatter_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_liquid_antimatter_2",
+      "text": "necronomicon.text.materials.liquidantimatter.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_liquid_antimatter_2.title"
+    }
+  ],
+  "sortnum": 23
+}

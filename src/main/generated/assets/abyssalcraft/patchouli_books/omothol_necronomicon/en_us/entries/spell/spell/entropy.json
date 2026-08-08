@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "ac.spell.entropy",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "entropy",
+      "kind": "spell",
+      "page": "abyssalcraft:spell/entropy"
+    }
+  ],
+  "sortnum": 270752154
+}

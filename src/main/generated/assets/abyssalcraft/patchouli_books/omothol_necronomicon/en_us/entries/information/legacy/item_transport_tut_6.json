@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_6.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/item_transport_tut_6",
+      "text": "necronomicon.text.itemtransportsystem.6",
+      "title": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_6.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/transport/transport_2.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_6.title"
+    }
+  ],
+  "sortnum": 197
+}

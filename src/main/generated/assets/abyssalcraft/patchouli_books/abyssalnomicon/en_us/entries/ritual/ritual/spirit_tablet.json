@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.spirit_tablet",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "spirit_tablet",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/spirit_tablet"
+    }
+  ],
+  "sortnum": 1968544152
+}

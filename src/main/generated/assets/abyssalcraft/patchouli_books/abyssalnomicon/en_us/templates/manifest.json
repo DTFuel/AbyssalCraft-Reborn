@@ -1,0 +1,13 @@
+{
+  "components": [
+    {
+      "type": "patchouli:custom",
+      "class": "com.shinoow.abyssalcraft.client.necronomicon.PatchouliManifestComponent",
+      "id": "#id",
+      "kind": "#kind",
+      "page": "#page",
+      "x": 0,
+      "y": 8
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:monolith_pillar": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_monolith_pillar.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_monolith_pillar",
+      "text": "necronomicon.text.crafting.monolithpillar.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_monolith_pillar.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:monolithpillar",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_monolith_pillar.title"
+    }
+  ],
+  "sortnum": 237
+}

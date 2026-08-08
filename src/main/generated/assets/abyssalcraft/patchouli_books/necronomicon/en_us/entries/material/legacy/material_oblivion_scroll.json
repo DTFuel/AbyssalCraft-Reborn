@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:oblivion_scroll",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_oblivion_scroll.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_oblivion_scroll",
+      "text": "necronomicon.text.wip",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_oblivion_scroll.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:oblivion_scroll",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_oblivion_scroll.title"
+    }
+  ],
+  "sortnum": 297
+}

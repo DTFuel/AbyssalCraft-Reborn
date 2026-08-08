@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/book",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "ac.research.abyssal_wasteland_necro",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.abyssal_wasteland_necro",
+      "trigger": "abyssalcraft:research/abyssal_wasteland_necro"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "abyssal_wasteland_necro",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

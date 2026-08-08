@@ -1,0 +1,24 @@
+{
+  "advancement": "abyssalcraft:research/omothol",
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:omothol_necronomicon": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_necronomicon_o.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_necronomicon_o",
+      "text": "necronomicon.text.crafting.necro_o",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_necronomicon_o.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:necronomicon_omt",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_necronomicon_o.title"
+    }
+  ],
+  "sortnum": 149
+}

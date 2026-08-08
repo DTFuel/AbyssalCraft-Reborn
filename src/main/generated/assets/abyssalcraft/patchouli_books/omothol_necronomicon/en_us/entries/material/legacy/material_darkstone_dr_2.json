@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_darkstone_dr_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_darkstone_dr_2",
+      "text": "necronomicon.text.materials.darkstone.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_darkstone_dr_2.title"
+    }
+  ],
+  "sortnum": 205
+}

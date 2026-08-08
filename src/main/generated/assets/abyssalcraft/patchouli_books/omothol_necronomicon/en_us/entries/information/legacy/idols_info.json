@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.idols_info.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/idols_info",
+      "text": "necronomicon.text.idols.info",
+      "title": "gui.abyssalcraft.necronomicon.entry.idols_info.title"
+    }
+  ],
+  "sortnum": 270
+}

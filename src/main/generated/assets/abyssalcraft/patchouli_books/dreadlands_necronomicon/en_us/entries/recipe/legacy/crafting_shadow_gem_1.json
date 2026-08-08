@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:shadow_gem": 1
+  },
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_shadow_gem_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_shadow_gem_1",
+      "text": "necronomicon.text.crafting.shadowgem.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_shadow_gem_1.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:shadowgem",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_shadow_gem_1.title"
+    }
+  ],
+  "sortnum": 52
+}

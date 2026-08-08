@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "ac.spell.teleportHome",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "teleporthome",
+      "kind": "spell",
+      "page": "abyssalcraft:spell/teleporthome"
+    }
+  ],
+  "sortnum": 113170209
+}

@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.biome_dreadlands_ocean.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/biome_dreadlands_ocean",
+      "text": "necronomicon.text.wip",
+      "title": "gui.abyssalcraft.necronomicon.entry.biome_dreadlands_ocean.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/biomes/dreadlands_ocean.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.biome_dreadlands_ocean.title"
+    }
+  ],
+  "sortnum": 162
+}

@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "ac.spell.invisibility",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "invisibility",
+      "kind": "spell",
+      "page": "abyssalcraft:spell/invisibility"
+    }
+  ],
+  "sortnum": 678329998
+}

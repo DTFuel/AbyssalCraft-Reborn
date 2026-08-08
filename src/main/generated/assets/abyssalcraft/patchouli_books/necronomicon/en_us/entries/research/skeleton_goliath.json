@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.skeleton_goliath",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.skeleton_goliath",
+      "trigger": "abyssalcraft:research/skeleton_goliath"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "skeleton_goliath",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

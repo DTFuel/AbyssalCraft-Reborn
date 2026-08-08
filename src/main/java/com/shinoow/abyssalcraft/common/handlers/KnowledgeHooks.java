@@ -109,6 +109,9 @@ public final class KnowledgeHooks {
 
     /** Record a completed AC progression advancement and synchronize its Necronomicon entry. */
     public static boolean onAdvancementEarned(ServerPlayer player, ResourceLocation id) {
+        if (com.shinoow.abyssalcraft.platform.ResearchAdvancementCompat.recordGranted(player, id)) {
+            return true;
+        }
         if (!AdvancementKnowledge.contains(id)) {
             return false;
         }

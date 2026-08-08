@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:recipe",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_infused_stone_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_coralium_infused_stone_2",
+      "text": "necronomicon.text.crafting.coraliuminfusedstone.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_infused_stone_2.title"
+    }
+  ],
+  "sortnum": 51
+}

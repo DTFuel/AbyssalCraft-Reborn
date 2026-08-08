@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.azathoth_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/azathoth_2",
+      "text": "necronomicon.text.azathoth.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.azathoth_2.title"
+    }
+  ],
+  "sortnum": 2
+}

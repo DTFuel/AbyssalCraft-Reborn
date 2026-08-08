@@ -1,0 +1,24 @@
+{
+  "advancement": "abyssalcraft:research/coralium_plague",
+  "category": "abyssalcraft:information",
+  "extra_recipe_mappings": {
+    "abyssalcraft:coralium_antidote": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.coralium_plague_info_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/coralium_plague_info_2",
+      "text": "necronomicon.text.coraliumplague.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.coralium_plague_info_2.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:antidote_0",
+      "title": "gui.abyssalcraft.necronomicon.entry.coralium_plague_info_2.title"
+    }
+  ],
+  "sortnum": 104
+}

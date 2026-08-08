@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:coralium_ore",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_coralium_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_coralium_1",
+      "text": "necronomicon.text.materials.coralium.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_coralium_1.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:coralium_ore",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_coralium_1.title"
+    }
+  ],
+  "sortnum": 18
+}

@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.weather.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "weather",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/weather"
+    }
+  ],
+  "sortnum": 1769759256
+}

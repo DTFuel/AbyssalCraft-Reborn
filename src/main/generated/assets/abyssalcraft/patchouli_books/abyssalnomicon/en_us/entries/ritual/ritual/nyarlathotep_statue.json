@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "block.abyssalcraft.nyarlathotep_statue",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "nyarlathotep_statue",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/nyarlathotep_statue"
+    }
+  ],
+  "sortnum": 246567122
+}

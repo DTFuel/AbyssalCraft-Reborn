@@ -60,6 +60,9 @@ public final class KnowledgeGate {
         if (research.getRequiredLevel() == -1
                 || data.hasUnlockedAllKnowledge()
                 || data.getCompletedResearches().contains(research.getID().toString())) {
+            if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+                com.shinoow.abyssalcraft.platform.ResearchAdvancementCompat.award(serverPlayer, research);
+            }
             return true;
         }
         boolean unlocked = true;
@@ -70,6 +73,9 @@ public final class KnowledgeGate {
         }
         if (unlocked) {
             data.completeResearch(research.getID().toString());
+            if (player instanceof net.minecraft.server.level.ServerPlayer serverPlayer) {
+                com.shinoow.abyssalcraft.platform.ResearchAdvancementCompat.award(serverPlayer, research);
+            }
         }
         return unlocked;
     }

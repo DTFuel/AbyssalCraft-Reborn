@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.ritual_tut_6.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/ritual_tut_6",
+      "text": "necronomicon.text.rituals.6",
+      "title": "gui.abyssalcraft.necronomicon.entry.ritual_tut_6.title"
+    }
+  ],
+  "sortnum": 229
+}

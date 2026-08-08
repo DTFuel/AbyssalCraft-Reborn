@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.portal.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "portal",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/portal"
+    }
+  ],
+  "sortnum": 2013919720
+}

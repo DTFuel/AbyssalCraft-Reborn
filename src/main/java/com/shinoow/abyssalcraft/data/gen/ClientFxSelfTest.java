@@ -12,8 +12,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.shinoow.abyssalcraft.client.network.ClientNetworkEffects;
-import com.shinoow.abyssalcraft.client.necronomicon.ACNecronomicon;
-import com.shinoow.abyssalcraft.client.necronomicon.NecronomiconEntry;
+import com.shinoow.abyssalcraft.client.necronomicon.PatchouliNecronomicon;
 import com.shinoow.abyssalcraft.client.ClientFxConfig;
 import com.shinoow.abyssalcraft.platform.ACRef;
 import com.shinoow.abyssalcraft.platform.ClientColorCompat;
@@ -152,18 +151,24 @@ public final class ClientFxSelfTest {
                 "ritual " + manifest.id() + " no longer exposes an eight-slot ItemRitual display layout");
         }
 
-        Set<String> uiEntries = new LinkedHashSet<>();
+        require(PatchouliNecronomicon.books().size() == 5,
+            "Patchouli Necronomicon edition count changed");
+        Set<String> patchouliEntries = new LinkedHashSet<>();
+        int previousEntries = 0;
         for (int bookType = 0; bookType < 5; bookType++) {
-            require(ACNecronomicon.root(bookType, registries) == ACNecronomicon.root(bookType, registries),
-                "Necronomicon tree is rebuilt every time book tier " + bookType + " opens");
+            int entries = 1;
+            for (NecronomiconPageManifest.PageEntry page : NecronomiconPageManifest.pages()) {
+                if (NecronomiconPageManifest.isAvailableForBook(page, bookType)) {
+                    require(patchouliEntries.add(bookType + ":" + page.id()),
+                        "duplicate Patchouli entry in tier " + bookType + ": " + page.id());
+                    entries++;
+                }
+            }
+            require(entries >= previousEntries, "Patchouli Necronomicon tiers are not cumulative");
+            previousEntries = entries;
         }
-        NecronomiconEntry root = ACNecronomicon.root(4, registries);
-        collectEntryIds(root, uiEntries);
-        require(uiEntries.stream().filter(id -> id.startsWith("legacy/")).count() == 322,
-            "Necronomicon legacy navigation entry count changed");
-        for (NecronomiconPageManifest.PageEntry page : NecronomiconPageManifest.pages()) {
-            require(uiEntries.contains(page.id().getPath()), "Necronomicon UI is missing manifest page " + page.id());
-        }
+        require(previousEntries == NecronomiconPageManifest.pages().size() + 1,
+            "Abyssalnomicon does not expose the complete Patchouli manifest");
 
         System.out.printf(
             "RR_CLIENT_FX_SELF_TEST_OK skies=%d particles=%d sounds=45 ogg=%d subtitles=%d rituals=%d%n",
@@ -237,16 +242,6 @@ public final class ClientFxSelfTest {
                                   boolean wasteland, boolean dreadlands, boolean omothol, boolean darkRealm) {
         return ClientFxConfig.hardcoreDarkness(dimension, () -> loaded, () -> wasteland, () -> dreadlands,
             () -> omothol, () -> darkRealm);
-    }
-
-    private static void collectEntryIds(NecronomiconEntry entry, Set<String> ids) {
-        require(ids.add(entry.id()), "duplicate Necronomicon UI entry " + entry.id());
-        if (entry.id().startsWith("legacy/")) {
-            require(entry.hasNavigationTitle(), "legacy Necronomicon entry lacks a content summary " + entry.id());
-            require(entry.title().getString().contains("·"),
-                "legacy Necronomicon entry lacks its source page number " + entry.id());
-        }
-        entry.children().forEach(child -> collectEntryIds(child, ids));
     }
 
     private static String soundPath(JsonElement element) {

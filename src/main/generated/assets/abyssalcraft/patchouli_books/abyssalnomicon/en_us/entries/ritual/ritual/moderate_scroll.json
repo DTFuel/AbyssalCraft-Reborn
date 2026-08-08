@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.moderate_scroll",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "moderate_scroll",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/moderate_scroll"
+    }
+  ],
+  "sortnum": 1290511277
+}

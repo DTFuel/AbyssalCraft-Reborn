@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/dimension",
+  "icon": "minecraft:ender_eye",
+  "name": "ac.research.dreadlands",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.dreadlands",
+      "trigger": "abyssalcraft:research/dreadlands"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "dreadlands",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:progression",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.progression_overworld_4.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/progression_overworld_4",
+      "text": "necronomicon.text.overworld.progression.4",
+      "title": "gui.abyssalcraft.necronomicon.entry.progression_overworld_4.title"
+    }
+  ],
+  "sortnum": 27
+}

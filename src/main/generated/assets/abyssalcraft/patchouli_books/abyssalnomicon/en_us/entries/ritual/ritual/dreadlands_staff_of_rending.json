@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.dreadlands_staff_of_rending",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "dreadlands_staff_of_rending",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/dreadlands_staff_of_rending"
+    }
+  ],
+  "sortnum": 1032110213
+}

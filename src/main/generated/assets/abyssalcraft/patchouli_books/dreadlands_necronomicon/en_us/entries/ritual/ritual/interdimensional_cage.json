@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "item.abyssalcraft.interdimensional_cage",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "interdimensional_cage",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/interdimensional_cage"
+    }
+  ],
+  "sortnum": 776618282
+}

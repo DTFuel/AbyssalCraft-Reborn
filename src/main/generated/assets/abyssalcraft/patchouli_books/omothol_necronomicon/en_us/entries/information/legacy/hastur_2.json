@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.hastur_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/hastur_2",
+      "text": "necronomicon.text.hastur.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.hastur_2.title"
+    }
+  ],
+  "sortnum": 12
+}

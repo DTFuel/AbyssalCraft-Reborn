@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:spirit_altar",
+  "name": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_8.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/item_transport_tut_8",
+      "text": "necronomicon.text.itemtransportsystem.8",
+      "title": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_8.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:spirit_altar",
+      "title": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_8.title"
+    }
+  ],
+  "sortnum": 199
+}

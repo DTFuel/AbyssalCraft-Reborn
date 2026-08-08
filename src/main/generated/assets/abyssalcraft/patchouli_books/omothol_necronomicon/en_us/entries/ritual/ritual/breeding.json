@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.breeding.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "breeding",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/breeding"
+    }
+  ],
+  "sortnum": 1984028778
+}

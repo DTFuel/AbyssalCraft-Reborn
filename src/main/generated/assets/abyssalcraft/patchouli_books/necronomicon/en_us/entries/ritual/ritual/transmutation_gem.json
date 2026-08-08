@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "item.abyssalcraft.transmutation_gem",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "transmutation_gem",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/transmutation_gem"
+    }
+  ],
+  "sortnum": 1966697605
+}

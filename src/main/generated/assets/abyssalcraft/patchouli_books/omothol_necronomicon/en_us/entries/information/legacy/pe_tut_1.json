@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_1",
+      "text": "necronomicon.text.pe.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_1.title"
+    }
+  ],
+  "sortnum": 249
+}

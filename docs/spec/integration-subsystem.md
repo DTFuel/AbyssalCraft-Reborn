@@ -28,6 +28,8 @@
 
 **进度**：双目录数据包 JSON 由 `AdvancementKnowledge` 事实清单永久审计。Forge 1.20.1 使用 `advancements/` 与对象式 inventory predicate；NeoForge 1.21.1 使用 `advancement/`、`display.icon.id` 与字符串式 predicate。`root` 已恢复真实 Necronomicon 触发与现有 darkstone 背景。两端 `AdvancementEarnEvent` 将9项完成状态幂等写入 `advancementTriggers`，知识增量 type 7 + full snapshot 即时刷新已打开的书，并在登录时从 vanilla progress 回填旧玩家。
 
+**Patchouli 研究进度**：除上述 9 项 progression 外，`PatchouliBookData` 为 `KnowledgeContent` 的 42 项研究生成公开 goal advancement（`abyssalcraft:research/<id>`）和五分类 quest。`ResearchAdvancementCompat` 在登录与知识变化时双向合并 advancement 和 `NecroData.completedResearches`。`/acunlockallknowledge` toggle 同步授予/撤销这 42 项 progression；永久锁页使用独立 impossible advancement，不受命令影响。
+
 **插件 API**：`integration/api/{IACPlugin,ACPluginContext,ACPluginRegistry}` 以 `META-INF/services` 自动发现，按稳定ID在 `ServerAboutToStartEvent` 原子发布不可变快照；失败provider回滚。Shoggoth食物与两类瘟疫 immunity/carrier 均接入真实消费端。Forge `IMCCompat` 在 `InterModProcessEvent` 桥接5个旧实体key；NeoForge 21.1无loader IMC，使用类型化API。完整契约见 [`advancement-plugin-api.md`](advancement-plugin-api.md)。
 
 **JEI（RR-JEI-AUTO 完整实现）**：`@JeiPlugin` 自动发现（缺 JEI 不崩，非 mods.toml 硬依赖，API modCompileOnly）。分类 extends JEI `IRecipeCategory`，`registerCategories`/`registerRecipes`（经 `RecipeCompat.allOfType`/`DataRecipeCompat.allOfType` 枚举配方，或从 manifest catalogs 获取）/`registerRecipeCatalysts`（催化剂方块）三段注册。
@@ -59,6 +61,7 @@
 ## 4. 子系统内契约
 
 - 命令名 `acunlockallknowledge`（忠实 1.12.2），权限 lvl2。
+- 命令切换全知识后必须同时发送 NecroData full snapshot 和同步 42 项 Patchouli research advancement，避免书内门禁与业务判定分裂。
 - 配置路径 snake_case（`should_spread` 等），12 类：general/dimensions/mobs/rituals/shoggoth/worldgen/silly_settings/wet_noodle/mod_compat/spells/modules/ghoul + client。
 - 进度 id 沿用 1.12.2（root/mine_*/ethaxium/dreadium/shadow_gems），item id 用现代注册名（`coralium_ore` 等）。PJ-4 初交付时因书未移植曾临时以 `dreadium_ingot` 代替 root；RR-ADV-API 已恢复 `necronomicon`。
 - 上述 root 占位已在 RR-ADV-API 撤销：当前 icon/criterion 均为 `abyssalcraft:necronomicon`。
@@ -79,6 +82,7 @@
 - `nightconfig WritingException: An I/O error occured` 是 **run/ 目录被并发 server 争用**（同时锁 `logs/latest.log`），非配置内容错——隔离 run 目录/端口后重跑即过（本子系统 355 行 toml 已成功生成）。
 - `RecipeCompat.allOfType` 仅收 `ProcessingRecipe`（extends `RecipeCompat`）；`AnvilForgingRecipe` extends `DataRecipeCompat`（另一基类）→ 需 `DataRecipeCompat` 自带的 `allOfType`（本次新增）。
 - necrodata client-sync handler 已由RR-KNOWLEDGE落地；命令执行后通过`KnowledgeSync.full`发送权威快照。完整有/无权限玩家与客户端书显示仍归T8.3b真人验收。
+- Patchouli 以 advancement 判定门禁，因此只更新 NecroData 不够；所有全知识与研究完成入口必须经过 `ResearchAdvancementCompat` 合并。
 - RR-ADV-API 进一步让完整/增量同步在书已打开时调用 `rebuildWidgets`，命令与进度页面无需关闭重开。
 
 ## 7. 验证 / DoD
@@ -91,6 +95,7 @@
 
 ## 修订日志
 
+- 当前：记录 42 项 Patchouli research advancement、NecroData 双向 backfill 与全知识命令的 progression 同步契约。
 - 2026-07-26：RR-ADV-API 完成进度双schema修复、9项独立Progression知识、命令/书即时同步、IACPlugin/ServiceLoader、Forge五项旧IMC与双端永久/外部消费者Gate。
 - 2026-07-25：RR-KNOWLEDGE（CR-70）完成PJ-2b非标量定义/解析/reload与necrodata客户端同步；当时PJ-2c全消费者+GUI、T8.3b真人命令矩阵待办，后者已于2026-07-26由RR-ADV-API收口。
 - 2026-07-22：初版（PJ-1..4，Stage J，CR-56）。命令 + 配置 + 进度双端交付并 runServer 实证；JEI 4 分类；rending/ritual/spell JEI、配置非标量、IMC/IACPlugin 延后分离为 PJ-1b/2b/4b。

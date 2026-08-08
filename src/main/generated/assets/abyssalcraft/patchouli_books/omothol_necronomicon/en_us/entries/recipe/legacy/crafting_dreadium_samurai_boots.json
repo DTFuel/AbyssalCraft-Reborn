@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:dreadium_samurai_boots": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_samurai_boots.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_dreadium_samurai_boots",
+      "text": "necronomicon.text.crafting.dreadiumsboots",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_samurai_boots.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:dreadiumsamuraiboots",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_samurai_boots.title"
+    }
+  ],
+  "sortnum": 153
+}

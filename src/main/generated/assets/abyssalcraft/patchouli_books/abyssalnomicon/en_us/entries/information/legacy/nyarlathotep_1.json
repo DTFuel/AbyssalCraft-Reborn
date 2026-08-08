@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.nyarlathotep_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/nyarlathotep_1",
+      "text": "necronomicon.text.nyarlathotep.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.nyarlathotep_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/nyarlathotep.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.nyarlathotep_1.title"
+    }
+  ],
+  "sortnum": 3
+}

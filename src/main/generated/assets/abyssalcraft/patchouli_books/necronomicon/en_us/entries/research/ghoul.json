@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.ghoul",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.ghoul",
+      "trigger": "abyssalcraft:research/ghoul"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "ghoul",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

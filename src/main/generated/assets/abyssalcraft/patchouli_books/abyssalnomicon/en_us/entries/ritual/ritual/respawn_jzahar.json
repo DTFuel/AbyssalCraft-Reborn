@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.respawn_jzahar.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "respawn_jzahar",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/respawn_jzahar"
+    }
+  ],
+  "sortnum": 561670235
+}

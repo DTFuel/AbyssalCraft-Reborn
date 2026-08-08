@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "item.abyssalcraft.abyssal_wasteland_staff_of_rending",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "abyssal_wasteland_staff_of_rending",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/abyssal_wasteland_staff_of_rending"
+    }
+  ],
+  "sortnum": 2146226082
+}

@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/spawn_of_chagaroth",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_spawn_of_chagaroth_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_spawn_of_chagaroth_2",
+      "text": "necronomicon.text.entity.chagarothspawn.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_spawn_of_chagaroth_2.title"
+    }
+  ],
+  "sortnum": 129
+}

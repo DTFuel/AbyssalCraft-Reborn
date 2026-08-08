@@ -1,0 +1,7 @@
+{
+  "parent": "abyssalcraft:research",
+  "description": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+  "icon": "minecraft:ender_eye",
+  "name": "gui.abyssalcraft.necronomicon.research.category.dimension",
+  "sortnum": 1
+}

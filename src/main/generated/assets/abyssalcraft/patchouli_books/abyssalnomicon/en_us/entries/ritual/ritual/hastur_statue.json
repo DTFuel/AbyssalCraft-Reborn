@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "block.abyssalcraft.hastur_statue",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "hastur_statue",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/hastur_statue"
+    }
+  ],
+  "sortnum": 513207056
+}

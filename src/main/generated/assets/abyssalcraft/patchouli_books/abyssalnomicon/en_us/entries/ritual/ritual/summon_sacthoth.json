@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.summon_sacthoth.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "summon_sacthoth",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/summon_sacthoth"
+    }
+  ],
+  "sortnum": 1351954748
+}

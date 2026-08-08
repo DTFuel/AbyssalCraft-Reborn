@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/shadow_monster",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_shadow_monster_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_shadow_monster_2",
+      "text": "necronomicon.text.entity.shadowmonster.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_shadow_monster_2.title"
+    }
+  ],
+  "sortnum": 37
+}

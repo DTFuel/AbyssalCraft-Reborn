@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:recipe",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_sequential_brewing_stand_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_sequential_brewing_stand_2",
+      "text": "necronomicon.text.crafting.sequential_brewing_stand.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_sequential_brewing_stand_2.title"
+    }
+  ],
+  "sortnum": 61
+}

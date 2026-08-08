@@ -1,0 +1,7 @@
+{
+  "parent": "abyssalcraft:research",
+  "description": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.research.category.book",
+  "sortnum": 4
+}

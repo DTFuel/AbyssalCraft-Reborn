@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.coralium_infested_squid",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.coralium_infested_squid",
+      "trigger": "abyssalcraft:research/coralium_infested_squid"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "coralium_infested_squid",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

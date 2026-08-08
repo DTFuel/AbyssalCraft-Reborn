@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.biome_dreadlands.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/biome_dreadlands",
+      "text": "necronomicon.text.wip",
+      "title": "gui.abyssalcraft.necronomicon.entry.biome_dreadlands.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/biomes/dreadlands.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.biome_dreadlands.title"
+    }
+  ],
+  "sortnum": 159
+}

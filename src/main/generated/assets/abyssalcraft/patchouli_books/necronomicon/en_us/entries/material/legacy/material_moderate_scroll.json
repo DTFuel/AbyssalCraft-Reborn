@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:moderate_scroll",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_moderate_scroll.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_moderate_scroll",
+      "text": "necronomicon.text.wip",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_moderate_scroll.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:moderate_scroll",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_moderate_scroll.title"
+    }
+  ],
+  "sortnum": 294
+}

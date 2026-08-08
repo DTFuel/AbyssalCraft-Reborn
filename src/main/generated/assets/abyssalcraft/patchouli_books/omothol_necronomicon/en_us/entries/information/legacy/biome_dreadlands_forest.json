@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.biome_dreadlands_forest.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/biome_dreadlands_forest",
+      "text": "necronomicon.text.wip",
+      "title": "gui.abyssalcraft.necronomicon.entry.biome_dreadlands_forest.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/biomes/dreadlands_forest.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.biome_dreadlands_forest.title"
+    }
+  ],
+  "sortnum": 161
+}

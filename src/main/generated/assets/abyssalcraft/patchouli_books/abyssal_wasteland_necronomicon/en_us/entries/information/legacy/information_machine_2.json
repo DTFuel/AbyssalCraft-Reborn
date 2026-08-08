@@ -1,0 +1,21 @@
+{
+  "advancement": "abyssalcraft:research/abyssal_wasteland_necro",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:transmutator",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_machine_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_machine_2",
+      "text": "necronomicon.text.machines.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_machine_2.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:transmutator",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_machine_2.title"
+    }
+  ],
+  "sortnum": 315
+}

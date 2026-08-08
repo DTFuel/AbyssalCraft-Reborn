@@ -34,3 +34,10 @@ type = "required"
 versionRange = "[4.1.0.8,5)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.${id}]]
+modId = "patchouli"
+type = "required"
+versionRange = "[1.21.1-93-NEOFORGE,)"
+ordering = "AFTER"
+side = "BOTH"

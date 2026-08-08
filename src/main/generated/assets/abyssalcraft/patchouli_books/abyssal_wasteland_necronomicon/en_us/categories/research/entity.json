@@ -1,0 +1,7 @@
+{
+  "parent": "abyssalcraft:research",
+  "description": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+  "icon": "minecraft:rotten_flesh",
+  "name": "gui.abyssalcraft.necronomicon.research.category.entity",
+  "sortnum": 2
+}

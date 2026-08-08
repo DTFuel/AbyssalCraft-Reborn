@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.evil_animal",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.evil_animal",
+      "trigger": "abyssalcraft:research/evil_animal"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "evil_animal",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

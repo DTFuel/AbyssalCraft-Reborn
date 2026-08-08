@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.shubniggurathcharm",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "shub_niggurath_charm",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/shub_niggurath_charm"
+    }
+  ],
+  "sortnum": 432649940
+}

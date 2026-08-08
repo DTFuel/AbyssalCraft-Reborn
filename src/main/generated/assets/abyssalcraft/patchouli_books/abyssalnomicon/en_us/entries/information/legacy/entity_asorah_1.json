@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_asorah_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_asorah_1",
+      "text": "necronomicon.text.entity.asorah.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_asorah_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/asorah.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_asorah_1.title"
+    }
+  ],
+  "sortnum": 85
+}

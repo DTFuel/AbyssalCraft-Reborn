@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:dreadium_katana_blade": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_blade.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_dreadium_blade",
+      "text": "necronomicon.text.crafting.dreadiumblade",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_blade.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:dreadblade",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_blade.title"
+    }
+  ],
+  "sortnum": 147
+}

@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:shard_of_oblivion": 1
+  },
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_shard_of_oblivion.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_shard_of_oblivion",
+      "text": "necronomicon.text.crafting.oblivionshard",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_shard_of_oblivion.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:oblivionshard",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_shard_of_oblivion.title"
+    }
+  ],
+  "sortnum": 54
+}

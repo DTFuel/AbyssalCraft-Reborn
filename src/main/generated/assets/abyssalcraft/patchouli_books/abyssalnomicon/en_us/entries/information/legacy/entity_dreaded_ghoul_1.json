@@ -1,0 +1,23 @@
+{
+  "advancement": "abyssalcraft:research/dreaded_ghoul",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_dreaded_ghoul_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_dreaded_ghoul_1",
+      "text": "necronomicon.text.entity.dreadedghoul.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_dreaded_ghoul_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/ghoul.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_dreaded_ghoul_1.title"
+    }
+  ],
+  "sortnum": 136
+}

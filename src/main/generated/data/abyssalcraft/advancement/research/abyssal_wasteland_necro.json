@@ -1,0 +1,28 @@
+{
+  "parent": "abyssalcraft:research/category/book",
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "gui.abyssalcraft.necronomicon.patchouli.research.condition.open_book",
+      "with": [
+        {
+          "text": "1"
+        }
+      ]
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "id": "abyssalcraft:necronomicon"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ac.research.abyssal_wasteland_necro"
+    }
+  }
+}

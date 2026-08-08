@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:ethaxium_pillar": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_ethaxium_pillar.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_ethaxium_pillar",
+      "text": "necronomicon.text.crafting.ethaxiumpillar",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_ethaxium_pillar.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:ethaxiumpillar",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_ethaxium_pillar.title"
+    }
+  ],
+  "sortnum": 183
+}

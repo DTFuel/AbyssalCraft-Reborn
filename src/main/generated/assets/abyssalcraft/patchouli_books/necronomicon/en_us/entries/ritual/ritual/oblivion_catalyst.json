@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "item.abyssalcraft.oblivion_catalyst",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "oblivion_catalyst",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/oblivion_catalyst"
+    }
+  ],
+  "sortnum": 62457050
+}

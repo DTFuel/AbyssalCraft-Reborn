@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:chunk_of_coralium": 1
+  },
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_chunk.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_coralium_chunk",
+      "text": "necronomicon.text.crafting.coraliumchunk",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_chunk.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:cchunk",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_chunk.title"
+    }
+  ],
+  "sortnum": 94
+}

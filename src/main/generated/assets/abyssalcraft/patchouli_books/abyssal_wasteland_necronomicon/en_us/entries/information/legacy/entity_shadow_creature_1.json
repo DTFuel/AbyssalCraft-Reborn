@@ -1,0 +1,23 @@
+{
+  "advancement": "abyssalcraft:research/shadow_creature",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_shadow_creature_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_shadow_creature_1",
+      "text": "necronomicon.text.entity.shadowcreature.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_shadow_creature_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/shadow-creature.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_shadow_creature_1.title"
+    }
+  ],
+  "sortnum": 34
+}

@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:place_of_power",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.places_of_power_info_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/places_of_power_info_2",
+      "text": "necronomicon.text.placesofpower.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.places_of_power_info_2.title"
+    }
+  ],
+  "sortnum": 269
+}

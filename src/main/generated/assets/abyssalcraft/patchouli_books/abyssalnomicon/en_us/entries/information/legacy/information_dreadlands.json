@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_dreadlands.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_dreadlands",
+      "text": "necronomicon.text.dreadlands",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_dreadlands.title"
+    }
+  ],
+  "sortnum": 157
+}

@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.antimatter_aoe.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "antimatter_aoe",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/antimatter_aoe"
+    }
+  ],
+  "sortnum": 1821095383
+}

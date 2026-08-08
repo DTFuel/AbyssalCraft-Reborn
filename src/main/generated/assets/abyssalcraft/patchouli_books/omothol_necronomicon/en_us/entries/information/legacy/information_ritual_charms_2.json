@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_ritual_charms_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_ritual_charms_2",
+      "text": "necronomicon.text.ritualcharms.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_ritual_charms_2.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/pe/amplified_statues.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.information_ritual_charms_2.title"
+    }
+  ],
+  "sortnum": 319
+}

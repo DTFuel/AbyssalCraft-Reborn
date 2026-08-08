@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.ethaxium_ingot",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "ethaxium_ingot",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/ethaxium_ingot"
+    }
+  ],
+  "sortnum": 331845685
+}

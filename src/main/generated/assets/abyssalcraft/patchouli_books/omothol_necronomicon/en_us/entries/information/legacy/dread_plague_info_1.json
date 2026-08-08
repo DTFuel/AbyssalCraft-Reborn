@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/dread_plague",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.dread_plague_info_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/dread_plague_info_1",
+      "text": "necronomicon.text.dreadplague.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.dread_plague_info_1.title"
+    }
+  ],
+  "sortnum": 155
+}

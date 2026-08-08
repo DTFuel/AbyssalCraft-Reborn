@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.gatewaykeydl",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "dreadlands_infused_gateway_key",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/dreadlands_infused_gateway_key"
+    }
+  ],
+  "sortnum": 1304970798
+}

@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.dread_plague_aoe.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "dread_plague_aoe",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/dread_plague_aoe"
+    }
+  ],
+  "sortnum": 837837131
+}

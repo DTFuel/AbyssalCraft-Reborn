@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_abyssalcraft_page_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_abyssalcraft_page_2",
+      "text": "necronomicon.text.abyssalcraft.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_abyssalcraft_page_2.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/blank.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.information_abyssalcraft_page_2.title"
+    }
+  ],
+  "sortnum": 299
+}

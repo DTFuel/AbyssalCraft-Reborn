@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.resurrection.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "resurrection",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/resurrection"
+    }
+  ],
+  "sortnum": 679798339
+}

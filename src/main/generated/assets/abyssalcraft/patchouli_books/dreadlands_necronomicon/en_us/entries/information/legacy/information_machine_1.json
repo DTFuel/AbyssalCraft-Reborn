@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "minecraft:anvil",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_machine_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_machine_1",
+      "text": "necronomicon.text.machines.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_machine_1.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:anvil",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_machine_1.title"
+    }
+  ],
+  "sortnum": 314
+}

@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.corruption.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "corruption",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/corruption"
+    }
+  ],
+  "sortnum": 935147095
+}

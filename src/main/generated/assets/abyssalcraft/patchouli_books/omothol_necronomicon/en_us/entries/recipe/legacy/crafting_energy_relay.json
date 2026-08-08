@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:energyrelay": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_energy_relay.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_energy_relay",
+      "text": "necronomicon.text.crafting.energyrelay",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_energy_relay.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:energyrelay",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_energy_relay.title"
+    }
+  ],
+  "sortnum": 242
+}

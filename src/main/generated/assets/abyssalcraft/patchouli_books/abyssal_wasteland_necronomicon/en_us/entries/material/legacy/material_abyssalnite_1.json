@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:abyssalnite_ore",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_abyssalnite_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_abyssalnite_1",
+      "text": "necronomicon.text.materials.abyssalnite.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_abyssalnite_1.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:abyssalnite_ore",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_abyssalnite_1.title"
+    }
+  ],
+  "sortnum": 15
+}

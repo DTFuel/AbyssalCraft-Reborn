@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_ritual_charms_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_ritual_charms_1",
+      "text": "necronomicon.text.ritualcharms.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_ritual_charms_1.title"
+    }
+  ],
+  "sortnum": 318
+}

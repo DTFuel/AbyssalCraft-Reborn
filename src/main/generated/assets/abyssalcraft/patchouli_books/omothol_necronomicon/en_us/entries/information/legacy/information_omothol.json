@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_omothol.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_omothol",
+      "text": "necronomicon.text.omothol",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_omothol.title"
+    }
+  ],
+  "sortnum": 202
+}

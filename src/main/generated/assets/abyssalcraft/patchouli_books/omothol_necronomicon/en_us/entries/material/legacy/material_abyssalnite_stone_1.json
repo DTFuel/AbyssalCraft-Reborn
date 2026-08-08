@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:elysian_stone",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_abyssalnite_stone_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_abyssalnite_stone_1",
+      "text": "necronomicon.text.materials.abyssalnitestone.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_abyssalnite_stone_1.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:elysian_stone",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_abyssalnite_stone_1.title"
+    }
+  ],
+  "sortnum": 113
+}

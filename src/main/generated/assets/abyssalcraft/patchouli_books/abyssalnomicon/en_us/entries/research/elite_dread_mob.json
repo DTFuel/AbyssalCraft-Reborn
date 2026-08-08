@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.elite_dread_mob",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.elite_dread_mob",
+      "trigger": "abyssalcraft:research/elite_dread_mob"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "elite_dread_mob",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_abyssalcraft_page_5.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_abyssalcraft_page_5",
+      "text": "necronomicon.text.abyssalcraft.5",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_abyssalcraft_page_5.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/abyssalcraft_3.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.information_abyssalcraft_page_5.title"
+    }
+  ],
+  "sortnum": 302
+}

@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/dread_spawn",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_dread_spawn_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_dread_spawn_2",
+      "text": "necronomicon.text.entity.dreadspawn.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_dread_spawn_2.title"
+    }
+  ],
+  "sortnum": 125
+}

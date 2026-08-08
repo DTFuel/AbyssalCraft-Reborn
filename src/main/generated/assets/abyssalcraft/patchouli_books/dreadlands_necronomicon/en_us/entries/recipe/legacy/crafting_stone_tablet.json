@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:stone_tablet": 1
+  },
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_stone_tablet.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_stone_tablet",
+      "text": "necronomicon.text.crafting.stonetablet",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_stone_tablet.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:stonetablet",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_stone_tablet.title"
+    }
+  ],
+  "sortnum": 244
+}

@@ -1,0 +1,24 @@
+{
+  "advancement": "abyssalcraft:research/abyssal_wasteland",
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:abyssal_wasteland_necronomicon": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_necronomicon_c.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_necronomicon_c",
+      "text": "necronomicon.text.crafting.necro_c",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_necronomicon_c.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:necronomicon_cor",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_necronomicon_c.title"
+    }
+  ],
+  "sortnum": 57
+}

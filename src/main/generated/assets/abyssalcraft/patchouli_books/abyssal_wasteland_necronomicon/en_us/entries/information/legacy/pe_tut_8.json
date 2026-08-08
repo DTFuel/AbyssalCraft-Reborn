@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_8.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_8",
+      "text": "necronomicon.text.pe.8",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_8.title"
+    }
+  ],
+  "sortnum": 256
+}

@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.dreadguard",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.dreadguard",
+      "trigger": "abyssalcraft:research/dreadguard"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "dreadguard",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

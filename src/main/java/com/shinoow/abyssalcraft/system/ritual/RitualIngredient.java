@@ -164,6 +164,12 @@ public final class RitualIngredient {
     }
 
     public ItemStack example() {
+        if (tagId != null) {
+            return BuiltInRegistries.ITEM.getTag(TagKey.create(Registries.ITEM, tagId))
+                .flatMap(tag -> tag.stream().findFirst())
+                .map(holder -> new ItemStack(holder.value(), count))
+                .orElse(ItemStack.EMPTY);
+        }
         List<ItemStack> alternatives = alternatives();
         return alternatives.isEmpty() ? ItemStack.EMPTY : alternatives.get(0).copy();
     }

@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.hastur_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/hastur_1",
+      "text": "necronomicon.text.hastur.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.hastur_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/hastur.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.hastur_1.title"
+    }
+  ],
+  "sortnum": 11
+}

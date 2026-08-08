@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:state_transformer": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_state_transformer_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_state_transformer_1",
+      "text": "necronomicon.text.crafting.statetransformer.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_state_transformer_1.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:statetransformer",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_state_transformer_1.title"
+    }
+  ],
+  "sortnum": 245
+}

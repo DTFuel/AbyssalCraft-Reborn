@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:carbon_cluster": 1
+  },
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_carbon_cluster.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_carbon_cluster",
+      "text": "necronomicon.text.crafting.carboncluster",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_carbon_cluster.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:carboncluster",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_carbon_cluster.title"
+    }
+  ],
+  "sortnum": 274
+}

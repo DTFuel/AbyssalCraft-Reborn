@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "item.abyssalcraft.ring_dreadlands",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "dreadlands_ring",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/dreadlands_ring"
+    }
+  ],
+  "sortnum": 575526341
+}

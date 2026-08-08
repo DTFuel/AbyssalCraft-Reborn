@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_remnant_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_remnant_2",
+      "text": "necronomicon.text.entity.remnant.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_remnant_2.title"
+    }
+  ],
+  "sortnum": 170
+}

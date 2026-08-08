@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:structure",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.dark_shrine.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/dark_shrine",
+      "text": "necronomicon.text.wip",
+      "title": "gui.abyssalcraft.necronomicon.entry.dark_shrine.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/structures/dark_shrine.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.dark_shrine.title"
+    }
+  ],
+  "sortnum": 65
+}

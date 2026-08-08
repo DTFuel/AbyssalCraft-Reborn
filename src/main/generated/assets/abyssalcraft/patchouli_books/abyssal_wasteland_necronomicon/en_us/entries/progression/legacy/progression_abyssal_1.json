@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:progression",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.progression_abyssal_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/progression_abyssal_1",
+      "text": "necronomicon.text.abyssal.progression.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.progression_abyssal_1.title"
+    }
+  ],
+  "sortnum": 78
+}

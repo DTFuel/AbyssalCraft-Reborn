@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "block.abyssalcraft.dreadlands_infused_powerstone",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "dreadlands_infused_powerstone",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/dreadlands_infused_powerstone"
+    }
+  ],
+  "sortnum": 931206422
+}

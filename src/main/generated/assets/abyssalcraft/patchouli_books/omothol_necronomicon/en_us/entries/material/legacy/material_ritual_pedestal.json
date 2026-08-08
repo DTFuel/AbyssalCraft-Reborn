@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:ritual_pedestal",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_ritual_pedestal.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_ritual_pedestal",
+      "text": "necronomicon.text.materials.ritualpedestal.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_ritual_pedestal.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:ritual_pedestal",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_ritual_pedestal.title"
+    }
+  ],
+  "sortnum": 232
+}

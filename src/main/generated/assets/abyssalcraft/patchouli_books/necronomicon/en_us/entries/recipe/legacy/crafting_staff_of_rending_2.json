@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:recipe",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_staff_of_rending_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_staff_of_rending_2",
+      "text": "necronomicon.text.crafting.rendingstaff.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_staff_of_rending_2.title"
+    }
+  ],
+  "sortnum": 59
+}

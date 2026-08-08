@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:structure",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.dark_structure.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/dark_structure",
+      "text": "necronomicon.text.wip",
+      "title": "gui.abyssalcraft.necronomicon.entry.dark_structure.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/structures/dark_structure.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.dark_structure.title"
+    }
+  ],
+  "sortnum": 66
+}

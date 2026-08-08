@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "minecraft:enchanted_book",
+  "name": "gui.abyssalcraft.necronomicon.entry.enchantment_multi_rend.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/enchantment_multi_rend",
+      "text": "necronomicon.text.enchantment.multirend",
+      "title": "gui.abyssalcraft.necronomicon.entry.enchantment_multi_rend.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:enchanted_book",
+      "title": "gui.abyssalcraft.necronomicon.entry.enchantment_multi_rend.title"
+    }
+  ],
+  "sortnum": 280
+}

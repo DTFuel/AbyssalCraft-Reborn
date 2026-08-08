@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.spawn_of_chagaroth",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.spawn_of_chagaroth",
+      "trigger": "abyssalcraft:research/spawn_of_chagaroth"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "spawn_of_chagaroth",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

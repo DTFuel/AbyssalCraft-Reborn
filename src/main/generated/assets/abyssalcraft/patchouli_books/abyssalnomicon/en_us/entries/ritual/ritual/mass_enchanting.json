@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.mass_enchanting.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "mass_enchanting",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/mass_enchanting"
+    }
+  ],
+  "sortnum": 284902712
+}

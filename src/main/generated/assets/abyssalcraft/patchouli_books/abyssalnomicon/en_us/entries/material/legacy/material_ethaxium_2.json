@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_ethaxium_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_ethaxium_2",
+      "text": "necronomicon.text.materials.ethaxium.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_ethaxium_2.title"
+    }
+  ],
+  "sortnum": 165
+}

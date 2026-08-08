@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:dreadlands_infused_powerstone",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_dreadlands_infused_powerstone.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_dreadlands_infused_powerstone",
+      "text": "necronomicon.text.materials.powerstonedreadlands.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_dreadlands_infused_powerstone.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:dreadlands_infused_powerstone",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_dreadlands_infused_powerstone.title"
+    }
+  ],
+  "sortnum": 77
+}

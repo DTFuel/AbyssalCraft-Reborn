@@ -1,0 +1,23 @@
+{
+  "advancement": "abyssalcraft:research/abyssal_zombie",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_abyssal_zombie_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_abyssal_zombie_1",
+      "text": "necronomicon.text.entity.abyssalzombie.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_abyssal_zombie_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/abyssal-zombie.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_abyssal_zombie_1.title"
+    }
+  ],
+  "sortnum": 30
+}

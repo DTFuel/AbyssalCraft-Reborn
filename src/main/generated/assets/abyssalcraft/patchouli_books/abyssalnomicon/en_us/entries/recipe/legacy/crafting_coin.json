@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:coin": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_coin.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_coin",
+      "text": "necronomicon.text.crafting.coin",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coin.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:coin_alt",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coin.title"
+    }
+  ],
+  "sortnum": 185
+}

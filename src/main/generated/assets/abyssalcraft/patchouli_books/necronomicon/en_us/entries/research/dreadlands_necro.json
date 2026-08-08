@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/book",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "ac.research.dreadlands_necro",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.dreadlands_necro",
+      "trigger": "abyssalcraft:research/dreadlands_necro"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "dreadlands_necro",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

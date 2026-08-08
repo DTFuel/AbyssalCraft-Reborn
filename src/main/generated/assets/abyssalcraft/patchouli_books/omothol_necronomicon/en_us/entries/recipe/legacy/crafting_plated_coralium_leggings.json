@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:plated_coralium_leggings": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_plated_coralium_leggings.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_plated_coralium_leggings",
+      "text": "necronomicon.text.crafting.corlegsp",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_plated_coralium_leggings.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:corlegsp",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_plated_coralium_leggings.title"
+    }
+  ],
+  "sortnum": 100
+}

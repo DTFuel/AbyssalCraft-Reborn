@@ -2,7 +2,7 @@ package com.shinoow.abyssalcraft.content.item.book;
 
 import java.util.List;
 
-import com.shinoow.abyssalcraft.client.necronomicon.ACNecronomicon;
+import com.shinoow.abyssalcraft.client.necronomicon.PatchouliNecronomicon;
 import com.shinoow.abyssalcraft.platform.SideExecutor;
 import com.shinoow.abyssalcraft.platform.TooltipCompat;
 import com.shinoow.abyssalcraft.system.energy.IEnergyTransporterItem;
@@ -27,7 +27,7 @@ import net.minecraft.world.level.Level;
  * in-game). Faithful to the 1.12.2 {@code ItemNecronomicon}: a stack-of-one book of a given
  * {@code bookType} (0-4) that opens the Necronomicon GUI on a non-sneak right-click.
  *
- * <p>Ported: the open-on-use behaviour (the PH-5 {@link ACNecronomicon#open()} screen, dispatched
+ * <p>The normal-use presentation is owned by Patchouli, dispatched
  * client-side through {@link SideExecutor} so the client-only screen never class-loads on a dedicated
  * server -- the same deferred-classload idiom the main class uses for client setup). Deferred with
  * their unported systems: the sneak-use {@code NecronomiconActionRegistry} actions and per-book entry
@@ -65,7 +65,7 @@ public class NecronomiconItem extends TooltipCompat implements IEnergyTransporte
             return InteractionResultHolder.pass(stack);
         }
         if (level.isClientSide) {
-            SideExecutor.runWhenClient(() -> () -> ACNecronomicon.open(bookType));
+            SideExecutor.runWhenClient(() -> () -> PatchouliNecronomicon.open(bookType));
         } else if (player instanceof ServerPlayer serverPlayer) {
             com.shinoow.abyssalcraft.common.handlers.KnowledgeHooks.onBookOpened(serverPlayer, bookType);
         }

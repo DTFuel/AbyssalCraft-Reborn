@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:structure",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.shoggoth_lair.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/shoggoth_lair",
+      "text": "necronomicon.text.wip",
+      "title": "gui.abyssalcraft.necronomicon.entry.shoggoth_lair.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/structures/shoggoth_lair.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.shoggoth_lair.title"
+    }
+  ],
+  "sortnum": 63
+}

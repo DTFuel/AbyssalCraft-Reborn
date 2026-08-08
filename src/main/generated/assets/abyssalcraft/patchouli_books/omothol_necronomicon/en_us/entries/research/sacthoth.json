@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.sacthoth",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.sacthoth",
+      "trigger": "abyssalcraft:research/sacthoth"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "sacthoth",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

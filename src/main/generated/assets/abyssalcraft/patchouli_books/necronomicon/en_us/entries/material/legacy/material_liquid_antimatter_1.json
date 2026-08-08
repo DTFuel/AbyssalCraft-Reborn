@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:liquid_antimatter_bucket",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_liquid_antimatter_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_liquid_antimatter_1",
+      "text": "necronomicon.text.materials.liquidantimatter.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_liquid_antimatter_1.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:liquid_antimatter_bucket",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_liquid_antimatter_1.title"
+    }
+  ],
+  "sortnum": 22
+}

@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:decorative_azathoth_statue": 1
+  },
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_decorative_jzahar_statue.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_decorative_jzahar_statue",
+      "text": "necronomicon.text.crafting.decorativejzaharstatue",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_decorative_jzahar_statue.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:decorativestatue_3",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_decorative_jzahar_statue.title"
+    }
+  ],
+  "sortnum": 285
+}

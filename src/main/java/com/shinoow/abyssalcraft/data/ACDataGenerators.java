@@ -46,6 +46,8 @@ public final class ACDataGenerators {
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.StateTransformerValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.RendingPedestalValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.KnowledgeValidationData(gen));
+        gen.generator.addProvider(gen.includeServer || gen.includeClient,
+            new com.shinoow.abyssalcraft.data.gen.PatchouliBookData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.R2GateValidationData());
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.EnergyValidationData(gen));
         gen.generator.addProvider(gen.includeServer, new com.shinoow.abyssalcraft.data.gen.PortalValidationData());

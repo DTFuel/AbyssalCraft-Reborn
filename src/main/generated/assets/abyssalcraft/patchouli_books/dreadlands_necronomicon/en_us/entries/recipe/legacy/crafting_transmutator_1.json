@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:transmutator": 1
+  },
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_transmutator_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_transmutator_1",
+      "text": "necronomicon.text.crafting.transmutator.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_transmutator_1.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:transmutator",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_transmutator_1.title"
+    }
+  ],
+  "sortnum": 92
+}

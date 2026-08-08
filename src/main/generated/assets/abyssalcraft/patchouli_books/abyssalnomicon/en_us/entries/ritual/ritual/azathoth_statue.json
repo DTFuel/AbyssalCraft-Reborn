@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "block.abyssalcraft.azathoth_statue",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "azathoth_statue",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/azathoth_statue"
+    }
+  ],
+  "sortnum": 917148512
+}

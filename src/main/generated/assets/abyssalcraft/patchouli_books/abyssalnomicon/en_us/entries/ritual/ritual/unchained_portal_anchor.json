@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "block.abyssalcraft.unchained_portal_anchor",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "unchained_portal_anchor",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/unchained_portal_anchor"
+    }
+  ],
+  "sortnum": 385938484
+}

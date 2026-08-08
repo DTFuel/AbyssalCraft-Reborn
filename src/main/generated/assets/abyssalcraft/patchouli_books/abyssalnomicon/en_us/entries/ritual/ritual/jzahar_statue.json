@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "block.abyssalcraft.jzahar_statue",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "jzahar_statue",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/jzahar_statue"
+    }
+  ],
+  "sortnum": 991400767
+}

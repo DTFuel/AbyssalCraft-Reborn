@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:spirit_tablet",
+  "name": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/item_transport_tut_2",
+      "text": "necronomicon.text.itemtransportsystem.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_2.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:spirit_tablet",
+      "title": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_2.title"
+    }
+  ],
+  "sortnum": 193
+}

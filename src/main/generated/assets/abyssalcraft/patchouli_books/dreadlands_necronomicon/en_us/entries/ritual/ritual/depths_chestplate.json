@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "item.abyssalcraft.depths_chestplate",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "depths_chestplate",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/depths_chestplate"
+    }
+  ],
+  "sortnum": 9956200
+}

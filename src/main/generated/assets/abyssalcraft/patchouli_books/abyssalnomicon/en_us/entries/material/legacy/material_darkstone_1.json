@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:darkstone",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_darkstone_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_darkstone_1",
+      "text": "necronomicon.text.materials.darkstone.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_darkstone_1.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:darkstone",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_darkstone_1.title"
+    }
+  ],
+  "sortnum": 16
+}

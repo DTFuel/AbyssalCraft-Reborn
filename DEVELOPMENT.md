@@ -103,6 +103,9 @@ src/main/resources/
 >
 > 2026-07-31 原版行为复审发现并补齐特殊武器、Remnant/Hardcore/Boss 死亡、世界生态、结构 marker 与 Shadow Shoggoth 渲染等隐藏生产差异；这些差异未被旧资源计数 Gate 捕获。当前生产实现重新闭合后，剩余车道为独立真人 `U-*`/`U-GATE`，以及明确依赖 `U-GATE` 的 T11.3/T11.4/R8-Gate/M11。自动报告、构建产物和发布预检不能代替这些真人证据，也不得提前关闭最终发布 Gate。
 
+- [x] **死灵之书 Patchouli 功能迁移**：Forge/NeoForge 均将 Patchouli 设为 required dependency；保留五个 AbyssalCraft 书 Item、PE 与潜行动作，普通右键分别打开五本独立且严格累积的数据书。`PatchouliBookData` 生成 401 条 manifest、42 项五分类 research quest/公开 goal advancement、旧页门禁、双版本 advancement schema、动作模板和 crafting 快速查找；`PatchouliActionComponent` 承担页面研读/法术书入口，`PatchouliManifestComponent` 从权威目录展示 62 ritual、14 spell、3 Place of Power 和研究条件。`ResearchAdvancementCompat` 双向合并旧 NecroData 与 advancement，并同步全知识 toggle；旧 `NecronomiconScreen`/`NecronomiconEntry`/`ACNecronomicon` 已删除。自动客户端操作已取消，双端五本书、锁定/回填、动作和跳转在全部实现收口后按统一人工清单测试。当前 Forge/Neo `compileJava --rerun-tasks` 均通过。
+- [x] **Patchouli 条目标题人工优化**：322 个旧页改用独立的玩家向双语标题，按正文主题区分概览/起源/用途/合成/运作；18 个无产物仪式和 3 个力量之地使用专用短标题。最高阶书从 26 组重复、319 个受影响条目降为 0；`scripts/audit_necronomicon_titles.js` 已接入 `check`，覆盖五本书 x 八语言共 14,056 个显示视图，要求 missing=0、duplicateValues=0。
+
 - [x] 2026-07-31 **原版行为真实性复审收口（多个 GPT-5.6 子代理 + GitHub Copilot 集成）**：恢复 Coralium Longbow 专属箭、Dreadium Katana/hilt 与 Soul Reaper 灵魂成长；Remnant 恢复初始单交易、最后配方触发 40 tick、售罄交易最大次数扩增与逐次新增交易；旧 `EntityMobBase` 普通/Elite/Boss 穿甲 chip 及 Dread Spawn/Shoggoth 独立第二段伤害覆盖全部有旧继承证据的现代实体；四 Boss 死亡 tick/XP 与 Sacthoth 11+6+1 Shadow 生成恢复。五 Darklands 补回被动动物，AW 补两植物，Dreadlands 补 `7 × size 24` Elysian Stone；结构 marker 恢复满 PE Idol、三树种固定 Graveyard 树、四级 pedestal、Remnant profession、crate/crystal/statue/biomass 语义；Shadow Shoggoth 恢复五态动态本体/眼睛纹理与 type 4 亮度半透明。双端 `runData` 输出 `RR_ENTITY_BEHAVIOR_SELF_TEST_OK`、`RR_WORLD_STRUCTURE_CONTENT_OK ... treeSpecies=3`、`RR_DATAGEN_AUDIT_OK missing=0 json=2773 logical=1706`，双端正式 build 通过；实际视觉、长时生态、Boss 战斗和交易 UX 仍由对应 `U-*` 验收。
 
 - [x] 2026-07-31 **刷怪蛋语义与 Anvil Forging 收口（GitHub Copilot）**：旧 `spawn_egg.json` 不是任意实体蛋机制，而是 `ODB → EntityTag shadowboss` 的 Sacthoth NBT 蛋；现代已有专用 `shadowboss_spawn_egg`，故该旧配方正式 RETIRED，crafting 四态更新为 `339/61/0/1`。恢复 1.12.2 全部 74 条 Anvil Forging（24 charm + 40 PE 网络块 + 10 Sacrificial Altar 升级）、双目录数据与 `AnvilUpdateEvent` 执行链；补回五级独立献祭祭坛的生命力采集、PE持久化/物品输出、模型/BER/语言。Forge/Neo live RecipeManager 均输出 `RR_ANVIL_FORGING_RUNTIME_OK recipes=74 ... altarUpgrade=ok`，Forge `runData` 输出 `migrated=74 retired=0 blocked=0` 与全资源闭包，双端完整 build 通过。
@@ -274,6 +277,9 @@ src/main/resources/
 - [ ] 补全 `en_us.json` 翻译与基础贴图 / 模型。
 
 ## 9. 变更日志 (Changelog)
+
+- **当前**：人工优化 Patchouli 条目标题。旧页不再继承“实体/材料/特殊合成”等章节泛称；仪式标题补齐“启门仪式、沉睡者仪式、唤醒扎哈尔”等具体名称。五本书在八语言下的最终显示标题均无重复，并新增永久 Gradle check 审计。
+- **当前**：死灵之书 UI 迁移到 Patchouli。新增五本累积数据书、401 manifest、42 research advancement/quest、NecroData 双向 backfill、页面动作、法术书入口、权威 ritual/spell/PoP 结构化页和 recipe 快速查找；删除旧自定义 Screen。视觉占位暂不处理，所有客户端交互在最终统一人工矩阵中验收。
 
 - **2026-07-26**：**RR-ADV-API 完成**。9项进度双schema修复并接入独立Progression书知识、登录回填与即时同步；`/acunlockallknowledge`权限/toggle/重连闭环；双端`IACPlugin` ServiceLoader/显式API和五类实体sink完成，Forge五项旧IMC兼容、13项旧key迁移文档完成。永久`RR_ADV_API_SELF_TEST_OK`、双端外部fixture、专服加载与Forge真实联网矩阵通过，临时夹具清零后做production JAR门禁。
 

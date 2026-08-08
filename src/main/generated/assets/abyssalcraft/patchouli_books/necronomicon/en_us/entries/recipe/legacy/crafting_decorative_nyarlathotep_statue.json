@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:decorative_nyarlathotep_statue": 1
+  },
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_decorative_nyarlathotep_statue.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_decorative_nyarlathotep_statue",
+      "text": "necronomicon.text.crafting.decorativenyarlathotepstatue",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_decorative_nyarlathotep_statue.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:decorativestatue_4",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_decorative_nyarlathotep_statue.title"
+    }
+  ],
+  "sortnum": 286
+}

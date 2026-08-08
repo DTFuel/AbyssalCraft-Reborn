@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "ac.spell.undeathtodust",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "undeathtodust",
+      "kind": "spell",
+      "page": "abyssalcraft:spell/undeathtodust"
+    }
+  ],
+  "sortnum": 611749201
+}

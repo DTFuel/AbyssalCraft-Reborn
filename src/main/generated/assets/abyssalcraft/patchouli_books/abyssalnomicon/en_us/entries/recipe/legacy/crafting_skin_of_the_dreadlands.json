@@ -1,0 +1,24 @@
+{
+  "advancement": "abyssalcraft:research/dreadlands",
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:skin_of_the_dreadlands": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_skin_of_the_dreadlands.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_skin_of_the_dreadlands",
+      "text": "necronomicon.text.crafting.skin_dre",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_skin_of_the_dreadlands.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:skin_1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_skin_of_the_dreadlands.title"
+    }
+  ],
+  "sortnum": 96
+}

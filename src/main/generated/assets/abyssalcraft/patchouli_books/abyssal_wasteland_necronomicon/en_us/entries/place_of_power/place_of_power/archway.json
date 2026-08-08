@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:place_of_power",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.place_of_power.archway.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "archway",
+      "kind": "place_of_power",
+      "page": "abyssalcraft:place_of_power/archway"
+    }
+  ],
+  "sortnum": 346840751
+}

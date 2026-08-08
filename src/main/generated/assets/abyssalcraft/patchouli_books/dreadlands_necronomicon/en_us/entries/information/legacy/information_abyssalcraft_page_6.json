@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_abyssalcraft_page_6.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_abyssalcraft_page_6",
+      "text": "necronomicon.text.abyssalcraft.6",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_abyssalcraft_page_6.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/blank.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.information_abyssalcraft_page_6.title"
+    }
+  ],
+  "sortnum": 303
+}

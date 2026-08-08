@@ -1,0 +1,21 @@
+{
+  "advancement": "abyssalcraft:research/dreadlands_necro",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:crystallizer",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_machine_3.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_machine_3",
+      "text": "necronomicon.text.machines.3",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_machine_3.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:crystallizer",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_machine_3.title"
+    }
+  ],
+  "sortnum": 316
+}

@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.ritual_tut_7.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/ritual_tut_7",
+      "text": "necronomicon.text.rituals.7",
+      "title": "gui.abyssalcraft.necronomicon.entry.ritual_tut_7.title"
+    }
+  ],
+  "sortnum": 230
+}

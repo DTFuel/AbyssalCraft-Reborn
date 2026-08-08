@@ -8,7 +8,6 @@ import com.shinoow.abyssalcraft.system.portal.DimensionDataRegistry;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -28,12 +27,9 @@ public final class RitualAltarFormation {
         if (requiredBookType < 0 || bookType < requiredBookType) return false;
         OptionalInt dimensionBookType = DimensionDataRegistry.instance().ritualBookType(level.dimension());
         if (dimensionBookType.isEmpty() || dimensionBookType.getAsInt() != requiredBookType) return false;
-        ChunkPos chunk = new ChunkPos(center);
         for (BlockPos offset : PEDESTAL_OFFSETS) {
             BlockPos pedestal = center.offset(offset);
-            if (!chunk.equals(new ChunkPos(pedestal))
-                || materialBookType(level.getBlockState(pedestal)) != requiredBookType
-                || !hasClearPedestalArea(level, pedestal)) {
+            if (materialBookType(level.getBlockState(pedestal)) != requiredBookType) {
                 return false;
             }
         }
@@ -57,15 +53,5 @@ public final class RitualAltarFormation {
         if (state.is(BaseBlocks.ETHAXIUM_BRICKS.get())
             || state.is(BaseBlocks.DARK_ETHAXIUM_BRICK.get())) return 3;
         return -1;
-    }
-
-    private static boolean hasClearPedestalArea(Level level, BlockPos pedestal) {
-        for (BlockPos nearby : BlockPos.betweenClosed(pedestal.south().west(), pedestal.north().east())) {
-            if (!nearby.equals(pedestal)
-                && level.getBlockState(nearby).isCollisionShapeFullBlock(level, nearby)) {
-                return false;
-            }
-        }
-        return true;
     }
 }

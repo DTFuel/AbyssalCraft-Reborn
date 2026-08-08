@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "item.abyssalcraft.lesser_scroll",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "lesser_scroll",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/lesser_scroll"
+    }
+  ],
+  "sortnum": 1039224906
+}

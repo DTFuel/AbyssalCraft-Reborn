@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:ritual_altar",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_ritual_altar.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_ritual_altar",
+      "text": "necronomicon.text.materials.ritualaltar.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_ritual_altar.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:ritual_altar",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_ritual_altar.title"
+    }
+  ],
+  "sortnum": 231
+}

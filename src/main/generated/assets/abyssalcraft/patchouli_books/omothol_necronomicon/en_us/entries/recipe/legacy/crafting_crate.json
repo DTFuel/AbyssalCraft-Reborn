@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:crate": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_crate.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_crate",
+      "text": "necronomicon.text.crafting.crate",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_crate.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:crate",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_crate.title"
+    }
+  ],
+  "sortnum": 276
+}

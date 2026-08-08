@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "item.abyssalcraft.ring_overworld",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "overworld_ring",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/overworld_ring"
+    }
+  ],
+  "sortnum": 811006989
+}

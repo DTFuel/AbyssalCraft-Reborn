@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.coralium_plague_aoe.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "coralium_plague_aoe",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/coralium_plague_aoe"
+    }
+  ],
+  "sortnum": 288508477
+}

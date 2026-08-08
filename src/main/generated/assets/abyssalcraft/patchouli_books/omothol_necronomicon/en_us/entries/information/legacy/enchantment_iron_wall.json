@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "minecraft:enchanted_book",
+  "name": "gui.abyssalcraft.necronomicon.entry.enchantment_iron_wall.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/enchantment_iron_wall",
+      "text": "necronomicon.text.enchantment.ironwall",
+      "title": "gui.abyssalcraft.necronomicon.entry.enchantment_iron_wall.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:enchanted_book",
+      "title": "gui.abyssalcraft.necronomicon.entry.enchantment_iron_wall.title"
+    }
+  ],
+  "sortnum": 278
+}

@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "block.abyssalcraft.shub_niggurath_statue",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "shub_niggurath_statue",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/shub_niggurath_statue"
+    }
+  ],
+  "sortnum": 996097191
+}

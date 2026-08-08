@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:sacrificialaltar": 1
+  },
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_sacrificial_altar_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_sacrificial_altar_1",
+      "text": "necronomicon.text.crafting.sacrificialaltar.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_sacrificial_altar_1.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:sacrificialaltar",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_sacrificial_altar_1.title"
+    }
+  ],
+  "sortnum": 239
+}

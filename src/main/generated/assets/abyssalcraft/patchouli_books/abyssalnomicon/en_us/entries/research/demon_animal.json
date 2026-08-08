@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.demon_animal",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.demon_animal",
+      "trigger": "abyssalcraft:research/demon_animal"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "demon_animal",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/coralium_plague",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.coralium_plague_info_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/coralium_plague_info_1",
+      "text": "necronomicon.text.coraliumplague.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.coralium_plague_info_1.title"
+    }
+  ],
+  "sortnum": 103
+}

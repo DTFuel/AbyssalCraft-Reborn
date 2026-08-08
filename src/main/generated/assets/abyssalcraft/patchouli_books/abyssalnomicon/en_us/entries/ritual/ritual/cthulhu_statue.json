@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "block.abyssalcraft.cthulhu_statue",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "cthulhu_statue",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/cthulhu_statue"
+    }
+  ],
+  "sortnum": 676540836
+}

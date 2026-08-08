@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_12.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_12",
+      "text": "necronomicon.text.pe.12",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_12.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/pe/charms.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_12.title"
+    }
+  ],
+  "sortnum": 260
+}

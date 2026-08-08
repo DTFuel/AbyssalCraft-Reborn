@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "item.abyssalcraft.ring_omothol",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "omothol_ring",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/omothol_ring"
+    }
+  ],
+  "sortnum": 828738473
+}

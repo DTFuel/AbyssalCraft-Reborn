@@ -1,0 +1,23 @@
+{
+  "advancement": "abyssalcraft:research/coralium_infested_squid",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_coralium_infested_squid_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_coralium_infested_squid_1",
+      "text": "necronomicon.text.entity.coraliumsquid.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_coralium_infested_squid_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/coralium-infested-squid.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_coralium_infested_squid_1.title"
+    }
+  ],
+  "sortnum": 87
+}

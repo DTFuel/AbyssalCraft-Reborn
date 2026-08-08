@@ -1,0 +1,28 @@
+{
+  "parent": "abyssalcraft:research/category/biome",
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "gui.abyssalcraft.necronomicon.patchouli.research.condition.visit_biome",
+      "with": [
+        {
+          "text": "abyssalcraft:coralium_infested_swamp"
+        }
+      ]
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:grass_block"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ac.research.coralium_infused_swamp"
+    }
+  }
+}

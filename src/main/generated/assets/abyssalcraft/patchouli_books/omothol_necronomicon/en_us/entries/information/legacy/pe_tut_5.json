@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_5.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_5",
+      "text": "necronomicon.text.pe.5",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_5.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/pe/shoggoth_infestation.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_5.title"
+    }
+  ],
+  "sortnum": 253
+}

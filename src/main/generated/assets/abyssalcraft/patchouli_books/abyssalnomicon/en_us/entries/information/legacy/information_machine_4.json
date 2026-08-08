@@ -1,0 +1,21 @@
+{
+  "advancement": "abyssalcraft:research/omothol_necro",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:materializer",
+  "name": "gui.abyssalcraft.necronomicon.entry.information_machine_4.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/information_machine_4",
+      "text": "necronomicon.text.machines.4",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_machine_4.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:materializer",
+      "title": "gui.abyssalcraft.necronomicon.entry.information_machine_4.title"
+    }
+  ],
+  "sortnum": 317
+}

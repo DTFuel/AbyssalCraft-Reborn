@@ -1,0 +1,25 @@
+{
+  "components": [
+    {
+      "type": "patchouli:header",
+      "text": "#title",
+      "x": -1,
+      "y": -1
+    },
+    {
+      "type": "patchouli:text",
+      "max_width": 100,
+      "text": "#text",
+      "x": 0,
+      "y": 20
+    },
+    {
+      "type": "patchouli:custom",
+      "action": "#action",
+      "class": "com.shinoow.abyssalcraft.client.necronomicon.PatchouliActionComponent",
+      "page": "#page",
+      "x": 0,
+      "y": 140
+    }
+  ]
+}

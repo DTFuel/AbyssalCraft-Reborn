@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "ac.spell.oozeremoval",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "oozeremoval",
+      "kind": "spell",
+      "page": "abyssalcraft:spell/oozeremoval"
+    }
+  ],
+  "sortnum": 313477418
+}

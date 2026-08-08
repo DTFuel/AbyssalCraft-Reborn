@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_chagaroth_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_chagaroth_2",
+      "text": "necronomicon.text.entity.chagaroth.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_chagaroth_2.title"
+    }
+  ],
+  "sortnum": 135
+}

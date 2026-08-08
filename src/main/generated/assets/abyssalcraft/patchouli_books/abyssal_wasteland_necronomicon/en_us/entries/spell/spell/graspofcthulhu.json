@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "ac.spell.graspofcthulhu",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "graspofcthulhu",
+      "kind": "spell",
+      "page": "abyssalcraft:spell/graspofcthulhu"
+    }
+  ],
+  "sortnum": 2019171656
+}

@@ -266,6 +266,7 @@ public final class GameHooksCompat {
     private static void onLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
             backfillAdvancementKnowledge(player);
+            ResearchAdvancementCompat.backfill(player);
             KnowledgeHooks.scheduleSync(player);
         }
     }

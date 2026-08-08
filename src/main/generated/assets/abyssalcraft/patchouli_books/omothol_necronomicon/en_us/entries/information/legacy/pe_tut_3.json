@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_3.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_3",
+      "text": "necronomicon.text.pe.3",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_3.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/pe/monoliths.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_3.title"
+    }
+  ],
+  "sortnum": 251
+}

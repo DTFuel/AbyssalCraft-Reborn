@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/dimension",
+  "icon": "minecraft:ender_eye",
+  "name": "ac.research.dark_realm",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.dark_realm",
+      "trigger": "abyssalcraft:research/dark_realm"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "dark_realm",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

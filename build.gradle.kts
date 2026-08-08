@@ -61,6 +61,11 @@ dependencies {
     val terraBlender = property("vers.deps.terrablender").toString()
     "modImplementation"("com.github.glitchfiend:TerraBlender-$loader:$mcVersion-$terraBlender")
 
+    // Patchouli owns the Necronomicon presentation. The five custom book items remain AbyssalCraft
+    // items because they also store PE and execute server-authoritative sneak-use actions.
+    val patchouli = property("vers.deps.patchouli").toString()
+    "modImplementation"("vazkii.patchouli:Patchouli:$patchouli")
+
     // JEI (PP-5): compile against the API only (modCompileOnly); load the full jar just in dev runs
     // (modLocalRuntime). Optional at ship time -- integration/jei is @JeiPlugin-gated, so absent JEI
     // simply means the plugin never loads. Coordinates differ per loader / mc version.
@@ -103,6 +108,13 @@ tasks {
         commandLine("node", "scripts/replace_restricted_assets.js", "--check")
     }
 
+    val rrNecronomiconTitleAudit by registering(Exec::class) {
+        group = "verification"
+        description = "Audits localized Patchouli entry titles for missing or duplicate display text."
+        workingDir(rootProject.projectDir)
+        commandLine("node", "scripts/audit_necronomicon_titles.js")
+    }
+
     register<Exec>("releaseAudit") {
         group = "verification"
         description = "Runs read-only R8/PV-3 release audits against existing production JARs."
@@ -113,6 +125,7 @@ tasks {
     named("check") {
         dependsOn(rrCompatAudit)
         dependsOn(rrRestrictedAssetPlaceholderAudit)
+        dependsOn(rrNecronomiconTitleAudit)
     }
 
     // CRITICAL: build from Stonecutter-preprocessed sources, not raw sources.

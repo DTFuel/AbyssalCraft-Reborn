@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "block.abyssalcraft.ethaxium",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "ethaxium",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/ethaxium"
+    }
+  ],
+  "sortnum": 480321965
+}

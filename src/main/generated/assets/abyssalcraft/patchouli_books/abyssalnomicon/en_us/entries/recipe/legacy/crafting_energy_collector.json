@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:energycollector": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_energy_collector.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_energy_collector",
+      "text": "necronomicon.text.crafting.energycollector",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_energy_collector.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:energycollector",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_energy_collector.title"
+    }
+  ],
+  "sortnum": 241
+}

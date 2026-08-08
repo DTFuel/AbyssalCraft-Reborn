@@ -1,0 +1,24 @@
+{
+  "advancement": "abyssalcraft:research/dread_plague",
+  "category": "abyssalcraft:information",
+  "extra_recipe_mappings": {
+    "abyssalcraft:dread_antidote": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.dread_plague_info_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/dread_plague_info_2",
+      "text": "necronomicon.text.dreadplague.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.dread_plague_info_2.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:antidote_1",
+      "title": "gui.abyssalcraft.necronomicon.entry.dread_plague_info_2.title"
+    }
+  ],
+  "sortnum": 156
+}

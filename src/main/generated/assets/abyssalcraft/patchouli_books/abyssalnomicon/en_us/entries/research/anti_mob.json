@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.anti_mob",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.anti_mob",
+      "trigger": "abyssalcraft:research/anti_mob"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "anti_mob",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

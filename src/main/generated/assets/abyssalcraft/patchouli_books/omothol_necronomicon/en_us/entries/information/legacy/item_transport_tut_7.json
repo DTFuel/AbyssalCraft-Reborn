@@ -1,0 +1,15 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_7.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/item_transport_tut_7",
+      "text": "necronomicon.text.itemtransportsystem.7",
+      "title": "gui.abyssalcraft.necronomicon.entry.item_transport_tut_7.title"
+    }
+  ],
+  "sortnum": 198
+}

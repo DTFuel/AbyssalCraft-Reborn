@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:fused_abyssal_sand",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_fused_abyssal_sand.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_fused_abyssal_sand",
+      "text": "necronomicon.text.materials.fusedabyssalsand",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_fused_abyssal_sand.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:fused_abyssal_sand",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_fused_abyssal_sand.title"
+    }
+  ],
+  "sortnum": 69
+}

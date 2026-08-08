@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.staff_of_the_gatekeeper",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "staff_of_the_gatekeeper",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/staff_of_the_gatekeeper"
+    }
+  ],
+  "sortnum": 1733596664
+}

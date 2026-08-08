@@ -1,0 +1,24 @@
+{
+  "advancement": "abyssalcraft:research/abyssal_wasteland",
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:skin_of_the_abyssal_wasteland": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_skin_of_the_abyssal_wasteland.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_skin_of_the_abyssal_wasteland",
+      "text": "necronomicon.text.crafting.skin_aby",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_skin_of_the_abyssal_wasteland.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:skin_0",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_skin_of_the_abyssal_wasteland.title"
+    }
+  ],
+  "sortnum": 56
+}

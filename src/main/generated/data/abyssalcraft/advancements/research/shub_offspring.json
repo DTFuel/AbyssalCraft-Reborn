@@ -1,0 +1,28 @@
+{
+  "parent": "abyssalcraft:research/category/entity",
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "gui.abyssalcraft.necronomicon.patchouli.research.condition.defeat_entity",
+      "with": [
+        {
+          "text": "abyssalcraft:shuboffspring"
+        }
+      ]
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ac.research.shub_offspring"
+    }
+  }
+}

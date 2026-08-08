@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/entity",
+  "icon": "minecraft:rotten_flesh",
+  "name": "ac.research.omothol_ghoul",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.omothol_ghoul",
+      "trigger": "abyssalcraft:research/omothol_ghoul"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "omothol_ghoul",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

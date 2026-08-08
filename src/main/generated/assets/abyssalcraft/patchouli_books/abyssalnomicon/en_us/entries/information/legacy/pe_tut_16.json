@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_16.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_16",
+      "text": "necronomicon.text.pe.16",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_16.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/pe/energy_relay.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_16.title"
+    }
+  ],
+  "sortnum": 264
+}

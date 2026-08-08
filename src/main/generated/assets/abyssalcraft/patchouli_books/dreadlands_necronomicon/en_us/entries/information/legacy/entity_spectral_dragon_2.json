@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/spectral_dragon",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_spectral_dragon_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_spectral_dragon_2",
+      "text": "necronomicon.text.entity.spectraldragon.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_spectral_dragon_2.title"
+    }
+  ],
+  "sortnum": 84
+}

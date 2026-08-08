@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:coralium_infused_stone": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_infused_stone_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_coralium_infused_stone_1",
+      "text": "necronomicon.text.crafting.coraliuminfusedstone.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_infused_stone_1.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:coraliumstone",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_coralium_infused_stone_1.title"
+    }
+  ],
+  "sortnum": 50
+}

@@ -35,7 +35,8 @@ public final class ServerMatrixOrchestrator {
         }
         if (Boolean.getBoolean(RITUAL_ALTAR_FIXTURE_PROPERTY)) {
             runRitualAltarFixtures(server);
-            System.out.println("RR_RITUAL_ALTAR_MATRIX_OK dimensions=5 materials=5 pedestals=40");
+            System.out.println("RR_RITUAL_ALTAR_MATRIX_OK dimensions=5 materials=5 formations=7"
+                + " pedestals=56 crossChunk=ok surroundingBlocks=ignored");
             server.halt(false);
             return;
         }

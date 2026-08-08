@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.book_of_many_faces",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "book_of_many_faces",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/book_of_many_faces"
+    }
+  ],
+  "sortnum": 891770852
+}

@@ -1,0 +1,28 @@
+{
+  "parent": "abyssalcraft:research/category/biome",
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "gui.abyssalcraft.necronomicon.patchouli.research.condition.visit_any_biome",
+      "with": [
+        {
+          "text": "abyssalcraft:abyssal_desert, abyssalcraft:abyssal_plateau, abyssalcraft:abyssal_swamp, abyssalcraft:abyssal_wastelands, abyssalcraft:coralium_infested_swamp, abyssalcraft:coralium_lake"
+        }
+      ]
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:grass_block"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ac.research.coralium_biomes"
+    }
+  }
+}

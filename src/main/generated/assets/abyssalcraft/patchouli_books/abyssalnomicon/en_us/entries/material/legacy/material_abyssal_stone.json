@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:material",
+  "icon": "abyssalcraft:abyssal_stone",
+  "name": "gui.abyssalcraft.necronomicon.entry.material_abyssal_stone.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/material_abyssal_stone",
+      "text": "necronomicon.text.materials.abyssalstone.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_abyssal_stone.title"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "abyssalcraft:abyssal_stone",
+      "title": "gui.abyssalcraft.necronomicon.entry.material_abyssal_stone.title"
+    }
+  ],
+  "sortnum": 67
+}

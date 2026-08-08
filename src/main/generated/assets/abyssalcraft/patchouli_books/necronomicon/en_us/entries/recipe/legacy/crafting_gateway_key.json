@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:gatewaykey": 1
+  },
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_gateway_key.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_gateway_key",
+      "text": "necronomicon.text.crafting.gk1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_gateway_key.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:gatewaykey",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_gateway_key.title"
+    }
+  ],
+  "sortnum": 55
+}

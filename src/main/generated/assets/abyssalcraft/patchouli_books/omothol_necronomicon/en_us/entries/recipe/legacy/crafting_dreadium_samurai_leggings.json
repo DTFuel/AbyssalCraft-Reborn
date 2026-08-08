@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:dreadium_samurai_leggings": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_samurai_leggings.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_dreadium_samurai_leggings",
+      "text": "necronomicon.text.crafting.dreadiumslegs",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_samurai_leggings.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:dreadiumsamurailegs",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_dreadium_samurai_leggings.title"
+    }
+  ],
+  "sortnum": 152
+}

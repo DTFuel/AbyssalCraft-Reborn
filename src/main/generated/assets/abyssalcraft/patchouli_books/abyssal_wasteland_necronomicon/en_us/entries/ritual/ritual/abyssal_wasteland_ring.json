@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "item.abyssalcraft.ring_abyssal_wasteland",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "abyssal_wasteland_ring",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/abyssal_wasteland_ring"
+    }
+  ],
+  "sortnum": 199616610
+}

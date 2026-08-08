@@ -1,0 +1,23 @@
+{
+  "advancement": "abyssalcraft:research/omothol_ghoul",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_omothol_ghoul_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_omothol_ghoul_1",
+      "text": "necronomicon.text.entity.omotholghoul.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_omothol_ghoul_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/ghoul.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_omothol_ghoul_1.title"
+    }
+  ],
+  "sortnum": 171
+}

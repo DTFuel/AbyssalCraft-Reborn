@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:progression",
+  "extra_recipe_mappings": {
+    "abyssalcraft:ring": 1
+  },
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_upgrading_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_upgrading_2",
+      "text": "necronomicon.text.peupgrading.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_upgrading_2.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:ring",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_upgrading_2.title"
+    }
+  ],
+  "sortnum": 321
+}

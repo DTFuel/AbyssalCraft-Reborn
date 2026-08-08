@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.nyarlathotepcharm",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "nyarlathotep_charm",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/nyarlathotep_charm"
+    }
+  ],
+  "sortnum": 754839881
+}

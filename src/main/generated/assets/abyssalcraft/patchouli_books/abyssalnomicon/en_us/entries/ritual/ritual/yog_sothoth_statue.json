@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "block.abyssalcraft.yog_sothoth_statue",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "yog_sothoth_statue",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/yog_sothoth_statue"
+    }
+  ],
+  "sortnum": 644110266
+}

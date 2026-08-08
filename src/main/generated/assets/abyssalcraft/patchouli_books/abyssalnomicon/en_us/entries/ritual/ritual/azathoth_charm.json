@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.azathothcharm",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "azathoth_charm",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/azathoth_charm"
+    }
+  ],
+  "sortnum": 1053566203
+}

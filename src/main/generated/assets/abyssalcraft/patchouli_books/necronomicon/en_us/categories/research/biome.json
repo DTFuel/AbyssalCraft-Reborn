@@ -1,0 +1,7 @@
+{
+  "parent": "abyssalcraft:research",
+  "description": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+  "icon": "minecraft:grass_block",
+  "name": "gui.abyssalcraft.necronomicon.research.category.biome",
+  "sortnum": 0
+}

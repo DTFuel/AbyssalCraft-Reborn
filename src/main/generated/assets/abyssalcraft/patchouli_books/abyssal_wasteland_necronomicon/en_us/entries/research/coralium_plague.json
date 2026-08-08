@@ -1,0 +1,20 @@
+{
+  "category": "abyssalcraft:research/misc",
+  "icon": "minecraft:experience_bottle",
+  "name": "ac.research.coralium_plague",
+  "pages": [
+    {
+      "type": "patchouli:quest",
+      "text": "gui.abyssalcraft.necronomicon.patchouli.research.description",
+      "title": "ac.research.coralium_plague",
+      "trigger": "abyssalcraft:research/coralium_plague"
+    },
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "coralium_plague",
+      "kind": "research",
+      "page": ""
+    }
+  ],
+  "read_by_default": true
+}

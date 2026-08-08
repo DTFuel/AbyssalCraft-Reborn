@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.jzaharcharm",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "jzahar_charm",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/jzahar_charm"
+    }
+  ],
+  "sortnum": 2095066428
+}

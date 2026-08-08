@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:plated_coralium_chestplate": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_plated_coralium_chestplate.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_plated_coralium_chestplate",
+      "text": "necronomicon.text.crafting.corplatep",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_plated_coralium_chestplate.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:corplatep",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_plated_coralium_chestplate.title"
+    }
+  ],
+  "sortnum": 99
+}

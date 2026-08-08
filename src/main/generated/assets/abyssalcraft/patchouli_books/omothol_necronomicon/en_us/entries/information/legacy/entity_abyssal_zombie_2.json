@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/abyssal_zombie",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_abyssal_zombie_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_abyssal_zombie_2",
+      "text": "necronomicon.text.entity.abyssalzombie.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_abyssal_zombie_2.title"
+    }
+  ],
+  "sortnum": 31
+}

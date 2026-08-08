@@ -83,9 +83,11 @@ A symbol may use more than one family. Loader-only rows have identical business-
 | `LiquidCoraliumCompat` | L-BUS, L-REG | coralium fluid/block | audit + both compile nodes |
 | `LoaderCompat` | L-REG | client optional-mod detection | audit + both compile nodes |
 | `MachineCapabilityCompat` | L-BUS, L-REG | machine automation | audit + both compile nodes |
+| `LineRenderCompat` | L-BUS, L-HOOK, V-RENDER | `LineEffectRenderer` / `ModBootstrapCompat` | audit + client compile |
 | `MachineItemCompat` | L-REG, V-ITEM | machine block items | audit + both compile nodes |
 | `MaterializationRecipeSerializer` | L-REG, V-RECIPE | materialization recipes | audit + recipe compile |
 | `MenuCompat` | L-REG, V-MENU | menu hosts | audit + both compile nodes |
+| `ResearchAdvancementCompat` | V-DATA | knowledge hooks, commands and Patchouli research progression | audit + both compile nodes |
 | `MenuHostCapabilityCompat` | L-REG | item-hosted menus | audit + both compile nodes |
 | `MerchantOfferCompat` | V-DATA | Remnant offers | audit + both compile nodes |
 | `MobEffectCompat` | L-HOOK, V-ITEM | effect application/removal | audit + both compile nodes |

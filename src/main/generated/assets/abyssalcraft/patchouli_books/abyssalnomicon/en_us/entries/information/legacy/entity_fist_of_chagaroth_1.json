@@ -1,0 +1,23 @@
+{
+  "advancement": "abyssalcraft:research/fist_of_chagaroth",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_fist_of_chagaroth_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_fist_of_chagaroth_1",
+      "text": "necronomicon.text.entity.chagarothfist.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_fist_of_chagaroth_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/fist-of-chagaroth.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_fist_of_chagaroth_1.title"
+    }
+  ],
+  "sortnum": 130
+}

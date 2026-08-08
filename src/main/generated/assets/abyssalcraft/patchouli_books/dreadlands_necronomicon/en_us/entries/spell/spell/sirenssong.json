@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "ac.spell.sirenssong",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "sirenssong",
+      "kind": "spell",
+      "page": "abyssalcraft:spell/sirenssong"
+    }
+  ],
+  "sortnum": 1705343738
+}

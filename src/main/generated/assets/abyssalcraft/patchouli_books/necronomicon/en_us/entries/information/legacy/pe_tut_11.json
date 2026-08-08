@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_11.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_11",
+      "text": "necronomicon.text.pe.11",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_11.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/pe/energy_depositioner.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_11.title"
+    }
+  ],
+  "sortnum": 259
+}

@@ -1,0 +1,23 @@
+{
+  "advancement": "abyssalcraft:research/skeleton_goliath",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_skeleton_goliath_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_skeleton_goliath_1",
+      "text": "necronomicon.text.entity.skeletongoliath.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_skeleton_goliath_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/skeleton-goliath.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_skeleton_goliath_1.title"
+    }
+  ],
+  "sortnum": 81
+}

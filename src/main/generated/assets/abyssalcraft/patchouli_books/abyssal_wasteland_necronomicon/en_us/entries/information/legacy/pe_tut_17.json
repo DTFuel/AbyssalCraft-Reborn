@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_17.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_17",
+      "text": "necronomicon.text.pe.17",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_17.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/pe/relays.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_17.title"
+    }
+  ],
+  "sortnum": 265
+}

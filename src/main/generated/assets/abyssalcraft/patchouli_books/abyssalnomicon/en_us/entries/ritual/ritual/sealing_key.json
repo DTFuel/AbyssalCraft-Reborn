@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "item.abyssalcraft.sealing_key",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "sealing_key",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/sealing_key"
+    }
+  ],
+  "sortnum": 1016008713
+}

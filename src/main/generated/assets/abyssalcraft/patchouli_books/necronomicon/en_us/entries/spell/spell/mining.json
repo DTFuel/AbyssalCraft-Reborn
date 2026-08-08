@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:necronomicon",
+  "name": "ac.spell.mining",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "mining",
+      "kind": "spell",
+      "page": "abyssalcraft:spell/mining"
+    }
+  ],
+  "sortnum": 1341350439
+}

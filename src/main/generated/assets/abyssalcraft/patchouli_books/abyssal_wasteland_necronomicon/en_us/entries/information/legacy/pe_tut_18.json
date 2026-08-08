@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssal_wasteland_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_tut_18.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_tut_18",
+      "text": "necronomicon.text.pe.18",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_18.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/pe/energy_container.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_tut_18.title"
+    }
+  ],
+  "sortnum": 266
+}

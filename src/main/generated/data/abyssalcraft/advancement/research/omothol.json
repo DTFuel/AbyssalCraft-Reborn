@@ -1,0 +1,28 @@
+{
+  "parent": "abyssalcraft:research/category/dimension",
+  "criteria": {
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "gui.abyssalcraft.necronomicon.patchouli.research.condition.visit_dimension",
+      "with": [
+        {
+          "text": "abyssalcraft:omothol"
+        }
+      ]
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "id": "minecraft:ender_eye"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "ac.research.omothol"
+    }
+  }
+}

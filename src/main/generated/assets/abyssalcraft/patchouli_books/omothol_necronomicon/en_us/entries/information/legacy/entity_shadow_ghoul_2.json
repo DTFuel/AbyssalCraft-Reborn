@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/shadow_ghoul",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_shadow_ghoul_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_shadow_ghoul_2",
+      "text": "necronomicon.text.entity.shadowghoul.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_shadow_ghoul_2.title"
+    }
+  ],
+  "sortnum": 217
+}

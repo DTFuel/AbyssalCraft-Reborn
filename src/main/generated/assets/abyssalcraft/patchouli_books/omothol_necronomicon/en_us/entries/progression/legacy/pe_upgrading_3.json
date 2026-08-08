@@ -1,0 +1,22 @@
+{
+  "category": "abyssalcraft:progression",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.pe_upgrading_3.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/pe_upgrading_3",
+      "text": "necronomicon.text.peupgrading.3",
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_upgrading_3.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/pe/tiers.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.pe_upgrading_3.title"
+    }
+  ],
+  "sortnum": 322
+}

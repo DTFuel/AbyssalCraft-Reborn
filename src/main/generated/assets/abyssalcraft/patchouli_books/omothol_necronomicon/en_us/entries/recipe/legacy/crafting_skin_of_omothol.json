@@ -1,0 +1,24 @@
+{
+  "advancement": "abyssalcraft:research/omothol",
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:skin_of_omothol": 1
+  },
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_skin_of_omothol.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_skin_of_omothol",
+      "text": "necronomicon.text.crafting.skin_omt",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_skin_of_omothol.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:skin_2",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_skin_of_omothol.title"
+    }
+  ],
+  "sortnum": 148
+}

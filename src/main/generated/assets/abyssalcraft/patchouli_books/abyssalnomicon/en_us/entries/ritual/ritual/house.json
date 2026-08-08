@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:ritual",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.ritual.house.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "house",
+      "kind": "ritual",
+      "page": "abyssalcraft:ritual/house"
+    }
+  ],
+  "sortnum": 1997252164
+}

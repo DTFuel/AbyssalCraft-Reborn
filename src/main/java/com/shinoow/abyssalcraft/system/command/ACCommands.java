@@ -40,6 +40,7 @@ public final class ACCommands {
         ServerPlayer player = source.getPlayerOrException();
         NecroData data = NecroDataCapability.get(player);
         boolean unlock = toggleAllKnowledge(data);
+        com.shinoow.abyssalcraft.platform.ResearchAdvancementCompat.synchronize(player);
         KnowledgeSync.full(player);
         source.sendSuccess(() -> Component.literal(unlock
             ? "All knowledge has been unlocked!"

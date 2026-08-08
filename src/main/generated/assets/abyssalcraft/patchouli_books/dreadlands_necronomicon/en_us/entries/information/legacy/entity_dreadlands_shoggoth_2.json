@@ -1,0 +1,16 @@
+{
+  "advancement": "abyssalcraft:research/shoggoth",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:dreadlands_necronomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_dreadlands_shoggoth_2.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_dreadlands_shoggoth_2",
+      "text": "necronomicon.text.entity.lessershoggoth.2",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_dreadlands_shoggoth_2.title"
+    }
+  ],
+  "sortnum": 139
+}

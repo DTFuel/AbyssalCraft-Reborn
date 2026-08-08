@@ -1,0 +1,23 @@
+{
+  "category": "abyssalcraft:recipe",
+  "extra_recipe_mappings": {
+    "abyssalcraft:sequential_brewing_stand": 1
+  },
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.crafting_sequential_brewing_stand_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/crafting_sequential_brewing_stand_1",
+      "text": "necronomicon.text.crafting.sequential_brewing_stand.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_sequential_brewing_stand_1.title"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "abyssalcraft:sequential_brewing_stand",
+      "title": "gui.abyssalcraft.necronomicon.entry.crafting_sequential_brewing_stand_1.title"
+    }
+  ],
+  "sortnum": 60
+}

@@ -1,0 +1,23 @@
+{
+  "advancement": "abyssalcraft:research/minion_of_the_gatekeeper",
+  "category": "abyssalcraft:information",
+  "icon": "abyssalcraft:abyssalnomicon",
+  "name": "gui.abyssalcraft.necronomicon.entry.entity_minion_of_the_gatekeeper_1.title",
+  "pages": [
+    {
+      "type": "abyssalcraft:action",
+      "action": "study",
+      "page": "abyssalcraft:legacy/entity_minion_of_the_gatekeeper_1",
+      "text": "necronomicon.text.entity.gatekeeperminion.1",
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_minion_of_the_gatekeeper_1.title"
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "abyssalcraft:textures/gui/necronomicon/minion-of-the-gatekeeper.png"
+      ],
+      "title": "gui.abyssalcraft.necronomicon.entry.entity_minion_of_the_gatekeeper_1.title"
+    }
+  ],
+  "sortnum": 173
+}

@@ -1,0 +1,14 @@
+{
+  "category": "abyssalcraft:spell",
+  "icon": "abyssalcraft:omothol_necronomicon",
+  "name": "ac.spell.teleporthostiles",
+  "pages": [
+    {
+      "type": "abyssalcraft:manifest",
+      "id": "teleporthostiles",
+      "kind": "spell",
+      "page": "abyssalcraft:spell/teleporthostiles"
+    }
+  ],
+  "sortnum": 874002427
+}
